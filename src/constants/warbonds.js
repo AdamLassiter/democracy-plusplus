@@ -1,3 +1,7 @@
+export function getWarbond(displayName) {
+  return WARBONDS.find((item) => item.displayName === displayName);
+}
+
 const WARBONDS = [
   {
     displayName: "Helldivers Mobilize",
@@ -6,7 +10,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "helldiversMobilizeWB",
-    imageURL: "helldiversMobilizeWB.png",
+    imageUrl: "warbonds/helldiversMobilizeWB.png",
     tier: "s",
   },
   {
@@ -16,7 +20,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond4",
     internalName: "steeledVeteransWB",
-    imageURL: "steeledVeteransWB.png",
+    imageUrl: "warbonds/steeledVeteransWB.png",
     tier: "a",
   },
   {
@@ -26,7 +30,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond5",
     internalName: "cuttingEdgeWB",
-    imageURL: "cuttingEdgeWB.png",
+    imageUrl: "warbonds/cuttingEdgeWB.png",
     tier: "a",
   },
   {
@@ -36,7 +40,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond6",
     internalName: "democraticDetonationWB",
-    imageURL: "democraticDetonationWB.png",
+    imageUrl: "warbonds/democraticDetonationWB.png",
     tier: "s",
   },
   {
@@ -46,7 +50,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond7",
     internalName: "polarPatriotsWB",
-    imageURL: "polarPatriotsWB.png",
+    imageUrl: "warbonds/polarPatriotsWB.png",
     tier: "b",
   },
   {
@@ -56,7 +60,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond8",
     internalName: "viperCommandosWB",
-    imageURL: "viperCommandosWB.png",
+    imageUrl: "warbonds/viperCommandosWB.png",
     tier: "b",
   },
   {
@@ -66,7 +70,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond9",
     internalName: "freedomsFlameWB",
-    imageURL: "freedomsFlameWB.png",
+    imageUrl: "warbonds/freedomsFlameWB.png",
     tier: "b",
   },
   {
@@ -76,7 +80,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond10",
     internalName: "chemicalAgentsWB",
-    imageURL: "chemicalAgentsWB.png",
+    imageUrl: "warbonds/chemicalAgentsWB.png",
     tier: "b",
   },
   {
@@ -86,7 +90,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond11",
     internalName: "truthEnforcersWB",
-    imageURL: "truthEnforcersWB.png",
+    imageUrl: "warbonds/truthEnforcersWB.png",
     tier: "b",
   },
   {
@@ -96,7 +100,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond12",
     internalName: "urbanLegendsWB",
-    imageURL: "urbanLegendsWB.png",
+    imageUrl: "warbonds/urbanLegendsWB.png",
     tier: "b",
   },
   {
@@ -106,7 +110,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond13",
     internalName: "servantsOfFreedomWB",
-    imageURL: "servantsOfFreedomWB.png",
+    imageUrl: "warbonds/servantsOfFreedomWB.png",
     tier: "a",
   },
   {
@@ -116,7 +120,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond14",
     internalName: "borderlineJusticeWB",
-    imageURL: "borderlineJusticeWB.png",
+    imageUrl: "warbonds/borderlineJusticeWB.png",
     tier: "b",
   },
   {
@@ -126,7 +130,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond15",
     internalName: "mastersOfCeremonyWB",
-    imageURL: "mastersOfCeremonyWB.png",
+    imageUrl: "warbonds/mastersOfCeremonyWB.png",
     tier: "c",
   },
   {
@@ -136,7 +140,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond16",
     internalName: "forceOfLawWB",
-    imageURL: "forceOfLawWB.png",
+    imageUrl: "warbonds/forceOfLawWB.png",
     tier: "b",
   },
   {
@@ -146,7 +150,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond17",
     internalName: "controlGroupWB",
-    imageURL: "controlGroupWB.png",
+    imageUrl: "warbonds/controlGroupWB.png",
     tier: "a",
   },
   {
@@ -156,7 +160,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond19",
     internalName: "odstWB",
-    imageURL: "odstWB.png",
+    imageUrl: "warbonds/odstWB.png",
     tier: "b",
   },
   {
@@ -166,7 +170,7 @@ const WARBONDS = [
     tags: [],
     warbondCode: "warbond20",
     internalName: "dustdevilsWB",
-    imageURL: "dustdevilsWB.png",
+    imageUrl: "warbonds/dustdevilsWB.png",
     tier: "b",
   },
 ];

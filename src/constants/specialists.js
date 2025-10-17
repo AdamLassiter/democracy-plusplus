@@ -1,5 +1,8 @@
-const ybwamahe = "You begin with, and must always have equipped, ";
-const SPECIALISTS = [
+export function getSpecialist(displayName) {
+  return SPECIALISTS.find((item) => item.displayName === displayName);
+}
+
+export const SPECIALISTS = [
   {
     displayName: "The Zealous Martyr",
     starterItems: [
@@ -14,7 +17,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Integrated Explosives"],
     traits: [],
-    imageURL: "zealousMartyr.png",
+    imageUrl: "specialists/zealousMartyr.png",
     warbonds: ["warbond1", "warbond13"],
   },
   {
@@ -27,7 +30,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Med-Kit"],
     traits: [],
-    imageURL: "permacuraRep.png",
+    imageUrl: "specialists/permacuraRep.png",
     warbonds: ["warbond10"],
   },
   {
@@ -44,7 +47,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Reinforced Epaulettes"],
     traits: [],
-    imageURL: "theFlagBearer.png",
+    imageUrl: "specialists/theFlagBearer.png",
     warbonds: ["warbond15"],
   },
   {
@@ -60,7 +63,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: [],
     traits: [],
-    imageURL: "speedrunner.png",
+    imageUrl: "specialists/speedrunner.png",
     warbonds: ["warbond6", "warbond11"],
   },
   {
@@ -77,7 +80,7 @@ const SPECIALISTS = [
     throwables: ["K-2 Throwing Knife"],
     armorPassives: ["Peak Physique"],
     traits: [],
-    imageURL: "viperCommando.png",
+    imageUrl: "specialists/viperCommando.png",
     warbonds: ["warbond8"],
   },
   {
@@ -90,7 +93,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Inflammable"],
     traits: [],
-    imageURL: "pyromaniac.webp",
+    imageUrl: "specialists/pyromaniac.webp",
     warbonds: ["warbond9"],
   },
   {
@@ -103,7 +106,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Electrical Conduit"],
     traits: [],
-    imageURL: "lightningBug.webp",
+    imageUrl: "specialists/lightningBug.webp",
     warbonds: ["warbond5"],
   },
   {
@@ -116,7 +119,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Scout"],
     traits: [],
-    imageURL: "scoutSniper.webp",
+    imageUrl: "specialists/scoutSniper.webp",
     warbonds: [],
   },
   {
@@ -129,7 +132,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Unflinching"],
     traits: [],
-    imageURL: "truthEnforcer.webp",
+    imageUrl: "specialists/truthEnforcer.webp",
     warbonds: ["warbond11"],
   },
   {
@@ -142,7 +145,7 @@ const SPECIALISTS = [
     throwables: ["G-4 Gas"],
     armorPassives: ["Advanced Filtration"],
     traits: [],
-    imageURL: "exterminator.webp",
+    imageUrl: "specialists/exterminator.webp",
     warbonds: ["warbond10"],
   },
   {
@@ -162,7 +165,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Acclimated"],
     traits: [],
-    imageURL: "assaultTrooper.webp",
+    imageUrl: "specialists/assaultTrooper.webp",
     warbonds: ["warbond18"],
   },
   {
@@ -175,7 +178,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: [],
     traits: [],
-    imageURL: "lootGoblin.webp",
+    imageUrl: "specialists/lootGoblin.webp",
     warbonds: ["warbond15"],
   },
   {
@@ -188,7 +191,7 @@ const SPECIALISTS = [
     throwables: ["G-3 Smoke"],
     armorPassives: [],
     traits: [],
-    imageURL: "escapeArtist.webp",
+    imageUrl: "specialists/escapeArtist.webp",
     warbonds: [],
   },
   {
@@ -205,7 +208,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Ballistic Padding"],
     traits: [],
-    imageURL: "arbiter.webp",
+    imageUrl: "specialists/arbiter.webp",
     warbonds: ["warbond1", "warbond16"],
   },
   {
@@ -218,7 +221,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Adreno-Defibrillator"],
     traits: [],
-    imageURL: "testSubject4311.png",
+    imageUrl: "specialists/testSubject4311.png",
     warbonds: ["warbond17"],
   },
   {
@@ -231,7 +234,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Siege Ready"],
     traits: [],
-    imageURL: "urbanSoldier.webp",
+    imageUrl: "specialists/urbanSoldier.webp",
     warbonds: ["warbond12"],
   },
   {
@@ -244,7 +247,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Gunslinger"],
     traits: ["You cannot roll support weapons"],
-    imageURL: "preacher.webp",
+    imageUrl: "specialists/preacher.webp",
     warbonds: ["warbond14"],
   },
   {
@@ -257,7 +260,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: [],
     traits: ["You cannot roll Eagle or Orbital stratagems"],
-    imageURL: "hellpodEnthusiast.webp",
+    imageUrl: "specialists/hellpodEnthusiast.webp",
     warbonds: ["warbond9"],
   },
   {
@@ -275,7 +278,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Feet First"],
     traits: [],
-    imageURL: "theOdst.webp",
+    imageUrl: "specialists/theOdst.webp",
     warbonds: ["warbond19"],
   },
   {
@@ -292,7 +295,7 @@ const SPECIALISTS = [
     throwables: [],
     armorPassives: ["Desert Stormer"],
     traits: [],
-    imageURL: "sardaukar.webp",
+    imageUrl: "specialists/sardaukar.webp",
     warbonds: ["warbond20", "warbond15"],
   },
 

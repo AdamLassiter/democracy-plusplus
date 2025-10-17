@@ -1,4 +1,8 @@
-const ARMOR_PASSIVES = [
+export function getArmorPassive(displayName) {
+  return ARMOR_PASSIVES.find((item) => item.displayName === displayName);
+}
+
+export const ARMOR_PASSIVES = [
   {
     displayName: "Advanced Filtration",
     type: "Equipment",
@@ -6,8 +10,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond10",
     internalName: "advancedfiltration",
-    imageURL: "advancedfiltration.png",
-    tier: "c",
+    imageUrl: "armorpassives/advancedfiltration.png",
+    tier: "b",
   },
   {
     displayName: "Acclimated",
@@ -16,8 +20,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond18",
     internalName: "acclimated",
-    imageURL: "inflammable.png",
-    tier: "b",
+    imageUrl: "armorpassives/inflammable.png",
+    tier: "d",
   },
   {
     displayName: "Democracy Protects",
@@ -26,7 +30,7 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "none",
     internalName: "democracyprotects",
-    imageURL: "democracyprotects.png",
+    imageUrl: "armorpassives/democracyprotects.png",
     tier: "a",
   },
   {
@@ -36,8 +40,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond5",
     internalName: "electricalconduit",
-    imageURL: "electricalconduit.png",
-    tier: "c",
+    imageUrl: "armorpassives/electricalconduit.png",
+    tier: "d",
   },
   {
     displayName: "Engineering Kit",
@@ -46,8 +50,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond3",
     internalName: "engineeringkit",
-    imageURL: "engineeringkit.png",
-    tier: "a",
+    imageUrl: "armorpassives/engineeringkit.png",
+    tier: "s",
   },
   {
     displayName: "Extra Padding",
@@ -56,8 +60,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "none",
     internalName: "extrapadding",
-    imageURL: "extrapadding.png",
-    tier: "b",
+    imageUrl: "armorpassives/extrapadding.png",
+    tier: "a",
   },
   {
     displayName: "Fortified",
@@ -66,8 +70,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond6",
     internalName: "fortified",
-    imageURL: "fortified.png",
-    tier: "a",
+    imageUrl: "armorpassives/fortified.png",
+    tier: "b",
   },
   {
     displayName: "Inflammable",
@@ -76,7 +80,7 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond9",
     internalName: "inflammable",
-    imageURL: "inflammable.png",
+    imageUrl: "armorpassives/inflammable.png",
     tier: "b",
   },
   {
@@ -86,8 +90,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond3",
     internalName: "medkit",
-    imageURL: "medkit.png",
-    tier: "a",
+    imageUrl: "armorpassives/medkit.png",
+    tier: "s",
   },
   {
     displayName: "Peak Physique",
@@ -96,8 +100,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond8",
     internalName: "peakphysique",
-    imageURL: "peakphysique.png",
-    tier: "a",
+    imageUrl: "armorpassives/peakphysique.png",
+    tier: "b",
   },
   {
     displayName: "Scout",
@@ -106,7 +110,7 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond3",
     internalName: "scout",
-    imageURL: "scout.png",
+    imageUrl: "armorpassives/scout.png",
     tier: "b",
   },
   {
@@ -116,7 +120,7 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond4",
     internalName: "servoassisted",
-    imageURL: "servoassisted.png",
+    imageUrl: "armorpassives/servoassisted.png",
     tier: "b",
   },
   {
@@ -126,8 +130,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond11",
     internalName: "unflinching",
-    imageURL: "unflinching.png",
-    tier: "b",
+    imageUrl: "armorpassives/unflinching.png",
+    tier: "a",
   },
   {
     displayName: "Siege Ready",
@@ -136,8 +140,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond12",
     internalName: "siegeready",
-    imageURL: "siegeready.png",
-    tier: "s",
+    imageUrl: "armorpassives/siegeready.png",
+    tier: "a",
   },
   {
     displayName: "Integrated Explosives",
@@ -146,8 +150,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond13",
     internalName: "integratedexplosives",
-    imageURL: "integratedexplosives.png",
-    tier: "b",
+    imageUrl: "armorpassives/integratedexplosives.png",
+    tier: "a",
   },
   {
     displayName: "Gunslinger",
@@ -156,8 +160,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond14",
     internalName: "gunslinger",
-    imageURL: "gunslinger.png",
-    tier: "b",
+    imageUrl: "armorpassives/gunslinger.png",
+    tier: "c",
   },
   {
     displayName: "Reinforced Epaulettes",
@@ -166,8 +170,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond15",
     internalName: "reinforcedepaulettes",
-    imageURL: "reinforcedepaulettes.png",
-    tier: "a",
+    imageUrl: "armorpassives/reinforcedepaulettes.png",
+    tier: "b",
   },
   {
     displayName: "Ballistic Padding",
@@ -176,7 +180,7 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond16",
     internalName: "ballisticpadding",
-    imageURL: "ballisticpadding.png",
+    imageUrl: "armorpassives/ballisticpadding.png",
     tier: "b",
   },
   {
@@ -186,8 +190,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond17",
     internalName: "adrenodefibrillator",
-    imageURL: "adrenodefibrillator.png",
-    tier: "b",
+    imageUrl: "armorpassives/adrenodefibrillator.png",
+    tier: "c",
   },
   {
     displayName: "Feet First",
@@ -196,8 +200,8 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond19",
     internalName: "feetfirst",
-    imageURL: "feetfirst.png",
-    tier: "b",
+    imageUrl: "armorpassives/feetfirst.png",
+    tier: "c",
   },
   {
     displayName: "Desert Stormer",
@@ -206,12 +210,7 @@ const ARMOR_PASSIVES = [
     tags: ["ArmorPassive"],
     warbondCode: "warbond20",
     internalName: "desertstormer",
-    imageURL: "desertstormer.png",
-    tier: "b",
+    imageUrl: "armorpassives/desertstormer.png",
+    tier: "c",
   },
 ];
-
-// s: 1
-// a: 6
-// b: 12
-// c: 2

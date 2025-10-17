@@ -1,4 +1,8 @@
-const BOOSTERS = [
+export function getBooster(displayName) {
+  return BOOSTERS.find((item) => item.displayName === displayName);
+}
+
+export const BOOSTERS = [
   {
     displayName: "Expert Extraction Pilot",
     type: "Equipment",
@@ -6,7 +10,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond6",
     internalName: "expertextractionpilot",
-    imageURL: "expertextractionpilot.png",
+    imageUrl: "boosters/expertextractionpilot.png",
     tier: "c",
   },
   {
@@ -16,7 +20,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond11",
     internalName: "deadsprint",
-    imageURL: "deadsprint.png",
+    imageUrl: "boosters/deadsprint.png",
     tier: "b",
   },
   {
@@ -26,7 +30,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond12",
     internalName: "armedresupplypods",
-    imageURL: "armedresupplypods.png",
+    imageUrl: "boosters/armedresupplypods.png",
     tier: "b",
   },
   {
@@ -36,7 +40,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond8",
     internalName: "experimentalinfusion",
-    imageURL: "experimentalinfusion.png",
+    imageUrl: "boosters/experimentalinfusion.png",
     tier: "s",
   },
   {
@@ -46,8 +50,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond7",
     internalName: "motivationalshocks",
-    imageURL: "motivationalshocks.png",
-    tier: "b",
+    imageUrl: "boosters/motivationalshocks.png",
+    tier: "c",
   },
   {
     displayName: "Flexible Reinforcement Budget",
@@ -56,7 +60,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond4",
     internalName: "flexiblereinforcementbudget",
-    imageURL: "flexiblereinforcementbudget.png",
+    imageUrl: "boosters/flexiblereinforcementbudget.png",
     tier: "c",
   },
   {
@@ -66,7 +70,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "hellpodspaceoptimization",
-    imageURL: "hellpodspaceoptimization.png",
+    imageUrl: "boosters/hellpodspaceoptimization.png",
     tier: "s",
   },
   {
@@ -76,8 +80,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "increasedreinforcementbudget",
-    imageURL: "increasedreinforcementbudget.png",
-    tier: "b",
+    imageUrl: "boosters/increasedreinforcementbudget.png",
+    tier: "c",
   },
   {
     displayName: "Localization Confusion",
@@ -86,7 +90,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond5",
     internalName: "localizationconfusion",
-    imageURL: "localizationconfusion.png",
+    imageUrl: "boosters/localizationconfusion.png",
     tier: "b",
   },
   {
@@ -96,7 +100,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "muscleenhancement",
-    imageURL: "muscleenhancement.png",
+    imageUrl: "boosters/muscleenhancement.png",
     tier: "a",
   },
   {
@@ -106,8 +110,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "staminaenhancement",
-    imageURL: "staminaenhancement.png",
-    tier: "s",
+    imageUrl: "boosters/staminaenhancement.png",
+    tier: "a",
   },
   {
     displayName: "UAV Recon",
@@ -116,8 +120,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "uavrecon",
-    imageURL: "uavrecon.png",
-    tier: "b",
+    imageUrl: "boosters/uavrecon.png",
+    tier: "c",
   },
   {
     displayName: "Vitality Enhancement",
@@ -126,7 +130,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "vitalityenhancement",
-    imageURL: "vitalityenhancement.png",
+    imageUrl: "boosters/vitalityenhancement.png",
     tier: "s",
   },
   {
@@ -136,8 +140,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond9",
     internalName: "firebombhellpods",
-    imageURL: "firebombhellpods.png",
-    tier: "c",
+    imageUrl: "boosters/firebombhellpods.png",
+    tier: "d",
   },
   {
     displayName: "Sample Extricator",
@@ -146,8 +150,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond14",
     internalName: "sampleextricator",
-    imageURL: "sampleextricator.png",
-    tier: "c",
+    imageUrl: "boosters/sampleextricator.png",
+    tier: "d",
   },
   {
     displayName: "Sample Scanner",
@@ -156,8 +160,8 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond15",
     internalName: "samplescanner",
-    imageURL: "samplescanner.png",
-    tier: "c",
+    imageUrl: "boosters/samplescanner.png",
+    tier: "d",
   },
   {
     displayName: "Stun Pods",
@@ -166,12 +170,7 @@ const BOOSTERS = [
     tags: [],
     warbondCode: "warbond16",
     internalName: "stunpods",
-    imageURL: "stunpods.png",
-    tier: "b",
+    imageUrl: "boosters/stunpods.png",
+    tier: "d",
   },
 ];
-
-// s: 4
-// a: 1
-// b: 6
-// c: 5

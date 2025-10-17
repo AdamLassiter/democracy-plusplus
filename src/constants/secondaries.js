@@ -1,4 +1,8 @@
-const SECONDARIES = [
+export function getSecondary(displayName) {
+  return SECONDARIES.find((item) => item.displayName === displayName);
+}
+
+export const SECONDARIES = [
   {
     displayName: "Peacemaker",
     type: "Equipment",
@@ -6,7 +10,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "none",
     internalName: "p2peacemaker",
-    imageURL: "p2peacemaker.png",
+    imageUrl: "equipment/p2peacemaker.png",
     tier: "c",
   },
   {
@@ -16,8 +20,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond1",
     internalName: "cqc5combathatchet",
-    imageURL: "cqc5combathatchet.png",
-    tier: "c",
+    imageUrl: "equipment/cqc5combathatchet.png",
+    tier: "d",
   },
   {
     displayName: "Saber",
@@ -26,8 +30,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond15",
     internalName: "cqc2saber",
-    imageURL: "cqc2saber.png",
-    tier: "c",
+    imageUrl: "equipment/cqc2saber.png",
+    tier: "d",
   },
   {
     displayName: "Machete",
@@ -36,8 +40,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond1",
     internalName: "cqc42machete",
-    imageURL: "cqc42machete.png",
-    tier: "c",
+    imageUrl: "equipment/cqc42machete.png",
+    tier: "d",
   },
   {
     displayName: "Stun Lance",
@@ -46,8 +50,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond12",
     internalName: "cqc19stunlance",
-    imageURL: "cqc19stunlance.png",
-    tier: "c",
+    imageUrl: "equipment/cqc19stunlance.png",
+    tier: "d",
   },
   {
     displayName: "Stun Baton",
@@ -56,8 +60,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond1",
     internalName: "cqc30stunbaton",
-    imageURL: "cqc30stunbaton.png",
-    tier: "c",
+    imageUrl: "equipment/cqc30stunbaton.png",
+    tier: "d",
   },
   {
     displayName: "Stim Pistol",
@@ -66,8 +70,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond10",
     internalName: "p11stimpistol",
-    imageURL: "p11stimpistol.png",
-    tier: "b",
+    imageUrl: "equipment/p11stimpistol.png",
+    tier: "d",
   },
   {
     displayName: "Loyalist",
@@ -76,8 +80,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond11",
     internalName: "plas15loyalist",
-    imageURL: "plas15loyalist.png",
-    tier: "a",
+    imageUrl: "equipment/plas15loyalist.png",
+    tier: "b",
   },
   {
     displayName: "Bushwhacker",
@@ -86,7 +90,7 @@ const SECONDARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond8",
     internalName: "sg22bushwhacker",
-    imageURL: "sg22bushwhacker.png",
+    imageUrl: "equipment/sg22bushwhacker.png",
     tier: "b",
   },
   {
@@ -96,7 +100,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "p19redeemer",
-    imageURL: "p19redeemer.png",
+    imageUrl: "equipment/p19redeemer.png",
     tier: "b",
   },
   {
@@ -106,8 +110,8 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond6",
     internalName: "gp31grenadepistol",
-    imageURL: "gp31grenadepistol.png",
-    tier: "s",
+    imageUrl: "equipment/gp31grenadepistol.png",
+    tier: "a",
   },
   {
     displayName: "Verdict",
@@ -116,7 +120,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond7",
     internalName: "p113verdict",
-    imageURL: "p113verdict.png",
+    imageUrl: "equipment/p113verdict.png",
     tier: "a",
   },
   {
@@ -126,7 +130,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond4",
     internalName: "p4senator",
-    imageURL: "p4senator.png",
+    imageUrl: "equipment/p4senator.png",
     tier: "a",
   },
   {
@@ -136,7 +140,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond5",
     internalName: "las7dagger",
-    imageURL: "las7dagger.png",
+    imageUrl: "equipment/las7dagger.png",
     tier: "c",
   },
   {
@@ -146,7 +150,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond14",
     internalName: "las58talon",
-    imageURL: "las58talon.png",
+    imageUrl: "equipment/las58talon.png",
     tier: "a",
   },
   {
@@ -156,7 +160,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond9",
     internalName: "p72crisper",
-    imageURL: "p72crisper.png",
+    imageUrl: "equipment/p72crisper.png",
     tier: "b",
   },
   {
@@ -166,7 +170,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond13",
     internalName: "gp31ultimatum",
-    imageURL: "gp31ultimatum.png",
+    imageUrl: "equipment/gp31ultimatum.png",
     tier: "s",
   },
   {
@@ -176,7 +180,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond1",
     internalName: "p92warrant",
-    imageURL: "p92warrant.png",
+    imageUrl: "equipment/p92warrant.png",
     tier: "b",
   },
 
@@ -187,12 +191,7 @@ const SECONDARIES = [
     tags: [],
     warbondCode: "warbond19",
     internalName: "m6csocompistol",
-    imageURL: "m6csocompistol.png",
+    imageUrl: "equipment/m6csocompistol.png",
     tier: "b",
   },
 ];
-
-// s: 2
-// a: 4
-// b: 6
-// c: 6

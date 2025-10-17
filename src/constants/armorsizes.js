@@ -1,4 +1,8 @@
-const ARMOR_SIZES = [
+export function getArmorSize(displayName) {
+  return ARMOR_SIZES.find((item) => item.displayName === displayName);
+}
+
+export const ARMOR_SIZES = [
   {
     displayName: "Light Armor",
     type: "Equipment",

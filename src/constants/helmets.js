@@ -1,4 +1,8 @@
-const HELMETS = [
+export function getHelmet(displayName) {
+  return HELMETS.find((item) => item.displayName === displayName);
+}
+
+export const HELMETS = [
   {
     displayName: "AF-50 Noxious Ranger",
     type: "Equipment",
@@ -6,7 +10,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond10",
     internalName: "af50noxiousranger",
-    imageURL: "af50noxiousranger.webp",
+    imageUrl: "helmets/af50noxiousranger.webp",
     tier: "b",
   },
   {
@@ -16,7 +20,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond18",
     internalName: "ac2obedient",
-    imageURL: "ac2obedient.webp",
+    imageUrl: "helmets/ac2obedient.webp",
     tier: "b",
   },
   {
@@ -26,7 +30,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond12",
     internalName: "sr24streetscout",
-    imageURL: "sr24streetscout.webp",
+    imageUrl: "helmets/sr24streetscout.webp",
     tier: "b",
   },
   {
@@ -36,7 +40,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond12",
     internalName: "sr18roadblock",
-    imageURL: "sr18roadblock.webp",
+    imageUrl: "helmets/sr18roadblock.webp",
     tier: "b",
   },
   {
@@ -46,7 +50,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "b08lightgunner",
-    imageURL: "b08lightgunner.webp",
+    imageUrl: "helmets/b08lightgunner.webp",
     tier: "b",
   },
   {
@@ -56,7 +60,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond6",
     internalName: "ce07demolitionspecialist",
-    imageURL: "ce07demolitionspecialist.webp",
+    imageUrl: "helmets/ce07demolitionspecialist.webp",
     tier: "b",
   },
   {
@@ -66,7 +70,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "ce67titan",
-    imageURL: "ce67titan.webp",
+    imageUrl: "helmets/ce67titan.webp",
     tier: "b",
   },
   {
@@ -76,7 +80,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "ce74breaker",
-    imageURL: "ce74breaker.webp",
+    imageUrl: "helmets/ce74breaker.webp",
     tier: "b",
   },
   {
@@ -86,7 +90,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "cm21trenchparamedic",
-    imageURL: "cm21trenchparamedic.webp",
+    imageUrl: "helmets/cm21trenchparamedic.webp",
     tier: "b",
   },
   {
@@ -96,7 +100,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond7",
     internalName: "cw4arcticranger",
-    imageURL: "cw4arcticranger.webp",
+    imageUrl: "helmets/cw4arcticranger.webp",
     tier: "b",
   },
   {
@@ -106,7 +110,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond5",
     internalName: "ex00prototypex",
-    imageURL: "ex00prototypex.webp",
+    imageUrl: "helmets/ex00prototypex.webp",
     tier: "b",
   },
   {
@@ -116,7 +120,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "fs37ravager",
-    imageURL: "fs37ravager.webp",
+    imageUrl: "helmets/fs37ravager.webp",
     tier: "b",
   },
   {
@@ -126,7 +130,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "fs38eradicator",
-    imageURL: "fs38eradicator.webp",
+    imageUrl: "helmets/fs38eradicator.webp",
     tier: "b",
   },
   {
@@ -136,7 +140,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond9",
     internalName: "i09heatseeker",
-    imageURL: "i09heatseeker.webp",
+    imageUrl: "helmets/i09heatseeker.webp",
     tier: "b",
   },
   {
@@ -146,7 +150,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond8",
     internalName: "ph9predator",
-    imageURL: "ph9predator.webp",
+    imageUrl: "helmets/ph9predator.webp",
     tier: "b",
   },
   {
@@ -156,7 +160,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond3",
     internalName: "sc30trailblazerscout",
-    imageURL: "sc30trailblazerscout.webp",
+    imageUrl: "helmets/sc30trailblazerscout.webp",
     tier: "b",
   },
   {
@@ -166,7 +170,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond3",
     internalName: "sc34infiltrator",
-    imageURL: "sc34infiltrator.webp",
+    imageUrl: "helmets/sc34infiltrator.webp",
     tier: "b",
   },
   {
@@ -176,7 +180,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "sc37legionnaire",
-    imageURL: "sc37legionnaire.webp",
+    imageUrl: "helmets/sc37legionnaire.webp",
     tier: "b",
   },
   {
@@ -186,7 +190,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond11",
     internalName: "uf16inspector",
-    imageURL: "uf16inspector.webp",
+    imageUrl: "helmets/uf16inspector.webp",
     tier: "b",
   },
   {
@@ -196,7 +200,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond10",
     internalName: "af02hazmaster",
-    imageURL: "af02hazmaster.webp",
+    imageUrl: "helmets/af02hazmaster.webp",
     tier: "b",
   },
   {
@@ -206,7 +210,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "af91fieldchemist",
-    imageURL: "af91fieldchemist.webp",
+    imageUrl: "helmets/af91fieldchemist.webp",
     tier: "b",
   },
   {
@@ -216,7 +220,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "none",
     internalName: "b01tactical",
-    imageURL: "b01tactical.webp",
+    imageUrl: "helmets/b01tactical.webp",
     tier: "b",
   },
   {
@@ -226,7 +230,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "b24enforcer",
-    imageURL: "b24enforcer.webp",
+    imageUrl: "helmets/b24enforcer.webp",
     tier: "b",
   },
   {
@@ -236,7 +240,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond6",
     internalName: "ce27groundbreaker",
-    imageURL: "ce27groundbreaker.webp",
+    imageUrl: "helmets/ce27groundbreaker.webp",
     tier: "b",
   },
   {
@@ -246,7 +250,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond3",
     internalName: "ce35trenchengineer",
-    imageURL: "ce35trenchengineer.webp",
+    imageUrl: "helmets/ce35trenchengineer.webp",
     tier: "b",
   },
   {
@@ -256,7 +260,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "ce81juggernaut",
-    imageURL: "ce81juggernaut.webp",
+    imageUrl: "helmets/ce81juggernaut.webp",
     tier: "b",
   },
   {
@@ -266,7 +270,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond3",
     internalName: "cm09bonesnapper",
-    imageURL: "cm09bonesnapper.webp",
+    imageUrl: "helmets/cm09bonesnapper.webp",
     tier: "b",
   },
   {
@@ -276,7 +280,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "cm10clinician",
-    imageURL: "cm10clinician.webp",
+    imageUrl: "helmets/cm10clinician.webp",
     tier: "b",
   },
   {
@@ -286,7 +290,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond3",
     internalName: "cm14physician",
-    imageURL: "cm14physician.webp",
+    imageUrl: "helmets/cm14physician.webp",
     tier: "b",
   },
   {
@@ -296,7 +300,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "cw9whitewolf",
-    imageURL: "cw9whitewolf.webp",
+    imageUrl: "helmets/cw9whitewolf.webp",
     tier: "b",
   },
   {
@@ -306,7 +310,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "none",
     internalName: "dp00tactical",
-    imageURL: "dp00tactical.webp",
+    imageUrl: "helmets/dp00tactical.webp",
     tier: "b",
   },
   {
@@ -316,7 +320,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond3",
     internalName: "dp11championofthepeople",
-    imageURL: "dp11championofthepeople.webp",
+    imageUrl: "helmets/dp11championofthepeople.webp",
     tier: "b",
   },
   {
@@ -326,7 +330,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond18",
     internalName: "ac1dutiful",
-    imageURL: "ac1dutiful.webp",
+    imageUrl: "helmets/ac1dutiful.webp",
     tier: "b",
   },
   {
@@ -336,7 +340,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond3",
     internalName: "dp40heroofthefederation",
-    imageURL: "dp40heroofthefederation.webp",
+    imageUrl: "helmets/dp40heroofthefederation.webp",
     tier: "b",
   },
   {
@@ -346,7 +350,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond0",
     internalName: "dp53saviorofthefree",
-    imageURL: "dp53saviorofthefree.webp",
+    imageUrl: "helmets/dp53saviorofthefree.webp",
     tier: "b",
   },
   {
@@ -356,7 +360,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond5",
     internalName: "ex03prototype3",
-    imageURL: "ex03prototype3.webp",
+    imageUrl: "helmets/ex03prototype3.webp",
     tier: "b",
   },
   {
@@ -366,7 +370,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond5",
     internalName: "ex16prototype16",
-    imageURL: "ex16prototype16.webp",
+    imageUrl: "helmets/ex16prototype16.webp",
     tier: "b",
   },
   {
@@ -376,7 +380,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "fs34exterminator",
-    imageURL: "fs34exterminator.webp",
+    imageUrl: "helmets/fs34exterminator.webp",
     tier: "b",
   },
   {
@@ -386,7 +390,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "i92firefighter",
-    imageURL: "i92firefighter.webp",
+    imageUrl: "helmets/i92firefighter.webp",
     tier: "b",
   },
   {
@@ -396,7 +400,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond9",
     internalName: "i102draconaught",
-    imageURL: "i102draconaught.webp",
+    imageUrl: "helmets/i102draconaught.webp",
     tier: "b",
   },
   {
@@ -406,7 +410,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "ph56jaguar",
-    imageURL: "ph56jaguar.webp",
+    imageUrl: "helmets/ph56jaguar.webp",
     tier: "b",
   },
   {
@@ -416,7 +420,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond3",
     internalName: "sa04combattechnician",
-    imageURL: "sa04combattechnician.webp",
+    imageUrl: "helmets/sa04combattechnician.webp",
     tier: "b",
   },
   {
@@ -426,7 +430,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond4",
     internalName: "sa12servoassisted",
-    imageURL: "sa12servoassisted.webp",
+    imageUrl: "helmets/sa12servoassisted.webp",
     tier: "b",
   },
   {
@@ -436,7 +440,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond4",
     internalName: "sa25steeltrooper",
-    imageURL: "sa25steeltrooper.webp",
+    imageUrl: "helmets/sa25steeltrooper.webp",
     tier: "b",
   },
   {
@@ -446,7 +450,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "sc15dronemaster",
-    imageURL: "sc15dronemaster.webp",
+    imageUrl: "helmets/sc15dronemaster.webp",
     tier: "b",
   },
   {
@@ -456,7 +460,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond2",
     internalName: "tr7ambassadorofthebrand",
-    imageURL: "tr7ambassadorofthebrand.webp",
+    imageUrl: "helmets/tr7ambassadorofthebrand.webp",
     tier: "b",
   },
   {
@@ -466,7 +470,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond2",
     internalName: "tr9cavalierofdemocracy",
-    imageURL: "tr9cavalierofdemocracy.webp",
+    imageUrl: "helmets/tr9cavalierofdemocracy.webp",
     tier: "b",
   },
   {
@@ -476,7 +480,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "none",
     internalName: "tr40goldeagle",
-    imageURL: "tr40goldeagle.webp",
+    imageUrl: "helmets/tr40goldeagle.webp",
     tier: "b",
   },
   {
@@ -486,7 +490,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "none",
     internalName: "tr117alphacommander",
-    imageURL: "tr117alphacommander.webp",
+    imageUrl: "helmets/tr117alphacommander.webp",
     tier: "b",
   },
   {
@@ -496,7 +500,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond11",
     internalName: "uf50bloodhound",
-    imageURL: "uf50bloodhound.webp",
+    imageUrl: "helmets/uf50bloodhound.webp",
     tier: "b",
   },
   {
@@ -506,7 +510,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "uf84doubtkiller",
-    imageURL: "uf84doubtkiller.webp",
+    imageUrl: "helmets/uf84doubtkiller.webp",
     tier: "b",
   },
   {
@@ -516,7 +520,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "af52lockdown",
-    imageURL: "af52lockdown.webp",
+    imageUrl: "helmets/af52lockdown.webp",
     tier: "b",
   },
   {
@@ -526,7 +530,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "b27fortifiedcommando",
-    imageURL: "b27fortifiedcommando.webp",
+    imageUrl: "helmets/b27fortifiedcommando.webp",
     tier: "b",
   },
   {
@@ -536,7 +540,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "ce64grenadier",
-    imageURL: "ce64grenadier.webp",
+    imageUrl: "helmets/ce64grenadier.webp",
     tier: "b",
   },
   {
@@ -546,7 +550,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "ce101guerillagorilla",
-    imageURL: "ce101guerillagorilla.webp",
+    imageUrl: "helmets/ce101guerillagorilla.webp",
     tier: "b",
   },
   {
@@ -556,7 +560,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "cm17butcher",
-    imageURL: "cm17butcher.webp",
+    imageUrl: "helmets/cm17butcher.webp",
     tier: "b",
   },
   {
@@ -566,7 +570,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond7",
     internalName: "cw22kodiak",
-    imageURL: "cw22kodiak.webp",
+    imageUrl: "helmets/cw22kodiak.webp",
     tier: "b",
   },
   {
@@ -576,7 +580,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond7",
     internalName: "cw36winterwarrior",
-    imageURL: "cw36winterwarrior.webp",
+    imageUrl: "helmets/cw36winterwarrior.webp",
     tier: "b",
   },
   {
@@ -586,7 +590,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond3",
     internalName: "fs05marksman",
-    imageURL: "fs05marksman.webp",
+    imageUrl: "helmets/fs05marksman.webp",
     tier: "b",
   },
   {
@@ -596,7 +600,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "fs11executioner",
-    imageURL: "fs11executioner.webp",
+    imageUrl: "helmets/fs11executioner.webp",
     tier: "b",
   },
   {
@@ -606,7 +610,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond3",
     internalName: "fs23battlemaster",
-    imageURL: "fs23battlemaster.webp",
+    imageUrl: "helmets/fs23battlemaster.webp",
     tier: "b",
   },
   {
@@ -616,7 +620,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond6",
     internalName: "fs55devastator",
-    imageURL: "fs55devastator.webp",
+    imageUrl: "helmets/fs55devastator.webp",
     tier: "b",
   },
   {
@@ -626,7 +630,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "fs61dreadnought",
-    imageURL: "fs61dreadnought.webp",
+    imageUrl: "helmets/fs61dreadnought.webp",
     tier: "b",
   },
   {
@@ -636,7 +640,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "i44salamander",
-    imageURL: "i44salamander.webp",
+    imageUrl: "helmets/i44salamander.webp",
     tier: "b",
   },
   {
@@ -646,7 +650,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond8",
     internalName: "ph202twigsnapper",
-    imageURL: "ph202twigsnapper.webp",
+    imageUrl: "helmets/ph202twigsnapper.webp",
     tier: "b",
   },
   {
@@ -656,7 +660,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond4",
     internalName: "sa32dynamo",
-    imageURL: "sa32dynamo.webp",
+    imageUrl: "helmets/sa32dynamo.webp",
     tier: "b",
   },
   {
@@ -666,7 +670,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond2",
     internalName: "tr62knight",
-    imageURL: "tr62knight.webp",
+    imageUrl: "helmets/tr62knight.webp",
     tier: "b",
   },
   {
@@ -676,7 +680,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "sr64cinderblock",
-    imageURL: "sr64cinderblock.webp",
+    imageUrl: "helmets/sr64cinderblock.webp",
     tier: "b",
   },
   {
@@ -686,7 +690,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "none",
     internalName: "b22modelcitizen",
-    imageURL: "b22modelcitizen.webp",
+    imageUrl: "helmets/b22modelcitizen.webp",
     tier: "b",
   },
   {
@@ -696,7 +700,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond13",
     internalName: "ie3martyr",
-    imageURL: "ie3martyr.webp",
+    imageUrl: "helmets/ie3martyr.webp",
     tier: "b",
   },
   {
@@ -706,7 +710,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond13",
     internalName: "ie12righteous",
-    imageURL: "ie12righteous.webp",
+    imageUrl: "helmets/ie12righteous.webp",
     tier: "b",
   },
   {
@@ -716,7 +720,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond1",
     internalName: "ie57hellbent",
-    imageURL: "ie57hellbent.webp",
+    imageUrl: "helmets/ie57hellbent.webp",
     tier: "b",
   },
   {
@@ -726,7 +730,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond14",
     internalName: "gs17frontiermarshal",
-    imageURL: "gs17frontiermarshal.webp",
+    imageUrl: "helmets/gs17frontiermarshal.webp",
     tier: "b",
   },
   {
@@ -736,7 +740,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond14",
     internalName: "gs66lawmaker",
-    imageURL: "gs66lawmaker.webp",
+    imageUrl: "helmets/gs66lawmaker.webp",
     tier: "b",
   },
   {
@@ -746,7 +750,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "gs11democracysdeputy",
-    imageURL: "gs11democracysdeputy.webp",
+    imageUrl: "helmets/gs11democracysdeputy.webp",
     tier: "b",
   },
   {
@@ -756,7 +760,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "re824bearerofthestandard",
-    imageURL: "re824bearerofthestandard.webp",
+    imageUrl: "helmets/re824bearerofthestandard.webp",
     tier: "b",
   },
   {
@@ -766,7 +770,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond15",
     internalName: "re1861paradecommander",
-    imageURL: "re1861paradecommander.webp",
+    imageUrl: "helmets/re1861paradecommander.webp",
     tier: "b",
   },
   {
@@ -776,7 +780,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond15",
     internalName: "re2310honoraryguard",
-    imageURL: "re2310honoraryguard.webp",
+    imageUrl: "helmets/re2310honoraryguard.webp",
     tier: "b",
   },
   {
@@ -786,7 +790,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond16",
     internalName: "bp20correctofficer",
-    imageURL: "bp20correctofficer.webp",
+    imageUrl: "helmets/bp20correctofficer.webp",
     tier: "b",
   },
   {
@@ -796,7 +800,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond16",
     internalName: "bp32jackboot",
-    imageURL: "bp32jackboot.webp",
+    imageUrl: "helmets/bp32jackboot.webp",
     tier: "b",
   },
   {
@@ -806,7 +810,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond1",
     internalName: "bp77grandjuror",
-    imageURL: "bp77grandjuror.webp",
+    imageUrl: "helmets/bp77grandjuror.webp",
     tier: "b",
   },
   {
@@ -816,7 +820,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond17",
     internalName: "ad11livewire",
-    imageURL: "ad11livewire.webp",
+    imageUrl: "helmets/ad11livewire.webp",
     tier: "b",
   },
   {
@@ -826,7 +830,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond17",
     internalName: "ad26bleedingedge",
-    imageURL: "ad26bleedingedge.webp",
+    imageUrl: "helmets/ad26bleedingedge.webp",
     tier: "b",
   },
   {
@@ -836,7 +840,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond17",
     internalName: "ad49apollonian",
-    imageURL: "ad49apollonian.webp",
+    imageUrl: "helmets/ad49apollonian.webp",
     tier: "b",
   },
   {
@@ -846,7 +850,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond19",
     internalName: "a9helljumper",
-    imageURL: "a9helljumper.webp",
+    imageUrl: "helmets/a9helljumper.webp",
     tier: "b",
   },
   {
@@ -856,7 +860,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond19",
     internalName: "a35recon",
-    imageURL: "a35recon.webp",
+    imageUrl: "helmets/a35recon.webp",
     tier: "b",
   },
   {
@@ -866,7 +870,7 @@ const HELMETS = [
     tags: ["Heavy"],
     warbondCode: "warbond20",
     internalName: "ds42federationsblade",
-    imageURL: "ds42federationsblade.webp",
+    imageUrl: "helmets/ds42federationsblade.webp",
     tier: "b",
   },
   {
@@ -876,7 +880,7 @@ const HELMETS = [
     tags: ["Medium"],
     warbondCode: "warbond20",
     internalName: "ds191scorpion",
-    imageURL: "ds191scorpion.webp",
+    imageUrl: "helmets/ds191scorpion.webp",
     tier: "b",
   },
   {
@@ -886,7 +890,7 @@ const HELMETS = [
     tags: ["Light"],
     warbondCode: "warbond1",
     internalName: "ds10biggamehunter",
-    imageURL: "ds10biggamehunter.webp",
+    imageUrl: "helmets/ds10biggamehunter.webp",
     tier: "b",
   },
 ];

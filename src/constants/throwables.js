@@ -1,4 +1,8 @@
-const THROWABLES = [
+export function getThrowable(displayName) {
+  return THROWABLES.find((item) => item.displayName === displayName);
+}
+
+export const THROWABLES = [
   {
     displayName: "G-12 High Explosive",
     type: "Equipment",
@@ -6,7 +10,7 @@ const THROWABLES = [
     tags: [],
     warbondCode: "none",
     internalName: "g12highexplosivegrenade",
-    imageURL: "g12highexplosivegrenade.png",
+    imageUrl: "equipment/g12highexplosivegrenade.png",
     tier: "a",
   },
   {
@@ -16,7 +20,7 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond10",
     internalName: "g4gasgrenade",
-    imageURL: "g4gasgrenade.png",
+    imageUrl: "equipment/g4gasgrenade.png",
     tier: "s",
   },
   {
@@ -26,8 +30,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond8",
     internalName: "k2throwingknife",
-    imageURL: "k2throwingknife.png",
-    tier: "c",
+    imageUrl: "equipment/k2throwingknife.png",
+    tier: "d",
   },
   {
     displayName: "G-6 Frag",
@@ -36,8 +40,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "g6fraggrenade",
-    imageURL: "g6fraggrenade.png",
-    tier: "b",
+    imageUrl: "equipment/g6fraggrenade.png",
+    tier: "a",
   },
   {
     displayName: "G-16 Impact",
@@ -46,7 +50,7 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "g16impactgrenade",
-    imageURL: "g16impactgrenade.png",
+    imageUrl: "equipment/g16impactgrenade.png",
     tier: "a",
   },
   {
@@ -56,8 +60,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond3",
     internalName: "g3smokegrenade",
-    imageURL: "g3smokegrenade.png",
-    tier: "c",
+    imageUrl: "equipment/g3smokegrenade.png",
+    tier: "d",
   },
   {
     displayName: "G-10 Incendiary",
@@ -66,8 +70,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond4",
     internalName: "g10incendiarygrenade",
-    imageURL: "g10incendiarygrenade.png",
-    tier: "b",
+    imageUrl: "equipment/g10incendiarygrenade.png",
+    tier: "a",
   },
   {
     displayName: "G-23 Stun",
@@ -76,8 +80,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond5",
     internalName: "g23stungrenade",
-    imageURL: "g23stungrenade.png",
-    tier: "a",
+    imageUrl: "equipment/g23stungrenade.png",
+    tier: "c",
   },
   {
     displayName: "G-123 Thermite",
@@ -86,8 +90,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond6",
     internalName: "g123thermitegrenade",
-    imageURL: "g123thermitegrenade.png",
-    tier: "a",
+    imageUrl: "equipment/g123thermitegrenade.png",
+    tier: "s",
   },
   {
     displayName: "G-13 Incendiary Impact",
@@ -96,8 +100,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond7",
     internalName: "g13incendiaryimpact",
-    imageURL: "g13incendiaryimpact.png",
-    tier: "b",
+    imageUrl: "equipment/g13incendiaryimpact.png",
+    tier: "a",
   },
   {
     displayName: "G-50 Seeker",
@@ -106,8 +110,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond13",
     internalName: "g50seeker",
-    imageURL: "g50seeker.png",
-    tier: "a",
+    imageUrl: "equipment/g50seeker.png",
+    tier: "c",
   },
   {
     displayName: "Dynamite",
@@ -116,7 +120,7 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond14",
     internalName: "ted63throwabledynamite",
-    imageURL: "ted63throwabledynamite.png",
+    imageUrl: "equipment/ted63throwabledynamite.png",
     tier: "b",
   },
   {
@@ -126,8 +130,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond15",
     internalName: "g142pyrotech",
-    imageURL: "g142pyrotech.png",
-    tier: "s",
+    imageUrl: "equipment/g142pyrotech.png",
+    tier: "a",
   },
   {
     displayName: "G-109 Urchin",
@@ -136,8 +140,8 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond16",
     internalName: "g109urchin",
-    imageURL: "g109urchin.png",
-    tier: "b",
+    imageUrl: "equipment/g109urchin.png",
+    tier: "c",
   },
   {
     displayName: "G-31 Arc",
@@ -146,7 +150,7 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond17",
     internalName: "g31arc",
-    imageURL: "g31arc.png",
+    imageUrl: "equipment/g31arc.png",
     tier: "b",
   },
   {
@@ -156,12 +160,7 @@ const THROWABLES = [
     tags: [],
     warbondCode: "warbond20",
     internalName: "g7pineapple",
-    imageURL: "g7pineapple.png",
-    tier: "b",
+    imageUrl: "equipment/g7pineapple.png",
+    tier: "c",
   },
 ];
-
-// s: 2
-// a: 6
-// b: 5
-// c: 2

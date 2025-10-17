@@ -1,4 +1,8 @@
-const PRIMARIES = [
+export function getPrimary(displayName) {
+  return PRIMARIES.find((item) => item.displayName === displayName);
+}
+
+export const PRIMARIES = [
   {
     displayName: "Liberator",
     type: "Equipment",
@@ -6,7 +10,7 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "none",
     internalName: "ar23liberator",
-    imageURL: "ar23liberator.png",
+    imageUrl: "equipment/ar23liberator.png",
     tier: "b",
   },
   {
@@ -16,7 +20,7 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond3",
     internalName: "ar23pliberatorpenetrator",
-    imageURL: "ar23pliberatorpenetrator.png",
+    imageUrl: "equipment/ar23pliberatorpenetrator.png",
     tier: "a",
   },
   {
@@ -26,8 +30,8 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond4",
     internalName: "ar23cliberatorconcussive",
-    imageURL: "ar23cliberatorconcussive.png",
-    tier: "b",
+    imageUrl: "equipment/ar23cliberatorconcussive.png",
+    tier: "d",
   },
   {
     displayName: "Liberator Carbine",
@@ -36,8 +40,8 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond8",
     internalName: "ar23aliberatorcarbine",
-    imageURL: "ar23aliberatorcarbine.png",
-    tier: "b",
+    imageUrl: "equipment/ar23aliberatorcarbine.png",
+    tier: "c",
   },
   {
     displayName: "Adjudicator",
@@ -46,7 +50,7 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond6",
     internalName: "br14adjudicator",
-    imageURL: "br14adjudicator.png",
+    imageUrl: "equipment/br14adjudicator.png",
     tier: "a",
   },
   {
@@ -56,8 +60,8 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond18",
     internalName: "sta52assaultrifle",
-    imageURL: "sta52assaultrifle.png",
-    tier: "b",
+    imageUrl: "equipment/sta52assaultrifle.png",
+    tier: "c",
   },
   {
     displayName: "Pacifier",
@@ -66,8 +70,8 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond16",
     internalName: "ar32pacifier",
-    imageURL: "ar32pacifier.png",
-    tier: "b",
+    imageUrl: "equipment/ar32pacifier.png",
+    tier: "c",
   },
   {
     displayName: "Tenderizer",
@@ -76,8 +80,8 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond7",
     internalName: "ar61tenderizer",
-    imageURL: "ar61tenderizer.png",
-    tier: "a",
+    imageUrl: "equipment/ar61tenderizer.png",
+    tier: "c",
   },
   {
     displayName: "MA5C Assault Rifle",
@@ -86,7 +90,7 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond19",
     internalName: "ma5c",
-    imageURL: "ma5c.png",
+    imageUrl: "equipment/ma5c.png",
     tier: "b",
   },
   {
@@ -96,7 +100,7 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond20",
     internalName: "ar2coyote",
-    imageURL: "ar2coyote.png",
+    imageUrl: "equipment/ar2coyote.png",
     tier: "a",
   },
   {
@@ -106,7 +110,7 @@ const PRIMARIES = [
     tags: ["AssaultRifle"],
     warbondCode: "warbond17",
     internalName: "variable",
-    imageURL: "variable.png",
+    imageUrl: "equipment/variable.png",
     tier: "a",
   },
   {
@@ -116,8 +120,8 @@ const PRIMARIES = [
     tags: ["SubmachineGun"],
     warbondCode: "warbond3",
     internalName: "smg37defender",
-    imageURL: "smg37defender.png",
-    tier: "b",
+    imageUrl: "equipment/smg37defender.png",
+    tier: "c",
   },
   {
     displayName: "Pummeler",
@@ -126,8 +130,8 @@ const PRIMARIES = [
     tags: ["SubmachineGun"],
     warbondCode: "warbond7",
     internalName: "smg72pummeler",
-    imageURL: "smg72pummeler.png",
-    tier: "a",
+    imageUrl: "equipment/smg72pummeler.png",
+    tier: "c",
   },
   {
     displayName: "Reprimand",
@@ -136,7 +140,7 @@ const PRIMARIES = [
     tags: ["Submachinegun"],
     warbondCode: "warbond11",
     internalName: "smg32reprimand",
-    imageURL: "smg32reprimand.png",
+    imageUrl: "equipment/smg32reprimand.png",
     tier: "a",
   },
   {
@@ -146,7 +150,7 @@ const PRIMARIES = [
     tags: ["Submachinegun"],
     warbondCode: "warbond18",
     internalName: "sta11smg",
-    imageURL: "sta11smg.png",
+    imageUrl: "equipment/sta11smg.png",
     tier: "b",
   },
   {
@@ -156,7 +160,7 @@ const PRIMARIES = [
     tags: ["SubmachineGun"],
     warbondCode: "warbond0",
     internalName: "mp98knight",
-    imageURL: "mp98knight.png",
+    imageUrl: "equipment/mp98knight.png",
     tier: "b",
   },
   {
@@ -166,8 +170,8 @@ const PRIMARIES = [
     tags: ["SubmachineGun"],
     warbondCode: "warbond19",
     internalName: "m7s",
-    imageURL: "m7s.png",
-    tier: "b",
+    imageUrl: "equipment/m7s.png",
+    tier: "c",
   },
   {
     displayName: "Punisher",
@@ -176,8 +180,8 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond3",
     internalName: "sg8punisher",
-    imageURL: "sg8punisher.png",
-    tier: "b",
+    imageUrl: "equipment/sg8punisher.png",
+    tier: "c",
   },
   {
     displayName: "Cookout",
@@ -186,7 +190,7 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond9",
     internalName: "sg451cookout",
-    imageURL: "sg451cookout.png",
+    imageUrl: "equipment/sg451cookout.png",
     tier: "a",
   },
   {
@@ -196,7 +200,7 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond3",
     internalName: "sg8sslugger",
-    imageURL: "sg8sslugger.png",
+    imageUrl: "equipment/sg8sslugger.png",
     tier: "b",
   },
   {
@@ -206,8 +210,8 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond3",
     internalName: "sg225breaker",
-    imageURL: "sg225breaker.png",
-    tier: "b",
+    imageUrl: "equipment/sg225breaker.png",
+    tier: "c",
   },
   {
     displayName: "Breaker Incendiary",
@@ -216,8 +220,8 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond4",
     internalName: "sg225iebreakerincendiary",
-    imageURL: "sg225iebreakerincendiary.png",
-    tier: "s",
+    imageUrl: "equipment/sg225iebreakerincendiary.png",
+    tier: "b",
   },
   {
     displayName: "Breaker Spray & Pray",
@@ -226,8 +230,8 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond3",
     internalName: "sg225spbreakerspraynpray",
-    imageURL: "sg225spbreakerspraynpray.png",
-    tier: "b",
+    imageUrl: "equipment/sg225spbreakerspraynpray.png",
+    tier: "a",
   },
   {
     displayName: "Halt",
@@ -236,8 +240,8 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond11",
     internalName: "sg20halt",
-    imageURL: "sg20halt.png",
-    tier: "a",
+    imageUrl: "equipment/sg20halt.png",
+    tier: "b",
   },
   {
     displayName: "M90A Shotgun",
@@ -246,8 +250,8 @@ const PRIMARIES = [
     tags: ["Shotgun"],
     warbondCode: "warbond19",
     internalName: "m90a",
-    imageURL: "m90a.png",
-    tier: "a",
+    imageUrl: "equipment/m90a.png",
+    tier: "c",
   },
   {
     displayName: "Diligence",
@@ -256,7 +260,7 @@ const PRIMARIES = [
     tags: ["MarksmanRifle"],
     warbondCode: "warbond3",
     internalName: "r63diligence",
-    imageURL: "r63diligence.png",
+    imageUrl: "equipment/r63diligence.png",
     tier: "b",
   },
   {
@@ -266,8 +270,8 @@ const PRIMARIES = [
     tags: ["MarksmanRifle"],
     warbondCode: "warbond3",
     internalName: "r63csdiligencecountersniper",
-    imageURL: "r63csdiligencecountersniper.png",
-    tier: "a",
+    imageUrl: "equipment/r63csdiligencecountersniper.png",
+    tier: "s",
   },
   {
     displayName: "Deadeye",
@@ -276,8 +280,8 @@ const PRIMARIES = [
     tags: ["MarksmanRifle"],
     warbondCode: "warbond14",
     internalName: "r6deadeye",
-    imageURL: "r6deadeye.png",
-    tier: "a",
+    imageUrl: "equipment/r6deadeye.png",
+    tier: "b",
   },
   {
     displayName: "Amendment",
@@ -286,8 +290,8 @@ const PRIMARIES = [
     tags: ["MarksmanRifle"],
     warbondCode: "warbond15",
     internalName: "r2amendment",
-    imageURL: "r2amendment.png",
-    tier: "a",
+    imageUrl: "equipment/r2amendment.png",
+    tier: "c",
   },
   {
     displayName: "Constitution",
@@ -296,8 +300,8 @@ const PRIMARIES = [
     tags: ["MarksmanRifle"],
     warbondCode: "none",
     internalName: "r2124constitution",
-    imageURL: "r2124constitution.png",
-    tier: "c",
+    imageUrl: "equipment/r2124constitution.png",
+    tier: "d",
   },
   {
     displayName: "Scythe",
@@ -306,8 +310,8 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond3",
     internalName: "las5scythe",
-    imageURL: "las5scythe.png",
-    tier: "b",
+    imageUrl: "equipment/las5scythe.png",
+    tier: "c",
   },
   {
     displayName: "Sickle",
@@ -316,8 +320,8 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond5",
     internalName: "las16sickle",
-    imageURL: "las16sickle.png",
-    tier: "a",
+    imageUrl: "equipment/las16sickle.png",
+    tier: "b",
   },
   {
     displayName: "Scorcher",
@@ -326,8 +330,8 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond3",
     internalName: "plas1scorcher",
-    imageURL: "plas1scorcher.png",
-    tier: "s",
+    imageUrl: "equipment/plas1scorcher.png",
+    tier: "b",
   },
   {
     displayName: "Purifier",
@@ -336,8 +340,8 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond7",
     internalName: "plas101purifier",
-    imageURL: "plas101purifier.png",
-    tier: "s",
+    imageUrl: "equipment/plas101purifier.png",
+    tier: "a",
   },
   {
     displayName: "Punisher Plasma",
@@ -346,8 +350,8 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond5",
     internalName: "sg8ppunisherplasma",
-    imageURL: "sg8ppunisherplasma.png",
-    tier: "a",
+    imageUrl: "equipment/sg8ppunisherplasma.png",
+    tier: "c",
   },
   {
     displayName: "Blitzer",
@@ -356,8 +360,8 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond5",
     internalName: "arc12blitzer",
-    imageURL: "arc12blitzer.png",
-    tier: "s",
+    imageUrl: "equipment/arc12blitzer.png",
+    tier: "c",
   },
   {
     displayName: "Double Edge Sickle",
@@ -366,7 +370,7 @@ const PRIMARIES = [
     tags: ["EnergyWeapon"],
     warbondCode: "warbond13",
     internalName: "las17doubleedgesickle",
-    imageURL: "las17doubleedgesickle.png",
+    imageUrl: "equipment/las17doubleedgesickle.png",
     tier: "a",
   },
   {
@@ -376,8 +380,8 @@ const PRIMARIES = [
     tags: ["MarksmanRifle"],
     warbondCode: "none",
     internalName: "plas39acceleratorrifle",
-    imageURL: "plas39acceleratorrifle.png",
-    tier: "b",
+    imageUrl: "equipment/plas39acceleratorrifle.png",
+    tier: "d",
   },
   {
     displayName: "Eruptor",
@@ -386,7 +390,7 @@ const PRIMARIES = [
     tags: ["Explosive"],
     warbondCode: "warbond6",
     internalName: "r36eruptor",
-    imageURL: "r36eruptor.png",
+    imageUrl: "equipment/r36eruptor.png",
     tier: "s",
   },
   {
@@ -396,7 +400,7 @@ const PRIMARIES = [
     tags: ["Explosive"],
     warbondCode: "warbond6",
     internalName: "cb9explodingcrossbow",
-    imageURL: "cb9explodingcrossbow.png",
+    imageUrl: "equipment/cb9explodingcrossbow.png",
     tier: "s",
   },
   {
@@ -406,7 +410,7 @@ const PRIMARIES = [
     tags: ["Explosive"],
     warbondCode: "warbond4",
     internalName: "jar5dominator",
-    imageURL: "jar5dominator.png",
+    imageUrl: "equipment/jar5dominator.png",
     tier: "b",
   },
   {
@@ -416,12 +420,7 @@ const PRIMARIES = [
     tags: ["Special"],
     warbondCode: "warbond9",
     internalName: "flam66torcher",
-    imageURL: "flam66torcher.png",
-    tier: "b",
+    imageUrl: "equipment/flam66torcher.png",
+    tier: "c",
   },
 ];
-
-// s: 6
-// a: 16
-// b: 19
-// c: 1

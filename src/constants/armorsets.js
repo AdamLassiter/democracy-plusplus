@@ -1,4 +1,8 @@
-const ARMOR_SETS = [
+export function getArmorSet(displayName) {
+  return ARMOR_SETS.find((item) => item.displayName === displayName);
+}
+
+export const ARMOR_SETS = [
   {
     displayName: "AF-50 Noxious Ranger",
     type: "Equipment",
@@ -10,8 +14,7 @@ const ARMOR_SETS = [
     passive: "Advanced Filtration",
     warbondCode: "warbond10",
     internalName: "af50noxiousranger",
-    imageURL: "af50noxiousranger.webp",
-    tier: "b",
+    imageUrl: "armor/af50noxiousranger.webp",
   },
   {
     displayName: "AC-2 Obedient",
@@ -24,8 +27,7 @@ const ARMOR_SETS = [
     passive: "Acclimated",
     warbondCode: "warbond18",
     internalName: "ac2obedient",
-    imageURL: "ac2obedient.webp",
-    tier: "b",
+    imageUrl: "armor/ac2obedient.webp",
   },
   {
     displayName: "SR-24 Street Scout",
@@ -38,8 +40,7 @@ const ARMOR_SETS = [
     passive: "Siege Ready",
     warbondCode: "warbond12",
     internalName: "sr24streetscout",
-    imageURL: "sr24streetscout.webp",
-    tier: "b",
+    imageUrl: "armor/sr24streetscout.webp",
   },
   {
     displayName: "SR-18 Road Block",
@@ -52,8 +53,7 @@ const ARMOR_SETS = [
     passive: "Siege Ready",
     warbondCode: "warbond12",
     internalName: "sr18roadblock",
-    imageURL: "sr18roadblock.webp",
-    tier: "b",
+    imageUrl: "armor/sr18roadblock.webp",
   },
   {
     displayName: "B-08 Light Gunner",
@@ -66,8 +66,7 @@ const ARMOR_SETS = [
     passive: "Extra Padding",
     warbondCode: "warbond1",
     internalName: "b08lightgunner",
-    imageURL: "b08lightgunner.webp",
-    tier: "b",
+    imageUrl: "armor/b08lightgunner.webp",
   },
   {
     displayName: "CE-07 Demolition Specialist",
@@ -80,8 +79,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond6",
     internalName: "ce07demolitionspecialist",
-    imageURL: "ce07demolitionspecialist.webp",
-    tier: "b",
+    imageUrl: "armor/ce07demolitionspecialist.webp",
   },
   {
     displayName: "CE-67 Titan",
@@ -94,8 +92,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond1",
     internalName: "ce67titan",
-    imageURL: "ce67titan.webp",
-    tier: "b",
+    imageUrl: "armor/ce67titan.webp",
   },
   {
     displayName: "CE-74 Breaker",
@@ -108,8 +105,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond1",
     internalName: "ce74breaker",
-    imageURL: "ce74breaker.webp",
-    tier: "b",
+    imageUrl: "armor/ce74breaker.webp",
   },
   {
     displayName: "CM-21 Trench Paramedic",
@@ -122,8 +118,7 @@ const ARMOR_SETS = [
     passive: "Med-Kit",
     warbondCode: "warbond1",
     internalName: "cm21trenchparamedic",
-    imageURL: "cm21trenchparamedic.webp",
-    tier: "b",
+    imageUrl: "armor/cm21trenchparamedic.webp",
   },
   {
     displayName: "CW-4 Arctic Ranger",
@@ -136,8 +131,7 @@ const ARMOR_SETS = [
     passive: "Scout",
     warbondCode: "warbond7",
     internalName: "cw4arcticranger",
-    imageURL: "cw4arcticranger.webp",
-    tier: "b",
+    imageUrl: "armor/cw4arcticranger.webp",
   },
   {
     displayName: "EX-00 Prototype X",
@@ -150,8 +144,7 @@ const ARMOR_SETS = [
     passive: "Electrical Conduit",
     warbondCode: "warbond5",
     internalName: "ex00prototypex",
-    imageURL: "ex00prototypex.webp",
-    tier: "b",
+    imageUrl: "armor/ex00prototypex.webp",
   },
   {
     displayName: "FS-37 Ravager",
@@ -164,8 +157,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond1",
     internalName: "fs37ravager",
-    imageURL: "fs37ravager.webp",
-    tier: "b",
+    imageUrl: "armor/fs37ravager.webp",
   },
   {
     displayName: "FS-38 Eradicator",
@@ -178,8 +170,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond1",
     internalName: "fs38eradicator",
-    imageURL: "fs38eradicator.webp",
-    tier: "b",
+    imageUrl: "armor/fs38eradicator.webp",
   },
   {
     displayName: "I-09 Heatseeker",
@@ -192,8 +183,7 @@ const ARMOR_SETS = [
     passive: "Inflammable",
     warbondCode: "warbond9",
     internalName: "i09heatseeker",
-    imageURL: "i09heatseeker.webp",
-    tier: "b",
+    imageUrl: "armor/i09heatseeker.webp",
   },
   {
     displayName: "PH-9 Predator",
@@ -206,8 +196,7 @@ const ARMOR_SETS = [
     passive: "Peak Physique",
     warbondCode: "warbond8",
     internalName: "ph9predator",
-    imageURL: "ph9predator.webp",
-    tier: "b",
+    imageUrl: "armor/ph9predator.webp",
   },
   {
     displayName: "SC-30 Trailblazer Scout",
@@ -220,8 +209,7 @@ const ARMOR_SETS = [
     passive: "Scout",
     warbondCode: "warbond3",
     internalName: "sc30trailblazerscout",
-    imageURL: "sc30trailblazerscout.webp",
-    tier: "b",
+    imageUrl: "armor/sc30trailblazerscout.webp",
   },
   {
     displayName: "SC-34 Infiltrator",
@@ -234,8 +222,7 @@ const ARMOR_SETS = [
     passive: "Scout",
     warbondCode: "warbond3",
     internalName: "sc34infiltrator",
-    imageURL: "sc34infiltrator.webp",
-    tier: "b",
+    imageUrl: "armor/sc34infiltrator.webp",
   },
   {
     displayName: "SC-37 Legionnaire",
@@ -248,8 +235,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond1",
     internalName: "sc37legionnaire",
-    imageURL: "sc37legionnaire.webp",
-    tier: "b",
+    imageUrl: "armor/sc37legionnaire.webp",
   },
   {
     displayName: "UF-16 Inspector",
@@ -262,8 +248,7 @@ const ARMOR_SETS = [
     passive: "Unflinching",
     warbondCode: "warbond11",
     internalName: "uf16inspector",
-    imageURL: "uf16inspector.webp",
-    tier: "b",
+    imageUrl: "armor/uf16inspector.webp",
   },
   {
     displayName: "AF-02 Haz-Master",
@@ -276,8 +261,7 @@ const ARMOR_SETS = [
     passive: "Advanced Filtration",
     warbondCode: "warbond10",
     internalName: "af02hazmaster",
-    imageURL: "af02hazmaster.webp",
-    tier: "b",
+    imageUrl: "armor/af02hazmaster.webp",
   },
   {
     displayName: "AF-91 Field Chemist",
@@ -290,8 +274,7 @@ const ARMOR_SETS = [
     passive: "Advanced Filtration",
     warbondCode: "warbond1",
     internalName: "af91fieldchemist",
-    imageURL: "af91fieldchemist.webp",
-    tier: "b",
+    imageUrl: "armor/af91fieldchemist.webp",
   },
   {
     displayName: "B-01 Tactical",
@@ -304,8 +287,7 @@ const ARMOR_SETS = [
     passive: "Extra Padding",
     warbondCode: "none",
     internalName: "b01tactical",
-    imageURL: "b01tactical.webp",
-    tier: "b",
+    imageUrl: "armor/b01tactical.webp",
   },
   {
     displayName: "B-24 Enforcer",
@@ -318,8 +300,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond1",
     internalName: "b24enforcer",
-    imageURL: "b24enforcer.webp",
-    tier: "b",
+    imageUrl: "armor/b24enforcer.webp",
   },
   {
     displayName: "CE-27 Ground Breaker",
@@ -332,8 +313,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond6",
     internalName: "ce27groundbreaker",
-    imageURL: "ce27groundbreaker.webp",
-    tier: "b",
+    imageUrl: "armor/ce27groundbreaker.webp",
   },
   {
     displayName: "CE-35 Trench Engineer",
@@ -346,8 +326,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond3",
     internalName: "ce35trenchengineer",
-    imageURL: "ce35trenchengineer.webp",
-    tier: "b",
+    imageUrl: "armor/ce35trenchengineer.webp",
   },
   {
     displayName: "CE-81 Juggernaut",
@@ -360,8 +339,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond1",
     internalName: "ce81juggernaut",
-    imageURL: "ce81juggernaut.webp",
-    tier: "b",
+    imageUrl: "armor/ce81juggernaut.webp",
   },
   {
     displayName: "CM-09 Bonesnapper",
@@ -374,8 +352,7 @@ const ARMOR_SETS = [
     passive: "Med-Kit",
     warbondCode: "warbond3",
     internalName: "cm09bonesnapper",
-    imageURL: "cm09bonesnapper.webp",
-    tier: "b",
+    imageUrl: "armor/cm09bonesnapper.webp",
   },
   {
     displayName: "CM-10 Clinician",
@@ -388,8 +365,7 @@ const ARMOR_SETS = [
     passive: "Med-Kit",
     warbondCode: "warbond1",
     internalName: "cm10clinician",
-    imageURL: "cm10clinician.webp",
-    tier: "b",
+    imageUrl: "armor/cm10clinician.webp",
   },
   {
     displayName: "CM-14 Physician",
@@ -402,8 +378,7 @@ const ARMOR_SETS = [
     passive: "Med-Kit",
     warbondCode: "warbond3",
     internalName: "cm14physician",
-    imageURL: "cm14physician.webp",
-    tier: "b",
+    imageUrl: "armor/cm14physician.webp",
   },
   {
     displayName: "CW-9 White Wolf",
@@ -416,8 +391,7 @@ const ARMOR_SETS = [
     passive: "Extra Padding",
     warbondCode: "warbond1",
     internalName: "cw9whitewolf",
-    imageURL: "cw9whitewolf.webp",
-    tier: "b",
+    imageUrl: "armor/cw9whitewolf.webp",
   },
   {
     displayName: "DP-00 Tactical",
@@ -430,8 +404,7 @@ const ARMOR_SETS = [
     passive: "Democracy Protects",
     warbondCode: "none",
     internalName: "dp00tactical",
-    imageURL: "dp00tactical.webp",
-    tier: "b",
+    imageUrl: "armor/dp00tactical.webp",
   },
   {
     displayName: "DP-11 Champion of the People",
@@ -444,8 +417,7 @@ const ARMOR_SETS = [
     passive: "Democracy Protects",
     warbondCode: "warbond3",
     internalName: "dp11championofthepeople",
-    imageURL: "dp11championofthepeople.webp",
-    tier: "b",
+    imageUrl: "armor/dp11championofthepeople.webp",
   },
   {
     displayName: "AC-1 Dutiful",
@@ -458,8 +430,7 @@ const ARMOR_SETS = [
     passive: "Acclimated",
     warbondCode: "warbond18",
     internalName: "ac1dutiful",
-    imageURL: "ac1dutiful.webp",
-    tier: "b",
+    imageUrl: "armor/ac1dutiful.webp",
   },
   {
     displayName: "DP-40 Hero of the Federation",
@@ -472,8 +443,7 @@ const ARMOR_SETS = [
     passive: "Democracy Protects",
     warbondCode: "warbond3",
     internalName: "dp40heroofthefederation",
-    imageURL: "dp40heroofthefederation.webp",
-    tier: "b",
+    imageUrl: "armor/dp40heroofthefederation.webp",
   },
   {
     displayName: "DP-53 Savior of the Free",
@@ -486,8 +456,7 @@ const ARMOR_SETS = [
     passive: "Democracy Protects",
     warbondCode: "warbond0",
     internalName: "dp53saviorofthefree",
-    imageURL: "dp53saviorofthefree.webp",
-    tier: "b",
+    imageUrl: "armor/dp53saviorofthefree.webp",
   },
   {
     displayName: "EX-03 Prototype 3",
@@ -500,8 +469,7 @@ const ARMOR_SETS = [
     passive: "Electrical Conduit",
     warbondCode: "warbond5",
     internalName: "ex03prototype3",
-    imageURL: "ex03prototype3.webp",
-    tier: "b",
+    imageUrl: "armor/ex03prototype3.webp",
   },
   {
     displayName: "EX-16 Prototype 16",
@@ -514,8 +482,7 @@ const ARMOR_SETS = [
     passive: "Electrical Conduit",
     warbondCode: "warbond5",
     internalName: "ex16prototype16",
-    imageURL: "ex16prototype16.webp",
-    tier: "b",
+    imageUrl: "armor/ex16prototype16.webp",
   },
   {
     displayName: "FS-34 Exterminator",
@@ -528,8 +495,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond1",
     internalName: "fs34exterminator",
-    imageURL: "fs34exterminator.webp",
-    tier: "b",
+    imageUrl: "armor/fs34exterminator.webp",
   },
   {
     displayName: "I-92 Fire Fighter",
@@ -542,8 +508,7 @@ const ARMOR_SETS = [
     passive: "Inflammable",
     warbondCode: "warbond1",
     internalName: "i92firefighter",
-    imageURL: "i92firefighter.webp",
-    tier: "b",
+    imageUrl: "armor/i92firefighter.webp",
   },
   {
     displayName: "I-102 Draconaught",
@@ -556,8 +521,7 @@ const ARMOR_SETS = [
     passive: "Inflammable",
     warbondCode: "warbond9",
     internalName: "i102draconaught",
-    imageURL: "i102draconaught.webp",
-    tier: "b",
+    imageUrl: "armor/i102draconaught.webp",
   },
   {
     displayName: "PH-56 Jaguar",
@@ -570,8 +534,7 @@ const ARMOR_SETS = [
     passive: "Peak Physique",
     warbondCode: "warbond1",
     internalName: "ph56jaguar",
-    imageURL: "ph56jaguar.webp",
-    tier: "b",
+    imageUrl: "armor/ph56jaguar.webp",
   },
   {
     displayName: "SA-04 Combat Technician",
@@ -584,8 +547,7 @@ const ARMOR_SETS = [
     passive: "Scout",
     warbondCode: "warbond3",
     internalName: "sa04combattechnician",
-    imageURL: "sa04combattechnician.webp",
-    tier: "b",
+    imageUrl: "armor/sa04combattechnician.webp",
   },
   {
     displayName: "SA-12 Servo Assisted",
@@ -598,8 +560,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond4",
     internalName: "sa12servoassisted",
-    imageURL: "sa12servoassisted.webp",
-    tier: "b",
+    imageUrl: "armor/sa12servoassisted.webp",
   },
   {
     displayName: "SA-25 Steel Trooper",
@@ -612,8 +573,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond4",
     internalName: "sa25steeltrooper",
-    imageURL: "sa25steeltrooper.webp",
-    tier: "b",
+    imageUrl: "armor/sa25steeltrooper.webp",
   },
   {
     displayName: "SA-15 Drone Master",
@@ -626,8 +586,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond1",
     internalName: "sc15dronemaster",
-    imageURL: "sc15dronemaster.webp",
-    tier: "b",
+    imageUrl: "armor/sc15dronemaster.webp",
   },
   {
     displayName: "TR-7 Ambassador of the Brand",
@@ -640,8 +599,7 @@ const ARMOR_SETS = [
     passive: "Extra Padding",
     warbondCode: "warbond2",
     internalName: "tr7ambassadorofthebrand",
-    imageURL: "tr7ambassadorofthebrand.webp",
-    tier: "b",
+    imageUrl: "armor/tr7ambassadorofthebrand.webp",
   },
   {
     displayName: "TR-9 Cavalier of Democracy",
@@ -654,8 +612,7 @@ const ARMOR_SETS = [
     passive: "Democracy Protects",
     warbondCode: "warbond2",
     internalName: "tr9cavalierofdemocracy",
-    imageURL: "tr9cavalierofdemocracy.webp",
-    tier: "b",
+    imageUrl: "armor/tr9cavalierofdemocracy.webp",
   },
   {
     displayName: "TR-40 Gold Eagle",
@@ -668,8 +625,7 @@ const ARMOR_SETS = [
     passive: "Extra Padding",
     warbondCode: "none",
     internalName: "tr40goldeagle",
-    imageURL: "tr40goldeagle.webp",
-    tier: "b",
+    imageUrl: "armor/tr40goldeagle.webp",
   },
   {
     displayName: "TR-117 Alpha Commander",
@@ -682,8 +638,7 @@ const ARMOR_SETS = [
     passive: "Med-Kit",
     warbondCode: "none",
     internalName: "tr117alphacommander",
-    imageURL: "tr117alphacommander.webp",
-    tier: "b",
+    imageUrl: "armor/tr117alphacommander.webp",
   },
   {
     displayName: "UF-50 Bloodhound",
@@ -696,8 +651,7 @@ const ARMOR_SETS = [
     passive: "Unflinching",
     warbondCode: "warbond11",
     internalName: "uf50bloodhound",
-    imageURL: "uf50bloodhound.webp",
-    tier: "b",
+    imageUrl: "armor/uf50bloodhound.webp",
   },
   {
     displayName: "UF-84 Doubt Killer",
@@ -710,8 +664,7 @@ const ARMOR_SETS = [
     passive: "Unflinching",
     warbondCode: "warbond1",
     internalName: "uf84doubtkiller",
-    imageURL: "uf84doubtkiller.webp",
-    tier: "b",
+    imageUrl: "armor/uf84doubtkiller.webp",
   },
   {
     displayName: "AF-52 Lockdown",
@@ -724,8 +677,7 @@ const ARMOR_SETS = [
     passive: "Advanced Filtration",
     warbondCode: "warbond1",
     internalName: "af52lockdown",
-    imageURL: "af52lockdown.webp",
-    tier: "b",
+    imageUrl: "armor/af52lockdown.webp",
   },
   {
     displayName: "B-27 Fortified Commando",
@@ -738,8 +690,7 @@ const ARMOR_SETS = [
     passive: "Extra Padding",
     warbondCode: "warbond1",
     internalName: "b27fortifiedcommando",
-    imageURL: "b27fortifiedcommando.webp",
-    tier: "b",
+    imageUrl: "armor/b27fortifiedcommando.webp",
   },
   {
     displayName: "CE-64 Grenadier",
@@ -752,8 +703,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond1",
     internalName: "ce64grenadier",
-    imageURL: "ce64grenadier.webp",
-    tier: "b",
+    imageUrl: "armor/ce64grenadier.webp",
   },
   {
     displayName: "CE-101 Guerilla Gorilla",
@@ -766,8 +716,7 @@ const ARMOR_SETS = [
     passive: "Engineering Kit",
     warbondCode: "warbond1",
     internalName: "ce101guerillagorilla",
-    imageURL: "ce101guerillagorilla.webp",
-    tier: "b",
+    imageUrl: "armor/ce101guerillagorilla.webp",
   },
   {
     displayName: "CM-17 Butcher",
@@ -780,8 +729,7 @@ const ARMOR_SETS = [
     passive: "Med-Kit",
     warbondCode: "warbond1",
     internalName: "cm17butcher",
-    imageURL: "cm17butcher.webp",
-    tier: "b",
+    imageUrl: "armor/cm17butcher.webp",
   },
   {
     displayName: "CW-22 Kodiak",
@@ -794,8 +742,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond7",
     internalName: "cw22kodiak",
-    imageURL: "cw22kodiak.webp",
-    tier: "b",
+    imageUrl: "armor/cw22kodiak.webp",
   },
   {
     displayName: "CW-36 Winter Warrior",
@@ -808,8 +755,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond7",
     internalName: "cw36winterwarrior",
-    imageURL: "cw36winterwarrior.webp",
-    tier: "b",
+    imageUrl: "armor/cw36winterwarrior.webp",
   },
   {
     displayName: "FS-05 Marksman",
@@ -822,8 +768,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond3",
     internalName: "fs05marksman",
-    imageURL: "fs05marksman.webp",
-    tier: "b",
+    imageUrl: "armor/fs05marksman.webp",
   },
   {
     displayName: "FS-11 Executioner",
@@ -836,8 +781,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond1",
     internalName: "fs11executioner",
-    imageURL: "fs11executioner.webp",
-    tier: "b",
+    imageUrl: "armor/fs11executioner.webp",
   },
   {
     displayName: "FS-23 Battle Master",
@@ -850,8 +794,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond3",
     internalName: "fs23battlemaster",
-    imageURL: "fs23battlemaster.webp",
-    tier: "b",
+    imageUrl: "armor/fs23battlemaster.webp",
   },
   {
     displayName: "FS-55 Devastator",
@@ -864,8 +807,7 @@ const ARMOR_SETS = [
     passive: "Fortified",
     warbondCode: "warbond6",
     internalName: "fs55devastator",
-    imageURL: "fs55devastator.webp",
-    tier: "b",
+    imageUrl: "armor/fs55devastator.webp",
   },
   {
     displayName: "FS-61 Dreadnought",
@@ -878,8 +820,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond1",
     internalName: "fs61dreadnought",
-    imageURL: "fs61dreadnought.webp",
-    tier: "b",
+    imageUrl: "armor/fs61dreadnought.webp",
   },
   {
     displayName: "I-44 Salamander",
@@ -892,8 +833,7 @@ const ARMOR_SETS = [
     passive: "Inflammable",
     warbondCode: "warbond1",
     internalName: "i44salamander",
-    imageURL: "i44salamander.webp",
-    tier: "b",
+    imageUrl: "armor/i44salamander.webp",
   },
   {
     displayName: "PH-202 Twigsnapper",
@@ -906,8 +846,7 @@ const ARMOR_SETS = [
     passive: "Peak Physique",
     warbondCode: "warbond8",
     internalName: "ph202twigsnapper",
-    imageURL: "ph202twigsnapper.webp",
-    tier: "b",
+    imageUrl: "armor/ph202twigsnapper.webp",
   },
   {
     displayName: "SA-32 Dynamo",
@@ -920,8 +859,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond4",
     internalName: "sa32dynamo",
-    imageURL: "sa32dynamo.webp",
-    tier: "b",
+    imageUrl: "armor/sa32dynamo.webp",
   },
   {
     displayName: "TR-62 Knight",
@@ -934,8 +872,7 @@ const ARMOR_SETS = [
     passive: "Servo-Assisted",
     warbondCode: "warbond2",
     internalName: "tr62knight",
-    imageURL: "tr62knight.webp",
-    tier: "b",
+    imageUrl: "armor/tr62knight.webp",
   },
   {
     displayName: "SR-64 Cinderblock",
@@ -948,8 +885,7 @@ const ARMOR_SETS = [
     passive: "Siege Ready",
     warbondCode: "warbond1",
     internalName: "sr64cinderblock",
-    imageURL: "sr64cinderblock.webp",
-    tier: "b",
+    imageUrl: "armor/sr64cinderblock.webp",
   },
   {
     displayName: "B-22 Model Citizen",
@@ -962,8 +898,7 @@ const ARMOR_SETS = [
     passive: "Democracy Protects",
     warbondCode: "none",
     internalName: "b22modelcitizen",
-    imageURL: "b22modelcitizen.webp",
-    tier: "b",
+    imageUrl: "armor/b22modelcitizen.webp",
   },
   {
     displayName: "IE-3 Martyr",
@@ -976,8 +911,7 @@ const ARMOR_SETS = [
     passive: "Integrated Explosives",
     warbondCode: "warbond13",
     internalName: "ie3martyr",
-    imageURL: "ie3martyr.webp",
-    tier: "b",
+    imageUrl: "armor/ie3martyr.webp",
   },
   {
     displayName: "IE-12 Righteous",
@@ -990,8 +924,7 @@ const ARMOR_SETS = [
     passive: "Integrated Explosives",
     warbondCode: "warbond13",
     internalName: "ie12righteous",
-    imageURL: "ie12righteous.webp",
-    tier: "b",
+    imageUrl: "armor/ie12righteous.webp",
   },
   {
     displayName: "IE-57 Hell-Bent",
@@ -1004,8 +937,7 @@ const ARMOR_SETS = [
     passive: "Integrated Explosives",
     warbondCode: "warbond1",
     internalName: "ie57hellbent",
-    imageURL: "ie57hellbent.webp",
-    tier: "b",
+    imageUrl: "armor/ie57hellbent.webp",
   },
   {
     displayName: "GS-17 Frontier Marshal",
@@ -1018,8 +950,7 @@ const ARMOR_SETS = [
     passive: "Gunslinger",
     warbondCode: "warbond14",
     internalName: "gs17frontiermarshal",
-    imageURL: "gs17frontiermarshal.webp",
-    tier: "b",
+    imageUrl: "armor/gs17frontiermarshal.webp",
   },
   {
     displayName: "GS-66 Lawmaker",
@@ -1032,8 +963,7 @@ const ARMOR_SETS = [
     passive: "Gunslinger",
     warbondCode: "warbond14",
     internalName: "gs66lawmaker",
-    imageURL: "gs66lawmaker.webp",
-    tier: "b",
+    imageUrl: "armor/gs66lawmaker.webp",
   },
   {
     displayName: `GS-11 Democracy's Deputy`,
@@ -1046,8 +976,7 @@ const ARMOR_SETS = [
     passive: "Gunslinger",
     warbondCode: "warbond1",
     internalName: "gs11democracysdeputy",
-    imageURL: "gs11democracysdeputy.webp",
-    tier: "b",
+    imageUrl: "armor/gs11democracysdeputy.webp",
   },
   {
     displayName: `RE-824 Bearer of the Standard`,
@@ -1060,8 +989,7 @@ const ARMOR_SETS = [
     passive: "Reinforced Epaulettes",
     warbondCode: "warbond1",
     internalName: "re824bearerofthestandard",
-    imageURL: "re824bearerofthestandard.webp",
-    tier: "b",
+    imageUrl: "armor/re824bearerofthestandard.webp",
   },
   {
     displayName: `RE-1861 Parade Commander`,
@@ -1074,8 +1002,7 @@ const ARMOR_SETS = [
     passive: "Reinforced Epaulettes",
     warbondCode: "warbond15",
     internalName: "re1861paradecommander",
-    imageURL: "re1861paradecommander.webp",
-    tier: "b",
+    imageUrl: "armor/re1861paradecommander.webp",
   },
   {
     displayName: `RE-2310 Honorary Guard`,
@@ -1088,8 +1015,7 @@ const ARMOR_SETS = [
     passive: "Reinforced Epaulettes",
     warbondCode: "warbond15",
     internalName: "re2310honoraryguard",
-    imageURL: "re2310honoraryguard.webp",
-    tier: "b",
+    imageUrl: "armor/re2310honoraryguard.webp",
   },
   {
     displayName: `BP-20 Correct Officer`,
@@ -1102,8 +1028,7 @@ const ARMOR_SETS = [
     passive: "Ballistic Padding",
     warbondCode: "warbond16",
     internalName: "bp20correctofficer",
-    imageURL: "bp20correctofficer.webp",
-    tier: "b",
+    imageUrl: "armor/bp20correctofficer.webp",
   },
   {
     displayName: `BP-32 Jackboot`,
@@ -1116,8 +1041,7 @@ const ARMOR_SETS = [
     passive: "Ballistic Padding",
     warbondCode: "warbond16",
     internalName: "bp32jackboot",
-    imageURL: "bp32jackboot.webp",
-    tier: "b",
+    imageUrl: "armor/bp32jackboot.webp",
   },
   {
     displayName: `BP-77 Grand Juror`,
@@ -1130,8 +1054,7 @@ const ARMOR_SETS = [
     passive: "Ballistic Padding",
     warbondCode: "warbond1",
     internalName: "bp77grandjuror",
-    imageURL: "bp77grandjuror.webp",
-    tier: "b",
+    imageUrl: "armor/bp77grandjuror.webp",
   },
   {
     displayName: `AD-11 Livewire`,
@@ -1144,8 +1067,7 @@ const ARMOR_SETS = [
     passive: "Adreno-Defibrillator",
     warbondCode: "warbond17",
     internalName: "ad11livewire",
-    imageURL: "ad11livewire.webp",
-    tier: "b",
+    imageUrl: "armor/ad11livewire.webp",
   },
   {
     displayName: `AD-26 Bleeding Edge`,
@@ -1158,8 +1080,7 @@ const ARMOR_SETS = [
     passive: "Adreno-Defibrillator",
     warbondCode: "warbond17",
     internalName: "ad26bleedingedge",
-    imageURL: "ad26bleedingedge.webp",
-    tier: "b",
+    imageUrl: "armor/ad26bleedingedge.webp",
   },
   {
     displayName: `AD-49 Apollonian`,
@@ -1172,8 +1093,7 @@ const ARMOR_SETS = [
     passive: "Adreno-Defibrillator",
     warbondCode: "warbond17",
     internalName: "ad49apollonian",
-    imageURL: "ad49apollonian.webp",
-    tier: "b",
+    imageUrl: "armor/ad49apollonian.webp",
   },
   {
     displayName: `A-9 Helljumper`,
@@ -1186,8 +1106,7 @@ const ARMOR_SETS = [
     passive: "Feet First",
     warbondCode: "warbond19",
     internalName: "a9helljumper",
-    imageURL: "a9helljumper.webp",
-    tier: "b",
+    imageUrl: "armor/a9helljumper.webp",
   },
   {
     displayName: `A-35 Recon`,
@@ -1200,8 +1119,7 @@ const ARMOR_SETS = [
     passive: "Feet First",
     warbondCode: "warbond19",
     internalName: "a35recon",
-    imageURL: "a35recon.webp",
-    tier: "b",
+    imageUrl: "armor/a35recon.webp",
   },
   {
     displayName: `DS-42 Federation's Blade`,
@@ -1214,8 +1132,7 @@ const ARMOR_SETS = [
     passive: "Desert Stormer",
     warbondCode: "warbond20",
     internalName: "ds42federationsblade",
-    imageURL: "ds42federationsblade.webp",
-    tier: "b",
+    imageUrl: "armor/ds42federationsblade.webp",
   },
   {
     displayName: `DS-191 Scorpion`,
@@ -1228,8 +1145,7 @@ const ARMOR_SETS = [
     passive: "Desert Stormer",
     warbondCode: "warbond20",
     internalName: "ds191scorpion",
-    imageURL: "ds191scorpion.webp",
-    tier: "b",
+    imageUrl: "armor/ds191scorpion.webp",
   },
   {
     displayName: `DS-10 Big Game Hunter`,
@@ -1242,7 +1158,6 @@ const ARMOR_SETS = [
     passive: "Desert Stormer",
     warbondCode: "warbond1",
     internalName: "ds10biggamehunter",
-    imageURL: "ds10biggamehunter.webp",
-    tier: "b",
+    imageUrl: "armor/ds10biggamehunter.webp",
   },
 ];
