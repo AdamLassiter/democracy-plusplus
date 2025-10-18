@@ -1,4 +1,4 @@
-import { Divider, Grid } from "@mui/material";
+import { Box, Card, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { ARMOR_PASSIVES } from "../constants/armorpassives";
 import DisplayItem from "./item";
 import { BOOSTERS } from "../constants/boosters";
@@ -6,22 +6,37 @@ import { PRIMARIES } from "../constants/primaries";
 import { SECONDARIES } from "../constants/secondaries";
 import { THROWABLES } from "../constants/throwables";
 import { STRATAGEMS } from "../constants/stratagems";
+import { useState } from "react";
 
 export default function TierLists() {
+  const [value, setValue] = useState(0);
 
-  return <Grid direction="column" spacing={2} container>
-    <TierList items={ARMOR_PASSIVES} />
-    <Divider />
-    <TierList items={BOOSTERS} />
-    <Divider />
-    <TierList items={PRIMARIES} />
-    <Divider />
-    <TierList items={SECONDARIES} />
-    <Divider />
-    <TierList items={THROWABLES} />
-    <Divider />
-    <TierList items={STRATAGEMS} />
-  </Grid>;
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const tierLists = [
+    ["Armor Passives", ARMOR_PASSIVES],
+    ["Boosters", BOOSTERS],
+    ["Primaries", PRIMARIES],
+    ["Secondaries", SECONDARIES],
+    ["Throwables", THROWABLES],
+    ["Stratagems", STRATAGEMS],
+  ];
+  const [displayName, items] = tierLists[value];
+
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange}>
+          {tierLists.map(([displayName]) => <Tab label={displayName} />)}
+        </Tabs>
+      </Box>
+      <Box sx={{ padding: '1em' }}>
+        <TierList index={value} displayName={displayName} items={items} />
+      </Box>
+    </Box>
+  );
 }
 
 function TierList({ items }) {
@@ -36,7 +51,8 @@ function TierList({ items }) {
     <Grid direction="column" container spacing={1}>
       {sortedTiers.map(([tier, list]) => {
         return <Grid direction="row" container spacing={1}>
-          {tier} {list.map(item => <DisplayItem item={item} />)}
+          <Card><Typography variant="h1" style={{padding: '16px'}}>{tier.toUpperCase()}</Typography></Card>
+          {list.map(item => <DisplayItem item={item} />)}
         </Grid>
       })}
     </Grid>

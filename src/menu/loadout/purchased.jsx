@@ -10,7 +10,6 @@ export default function Purchased() {
   const { purchased: purchased_ } = useSelector(selectPurchased);
   const purchased = purchased_.map(getConstant);
 
-  console.log(purchased);
   const lists = Object.groupBy(purchased, (item) => item.category);
 
   const dispatch = useDispatch();

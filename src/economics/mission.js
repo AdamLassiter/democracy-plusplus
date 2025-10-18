@@ -16,6 +16,20 @@ function faction(mission) {
   }[mission.faction];
 }
 
+function scaling(mission) {
+  if (mission.count < 3) {
+    return 'd';
+  } else if (mission.count < 5) {
+    return 'c';
+  } else if (mission.count < 7) {
+    return 'b';
+  } else if (mission.count < 9) {
+    return 'a';
+  } else {
+    return 's';
+  }
+}
+
 function missionTier(mission) {
   const missionFaction = faction(mission.faction);
   return {
@@ -36,6 +50,60 @@ function missionTier(mission) {
     "Take Down Overship": [null, null, 'a'],
     "Repel Invasion Fleet": [null, null, 's'],
   }[mission.objective][missionFaction];
+}
+
+function objectivesRequiredCount(mission) {
+  if (mission.count < 5) {
+    return 0;
+  } else if (mission.count < 9) {
+    return 1;
+  } else if (mission.count < 11) {
+    return 2;
+  } else {
+    return 3;
+  }
+}
+
+function restrictionsCount(mission) {
+  if (mission.count < 3) {
+    return 0;
+  } else if (mission.count < 7) {
+    return 1;
+  } else if (mission.count < 13) {
+    return 2;
+  } else {
+    return 3;
+  }
+}
+
+function objectivesCount(mission) {
+  if (mission.count < 5) {
+    return 1;
+  } else if (mission.count < 7) {
+    return 2;
+  } else if (mission.count < 11) {
+    return 3;
+  } else {
+    return 4;
+  }
+}
+
+function restrictions(mission, lastRestrictions=[]) {
+  const numRestrictions = restrictionsCount(mission);
+  // while numRestrictions
+  // choose random (except objectiverequired, except lastRestrictions)
+  // check no tag overlap
+  // add restriction, decrement count
+  const requiredObjectives = objectivesRequiredCount(mission);
+  // add restriction according to mission scaling factor
+}
+
+function objectives(mission, lastObjectives=[]) {
+  const numObjectives = objectivesCount(mission);
+  // while numObjectives
+  // choose random (except lastObjectives)
+  // check no tag overlap
+  // add objective according to mission scaling factor, decrement count
 }
 
 function missionReward(mission) {

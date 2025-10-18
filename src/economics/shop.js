@@ -19,17 +19,17 @@ function randomChoice(items, n = 1) {
 }
 
 function chooseOnSale(items, n = 12) {
-  const catSaleableItems = items.filter((item) => item.tier !== 'd');
-  const guaranteedCategories = Object.entries(Object.groupBy(catSaleableItems, (item) => item.category))
-    .forEach((category, catItems) => randomChoice(catItems, 1));
-  const randomSaleableItems = calculateItems.filter((item) => !guaranteedCategories.includes(item));
-  const randomSale = randomChoice(randomSaleableItems, n - guaranteedCategories.length);
-  const saleItems = [...guaranteedCategories, ...randomSale];
+  const midTierItems = items.filter((item) => item.tier !== 'd');
+  const onSaleByCategory = Object.entries(Object.groupBy(midTierItems, (item) => item.category))
+    .flatMap(([, catItems]) => randomChoice(catItems, 1));
+  const notYetOnSale = midTierItems.filter((item) => !onSaleByCategory.includes(item));
+  const randomlyOnSale = randomChoice(notYetOnSale, n - onSaleByCategory.length);
+  const onSaleItems = [...onSaleByCategory, ...randomlyOnSale];
 
-  if (saleItems.filter((item) => item.tier === 's').length > 2) {
+  if (onSaleItems.filter((item) => item.tier === 's').length > 2) {
     return chooseOnSale(items, n);
   } else {
-    return saleItems;
+    return onSaleItems;
   }
 }
 
@@ -54,16 +54,17 @@ function itemCost(item) {
   }[item.category];
 }
 
-function calculateItems(items) {
-  const onSale = chooseOnSale(items);
-  return items.map(item => {
+export function calculateShopItems(items) {
+  const onSale = chooseOnSale(items).map((item) => {
     const baseCost = itemCost(item);
-    let cost;
-    if (onSale.includes(item)) {
-      cost = sale(baseCost);
-    } else {
-      cost = randomFlux(baseCost);
-    }
-    return { ...item, cost };
+    const cost = sale(baseCost);
+    return { ...item, cost, onSale: true };
   });
+  const notOnSale = items.map(item => {
+    const baseCost = itemCost(item);
+    const cost = randomFlux(baseCost);
+    return { ...item, cost, onSale: false };
+  });
+
+  return [onSale, notOnSale];
 }

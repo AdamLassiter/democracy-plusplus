@@ -6,9 +6,11 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import './main.css';
 import Menu from './menu';
-import equipmentReducer from './slices/equipmentSlice';
 import creditsReducer from './slices/creditsSlice';
+import equipmentReducer from './slices/equipmentSlice';
+import preferencesReducer from './slices/preferencesSlice';
 import purchasedReducer from './slices/purchasedSlice';
+import shopReducer from './slices/shopSlice';
 
 const darkTheme = createTheme({
   palette: {
@@ -18,9 +20,11 @@ const darkTheme = createTheme({
 
 const store = configureStore({
   reducer: {
-    equipment: equipmentReducer,
     credits: creditsReducer,
+    equipment: equipmentReducer,
+    preferences: preferencesReducer,
     purchased: purchasedReducer,
+    shop: shopReducer,
   }
 });
 

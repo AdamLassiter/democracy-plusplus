@@ -1,30 +1,89 @@
 import { useState } from 'react'
-import { Box, Tab, Tabs } from '@mui/material';
+import { Box, SvgIcon, Tab, Tabs, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
+import { selectPreferences, setTitles, setTooltips } from '../slices/preferencesSlice';
+import { selectCredits } from '../slices/creditsSlice';
+import CreditsIcon from '/images/icons/dollar-circle.svg';
 
 export default function Menu() {
-  const [value, setValue] = useState(0);
+  const [currentTab, setCurrentTab] = useState(0);
+  const handleTabChange = (event, newValue) => {
+    setCurrentTab(newValue);
+  };
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const { credits } = useSelector(selectCredits);
+
+  const dispatch = useDispatch();
+  const { titles, tooltips } = useSelector(selectPreferences);
+  const handleTitlesChange = (event, newValue) => {
+    dispatch(setTitles(newValue === 'on'));
+  }
+  const handleTooltipsChange = (event, newValue) => {
+    dispatch(setTooltips(newValue === 'on'));
   };
 
   const tabs = [Loadout, Shop, TierLists];
-  const CurrentTab = tabs[value];
+  const CurrentTab = tabs[currentTab];
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange}>
+      {/* Flex container for Tabs and ToggleButtons */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          borderBottom: 1,
+          borderColor: 'divider',
+          flexWrap: 'wrap',
+        }}
+      >
+        {/* Tabs aligned to the left */}
+        <Tabs value={currentTab} onChange={handleTabChange}>
           <Tab label="Loadout" />
           <Tab label="Shop" />
           <Tab label="Tier List" />
         </Tabs>
+
+        {/* Credits aligned to the center */}
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <img src="/images/icons/skull-and-crossbones.svg" alt="icon" style={{ width: 24, height: 24 }} />
+          <Typography>Democracy++</Typography>
+        </Box>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <img src="/images/icons/dollar-circle.svg" alt="icon" style={{ width: 24, height: 24 }} />
+          <Typography>{credits}</Typography>
+        </Box>
+
+        {/* Preferences aligned to the right */}
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <ToggleButtonGroup
+            color="primary"
+            exclusive
+            value={titles ? 'on' : 'off'}
+            onChange={handleTitlesChange}
+          >
+            <ToggleButton value="on">Titles</ToggleButton>
+            <ToggleButton value="off">Hidden</ToggleButton>
+          </ToggleButtonGroup>
+
+          <ToggleButtonGroup
+            color="primary"
+            exclusive
+            value={tooltips ? 'on' : 'off'}
+            onChange={handleTooltipsChange}
+          >
+            <ToggleButton value="on">Tooltips</ToggleButton>
+            <ToggleButton value="off">Hidden</ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
       </Box>
+
       <Box sx={{ padding: '1em' }}>
-        <CurrentTab index={value} />
+        <CurrentTab index={currentTab} />
       </Box>
     </Box>
   );

@@ -1,21 +1,30 @@
-import { Box, Card, CardActionArea, CardContent, CardMedia, Tooltip, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, Tooltip, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
+import { selectPreferences } from "../slices/preferencesSlice";
 
 export default function DisplayItem({ item, onClick }) {
+  const { titles, tooltips } = useSelector(selectPreferences);
   const { imageUrl } = item;
 
-  return <ItemTooltip item={item}>
-    <Card onClick={onClick} variant="outlined">
+  const inner = <Card onClick={onClick} variant="outlined">
       <CardActionArea>
         <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`/images/${imageUrl}`} />
-        <Typography sx={{
+        {titles && <Typography sx={{
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
           width: '130px'
-        }}>{item.displayName}</Typography>
+        }}>{item.displayName}</Typography>}
       </CardActionArea>
-    </Card>
-  </ItemTooltip>;
+    </Card>;
+
+  if (tooltips) {
+    return <ItemTooltip item={item}>
+      {inner}
+    </ItemTooltip>;
+  } else {
+    return inner;
+  }
 }
 
 export function MissingPrimary({ item = { displayName: "Primary", imageUrl: "icons/gun.svg" }, onClick }) {
@@ -43,13 +52,20 @@ export function MissingStratagem({ item = { displayName: "Stratagem", imageUrl: 
 }
 
 function Missing({ item, onClick }) {
+  const { tooltips } = useSelector(selectPreferences);
   const { imageUrl = null } = item;
 
-  return <ItemTooltip item={item}>
-    <Card onClick={onClick} variant="outlined">
+  const inner = <Card onClick={onClick} variant="outlined">
       <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`/images/${imageUrl}`} />
-    </Card>
-  </ItemTooltip>;
+    </Card>;
+
+  if (tooltips) {
+    return <ItemTooltip item={item}>
+      {inner}
+    </ItemTooltip>;
+  } else {
+    return inner;
+  }
 }
 
 function ItemTooltip({ item: { displayName, type = "Select one...", category, tags, warbondCode, tier }, children }) {
