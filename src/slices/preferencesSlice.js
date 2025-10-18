@@ -19,7 +19,7 @@ const preferencesSlice = createSlice({
       const tooltips = action.payload;
       state.tooltips = tooltips;
     },
-    resetCredits: () => initialState,
+    resetPreferences: () => initialState,
   },
 });
 

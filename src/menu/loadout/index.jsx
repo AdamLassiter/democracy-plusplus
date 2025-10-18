@@ -1,6 +1,6 @@
 import { Divider, Grid } from "@mui/material";
 import MissionBrief from "./missionBrief";
-import Purchased from "./purchased";
+import Purchases from "./purchases";
 import Equipped from "./equipped";
 
 export default function Loadout() {
@@ -9,6 +9,6 @@ export default function Loadout() {
     <Divider />
     <Equipped />
     <Divider />
-    <Purchased />
+    <Purchases />
   </Grid>;
 }

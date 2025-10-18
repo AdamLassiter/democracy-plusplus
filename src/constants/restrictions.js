@@ -1,9 +1,9 @@
-const RESTRICTIONS = [
+export const RESTRICTIONS = [
   {
-    displayName: "Complete at least X optional objectives",
-    description: "",
+    displayName: "Complete at least X Discretionary Assignment(s)",
+    description: "Volunteering is mandatory!",
     type: "restriction",
-    category: "objectiverequired",
+    category: "questrequired",
     tier: null
   },
   {

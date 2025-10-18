@@ -16,8 +16,8 @@ export default function Shop() {
   }, [dispatch, shop.initialised]);
 
   return <Grid direction="column" spacing={2} container>
-    <OnSale items={shop.onSale}/>
+    <OnSale />
     <Divider />
-    <Inventory items={shop.inventory}/>
+    <Inventory />
   </Grid>;
 }

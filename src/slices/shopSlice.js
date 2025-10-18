@@ -19,6 +19,10 @@ const shopSlice = createSlice({
   name: 'shop',
   initialState,
   reducers: {
+    buyOnSale: (state, action) => {
+      const { value } = action.payload;
+      state.onSale = state.onSale.filter((item) => item.displayName !== value.displayName);
+    },
     resetShop: (state) => {
       const [onSale, inventory] = calculateShopItems([
         ARMOR_PASSIVES,
@@ -35,5 +39,5 @@ const shopSlice = createSlice({
   },
 });
 
-export const { resetShop } = shopSlice.actions;
+export const { buyOnSale, resetShop } = shopSlice.actions;
 export default shopSlice.reducer;

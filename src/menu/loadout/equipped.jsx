@@ -22,7 +22,7 @@ export default function Equipped() {
   };
 
   return <>
-    <Typography variant="h4">Equipment</Typography>
+    <Typography variant="h5">Equipment</Typography>
     <Grid direction="column" container spacing={1}>
       <Grid direction="row" container spacing={1}>
         {primary ? <DisplayItem item={getConstant(primary)} onClick={() => unequip(primary)} /> : <MissingPrimary />}

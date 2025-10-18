@@ -6,14 +6,17 @@ export default function DisplayItem({ item, onClick }) {
   const { titles, tooltips } = useSelector(selectPreferences);
   const { imageUrl } = item;
 
-  const inner = <Card onClick={onClick} variant="outlined">
+  const inner = <Card onClick={() => onClick(item)} variant="outlined">
       <CardActionArea>
-        <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`/images/${imageUrl}`} />
+        <CardMedia sx={{ margin: 1, width: 110 }} component="img" src={`/images/${imageUrl}`} />
         {titles && <Typography sx={{
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          width: '130px'
+          width: '110px',
+          fontSize: '15px',
         }}>{item.displayName}</Typography>}
       </CardActionArea>
     </Card>;
