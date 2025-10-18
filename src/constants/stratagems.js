@@ -192,6 +192,7 @@ export const STRATAGEMS = [
     internalName: "onetrueflag",
     imageUrl: "stratagems/onetrueflag.svg",
     tier: "d",
+    overrideCost: 1,
   },
   {
     displayName: "Airburst Rocket Launcher",
@@ -701,7 +702,7 @@ export const STRATAGEMS = [
     warbondCode: "warbond12",
     internalName: "eat12antitankemplacement",
     imageUrl: "stratagems/eat12antitankemplacement.svg",
-    tier: "d",
+    tier: "b",
   },
   {
     displayName: "Grenadier Battlement",

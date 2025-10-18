@@ -52,6 +52,7 @@ export const SECONDARIES = [
     internalName: "cqc19stunlance",
     imageUrl: "equipment/cqc19stunlance.png",
     tier: "d",
+    overrideCost: 3,
   },
   {
     displayName: "Stun Baton",
@@ -62,6 +63,7 @@ export const SECONDARIES = [
     internalName: "cqc30stunbaton",
     imageUrl: "equipment/cqc30stunbaton.png",
     tier: "d",
+    overrideCost: 3,
   },
   {
     displayName: "Stim Pistol",

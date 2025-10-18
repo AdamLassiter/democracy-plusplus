@@ -302,6 +302,7 @@ export const PRIMARIES = [
     internalName: "r2124constitution",
     imageUrl: "equipment/r2124constitution.png",
     tier: "d",
+    overrideCost: 1,
   },
   {
     displayName: "Scythe",
