@@ -1,8 +1,41 @@
 export function getWarbond(displayName) {
   return WARBONDS.find((item) => item.displayName === displayName);
 }
+export function getWarbondByCode(warbondCode) {
+  return WARBONDS.find((item) => item.warbondCode === warbondCode);
+}
 
 const WARBONDS = [
+  {
+    displayName: "None",
+    type: "Warbond",
+    category: "",
+    tags: [],
+    warbondCode: "none",
+    internalName: "noneWB",
+    imageUrl: "",
+    tier: "d",
+  },
+  {
+    displayName: "Super Citizen Preorder",
+    type: "Warbond",
+    category: "",
+    tags: [],
+    warbondCode: "warbond0",
+    internalName: "superCitizenWB",
+    imageUrl: "",
+    tier: "b",
+  },
+  {
+    displayName: "Super Store",
+    type: "Warbond",
+    category: "",
+    tags: [],
+    warbondCode: "warbond1",
+    internalName: "superStoreWB",
+    imageUrl: "",
+    tier: "a",
+  },
   {
     displayName: "Helldivers Mobilize",
     type: "Warbond",

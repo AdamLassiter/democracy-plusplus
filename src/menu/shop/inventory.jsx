@@ -1,10 +1,11 @@
 import { Badge, Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
-import DisplayItem from "../item";
+import ItemDisplay from "../itemDisplay";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
+import CarePackages from "./carePackage";
 
 export default function Inventory() {
   const [value, setValue] = useState(0);
@@ -38,6 +39,7 @@ export default function Inventory() {
   const stratagem = [...Supply, ...Eagle, ...Defense, ...Orbital];
 
   const shops = [
+    ["Care Packages", []],
     ["Armor Passives", armor],
     ["Boosters", booster],
     ["Primaries", primary],
@@ -56,7 +58,9 @@ export default function Inventory() {
         </Tabs>
       </Box>
       <Box sx={{ padding: '1em' }}>
-        <Shop index={value} items={list} onClick={buy} />
+        {value === 0
+          ? <CarePackages />
+          : <Shop index={value} items={list} onClick={buy} />}
       </Box>
     </Box>
   </>;
@@ -78,14 +82,16 @@ function Shop({ items, onClick }) {
 }
 
 function ShopTier({ items, tier, onClick }) {
+  const { credits } = useSelector(selectCredits);
   const list = [...items].sort((a, b) => b.cost - a.cost);
 
   return <>
     <Grid direction="row" container spacing={1}>
-      <Card><Typography variant="h1" style={{padding: '16px'}}>{tier.toUpperCase()}</Typography></Card>
+      <Card><Typography variant="h1" style={{padding: '16px', width: '96px'}}>{tier.toUpperCase()}</Typography></Card>
       {list.map(item => {
-        return <Badge badgeContent={item.cost} color="info">
-          <DisplayItem item={item} onClick={onClick}/>
+        const isAffordable = credits >= item.cost;
+        return <Badge badgeContent={item.cost} color={isAffordable ? "info" : "error"}>
+          <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable}/>
         </Badge>;
       })}
     </Grid>

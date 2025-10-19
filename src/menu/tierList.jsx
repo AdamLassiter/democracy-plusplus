@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { ARMOR_PASSIVES } from "../constants/armorpassives";
-import DisplayItem from "./item";
+import ItemDisplay from "./itemDisplay";
 import { BOOSTERS } from "../constants/boosters";
 import { PRIMARIES } from "../constants/primaries";
 import { SECONDARIES } from "../constants/secondaries";
@@ -51,8 +51,8 @@ function TierList({ items }) {
     <Grid direction="column" container spacing={1}>
       {sortedTiers.map(([tier, list]) => {
         return <Grid direction="row" container spacing={1}>
-          <Card><Typography variant="h1" style={{padding: '16px'}}>{tier.toUpperCase()}</Typography></Card>
-          {list.map(item => <DisplayItem item={item} />)}
+          <Card><Typography variant="h1" style={{padding: '16px', width: '96px'}}>{tier.toUpperCase()}</Typography></Card>
+          {list.map(item => <ItemDisplay item={item} />)}
         </Grid>
       })}
     </Grid>

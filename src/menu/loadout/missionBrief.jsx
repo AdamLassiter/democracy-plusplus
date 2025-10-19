@@ -13,7 +13,6 @@ export default function MissionBrief() {
   const mission = useSelector(selectMission);
 
   useEffect(() => {
-    console.log('mission is', mission);
     if (mission.state === 'generating') {
       const prng = new PRNG(mission.prng);
       const quests = calculateQuests(mission, prng, mission.quests);

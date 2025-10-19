@@ -5,8 +5,8 @@ import { buyOnSale, selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 
-export default function OnSale() {
-  const { onSale } = useSelector(selectShop);
+export default function CarePackages() {
+  const { carePackages } = useSelector(selectShop);
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
@@ -18,10 +18,9 @@ export default function OnSale() {
     }
   };
 
-  const list = [...onSale].sort((a, b) => b.cost - a.cost);
+  const list = [...carePackages].sort((a, b) => b.cost - a.cost);
 
   return <>
-    <Typography variant="h5">On Sale</Typography>
     <Grid direction="row" container spacing={1}>
       {list.map(item => {
         const isAffordable = credits >= item.cost;

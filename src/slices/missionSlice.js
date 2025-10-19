@@ -26,7 +26,9 @@ const missionSlice = createSlice({
     },
     setState: (state, action) => {
       const { value } = action.payload;
-      state.state = value;
+      if (states.includes(value)) {
+        state.state = value;
+      }
     },
     setFaction: (state, action) => {
       const { value } = action.payload;

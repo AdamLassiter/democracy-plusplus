@@ -2,7 +2,7 @@ import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addPurchased, selectPurchased, subtractPurchased } from "../../slices/purchasedSlice";
 import { getConstant } from "../../constants";
-import DisplayItem from "../item";
+import ItemDisplay from "../itemDisplay";
 import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipment } from "../../slices/equipmentSlice";
 import { useState } from "react";
 
@@ -79,6 +79,6 @@ function PurchasedList({ items, equip }) {
   items.sort((a, b) => a.category.localeCompare(b.category) || a.displayName.localeCompare(b.displayName) );
 
   return <Grid direction="row" container spacing={1}>
-    {items.map(item => <DisplayItem item={item} onClick={() => equip(item.displayName)} />)}
+    {items.map(item => <ItemDisplay item={item} onClick={() => equip(item.displayName)} />)}
   </Grid>
 }

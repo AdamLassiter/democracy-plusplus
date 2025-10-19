@@ -1,3 +1,5 @@
+import { ITEMS } from "../constants/items";
+
 function tier(item) {
   return {
     's': 4,
@@ -67,4 +69,36 @@ export function calculateShopItems(items) {
   });
 
   return [onSale, notOnSale];
+}
+
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+  );
+}
+
+function carePackage(grade, category) {
+  const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({tier: grade}));
+  console.log(contents);
+
+  return {
+    displayName: `${toTitleCase(grade)}-Tier ${toTitleCase(category)} Package`,
+    type: "Care Package",
+    category: category,
+    tags: ["lootbox"],
+    contents,
+    warbondCode: "none",
+    internalName: `${grade}-${category}-carepackage`,
+    imageUrl: "icons/dice.svg",
+    cost: 1,
+    tier: grade,
+  };
+}
+
+export function carePackages() {
+  return [
+    carePackage('s', 'primary'),
+    carePackage('a', 'Stratagem'),
+  ];
 }

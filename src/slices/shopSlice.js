@@ -1,16 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ARMOR_PASSIVES } from "../constants/armorpassives";
-import { BOOSTERS } from "../constants/boosters";
-import { PRIMARIES } from "../constants/primaries";
-import { SECONDARIES } from "../constants/secondaries";
-import { STRATAGEMS } from "../constants/stratagems";
-import { THROWABLES } from "../constants/throwables";
-import { calculateShopItems } from "../economics/shop";
+import { calculateShopItems, carePackages } from "../economics/shop";
+import { ITEMS } from '../constants/items';
 
 const initialState = {
   initialised: false,
   onSale: [],
   inventory: [],
+  carePackages: []
 };
 
 export const selectShop = (state) => state.shop;
@@ -21,19 +17,13 @@ const shopSlice = createSlice({
   reducers: {
     buyOnSale: (state, action) => {
       const { value } = action.payload;
-      state.onSale = state.onSale.filter((item) => item.displayName !== value.displayName);
+      state.onSale.find((item) => item.displayName === value.displayName).purchased = true;
     },
     resetShop: (state) => {
-      const [onSale, inventory] = calculateShopItems([
-        ARMOR_PASSIVES,
-        BOOSTERS,
-        PRIMARIES,
-        SECONDARIES,
-        THROWABLES,
-        STRATAGEMS,
-      ].flat());
+      const [onSale, inventory] = calculateShopItems(ITEMS);
       state.onSale = onSale;
       state.inventory = inventory;
+      state.carePackages = carePackages();
       state.initialised = true;
     },
   },
