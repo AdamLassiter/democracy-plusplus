@@ -1,11 +1,11 @@
 import { Divider, Grid } from "@mui/material";
-import MissionBrief from "./missionBrief";
+import Brief from "./brief";
 import Purchases from "./purchases";
 import Equipped from "./equipped";
 
 export default function Loadout() {
   return <Grid direction="column" spacing={2} container>
-    <MissionBrief />
+    <Brief />
     <Divider />
     <Equipped />
     <Divider />

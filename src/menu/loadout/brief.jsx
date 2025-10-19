@@ -8,12 +8,14 @@ import Setup from "./setup";
 import Quests from "./quests";
 import Restrictions from "./restrictions";
 
-export default function MissionBrief() {
+export default function Brief() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
 
+  const generatingState = mission.state === 'generating';
+
   useEffect(() => {
-    if (mission.state === 'generating') {
+    if (generatingState) {
       const prng = new PRNG(mission.prng);
       const quests = calculateQuests(mission, prng, mission.quests);
       const restrictions = calculateRestrictions(mission, quests, prng, mission.restrictions);
@@ -22,9 +24,6 @@ export default function MissionBrief() {
       dispatch(setRestrictions({ value: restrictions }));
       dispatch(setPrng({ value: prng.rand(65536) }));
       dispatch(setState({ value: 'loadout' }))
-    } else {
-      // dispatch(setQuests(quests));
-      // dispatch(setRestrictions(restrictions));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mission.state]);

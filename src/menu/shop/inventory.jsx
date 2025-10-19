@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
-import CarePackages from "./carePackage";
+import SupplyCrates from "./supplyCrate";
 
 export default function Inventory() {
   const [value, setValue] = useState(0);
@@ -39,7 +39,7 @@ export default function Inventory() {
   const stratagem = [...Supply, ...Eagle, ...Defense, ...Orbital];
 
   const shops = [
-    ["Care Packages", []],
+    ["Supply Crates", []],
     ["Armor Passives", armor],
     ["Boosters", booster],
     ["Primaries", primary],
@@ -59,7 +59,7 @@ export default function Inventory() {
       </Box>
       <Box sx={{ padding: '1em' }}>
         {value === 0
-          ? <CarePackages />
+          ? <SupplyCrates />
           : <Shop index={value} items={list} onClick={buy} />}
       </Box>
     </Box>

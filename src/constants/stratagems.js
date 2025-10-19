@@ -141,7 +141,7 @@ export const STRATAGEMS = [
     warbondCode: "warbond17",
     internalName: "epoch",
     imageUrl: "stratagems/epoch.svg",
-    tier: "b",
+    tier: "c",
   },
   {
     displayName: "Expendable Anti-Tank",

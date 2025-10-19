@@ -106,7 +106,7 @@ export const RESTRICTIONS = [
     tier: "c"
   },
   {
-    displayName: "Celebration emote on slaying Bile Titans and Dragon Roaches",
+    displayName: "Celebration emote after slaying Bile Titans and Dragon Roaches",
     description: "Ministry of Defence is trialing squad limb-checks in post-engagement scenarios.",
     type: "restriction",
     category: "social",
@@ -114,7 +114,7 @@ export const RESTRICTIONS = [
     tier: "a"
   },
   {
-    displayName: "Celebration emote on shutting down Tanks and Factory Striders",
+    displayName: "Celebration emote after shutting down Tanks and Factory Striders",
     description: "Ministry of Unity inform us this will curtail any further instances of post-combat inefficiency.",
     type: "restriction",
     category: "social",
@@ -122,7 +122,7 @@ export const RESTRICTIONS = [
     tier: "a"
   },
   {
-    displayName: "Celebration emote on obliterating Tripods and Stingrays",
+    displayName: "Celebration emote after obliterating Harvesters and Stingrays",
     description: "Ministry of Unity inform us this will prevent further instances of squid mind-control.",
     type: "restriction",
     category: "social",

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   prng: Math.floor(Math.random() * 65536),
-  count: 15,
+  count: 1,
   faction: 0,
   objective: 0,
   state: 'brief',
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const states = [
-  'brief', 'generating', 'loadout', 'report',
+  'brief', 'generating', 'loadout', 'debrief',
 ];
 
 export const selectMission = (state) => state.mission;
@@ -50,9 +50,9 @@ const missionSlice = createSlice({
       const { value } = action.payload;
       state.restrictions = value;
     },
-    resetMission: () => initialState,
+    resetMission: (state) => ({ ...initialState, prng: state.prng, count: state.count + 1 }),
   },
 });
 
-export const { setPrng, setFaction, setObjective, setCount, setState, setRestrictions, setQuests } = missionSlice.actions;
+export const { setPrng, setFaction, setObjective, setCount, setState, setRestrictions, setQuests, resetMission } = missionSlice.actions;
 export default missionSlice.reducer;

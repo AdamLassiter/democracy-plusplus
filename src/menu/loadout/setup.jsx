@@ -3,31 +3,38 @@ import { FACTIONS } from "../../constants/factions";
 import { getObjectives } from "../../constants/objectives";
 import { selectMission, setFaction, setObjective, setState } from "../../slices/missionSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Debrief from "./debrief";
+import { calculateFaction } from "../../economics/mission";
 
 export default function Setup() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
 
   const handleFaction = (event) => {
-    dispatch(setFaction(event.target.value));
-    dispatch(setObjective(0));
+    dispatch(setFaction({ value: event.target.value }));
+    dispatch(setObjective({ value: 0 }));
   };
   const handleObjective = (event) => {
-    dispatch(setObjective(event.target.value));
+    dispatch(setObjective({ value: event.target.value }));
   };
   const handleLockIn = () => {
     dispatch(setState({ value: 'generating' }));
   };
+  const handleDebrief = () => {
+    dispatch(setState({ value: 'debrief' }));
+  };
 
-  const locked = mission.state !== 'brief';
+  const briefState = mission.state === 'brief';
+  const loadoutState = mission.state === 'loadout';
+  const debriefState = mission.state === 'debrief';
 
-  return <Grid direction="column" container spacing={1}>
+  return <Grid direction="column" container spacing={2}>
     <Typography variant="h5">Mission Brief</Typography>
     <FormControl sx={{ width: '250px' }}>
       <InputLabel>Faction</InputLabel>
       <Select
         value={mission.faction}
-        disabled={locked}
+        disabled={!briefState}
         label="Faction"
         onChange={handleFaction}
       >
@@ -38,13 +45,18 @@ export default function Setup() {
       <InputLabel>Objective</InputLabel>
       <Select
         value={mission.objective}
-        disabled={locked}
+        disabled={!briefState}
         label="Objective"
         onChange={handleObjective}
       >
-        {getObjectives(FACTIONS[mission.faction]).map(((objective, i) => <MenuItem value={i}>{objective}</MenuItem>))}
+        {getObjectives(FACTIONS[mission.faction]).map(((objective, i) =>
+          <MenuItem value={i}>
+            {objective.tier[calculateFaction(mission)].toUpperCase()} - {objective.displayName}
+          </MenuItem>))}
       </Select>
     </FormControl>
-    <Button variant="outlined" onClick={handleLockIn} disabled={locked}>Lock In</Button>
+    <Button variant="outlined" onClick={handleLockIn} disabled={!briefState}>Lock In</Button>
+    <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState}>Debrief</Button>
+    {debriefState && <Debrief />}
   </Grid>;
 }

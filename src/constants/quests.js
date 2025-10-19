@@ -32,7 +32,7 @@ export const QUESTS = [
     category: "mobility",
     datatype: "float",
     tags: ["exclusivetravel"],
-    values: [5, 4.25, 3.5, 2.75, 2],
+    values: [7, 6.25, 5.5, 4.75, 4],
     rewards: [20, 27, 35, 42, 50],
   },
   {

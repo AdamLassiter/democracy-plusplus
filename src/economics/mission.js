@@ -1,7 +1,8 @@
 import { RESTRICTIONS } from "../constants/restrictions";
 import { QUESTS } from "../constants/quests";
+import { getObjectives } from "../constants/objectives";
 
-function stars(mission) {
+function calculateStars(mission) {
   return {
     1: 0.2,
     2: 0.4,
@@ -11,12 +12,12 @@ function stars(mission) {
   }[mission.stars];
 }
 
-function faction(mission) {
-  return {
-    "Terminids": 0,
-    "Automatons": 1,
-    "Illuminate": 2,
-  }[mission.faction];
+export function calculateFaction(mission) {
+  return [
+    "Terminids",
+    "Automatons",
+    "Illuminate",
+  ][mission.faction];
 }
 
 function tier(restriction) {
@@ -53,26 +54,8 @@ function randomChoice(items, prng, n = 1) {
   return selected;
 }
 
-function missionTier(mission) {
-  const missionFaction = faction(mission.faction);
-  return {
-    "Spread Democracy": ['s', 's', 'b'],
-    "Conduct Geological Survey": ['a', 'a', null],
-    "Retrieve Valuable Data": ['b', 'b', 'b'],
-    "Emergency Evacuation": ['a', 'a', 'a'],
-    "Blitz: Search and Destroy": ['c', 'c', 'c'],
-    "Eradicate": ['d', 'd', 'd'],
-    "Launch ICBM": ['a', 'a', 'a'],
-    "Evacuate Civilians": ['s', 's', 's'],
-    "Purge Hatcheries": ['c', null, null],
-    "Enable Oil Extraction": ['a', null, null],
-    "Nuke Nursery": ['b', null, null],
-    "Sabotage Air Base": [null, 'a', null],
-    "Destroy Command Bunkers": [null, 'a', null],
-    "Neutralize Orbital Defenses": [null, 'a', null],
-    "Take Down Overship": [null, null, 'a'],
-    "Repel Invasion Fleet": [null, null, 's'],
-  }[mission.objective][missionFaction];
+export function calculateMissionTier(mission) {
+  return getObjectives(mission.faction)[mission.objective].tier[calculateFaction(mission)];
 }
 
 function questsRequiredCount(mission) {
@@ -133,7 +116,8 @@ function chooseRestrictions(pool, quests, prng, n) {
   }
 
   while (n > 0) {
-    const restrictionCandidate = randomChoice(pool.filter((candidate) => !restrictions.includes(candidate)), prng, 1)[0];
+    const dedupedPool = pool.filter((candidate) => !restrictions.includes(candidate));
+    const restrictionCandidate = randomChoice(dedupedPool, prng, 1)[0];
     const allowed = !restrictionCandidate.tags;
     if (allowed) {
       restrictions.push(restrictionCandidate);
@@ -174,7 +158,8 @@ function scaleQuest(quest, prng, scaling) {
 function chooseQuests(pool, prng, n, scaling) {
   const quests = [];
   while (n > 0) {
-    const questCandidate = randomChoice(pool.filter((candidate) => !quests.some((quest) => quest.category === candidate.category)), prng, 1)[0];
+    const dedupedPool = pool.filter((candidate) => !quests.some((quest) => quest.category === candidate.category));
+    const questCandidate = randomChoice(dedupedPool, prng, 1)[0];
     const allowed = quests.every((quest) => (quest.tags || []).every((tag) => !(questCandidate.tags || []).includes(tag)))
     if (allowed) {
       quests.push(questCandidate);
@@ -200,9 +185,10 @@ export function calculateQuests(mission, prng, lastQuests=[]) {
   return chooseQuests(pool, prng, numQuests, questScaling);
 }
 
-export function missionReward(mission) {
-  const missionTier = missionTier(mission);
-  const stars = stars(mission);
+export function calculateMissionReward(mission) {
+  const stars = calculateStars(mission);
+
+  const missionTier = calculateMissionTier(mission);
   const tierCost = {
     's': 1.5,
     'a': 1.2,
@@ -211,5 +197,17 @@ export function missionReward(mission) {
     'd': 0.7,
   }[missionTier];
 
-  return stars * tierCost;
+  return Math.round(100 * stars * tierCost);
+}
+
+export function calculateQuestsReward(quests) {
+  return quests.filter((quest) => quest.completed)
+    .map((quest) => quest.reward)
+    .reduce((a, b) => a + b, 0);
+}
+
+export function calculateRestrictionsReward(restrictions, missionReward, questsReward) {
+  return restrictions.every((restriction) => restriction.completed)
+    ? 0
+    : 0 - missionReward - questsReward;
 }

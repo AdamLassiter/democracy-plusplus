@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { calculateShopItems, carePackages } from "../economics/shop";
+import { calculateShopItems, supplyCrates } from "../economics/shop";
 import { ITEMS } from '../constants/items';
 
 const initialState = {
   initialised: false,
   onSale: [],
   inventory: [],
-  carePackages: []
+  supplyCrates: []
 };
 
 export const selectShop = (state) => state.shop;
@@ -23,7 +23,7 @@ const shopSlice = createSlice({
       const [onSale, inventory] = calculateShopItems(ITEMS);
       state.onSale = onSale;
       state.inventory = inventory;
-      state.carePackages = carePackages();
+      state.supplyCrates = supplyCrates();
       state.initialised = true;
     },
   },

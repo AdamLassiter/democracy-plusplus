@@ -5,8 +5,8 @@ import { buyOnSale, selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 
-export default function CarePackages() {
-  const { carePackages } = useSelector(selectShop);
+export default function SupplyCrates() {
+  const { supplyCrates } = useSelector(selectShop);
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ export default function CarePackages() {
     }
   };
 
-  const list = [...carePackages].sort((a, b) => b.cost - a.cost);
+  const list = [...supplyCrates].sort((a, b) => b.cost - a.cost);
 
   return <>
     <Grid direction="row" container spacing={1}>

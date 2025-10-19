@@ -78,7 +78,7 @@ function toTitleCase(str) {
   );
 }
 
-function carePackage(grade, category) {
+function tieredCrate(grade, category) {
   const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({tier: grade}));
   console.log(contents);
 
@@ -96,9 +96,9 @@ function carePackage(grade, category) {
   };
 }
 
-export function carePackages() {
+export function supplyCrates() {
   return [
-    carePackage('s', 'primary'),
-    carePackage('a', 'Stratagem'),
+    tieredCrate('s', 'primary'),
+    tieredCrate('a', 'Stratagem'),
   ];
 }

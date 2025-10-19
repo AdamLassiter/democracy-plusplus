@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Box, Tab, Tabs, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Tab, Tabs, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
 import { selectPreferences, setTitles, setTooltips } from '../slices/preferencesSlice';
 import { selectCredits } from '../slices/creditsSlice';
-import { selectMission, setPrng } from '../slices/missionSlice';
+import { selectMission } from '../slices/missionSlice';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -26,9 +26,10 @@ export default function Menu() {
   };
 
   const mission = useSelector(selectMission);
-  const { prng } = mission;
-  const handlePrng = (event) => {
-    dispatch(setPrng(event.target.value));
+  const { prng, count } = mission;
+  const handlePrng = () => {
+    // do a modal
+    // dispatch(setPrng(event.target));
   };
 
   const tabs = [Loadout, Shop, TierLists];
@@ -55,6 +56,10 @@ export default function Menu() {
         </Tabs>
 
         {/* Credits aligned to the center */}
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <img src="/images/icons/medal.svg" alt="icon" style={{ width: 24, height: 24 }} />
+          <Typography>Mission {count}</Typography>
+        </Box>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <img src="/images/icons/skull-and-crossbones.svg" alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>Democracy++</Typography>
@@ -86,7 +91,14 @@ export default function Menu() {
             <ToggleButton value="off">Hidden</ToggleButton>
           </ToggleButtonGroup>
 
-          <TextField sx={{width: '80px'}} value={prng} variant="outlined" onChange={handlePrng}/>
+          <Button
+            sx={{ width: '80px' }}
+            variant="outlined"
+            onClick={handlePrng}
+            startIcon={<CircularProgress size={12} />}
+          >
+            {prng}
+          </Button>
         </Box>
       </Box>
 
