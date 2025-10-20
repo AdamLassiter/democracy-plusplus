@@ -19,9 +19,12 @@ const preferencesSlice = createSlice({
       const tooltips = action.payload;
       state.tooltips = tooltips;
     },
+    setPreferencesState: (state, action) => {
+      return action.payload;
+    },
     resetPreferences: () => initialState,
   },
 });
 
-export const { setTitles, setTooltips } = preferencesSlice.actions;
+export const { setTitles, setTooltips, setPreferencesState, resetPreferences } = preferencesSlice.actions;
 export default preferencesSlice.reducer;

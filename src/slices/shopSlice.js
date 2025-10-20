@@ -19,6 +19,9 @@ const shopSlice = createSlice({
       const { value } = action.payload;
       state.onSale.find((item) => item.displayName === value.displayName).purchased = true;
     },
+    setShopState: (state, action) => {
+      return action.payload;
+    },
     resetShop: (state) => {
       const [onSale, inventory] = calculateShopItems(ITEMS);
       state.onSale = onSale;
@@ -29,5 +32,5 @@ const shopSlice = createSlice({
   },
 });
 
-export const { buyOnSale, resetShop } = shopSlice.actions;
+export const { buyOnSale, setShopState, resetShop } = shopSlice.actions;
 export default shopSlice.reducer;

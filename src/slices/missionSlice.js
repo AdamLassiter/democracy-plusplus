@@ -50,9 +50,12 @@ const missionSlice = createSlice({
       const { value } = action.payload;
       state.restrictions = value;
     },
+    setMissionState: (state, action) => {
+      return action.payload;
+    },
     resetMission: (state) => ({ ...initialState, prng: state.prng, count: state.count + 1 }),
   },
 });
 
-export const { setPrng, setFaction, setObjective, setCount, setState, setRestrictions, setQuests, resetMission } = missionSlice.actions;
+export const { setPrng, setFaction, setObjective, setCount, setState, setRestrictions, setQuests, setMissionState, resetMission } = missionSlice.actions;
 export default missionSlice.reducer;

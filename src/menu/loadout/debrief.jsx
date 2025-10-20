@@ -15,7 +15,7 @@ export default function Debrief() {
   const [quests, setQuests] = useState(mission.quests);
   const defaultRestrictions = mission.restrictions.map((restriction) => ({ ...restriction, completed: true }));
   const [restrictions, setRestrictions] = useState(defaultRestrictions);
-  const [isOpen, setIsOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
   const missionReward = calculateMissionReward({ ...mission, stars });
   const questsReward = calculateQuestsReward(quests);
@@ -38,17 +38,15 @@ export default function Debrief() {
     setQuests(newQuests);
   }
 
-  const onClose = () => { };
-
   const handleSubmit = () => {
-    setIsOpen(false);
+    setOpen(false);
     dispatch(addCredits({ amount: totalReward }));
     dispatch(resetEquipment());
     dispatch(setState({ value: 'brief' }));
     dispatch(resetMission());
   };
 
-  return <Dialog open={isOpen} onClose={onClose}>
+  return <Dialog open={open}>
     <DialogTitle>
       Mission Debrief
     </DialogTitle>
@@ -89,7 +87,7 @@ export default function Debrief() {
           {missionReward}¢ - {calculateMissionTier(mission).toUpperCase()}-Tier Mission Reward
         </Typography>
         <Typography color={questsReward > 0 ? "success" : "warning"}>
-          {questsReward}¢ - {} Discretionary Bonus
+          {questsReward}¢ - { } Discretionary Bonus
         </Typography>
         <Typography color={restrictionsReward < 0 ? "error" : "success"}>
           {restrictionsReward}¢ Disciplinary Fines

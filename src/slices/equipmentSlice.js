@@ -56,9 +56,12 @@ const equipmentSlice = createSlice({
         item === value ? null : item
       );
     },
+    setEquipmentState: (state, action) => {
+      return action.payload;
+    },
     resetEquipment: () => initialState,
   },
 });
 
-export const { setSlot, setStratagem, unsetEquipment, resetEquipment } = equipmentSlice.actions;
+export const { setSlot, setStratagem, unsetEquipment, setEquipmentState, resetEquipment } = equipmentSlice.actions;
 export default equipmentSlice.reducer;

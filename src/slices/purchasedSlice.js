@@ -18,9 +18,12 @@ const purchasedSlice = createSlice({
       const { value } = action.payload
       state.purchased.splice(state.purchased.indexOf(value), 1);
     },
+    setPurchasedState: (state, action) => {
+      return action.payload;
+    },
     resetPurchased: () => initialState,
   },
 });
 
-export const { addPurchased, subtractPurchased, setPurchased, resetPurchased } = purchasedSlice.actions;
+export const { addPurchased, subtractPurchased, setPurchased, setPurchasedState, resetPurchased } = purchasedSlice.actions;
 export default purchasedSlice.reducer;

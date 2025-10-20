@@ -7,6 +7,7 @@ import TierLists from './tierList';
 import { selectPreferences, setTitles, setTooltips } from '../slices/preferencesSlice';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
+import ApplicationState from './appState';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -27,9 +28,9 @@ export default function Menu() {
 
   const mission = useSelector(selectMission);
   const { prng, count } = mission;
+  const [appState, setAppState] = useState(false);
   const handlePrng = () => {
-    // do a modal
-    // dispatch(setPrng(event.target));
+    setAppState(true);
   };
 
   const tabs = [Loadout, Shop, TierLists];
@@ -105,6 +106,8 @@ export default function Menu() {
       <Box sx={{ padding: '1em' }}>
         <CurrentTab index={currentTab} />
       </Box>
+
+      {appState && <ApplicationState open={appState} setOpen={setAppState} />}
     </Box>
   );
 }
