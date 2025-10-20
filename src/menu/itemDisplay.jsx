@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectPreferences } from "../slices/preferencesSlice";
 import { getWarbondByCode } from "../constants/warbonds";
 
-export default function ItemDisplay({ item, onClick, isAffordable=true }) {
+export default function ItemDisplay({ item, onClick, isAffordable = true }) {
   const { titles, tooltips } = useSelector(selectPreferences);
   const { imageUrl } = item;
 
@@ -15,7 +15,7 @@ export default function ItemDisplay({ item, onClick, isAffordable=true }) {
     }}
     variant="outlined">
     <CardActionArea>
-      <CardMedia sx={{ margin: 1, width: 110 }} component="img" src={`/images/${imageUrl}`} />
+      <CardMedia sx={{ margin: 1, width: 110 }} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />
       {titles && <Typography sx={{
         display: '-webkit-box',
         WebkitLineClamp: 2,
@@ -66,7 +66,7 @@ function Missing({ item, onClick }) {
   const { imageUrl = null } = item;
 
   const inner = <Card onClick={onClick} variant="outlined">
-    <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`/images/${imageUrl}`} />
+    <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />
   </Card>;
 
   if (tooltips) {
