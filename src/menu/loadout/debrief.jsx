@@ -6,6 +6,7 @@ import { calculateMissionReward, calculateMissionTier, calculateQuestsReward, ca
 import { addCredits } from "../../slices/creditsSlice";
 import { resetEquipment } from "../../slices/equipmentSlice";
 import { FACTIONS } from "../../constants/factions";
+import { resetShop } from "../../slices/shopSlice";
 
 export default function Debrief() {
   const dispatch = useDispatch();
@@ -42,8 +43,9 @@ export default function Debrief() {
     setOpen(false);
     dispatch(addCredits({ amount: totalReward }));
     dispatch(resetEquipment());
-    dispatch(setState({ value: 'brief' }));
+    dispatch(resetShop());
     dispatch(resetMission());
+    dispatch(setState({ value: 'brief' }));
   };
 
   return <Dialog open={open}>

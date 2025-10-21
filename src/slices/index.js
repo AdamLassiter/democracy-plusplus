@@ -6,7 +6,7 @@ import preferencesReducer from './preferencesSlice';
 import purchasedReducer from './purchasedSlice';
 import shopReducer from './shopSlice';
 
-export const store = configureStore({
+export const store = () => configureStore({
   reducer: {
     credits: creditsReducer,
     equipment: equipmentReducer,

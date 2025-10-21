@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  stratagems: ["Orbital Smoke Strike", null, null, null],
-  primary: "Constitution",
+  stratagems: [null, null, null, null],
+  primary: null,
   secondary: null,
   throwable: null,
   armorPassive: null,
@@ -46,15 +46,18 @@ const equipmentSlice = createSlice({
     unsetEquipment: (state, action) => {
       const { value } = action.payload;
 
+      // Unequip non-stratagems
       for (const key of Object.keys(state)) {
         if (key !== 'stratagems' && state[key] === value) {
           state[key] = null;
         }
       }
 
-      state.stratagems = state.stratagems.map((item) =>
-        item === value ? null : item
-      );
+      // Unequip (one) stratagem
+      const stratagemIndex = state.stratagems.find(value);
+      if (stratagemIndex !== -1) {
+        state.stratagems[stratagemIndex] = null;
+      }
     },
     setEquipmentState: (state, action) => {
       return action.payload;

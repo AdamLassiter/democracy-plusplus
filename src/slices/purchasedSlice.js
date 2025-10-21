@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  purchased: ["Adreno-Defibrillator"],
+  purchased: [],
 };
 
 export const selectPurchased = (state) => state.purchased;

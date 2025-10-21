@@ -8,6 +8,7 @@ import { selectPreferences, setTitles, setTooltips } from '../slices/preferences
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
 import ApplicationState from './appState';
+import WarbondsFilter from './warbondsFilter';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -92,11 +93,12 @@ export default function Menu() {
             <ToggleButton value="off">Hidden</ToggleButton>
           </ToggleButtonGroup>
 
+          <WarbondsFilter />
+
           <Button
             sx={{ width: '80px' }}
             variant="outlined"
             onClick={handlePrng}
-            startIcon={<CircularProgress size={12} />}
           >
             {prng}
           </Button>

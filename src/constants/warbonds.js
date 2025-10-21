@@ -5,7 +5,7 @@ export function getWarbondByCode(warbondCode) {
   return WARBONDS.find((item) => item.warbondCode === warbondCode);
 }
 
-const WARBONDS = [
+export const WARBONDS = [
   {
     displayName: "None",
     type: "Warbond",
@@ -185,6 +185,16 @@ const WARBONDS = [
     internalName: "controlGroupWB",
     imageUrl: "warbonds/controlGroupWB.png",
     tier: "a",
+  },
+  {
+    displayName: "Killzone",
+    type: "Warbond",
+    category: "",
+    tags: [],
+    warbondCode: "warbond18",
+    internalName: "odstWB",
+    imageUrl: "warbonds/odstWB.png",
+    tier: "b",
   },
   {
     displayName: "ODST",

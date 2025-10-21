@@ -180,7 +180,7 @@ export const SECONDARIES = [
     type: "Equipment",
     category: "secondary",
     tags: [],
-    warbondCode: "warbond1",
+    warbondCode: "warbond16",
     internalName: "p92warrant",
     imageUrl: "equipment/p92warrant.png",
     tier: "b",

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  credits: 100,
+  credits: 200,
 };
 
 export const selectCredits = (state) => state.credits;
