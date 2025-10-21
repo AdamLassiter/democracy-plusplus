@@ -2,12 +2,15 @@ import { RESTRICTIONS } from "../constants/restrictions";
 import { QUESTS } from "../constants/quests";
 import { getObjectives } from "../constants/objectives";
 
-function calculateStars(mission) {
+const BASE_REWARD = 100;
+
+function calculateStarsModifier(mission) {
   return {
-    1: 0.2,
-    2: 0.4,
-    3: 0.6,
-    4: 0.8,
+    0: 0.0,
+    1: 0.4,
+    2: 0.55,
+    3: 0.7,
+    4: 0.85,
     5: 1.0,
   }[mission.stars];
 }
@@ -20,7 +23,7 @@ export function calculateFaction(mission) {
   ][mission.faction];
 }
 
-function tier(restriction) {
+function restrictionTier(restriction) {
   return {
     's': 4,
     'a': 3,
@@ -30,8 +33,24 @@ function tier(restriction) {
   }[restriction.tier]
 }
 
-function reverseTier(scaling) {
-  return ['d', 'c', 'b', 'a', 's'][scaling];
+function calculateMissionModifier(missionTier) {
+  return {
+    's': 1.5,
+    'a': 1.2,
+    'b': 1.0,
+    'c': 0.85,
+    'd': 0.7,
+  }[missionTier];
+}
+
+function questsRequiredTier(scaling) {
+  return {
+    's': 4,
+    'a': 3,
+    'b': 2,
+    'c': 1,
+    'd': 0,
+  }[scaling];
 }
 
 function scaling(mission) {
@@ -75,7 +94,7 @@ function questsRequired(mission) {
   if (count) {
     const questRestriction = RESTRICTIONS.find((restriction) => restriction.category === 'questrequired');
     const displayName = questRestriction.displayName.replace('X', count);
-    return [ { ...questRestriction, tier: reverseTier(count), displayName } ];
+    return [ { ...questRestriction, tier: questsRequiredTier(count), displayName } ];
   } else {
     return [];
   }
@@ -172,7 +191,7 @@ function chooseQuests(pool, prng, n, scaling) {
 export function calculateRestrictions(mission, quests, prng, lastRestrictions=[]) {
   const numRestrictions = restrictionsCount(mission);
   const restrictionScaling = scaling(mission);
-  const pool = RESTRICTIONS.filter((restriction) => !lastRestrictions.includes(restriction) && tier(restriction) <= restrictionScaling);
+  const pool = RESTRICTIONS.filter((restriction) => !lastRestrictions.includes(restriction) && restrictionTier(restriction) <= restrictionScaling);
   const chosen = chooseRestrictions(pool, quests, prng, numRestrictions);
   const requiredQuests = questsRequired(mission);
   return [requiredQuests, chosen].flat();
@@ -186,18 +205,12 @@ export function calculateQuests(mission, prng, lastQuests=[]) {
 }
 
 export function calculateMissionReward(mission) {
-  const stars = calculateStars(mission);
+  const stars = calculateStarsModifier(mission);
 
   const missionTier = calculateMissionTier(mission);
-  const tierCost = {
-    's': 1.5,
-    'a': 1.2,
-    'b': 1.0,
-    'c': 0.85,
-    'd': 0.7,
-  }[missionTier];
+  const missionModifier = calculateMissionModifier(missionTier);
 
-  return Math.round(100 * stars * tierCost);
+  return Math.round(BASE_REWARD * stars * missionModifier);
 }
 
 export function calculateQuestsReward(quests) {

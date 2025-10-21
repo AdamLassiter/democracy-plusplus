@@ -54,10 +54,8 @@ const equipmentSlice = createSlice({
       }
 
       // Unequip (one) stratagem
-      const stratagemIndex = state.stratagems.find(value);
-      if (stratagemIndex !== -1) {
-        state.stratagems[stratagemIndex] = null;
-      }
+      const stratagemIndex = state.stratagems.indexOf(value);
+      state.stratagems = state.stratagems.map((stratagem, i) => stratagemIndex === i ? null : stratagem);
     },
     setEquipmentState: (state, action) => {
       return action.payload;

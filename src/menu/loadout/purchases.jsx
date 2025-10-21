@@ -68,7 +68,7 @@ export default function Purchases() {
           {purchasedLists.map(([displayName]) => <Tab label={displayName} />)}
         </Tabs>
       </Box>
-      <Box sx={{ padding: '1em' }}>
+      <Box paddingTop={1}>
         <PurchasedList index={value} items={items} equip={equip} />
       </Box>
     </Box>

@@ -5,7 +5,7 @@ export const QUESTS = [
     type: "objective",
     category: "mobility",
     values: [25, 37, 50, 62, 75],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Cover at least X km",
@@ -15,7 +15,7 @@ export const QUESTS = [
     datatype: "float",
     tags: ["exclusivetravel"],
     values: [4, 5.5, 7, 8.5, 10],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Extract with at least X% time remaining",
@@ -23,7 +23,7 @@ export const QUESTS = [
     type: "objective",
     category: "mobility",
     values: [15, 24, 32, 41, 50],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Cover at most X km",
@@ -33,7 +33,7 @@ export const QUESTS = [
     datatype: "float",
     tags: ["exclusivetravel"],
     values: [7, 6.25, 5.5, 4.75, 4],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Secure at least X kills",
@@ -42,7 +42,7 @@ export const QUESTS = [
     category: "lethality",
     tags: ["exclisivekills"],
     values: [250, 362, 475, 587, 700],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Secure at least X melee kills",
@@ -51,7 +51,7 @@ export const QUESTS = [
     category: "lethality",
     tags: ["exclisivekills"],
     values: [10, 32, 55, 77, 100],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Achieve at least X% weapon accuracy",
@@ -59,7 +59,7 @@ export const QUESTS = [
     type: "objective",
     category: "lethality",
     values: [50, 61, 73, 84, 95],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Call in at least X stratagems",
@@ -68,7 +68,7 @@ export const QUESTS = [
     category: "lethality",
     tags: ["exclisivestratagems"],
     values: [25, 29, 32, 36, 40],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Fire at least X rounds",
@@ -77,7 +77,7 @@ export const QUESTS = [
     category: "lethality",
     tags: ["exclisiveammunition"],
     values: [500, 1000, 1500, 2000, 2500],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Die at most X times",
@@ -85,7 +85,7 @@ export const QUESTS = [
     type: "objective",
     category: "survivability",
     values: [8, 6, 5, 3, 1],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Maintain a K:D of X:1",
@@ -93,7 +93,7 @@ export const QUESTS = [
     type: "objective",
     category: "survivability",
     values: [60, 107, 155, 202, 250],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Stim at most X times",
@@ -101,7 +101,7 @@ export const QUESTS = [
     type: "objective",
     category: "survivability",
     values: [25, 20, 15, 10, 5],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Be responsible for at most X accidentals",
@@ -109,7 +109,7 @@ export const QUESTS = [
     type: "objective",
     category: "survivability",
     values: [2, 2, 1, 1, 0],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Secure at most X kills",
@@ -118,7 +118,7 @@ export const QUESTS = [
     category: "stealth",
     tags: ["exclisivekills"],
     values: [200, 163, 125, 88, 50],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Call in at most X stratagems",
@@ -127,7 +127,7 @@ export const QUESTS = [
     category: "stealth",
     tags: ["exclisivestratagems"],
     values: [30, 25, 20, 15, 10],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Fire at most X rounds",
@@ -136,7 +136,7 @@ export const QUESTS = [
     category: "stealth",
     tags: ["exclisiveammunition"],
     values: [300, 244, 187, 131, 75],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
   {
     displayName: "Allow enemy reinforcements at most X times",
@@ -145,6 +145,6 @@ export const QUESTS = [
     category: "stealth",
     tags: ["exclisivekills"],
     values: [25, 20, 15, 10, 5],
-    rewards: [20, 27, 35, 42, 50],
+    rewards: [30, 35, 40, 45, 50],
   },
 ];

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Box, Button, CircularProgress, Tab, Tabs, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
-import { selectPreferences, setTitles, setTooltips } from '../slices/preferencesSlice';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
-import ApplicationState from './appState';
+import Settings from './settings';
 import WarbondsFilter from './warbondsFilter';
+import { Settings as SettingsIcon } from '@mui/icons-material';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -18,19 +18,10 @@ export default function Menu() {
 
   const { credits } = useSelector(selectCredits);
 
-  const dispatch = useDispatch();
-  const { titles, tooltips } = useSelector(selectPreferences);
-  const handleTitlesChange = (event, newValue) => {
-    dispatch(setTitles(newValue === 'on'));
-  }
-  const handleTooltipsChange = (event, newValue) => {
-    dispatch(setTooltips(newValue === 'on'));
-  };
-
   const mission = useSelector(selectMission);
   const { prng, count } = mission;
   const [appState, setAppState] = useState(false);
-  const handlePrng = () => {
+  const handleAppState = () => {
     setAppState(true);
   };
 
@@ -73,33 +64,16 @@ export default function Menu() {
 
         {/* Preferences aligned to the right */}
         <Box sx={{ display: 'flex', gap: 1 }}>
-          <ToggleButtonGroup
-            color="primary"
-            exclusive
-            value={titles ? 'on' : 'off'}
-            onChange={handleTitlesChange}
-          >
-            <ToggleButton value="on">Titles</ToggleButton>
-            <ToggleButton value="off">Hidden</ToggleButton>
-          </ToggleButtonGroup>
-
-          <ToggleButtonGroup
-            color="primary"
-            exclusive
-            value={tooltips ? 'on' : 'off'}
-            onChange={handleTooltipsChange}
-          >
-            <ToggleButton value="on">Tooltips</ToggleButton>
-            <ToggleButton value="off">Hidden</ToggleButton>
-          </ToggleButtonGroup>
 
           <WarbondsFilter />
 
           <Button
-            sx={{ width: '80px' }}
+            sx={{ width: '100px' }}
             variant="outlined"
-            onClick={handlePrng}
+            onClick={handleAppState}
           >
+            <SettingsIcon />
+            &nbsp;
             {prng}
           </Button>
         </Box>
@@ -109,7 +83,7 @@ export default function Menu() {
         <CurrentTab index={currentTab} />
       </Box>
 
-      {appState && <ApplicationState open={appState} setOpen={setAppState} />}
+      {appState && <Settings open={appState} setOpen={setAppState} />}
     </Box>
   );
 }

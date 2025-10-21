@@ -11,7 +11,7 @@ function tier(item) {
 }
 
 function randomFlux(cost) {
-  return Math.round(cost * (0.9 + 0.2 * Math.random()));
+  return Math.round(cost * (0.8 + 0.4 * Math.random()));
 }
 
 function randomChoice(items, n = 1) {
@@ -36,7 +36,7 @@ function chooseOnSale(items, n = 12) {
 }
 
 function sale(cost) {
-  return Math.round(cost * 0.5);
+  return Math.round(cost * (0.45 + 0.1 * Math.random()));
 }
 
 function itemCost(item) {
@@ -80,7 +80,6 @@ function toTitleCase(str) {
 
 function tieredCrate(grade, category) {
   const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({tier: grade}));
-  console.log(contents);
 
   return {
     displayName: `${toTitleCase(grade)}-Tier ${toTitleCase(category)} Package`,

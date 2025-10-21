@@ -98,7 +98,7 @@ export default function Debrief() {
       <Divider />
       <Box padding={1}>
         <Typography color={totalReward > 0 ? "success" : "warning"}>
-          {totalReward}¢ Final Stipend
+          {totalReward}¢ Final Reward
         </Typography>
       </Box>
       <Button variant="outlined" onClick={handleSubmit} >Submit Report</Button>

@@ -1,11 +1,12 @@
-import { Button, Dialog, DialogTitle, DialogContent, Grid, Divider, styled } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
-import { setMissionState } from "../slices/missionSlice";
-import { setCreditsState } from "../slices/creditsSlice";
-import { setEquipmentState } from "../slices/equipmentSlice";
-import { setPreferencesState } from "../slices/preferencesSlice";
-import { setPurchasedState } from "../slices/purchasedSlice";
-import { setShopState } from "../slices/shopSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMission, setMissionState } from "../../slices/missionSlice";
+import { setPreferencesState } from "../../slices/preferencesSlice";
+import { setCreditsState } from "../../slices/creditsSlice";
+import { setEquipmentState } from "../../slices/equipmentSlice";
+import { setPurchasedState } from "../../slices/purchasedSlice";
+import { setShopState } from "../../slices/shopSlice";
+import styled from "@emotion/styled";
+import { Button, FormLabel, Grid } from "@mui/material";
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -19,14 +20,10 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-export default function ApplicationState({ open, setOpen }) {
+export default function ImportExport() {
   const dispatch = useDispatch();
-  const missionState = useSelector((state) => state.mission);
+  const missionState = useSelector(selectMission);
   const fullState = useSelector((state) => state);
-
-  const handleDone = () => {
-    setOpen(false);
-  };
 
   const handleExportMissionToClipboard = async () => {
     try {
@@ -79,36 +76,28 @@ export default function ApplicationState({ open, setOpen }) {
     reader.readAsText(file);
   };
 
-  return (
-    <Dialog open={open} onClose={handleDone}>
-      <DialogTitle>Application State</DialogTitle>
-      <DialogContent>
-        <Grid container direction="column" spacing={2}>
-          <Button onClick={handleExportMissionToClipboard} variant="contained" color="primary">
-            Export Mission to Clipboard
-          </Button>
-          <Button onClick={handleImportMissionFromClipboard} variant="outlined" color="primary">
-            Import Mission from Clipboard
-          </Button>
-          <Button onClick={handleExportAllToFile} variant="contained" color="secondary">
-            Export All to File
-          </Button>
-          <Button
-            component="label"
-            variant="outlined"
-            color="secondary"
-          >
-            Import All from File
-            <VisuallyHiddenInput
-              type="file"
-              accept=".json"
-              onChange={handleImportAllFromFile}
-            />
-          </Button>
-          <Divider />
-          <Button onClick={handleDone}>Done</Button>
-        </Grid>
-      </DialogContent>
-    </Dialog>
-  );
+  return <Grid container direction="column" spacing={2}>
+    <FormLabel component="legend">Import/Export</FormLabel>
+    <Button onClick={handleExportMissionToClipboard} variant="contained" color="primary">
+      Export Mission to Clipboard
+    </Button>
+    <Button onClick={handleImportMissionFromClipboard} variant="outlined" color="primary">
+      Import Mission from Clipboard
+    </Button>
+
+    <Button onClick={handleExportAllToFile} variant="contained" color="secondary">
+      Export All to File
+    </Button>
+    <Button
+      component="label"
+      variant="outlined"
+      color="secondary"
+    >
+      Import All from File
+      <VisuallyHiddenInput
+        type="file"
+        accept=".json"
+        onChange={handleImportAllFromFile} />
+    </Button>
+  </Grid>;
 }

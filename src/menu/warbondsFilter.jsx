@@ -45,7 +45,7 @@ export default function WarbondsFilter() {
           <TextField readOnly {...params} />
         );
       }}
-      sx={{ width: '220px' }}
+      sx={{ width: '210px' }}
     />
   );
 }

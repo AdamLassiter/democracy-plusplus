@@ -2,9 +2,11 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import Menu from './menu';
-import { store } from './slices';
+import { persistor, store } from './slices';
+import LoadingSpinner from './loadingSpinner';
 
 const darkTheme = createTheme({
   palette: {
@@ -14,11 +16,13 @@ const darkTheme = createTheme({
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider store={store()}>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Menu />
-      </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={<LoadingSpinner />} persistor={persistor}>
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <Menu />
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   </StrictMode>,
 )
