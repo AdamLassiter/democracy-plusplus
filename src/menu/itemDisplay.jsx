@@ -69,7 +69,7 @@ function Missing({ item, onClick }) {
     <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />
   </Card>;
 
-  if (tooltips) {
+  if (tooltips && item.hoverTexts?.length) {
     return <ItemTooltip item={item}>
       {inner}
     </ItemTooltip>;

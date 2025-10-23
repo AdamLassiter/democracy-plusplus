@@ -6,6 +6,7 @@ import { selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 import SupplyCrates from "./supplyCrate";
+import { setSnackbar } from "../../slices/snackbarSlice";
 
 export default function Inventory() {
   const [value, setValue] = useState(0);
@@ -22,6 +23,7 @@ export default function Inventory() {
     if (credits >= item.cost) {
       dispatch(subtractCredits({ amount: item.cost }));
       dispatch(addPurchased({ value: item.displayName }));
+      dispatch(setSnackbar({ message: `Purchased ${item.displayName}` }));
     }
   };
 
@@ -87,11 +89,11 @@ function ShopTier({ items, tier, onClick }) {
 
   return <>
     <Grid direction="row" container spacing={1}>
-      <Card><Typography variant="h1" style={{padding: '16px', width: '96px'}}>{tier.toUpperCase()}</Typography></Card>
+      <Card><Typography variant="h1" style={{ padding: '16px', width: '96px' }}>{tier.toUpperCase()}</Typography></Card>
       {list.map(item => {
         const isAffordable = credits >= item.cost;
         return <Badge badgeContent={item.cost} color={isAffordable ? "info" : "error"}>
-          <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable}/>
+          <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable} />
         </Badge>;
       })}
     </Grid>

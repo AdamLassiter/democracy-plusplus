@@ -9,6 +9,7 @@ import { selectMission } from '../slices/missionSlice';
 import Settings from './settings';
 import WarbondsFilter from './warbondsFilter';
 import { Settings as SettingsIcon } from '@mui/icons-material';
+import AppSnackbar from './snackbar';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -84,6 +85,8 @@ export default function Menu() {
       </Box>
 
       {appState && <Settings open={appState} setOpen={setAppState} />}
+
+      <AppSnackbar />
     </Box>
   );
 }

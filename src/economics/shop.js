@@ -78,26 +78,34 @@ function toTitleCase(str) {
   );
 }
 
-function tieredCrate(grade, category) {
-  const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({tier: grade}));
+export function chooseSupplyCrateContents(crate) {
+  return randomChoice([...crate.contents])[0];
+}
+
+function tieredCrate(grade, category, cost) {
+  const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({ tier: grade }));
 
   return {
-    displayName: `${toTitleCase(grade)}-Tier ${toTitleCase(category)} Package`,
+    displayName: `${toTitleCase(grade)}-Tier ${toTitleCase(category)} Crate`,
     type: "Care Package",
     category: category,
     tags: ["lootbox"],
     contents,
     warbondCode: "none",
-    internalName: `${grade}-${category}-carepackage`,
+    internalName: `${grade}-${category}-supplycrate`,
     imageUrl: "icons/dice.svg",
-    cost: 1,
+    cost,
     tier: grade,
   };
 }
 
 export function supplyCrates() {
   return [
-    tieredCrate('s', 'primary'),
-    tieredCrate('a', 'Stratagem'),
+    tieredCrate('a', 'primary', 25),
+    tieredCrate('b', 'primary', 20),
+    tieredCrate('c', 'primary', 15),
+    tieredCrate('a', 'Stratagem', 25),
+    tieredCrate('b', 'Stratagem', 20),
+    tieredCrate('c', 'Stratagem', 15),
   ];
 }

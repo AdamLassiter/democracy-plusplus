@@ -6,6 +6,7 @@ import equipmentReducer from './equipmentSlice';
 import missionReducer from './missionSlice';
 import preferencesReducer from './preferencesSlice';
 import purchasedReducer from './purchasedSlice';
+import snackbarReducer from './snackbarSlice';
 import shopReducer from './shopSlice';
 
 const persistConfig = {
@@ -20,6 +21,7 @@ const appReducer = combineReducers({
   preferences: preferencesReducer,
   purchased: purchasedReducer,
   shop: shopReducer,
+  snackbar: snackbarReducer,
 });
 
 const rootReducer = (state, action) => {

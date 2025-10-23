@@ -21,6 +21,10 @@ const shopSlice = createSlice({
       const { value } = action.payload;
       state.onSale.find((item) => item.displayName === value.displayName).purchased = true;
     },
+    buySupplyCrate: (state, action) => {
+      const { value } = action.payload;
+      state.supplyCrates.find((item) => item.displayName === value.displayName).purchased = true;
+    },
     setWarbonds: (state, action) => {
       const { value } = action.payload;
       state.warbonds = value;
@@ -40,5 +44,5 @@ const shopSlice = createSlice({
   },
 });
 
-export const { buyOnSale, setWarbonds, setShopState, resetShop } = shopSlice.actions;
+export const { buyOnSale, buySupplyCrate, setWarbonds, setShopState, resetShop } = shopSlice.actions;
 export default shopSlice.reducer;

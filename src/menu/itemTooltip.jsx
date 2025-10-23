@@ -11,6 +11,10 @@ export default function ItemTooltip({ item, children }) {
     </Box>
   );
 
+  if (!item?.hoverTexts?.length) {
+    return children;
+  }
+
   return (
     <Tooltip
       title={tooltipContent}
@@ -19,7 +23,7 @@ export default function ItemTooltip({ item, children }) {
       arrow
       disableInteractive={false}
     >
-      <span>{children}</span>
+      {children}
     </Tooltip>
   );
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { buyOnSale, selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
+import { setSnackbar } from "../../slices/snackbarSlice";
 
 export default function OnSale() {
   const { onSale } = useSelector(selectShop);
@@ -15,6 +16,7 @@ export default function OnSale() {
       dispatch(buyOnSale({ value: item }));
       dispatch(subtractCredits({ amount: item.cost }));
       dispatch(addPurchased({ value: item.displayName }));
+      dispatch(setSnackbar({ message: `Purchased ${item.displayName}` }));
     }
   };
 
