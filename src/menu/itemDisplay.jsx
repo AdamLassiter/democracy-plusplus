@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Tooltip, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectPreferences } from "../slices/preferencesSlice";
-import { getWarbondByCode } from "../constants/warbonds";
+import ItemTooltip from "./itemTooltip";
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }) {
   const { titles, tooltips } = useSelector(selectPreferences);
@@ -76,14 +76,4 @@ function Missing({ item, onClick }) {
   } else {
     return inner;
   }
-}
-
-function ItemTooltip({ item: { displayName, type = "Select one...", category, tags, warbondCode, tier }, children }) {
-  const warbond = getWarbondByCode(warbondCode);
-  return <Tooltip title={<>
-    <Typography variant="h5">{displayName}</Typography>
-    <Typography>Type: {type}<br />Category: {category}<br />Tags: {tags}<br />Warbond: {warbond?.displayName}<br />Tier: {tier?.toUpperCase()}</Typography>
-  </>}>
-    {children}
-  </Tooltip>
 }

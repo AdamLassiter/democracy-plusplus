@@ -1,4 +1,5 @@
 import { RESTRICTIONS } from "../constants/restrictions";
+import { OBJECTIVES } from "../constants/objectives";
 import { QUESTS } from "../constants/quests";
 import { getObjectives } from "../constants/objectives";
 
@@ -94,7 +95,7 @@ function questsRequired(mission) {
   if (count) {
     const questRestriction = RESTRICTIONS.find((restriction) => restriction.category === 'questrequired');
     const displayName = questRestriction.displayName.replace('X', count);
-    return [ { ...questRestriction, tier: questsRequiredTier(count), displayName } ];
+    return [{ ...questRestriction, tier: questsRequiredTier(count), displayName }];
   } else {
     return [];
   }
@@ -131,7 +132,7 @@ function chooseRestrictions(pool, quests, prng, n) {
   if (n > 0 && comboRestrictions && prng.rand(100) > 50) {
     const comboRestriction = randomChoice(comboRestrictions, prng, 1)[0];
     restrictions.push(comboRestriction);
-    n --;
+    n--;
   }
 
   while (n > 0) {
@@ -140,7 +141,7 @@ function chooseRestrictions(pool, quests, prng, n) {
     const allowed = !restrictionCandidate.tags;
     if (allowed) {
       restrictions.push(restrictionCandidate);
-      n --;
+      n--;
     }
   }
   return restrictions;
@@ -182,25 +183,36 @@ function chooseQuests(pool, prng, n, scaling) {
     const allowed = quests.every((quest) => (quest.tags || []).every((tag) => !(questCandidate.tags || []).includes(tag)))
     if (allowed) {
       quests.push(questCandidate);
-      n --;
+      n--;
     }
   }
   return quests.map((quest) => scaleQuest(quest, prng, scaling));
 }
 
-export function calculateRestrictions(mission, quests, prng, lastRestrictions=[]) {
+export function calculateRestrictions(mission, quests, prng, lastRestrictions = []) {
   const numRestrictions = restrictionsCount(mission);
   const restrictionScaling = scaling(mission);
-  const pool = RESTRICTIONS.filter((restriction) => !lastRestrictions.includes(restriction) && restrictionTier(restriction) <= restrictionScaling);
+  const pool = RESTRICTIONS.filter((restriction) => !lastRestrictions.includes(restriction)
+    && restrictionTier(restriction) <= restrictionScaling);
   const chosen = chooseRestrictions(pool, quests, prng, numRestrictions);
   const requiredQuests = questsRequired(mission);
   return [requiredQuests, chosen].flat();
 }
 
-export function calculateQuests(mission, prng, lastQuests=[]) {
+function shortObjectiveImpliesShortQuest(mission, quest) {
+  const objective = OBJECTIVES[mission.objective];
+  const values = (!objective.short && quest.values)
+    || (objective.short === 'eradicate' && quest.eradicateValues)
+    || (objective.short === 'blitz' && quest.blitzValues);
+  return values && { ...quest, values };
+}
+
+export function calculateQuests(mission, prng, lastQuests = []) {
   const numQuests = questsCount(mission);
   const questScaling = scaling(mission);
-  const pool = QUESTS.filter((quest) => !lastQuests.includes(quest));
+  const pool = QUESTS.map((quest) => !lastQuests.includes(quest)
+    && shortObjectiveImpliesShortQuest(mission, quest))
+    .filter((quest) => quest);
   return chooseQuests(pool, prng, numQuests, questScaling);
 }
 

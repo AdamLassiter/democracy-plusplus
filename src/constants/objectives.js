@@ -8,9 +8,9 @@ export function getObjectives(faction) {
     .filter(objective => objective.tier[faction] !== null);
 }
 
-const OBJECTIVES = [
+export const OBJECTIVES = [
   {
-    displayName: "Spread Democracy",
+    displayName: 'Spread Democracy',
     tier: {
       Terminids: 's',
       Automatons: 's',
@@ -18,7 +18,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Conduct Geological Survey",
+    displayName: 'Conduct Geological Survey',
     tier: {
       Terminids: 'a',
       Automatons: 'a',
@@ -26,7 +26,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Retrieve Valuable Data",
+    displayName: 'Retrieve Valuable Data',
     tier: {
       Terminids: 'b',
       Automatons: 'b',
@@ -34,7 +34,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Emergency Evacuation",
+    displayName: 'Emergency Evacuation',
     tier: {
       Terminids: 'a',
       Automatons: 'a',
@@ -42,23 +42,43 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Blitz: Search and Destroy",
+    displayName: 'Blitz: Search and Destroy',
+    short: 'blitz',
     tier: {
       Terminids: 'c',
       Automatons: 'c',
+      Illuminate: null,
+    },
+  },
+  {
+    displayName: 'Blitz: Destroy Warp Ships',
+    short: 'blitz',
+    tier: {
+      Terminids: null,
+      Automatons: null,
       Illuminate: 'c',
     },
   },
   {
-    displayName: "Eradicate",
+    displayName: 'Eradicate Terminid Swarm',
+    short: 'eradicate',
     tier: {
       Terminids: 'd',
-      Automatons: 'd',
-      Illuminate: 'd',
+      Automatons: null,
+      Illuminate: null,
     },
   },
   {
-    displayName: "Launch ICBM",
+    displayName: 'Eradicate Automaton Forces',
+    short: 'eradicate',
+    tier: {
+      Terminids: null,
+      Automatons: 'd',
+      Illuminate: null,
+    },
+  },
+  {
+    displayName: 'Launch ICBM',
     tier: {
       Terminids: 'a',
       Automatons: 'a',
@@ -66,7 +86,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Evacuate Civilians",
+    displayName: 'Evacuate Civilians',
     tier: {
       Terminids: 's',
       Automatons: 's',
@@ -74,7 +94,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Purge Hatcheries",
+    displayName: 'Purge Hatcheries',
     tier: {
       Terminids: 'c',
       Automatons: null,
@@ -82,7 +102,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Enable Oil Extraction",
+    displayName: 'Enable Oil Extraction',
     tier: {
       Terminids: 'a',
       Automatons: null,
@@ -90,7 +110,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Nuke Nursery",
+    displayName: 'Nuke Nursery',
     tier: {
       Terminids: 'b',
       Automatons: null,
@@ -98,7 +118,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Sabotage Air Base",
+    displayName: 'Sabotage Air Base',
     tier: {
       Terminids: null,
       Automatons: 'a',
@@ -106,7 +126,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Destroy Command Bunkers",
+    displayName: 'Destroy Command Bunkers',
     tier: {
       Terminids: null,
       Automatons: 'a',
@@ -114,7 +134,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Neutralize Orbital Defenses",
+    displayName: 'Neutralize Orbital Defenses',
     tier: {
       Terminids: null,
       Automatons: 'a',
@@ -122,7 +142,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Take Down Overship",
+    displayName: 'Take Down Overship',
     tier: {
       Terminids: null,
       Automatons: null,
@@ -130,7 +150,7 @@ const OBJECTIVES = [
     },
   },
   {
-    displayName: "Repel Invasion Fleet",
+    displayName: 'Repel Invasion Fleet',
     tier: {
       Terminids: null,
       Automatons: null,

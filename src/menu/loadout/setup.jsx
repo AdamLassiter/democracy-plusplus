@@ -56,7 +56,7 @@ export default function Setup() {
       </Select>
     </FormControl>
     <Typography color="success">
-      {calculateMissionReward({ ...mission, stars: 5 })}¢ Maximum Reward
+      {calculateMissionReward({ ...mission, stars: 5 })}¢ Maximum Base Reward
     </Typography>
     <Button variant="outlined" onClick={handleLockIn} disabled={!briefState}>Lock In</Button>
     <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState}>Debrief</Button>
