@@ -655,7 +655,7 @@ export const PRIMARIES = [
     tags: [
       'MarksmanRifle'
     ],
-    warbondCode: 'none',
+    warbondCode: 'warbond18',
     internalName: 'plas39acceleratorrifle',
     imageUrl: 'equipment/plas39acceleratorrifle.png',
     tier: 'd',

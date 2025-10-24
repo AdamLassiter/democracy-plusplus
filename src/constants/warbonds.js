@@ -7,7 +7,7 @@ export function getWarbondByCode(warbondCode) {
 
 export const WARBONDS = [
   {
-    displayName: 'None',
+    displayName: 'Basic Training',
     type: 'Warbond',
     category: '',
     tags: [],
