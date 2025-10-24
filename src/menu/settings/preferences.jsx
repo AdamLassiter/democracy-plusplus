@@ -7,12 +7,12 @@ export default function Preferences() {
   const dispatch = useDispatch();
 
   const { titles, tooltips } = useSelector(selectPreferences);
-  const handleTitlesChange = (event, newValue) => {
+  function handleTitlesChange(_event, newValue) {
     dispatch(setTitles(newValue === 'on'));
   }
-  const handleTooltipsChange = (event, newValue) => {
+  function handleTooltipsChange(_event, newValue) {
     dispatch(setTooltips(newValue === 'on'));
-  };
+  }
 
   return (
     <Grid container direction="column" spacing={2}>

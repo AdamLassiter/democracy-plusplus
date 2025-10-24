@@ -2,7 +2,7 @@ import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addPurchased, selectPurchased, subtractPurchased } from "../../slices/purchasedSlice";
 import { getConstant } from "../../constants";
-import ItemDisplay from "../itemDisplay";
+import ItemDisplay from "../../itemDisplay";
 import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipment } from "../../slices/equipmentSlice";
 import { useState } from "react";
 
@@ -13,9 +13,9 @@ export default function Purchases() {
 
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  function handleChange(_event, newValue) {
     setValue(newValue);
-  };
+  }
 
   const {
     armor = [],
@@ -41,7 +41,8 @@ export default function Purchases() {
   const [, items] = purchasedLists[value];
 
   const dispatch = useDispatch();
-  const equip = (displayName) => {
+
+  function equip(displayName) {
     const item = getConstant(displayName);
     const slot = getEquipmentSlot(item);
     const firstEmptyStratagem = equipment.stratagems.indexOf(null);
@@ -58,7 +59,7 @@ export default function Purchases() {
       dispatch(setStratagem({ slot: firstEmptyStratagem, value: displayName }));
       dispatch(subtractPurchased({ value: displayName }));
     }
-  };
+  }
 
   return <>
     <Typography variant="h5">Inventory</Typography>
@@ -76,7 +77,7 @@ export default function Purchases() {
 }
 
 function PurchasedList({ items, equip }) {
-  items.sort((a, b) => a.category.localeCompare(b.category) || a.displayName.localeCompare(b.displayName) );
+  items.sort((a, b) => a.category.localeCompare(b.category) || a.displayName.localeCompare(b.displayName));
 
   return <Grid direction="row" container spacing={1}>
     {items.map(item => <ItemDisplay item={item} onClick={() => equip(item.displayName)} />)}

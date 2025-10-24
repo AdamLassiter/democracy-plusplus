@@ -10,11 +10,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function WarbondsFilter() {
   const dispatch = useDispatch();
-
   const { warbonds } = useSelector(selectShop);
-  const handleWarbonds = (event, value) => {
+
+  function handleWarbonds(_event, value) {
     dispatch(setWarbonds({ value }));
-  };
+  }
 
   return (
     <Autocomplete

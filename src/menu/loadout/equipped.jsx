@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectEquipment, unsetEquipment } from "../../slices/equipmentSlice";
-import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../itemDisplay";
+import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../itemDisplay";
 import { Grid, Typography } from "@mui/material";
 import { getConstant } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";
@@ -16,10 +16,11 @@ export default function Equipped() {
   } = useSelector(selectEquipment);
 
   const dispatch = useDispatch();
-  const unequip = (displayName) => {
+
+  function unequip(displayName) {
     dispatch(unsetEquipment({ value: displayName }));
     dispatch(addPurchased({ value: displayName }));
-  };
+  }
 
   return <>
     <Typography variant="h5">Equipment</Typography>

@@ -1,5 +1,5 @@
 import { Badge, Grid, Typography } from "@mui/material";
-import ItemDisplay from "../itemDisplay";
+import ItemDisplay from "../../itemDisplay";
 import { useDispatch, useSelector } from "react-redux";
 import { buyOnSale, selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
@@ -11,14 +11,14 @@ export default function OnSale() {
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
-  const buy = (item) => {
+  function buy(item) {
     if (credits >= item.cost) {
       dispatch(buyOnSale({ value: item }));
       dispatch(subtractCredits({ amount: item.cost }));
       dispatch(addPurchased({ value: item.displayName }));
       dispatch(setSnackbar({ message: `Purchased ${item.displayName}` }));
     }
-  };
+  }
 
   const list = [...onSale].sort((a, b) => b.cost - a.cost);
 

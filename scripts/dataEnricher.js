@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import fs from 'fs';
 import readline from 'readline';
 import fetch from 'node-fetch';
@@ -19,17 +21,17 @@ function askQuestion(query) {
 }
 
 async function processItem(item) {
-  let wikiUrl = `https://helldivers.wiki.gg/wiki/${item.wikiSlug}`;
-  let proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(wikiUrl)}`;
+  let wikiUrl = `https://helldivers.wiki.gg/wiki/${item.wikiSlug}`,
+   proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(wikiUrl)}`;
 
   const headers = {
     "User-Agent": "MyHelldiversScraper/1.0 (https://adamlassiter.github.io)",
     "Accept": "text/html,application/xhtml+xml"
   };
-  let response;
-  let tables;
+  let response,
+   retries = 1,
 
-  let retries = 1;
+   tables;
   while (!item.hoverText) {
     if (retries > 10) {
       const newSlug = await askQuestion(`Enter new wikiSlug for ${item.displayName}: `);
@@ -50,11 +52,11 @@ async function processItem(item) {
 
     console.log(`Fetched ${item.wikiSlug}`);
 
-    const htmlText = await response.text();
-    const document = new JSDOM(htmlText).window.document;
+    const htmlText = await response.text(),
+     {document} = new JSDOM(htmlText).window,
 
-    const displayName = document.querySelector('.mw-page-title-main')?.innerHTML;
-    let weaponTables = document.querySelectorAll('.table-weapon-stats');
+     displayName = document.querySelector('.mw-page-title-main')?.innerHTML,
+     weaponTables = document.querySelectorAll('.table-weapon-stats');
     tables = [...weaponTables];
 
     if (!displayName || !tables.length) {

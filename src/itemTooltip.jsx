@@ -1,9 +1,9 @@
-import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function ItemTooltip({ item, children }) {
   const tooltipContent = (
-    <Box sx={{ maxWidth: 360, maxHeight: 400, overflow: 'auto', p: 1 }}>
+    <Box sx={{ maxHeight: 400, maxWidth: 360, overflow: 'auto', p: 1 }}>
       <div
         className="wiki-tooltip-content"
         dangerouslySetInnerHTML={{ __html: item.hoverTexts }}

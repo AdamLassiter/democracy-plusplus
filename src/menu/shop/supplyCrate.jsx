@@ -1,5 +1,5 @@
 import { Badge, Grid, Typography } from "@mui/material";
-import ItemDisplay from "../itemDisplay";
+import ItemDisplay from "../../itemDisplay";
 import { useDispatch, useSelector } from "react-redux";
 import { buySupplyCrate, selectShop } from "../../slices/shopSlice";
 import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
@@ -12,7 +12,7 @@ export default function SupplyCrates() {
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
-  const buy = (item) => {
+  function buy(item) {
     if (credits >= item.cost) {
       dispatch(buySupplyCrate({ value: item }));
       dispatch(subtractCredits({ amount: item.cost }));
@@ -20,7 +20,7 @@ export default function SupplyCrates() {
       dispatch(addPurchased({ value: contents.displayName }));
       dispatch(setSnackbar({ message: `Purchased ${contents.displayName}` }));
     }
-  };
+  }
 
   const list = [...supplyCrates].sort((a, b) => b.cost - a.cost);
 

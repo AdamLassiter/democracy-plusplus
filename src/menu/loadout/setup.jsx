@@ -10,19 +10,19 @@ export default function Setup() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
 
-  const handleFaction = (event) => {
+  function handleFaction(event) {
     dispatch(setFaction({ value: event.target.value }));
     dispatch(setObjective({ value: 0 }));
-  };
-  const handleObjective = (event) => {
+  }
+  function handleObjective(event) {
     dispatch(setObjective({ value: event.target.value }));
-  };
-  const handleLockIn = () => {
+  }
+  function handleLockIn() {
     dispatch(setState({ value: 'generating' }));
-  };
-  const handleDebrief = () => {
+  }
+  function handleDebrief() {
     dispatch(setState({ value: 'debrief' }));
-  };
+  }
 
   const briefState = mission.state === 'brief';
   const loadoutState = mission.state === 'loadout';

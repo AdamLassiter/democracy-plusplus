@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { ARMOR_PASSIVES } from "../constants/armorpassives";
-import ItemDisplay from "./itemDisplay";
+import ItemDisplay from "./../itemDisplay";
 import { BOOSTERS } from "../constants/boosters";
 import { PRIMARIES } from "../constants/primaries";
 import { SECONDARIES } from "../constants/secondaries";
@@ -11,9 +11,9 @@ import { useState } from "react";
 export default function TierLists() {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  function handleChange(_event, newValue) {
     setValue(newValue);
-  };
+  }
 
   const tierLists = [
     ["Armor Passives", ARMOR_PASSIVES],
@@ -51,7 +51,7 @@ function TierList({ items }) {
     <Grid direction="column" container spacing={1}>
       {sortedTiers.map(([tier, list]) => {
         return <Grid direction="row" container spacing={1}>
-          <Card><Typography variant="h1" style={{padding: '16px', width: '96px'}}>{tier.toUpperCase()}</Typography></Card>
+          <Card><Typography variant="h1" style={{ padding: '16px', width: '96px' }}>{tier.toUpperCase()}</Typography></Card>
           {list.map(item => <ItemDisplay item={item} />)}
         </Grid>
       })}

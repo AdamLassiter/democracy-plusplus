@@ -23,30 +23,30 @@ export default function Debrief() {
   const restrictionsReward = calculateRestrictionsReward(restrictions, missionReward, questsReward);
   const totalReward = missionReward + questsReward + restrictionsReward;
 
-  const handleStars = (event, newValue) => {
+  function handleStars(_event, newValue) {
     if (1 <= newValue && newValue <= 5) {
       setStars(newValue);
     }
   }
-  const handleRestrictions = (event, i) => {
+  function handleRestrictions(event, i) {
     const newRestrictions = [...restrictions];
     newRestrictions[i] = { ...newRestrictions[i], completed: event.target.checked };
     setRestrictions(newRestrictions);
   }
-  const handleQuests = (event, i) => {
+  function handleQuests(event, i) {
     const newQuests = [...quests];
     newQuests[i] = { ...newQuests[i], completed: event.target.checked };
     setQuests(newQuests);
   }
 
-  const handleSubmit = () => {
+  function handleSubmit() {
     setOpen(false);
     dispatch(addCredits({ amount: totalReward }));
     dispatch(resetEquipment());
     dispatch(resetShop());
     dispatch(resetMission());
     dispatch(setState({ value: 'brief' }));
-  };
+  }
 
   return <Dialog open={open}>
     <DialogTitle>

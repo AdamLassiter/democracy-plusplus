@@ -3,30 +3,30 @@ import { createSlice } from "@reduxjs/toolkit";
 const SHOW_SNACKBAR = 'SHOW_SNACKBAR';
 
 const initialState = {
-  open: false,
   message: '',
+  open: false,
   severity: 'info',
 };
 
 const defaultState = {
-  open: true,
   message: '',
+  open: true,
   severity: 'success',
 };
 
-export const selectSnackbar = (state) => state.snackbar;
+export function selectSnackbar(state) {
+  return state.snackbar;
+}
 
 const snackbarSlice = createSlice({
-  name: 'shop',
   initialState,
+  name: 'shop',
   reducers: {
-    setSnackbar: (state, action) => {
-      return {
+    setSnackbar: (state, action) => ({
         ...state,
         ...defaultState,
         ...action.payload,
-      };
-    }
+      })
   }
 });
 

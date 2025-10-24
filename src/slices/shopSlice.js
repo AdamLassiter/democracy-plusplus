@@ -5,17 +5,19 @@ import { WARBONDS } from '../constants/warbonds';
 
 const initialState = {
   initialised: false,
-  onSale: [],
   inventory: [],
+  onSale: [],
   supplyCrates: [],
   warbonds: WARBONDS,
 };
 
-export const selectShop = (state) => state.shop;
+export function selectShop(state) {
+  return state.shop;
+}
 
 const shopSlice = createSlice({
-  name: 'shop',
   initialState,
+  name: 'shop',
   reducers: {
     buyOnSale: (state, action) => {
       const { value } = action.payload;
@@ -25,13 +27,6 @@ const shopSlice = createSlice({
       const { value } = action.payload;
       state.supplyCrates.find((item) => item.displayName === value.displayName).purchased = true;
     },
-    setWarbonds: (state, action) => {
-      const { value } = action.payload;
-      state.warbonds = value;
-    },
-    setShopState: (state, action) => {
-      return action.payload;
-    },
     resetShop: (state) => {
       const warbonds = state.warbonds.map((warbond) => warbond.warbondCode);
       const items = ITEMS.filter((item) => warbonds.includes(item.warbondCode));
@@ -40,6 +35,11 @@ const shopSlice = createSlice({
       state.inventory = inventory;
       state.supplyCrates = supplyCrates();
       state.initialised = true;
+    },
+    setShopState: (state, action) => action.payload,
+    setWarbonds: (state, action) => {
+      const { value } = action.payload;
+      state.warbonds = value;
     },
   },
 });

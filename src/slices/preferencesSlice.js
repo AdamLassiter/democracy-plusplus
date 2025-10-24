@@ -5,7 +5,9 @@ const initialState = {
   tooltips: true,
 };
 
-export const selectPreferences = (state) => state.preferences;
+export function selectPreferences(state) {
+  return state.preferences;
+}
 
 const preferencesSlice = createSlice({
   name: 'preferences',

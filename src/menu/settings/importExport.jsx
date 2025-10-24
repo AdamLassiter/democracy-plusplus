@@ -25,15 +25,15 @@ export default function ImportExport() {
   const missionState = useSelector(selectMission);
   const fullState = useSelector((state) => state);
 
-  const handleExportMissionToClipboard = async () => {
+  async function handleExportMissionToClipboard() {
     try {
       await navigator.clipboard.writeText(JSON.stringify(missionState, null, 2));
     } catch (err) {
       alert(`Failed to copy mission state: ${err}`);
     }
-  };
+  }
 
-  const handleImportMissionFromClipboard = async () => {
+  async function handleImportMissionFromClipboard() {
     try {
       const text = await navigator.clipboard.readText();
       const parsed = JSON.parse(text);
@@ -41,9 +41,9 @@ export default function ImportExport() {
     } catch (err) {
       alert(`Failed to import mission state: ${err}`);
     }
-  };
+  }
 
-  const handleExportAllToFile = () => {
+  function handleExportAllToFile() {
     const blob = new Blob([JSON.stringify(fullState, null, 2)], {
       type: "application/json",
     });
@@ -53,9 +53,9 @@ export default function ImportExport() {
     a.download = "app_state.json";
     a.click();
     URL.revokeObjectURL(url);
-  };
+  }
 
-  const handleImportAllFromFile = (event) => {
+  function handleImportAllFromFile(event) {
     const file = event.target.files[0];
     if (!file) return;
 
@@ -74,7 +74,7 @@ export default function ImportExport() {
       }
     };
     reader.readAsText(file);
-  };
+  }
 
   return <Grid container direction="column" spacing={2}>
     <FormLabel component="legend">Import/Export</FormLabel>

@@ -1,8 +1,8 @@
-// Max-length feedback polynomials for shift register
-// e.g.
-// N=19
-// x^19 + x^18 + x^17 + x^15 + 1 will give max length sequence of 524287
-var TAPS = {
+/* Max-length feedback polynomials for shift register
+ * e.g. N=19
+ * x^19 + x^18 + x^17 + x^15 + 1 will give max length sequence of 524287
+ */
+const TAPS = {
     2: [2, 1], // 3
     3: [3, 2], // 7
     4: [4, 3], // 15
@@ -184,4 +184,3 @@ export class PRNG {
     }
 }
 
- 

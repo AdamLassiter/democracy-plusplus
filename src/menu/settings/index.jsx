@@ -4,9 +4,9 @@ import ResetAppState from "./reset";
 import ImportExport from "./importExport";
 
 export default function Settings({ open, setOpen }) {
-  const handleDone = () => {
+  function handleDone() {
     setOpen(false);
-  };
+  }
 
   return (
     <Dialog open={open} onClose={handleDone}>

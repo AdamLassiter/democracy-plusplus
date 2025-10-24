@@ -4,7 +4,9 @@ const initialState = {
   credits: 200,
 };
 
-export const selectCredits = (state) => state.credits;
+export function selectCredits(state) {
+  return state.credits;
+}
 
 const creditsSlice = createSlice({
   name: 'credits',

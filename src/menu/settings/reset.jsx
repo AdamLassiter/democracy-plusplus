@@ -5,14 +5,14 @@ import { Button } from "@mui/material";
 export default function ResetAppState({ onClick }) {
   const dispatch = useDispatch();
 
-  const handleReset = (event) => {
+  function handleReset(event) {
     const confirmed = window.confirm('Are you sure you want to reset the app state? This will clear ALL stored data.');
     if (confirmed) {
       persistor.purge();
       dispatch({ type: 'RESET_APP' });
       onClick(event);
     }
-  };
+  }
 
   return (
     <Button onClick={handleReset} color="error" variant="outlined">

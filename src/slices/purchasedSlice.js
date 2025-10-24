@@ -4,7 +4,9 @@ const initialState = {
   purchased: [],
 };
 
-export const selectPurchased = (state) => state.purchased;
+export function selectPurchased(state) {
+  return state.purchased;
+}
 
 const purchasedSlice = createSlice({
   name: 'purchased',

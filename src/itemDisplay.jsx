@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Tooltip, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import { selectPreferences } from "../slices/preferencesSlice";
+
+import { selectPreferences } from "./slices/preferencesSlice";
 import ItemTooltip from "./itemTooltip";
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }) {
@@ -32,9 +33,9 @@ export default function ItemDisplay({ item, onClick, isAffordable = true }) {
     return <ItemTooltip item={item}>
       {inner}
     </ItemTooltip>;
-  } else {
+  } 
     return inner;
-  }
+  
 }
 
 export function MissingPrimary({ item = { displayName: "Primary", imageUrl: "icons/gun.svg" }, onClick }) {
@@ -62,10 +63,10 @@ export function MissingStratagem({ item = { displayName: "Stratagem", imageUrl: 
 }
 
 function Missing({ item, onClick }) {
-  const { tooltips } = useSelector(selectPreferences);
-  const { imageUrl = null } = item;
+  const { tooltips } = useSelector(selectPreferences),
+   { imageUrl = null } = item,
 
-  const inner = <Card onClick={onClick} variant="outlined">
+   inner = <Card onClick={onClick} variant="outlined">
     <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />
   </Card>;
 
@@ -73,7 +74,7 @@ function Missing({ item, onClick }) {
     return <ItemTooltip item={item}>
       {inner}
     </ItemTooltip>;
-  } else {
+  } 
     return inner;
-  }
+  
 }

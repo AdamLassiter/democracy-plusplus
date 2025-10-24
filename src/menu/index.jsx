@@ -9,22 +9,23 @@ import { selectMission } from '../slices/missionSlice';
 import Settings from './settings';
 import WarbondsFilter from './warbondsFilter';
 import { Settings as SettingsIcon } from '@mui/icons-material';
-import AppSnackbar from './snackbar';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
-  const handleTabChange = (event, newValue) => {
+
+  function handleTabChange(_event, newValue) {
     setCurrentTab(newValue);
-  };
+  }
 
   const { credits } = useSelector(selectCredits);
 
   const mission = useSelector(selectMission);
   const { prng, count } = mission;
   const [appState, setAppState] = useState(false);
-  const handleAppState = () => {
+
+  function handleAppState() {
     setAppState(true);
-  };
+  }
 
   const tabs = [Loadout, Shop, TierLists];
   const CurrentTab = tabs[currentTab];
@@ -85,8 +86,6 @@ export default function Menu() {
       </Box>
 
       {appState && <Settings open={appState} setOpen={setAppState} />}
-
-      <AppSnackbar />
     </Box>
   );
 }

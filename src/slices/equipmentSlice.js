@@ -9,9 +9,11 @@ const initialState = {
   booster: null,
 };
 
-export const selectEquipment = (state) => state.equipment;
+export function selectEquipment(state) {
+  return state.equipment;
+}
 
-export const getEquipmentSlot = (item) => {
+export function getEquipmentSlot(item) {
   if (!item) return null;
 
   if (item.type === 'Stratagem') {
@@ -27,7 +29,7 @@ export const getEquipmentSlot = (item) => {
   };
 
   return categoryToSlotMap[item.category];
-};
+}
 
 const equipmentSlice = createSlice({
   name: 'equipment',

@@ -1,5 +1,5 @@
 import { Badge, Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
-import ItemDisplay from "../itemDisplay";
+import ItemDisplay from "../../itemDisplay";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShop } from "../../slices/shopSlice";
@@ -11,21 +11,21 @@ import { setSnackbar } from "../../slices/snackbarSlice";
 export default function Inventory() {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  function handleChange(_event, newValue) {
     setValue(newValue);
-  };
+  }
 
   const { inventory } = useSelector(selectShop);
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
-  const buy = (item) => {
+  function buy(item) {
     if (credits >= item.cost) {
       dispatch(subtractCredits({ amount: item.cost }));
       dispatch(addPurchased({ value: item.displayName }));
       dispatch(setSnackbar({ message: `Purchased ${item.displayName}` }));
     }
-  };
+  }
 
   const {
     armor = [],

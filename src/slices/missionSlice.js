@@ -14,7 +14,9 @@ const states = [
   'brief', 'generating', 'loadout', 'debrief',
 ];
 
-export const selectMission = (state) => state.mission;
+export function selectMission(state) {
+  return state.mission;
+}
 
 const missionSlice = createSlice({
   name: 'mission',

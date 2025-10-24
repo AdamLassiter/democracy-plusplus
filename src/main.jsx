@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Menu from './menu';
 import { persistor, store } from './slices';
 import LoadingSpinner from './loadingSpinner';
+import AppSnackbar from './snackbar';
 
 const darkTheme = createTheme({
   palette: {
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
           <Menu />
+          <AppSnackbar />
         </ThemeProvider>
       </PersistGate>
     </Provider>
