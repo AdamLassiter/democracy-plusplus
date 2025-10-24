@@ -1,15 +1,15 @@
-import { Button, Dialog, DialogTitle, DialogContent, Grid, Divider, ToggleButtonGroup, ToggleButton, FormLabel } from "@mui/material";
+import { Button, Dialog, DialogTitle, DialogContent, Grid, Divider, ToggleButtonGroup, ToggleButton, FormLabel, DialogActions } from "@mui/material";
 import Preferences from "./preferences";
 import ResetAppState from "./reset";
 import ImportExport from "./importExport";
 
 export default function Settings({ open, setOpen }) {
-  function handleDone() {
+  function handleClose() {
     setOpen(false);
   }
 
   return (
-    <Dialog open={open} onClose={handleDone}>
+    <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
       <DialogTitle>Settings</DialogTitle>
       <DialogContent>
         <Grid container direction="column" spacing={2}>
@@ -18,7 +18,6 @@ export default function Settings({ open, setOpen }) {
           <Divider />
           <Preferences />
           <Divider />
-          <ResetAppState onClick={handleDone}/>
           <Done />
         </Grid>
       </DialogContent>
@@ -26,8 +25,9 @@ export default function Settings({ open, setOpen }) {
   );
 
   function Done() {
-    return <Grid container direction="column" spacing={2}>
-      <Button onClick={handleDone}>Done</Button>
-    </Grid>;
+    return <DialogActions>
+      <ResetAppState onClick={handleClose} />
+      <Button onClick={handleClose}>Close</Button>
+    </DialogActions>;
   }
 }

@@ -9,6 +9,7 @@ const initialState = {
   onSale: [],
   supplyCrates: [],
   warbonds: WARBONDS,
+  cart: [],
 };
 
 export function selectShop(state) {
@@ -16,27 +17,73 @@ export function selectShop(state) {
 }
 
 const shopSlice = createSlice({
-  initialState,
   name: 'shop',
+  initialState,
   reducers: {
+    addToCart: (state, action) => {
+      const { value } = action.payload;
+      state.cart.push({ ...value });
+      // Mark onSale / supply crates as purchased
+      const onSaleItem = state.onSale.find(item => item.displayName === value.displayName && item.cost === value.cost);
+      if (onSaleItem) {
+        onSaleItem.purchased = true;
+      }
+      const crate = state.supplyCrates.find(item => item.displayName === value.displayName);
+      if (crate) {
+        crate.purchased = true;
+      }
+    },
+    removeFromCart: (state, action) => {
+      const { value } = action.payload;
+      const cartItemIndex = state.cart.findIndex((item) => item.cost === value.cost && item.displayName === value.displayName);
+      if (cartItemIndex !== -1) {
+        state.cart = state.cart.filter((_item, index) => index !== cartItemIndex);
+      }
+      // Mark onSale / supply crates as not purchased
+      const onSaleItem = state.onSale.find(item => item.cost === value.cost && item.displayName === value.displayName);
+      if (onSaleItem) {
+        onSaleItem.purchased = false;
+      }
+      const crateItem = state.supplyCrates.find(item => item.cost === value.cost && item.displayName === value.displayName);
+      if (crateItem) {
+        crateItem.purchased = false;
+      }
+    },
+    clearCart: (state) => {
+      // Mark onSale / supply crates as not purchased
+      state.cart.forEach((value) => {
+        const onSaleItem = state.onSale.find(item => item.displayName === value.displayName);
+        if (onSaleItem) {
+          onSaleItem.purchased = false;
+        }
+        const crate = state.supplyCrates.find(item => item.displayName === value.displayName);
+        if (crate) {
+          crate.purchased = true;
+        }
+      });
+      state.cart = [];
+    },
     buyOnSale: (state, action) => {
       const { value } = action.payload;
-      state.onSale.find((item) => item.displayName === value.displayName).purchased = true;
+      const target = state.onSale.find(item => item.displayName === value.displayName);
+      if (target) target.purchased = true;
     },
     buySupplyCrate: (state, action) => {
       const { value } = action.payload;
-      state.supplyCrates.find((item) => item.displayName === value.displayName).purchased = true;
+      const target = state.supplyCrates.find(item => item.displayName === value.displayName);
+      if (target) target.purchased = true;
     },
     resetShop: (state) => {
-      const warbonds = state.warbonds.map((warbond) => warbond.warbondCode);
-      const items = ITEMS.filter((item) => warbonds.includes(item.warbondCode));
+      const warbonds = state.warbonds.map(w => w.warbondCode);
+      const items = ITEMS.filter(i => warbonds.includes(i.warbondCode));
       const [onSale, inventory] = calculateShopItems(items);
       state.onSale = onSale;
       state.inventory = inventory;
       state.supplyCrates = supplyCrates();
       state.initialised = true;
+      state.cart = [];
     },
-    setShopState: (state, action) => action.payload,
+    setShopState: (_state, action) => action.payload,
     setWarbonds: (state, action) => {
       const { value } = action.payload;
       state.warbonds = value;
@@ -44,5 +91,16 @@ const shopSlice = createSlice({
   },
 });
 
-export const { buyOnSale, buySupplyCrate, setWarbonds, setShopState, resetShop } = shopSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  checkout,
+  buyOnSale,
+  buySupplyCrate,
+  setWarbonds,
+  setShopState,
+  resetShop,
+} = shopSlice.actions;
+
 export default shopSlice.reducer;

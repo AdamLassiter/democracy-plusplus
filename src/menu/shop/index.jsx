@@ -4,6 +4,7 @@ import OnSale from "./onSale";
 import { useDispatch, useSelector } from "react-redux";
 import { resetShop, selectShop } from "../../slices/shopSlice";
 import { useEffect } from "react";
+import CartManager from "./cart";
 
 export default function Shop() {
   const dispatch = useDispatch();
@@ -19,5 +20,6 @@ export default function Shop() {
     <OnSale />
     <Divider />
     <Inventory />
+    <CartManager />
   </Grid>;
 }

@@ -7,7 +7,7 @@ import TierLists from './tierList';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
 import Settings from './settings';
-import WarbondsFilter from './warbondsFilter';
+import WarbondsFilter from './warbonds';
 import { Settings as SettingsIcon } from '@mui/icons-material';
 
 export default function Menu() {

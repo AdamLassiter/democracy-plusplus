@@ -2,9 +2,8 @@ import { Badge, Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
 import ItemDisplay from "../../itemDisplay";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectShop } from "../../slices/shopSlice";
-import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
-import { addPurchased } from "../../slices/purchasedSlice";
+import { addToCart, selectShop } from "../../slices/shopSlice";
+import { selectCredits } from "../../slices/creditsSlice";
 import SupplyCrates from "./supplyCrate";
 import { setSnackbar } from "../../slices/snackbarSlice";
 
@@ -19,11 +18,12 @@ export default function Inventory() {
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
-  function buy(item) {
+  function addItemToCart(item) {
     if (credits >= item.cost) {
-      dispatch(subtractCredits({ amount: item.cost }));
-      dispatch(addPurchased({ value: item.displayName }));
-      dispatch(setSnackbar({ message: `Purchased ${item.displayName}` }));
+      dispatch(addToCart({ value: item }));
+      dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
+    } else {
+      dispatch(setSnackbar({ message: `Not enough credits for ${item.displayName}`, severity: 'warning' }));
     }
   }
 
@@ -62,7 +62,7 @@ export default function Inventory() {
       <Box sx={{ padding: '1em' }}>
         {value === 0
           ? <SupplyCrates />
-          : <Shop index={value} items={list} onClick={buy} />}
+          : <Shop index={value} items={list} onClick={addItemToCart} />}
       </Box>
     </Box>
   </>;
