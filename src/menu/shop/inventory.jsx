@@ -59,7 +59,7 @@ export default function Inventory() {
           {shops.map(([displayName]) => <Tab label={displayName} />)}
         </Tabs>
       </Box>
-      <Box sx={{ padding: '1em' }}>
+      <Box sx={{ paddingTop: '1em' }}>
         {value === 0
           ? <SupplyCrates />
           : <Shop index={value} items={list} onClick={addItemToCart} />}

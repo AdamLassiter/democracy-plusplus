@@ -42,7 +42,7 @@ export default function CartManager() {
     const purchasedNames = cart.map(i => i.displayName);
 
     dispatch(subtractCredits({ amount: totalCost }));
-    dispatch(addPurchased({ value: purchasedNames }));
+    purchasedNames.forEach(purchasedName => dispatch(addPurchased({ value: purchasedName })));
     dispatch(clearCart());
     dispatch(setSnackbar({ message: `Purchased ${cart.length} items!` }));
 

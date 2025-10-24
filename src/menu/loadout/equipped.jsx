@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectEquipment, unsetEquipment } from "../../slices/equipmentSlice";
 import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../itemDisplay";
-import { Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import { getConstant } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";
 
@@ -29,10 +29,10 @@ export default function Equipped() {
         {primary ? <ItemDisplay item={getConstant(primary)} onClick={() => unequip(primary)} /> : <MissingPrimary />}
         {secondary ? <ItemDisplay item={getConstant(secondary)} onClick={() => unequip(secondary)} /> : <MissingSecondary />}
         {throwable ? <ItemDisplay item={getConstant(throwable)} onClick={() => unequip(throwable)} /> : <MissingThrowable />}
+        <Divider orientation="vertical" variant="middle" flexItem />
         {armorPassive ? <ItemDisplay item={getConstant(armorPassive)} onClick={() => unequip(armorPassive)} /> : <MissingArmor />}
         {booster ? <ItemDisplay item={getConstant(booster)} onClick={() => unequip(booster)} /> : <MissingBooster />}
-      </Grid>
-      <Grid direction="row" container spacing={1}>
+        <Divider orientation="vertical" variant="middle" flexItem />
         {stratagems.map(stratagem => stratagem ? <ItemDisplay item={getConstant(stratagem)} onClick={() => unequip(stratagem)} /> : <MissingStratagem />)}
       </Grid>
     </Grid>
