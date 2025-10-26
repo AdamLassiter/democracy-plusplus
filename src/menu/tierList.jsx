@@ -1,5 +1,5 @@
 import { Box, Card, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
-import { ARMOR_PASSIVES } from "../constants/armorpassives";
+import { ARMOR_PASSIVES } from "../constants/armor_passives";
 import ItemDisplay from "./../itemDisplay";
 import { BOOSTERS } from "../constants/boosters";
 import { PRIMARIES } from "../constants/primaries";

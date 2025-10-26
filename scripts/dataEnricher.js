@@ -1,100 +1,132 @@
 /* eslint-disable no-undef */
 
-import fs from 'fs';
-import readline from 'readline';
-import fetch from 'node-fetch';
-import { JSDOM } from 'jsdom';
-
-// Import all your data arrays
-import { PRIMARIES } from '../src/constants/primaries.js';
-import { SECONDARIES } from '../src/constants/secondaries.js';
-import { THROWABLES } from '../src/constants/throwables.js';
-import { STRATAGEMS } from '../src/constants/stratagems.js';
+import fs from "fs/promises";
+import readline from "readline";
+import fetch from "node-fetch";
+import { JSDOM } from "jsdom";
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-function askQuestion(query) {
-  return new Promise(resolve => rl.question(query, answer => resolve(answer)));
+function ask(q) {
+  return new Promise((resolve) => rl.question(q, (ans) => resolve(ans.trim())));
 }
 
-async function processItem(item) {
-  let wikiUrl = `https://helldivers.wiki.gg/wiki/${item.wikiSlug}`,
-   proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(wikiUrl)}`;
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Fetch HTML for a given wiki slug with retries
+ */
+async function fetchWikiPage(item, maxRetries = 5) {
+  let retries = 0;
+  const baseUrl = `https://helldivers.wiki.gg/wiki/${item.wikiSlug}`;
+  let url = `https://api.allorigins.win/raw?url=${encodeURIComponent(baseUrl)}`;
 
   const headers = {
     "User-Agent": "MyHelldiversScraper/1.0 (https://adamlassiter.github.io)",
-    "Accept": "text/html,application/xhtml+xml"
+    Accept: "text/html,application/xhtml+xml",
   };
-  let response,
-   retries = 1,
 
-   tables;
-  while (!item.hoverText) {
-    if (retries > 10) {
-      const newSlug = await askQuestion(`Enter new wikiSlug for ${item.displayName}: `);
-      if (newSlug) {
-        item.wikiSlug = newSlug;
-        wikiUrl = `https://helldivers.wiki.gg/wiki/${item.wikiSlug}`;
-        proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(proxyUrl)}`;
-      }
+  let delay = 2000; // start with 2 seconds
+
+  while (retries < maxRetries) {
+    if (retries > 0) {
+      await sleep(delay);
+      delay *= 2;
     }
+    try {
+      const res = await fetch(url, { headers });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    response = await fetch(proxyUrl, { headers });
-    if (!response.ok) {
-      console.log(`Wiki page not found for ${item.wikiSlug} at ${wikiUrl}`);
-      console.log('Retrying...');
+      const html = await res.text();
+      return new JSDOM(html).window.document;
+    } catch (err) {
+      console.warn(
+        `Failed to fetch ${item.wikiSlug} (${err.message}), retry ${retries + 1}/${maxRetries}`
+      );
       retries++;
-      continue;
-    }
 
-    console.log(`Fetched ${item.wikiSlug}`);
-
-    const htmlText = await response.text(),
-     {document} = new JSDOM(htmlText).window,
-
-     displayName = document.querySelector('.mw-page-title-main')?.innerHTML,
-     weaponTables = document.querySelectorAll('.table-weapon-stats');
-    tables = [...weaponTables];
-
-    if (!displayName || !tables.length) {
-      console.log(`No table found for ${item.wikiSlug} at ${wikiUrl}`);
-      const retry = await askQuestion(`Retry? `);
-      if (retry === 'y') {
-        console.log('Retrying...');
-        retries++;
-        continue;
+      if (retries === maxRetries) {
+        const newSlug = await ask(`Enter new wikiSlug for ${item.displayName}: `);
+        if (newSlug) {
+          item.wikiSlug = newSlug;
+          return await fetchWikiPage(item, maxRetries);
+        } else {
+          throw new Error(`Max retries reached for ${item.displayName}`);
+        }
       }
     }
-
-    item.displayName = displayName;
-    item.hoverTexts = tables.map(table => table.outerHTML.replaceAll(/ href="[^"]*"/, ''));
-
-    break;
   }
 }
 
-async function processArray(array, arrayName) {
-  console.log(`Processing ${arrayName}...`);
-  for (const item of array) {
-    await processItem(item);
+/**
+ * Process one item by scraping and extracting data
+ */
+async function processItem(item) {
+  const document = await fetchWikiPage(item);
+
+  const title = document.querySelector(".mw-page-title-main")?.textContent.trim();
+  const tables = [...document.querySelectorAll(".table-weapon-stats")];
+
+  if (!title || !tables.length) {
+    console.warn(`No weapon table found for ${item.wikiSlug}`);
+    const retry = await ask("Retry? (y/n) ");
+    if (retry.toLowerCase() === "y") return await processItem(item);
+    return;
   }
-  // Save updated array to a new file
-  const filename = `${arrayName.toLowerCase()}_updated.js`;
-  fs.writeFileSync(filename, `export const ${arrayName} = ${JSON.stringify(array, null, 2)};`);
-  console.log(`Updated ${arrayName} saved to ${filename}`);
+
+  item.displayName = title;
+  item.hoverTexts = tables.map((t) =>
+    t.outerHTML.replaceAll(/ href="[^"]*"/g, "")
+  );
+
+  console.log(`Processed ${item.displayName}`);
 }
 
+/**
+ * Read JSON data, process, and write updated JSON
+ */
+async function processArray(fileName, name) {
+  const filePath = `./public/data/${fileName}.json`;
+
+  console.log(`Reading ${filePath}...`);
+  const raw = await fs.readFile(filePath, "utf-8");
+  const items = JSON.parse(raw);
+
+  console.log(`=== Processing ${name} (${items.length} items) ===`);
+  for (const item of items) {
+    try {
+      await processItem(item);
+    } catch (err) {
+      console.error(`Skipped ${item.displayName || item.wikiSlug}: ${err.message}`);
+    }
+  }
+
+  const outputFile = `./public/data/${fileName}.json`;
+  await fs.writeFile(outputFile, JSON.stringify(items, null, 2));
+  console.log(`Saved updated ${name} → ${outputFile}`);
+}
+
+/**
+ * Main entry point
+ */
 async function main() {
-  await processArray(PRIMARIES, 'PRIMARIES');
-  await processArray(SECONDARIES, 'SECONDARIES');
-  await processArray(THROWABLES, 'THROWABLES');
-  await processArray(STRATAGEMS, 'STRATAGEMS');
+  await processArray("primaries", "PRIMARIES");
+  await processArray("secondaries", "SECONDARIES");
+  await processArray("throwables", "THROWABLES");
+  await processArray("stratagems", "STRATAGEMS");
+  await processArray("boosters", "BOOSTERS");
+  await processArray("armor_passives", "ARMOR_PASSIVES");
 
   rl.close();
-  console.log('All data processed!');
+  console.log("All data processed successfully");
 }
 
-main();
+main().catch((err) => {
+  console.error("Fatal error:", err);
+  rl.close();
+});

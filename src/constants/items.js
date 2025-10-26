@@ -1,4 +1,4 @@
-import { ARMOR_PASSIVES } from "./armorpassives";
+import { ARMOR_PASSIVES } from "./armor_passives";
 import { BOOSTERS } from "./boosters";
 import { PRIMARIES } from "./primaries";
 import { SECONDARIES } from "./secondaries";
