@@ -69,9 +69,13 @@ const shopSlice = createSlice({
       if (target) target.purchased = true;
     },
     buySupplyCrate: (state, action) => {
-      const { value } = action.payload;
+      const { value, contents } = action.payload;
       const target = state.supplyCrates.find(item => item.displayName === value.displayName);
-      if (target) target.purchased = true;
+      if (target) {
+        target.purchased = true;
+        target.imageUrl = contents.imageUrl;
+        target.displayName = contents.displayName;
+      }
     },
     resetShop: (state) => {
       const warbonds = state.warbonds.map(w => w.warbondCode);

@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  prng: Math.floor(Math.random() * 65536),
-  count: 1,
+const resetState = {
   faction: 0,
   objective: 0,
   state: 'brief',
+}
+const initialState = {
+  ...resetState,
+  prng: Math.floor(Math.random() * 65536),
+  count: 1,
   quests: [],
   restrictions: [],
 };
@@ -55,7 +58,7 @@ const missionSlice = createSlice({
     setMissionState: (state, action) => {
       return action.payload;
     },
-    resetMission: (state) => ({ ...initialState, prng: state.prng, count: state.count + 1 }),
+    resetMission: (state) => ({ ...state, ...resetState, count: state.count + 1 }),
   },
 });
 

@@ -11,6 +11,8 @@ import {
   Button,
   Typography,
   Badge,
+  FormLabel,
+  ListItemIcon,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +20,7 @@ import { selectShop, removeFromCart, clearCart } from "../../slices/shopSlice";
 import { subtractCredits, selectCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
+import { ItemIcon } from "../../itemDisplay";
 
 export default function CartManager() {
   const dispatch = useDispatch();
@@ -49,6 +52,8 @@ export default function CartManager() {
     setOpen(false);
   }
 
+  const categorisedCart = Object.groupBy(cart, (item) => item.category);
+
   return (
     <>
       <Fab
@@ -73,27 +78,17 @@ export default function CartManager() {
           {cart.length === 0 ? (
             <Typography variant="body1">Your cart is empty.</Typography>
           ) : (
-            <List>
-              {cart.map((item) => (
-                <ListItem
-                  key={item.displayName}
-                  secondaryAction={
-                    <Button
-                      color="error"
-                      size="small"
-                      onClick={() => dispatch(removeFromCart({ value: item }))}
-                    >
-                      Remove
-                    </Button>
-                  }
-                >
-                  <ListItemText
-                    primary={`${item.displayName}`}
-                    secondary={`${item.cost}¢`}
-                  />
-                </ListItem>
-              ))}
-            </List>
+            <>
+              <CartCategory category="armor" value="Armor Passives" />
+              <CartCategory category="booster" value="Boosters" />
+              <CartCategory category="primary" value="Primaries" />
+              <CartCategory category="secondary" value="Secondaries" />
+              <CartCategory category="throwable" value="Throwables" />
+              <CartCategory category="Eagle" value="Eagles" />
+              <CartCategory category="Orbital" value="Orbitals" />
+              <CartCategory category="Supply" value="Supplies" />
+              <CartCategory category="Defense" value="Defenses" />
+            </>
           )}
           <Typography color={affordable ? "success" : "error"}>
             {totalCost}¢ Total
@@ -111,4 +106,35 @@ export default function CartManager() {
       </Dialog>
     </>
   );
+
+  function CartCategory({ category, value }) {
+    const categoryItems = categorisedCart[category];
+
+    if (!categoryItems || !categoryItems.length) {
+      return null;
+    }
+
+    return <List>
+      <FormLabel component="legend">{value}</FormLabel>
+      {categoryItems.map((item) => (
+        <ListItem
+          key={item.displayName}
+          secondaryAction={<Button
+            color="error"
+            size="small"
+            onClick={() => dispatch(removeFromCart({ value: item }))}
+          >
+            Remove
+          </Button>}
+        >
+          <ListItemIcon>
+            <ItemIcon item={item} width={55} minHeight={40} margin={1} bgcolor='black' />
+          </ListItemIcon>
+          <ListItemText
+            primary={`${item.displayName}`}
+            secondary={`${item.cost}¢`} />
+        </ListItem>
+      ))}
+    </List>;
+  }
 }

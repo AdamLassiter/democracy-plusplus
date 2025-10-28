@@ -14,9 +14,9 @@ export default function SupplyCrates() {
 
   function buy(item) {
     if (credits >= item.cost) {
-      dispatch(buySupplyCrate({ value: item }));
-      dispatch(subtractCredits({ amount: item.cost }));
       const contents = chooseSupplyCrateContents(item);
+      dispatch(buySupplyCrate({ value: item, contents }));
+      dispatch(subtractCredits({ amount: item.cost }));
       dispatch(addPurchased({ value: contents.displayName }));
       dispatch(setSnackbar({ message: `Purchased ${contents.displayName}` }));
     }

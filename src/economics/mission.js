@@ -1,7 +1,7 @@
 import { RESTRICTIONS } from "../constants/restrictions";
-import { OBJECTIVES } from "../constants/objectives";
 import { QUESTS } from "../constants/quests";
 import { getObjectives } from "../constants/objectives";
+import { FACTIONS } from "../constants/factions";
 
 const BASE_REWARD = 100;
 
@@ -75,7 +75,9 @@ function randomChoice(items, prng, n = 1) {
 }
 
 export function calculateMissionTier(mission) {
-  return getObjectives(mission.faction)[mission.objective].tier[calculateFaction(mission)];
+  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+  const faction = calculateFaction(mission);
+  return objective.tier[faction];
 }
 
 function questsRequiredCount(mission) {
@@ -200,7 +202,7 @@ export function calculateRestrictions(mission, quests, prng, lastRestrictions = 
 }
 
 function shortObjectiveImpliesShortQuest(mission, quest) {
-  const objective = OBJECTIVES[mission.objective];
+  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
   const values = (!objective.short && quest.values)
     || (objective.short === 'eradicate' && quest.eradicateValues)
     || (objective.short === 'blitz' && quest.blitzValues);

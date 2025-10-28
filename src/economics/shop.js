@@ -84,6 +84,14 @@ export function chooseSupplyCrateContents(crate) {
 
 function tieredCrate(grade, category, cost) {
   const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({ tier: grade }));
+  const images = {
+    "primary": "icons/gun.svg",
+    "secondary": "icons/gun.svg",
+    "throwable": "icons/gun.svg",
+    "armor": "icons/shieldPlus.svg",
+    "booster": "icons/shieldPlus.svg",
+    "Stratagem": "icons/missile.svg",
+  };
 
   return {
     displayName: `${toTitleCase(grade)}-Tier ${toTitleCase(category)} Crate`,
@@ -93,7 +101,7 @@ function tieredCrate(grade, category, cost) {
     contents,
     warbondCode: "none",
     internalName: `${grade}-${category}-supplycrate`,
-    imageUrl: "icons/dice.svg",
+    imageUrl: images[category],
     cost,
     tier: grade,
   };

@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Tooltip, Typography } from "@mui/material";
+import { Card, CardActionArea, CardMedia, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 import { selectPreferences } from "./slices/preferencesSlice";
@@ -6,9 +6,25 @@ import ItemTooltip from "./itemTooltip";
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }) {
   const { titles, tooltips } = useSelector(selectPreferences);
-  const { imageUrl } = item;
 
-  const inner = <Card
+  const inner = <ItemCard
+    onClick={onClick}
+    item={item}
+    isAffordable={isAffordable}
+    titles={titles}
+  />;
+
+  if (!tooltips) {
+    return inner;
+  }
+
+  return <ItemTooltip item={item}>
+    {inner}
+  </ItemTooltip>;
+}
+
+function ItemCard({ onClick, item, isAffordable, titles }) {
+  return <Card
     onClick={() => onClick(item)}
     sx={{
       opacity: isAffordable ? 1 : 0.5,
@@ -16,7 +32,7 @@ export default function ItemDisplay({ item, onClick, isAffordable = true }) {
     }}
     variant="outlined">
     <CardActionArea>
-      <CardMedia sx={{ margin: 1, width: 110 }} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />
+      <ItemIcon item={item} margin={1} width={110} minHeight={80} bgcolor='black' />
       {titles && <Typography sx={{
         display: '-webkit-box',
         WebkitLineClamp: 2,
@@ -25,17 +41,9 @@ export default function ItemDisplay({ item, onClick, isAffordable = true }) {
         textOverflow: 'ellipsis',
         width: '110px',
         fontSize: '15px',
-      }}>{item.displayName}</Typography>}
+      }} margin={1}>{item.displayName}</Typography>}
     </CardActionArea>
   </Card>;
-
-  if (tooltips) {
-    return <ItemTooltip item={item}>
-      {inner}
-    </ItemTooltip>;
-  } 
-    return inner;
-  
 }
 
 export function MissingPrimary({ item = { displayName: "Primary", imageUrl: "icons/gun.svg" }, onClick }) {
@@ -63,18 +71,22 @@ export function MissingStratagem({ item = { displayName: "Stratagem", imageUrl: 
 }
 
 function Missing({ item, onClick }) {
-  const { tooltips } = useSelector(selectPreferences),
-   { imageUrl = null } = item,
+  const { tooltips } = useSelector(selectPreferences);
 
-   inner = <Card onClick={onClick} variant="outlined">
-    <CardMedia sx={{ margin: 2, width: 100 }} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />
+  const inner = <Card onClick={onClick} variant="outlined">
+    <ItemIcon item={item} margin={1} width={110} minHeight={80} />
   </Card>;
 
-  if (tooltips && item.hoverTexts?.length) {
-    return <ItemTooltip item={item}>
-      {inner}
-    </ItemTooltip>;
-  } 
+  if (!tooltips || !item.hoverTexts?.length) {
     return inner;
-  
+  }
+
+  return <ItemTooltip item={item}>
+    {inner}
+  </ItemTooltip>;
+}
+
+export function ItemIcon({ item, ...props }) {
+  const { imageUrl } = item;
+  return <CardMedia sx={props} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />;
 }
