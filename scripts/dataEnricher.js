@@ -119,8 +119,8 @@ async function main() {
   await processArray("secondaries", "SECONDARIES");
   await processArray("throwables", "THROWABLES");
   await processArray("stratagems", "STRATAGEMS");
-  await processArray("boosters", "BOOSTERS");
-  await processArray("armor_passives", "ARMOR_PASSIVES");
+  // await processArray("boosters", "BOOSTERS");
+  // await processArray("armor_passives", "ARMOR_PASSIVES");
 
   rl.close();
   console.log("All data processed successfully");
