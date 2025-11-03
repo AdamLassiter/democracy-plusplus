@@ -1,33 +1,34 @@
-import { Button, Dialog, DialogTitle, DialogContent, Grid, Divider, ToggleButtonGroup, ToggleButton, FormLabel, DialogActions } from "@mui/material";
-import Preferences from "./preferences";
-import ResetAppState from "./reset";
-import ImportExport from "./importExport";
+import { useState } from "react";
+import { Button, Tooltip } from "@mui/material";
+import SettingsDialog from "./settingsDialog";
+import { useSelector } from "react-redux";
+import { selectMission } from "../../slices/missionSlice";
+import { Settings as SettingsIcon } from "@mui/icons-material";
 
-export default function Settings({ open, setOpen }) {
-  function handleClose() {
-    setOpen(false);
+export default function Settings() {
+  const [open, setOpen] = useState(false);
+
+  const mission = useSelector(selectMission);
+  const { prng } = mission;
+
+  function handleOpen() {
+    return setOpen(true);
   }
 
   return (
-    <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-      <DialogTitle>Settings</DialogTitle>
-      <DialogContent>
-        <Grid container direction="column" spacing={2}>
-          <Divider />
-          <ImportExport />
-          <Divider />
-          <Preferences />
-          <Divider />
-          <Done />
-        </Grid>
-      </DialogContent>
-    </Dialog>
+    <>
+      <Tooltip title="Need help?">
+        <Button
+          sx={{ width: '100px' }}
+          variant="outlined"
+          onClick={handleOpen}
+        >
+          <SettingsIcon />
+          &nbsp;
+          {prng}
+        </Button>
+      </Tooltip>
+      <SettingsDialog open={open} setOpen={setOpen} />
+    </>
   );
-
-  function Done() {
-    return <DialogActions>
-      <ResetAppState onClick={handleClose} />
-      <Button onClick={handleClose}>Close</Button>
-    </DialogActions>;
-  }
 }

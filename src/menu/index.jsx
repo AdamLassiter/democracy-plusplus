@@ -8,7 +8,7 @@ import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
 import Settings from './settings';
 import WarbondsFilter from './warbonds';
-import { Settings as SettingsIcon } from '@mui/icons-material';
+import Help from './help';
 
 export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -20,12 +20,7 @@ export default function Menu() {
   const { credits } = useSelector(selectCredits);
 
   const mission = useSelector(selectMission);
-  const { prng, count } = mission;
-  const [appState, setAppState] = useState(false);
-
-  function handleAppState() {
-    setAppState(true);
-  }
+  const { count } = mission;
 
   const tabs = [Loadout, Shop, TierLists];
   const CurrentTab = tabs[currentTab];
@@ -66,26 +61,15 @@ export default function Menu() {
 
         {/* Preferences aligned to the right */}
         <Box sx={{ display: 'flex', gap: 1 }}>
-
           <WarbondsFilter />
-
-          <Button
-            sx={{ width: '100px' }}
-            variant="outlined"
-            onClick={handleAppState}
-          >
-            <SettingsIcon />
-            &nbsp;
-            {prng}
-          </Button>
+          <Settings />
+          <Help />
         </Box>
       </Box>
 
       <Box sx={{ padding: '1em' }}>
         <CurrentTab index={currentTab} />
       </Box>
-
-      {appState && <Settings open={appState} setOpen={setAppState} />}
     </Box>
   );
 }
