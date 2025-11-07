@@ -55,7 +55,7 @@ const missionSlice = createSlice({
       const { value } = action.payload;
       state.restrictions = value;
     },
-    setMissionState: (state, action) => {
+    setMissionState: (_state, action) => {
       return action.payload;
     },
     resetMission: (state) => ({ ...state, ...resetState, count: state.count + 1 }),

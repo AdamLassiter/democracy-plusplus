@@ -59,7 +59,7 @@ const equipmentSlice = createSlice({
       const stratagemIndex = state.stratagems.indexOf(value);
       state.stratagems = state.stratagems.map((stratagem, i) => stratagemIndex === i ? null : stratagem);
     },
-    setEquipmentState: (state, action) => {
+    setEquipmentState: (_state, action) => {
       return action.payload;
     },
     resetEquipment: () => initialState,

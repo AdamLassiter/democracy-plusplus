@@ -21,7 +21,7 @@ const preferencesSlice = createSlice({
       const tooltips = action.payload;
       state.tooltips = tooltips;
     },
-    setPreferencesState: (state, action) => {
+    setPreferencesState: (_state, action) => {
       return action.payload;
     },
     resetPreferences: () => initialState,

@@ -20,7 +20,7 @@ const creditsSlice = createSlice({
       const { amount } = action.payload;
       state.credits = Math.max(0, state.credits - amount);
     },
-    setCreditsState: (state, action) => {
+    setCreditsState: (_state, action) => {
       return action.payload;
     },
     resetCredits: () => initialState,

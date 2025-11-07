@@ -20,7 +20,7 @@ const purchasedSlice = createSlice({
       const { value } = action.payload
       state.purchased.splice(state.purchased.indexOf(value), 1);
     },
-    setPurchasedState: (state, action) => {
+    setPurchasedState: (_state, action) => {
       return action.payload;
     },
     resetPurchased: () => initialState,
