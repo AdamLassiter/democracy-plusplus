@@ -1,4 +1,4 @@
-import { Badge, Grid, Typography } from "@mui/material";
+import { Badge, Grid } from "@mui/material";
 import ItemDisplay from "../../itemDisplay";
 import { useDispatch, useSelector } from "react-redux";
 import { buySupplyCrate, selectShop } from "../../slices/shopSlice";

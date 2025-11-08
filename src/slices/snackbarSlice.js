@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const SHOW_SNACKBAR = 'SHOW_SNACKBAR';
-
 const initialState = {
   message: '',
   open: false,
@@ -23,10 +21,10 @@ const snackbarSlice = createSlice({
   name: 'shop',
   reducers: {
     setSnackbar: (state, action) => ({
-        ...state,
-        ...defaultState,
-        ...action.payload,
-      })
+      ...state,
+      ...defaultState,
+      ...action.payload,
+    })
   }
 });
 

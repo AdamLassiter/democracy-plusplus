@@ -1,4 +1,3 @@
-
 import { Grid, ToggleButtonGroup, ToggleButton, FormLabel } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { selectPreferences, setTitles, setTooltips } from "../../slices/preferencesSlice";
