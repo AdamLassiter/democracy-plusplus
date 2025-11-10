@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "fetchData": "node scripts/dataFetcher.js",
     "enrichData": "node scripts/dataEnricher.js",
+    "enrichOffline": "node scripts/dataEnricher.js --offline",
     "downloadImages": "node scripts/imageDownloader.js",
     "rescaleImages": "node scripts/imageRescaler.js"
   },

@@ -67,10 +67,17 @@ async function fetchWikiPage(item, maxRetries = 5) {
  * Process one item by scraping and extracting data
  */
 async function processItem(item) {
-  const document = await fetchWikiPage(item);
+  var title;
+  var tables;
 
-  const title = document.querySelector(".mw-page-title-main")?.textContent.trim();
-  const tables = [...document.querySelectorAll(".table-weapon-stats")];
+  if (process.argv.includes("--offline")) {
+    title = item.displayName;
+    tables = item.hoverTexts.map((t) => ({ outerHTML: t }));
+  } else {
+    const document = await fetchWikiPage(item);
+    title = document.querySelector(".mw-page-title-main")?.textContent.trim();
+    tables = [...document.querySelectorAll(".table-weapon-stats")];
+  }
 
   if (!title || !tables.length) {
     console.warn(`No weapon table found for ${item.wikiSlug}`);
@@ -81,7 +88,7 @@ async function processItem(item) {
 
   item.displayName = title;
   item.hoverTexts = tables.map((t) =>
-    t.outerHTML.replaceAll(/ href="[^"]*"/g, "")
+    t.outerHTML.replaceAll(/ href="[^"]*"/g, "").replaceAll(/<img [^>]*>/g, "")
   );
 
   console.log(`Processed ${item.displayName}`);
