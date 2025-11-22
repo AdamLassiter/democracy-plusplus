@@ -12,7 +12,9 @@
     "enrichData": "node scripts/dataEnricher.js",
     "enrichOffline": "node scripts/dataEnricher.js --offline",
     "downloadImages": "node scripts/imageDownloader.js",
-    "rescaleImages": "node scripts/imageRescaler.js"
+    "rescaleImages": "node scripts/imageRescaler.js",
+    "extractTables": "node scripts/tableDatumExtractor.js",
+    "queryTables": "node scripts/tableDatumExtractor.js --query"
   },
   "dependencies": {
     "@emotion/styled": "^11.14.1",

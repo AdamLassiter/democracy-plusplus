@@ -15,7 +15,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"55x50mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">5.5x50mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>5.5 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>4.5 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>900 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">22 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-23_Liberator_Primary_Render.png",
-    "imageUrl": "primaries/AR-23_Liberator_Primary_Render.png"
+    "imageUrl": "primaries/AR-23_Liberator_Primary_Render.png",
+    "properties": {
+      "AR-23 LIBERATOR": {
+        "Base": {
+          "Fire Rate": "640 rpm",
+          "Recoil": "10.5",
+          "Horizontal Recoil": "6",
+          "Vertical Recoil": "15",
+          "Spread": "↔[2.00] ↕[2.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "45",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*5.5x50mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "5.5x50mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "900 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Ballistic",
+          "vs. Durable": "22 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "AR-23P Liberator Penetrator",
@@ -33,7 +79,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"55x50mm_PENETRATOR_P\">\n<tbody><tr>\n<th colspan=\"2\">5.5x50mm PENETRATOR P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>5.5 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>4.5 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>1000 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">65 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">15 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-23P_Liberator_Penetrator_Primary_Render.png",
-    "imageUrl": "primaries/AR-23P_Liberator_Penetrator_Primary_Render.png"
+    "imageUrl": "primaries/AR-23P_Liberator_Penetrator_Primary_Render.png",
+    "properties": {
+      "AR-23P LIBERATOR PENETRATOR": {
+        "Base": {
+          "Fire Rate": "640 rpm",
+          "Recoil": "14.125",
+          "Horizontal Recoil": "9.5",
+          "Vertical Recoil": "18.75",
+          "Spread": "↔[1.00] ↕[1.00]",
+          "Sway": "1",
+          "Ergonomics": "59",
+          "Capacity": "45",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*5.5x50mm PENETRATOR P": "Projectile"
+        }
+      },
+      "5.5x50mm PENETRATOR P": {
+        "Projectile": {
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "1000 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "65 Ballistic",
+          "vs. Durable": "15 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "AR-23C Liberator Concussive",
@@ -51,7 +143,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"55x50mm_EXPLOSIVE_P\">\n<tbody><tr>\n<th colspan=\"2\">5.5x50mm EXPLOSIVE P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>5.5 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>4.5 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>800 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">75 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">35 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>60\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-23C_Liberator_Concussive_Primary_Render.png",
-    "imageUrl": "primaries/AR-23C_Liberator_Concussive_Primary_Render.png"
+    "imageUrl": "primaries/AR-23C_Liberator_Concussive_Primary_Render.png",
+    "properties": {
+      "AR-23C LIBERATOR CONCUSSIVE": {
+        "Base": {
+          "Fire Rate": "400 rpm",
+          "Recoil": "22.25",
+          "Horizontal Recoil": "17",
+          "Vertical Recoil": "27.5",
+          "Spread": "↔[4.00] ↕[4.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "60",
+          "Spare Magazines": "6",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*5.5x50mm EXPLOSIVE P": "Projectile"
+        }
+      },
+      "5.5x50mm EXPLOSIVE P": {
+        "Projectile": {
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "800 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "75 Ballistic",
+          "vs. Durable": "35 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Light"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "60"
+        }
+      }
+    }
   },
   {
     "displayName": "AR-23A Liberator Carbine",
@@ -69,7 +207,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"55x50mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">5.5x50mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>5.5 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>4.5 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>900 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">22 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-23A_Liberator_Carbine_Primary_Render.png",
-    "imageUrl": "primaries/AR-23A_Liberator_Carbine_Primary_Render.png"
+    "imageUrl": "primaries/AR-23A_Liberator_Carbine_Primary_Render.png",
+    "properties": {
+      "AR-23A Liberator Carbine": {
+        "Base": {
+          "Fire Rate": "920 rpm",
+          "Recoil": "18",
+          "Horizontal Recoil": "10",
+          "Vertical Recoil": "26",
+          "Spread": "↔[3.00] ↕[3.00]",
+          "Sway": "1",
+          "Ergonomics": "70",
+          "Capacity": "45",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*5.5x50mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "5.5x50mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "900 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Ballistic",
+          "vs. Durable": "22 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "BR-14 Adjudicator",
@@ -87,7 +271,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"8x60mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">8x60mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>11 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>820 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">95 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">23 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored II</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>12\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/BR-14_Adjudicator_Primary_Render.png",
-    "imageUrl": "primaries/BR-14_Adjudicator_Primary_Render.png"
+    "imageUrl": "primaries/BR-14_Adjudicator_Primary_Render.png",
+    "properties": {
+      "BR-14 ADJUDICATOR": {
+        "Base": {
+          "Fire Rate": "550 rpm",
+          "Recoil": "27",
+          "Horizontal Recoil": "11.5",
+          "Vertical Recoil": "42.5",
+          "Spread": "↔[1.00] ↕[1.00]",
+          "Sway": "1",
+          "Ergonomics": "40",
+          "Capacity": "30",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*8x60mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "8x60mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "8 mm",
+          "Mass": "11 g",
+          "Initial Velocity": "820 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "95 Ballistic",
+          "vs. Durable": "23 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored II"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "12"
+        }
+      }
+    }
   },
   {
     "displayName": "StA-52 Assault Rifle",
@@ -105,7 +335,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"55x50mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">5.5x50mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>5.5 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>4.5 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>900 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">22 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/StA-52_Assault_Rifle_Primary_Render.png",
-    "imageUrl": "primaries/StA-52_Assault_Rifle_Primary_Render.png"
+    "imageUrl": "primaries/StA-52_Assault_Rifle_Primary_Render.png",
+    "properties": {
+      "StA-52 ASSAULT RIFLE": {
+        "Base": {
+          "Fire Rate": "790 rpm",
+          "Recoil": "14",
+          "Horizontal Recoil": "8",
+          "Vertical Recoil": "20",
+          "Spread": "↔[2.00] ↕[2.00]",
+          "Sway": "1",
+          "Ergonomics": "55",
+          "Capacity": "56",
+          "Spare Magazines": "6",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*5.5x50mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "5.5x50mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "900 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Ballistic",
+          "vs. Durable": "22 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "AR-32 Pacifier",
@@ -124,7 +400,62 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Stun_Medium\">\n<tbody><tr>\n<th colspan=\"2\">Stun Medium\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>1\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-32_Pacifier_Primary_Render.png",
-    "imageUrl": "primaries/AR-32_Pacifier_Primary_Render.png"
+    "imageUrl": "primaries/AR-32_Pacifier_Primary_Render.png",
+    "properties": {
+      "AR-32 PACIFIER": {
+        "Base": {
+          "Fire Rate": "700 rpm",
+          "Recoil": "17.5",
+          "Horizontal Recoil": "12.5",
+          "Vertical Recoil": "22.5",
+          "Spread": "↔[4.00] ↕[4.00]",
+          "Sway": "1",
+          "Ergonomics": "60",
+          "Capacity": "40",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*AR-32 P": "Projectile",
+          "**Stun Medium": "status"
+        }
+      },
+      "AR-32 P": {
+        "Projectile": {
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "900 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "55 Ballistic",
+          "vs. Durable": "10 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Stun Medium",
+          "Status Strength": "2",
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      },
+      "Stun Medium": {
+        "Status": {
+          "Status Strength": "1",
+          "Status Duration": "3 sec"
+        }
+      }
+    }
   },
   {
     "displayName": "AR-61 Tenderizer",
@@ -142,7 +473,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"AR-61_P\">\n<tbody><tr>\n<th colspan=\"2\">AR-61 P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>11 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>820 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">105 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">30 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-61_Tenderizer_Primary_Render.png",
-    "imageUrl": "primaries/AR-61_Tenderizer_Primary_Render.png"
+    "imageUrl": "primaries/AR-61_Tenderizer_Primary_Render.png",
+    "properties": {
+      "AR-61 TENDERIZER": {
+        "Base": {
+          "Fire Rate": "600 rpm",
+          "Recoil": "8",
+          "Horizontal Recoil": "6",
+          "Vertical Recoil": "10",
+          "Spread": "↔[1.00] ↕[1.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "35",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*AR-61 P": "Projectile"
+        }
+      },
+      "AR-61 P": {
+        "Projectile": {
+          "Caliber": "8 mm",
+          "Mass": "11 g",
+          "Initial Velocity": "820 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "105 Ballistic",
+          "vs. Durable": "30 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "MA5C Assault Rifle",
@@ -160,7 +537,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"MA5C_P\">\n<tbody><tr>\n<th colspan=\"2\">MA5C P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>11 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>820 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">16 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/MA5C_Assault_Rifle_Primary_Render.png",
-    "imageUrl": "primaries/MA5C_Assault_Rifle_Primary_Render.png"
+    "imageUrl": "primaries/MA5C_Assault_Rifle_Primary_Render.png",
+    "properties": {
+      "MA5C ASSAULT RIFLE": {
+        "Base": {
+          "Fire Rate": "640 rpm",
+          "Recoil": "18.5",
+          "Horizontal Recoil": "12",
+          "Vertical Recoil": "25",
+          "Spread": "↔[2.00] ↕[2.00]",
+          "Sway": "1",
+          "Ergonomics": "60",
+          "Capacity": "32",
+          "Spare Magazines": "8",
+          "Starting Magazines": "5",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*MA5C P": "Projectile"
+        }
+      },
+      "MA5C P": {
+        "Projectile": {
+          "Caliber": "8 mm",
+          "Mass": "11 g",
+          "Initial Velocity": "820 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Ballistic",
+          "vs. Durable": "16 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "AR-2 Coyote",
@@ -180,7 +603,96 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-damage\">\n<tbody><tr>\n<th colspan=\"2\">DPS Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-2_Coyote_Primary_Render.png",
-    "imageUrl": "primaries/AR-2_Coyote_Primary_Render.png"
+    "imageUrl": "primaries/AR-2_Coyote_Primary_Render.png",
+    "properties": {
+      "AR-2 COYOTE": {
+        "Base": {
+          "Fire Rate": "600 rpm",
+          "Recoil": "19.75",
+          "Horizontal Recoil": "11.5",
+          "Vertical Recoil": "28",
+          "Spread": "↔[4.00] ↕[4.00]",
+          "Sway": "1",
+          "Ergonomics": "50",
+          "Capacity": "45",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*AR-2 P": "Projectile",
+          "**Fire": "status"
+        }
+      },
+      "AR-2 P": {
+        "Projectile": {
+          "Caliber": "7 mm",
+          "Mass": "8 g",
+          "Initial Velocity": "650 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "75 Ballistic",
+          "vs. Durable": "10 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "2",
+          "Demolition Force": "10",
+          "Stagger Force": "12",
+          "Push Force": "12"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "DPS Fire": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "VG-70 Variable",
@@ -198,7 +710,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"VG-70_P\">\n<tbody><tr>\n<th colspan=\"2\">VG-70 P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>9 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>7 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>320 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>60%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">85 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">20 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>4\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/VG-70_Variable_Primary_Render.png",
-    "imageUrl": "primaries/VG-70_Variable_Primary_Render.png"
+    "imageUrl": "primaries/VG-70_Variable_Primary_Render.png",
+    "properties": {
+      "VG-70 VARIABLE": {
+        "Base": {
+          "Fire Rate": "550 rpm",
+          "Recoil": "6.75",
+          "Horizontal Recoil": "4.5",
+          "Vertical Recoil": "9",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1",
+          "Ergonomics": "25",
+          "Capacity": "49",
+          "Spare Magazines": "7",
+          "Starting Magazines": "6",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*VG-70 P": "Projectile"
+        }
+      },
+      "VG-70 P": {
+        "Projectile": {
+          "Caliber": "9 mm",
+          "Mass": "7 g",
+          "Initial Velocity": "320 m/s",
+          "Drag Factor": "60%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "85 Ballistic",
+          "vs. Durable": "20 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "4"
+        }
+      }
+    }
   },
   {
     "displayName": "SMG-37 Defender",
@@ -216,7 +774,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"12x25mm_FULL_METAL_JACKET_P2\">\n<tbody><tr>\n<th colspan=\"2\">12x25mm FULL METAL JACKET P2\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>12 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>15 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>285 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>120%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">100 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">20 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>5\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SMG-37_Defender_Primary_Render.png",
-    "imageUrl": "primaries/SMG-37_Defender_Primary_Render.png"
+    "imageUrl": "primaries/SMG-37_Defender_Primary_Render.png",
+    "properties": {
+      "SMG-37 DEFENDER": {
+        "Base": {
+          "Fire Rate": "520 rpm",
+          "Recoil": "8.75",
+          "Horizontal Recoil": "7.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1.2",
+          "Ergonomics": "90",
+          "Capacity": "45",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*12x25mm FULL METAL JACKET P2": "Projectile"
+        }
+      },
+      "12x25mm FULL METAL JACKET P2": {
+        "Projectile": {
+          "Caliber": "12 mm",
+          "Mass": "15 g",
+          "Initial Velocity": "285 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "100 Ballistic",
+          "vs. Durable": "20 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "5"
+        }
+      }
+    }
   },
   {
     "displayName": "SMG-72 Pummeler",
@@ -235,7 +839,62 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Stun_Medium\">\n<tbody><tr>\n<th colspan=\"2\">Stun Medium\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>1\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SMG-72_Pummeler_Primary_Render.png",
-    "imageUrl": "primaries/SMG-72_Pummeler_Primary_Render.png"
+    "imageUrl": "primaries/SMG-72_Pummeler_Primary_Render.png",
+    "properties": {
+      "SMG-72 PUMMELER": {
+        "Base": {
+          "Fire Rate": "475 rpm",
+          "Recoil": "8.75",
+          "Horizontal Recoil": "7.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1.2",
+          "Ergonomics": "90",
+          "Capacity": "45",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*SMG-72 P": "Projectile",
+          "**Stun Medium": "status"
+        }
+      },
+      "SMG-72 P": {
+        "Projectile": {
+          "Caliber": "12 mm",
+          "Mass": "15 g",
+          "Initial Velocity": "210 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "85 Ballistic",
+          "vs. Durable": "17 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Stun Medium",
+          "Status Strength": "2",
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "5"
+        }
+      },
+      "Stun Medium": {
+        "Status": {
+          "Status Strength": "1",
+          "Status Duration": "3 sec"
+        }
+      }
+    }
   },
   {
     "displayName": "SMG-32 Reprimand",
@@ -253,7 +912,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"12x25mm_FULL_METAL_JACKET_P1\">\n<tbody><tr>\n<th colspan=\"2\">12x25mm FULL METAL JACKET P1\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>12 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>15 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>285 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>120%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">135 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">32 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SMG-32_Reprimand_Primary_Render.png",
-    "imageUrl": "primaries/SMG-32_Reprimand_Primary_Render.png"
+    "imageUrl": "primaries/SMG-32_Reprimand_Primary_Render.png",
+    "properties": {
+      "SMG-32 REPRIMAND": {
+        "Base": {
+          "Fire Rate": "490 rpm",
+          "Recoil": "31.5",
+          "Horizontal Recoil": "15.5",
+          "Vertical Recoil": "47.5",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1",
+          "Ergonomics": "55",
+          "Capacity": "25",
+          "Spare Magazines": "9",
+          "Starting Magazines": "5",
+          "Mags from Supply": "9",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*12x25mm FULL METAL JACKET P1": "Projectile"
+        }
+      },
+      "12x25mm FULL METAL JACKET P1": {
+        "Projectile": {
+          "Caliber": "12 mm",
+          "Mass": "15 g",
+          "Initial Velocity": "285 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "135 Ballistic",
+          "vs. Durable": "32 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "StA-11 SMG",
@@ -271,7 +976,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"9x20mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">9x20mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>9 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>7 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>375 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>120%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">18 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>5\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/StA-11_SMG_Primary_Render.png",
-    "imageUrl": "primaries/StA-11_SMG_Primary_Render.png"
+    "imageUrl": "primaries/StA-11_SMG_Primary_Render.png",
+    "properties": {
+      "StA-11 SMG": {
+        "Base": {
+          "Fire Rate": "1050 rpm",
+          "Recoil": "11.25",
+          "Horizontal Recoil": "7.5",
+          "Vertical Recoil": "15",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "0.7",
+          "Ergonomics": "80",
+          "Capacity": "48",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*9x20mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "9x20mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "9 mm",
+          "Mass": "7 g",
+          "Initial Velocity": "375 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Ballistic",
+          "vs. Durable": "18 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "5"
+        }
+      }
+    }
   },
   {
     "displayName": "MP-98 Knight",
@@ -289,7 +1040,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"9x20mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">9x20mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>9 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>7 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>375 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>120%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">18 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>5\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/MP-98_Knight_Primary_Render.png",
-    "imageUrl": "primaries/MP-98_Knight_Primary_Render.png"
+    "imageUrl": "primaries/MP-98_Knight_Primary_Render.png",
+    "properties": {
+      "MP-98 KNIGHT": {
+        "Base": {
+          "Fire Rate": "1380 rpm",
+          "Recoil": "11.875",
+          "Horizontal Recoil": "6.25",
+          "Vertical Recoil": "17.5",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1.2",
+          "Ergonomics": "90",
+          "Capacity": "50",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*9x20mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "9x20mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "9 mm",
+          "Mass": "7 g",
+          "Initial Velocity": "375 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Ballistic",
+          "vs. Durable": "18 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "5"
+        }
+      }
+    }
   },
   {
     "displayName": "M7S SMG",
@@ -307,7 +1104,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"M7S_P\">\n<tbody><tr>\n<th colspan=\"2\">M7S P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>9 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>7 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>320 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>120%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">80 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">16 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>5\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/M7S_SMG_Primary_Render.png",
-    "imageUrl": "primaries/M7S_SMG_Primary_Render.png"
+    "imageUrl": "primaries/M7S_SMG_Primary_Render.png",
+    "properties": {
+      "M7S SMG": {
+        "Base": {
+          "Fire Rate": "872 rpm",
+          "Recoil": "8.375",
+          "Horizontal Recoil": "4.75",
+          "Vertical Recoil": "12",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1.2",
+          "Ergonomics": "90",
+          "Capacity": "48",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*M7S P": "Projectile"
+        }
+      },
+      "M7S P": {
+        "Projectile": {
+          "Caliber": "9 mm",
+          "Mass": "7 g",
+          "Initial Velocity": "320 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "80 Ballistic",
+          "vs. Durable": "16 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "5"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-8 Punisher",
@@ -325,7 +1168,54 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"BUCKSHOT_P1\">\n<tbody><tr>\n<th colspan=\"2\">BUCKSHOT P1\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Pellets</td>\n<td>x 9\n</td></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>6 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>385 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>50%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">45 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">12 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>30\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-8_Punisher_Primary_Render.png",
-    "imageUrl": "primaries/SG-8_Punisher_Primary_Render.png"
+    "imageUrl": "primaries/SG-8_Punisher_Primary_Render.png",
+    "properties": {
+      "SG-8 PUNISHER": {
+        "Base": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "82.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "120",
+          "Spread": "↔[150.00] ↕[120.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "16",
+          "Spare Rounds": "60",
+          "Starting Rounds": "32",
+          "Rounds from Supply": "60",
+          "Rounds from Ammo Box": "30"
+        },
+        "Attacks": {
+          "*BUCKSHOT P1": "Projectile"
+        }
+      },
+      "BUCKSHOT P1": {
+        "Projectile": {
+          "Pellets": "x 9",
+          "Caliber": "8 mm",
+          "Mass": "6 g",
+          "Initial Velocity": "385 m/s",
+          "Drag Factor": "50%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "45 Ballistic",
+          "vs. Durable": "12 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "30"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-451 Cookout",
@@ -344,7 +1234,79 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Fire\">\n<tbody><tr>\n<th colspan=\"2\">Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>5\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-451_Cookout_Primary_Render.png",
-    "imageUrl": "primaries/SG-451_Cookout_Primary_Render.png"
+    "imageUrl": "primaries/SG-451_Cookout_Primary_Render.png",
+    "properties": {
+      "SG-451 COOKOUT": {
+        "Base": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "71.25",
+          "Horizontal Recoil": "42.5",
+          "Vertical Recoil": "100",
+          "Spread": "↔[180.00] ↕[140.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "16",
+          "Spare Rounds": "60",
+          "Starting Rounds": "32",
+          "Rounds from Supply": "60",
+          "Rounds from Ammo Box": "30"
+        },
+        "Attacks": {
+          "*SG-451 P": "Projectile",
+          "**Fire": "status"
+        }
+      },
+      "SG-451 P": {
+        "Projectile": {
+          "Pellets": "x 20",
+          "Caliber": "8 mm",
+          "Mass": "2 g",
+          "Initial Velocity": "120 m/s",
+          "Drag Factor": "80%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "100%"
+        },
+        "Damage": {
+          "Standard": "16 Ballistic",
+          "vs. Durable": "3 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "0.6",
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "20"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-8S Slugger",
@@ -362,7 +1324,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"10g_RIFLED_SLUGS_P\">\n<tbody><tr>\n<th colspan=\"2\">10g RIFLED SLUGS P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>18 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>50 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>390 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>200%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">330 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>35\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-8S_Slugger_Primary_Render.png",
-    "imageUrl": "primaries/SG-8S_Slugger_Primary_Render.png"
+    "imageUrl": "primaries/SG-8S_Slugger_Primary_Render.png",
+    "properties": {
+      "SG-8S SLUGGER": {
+        "Base": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "82.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "120",
+          "Spread": "↔[6.00] ↕[6.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "16",
+          "Spare Rounds": "60",
+          "Starting Rounds": "32",
+          "Rounds from Supply": "60",
+          "Rounds from Ammo Box": "30"
+        },
+        "Attacks": {
+          "*10g RIFLED SLUGS P": "Projectile"
+        }
+      },
+      "10g RIFLED SLUGS P": {
+        "Projectile": {
+          "Caliber": "18 mm",
+          "Mass": "50 g",
+          "Initial Velocity": "390 m/s",
+          "Drag Factor": "200%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "330 Ballistic",
+          "vs. Durable": "90 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "30",
+          "Push Force": "35"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-225 Breaker",
@@ -380,7 +1388,54 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"12g_BUCKSHOT_P\">\n<tbody><tr>\n<th colspan=\"2\">12g BUCKSHOT P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Pellets</td>\n<td>x 11\n</td></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>4 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>360 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>50%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>80%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">30 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">6 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-225_Breaker_Primary_Render.png",
-    "imageUrl": "primaries/SG-225_Breaker_Primary_Render.png"
+    "imageUrl": "primaries/SG-225_Breaker_Primary_Render.png",
+    "properties": {
+      "SG-225 BREAKER": {
+        "Base": {
+          "Fire Rate": "300 rpm",
+          "Recoil": "43.25",
+          "Horizontal Recoil": "29",
+          "Vertical Recoil": "57.5",
+          "Spread": "↔[100.00] ↕[100.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "16",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*12g BUCKSHOT P": "Projectile"
+        }
+      },
+      "12g BUCKSHOT P": {
+        "Projectile": {
+          "Pellets": "x 11",
+          "Caliber": "8 mm",
+          "Mass": "4 g",
+          "Initial Velocity": "360 m/s",
+          "Drag Factor": "50%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "80%"
+        },
+        "Damage": {
+          "Standard": "30 Ballistic",
+          "vs. Durable": "6 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-225IE Breaker Incendiary",
@@ -399,7 +1454,79 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Fire\">\n<tbody><tr>\n<th colspan=\"2\">Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>5\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-225IE_Breaker_Incendiary_Primary_Render.png",
-    "imageUrl": "primaries/SG-225IE_Breaker_Incendiary_Primary_Render.png"
+    "imageUrl": "primaries/SG-225IE_Breaker_Incendiary_Primary_Render.png",
+    "properties": {
+      "SG-225IE BREAKER INCENDIARY": {
+        "Base": {
+          "Fire Rate": "300 rpm",
+          "Recoil": "32.5",
+          "Horizontal Recoil": "22.5",
+          "Vertical Recoil": "42.5",
+          "Spread": "↔[300.00] ↕[300.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "26",
+          "Spare Magazines": "4",
+          "Starting Magazines": "3",
+          "Mags from Supply": "4",
+          "Mags from Ammo Box": "2"
+        },
+        "Attacks": {
+          "*12g LIBERTY FIRE P": "Projectile",
+          "**Fire": "status"
+        }
+      },
+      "12g LIBERTY FIRE P": {
+        "Projectile": {
+          "Pellets": "x 12",
+          "Caliber": "8 mm",
+          "Mass": "2 g",
+          "Initial Velocity": "120 m/s",
+          "Drag Factor": "80%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "100%"
+        },
+        "Damage": {
+          "Standard": "20 Ballistic",
+          "vs. Durable": "10 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "0.6",
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "10"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-225SP Breaker Spray&Pray",
@@ -417,7 +1544,54 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"12g_BIRDSHOT_P\">\n<tbody><tr>\n<th colspan=\"2\">12g BIRDSHOT P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Pellets</td>\n<td>x 16\n</td></tr>\n<tr>\n<td>Caliber</td>\n<td>3 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>1 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>250 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>50%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>80%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">15 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">4 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>3\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>1\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-225SP_Breaker_Spray%26Pray_Primary_Render.png",
-    "imageUrl": "primaries/SG-225SP_Breaker_Spray%26Pray_Primary_Render.png"
+    "imageUrl": "primaries/SG-225SP_Breaker_Spray%26Pray_Primary_Render.png",
+    "properties": {
+      "SG-225SP BREAKER SPRAY&PRAY": {
+        "Base": {
+          "Fire Rate": "330 rpm",
+          "Recoil": "40",
+          "Horizontal Recoil": "35",
+          "Vertical Recoil": "45",
+          "Spread": "↔[200.00] ↕[200.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "26",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*12g BIRDSHOT P": "Projectile"
+        }
+      },
+      "12g BIRDSHOT P": {
+        "Projectile": {
+          "Pellets": "x 16",
+          "Caliber": "3 mm",
+          "Mass": "1 g",
+          "Initial Velocity": "250 m/s",
+          "Drag Factor": "50%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "80%"
+        },
+        "Damage": {
+          "Standard": "15 Ballistic",
+          "vs. Durable": "4 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "3",
+          "Push Force": "1"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-20 Halt",
@@ -437,7 +1611,90 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Stun_Large\">\n<tbody><tr>\n<th colspan=\"2\">Stun Large\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>1\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>5 sec\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-20_Halt_Primary_Render.png",
-    "imageUrl": "primaries/SG-20_Halt_Primary_Render.png"
+    "imageUrl": "primaries/SG-20_Halt_Primary_Render.png",
+    "properties": {
+      "SG-20 HALT": {
+        "Base": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "82.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "120",
+          "Spread": "↔[300.00] ↕[200.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "16",
+          "Spare Rounds": "60",
+          "Starting Rounds": "32",
+          "Rounds from Supply": "60",
+          "Rounds from Ammo Box": "30"
+        },
+        "Attacks": {
+          "*10g FLECHETTES P": "Projectile",
+          "*10g STUN ROUNDS P": "Projectile",
+          "**Stun Large": "status"
+        }
+      },
+      "10g FLECHETTES P": {
+        "Projectile": {
+          "Pellets": "x 11",
+          "Caliber": "8 mm",
+          "Mass": "6 g",
+          "Initial Velocity": "385 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "35 Ballistic",
+          "vs. Durable": "10 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "20"
+        }
+      },
+      "10g STUN ROUNDS P": {
+        "Projectile": {
+          "Pellets": "x 20",
+          "Caliber": "5.5 mm",
+          "Mass": "4.5 g",
+          "Initial Velocity": "800 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "6 Ballistic",
+          "vs. Durable": "2 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Stun Large",
+          "Status Strength": "1",
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "10"
+        }
+      },
+      "Stun Large": {
+        "Status": {
+          "Status Strength": "1",
+          "Status Duration": "5 sec"
+        }
+      }
+    }
   },
   {
     "displayName": "M90A Shotgun",
@@ -455,7 +1712,54 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"BUCKSHOT_P\">\n<tbody><tr>\n<th colspan=\"2\">BUCKSHOT P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Pellets</td>\n<td>x 11\n</td></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>6 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>385 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>50%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">55 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">15 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>30\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/M90A_Shotgun_Primary_Render.png",
-    "imageUrl": "primaries/M90A_Shotgun_Primary_Render.png"
+    "imageUrl": "primaries/M90A_Shotgun_Primary_Render.png",
+    "properties": {
+      "M90A SHOTGUN": {
+        "Base": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "82.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "120",
+          "Spread": "↔[120.00] ↕[100.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "6",
+          "Spare Rounds": "44",
+          "Starting Rounds": "24",
+          "Rounds from Supply": "44",
+          "Rounds from Ammo Box": "22"
+        },
+        "Attacks": {
+          "*BUCKSHOT P": "Projectile"
+        }
+      },
+      "BUCKSHOT P": {
+        "Projectile": {
+          "Pellets": "x 11",
+          "Caliber": "8 mm",
+          "Mass": "6 g",
+          "Initial Velocity": "385 m/s",
+          "Drag Factor": "50%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "55 Ballistic",
+          "vs. Durable": "15 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "30"
+        }
+      }
+    }
   },
   {
     "displayName": "R-63 Diligence",
@@ -473,7 +1777,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"9x70mm_FULL_METAL_JACKET_P\">\n<tbody><tr>\n<th colspan=\"2\">9x70mm FULL METAL JACKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>9 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>20 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>850 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">165 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">45 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>14\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/R-63_Diligence_Primary_Render.png",
-    "imageUrl": "primaries/R-63_Diligence_Primary_Render.png"
+    "imageUrl": "primaries/R-63_Diligence_Primary_Render.png",
+    "properties": {
+      "R-63 DILIGENCE": {
+        "Base": {
+          "Fire Rate": "350 rpm",
+          "Recoil": "26.25",
+          "Horizontal Recoil": "17.5",
+          "Vertical Recoil": "35",
+          "Spread": "↔[0.50] ↕[0.50]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "25",
+          "Spare Magazines": "8",
+          "Starting Magazines": "5",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*9x70mm FULL METAL JACKET P": "Projectile"
+        }
+      },
+      "9x70mm FULL METAL JACKET P": {
+        "Projectile": {
+          "Caliber": "9 mm",
+          "Mass": "20 g",
+          "Initial Velocity": "850 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "165 Ballistic",
+          "vs. Durable": "45 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "14"
+        }
+      }
+    }
   },
   {
     "displayName": "R-63CS Diligence Counter Sniper",
@@ -491,7 +1841,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"9x70mm_HIGH_VELOCITY_P\">\n<tbody><tr>\n<th colspan=\"2\">9x70mm HIGH VELOCITY P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>9 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>20 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>940 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">200 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">50 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>14\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/R-63CS_Diligence_Counter_Sniper_Primary_Render.png",
-    "imageUrl": "primaries/R-63CS_Diligence_Counter_Sniper_Primary_Render.png"
+    "imageUrl": "primaries/R-63CS_Diligence_Counter_Sniper_Primary_Render.png",
+    "properties": {
+      "R-63CS DILIGENCE COUNTER SNIPER": {
+        "Base": {
+          "Fire Rate": "350 rpm",
+          "Recoil": "40",
+          "Horizontal Recoil": "27.5",
+          "Vertical Recoil": "52.5",
+          "Spread": "↔[0.50] ↕[0.50]",
+          "Sway": "0.8",
+          "Ergonomics": "35",
+          "Capacity": "15",
+          "Spare Magazines": "6",
+          "Starting Magazines": "4",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*9x70mm HIGH VELOCITY P": "Projectile"
+        }
+      },
+      "9x70mm HIGH VELOCITY P": {
+        "Projectile": {
+          "Caliber": "9 mm",
+          "Mass": "20 g",
+          "Initial Velocity": "940 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "200 Ballistic",
+          "vs. Durable": "50 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "14"
+        }
+      }
+    }
   },
   {
     "displayName": "R-6 Deadeye",
@@ -509,7 +1905,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"R-6_P\">\n<tbody><tr>\n<th colspan=\"2\">R-6 P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>20 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>850 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">300 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">100 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>35\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/R-6_Deadeye_Primary_Render.png",
-    "imageUrl": "primaries/R-6_Deadeye_Primary_Render.png"
+    "imageUrl": "primaries/R-6_Deadeye_Primary_Render.png",
+    "properties": {
+      "R-6 DEADEYE": {
+        "Base": {
+          "Fire Rate": "100 rpm",
+          "Recoil": "82.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "120",
+          "Spread": "↔[0.10] ↕[0.10]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "8",
+          "Spare Rounds": "60",
+          "Starting Rounds": "32",
+          "Rounds from Supply": "60",
+          "Rounds from Ammo Box": "30"
+        },
+        "Attacks": {
+          "*R-6 P": "Projectile"
+        }
+      },
+      "R-6 P": {
+        "Projectile": {
+          "Caliber": "8 mm",
+          "Mass": "20 g",
+          "Initial Velocity": "850 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "300 Ballistic",
+          "vs. Durable": "100 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "30",
+          "Push Force": "35"
+        }
+      }
+    }
   },
   {
     "displayName": "R-2 Amendment",
@@ -527,7 +1969,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"R-2_P\">\n<tbody><tr>\n<th colspan=\"2\">R-2 P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>20 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>850 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">200 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">50 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>14\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/R-2_Amendment_Primary_Render.png",
-    "imageUrl": "primaries/R-2_Amendment_Primary_Render.png"
+    "imageUrl": "primaries/R-2_Amendment_Primary_Render.png",
+    "properties": {
+      "R-2 AMENDMENT": {
+        "Base": {
+          "Fire Rate": "480 rpm",
+          "Recoil": "28.75",
+          "Horizontal Recoil": "17.5",
+          "Vertical Recoil": "40",
+          "Spread": "↔[0.10] ↕[0.10]",
+          "Sway": "1",
+          "Ergonomics": "50",
+          "Capacity": "20",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*R-2 P": "Projectile"
+        }
+      },
+      "R-2 P": {
+        "Projectile": {
+          "Caliber": "8 mm",
+          "Mass": "20 g",
+          "Initial Velocity": "850 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "200 Ballistic",
+          "vs. Durable": "50 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "14"
+        }
+      }
+    }
   },
   {
     "displayName": "R-2124 Constitution",
@@ -546,7 +2034,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"R-2124_P\">\n<tbody><tr>\n<th colspan=\"2\">R-2124 P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>8 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>20 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>850 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">180 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">50 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>14\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/R-2124_Constitution_Primary_Render.png",
-    "imageUrl": "primaries/R-2124_Constitution_Primary_Render.png"
+    "imageUrl": "primaries/R-2124_Constitution_Primary_Render.png",
+    "properties": {
+      "R-2124 CONSTITUTION": {
+        "Base": {
+          "Fire Rate": "60 rpm",
+          "Recoil": "30",
+          "Horizontal Recoil": "17.5",
+          "Vertical Recoil": "42.5",
+          "Spread": "↔[0.10] ↕[0.10]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "5",
+          "Spare Rounds": "99",
+          "Starting Rounds": "60",
+          "Rounds from Supply": "99",
+          "Rounds from Ammo Box": "49"
+        },
+        "Attacks": {
+          "*R-2124 P": "Projectile"
+        }
+      },
+      "R-2124 P": {
+        "Projectile": {
+          "Caliber": "8 mm",
+          "Mass": "20 g",
+          "Initial Velocity": "850 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "180 Ballistic",
+          "vs. Durable": "50 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "14"
+        }
+      }
+    }
   },
   {
     "displayName": "LAS-5 Scythe",
@@ -565,7 +2099,78 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Fire\">\n<tbody><tr>\n<th colspan=\"2\">Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>5\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/LAS-5_Scythe_Primary_Render.png",
-    "imageUrl": "primaries/LAS-5_Scythe_Primary_Render.png"
+    "imageUrl": "primaries/LAS-5_Scythe_Primary_Render.png",
+    "properties": {
+      "LAS-5 Scythe": {
+        "Base": {
+          "Recoil": "0",
+          "Horizontal Recoil": "0",
+          "Vertical Recoil": "0",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Spare Magazines": "4",
+          "Starting Magazines": "3",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Heat Data": {
+          "Overheats at": "100 °C",
+          "Warmup": "0.25 sec",
+          "Heat Per Second": "12.5 °C",
+          "Cool Per Sec": "12.75 - 8.5 - 6.375",
+          "Cooldown After Overheat": "RELOAD NEEDED"
+        },
+        "Attacks": {
+          "*LAS-5 SCYTHE B": "Beam",
+          "**Fire": "status"
+        }
+      },
+      "LAS-5 SCYTHE B": {
+        "Beam": {
+          "Beam Range": "1000 m"
+        },
+        "Damage": {
+          "Standard": "350 Laser",
+          "vs. Durable": "70 Laser"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "1",
+          "Demolition Force": "10",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "LAS-16 Sickle",
@@ -583,7 +2188,60 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"LASER_P\">\n<tbody><tr>\n<th colspan=\"2\">LASER P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>10 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>12 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>1300 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>0%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>0%\n</td></tr>\n<tr>\n<td>Lifetime</td>\n<td>6 sec\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">60 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">6 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/LAS-16_Sickle_Primary_Render.png",
-    "imageUrl": "primaries/LAS-16_Sickle_Primary_Render.png"
+    "imageUrl": "primaries/LAS-16_Sickle_Primary_Render.png",
+    "properties": {
+      "LAS-16 SICKLE": {
+        "Base": {
+          "Fire Rate": "750 rpm",
+          "Recoil": "1.75",
+          "Horizontal Recoil": "1.5",
+          "Vertical Recoil": "2",
+          "Spread": "↔[20.00] ↕[20.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Spare Magazines": "3",
+          "Starting Magazines": "2",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Heat Data": {
+          "Overheats at": "100 °C",
+          "Warmup": "0.5 sec",
+          "Heat Per Shot": "1.15 °C",
+          "Cool Per Sec": "12 - 8 - 6",
+          "Cooldown After Overheat": "RELOAD NEEDED"
+        },
+        "Attacks": {
+          "*LASER P": "Projectile"
+        }
+      },
+      "LASER P": {
+        "Projectile": {
+          "Caliber": "10 mm",
+          "Mass": "12 g",
+          "Initial Velocity": "1300 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
+          "Lifetime": "6 sec",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "60 Ballistic",
+          "vs. Durable": "6 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "PLAS-1 Scorcher",
@@ -602,7 +2260,79 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"MEDIUM_PLASMA_BOLT_P_IE\">\n<tbody><tr>\n<th colspan=\"2\">MEDIUM PLASMA BOLT P IE\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">100 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">100 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>99 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>99 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>7\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/PLAS-1_Scorcher_Primary_Render.png",
-    "imageUrl": "primaries/PLAS-1_Scorcher_Primary_Render.png"
+    "imageUrl": "primaries/PLAS-1_Scorcher_Primary_Render.png",
+    "properties": {
+      "PLAS-1 SCORCHER": {
+        "Base": {
+          "Fire Rate": "350 rpm",
+          "Recoil": "15.5",
+          "Horizontal Recoil": "11",
+          "Vertical Recoil": "20",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "20",
+          "Spare Magazines": "5",
+          "Starting Magazines": "3",
+          "Mags from Supply": "5",
+          "Mags from Ammo Box": "2"
+        },
+        "Attacks": {
+          "*MEDIUM PLASMA BOLT P": "Projectile",
+          "**MEDIUM PLASMA BOLT P IE": "Explosion"
+        }
+      },
+      "MEDIUM PLASMA BOLT P": {
+        "Projectile": {
+          "Caliber": "20 mm",
+          "Mass": "25 g",
+          "Initial Velocity": "550 m/s",
+          "Drag Factor": "150%",
+          "Gravity Factor": "50%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "MEDIUM PLASMA BOLT_P_IE"
+        },
+        "Damage": {
+          "Standard": "100 Ballistic",
+          "vs. Durable": "50 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "MEDIUM PLASMA BOLT P IE": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "2 m",
+          "Shockwave Radius": "2 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "100 Explosion",
+          "Inner Durable": "100 Explosion",
+          "Outer Radius": "99 - 0",
+          "Outer Durable": "99 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "7"
+        }
+      }
+    }
   },
   {
     "displayName": "PLAS-101 Purifier",
@@ -623,7 +2353,138 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"VOLATILE_PLASMA_BOLT_P_IE\">\n<tbody><tr>\n<th colspan=\"2\">VOLATILE PLASMA BOLT P IE\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">75 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">75 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>74 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>74 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>7\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/PLAS-101_Purifier_Primary_Render.png",
-    "imageUrl": "primaries/PLAS-101_Purifier_Primary_Render.png"
+    "imageUrl": "primaries/PLAS-101_Purifier_Primary_Render.png",
+    "properties": {
+      "PLAS-101 PURIFIER": {
+        "Base": {
+          "Fire Rate": "1000 rpm",
+          "Recoil": "15.5",
+          "Horizontal Recoil": "11",
+          "Vertical Recoil": "20",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "15",
+          "Spare Magazines": "6",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Charge": {
+          "at (0.01)s": "VOLATILE PLASMA BOLT_P× 0.50 dmg",
+          "at (1.00)s": "LARGE PLASMA BOLT_P× 1.00 dmg",
+          "Speed Mult Range": "(1.00) (1.00)",
+          "Distance Mult Range": "(0.70) (1.40)",
+          "Damage Mult Range": "(0.50) (1.00)"
+        },
+        "Attacks": {
+          "*LARGE PLASMA BOLT P": "Projectile",
+          "*VOLATILE PLASMA BOLT P": "Projectile",
+          "**LARGE PLASMA BOLT P IE": "Explosion",
+          "**VOLATILE PLASMA BOLT P IE": "Explosion"
+        }
+      },
+      "LARGE PLASMA BOLT P": {
+        "Projectile": {
+          "Caliber": "20 mm",
+          "Mass": "25 g",
+          "Initial Velocity": "350 m/s",
+          "Drag Factor": "150%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "LARGE PLASMA BOLT_P_IE"
+        },
+        "Damage": {
+          "Standard": "200 Ballistic",
+          "vs. Durable": "100 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "LARGE PLASMA BOLT P IE": {
+        "Area of Effect": {
+          "Inner Radius": "2.9 m",
+          "Outer Radius": "3 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "300 Explosion",
+          "Inner Durable": "300 Explosion",
+          "Outer Radius": "299 - 0",
+          "Outer Durable": "299 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "30"
+        }
+      },
+      "VOLATILE PLASMA BOLT P": {
+        "Projectile": {
+          "Caliber": "20 mm",
+          "Mass": "25 g",
+          "Initial Velocity": "550 m/s",
+          "Drag Factor": "150%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "VOLATILE PLASMA BOLT_P_IE"
+        },
+        "Damage": {
+          "Standard": "200 Ballistic",
+          "vs. Durable": "100 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "VOLATILE PLASMA BOLT P IE": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "2 m",
+          "Shockwave Radius": "2 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "75 Explosion",
+          "Inner Durable": "75 Explosion",
+          "Outer Radius": "74 - 0",
+          "Outer Durable": "74 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "7"
+        }
+      }
+    }
   },
   {
     "displayName": "SG-8P Punisher Plasma",
@@ -642,7 +2503,79 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"LARGE_PLASMA_BOLT_P3_IE\">\n<tbody><tr>\n<th colspan=\"2\">LARGE PLASMA BOLT P3 IE\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>2.3 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>3 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>4 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">225 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">225 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>224 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>224 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>30\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-8P_Punisher_Plasma_Primary_Render.png",
-    "imageUrl": "primaries/SG-8P_Punisher_Plasma_Primary_Render.png"
+    "imageUrl": "primaries/SG-8P_Punisher_Plasma_Primary_Render.png",
+    "properties": {
+      "SG-8p PUNISHER PLASMA": {
+        "Base": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "77.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "110",
+          "Spread": "↔[8.00] ↕[8.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "10",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*LARGE PLASMA BOLT P3": "Projectile",
+          "**LARGE PLASMA BOLT P3 IE": "Explosion"
+        }
+      },
+      "LARGE PLASMA BOLT P3": {
+        "Projectile": {
+          "Caliber": "20 mm",
+          "Mass": "100 g",
+          "Initial Velocity": "90 m/s",
+          "Drag Factor": "400%",
+          "Gravity Factor": "300%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "LARGE PLASMA BOLT_P3_IE"
+        },
+        "Damage": {
+          "Standard": "0 Ballistic",
+          "vs. Durable": "0 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "LARGE PLASMA BOLT P3 IE": {
+        "Area of Effect": {
+          "Inner Radius": "2.3 m",
+          "Outer Radius": "3 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "225 Explosion",
+          "Inner Durable": "225 Explosion",
+          "Outer Radius": "224 - 0",
+          "Outer Durable": "224 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "30"
+        }
+      }
+    }
   },
   {
     "displayName": "ARC-12 Blitzer",
@@ -661,7 +2594,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Stun_Small\">\n<tbody><tr>\n<th colspan=\"2\">Stun Small\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>1\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>1.5 sec\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/ARC-12_Blitzer_Primary_Render.png",
-    "imageUrl": "primaries/ARC-12_Blitzer_Primary_Render.png"
+    "imageUrl": "primaries/ARC-12_Blitzer_Primary_Render.png",
+    "properties": {
+      "ARC-12 BLITZER": {
+        "Base": {
+          "Recoil": "45",
+          "Horizontal Recoil": "30",
+          "Vertical Recoil": "60",
+          "Spread": "↔[1350.00] ↕[350.00]",
+          "Sway": "1",
+          "Ergonomics": "65"
+        },
+        "Attacks": {
+          "*ARC-12 BLITZER A": "Arc",
+          "**Stun Small": "status"
+        }
+      },
+      "ARC-12 BLITZER A": {
+        "Arc": {
+          "Arc Range": "25 m",
+          "Arc Velocity": "300 m/s"
+        },
+        "Damage": {
+          "Element": "Electricity",
+          "Standard": "50 Electricity",
+          "vs. Durable": "35 Electricity"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Stun Small",
+          "Status Strength": "0.9",
+          "Demolition Force": "10",
+          "Stagger Force": "30",
+          "Push Force": "25"
+        }
+      },
+      "Stun Small": {
+        "Status": {
+          "Status Strength": "1",
+          "Status Duration": "1.5 sec"
+        }
+      }
+    }
   },
   {
     "displayName": "LAS-17 Double-Edge Sickle",
@@ -679,7 +2658,60 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"LASER_P\">\n<tbody><tr>\n<th colspan=\"2\">LASER P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>10 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>12 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>1300 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>0%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>0%\n</td></tr>\n<tr>\n<td>Lifetime</td>\n<td>6 sec\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">60 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">6 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/LAS-17_Double-Edge_Sickle_Primary_Render.png",
-    "imageUrl": "primaries/LAS-17_Double-Edge_Sickle_Primary_Render.png"
+    "imageUrl": "primaries/LAS-17_Double-Edge_Sickle_Primary_Render.png",
+    "properties": {
+      "LAS-17 DOUBLE-EDGE SICKLE": {
+        "Base": {
+          "Fire Rate": "700 rpm",
+          "Recoil": "1.75",
+          "Horizontal Recoil": "1.5",
+          "Vertical Recoil": "2",
+          "Spread": "↔[20.00] ↕[20.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Spare Magazines": "3",
+          "Starting Magazines": "2",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Heat Data": {
+          "Overheats at": "200 °C",
+          "Warmup": "0.5 sec",
+          "Heat Per Shot": "1.15 °C",
+          "Cool Per Sec": "12 - 8 - 6",
+          "Cooldown After Overheat": "RELOAD NEEDED"
+        },
+        "Attacks": {
+          "*LASER P": "Projectile"
+        }
+      },
+      "LASER P": {
+        "Projectile": {
+          "Caliber": "10 mm",
+          "Mass": "12 g",
+          "Initial Velocity": "1300 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
+          "Lifetime": "6 sec",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "60 Ballistic",
+          "vs. Durable": "6 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "10"
+        }
+      }
+    }
   },
   {
     "displayName": "PLAS-39 Accelerator Rifle",
@@ -698,7 +2730,87 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"MEDIUM_PLASMA_BOLT_P1_IE\">\n<tbody><tr>\n<th colspan=\"2\">MEDIUM PLASMA BOLT P1 IE\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">100 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">100 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>99 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>99 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>7\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/PLAS-39_Accelerator_Rifle_Primary_Render.png",
-    "imageUrl": "primaries/PLAS-39_Accelerator_Rifle_Primary_Render.png"
+    "imageUrl": "primaries/PLAS-39_Accelerator_Rifle_Primary_Render.png",
+    "properties": {
+      "PLAS-39 ACCELERATOR RIFLE": {
+        "Base": {
+          "Fire Rate": "550 rpm",
+          "Recoil": "3",
+          "Horizontal Recoil": "3",
+          "Vertical Recoil": "3",
+          "Spread": "↔[0.50] ↕[0.50]",
+          "Sway": "1",
+          "Ergonomics": "60",
+          "Capacity": "9",
+          "Spare Magazines": "12",
+          "Starting Magazines": "8",
+          "Mags from Supply": "12",
+          "Mags from Ammo Box": "6"
+        },
+        "Charge": {
+          "at (0.45)s": "DEFAULT× 1.00 dmg",
+          "at (0.50)s": "DEFAULT× 1.17 dmg",
+          "at (0.90)s": "DEFAULT× 2.50 dmg",
+          "Speed Mult Range": "(0.70) (1.00)",
+          "Distance Mult Range": "(0.70) (1.40)",
+          "Damage Mult Range": "(1.00) (2.50)"
+        },
+        "Attacks": {
+          "*MEDIUM PLASMA BOLT P1": "Projectile",
+          "**MEDIUM PLASMA BOLT P1 IE": "Explosion"
+        }
+      },
+      "MEDIUM PLASMA BOLT P1": {
+        "Projectile": {
+          "Caliber": "20 mm",
+          "Mass": "25 g",
+          "Initial Velocity": "1000 m/s",
+          "Drag Factor": "10%",
+          "Gravity Factor": "50%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "MEDIUM PLASMA BOLT_P1_IE"
+        },
+        "Damage": {
+          "Standard": "250 Ballistic",
+          "vs. Durable": "125 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "MEDIUM PLASMA BOLT P1 IE": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "2 m",
+          "Shockwave Radius": "2 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "100 Explosion",
+          "Inner Durable": "100 Explosion",
+          "Outer Radius": "99 - 0",
+          "Outer Durable": "99 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "7"
+        }
+      }
+    }
   },
   {
     "displayName": "R-36 Eruptor",
@@ -718,7 +2830,109 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"SHRAPNEL_P\">\n<tbody><tr>\n<th colspan=\"2\">SHRAPNEL P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>10 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>100 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>30 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>40%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">110 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">35 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>20\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/R-36_Eruptor_Primary_Render.png",
-    "imageUrl": "primaries/R-36_Eruptor_Primary_Render.png"
+    "imageUrl": "primaries/R-36_Eruptor_Primary_Render.png",
+    "properties": {
+      "R-36 ERUPTOR": {
+        "Base": {
+          "Fire Rate": "32 rpm",
+          "Recoil": "57.5",
+          "Horizontal Recoil": "40",
+          "Vertical Recoil": "75",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "0.8",
+          "Ergonomics": "25",
+          "Capacity": "5",
+          "Spare Magazines": "6",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*15x100mm HIGH EXPLOSIVE P": "Projectile",
+          "**15x100mm HIGH EXPLOSIVE P IE": "Explosion",
+          "***SHRAPNEL P": "Projectile"
+        }
+      },
+      "15x100mm HIGH EXPLOSIVE P": {
+        "Projectile": {
+          "Caliber": "15 mm",
+          "Mass": "100 g",
+          "Initial Velocity": "180 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "30%",
+          "Lifetime": "1 sec",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "15x100mm HIGH EXPLOSIVE_P_IE",
+          "Explode After": "15x100mm HIGH EXPLOSIVE_P_IE"
+        },
+        "Damage": {
+          "Standard": "230 Ballistic",
+          "vs. Durable": "115 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "30",
+          "Stagger Force": "35",
+          "Push Force": "20"
+        }
+      },
+      "15x100mm HIGH EXPLOSIVE P IE": {
+        "Area of Effect": {
+          "Inner Radius": "4 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "8 m",
+          "Shrapnel Count": "30",
+          "Shrapnel": "SHRAPNEL_P"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "225 Explosion",
+          "Inner Durable": "225 Explosion",
+          "Outer Radius": "224 - 0",
+          "Outer Durable": "224 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "20",
+          "Stagger Force": "35",
+          "Push Force": "40"
+        }
+      },
+      "SHRAPNEL P": {
+        "Projectile": {
+          "Caliber": "10 mm",
+          "Mass": "100 g",
+          "Initial Velocity": "30 m/s",
+          "Drag Factor": "40%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "110 Ballistic",
+          "vs. Durable": "35 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "20"
+        }
+      }
+    }
   },
   {
     "displayName": "CB-9 Exploding Crossbow",
@@ -737,7 +2951,79 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"CB-9_P_IE\">\n<tbody><tr>\n<th colspan=\"2\">CB-9 P IE\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>3 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>6 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">350 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">350 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>349 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>349 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>25\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>30\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/CB-9_Exploding_Crossbow_Primary_Render.png",
-    "imageUrl": "primaries/CB-9_Exploding_Crossbow_Primary_Render.png"
+    "imageUrl": "primaries/CB-9_Exploding_Crossbow_Primary_Render.png",
+    "properties": {
+      "CB-9 EXPLODING CROSSBOW": {
+        "Base": {
+          "Fire Rate": "50 rpm",
+          "Recoil": "26.25",
+          "Horizontal Recoil": "17.5",
+          "Vertical Recoil": "35",
+          "Spread": "↔[0.50] ↕[0.50]",
+          "Sway": "1",
+          "Ergonomics": "45",
+          "Capacity": "5",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*CB-9 P": "Projectile",
+          "**CB-9 P IE": "Explosion"
+        }
+      },
+      "CB-9 P": {
+        "Projectile": {
+          "Caliber": "15 mm",
+          "Mass": "100 g",
+          "Initial Velocity": "100 m/s",
+          "Drag Factor": "100%",
+          "Gravity Factor": "50%",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "CB-9_P_IE"
+        },
+        "Damage": {
+          "Standard": "270 Ballistic",
+          "vs. Durable": "50 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "30",
+          "Stagger Force": "30",
+          "Push Force": "10"
+        }
+      },
+      "CB-9 P IE": {
+        "Area of Effect": {
+          "Inner Radius": "3 m",
+          "Outer Radius": "6 m",
+          "Shockwave Radius": "7 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "350 Explosion",
+          "Inner Durable": "350 Explosion",
+          "Outer Radius": "349 - 0",
+          "Outer Durable": "349 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "20",
+          "Stagger Force": "25",
+          "Push Force": "30"
+        }
+      }
+    }
   },
   {
     "displayName": "JAR-5 Dominator",
@@ -755,7 +3041,53 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"15x100mm_STANDARD_ROCKET_P\">\n<tbody><tr>\n<th colspan=\"2\">15x100mm STANDARD ROCKET P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>15 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>100 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>180 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>0%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>30%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">275 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">90 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>15\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/JAR-5_Dominator_Primary_Render.png",
-    "imageUrl": "primaries/JAR-5_Dominator_Primary_Render.png"
+    "imageUrl": "primaries/JAR-5_Dominator_Primary_Render.png",
+    "properties": {
+      "JAR-5 DOMINATOR": {
+        "Base": {
+          "Fire Rate": "250 rpm",
+          "Recoil": "57.5",
+          "Horizontal Recoil": "40",
+          "Vertical Recoil": "75",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "0.8",
+          "Ergonomics": "30",
+          "Capacity": "15",
+          "Spare Magazines": "6",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*15x100mm STANDARD ROCKET P": "Projectile"
+        }
+      },
+      "15x100mm STANDARD ROCKET P": {
+        "Projectile": {
+          "Caliber": "15 mm",
+          "Mass": "100 g",
+          "Initial Velocity": "180 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "30%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "275 Ballistic",
+          "vs. Durable": "90 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "15"
+        }
+      }
+    }
   },
   {
     "displayName": "FLAM-66 Torcher",
@@ -774,6 +3106,69 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Fire\">\n<tbody><tr>\n<th colspan=\"2\">Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>5\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
     "wikiImageUrl": "https://helldivers.wiki.gg/images/FLAM-66_Torcher_Primary_Render.png",
-    "imageUrl": "primaries/FLAM-66_Torcher_Primary_Render.png"
+    "imageUrl": "primaries/FLAM-66_Torcher_Primary_Render.png",
+    "properties": {
+      "FLAM-66 TORCHER": {
+        "Base": {
+          "Recoil": "0.75",
+          "Horizontal Recoil": "0",
+          "Vertical Recoil": "1.5",
+          "Spread": "↔[1.00] ↕[1.00]",
+          "Sway": "1",
+          "Ergonomics": "45",
+          "Capacity": "100",
+          "Spare Magazines": "6",
+          "Starting Magazines": "3",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*FLAM-66 TORCHER S": "Spray",
+          "**Fire": "status"
+        }
+      },
+      "FLAM-66 TORCHER S": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "2 Fire",
+          "vs. Durable": "2 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "2",
+          "Demolition Force": "10",
+          "Stagger Force": "5",
+          "Push Force": "5"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   }
 ]

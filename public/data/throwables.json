@@ -13,7 +13,41 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\">\n<tbody><tr>\n<th colspan=\"2\">G-12 High Explosive\n</th></tr>\n<tr>\n<td>Spare Rounds</td>\n<td>4\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>High Explosive</td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">High Explosive\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>2.5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>9 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">800 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">800 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>799 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>799 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-12_High_Explosive_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-12_High_Explosive_Throwable_Render.png",
+    "properties": {
+      "G-12 High Explosive": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "High Explosive": "Explosion"
+        }
+      },
+      "High Explosive": {
+        "Area of Effect": {
+          "Inner Radius": "2.5 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "9 m"
+        },
+        "Damage": {
+          "Inner Radius": "800 Explosion",
+          "Inner Durable": "800 Explosion",
+          "Outer Radius": "799 - 0",
+          "Outer Durable": "799 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Heavy",
+          "Outer Radius": "Medium",
+          "Shockwave": "Heavy"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "30",
+          "Push Force": "40"
+        }
+      }
+    }
   },
   {
     "displayName": "G-4 Gas",
@@ -31,7 +65,77 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Gas\">\n<tbody><tr>\n<th colspan=\"2\">Gas\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>0.25\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>6 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Gas\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: green;\">25 Gas</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: green;\">25 Gas</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Gas_Confusion\">\n<tbody><tr>\n<th colspan=\"2\">Gas Confusion\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>0.25\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>5 sec\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-4_Gas_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-4_Gas_Throwable_Render.png",
+    "properties": {
+      "G-4 GAS": {
+        "Base": {
+          "Mags from Supply": "2",
+          "Mags from Ammo Box": "1",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "*G-4 GAS E": "Explosion",
+          "**Gas": "status",
+          "**Gas Confusion": "status"
+        }
+      },
+      "G-4 GAS E": {
+        "Area of Effect": {
+          "Inner Radius": "2 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "7 m"
+        },
+        "Damage": {
+          "Damage Element": "Gas",
+          "Inner Radius": "3 Gas",
+          "Inner Durable": "3 Gas",
+          "Outer Radius": "2 - 0",
+          "Outer Durable": "2 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Anti-Tank II",
+          "Outer Radius": "Anti-Tank I",
+          "Shockwave": "Anti-Tank II"
+        },
+        "AoE Effect": {
+          "Status": "Gas",
+          "Status Strength": "100",
+          "Second Status": "Gas_Confusion",
+          "Demolition Force": "30",
+          "Stagger Force": "10",
+          "Push Force": "10"
+        }
+      },
+      "Gas": {
+        "Status": {
+          "Status Strength": "0.25",
+          "Status Duration": "6 sec"
+        },
+        "Damage": {
+          "Element": "Gas",
+          "Standard": "25 Gas",
+          "vs. Durable": "25 Gas"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank II",
+          "Slight Angle": "Anti-Tank II",
+          "Large Angle": "Anti-Tank II",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "Gas Confusion": {
+        "Status": {
+          "Status Strength": "0.25",
+          "Status Duration": "5 sec"
+        }
+      }
+    }
   },
   {
     "displayName": "K-2 Throwing Knife",
@@ -47,7 +151,35 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\">\n<tbody><tr>\n<th colspan=\"2\">K-2 Throwing Knife\n</th></tr>\n<tr>\n<td>Spare Rounds</td>\n<td>20\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>10\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>Impact Throwing Knife</td>\n<td>Damage\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-damage\">\n<tbody><tr>\n<th colspan=\"2\">Impact Throwing Knife\n</th></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a>300 Damage\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a>150 Damage\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>5\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/K-2_Throwing_Knife_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/K-2_Throwing_Knife_Throwable_Render.png",
+    "properties": {
+      "K-2 Throwing Knife": {
+        "Base": {
+          "Spare Rounds": "20",
+          "Starting Rounds": "10"
+        },
+        "Attacks": {
+          "Impact Throwing Knife": "Damage"
+        }
+      },
+      "Impact Throwing Knife": {
+        "Damage": {
+          "Standard": "300 Damage",
+          "vs. Durable": "150 Damage"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Medium"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "5"
+        }
+      }
+    }
   },
   {
     "displayName": "G-6 Frag",
@@ -64,7 +196,72 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"G-6_FRAG_E\">\n<tbody><tr>\n<th colspan=\"2\">G-6 FRAG E\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>4 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>10 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>14 m\n</td></tr>\n<tr>\n<td>Shrapnel Count</td>\n<td>35\n</td></tr>\n<tr>\n<td>Shrapnel</td>\n<td><span class=\"remote-trigger\" data-target=\"SHRAPNEL_P\"><span class=\"remote-text\">SHRAPNEL_P</span></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">500 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">500 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>499 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>499 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>25\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"SHRAPNEL_P\">\n<tbody><tr>\n<th colspan=\"2\">SHRAPNEL P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>10 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>100 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>30 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>40%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">110 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">35 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>20\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-6_Frag_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-6_Frag_Throwable_Render.png",
+    "properties": {
+      "G-6 FRAG": {
+        "Base": {
+          "Mags from Supply": "4",
+          "Mags from Ammo Box": "2",
+          "Max Rounds": "6",
+          "Starting Rounds": "4"
+        },
+        "Attacks": {
+          "*G-6 FRAG E": "Explosion",
+          "**SHRAPNEL P": "Projectile"
+        }
+      },
+      "G-6 FRAG E": {
+        "Area of Effect": {
+          "Inner Radius": "4 m",
+          "Outer Radius": "10 m",
+          "Shockwave Radius": "14 m",
+          "Shrapnel Count": "35",
+          "Shrapnel": "SHRAPNEL_P"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "500 Explosion",
+          "Inner Durable": "500 Explosion",
+          "Outer Radius": "499 - 0",
+          "Outer Durable": "499 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "20",
+          "Stagger Force": "25",
+          "Push Force": "40"
+        }
+      },
+      "SHRAPNEL P": {
+        "Projectile": {
+          "Caliber": "10 mm",
+          "Mass": "100 g",
+          "Initial Velocity": "30 m/s",
+          "Drag Factor": "40%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "110 Ballistic",
+          "vs. Durable": "35 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "20"
+        }
+      }
+    }
   },
   {
     "displayName": "G-16 Impact",
@@ -80,7 +277,41 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\">\n<tbody><tr>\n<th colspan=\"2\">G-16 Impact\n</th></tr>\n<tr>\n<td>Spare Rounds</td>\n<td>4\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>Impact</td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Impact\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>2.5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>8 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">400 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">400 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>399 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>399 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-16_Impact_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-16_Impact_Throwable_Render.png",
+    "properties": {
+      "G-16 Impact": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "Impact": "Explosion"
+        }
+      },
+      "Impact": {
+        "Area of Effect": {
+          "Inner Radius": "2.5 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "8 m"
+        },
+        "Damage": {
+          "Inner Radius": "400 Explosion",
+          "Inner Durable": "400 Explosion",
+          "Outer Radius": "399 - 0",
+          "Outer Durable": "399 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Heavy",
+          "Outer Radius": "Medium",
+          "Shockwave": "Heavy"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "30",
+          "Push Force": "40"
+        }
+      }
+    }
   },
   {
     "displayName": "G-3 Smoke",
@@ -97,7 +328,25 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\">\n<tbody><tr>\n<th colspan=\"2\">G-3 Smoke\n</th></tr>\n<tr>\n<td>Spare Rounds</td>\n<td>4\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>Grenade Smoke</td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Grenade Smoke\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>5 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>0 m\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-3_Smoke_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-3_Smoke_Throwable_Render.png",
+    "properties": {
+      "G-3 Smoke": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "Grenade Smoke": "Explosion"
+        }
+      },
+      "Grenade Smoke": {
+        "Area of Effect": {
+          "Inner Radius": "5 m",
+          "Outer Radius": "5 m",
+          "Shockwave Radius": "0 m"
+        }
+      }
+    }
   },
   {
     "displayName": "G-10 Incendiary",
@@ -114,7 +363,69 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"G-10_INCENDIARY_E\">\n<tbody><tr>\n<th colspan=\"2\">G-10 INCENDIARY E\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>9 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">300 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">300 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>299 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>299 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Fire</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>50\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>15\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Fire\">\n<tbody><tr>\n<th colspan=\"2\">Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>5\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-10_Incendiary_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-10_Incendiary_Throwable_Render.png",
+    "properties": {
+      "G-10 INCENDIARY": {
+        "Base": {
+          "Mags from Supply": "2",
+          "Mags from Ammo Box": "1",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "*G-10 INCENDIARY E": "Explosion",
+          "**Fire": "status"
+        }
+      },
+      "G-10 INCENDIARY E": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "9 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "300 Explosion",
+          "Inner Durable": "300 Explosion",
+          "Outer Radius": "299 - 0",
+          "Outer Durable": "299 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Status": "Fire",
+          "Status Strength": "50",
+          "Demolition Force": "30",
+          "Stagger Force": "20",
+          "Push Force": "15"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-23 Stun",
@@ -130,7 +441,41 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\">\n<tbody><tr>\n<th colspan=\"2\">G-23 Stun\n</th></tr>\n<tr>\n<td>Spare Rounds</td>\n<td>4\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>Flash</td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Flash\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>10 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>15 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">0 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">0 Explosion</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank I</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Stun Large</a>\n</td></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Stun Large</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>25\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>50\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-23_Stun_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-23_Stun_Throwable_Render.png",
+    "properties": {
+      "G-23 Stun": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "Flash": "Explosion"
+        }
+      },
+      "Flash": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "10 m",
+          "Shockwave Radius": "15 m"
+        },
+        "Damage": {
+          "Inner Radius": "0 Explosion",
+          "Inner Durable": "0 Explosion"
+        },
+        "Penetration": {
+          "Inner Radius": "Anti-Tank II",
+          "Outer Radius": "Anti-Tank I",
+          "Shockwave": "Anti-Tank II"
+        },
+        "AoE Effect": {
+          "Status": "Stun Large",
+          "Status Strength": "25",
+          "Demolition Force": "0",
+          "Stagger Force": "50",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-123 Thermite",
@@ -148,7 +493,78 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Thermite\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1.5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>2.5 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>4 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">2000 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">2000 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>1999 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>1999 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank III</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank III</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-damage\">\n<tbody><tr>\n<th colspan=\"2\">DPS Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-123_Thermite_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-123_Thermite_Throwable_Render.png",
+    "properties": {
+      "G-123 Thermite": {
+        "Base": {
+          "Spare Rounds": "3",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
+          "DPS Thermite": "Damage",
+          "Thermite": "Explosion"
+        }
+      },
+      "DPS Thermite": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "150 Fire",
+          "vs. Durable": "150 Fire"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank III",
+          "Slight Angle": "Anti-Tank III",
+          "Large Angle": "Anti-Tank III",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "Thermite": {
+        "Area of Effect": {
+          "Inner Radius": "1.5 m",
+          "Outer Radius": "2.5 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Inner Radius": "2000 Explosion",
+          "Inner Durable": "2000 Explosion",
+          "Outer Radius": "1999 - 0",
+          "Outer Durable": "1999 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Anti-Tank III",
+          "Outer Radius": "Anti-Tank II",
+          "Shockwave": "Anti-Tank III"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "20",
+          "Push Force": "40"
+        }
+      },
+      "DPS Fire": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-13 Incendiary Impact",
@@ -165,7 +581,62 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Incendiary Impact\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>9 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">150 Fire</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">150 Fire</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>149 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>149 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Fire</a>\n</td></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Fire</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>100\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>15\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-damage\">\n<tbody><tr>\n<th colspan=\"2\">DPS Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-13_Incendiary_Impact_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-13_Incendiary_Impact_Throwable_Render.png",
+    "properties": {
+      "G-13 Incendiary Impact": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "Incendiary Impact": "Explosion"
+        }
+      },
+      "Incendiary Impact": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "9 m"
+        },
+        "Damage": {
+          "Damage Element": "Fire",
+          "Inner Radius": "150 Fire",
+          "Inner Durable": "150 Fire",
+          "Outer Radius": "149 - 0",
+          "Outer Durable": "149 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Status": "Fire",
+          "Status Strength": "100",
+          "Demolition Force": "30",
+          "Stagger Force": "20",
+          "Push Force": "15"
+        }
+      },
+      "DPS Fire": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-50 Seeker",
@@ -181,7 +652,44 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\" data-parent=\"first\">\n<tbody><tr>\n<th colspan=\"2\">G-50 SEEKER\n</th></tr>\n<tr>\n<td>Mags from Supply</td>\n<td>2\n</td></tr>\n<tr>\n<td>Mags from Ammo Box</td>\n<td>1\n</td></tr>\n<tr>\n<td>Max Rounds</td>\n<td>4\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>*<span class=\"remote-trigger\" data-target=\"G-50_SEEKER_E\"><span class=\"remote-text\">G-50 SEEKER E</span></span></td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"G-50_SEEKER_E\">\n<tbody><tr>\n<th colspan=\"2\">G-50 SEEKER E\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>3.5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>8 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">500 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">500 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>499 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>499 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-50_Seeker_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-50_Seeker_Throwable_Render.png",
+    "properties": {
+      "G-50 SEEKER": {
+        "Base": {
+          "Mags from Supply": "2",
+          "Mags from Ammo Box": "1",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "*G-50 SEEKER E": "Explosion"
+        }
+      },
+      "G-50 SEEKER E": {
+        "Area of Effect": {
+          "Inner Radius": "3.5 m",
+          "Outer Radius": "7 m",
+          "Shockwave Radius": "8 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "500 Explosion",
+          "Inner Durable": "500 Explosion",
+          "Outer Radius": "499 - 0",
+          "Outer Durable": "499 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Heavy",
+          "Outer Radius": "Medium",
+          "Shockwave": "Heavy"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "30",
+          "Push Force": "40"
+        }
+      }
+    }
   },
   {
     "displayName": "TED-63 Dynamite",
@@ -197,7 +705,44 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\" data-parent=\"first\">\n<tbody><tr>\n<th colspan=\"2\">TED-63 DYNAMITE\n</th></tr>\n<tr>\n<td>Mags from Supply</td>\n<td>2\n</td></tr>\n<tr>\n<td>Mags from Ammo Box</td>\n<td>1\n</td></tr>\n<tr>\n<td>Max Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>*<span class=\"remote-trigger\" data-target=\"TED-63_DYNAMITE_E\"><span class=\"remote-text\">TED-63 DYNAMITE E</span></span></td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"TED-63_DYNAMITE_E\">\n<tbody><tr>\n<th colspan=\"2\">TED-63 DYNAMITE E\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>6 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>12 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>16 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">1000 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">1000 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>999 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>999 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>40\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>40\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/TED-63_Dynamite_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/TED-63_Dynamite_Throwable_Render.png",
+    "properties": {
+      "TED-63 DYNAMITE": {
+        "Base": {
+          "Mags from Supply": "2",
+          "Mags from Ammo Box": "1",
+          "Max Rounds": "3",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "*TED-63 DYNAMITE E": "Explosion"
+        }
+      },
+      "TED-63 DYNAMITE E": {
+        "Area of Effect": {
+          "Inner Radius": "6 m",
+          "Outer Radius": "12 m",
+          "Shockwave Radius": "16 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "1000 Explosion",
+          "Inner Durable": "1000 Explosion",
+          "Outer Radius": "999 - 0",
+          "Outer Durable": "999 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Heavy",
+          "Outer Radius": "Medium",
+          "Shockwave": "Heavy"
+        },
+        "AoE Effect": {
+          "Demolition Force": "40",
+          "Stagger Force": "40",
+          "Push Force": "40"
+        }
+      }
+    }
   },
   {
     "displayName": "G-142 Pyrotech",
@@ -215,7 +760,85 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Pyrotech Explosion\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>2.5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>5 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">50 Fire</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">50 Fire</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>49 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>49 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Fire</a>\n</td></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Fire</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>100\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>50\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-damage\">\n<tbody><tr>\n<th colspan=\"2\">DPS Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-142_Pyrotech_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-142_Pyrotech_Throwable_Render.png",
+    "properties": {
+      "G-142 Pyrotech": {
+        "Base": {
+          "Spare Rounds": "6",
+          "Starting Rounds": "4"
+        },
+        "Attacks": {
+          "Hand Grenade Sparks": "Projectile x 1",
+          "Pyrotech Explosion": "Explosion",
+          "DPS Fire": "Damage"
+        }
+      },
+      "Hand Grenade Sparks": {
+        "Projectile": {},
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "20 Fire",
+          "vs. Durable": "20 Fire"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank I",
+          "Slight Angle": "Anti-Tank I",
+          "Large Angle": "Anti-Tank I",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "5",
+          "Demolition Force": "10",
+          "Stagger Force": "5",
+          "Push Force": "5"
+        }
+      },
+      "Pyrotech Explosion": {
+        "Area of Effect": {
+          "Inner Radius": "2.5 m",
+          "Outer Radius": "5 m",
+          "Shockwave Radius": "7 m"
+        },
+        "Damage": {
+          "Damage Element": "Fire",
+          "Inner Radius": "50 Fire",
+          "Inner Durable": "50 Fire",
+          "Outer Radius": "49 - 0",
+          "Outer Durable": "49 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Status": "Fire",
+          "Status Strength": "100",
+          "Demolition Force": "30",
+          "Stagger Force": "50",
+          "Push Force": "40"
+        }
+      },
+      "DPS Fire": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-109 Urchin",
@@ -231,7 +854,41 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\">\n<tbody><tr>\n<th colspan=\"2\">G-109 Urchin\n</th></tr>\n<tr>\n<td>Spare Rounds</td>\n<td>4\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>3\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>Stun Pulse</td>\n<td>Explosion\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Stun Pulse\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>2 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>4 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">0 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">0 Explosion</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank I</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Stun Large</a>\n</td></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Stun Large</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>10\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>50\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-109_Urchin_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-109_Urchin_Throwable_Render.png",
+    "properties": {
+      "G-109 Urchin": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
+          "Stun Pulse": "Explosion"
+        }
+      },
+      "Stun Pulse": {
+        "Area of Effect": {
+          "Inner Radius": "2 m",
+          "Outer Radius": "4 m",
+          "Shockwave Radius": "1 m"
+        },
+        "Damage": {
+          "Inner Radius": "0 Explosion",
+          "Inner Durable": "0 Explosion"
+        },
+        "Penetration": {
+          "Inner Radius": "Anti-Tank II",
+          "Outer Radius": "Anti-Tank I",
+          "Shockwave": "Anti-Tank II"
+        },
+        "AoE Effect": {
+          "Status": "Stun Large",
+          "Status Strength": "10",
+          "Demolition Force": "0",
+          "Stagger Force": "50",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-31 Arc",
@@ -248,7 +905,65 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-arc\">\n<tbody><tr>\n<th colspan=\"2\">Hand Grenade Arcs\n</th></tr>\n<tr>\n<th colspan=\"2\">Arc\n</th></tr>\n<tr>\n<td>Arc Range</td>\n<td>10 m\n</td></tr>\n<tr>\n<td>Arc Velocity</td>\n<td>2000 m/s\n</td></tr>\n<tr>\n<td>Arc Aim Angle</td>\n<td>300 °\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Arc\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: cyan;\">100 Arc</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: cyan;\">70 Arc</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Stun Small</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>8\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>35\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Explosion Hand Grenade Arc\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>1 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>3 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>4 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">0 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">0 Explosion</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank I</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank II</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-31_ARC_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-31_ARC_Throwable_Render.png",
+    "properties": {
+      "G-31 Arc": {
+        "Base": {
+          "Spare Rounds": "4",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
+          "Hand Grenade Arcs": "Arc",
+          "Explosion Hand Grenade Arc": "Explosion"
+        }
+      },
+      "Hand Grenade Arcs": {
+        "Arc": {
+          "Arc Range": "10 m",
+          "Arc Velocity": "2000 m/s",
+          "Arc Aim Angle": "300 °"
+        },
+        "Damage": {
+          "Element": "Arc",
+          "Standard": "100 Arc",
+          "vs. Durable": "70 Arc"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Stun Small",
+          "Status Strength": "8",
+          "Demolition Force": "20",
+          "Stagger Force": "35",
+          "Push Force": "0"
+        }
+      },
+      "Explosion Hand Grenade Arc": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "3 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Inner Radius": "0 Explosion",
+          "Inner Durable": "0 Explosion"
+        },
+        "Penetration": {
+          "Inner Radius": "Anti-Tank II",
+          "Outer Radius": "Anti-Tank I",
+          "Shockwave": "Anti-Tank II"
+        },
+        "AoE Effect": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   },
   {
     "displayName": "G-7 Pineapple",
@@ -266,6 +981,98 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"CLUSTER_BOMB_P\">\n<tbody><tr>\n<th colspan=\"2\">CLUSTER BOMB P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>40 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>150 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>25 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>50%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>400%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<td>Explosion On Impact</td>\n<td><span class=\"remote-trigger\" data-target=\"CLUSTER_BOMB_P_IE\"><span class=\"remote-text\">CLUSTER BOMB_P_IE</span></span>\n</td></tr>\n<tr>\n<td>Explode After</td>\n<td><span class=\"remote-trigger\" data-target=\"CLUSTER_BOMB_P_IE\"><span class=\"remote-text\">CLUSTER BOMB_P_IE</span></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">300 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">300 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>25\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\" id=\"CLUSTER_BOMB_P_IE\">\n<tbody><tr>\n<th colspan=\"2\">CLUSTER BOMB P IE\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>2.5 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>5 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>14 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Damage Element</td>\n<td>None\n</td></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">100 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">100 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>99 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>99 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Medium</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>20\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>25\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-7_Pineapple_Throwable_Render.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-7_Pineapple_Throwable_Render.png",
+    "properties": {
+      "G-7 PINEAPPLE": {
+        "Base": {
+          "Mags from Supply": "2",
+          "Mags from Ammo Box": "1",
+          "Max Rounds": "3",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
+          "*G-7 PINEAPPLE E": "Explosion",
+          "**CLUSTER BOMB P": "Projectile",
+          "***CLUSTER BOMB P IE": "Explosion"
+        }
+      },
+      "G-7 PINEAPPLE E": {
+        "Area of Effect": {
+          "Inner Radius": "4 m",
+          "Outer Radius": "10 m",
+          "Shockwave Radius": "14 m",
+          "Shrapnel Count": "18",
+          "Shrapnel": "CLUSTER BOMB_P"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "300 Explosion",
+          "Inner Durable": "300 Explosion",
+          "Outer Radius": "299 - 0",
+          "Outer Durable": "299 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "25",
+          "Push Force": "40"
+        }
+      },
+      "CLUSTER BOMB P": {
+        "Projectile": {
+          "Caliber": "40 mm",
+          "Mass": "150 g",
+          "Initial Velocity": "25 m/s",
+          "Drag Factor": "50%",
+          "Gravity Factor": "400%",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "CLUSTER BOMB_P_IE",
+          "Explode After": "CLUSTER BOMB_P_IE"
+        },
+        "Damage": {
+          "Standard": "300 Ballistic",
+          "vs. Durable": "300 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Unarmored I",
+          "Large Angle": "Unarmored I",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "30",
+          "Stagger Force": "25",
+          "Push Force": "40"
+        }
+      },
+      "CLUSTER BOMB P IE": {
+        "Area of Effect": {
+          "Inner Radius": "2.5 m",
+          "Outer Radius": "5 m",
+          "Shockwave Radius": "14 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "100 Explosion",
+          "Inner Durable": "100 Explosion",
+          "Outer Radius": "99 - 0",
+          "Outer Durable": "99 - 0"
+        },
+        "Penetration": {
+          "Inner Radius": "Medium",
+          "Outer Radius": "Light",
+          "Shockwave": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "20",
+          "Stagger Force": "25",
+          "Push Force": "40"
+        }
+      }
+    }
   }
 ]
