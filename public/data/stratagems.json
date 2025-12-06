@@ -2887,7 +2887,7 @@
     ],
     "warbondCode": "warbond16",
     "internalName": "guarddogarc",
-    "imageUrl": "stratagems/AX_ARC-3_%22Guard_Dog%22_K-9_Stratagem_Icon.png",
+    "imageUrl": "stratagems/Guard_Dog_K-9_Stratagem_Icon.png",
     "tier": "b",
     "wikiSlug": "AX/ARC-3_%22Guard_Dog%22_K-9",
     "hoverTexts": [
@@ -6667,7 +6667,7 @@
     "wikiSlug": "AX/FLAM-75_%22Guard_Dog%22_Hot_Dog",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/AX_FLAM-75_%E2%80%9CGuard_Dog%E2%80%9D_Hot_Dog_Stratagem_Icon.png",
     "hoverTexts": [],
-    "imageUrl": "stratagems/AX_FLAM-75_%E2%80%9CGuard_Dog%E2%80%9D_Hot_Dog_Stratagem_Icon.png",
+    "imageUrl": "stratagems/Guard_Dog_Hot_Dog_Stratagem_Icon.png",
     "properties": {}
   },
   {
