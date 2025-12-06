@@ -15,6 +15,7 @@ function ask(q) {
 }
 
 function sleep(ms) {
+  console.debug(`Sleeping for ${ms} ms...`);
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -27,7 +28,7 @@ async function fetchWikiPage(item, maxRetries = 5) {
   let url = `https://api.allorigins.win/raw?url=${encodeURIComponent(baseUrl)}`;
 
   const headers = {
-    "User-Agent": "MyHelldiversScraper/1.0 (https://adamlassiter.github.io)",
+    "User-Agent": "DemocracyPlusPlus/1.0",
     Accept: "text/html,application/xhtml+xml",
   };
 
@@ -39,7 +40,9 @@ async function fetchWikiPage(item, maxRetries = 5) {
       delay *= 2;
     }
     try {
+      console.debug(`Fetching ${item.wikiSlug} (try ${retries + 1})...`);
       const res = await fetch(url, { headers });
+      console.debug(`Response status: ${res.status}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const html = await res.text();

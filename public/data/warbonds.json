@@ -190,7 +190,7 @@
     "tier": "b"
   },
   {
-    "displayName": "ODST",
+    "displayName": "Obedient Democracy Support Troopers",
     "type": "Warbond",
     "category": "",
     "tags": [],
@@ -207,6 +207,16 @@
     "warbondCode": "warbond20",
     "internalName": "dustdevilsWB",
     "imageUrl": "warbonds/dustdevilsWB.png",
+    "tier": "b"
+  },
+  {
+    "displayName": "Python Commandos",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond21",
+    "internalName": "pythoncommandosWB",
+    "imageUrl": "warbonds/pythoncommandosWB.png",
     "tier": "b"
   }
 ]

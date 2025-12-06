@@ -295,5 +295,19 @@
     "tier": "c",
     "wikiSlug": "Desert_Stormer",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Desert_Stormer_Armor_Passive_Icon.png"
+  },
+  {
+    "displayName": "Rock Solid",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ],
+    "warbondCode": "warbond21",
+    "internalName": "rocksolid",
+    "tier": "a",
+    "wikiSlug": "Rock_Solid",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Rock_Solid_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Rock_Solid_Armor_Passive_Icon.png"
   }
 ]
