@@ -36,8 +36,7 @@
     "tags": [],
     "warbondCode": "warbond3",
     "internalName": "helldiversMobilizeWB",
-    "imageUrl": "warbonds/helldiversMobilizeWB.png",
-    "tier": "s"
+        "tier": "s"
   },
   {
     "displayName": "Steeled Veterans",
@@ -46,8 +45,7 @@
     "tags": [],
     "warbondCode": "warbond4",
     "internalName": "steeledVeteransWB",
-    "imageUrl": "warbonds/steeledVeteransWB.png",
-    "tier": "a"
+        "tier": "a"
   },
   {
     "displayName": "Cutting Edge",
@@ -56,8 +54,7 @@
     "tags": [],
     "warbondCode": "warbond5",
     "internalName": "cuttingEdgeWB",
-    "imageUrl": "warbonds/cuttingEdgeWB.png",
-    "tier": "a"
+        "tier": "a"
   },
   {
     "displayName": "Democratic Detonation",
@@ -66,8 +63,7 @@
     "tags": [],
     "warbondCode": "warbond6",
     "internalName": "democraticDetonationWB",
-    "imageUrl": "warbonds/democraticDetonationWB.png",
-    "tier": "s"
+        "tier": "s"
   },
   {
     "displayName": "Polar Patriots",
@@ -76,8 +72,7 @@
     "tags": [],
     "warbondCode": "warbond7",
     "internalName": "polarPatriotsWB",
-    "imageUrl": "warbonds/polarPatriotsWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Viper Commandos",
@@ -86,8 +81,7 @@
     "tags": [],
     "warbondCode": "warbond8",
     "internalName": "viperCommandosWB",
-    "imageUrl": "warbonds/viperCommandosWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Freedom's Flame",
@@ -96,8 +90,7 @@
     "tags": [],
     "warbondCode": "warbond9",
     "internalName": "freedomsFlameWB",
-    "imageUrl": "warbonds/freedomsFlameWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Chemical Agents",
@@ -106,8 +99,7 @@
     "tags": [],
     "warbondCode": "warbond10",
     "internalName": "chemicalAgentsWB",
-    "imageUrl": "warbonds/chemicalAgentsWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Truth Enforcers",
@@ -116,8 +108,7 @@
     "tags": [],
     "warbondCode": "warbond11",
     "internalName": "truthEnforcersWB",
-    "imageUrl": "warbonds/truthEnforcersWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Urban Legends",
@@ -126,8 +117,7 @@
     "tags": [],
     "warbondCode": "warbond12",
     "internalName": "urbanLegendsWB",
-    "imageUrl": "warbonds/urbanLegendsWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Servants of Freedom",
@@ -136,8 +126,7 @@
     "tags": [],
     "warbondCode": "warbond13",
     "internalName": "servantsOfFreedomWB",
-    "imageUrl": "warbonds/servantsOfFreedomWB.png",
-    "tier": "a"
+        "tier": "a"
   },
   {
     "displayName": "Borderline Justice",
@@ -146,8 +135,7 @@
     "tags": [],
     "warbondCode": "warbond14",
     "internalName": "borderlineJusticeWB",
-    "imageUrl": "warbonds/borderlineJusticeWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Masters of Ceremony",
@@ -156,8 +144,7 @@
     "tags": [],
     "warbondCode": "warbond15",
     "internalName": "mastersOfCeremonyWB",
-    "imageUrl": "warbonds/mastersOfCeremonyWB.png",
-    "tier": "c"
+        "tier": "c"
   },
   {
     "displayName": "Force of Law",
@@ -166,8 +153,7 @@
     "tags": [],
     "warbondCode": "warbond16",
     "internalName": "forceOfLawWB",
-    "imageUrl": "warbonds/forceOfLawWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Control Group",
@@ -176,28 +162,25 @@
     "tags": [],
     "warbondCode": "warbond17",
     "internalName": "controlGroupWB",
-    "imageUrl": "warbonds/controlGroupWB.png",
-    "tier": "a"
+        "tier": "a"
   },
   {
-    "displayName": "Killzone",
+    "displayName": "Righteous Revenants",
     "type": "Warbond",
-    "category": "",
+    "category": "legendary",
     "tags": [],
     "warbondCode": "warbond18",
     "internalName": "odstWB",
-    "imageUrl": "warbonds/odstWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Obedient Democracy Support Troopers",
     "type": "Warbond",
-    "category": "",
+    "category": "legendary",
     "tags": [],
     "warbondCode": "warbond19",
     "internalName": "odstWB",
-    "imageUrl": "warbonds/odstWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Dust Devils",
@@ -206,8 +189,7 @@
     "tags": [],
     "warbondCode": "warbond20",
     "internalName": "dustdevilsWB",
-    "imageUrl": "warbonds/dustdevilsWB.png",
-    "tier": "b"
+        "tier": "b"
   },
   {
     "displayName": "Python Commandos",
@@ -216,7 +198,6 @@
     "tags": [],
     "warbondCode": "warbond21",
     "internalName": "pythoncommandosWB",
-    "imageUrl": "warbonds/pythoncommandosWB.png",
-    "tier": "b"
+        "tier": "b"
   }
 ]
