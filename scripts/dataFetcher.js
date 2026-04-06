@@ -171,9 +171,13 @@ async function main() {
   ]);
 
   const weapons = await enrichWithImageUrls(parseWeaponsPageSource(weaponsPage.content));
-  const stratagems = await enrichWithImageUrls(parseStratagemsPageSource(stratagemsPage.content));
+  const stratagems = await enrichWithImageUrls(
+    await parseStratagemsPageSource(stratagemsPage.content)
+  );
   const boosters = await enrichWithImageUrls(parseBoostersPageSource(boostersPage.content));
-  const passives = await enrichWithImageUrls(parseArmorPassivesPageSource(passivesPage.content));
+  const passives = await enrichWithImageUrls(
+    await parseArmorPassivesPageSource(passivesPage.content)
+  );
 
   console.log("Parsed counts:", {
     weapons: weapons.length,

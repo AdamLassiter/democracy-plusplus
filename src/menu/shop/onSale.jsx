@@ -23,7 +23,7 @@ export default function OnSale() {
 
   return (
     <>
-      <Typography variant="h5">On Sale</Typography>
+      <Typography variant="h5">Discount Surplus</Typography>
       <Grid container spacing={1}>
         {list.map((item) => {
           const isAffordable = credits >= item.cost;

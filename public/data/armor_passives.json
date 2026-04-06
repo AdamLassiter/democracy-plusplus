@@ -8,10 +8,10 @@
     ],
     "warbondCode": "warbond10",
     "internalName": "advancedfiltration",
-    "imageUrl": "armor_passives/Advanced_Filtration_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Advanced_Filtration_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Advanced_Filtration",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Advanced_Filtration_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Advanced_Filtration_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Acclimated",
@@ -24,8 +24,8 @@
     "internalName": "acclimated",
     "tier": "d",
     "wikiSlug": "Acclimated",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Acclimated_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Acclimated_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Acclimated_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Acclimated_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Democracy Protects",
@@ -36,10 +36,10 @@
     ],
     "warbondCode": "none",
     "internalName": "democracyprotects",
-    "imageUrl": "armor_passives/Democracy_Protects_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Democracy_Protects_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Democracy_Protects",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Democracy_Protects_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Democracy_Protects_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Electrical Conduit",
@@ -50,10 +50,10 @@
     ],
     "warbondCode": "warbond5",
     "internalName": "electricalconduit",
-    "imageUrl": "armor_passives/Electrical_Conduit_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Electrical_Conduit_Armor_Passive_Icon.svg",
     "tier": "d",
     "wikiSlug": "Electrical_Conduit",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Electrical_Conduit_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Electrical_Conduit_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Engineering Kit",
@@ -64,10 +64,10 @@
     ],
     "warbondCode": "warbond3",
     "internalName": "engineeringkit",
-    "imageUrl": "armor_passives/Engineering_Kit_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Engineering_Kit_Armor_Passive_Icon.svg",
     "tier": "s",
     "wikiSlug": "Engineering_Kit",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Engineering_Kit_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Engineering_Kit_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Extra Padding",
@@ -78,10 +78,10 @@
     ],
     "warbondCode": "none",
     "internalName": "extrapadding",
-    "imageUrl": "armor_passives/Extra_Padding_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Extra_Padding_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Extra_Padding",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Extra_Padding_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Extra_Padding_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Fortified",
@@ -92,10 +92,10 @@
     ],
     "warbondCode": "warbond6",
     "internalName": "fortified",
-    "imageUrl": "armor_passives/Fortified_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Fortified_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Fortified",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Fortified_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Fortified_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Inflammable",
@@ -106,10 +106,10 @@
     ],
     "warbondCode": "warbond9",
     "internalName": "inflammable",
-    "imageUrl": "armor_passives/Inflammable_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Inflammable_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Inflammable",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Inflammable_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Inflammable_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Med-Kit",
@@ -120,10 +120,10 @@
     ],
     "warbondCode": "warbond3",
     "internalName": "medkit",
-    "imageUrl": "armor_passives/Med-Kit_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Med-Kit_Armor_Passive_Icon.svg",
     "tier": "s",
     "wikiSlug": "Med-Kit",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Med-Kit_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Med-Kit_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Peak Physique",
@@ -134,10 +134,10 @@
     ],
     "warbondCode": "warbond8",
     "internalName": "peakphysique",
-    "imageUrl": "armor_passives/Peak_Physique_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Peak_Physique_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Peak_Physique",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Peak_Physique_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Peak_Physique_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Scout",
@@ -148,10 +148,10 @@
     ],
     "warbondCode": "warbond3",
     "internalName": "scout",
-    "imageUrl": "armor_passives/Scout_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Scout_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Scout",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Scout_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Scout_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Servo-Assisted",
@@ -162,10 +162,10 @@
     ],
     "warbondCode": "warbond4",
     "internalName": "servoassisted",
-    "imageUrl": "armor_passives/Servo-Assisted_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Servo-Assisted_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Servo-Assisted",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Servo-Assisted_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Servo-Assisted_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Unflinching",
@@ -176,10 +176,10 @@
     ],
     "warbondCode": "warbond11",
     "internalName": "unflinching",
-    "imageUrl": "armor_passives/Unflinching_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Unflinching_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Unflinching",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Unflinching_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Unflinching_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Integrated Explosives",
@@ -190,13 +190,10 @@
     ],
     "warbondCode": "warbond13",
     "internalName": "integratedexplosives",
-    "imageUrl": "armor_passives/Integrated_Explosives_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Integrated_Explosives_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Integrated_Explosives",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Integrated_Explosives_Armor_Passive_Icon.png",
-    "hoverTexts": [
-      "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-explosion\">\n<tbody><tr>\n<th colspan=\"2\">Integrated Explosives Attack\n</th></tr>\n<tr>\n<th colspan=\"2\">Area of Effect\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td>3 m\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>7 m\n</td></tr>\n<tr>\n<td>Shockwave Radius</td>\n<td>14 m\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">2000 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Inner Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orange;\">2000 Explosion</span></a>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td>1999 - 0\n</td></tr>\n<tr>\n<td>Outer Durable</td>\n<td>1999 - 0\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Inner Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank I</a></span>\n</td></tr>\n<tr>\n<td>Outer Radius</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Shockwave</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Anti-Tank I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">AoE Effect\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>30\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>40\n</td></tr>\n</tbody></table>"
-    ]
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Integrated_Explosives_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Gunslinger",
@@ -207,10 +204,10 @@
     ],
     "warbondCode": "warbond14",
     "internalName": "gunslinger",
-    "imageUrl": "armor_passives/Gunslinger_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Gunslinger_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Gunslinger",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Gunslinger_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Gunslinger_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Reinforced Epaulettes",
@@ -221,10 +218,10 @@
     ],
     "warbondCode": "warbond15",
     "internalName": "reinforcedepaulettes",
-    "imageUrl": "armor_passives/Reinforced_Epaulettes_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Reinforced_Epaulettes_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Reinforced_Epaulettes",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reinforced_Epaulettes_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reinforced_Epaulettes_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Ballistic Padding",
@@ -235,10 +232,10 @@
     ],
     "warbondCode": "warbond16",
     "internalName": "ballisticpadding",
-    "imageUrl": "armor_passives/Ballistic_Padding_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Ballistic_Padding_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Ballistic_Padding",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Ballistic_Padding_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Ballistic_Padding_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Adreno-Defibrillator",
@@ -249,10 +246,10 @@
     ],
     "warbondCode": "warbond17",
     "internalName": "adrenodefibrillator",
-    "imageUrl": "armor_passives/Adreno-Defibrillator_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Adreno-Defibrillator_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Adreno-Defibrillator",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Adreno-Defibrillator_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Adreno-Defibrillator_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Feet First",
@@ -263,10 +260,10 @@
     ],
     "warbondCode": "warbond19",
     "internalName": "feetfirst",
-    "imageUrl": "armor_passives/Feet_First_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Feet_First_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Feet_First",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Feet_First_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Feet_First_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Desert Stormer",
@@ -277,10 +274,10 @@
     ],
     "warbondCode": "warbond20",
     "internalName": "desertstormer",
-    "imageUrl": "armor_passives/Desert_Stormer_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Desert_Stormer_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Desert_Stormer",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Desert_Stormer_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Desert_Stormer_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Rock Solid",
@@ -293,17 +290,17 @@
     "internalName": "rocksolid",
     "tier": "a",
     "wikiSlug": "Rock_Solid",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Rock_Solid_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Rock_Solid_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Rock_Solid_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Rock_Solid_Armor_Passive_Icon.svg"
   },
   {
     "displayName": "Concussive Padding, Grenadier",
-    "warbondCode": "none",
+    "warbondCode": "warbond24",
     "internalName": "concussivepaddinggrenadier",
-    "tier": "d",
+    "tier": "s",
     "wikiSlug": "Concussive_Padding,_Grenadier",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding,_Grenadier_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Concussive_Padding,_Grenadier_Armor_Passive_Icon.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Concussive_Padding_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
     "tags": [
@@ -312,12 +309,12 @@
   },
   {
     "displayName": "Concussive Padding, Hazmat",
-    "warbondCode": "none",
+    "warbondCode": "warbond24",
     "internalName": "concussivepaddinghazmat",
-    "tier": "d",
+    "tier": "b",
     "wikiSlug": "Concussive_Padding,_Hazmat",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding,_Hazmat_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Concussive_Padding,_Hazmat_Armor_Passive_Icon.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Concussive_Padding_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
     "tags": [
@@ -326,12 +323,12 @@
   },
   {
     "displayName": "Concussive Padding, Reinforced",
-    "warbondCode": "none",
+    "warbondCode": "warbond24",
     "internalName": "concussivepaddingreinforced",
-    "tier": "d",
+    "tier": "a",
     "wikiSlug": "Concussive_Padding,_Reinforced",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding,_Reinforced_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Concussive_Padding,_Reinforced_Armor_Passive_Icon.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Concussive_Padding_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
     "tags": [
@@ -340,12 +337,12 @@
   },
   {
     "displayName": "Supplementary Adrenaline",
-    "warbondCode": "none",
+    "warbondCode": "warbond23",
     "internalName": "supplementaryadrenaline",
-    "tier": "d",
+    "tier": "b",
     "wikiSlug": "Supplementary_Adrenaline",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Supplementary_Adrenaline_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Supplementary_Adrenaline_Armor_Passive_Icon.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Supplementary_Adrenaline_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Supplementary_Adrenaline_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
     "tags": [
@@ -354,12 +351,12 @@
   },
   {
     "displayName": "Reduced Signature",
-    "warbondCode": "none",
+    "warbondCode": "warbond22",
     "internalName": "reducedsignature",
-    "tier": "d",
+    "tier": "c",
     "wikiSlug": "Reduced_Signature",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reduced_Signature_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Reduced_Signature_Armor_Passive_Icon.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reduced_Signature_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Reduced_Signature_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
     "tags": [
@@ -368,12 +365,12 @@
   },
   {
     "displayName": "Siege-Ready",
-    "warbondCode": "none",
+    "warbondCode": "warbond12",
     "internalName": "siegeready",
-    "tier": "d",
+    "tier": "a",
     "wikiSlug": "Siege-Ready",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Siege-Ready_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Siege-Ready_Armor_Passive_Icon.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Siege-Ready_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Siege-Ready_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
     "tags": [

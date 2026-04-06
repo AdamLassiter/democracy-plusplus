@@ -52,7 +52,7 @@ export default function Inventory() {
   const [, list] = shops[value];
 
   return <>
-    <Typography variant="h5">Shop</Typography>
+    <Typography variant="h5">Super Earth's Finest</Typography>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>

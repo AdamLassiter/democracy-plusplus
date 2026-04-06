@@ -5,25 +5,49 @@ export const API_URL = `${BASE_URL}/api.php`;
 
 const USER_AGENT = "DemocracyPlusPlus/1.0";
 const REQUEST_DELAY_MS = 150;
+const MAX_RETRIES = 5;
+const BASE_BACKOFF_MS = 1000;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function apiGet(params) {
-  const { data } = await axios.get(API_URL, {
-    params,
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept: "application/json",
-    },
-  });
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const { data } = await axios.get(API_URL, {
+        params,
+        headers: {
+          "User-Agent": USER_AGENT,
+          Accept: "application/json",
+        },
+      });
 
-  if (data?.error) {
-    throw new Error(data.error.info || data.error.code || "MediaWiki API error");
+      if (data?.error) {
+        throw new Error(data.error.info || data.error.code || "MediaWiki API error");
+      }
+
+      return data;
+    } catch (error) {
+      const status = error.response?.status;
+      const retryAfterHeader = error.response?.headers?.["retry-after"];
+      const retryAfterSeconds = Number(retryAfterHeader);
+      const shouldRetry = status === 429 || (status >= 500 && status <= 599);
+
+      if (!shouldRetry || attempt === MAX_RETRIES) {
+        throw error;
+      }
+
+      const exponentialDelay = BASE_BACKOFF_MS * (2 ** attempt);
+      const retryAfterDelay = Number.isFinite(retryAfterSeconds) ? retryAfterSeconds * 1000 : 0;
+      const delay = Math.max(exponentialDelay, retryAfterDelay);
+
+      console.warn(
+        `MediaWiki API request failed with ${status}. Retrying in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})...`
+      );
+      await sleep(delay);
+    }
   }
-
-  return data;
 }
 
 export function titleToSlug(title) {
@@ -250,6 +274,7 @@ export function parseWeaponsPageSource(content) {
       continue;
     }
 
+    // eslint-disable-next-line no-useless-escape
     const tagMatch = line.match(/^([^={}\[\]|][^=]*)=$/);
     if (tagMatch) {
       const rawTag = tagMatch[1].trim();
