@@ -1115,7 +1115,7 @@
     "category": "secondary",
     "tags": [],
     "warbondCode": "warbond13",
-    "internalName": "gp31ultimatum",
+    "internalName": "gp20ultimatum",
     "tier": "s",
     "wikiSlug": "GP-20_Ultimatum",
     "hoverTexts": [
@@ -1300,8 +1300,8 @@
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\" data-parent=\"first\">\n<tbody><tr>\n<th colspan=\"2\">M6C/SOCOM PISTOL\n</th></tr>\n<tr>\n<td>Fire Rate</td>\n<td>900  rpm\n</td></tr>\n<tr>\n<td>Recoil</td>\n<td>19.5\n</td></tr>\n<tr>\n<td>Horizontal Recoil</td>\n<td>11.5\n</td></tr>\n<tr>\n<td>Vertical Recoil</td>\n<td>27.5\n</td></tr>\n<tr>\n<td>Spread</td>\n<td>↔[10.00]  ↕[10.00]\n</td></tr>\n<tr>\n<td>Sway</td>\n<td>1.2\n</td></tr>\n<tr>\n<td>Ergonomics</td>\n<td>100\n</td></tr>\n<tr>\n<td>Capacity</td>\n<td>12\n</td></tr>\n<tr>\n<td>Spare Magazines</td>\n<td>8\n</td></tr>\n<tr>\n<td>Starting Magazines</td>\n<td>5\n</td></tr>\n<tr>\n<td>Mags from Supply</td>\n<td>8\n</td></tr>\n<tr>\n<td>Mags from Ammo Box</td>\n<td>4\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>*<span class=\"remote-trigger\" data-target=\"M6CSOCOM_P\"><span class=\"remote-text\">M6C/SOCOM P</span></span></td>\n<td>Projectile\n</td></tr>\n</tbody></table>",
       "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-projectile\" id=\"M6CSOCOM_P\">\n<tbody><tr>\n<th colspan=\"2\">M6C/SOCOM P\n</th></tr>\n<tr>\n<th colspan=\"2\">Projectile\n</th></tr>\n<tr>\n<td>Caliber</td>\n<td>12 mm\n</td></tr>\n<tr>\n<td>Mass</td>\n<td>15 g\n</td></tr>\n<tr>\n<td>Initial Velocity</td>\n<td>285 m/s\n</td></tr>\n<tr>\n<td>Drag Factor</td>\n<td>120%\n</td></tr>\n<tr>\n<td>Gravity Factor</td>\n<td>100%\n</td></tr>\n<tr>\n<td>Penetration Slowdown</td>\n<td>25%\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">110 Ballistic</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: default;\">25 Ballistic</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Light</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>15\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>10\n</td></tr>\n</tbody></table>"
     ],
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/M6C_SOCOM_Pistol_Secondary_Render.png",
-    "imageUrl": "secondaries/M6C_SOCOM_Pistol_Secondary_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/M6C-SOCOM_Pistol_Secondary_Render.png",
+    "imageUrl": "secondaries/M6C-SOCOM_Pistol_Secondary_Render.png",
     "properties": {
       "M6C/SOCOM PISTOL": {
         "Base": {
@@ -1348,5 +1348,41 @@
         }
       }
     }
+  },
+  {
+    "displayName": "P-69 Veto",
+    "warbondCode": "none",
+    "internalName": "p69veto",
+    "tier": "d",
+    "wikiSlug": "P-69_Veto",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-69_Veto_Secondary_Render.png",
+    "imageUrl": "secondaries/P-69_Veto_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": []
+  },
+  {
+    "displayName": "CQC-73 Entrenchment Tool",
+    "warbondCode": "none",
+    "internalName": "cqc73entrenchmenttool",
+    "tier": "d",
+    "wikiSlug": "CQC-73_Entrenchment_Tool",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-73_Entrenchment_Tool_Secondary_Render.png",
+    "imageUrl": "secondaries/CQC-73_Entrenchment_Tool_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": []
+  },
+  {
+    "displayName": "P-35 Re-Educator",
+    "warbondCode": "none",
+    "internalName": "p35reeducator",
+    "tier": "d",
+    "wikiSlug": "P-35_Re-Educator",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-35_Re-Educator_Secondary_Render.png",
+    "imageUrl": "secondaries/P-35_Re-Educator_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": []
   }
 ]

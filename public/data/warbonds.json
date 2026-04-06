@@ -218,5 +218,35 @@
     "internalName": "pythoncommandosWB",
     "imageUrl": "warbonds/pythoncommandosWB.png",
     "tier": "b"
+  },
+  {
+    "displayName": "Redacted Regiment",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond22",
+    "internalName": "redactedregimentWB",
+    "imageUrl": "warbonds/redactedregimentWB.png",
+    "tier": "b"
+  },
+  {
+    "displayName": "Siege Breakers",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond23",
+    "internalName": "siegebreakersWB",
+    "imageUrl": "warbonds/siegebreakersWB.png",
+    "tier": "b"
+  },
+  {
+    "displayName": "Entrenched Division",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond24",
+    "internalName": "entrencheddivisionWB",
+    "imageUrl": "warbonds/entrencheddivisionWB.png",
+    "tier": "b"
   }
 ]

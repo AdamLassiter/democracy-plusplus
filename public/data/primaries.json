@@ -529,7 +529,7 @@
       "AssaultRifle"
     ],
     "warbondCode": "warbond19",
-    "internalName": "ma5c",
+    "internalName": "ma5cassaultrifle",
     "tier": "b",
     "wikiSlug": "MA5C_Assault_Rifle",
     "hoverTexts": [
@@ -683,7 +683,7 @@
       "AssaultRifle"
     ],
     "warbondCode": "warbond17",
-    "internalName": "variable",
+    "internalName": "vg70variable",
     "tier": "a",
     "wikiSlug": "VG-70_Variable",
     "hoverTexts": [
@@ -1077,7 +1077,7 @@
       "SubmachineGun"
     ],
     "warbondCode": "warbond19",
-    "internalName": "m7s",
+    "internalName": "m7ssmg",
     "tier": "c",
     "wikiSlug": "M7S_SMG",
     "hoverTexts": [
@@ -1517,7 +1517,7 @@
       "Shotgun"
     ],
     "warbondCode": "warbond3",
-    "internalName": "sg225spbreakerspraynpray",
+    "internalName": "sg225spbreakerspraypray",
     "tier": "a",
     "wikiSlug": "SG-225SP_Breaker_Spray%26Pray",
     "hoverTexts": [
@@ -1685,7 +1685,7 @@
       "Shotgun"
     ],
     "warbondCode": "warbond19",
-    "internalName": "m90a",
+    "internalName": "m90ashotgun",
     "tier": "c",
     "wikiSlug": "M90A_Shotgun",
     "hoverTexts": [
@@ -3263,7 +3263,7 @@
       "Shotgun"
     ],
     "warbondCode": "warbond21",
-    "internalName": "doublefreedom",
+    "internalName": "dbs2doublefreedom",
     "tier": "b",
     "wikiSlug": "DBS-2_Double_Freedom",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/DBS-2_Shotgun_Primary_Render.png",
@@ -3315,5 +3315,65 @@
         }
       }
     }
+  },
+  {
+    "displayName": "AR-59 Suppressor",
+    "warbondCode": "none",
+    "internalName": "ar59suppressor",
+    "tier": "d",
+    "wikiSlug": "AR-59_Suppressor",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-59_Suppressor_Primary_Render.png",
+    "imageUrl": "primaries/AR-59_Suppressor_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": []
+  },
+  {
+    "displayName": "R-72 Censor",
+    "warbondCode": "none",
+    "internalName": "r72censor",
+    "tier": "d",
+    "wikiSlug": "R-72_Censor",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/R-72_Censor_Primary_Render.png",
+    "imageUrl": "primaries/R-72_Censor_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": []
+  },
+  {
+    "displayName": "SMG/FLAM-34 Stoker",
+    "warbondCode": "none",
+    "internalName": "smgflam34stoker",
+    "tier": "d",
+    "wikiSlug": "SMG/FLAM-34_Stoker",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/SMGFLAM-34_Stoker_Primary_Render.png",
+    "imageUrl": "primaries/SMGFLAM-34_Stoker_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": []
+  },
+  {
+    "displayName": "SG-97 Sweeper",
+    "warbondCode": "none",
+    "internalName": "sg97sweeper",
+    "tier": "d",
+    "wikiSlug": "SG-97_Sweeper",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-97_Shotgun_Primary_Render.png",
+    "imageUrl": "primaries/SG-97_Shotgun_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": []
+  },
+  {
+    "displayName": "LAS-13 Trident",
+    "warbondCode": "none",
+    "internalName": "las13trident",
+    "tier": "d",
+    "wikiSlug": "LAS-13_Trident",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/LAS-13_Trident_Primary_Render.png",
+    "imageUrl": "primaries/LAS-13_Trident_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": []
   }
 ]

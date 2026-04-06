@@ -24,8 +24,8 @@
     "internalName": "acclimated",
     "tier": "d",
     "wikiSlug": "Acclimated",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Inflammable_Armor_Passive_Icon.png",
-    "imageUrl": "armor_passives/Inflammable_Armor_Passive_Icon.png"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Acclimated_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Acclimated_Armor_Passive_Icon.png"
   },
   {
     "displayName": "Democracy Protects",
@@ -182,20 +182,6 @@
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Unflinching_Armor_Passive_Icon.png"
   },
   {
-    "displayName": "Siege Ready",
-    "type": "Equipment",
-    "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
-    "warbondCode": "warbond12",
-    "internalName": "siegeready",
-    "imageUrl": "armor_passives/Siege-Ready_Armor_Passive_Icon.png",
-    "tier": "a",
-    "wikiSlug": "Siege-Ready",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Siege-Ready_Armor_Passive_Icon.png"
-  },
-  {
     "displayName": "Integrated Explosives",
     "type": "Equipment",
     "category": "armor",
@@ -309,5 +295,89 @@
     "wikiSlug": "Rock_Solid",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Rock_Solid_Armor_Passive_Icon.png",
     "imageUrl": "armor_passives/Rock_Solid_Armor_Passive_Icon.png"
+  },
+  {
+    "displayName": "Concussive Padding, Grenadier",
+    "warbondCode": "none",
+    "internalName": "concussivepaddinggrenadier",
+    "tier": "d",
+    "wikiSlug": "Concussive_Padding,_Grenadier",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding,_Grenadier_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Concussive_Padding,_Grenadier_Armor_Passive_Icon.png",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
+  },
+  {
+    "displayName": "Concussive Padding, Hazmat",
+    "warbondCode": "none",
+    "internalName": "concussivepaddinghazmat",
+    "tier": "d",
+    "wikiSlug": "Concussive_Padding,_Hazmat",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding,_Hazmat_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Concussive_Padding,_Hazmat_Armor_Passive_Icon.png",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
+  },
+  {
+    "displayName": "Concussive Padding, Reinforced",
+    "warbondCode": "none",
+    "internalName": "concussivepaddingreinforced",
+    "tier": "d",
+    "wikiSlug": "Concussive_Padding,_Reinforced",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Concussive_Padding,_Reinforced_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Concussive_Padding,_Reinforced_Armor_Passive_Icon.png",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
+  },
+  {
+    "displayName": "Supplementary Adrenaline",
+    "warbondCode": "none",
+    "internalName": "supplementaryadrenaline",
+    "tier": "d",
+    "wikiSlug": "Supplementary_Adrenaline",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Supplementary_Adrenaline_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Supplementary_Adrenaline_Armor_Passive_Icon.png",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
+  },
+  {
+    "displayName": "Reduced Signature",
+    "warbondCode": "none",
+    "internalName": "reducedsignature",
+    "tier": "d",
+    "wikiSlug": "Reduced_Signature",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reduced_Signature_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Reduced_Signature_Armor_Passive_Icon.png",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
+  },
+  {
+    "displayName": "Siege-Ready",
+    "warbondCode": "none",
+    "internalName": "siegeready",
+    "tier": "d",
+    "wikiSlug": "Siege-Ready",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Siege-Ready_Armor_Passive_Icon.png",
+    "imageUrl": "armor_passives/Siege-Ready_Armor_Passive_Icon.png",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
   }
 ]
