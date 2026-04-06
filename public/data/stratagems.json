@@ -6330,92 +6330,6 @@
     }
   },
   {
-    "displayName": "AX/FLAM-75 \"Guard Dog\" Hot Dog",
-    "type": "Stratagem",
-    "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
-    "warbondCode": "warbond21",
-    "internalName": "axfmal75guarddoghotdog",
-    "tier": "a",
-    "wikiSlug": "AX/FLAM-75_%22Guard_Dog%22_Hot_Dog",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/AX_FLAM-75_%E2%80%9CGuard_Dog%E2%80%9D_Hot_Dog_Stratagem_Icon.png",
-    "hoverTexts": [
-      "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-weapon\" data-parent=\"first\">\n<tbody><tr>\n<th colspan=\"2\">AX/FLAM-75 \"Guard Dog\" Hot Dog\n</th></tr>\n<tr>\n<td>Main Health</td>\n<td>100\n</td></tr>\n<tr>\n<td>Main Armor</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored II</a></span>\n</td></tr>\n<tr>\n<td>Mags from Supply</td>\n<td>6\n</td></tr>\n<tr>\n<td>Mags from Ammo Box</td>\n<td>3\n</td></tr>\n<tr>\n<td>Max Rounds</td>\n<td>6\n</td></tr>\n<tr>\n<td>Starting Rounds</td>\n<td>6\n</td></tr>\n<tr>\n<th colspan=\"2\">AX/FLAM-75 \"Guard Dog\" Hot Dog\n</th></tr>\n<tr>\n<td>Recoil</td>\n<td>0\n</td></tr>\n<tr>\n<td>Horizontal Recoil</td>\n<td>0\n</td></tr>\n<tr>\n<td>Vertical Recoil</td>\n<td>0\n</td></tr>\n<tr>\n<td>Spread</td>\n<td>↔[10.00]  ↕[10.00]\n</td></tr>\n<tr>\n<td>Sway</td>\n<td>1\n</td></tr>\n<tr>\n<td>Ergonomics</td>\n<td>65\n</td></tr>\n<tr>\n<td>Capacity</td>\n<td>80\n</td></tr>\n<tr>\n<th colspan=\"2\">Attacks\n</th></tr>\n<tr>\n<td>*<span class=\"remote-trigger\" data-target=\"AXFLAM-75_GUARD_DOG_HOT_DOG_S\"><span class=\"remote-text\">AX/FLAM-75 \"GUARD DOG\" HOT DOG S</span></span></td>\n<td>Spray\n</td></tr>\n<tr>\n<td>**<span class=\"remote-trigger\" data-target=\"Fire\"><span class=\"remote-text\">Fire</span></span></td>\n<td>status\n</td></tr>\n</tbody></table>",
-      "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-spray\" id=\"AXFLAM-75_GUARD_DOG_HOT_DOG_S\">\n<tbody><tr>\n<th colspan=\"2\">AX/FLAM-75 \"GUARD DOG\" HOT DOG S\n</th></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">2 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">2 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Status</td>\n<td><a title=\"Status Effects\">Fire</a>\n</td></tr>\n<tr>\n<td>Status Strength</td>\n<td>2\n</td></tr>\n<tr>\n<td>Demolition Force</td>\n<td>10\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>5\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>5\n</td></tr>\n</tbody></table>",
-      "<table class=\"wikitable tableleftjustified Secondcolumnright table-weapon-stats attack-data-table-status\" id=\"Fire\">\n<tbody><tr>\n<th colspan=\"2\">Fire\n</th></tr>\n<tr>\n<th colspan=\"2\">Status\n</th></tr>\n<tr>\n<td>Status Strength</td>\n<td>5\n</td></tr>\n<tr>\n<td>Status Duration</td>\n<td>3 sec\n</td></tr>\n<tr>\n<th colspan=\"2\">Damage\n</th></tr>\n<tr>\n<td>Element</td>\n<td>Fire\n</td></tr>\n<tr>\n<td>Standard</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<td>vs. Durable</td>\n<td><a title=\"Damage\"></a><a title=\"Damage\"><span style=\"color: orangered;\">100 Fire</span></a>\n</td></tr>\n<tr>\n<th colspan=\"2\">Penetration\n</th></tr>\n<tr>\n<td>Direct</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Slight Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Large Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Heavy</a></span>\n</td></tr>\n<tr>\n<td>Extreme Angle</td>\n<td><span class=\"Templateicons\"><a title=\"Damage\"></a>&nbsp;<a title=\"Damage\">Unarmored I</a></span>\n</td></tr>\n<tr>\n<th colspan=\"2\">Special Effects\n</th></tr>\n<tr>\n<td>Demolition Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Stagger Force</td>\n<td>0\n</td></tr>\n<tr>\n<td>Push Force</td>\n<td>0\n</td></tr>\n</tbody></table>"
-    ],
-    "imageUrl": "stratagems/Guard_Dog_Hot_Dog_Stratagem_Icon.png",
-    "properties": {
-      "AX/FLAM-75 \"Guard Dog\" Hot Dog": {
-        "Base": {
-          "Main Health": "100",
-          "Main Armor": "Unarmored II",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3",
-          "Max Rounds": "6",
-          "Starting Rounds": "6"
-        },
-        "AX/FLAM-75 \"Guard Dog\" Hot Dog": {
-          "Recoil": "0",
-          "Horizontal Recoil": "0",
-          "Vertical Recoil": "0",
-          "Spread": "↔[10.00] ↕[10.00]",
-          "Sway": "1",
-          "Ergonomics": "65",
-          "Capacity": "80"
-        },
-        "Attacks": {
-          "*AX/FLAM-75 \"GUARD DOG\" HOT DOG S": "Spray",
-          "**Fire": "status"
-        }
-      },
-      "AX/FLAM-75 \"GUARD DOG\" HOT DOG S": {
-        "Damage": {
-          "Element": "Fire",
-          "Standard": "2 Fire",
-          "vs. Durable": "2 Fire"
-        },
-        "Penetration": {
-          "Direct": "Heavy",
-          "Slight Angle": "Heavy",
-          "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
-        },
-        "Special Effects": {
-          "Status": "Fire",
-          "Status Strength": "2",
-          "Demolition Force": "10",
-          "Stagger Force": "5",
-          "Push Force": "5"
-        }
-      },
-      "Fire": {
-        "Status": {
-          "Status Strength": "5",
-          "Status Duration": "3 sec"
-        },
-        "Damage": {
-          "Element": "Fire",
-          "Standard": "100 Fire",
-          "vs. Durable": "100 Fire"
-        },
-        "Penetration": {
-          "Direct": "Heavy",
-          "Slight Angle": "Heavy",
-          "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
-        },
-        "Special Effects": {
-          "Demolition Force": "0",
-          "Stagger Force": "0",
-          "Push Force": "0"
-        }
-      }
-    }
-  },
-  {
     "displayName": "CQC-9 Defoliation Tool",
     "type": "Stratagem",
     "category": "Supply",
@@ -6621,7 +6535,7 @@
     "displayName": "AX/AR-23 Guard Dog",
     "warbondCode": "none",
     "internalName": "axar23guarddog",
-    "tier": "d",
+    "tier": "a",
     "wikiSlug": "AX/AR-23_Guard_Dog",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Guard_Dog_Stratagem_Icon.svg",
     "imageUrl": "stratagems/Guard_Dog_Stratagem_Icon.svg",
@@ -6633,7 +6547,7 @@
     "displayName": "AX/LAS-5 Rover",
     "warbondCode": "none",
     "internalName": "axlas5rover",
-    "tier": "d",
+    "tier": "c",
     "wikiSlug": "AX/LAS-5_Rover",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Rover_Stratagem_Icon.svg",
     "imageUrl": "stratagems/Rover_Stratagem_Icon.svg",
@@ -6645,7 +6559,7 @@
     "displayName": "AX/FLAM-75 Hot Dog",
     "warbondCode": "none",
     "internalName": "axflam75hotdog",
-    "tier": "d",
+    "tier": "a",
     "wikiSlug": "AX/FLAM-75_Hot_Dog",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Hot_Dog_Stratagem_Icon.svg",
     "imageUrl": "stratagems/Hot_Dog_Stratagem_Icon.svg",
@@ -6657,7 +6571,7 @@
     "displayName": "AX/ARC-3 K-9",
     "warbondCode": "none",
     "internalName": "axarc3k9",
-    "tier": "d",
+    "tier": "b",
     "wikiSlug": "AX/ARC-3_K-9",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/K-9_Stratagem_Icon.svg",
     "imageUrl": "stratagems/K-9_Stratagem_Icon.svg",
@@ -6669,7 +6583,7 @@
     "displayName": "AX/TX-13 Dog Breath",
     "warbondCode": "none",
     "internalName": "axtx13dogbreath",
-    "tier": "d",
+    "tier": "b",
     "wikiSlug": "AX/TX-13_Dog_Breath",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Dog_Breath_Stratagem_Icon.svg",
     "imageUrl": "stratagems/Dog_Breath_Stratagem_Icon.svg",
