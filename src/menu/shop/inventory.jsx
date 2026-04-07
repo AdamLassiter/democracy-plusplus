@@ -6,9 +6,12 @@ import { addToCart, selectShop } from "../../slices/shopSlice";
 import { selectCredits } from "../../slices/creditsSlice";
 import SupplyCrates from "./supplyCrate";
 import { setSnackbar } from "../../slices/snackbarSlice";
+import PropertyFilter from "../../propertyFilter";
+import { filterItemsByPropertyValues } from "../../constants/filters";
 
 export default function Inventory() {
   const [value, setValue] = useState(0);
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   function handleChange(_event, newValue) {
     setValue(newValue);
@@ -50,6 +53,7 @@ export default function Inventory() {
     ["Stratagems", stratagem],
   ];
   const [, list] = shops[value];
+  const filteredItems = filterItemsByPropertyValues(list, selectedFilters);
 
   return <>
     <Typography variant="h5">Super Earth's Finest</Typography>
@@ -62,7 +66,10 @@ export default function Inventory() {
       <Box sx={{ paddingTop: '1em' }}>
         {value === 0
           ? <SupplyCrates />
-          : <Shop index={value} items={list} onClick={addItemToCart} />}
+          : <>
+            <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+            <Shop index={value} items={filteredItems} onClick={addItemToCart} />
+          </>}
       </Box>
     </Box>
   </>;
@@ -78,7 +85,7 @@ function Shop({ items, onClick }) {
 
   return <>
     <Grid direction="column" container spacing={1}>
-      {sortedTiers.map(([tier, items]) => <ShopTier tier={tier} items={items} onClick={onClick} />)}
+      {sortedTiers.map(([tier, items]) => <ShopTier key={tier} tier={tier} items={items} onClick={onClick} />)}
     </Grid>
   </>;
 }
@@ -92,7 +99,7 @@ function ShopTier({ items, tier, onClick }) {
       <Card><Typography variant="h1" style={{ padding: '16px', width: '96px' }}>{tier.toUpperCase()}</Typography></Card>
       {list.map(item => {
         const isAffordable = credits >= item.cost;
-        return <Badge badgeContent={item.cost} color={isAffordable ? "info" : "error"}>
+        return <Badge key={item.displayName} badgeContent={item.cost} color={isAffordable ? "info" : "error"}>
           <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable} />
         </Badge>;
       })}

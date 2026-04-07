@@ -8,10 +8,10 @@
     ],
     "warbondCode": "warbond10",
     "internalName": "tx41sterilizer",
-    "imageUrl": "stratagems/TX-41_Sterilizer_Support_Render.png",
+    "imageUrl": "stratagems/Sterilizer_Stratagem_Icon.svg",
     "tier": "d",
     "wikiSlug": "TX-41_Sterilizer",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/TX-41_Sterilizer_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Sterilizer_Stratagem_Icon.svg",
     "properties": {
       "TX-41 STERILIZER": {
         "Base": {
@@ -575,10 +575,10 @@
     ],
     "warbondCode": "none",
     "internalName": "arc3arcthrower",
-    "imageUrl": "stratagems/ARC-3_Arc_Thrower_Support_Render.png",
+    "imageUrl": "stratagems/Arc_Thrower_Stratagem_Icon.svg",
     "tier": "c",
     "wikiSlug": "ARC-3_Arc_Thrower",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/ARC-3_Arc_Thrower_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Arc_Thrower_Stratagem_Icon.svg",
     "properties": {
       "ARC-3 ARC THROWER": {
         "Base": {
@@ -643,10 +643,10 @@
     ],
     "warbondCode": "none",
     "internalName": "gl21grenadelauncher",
-    "imageUrl": "stratagems/GL-21_Grenade_Launcher_Support_Render.png",
+    "imageUrl": "stratagems/Grenade_Launcher_Stratagem_Icon.svg",
     "tier": "b",
     "wikiSlug": "GL-21_Grenade_Launcher",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/GL-21_Grenade_Launcher_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Grenade_Launcher_Stratagem_Icon.svg",
     "properties": {
       "GL-21 GRENADE LAUNCHER": {
         "Base": {
@@ -843,10 +843,10 @@
     ],
     "warbondCode": "none",
     "internalName": "apw1antimaterielrifle",
-    "imageUrl": "stratagems/APW-1_Anti-Materiel_Rifle_Support_Render.png",
+    "imageUrl": "stratagems/Anti-Materiel_Rifle_Stratagem_Icon.svg",
     "tier": "c",
     "wikiSlug": "APW-1_Anti-Materiel_Rifle",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/APW-1_Anti-Materiel_Rifle_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Materiel_Rifle_Stratagem_Icon.svg",
     "properties": {
       "APW-1 ANTI-MATERIEL RIFLE": {
         "Base": {
@@ -1261,10 +1261,10 @@
     ],
     "warbondCode": "none",
     "internalName": "eat17expendableantitank",
-    "imageUrl": "stratagems/EAT-17_Expendable_Anti-Tank_Support_Render.png",
+    "imageUrl": "stratagems/Expendable_Anti-Tank_Stratagem_Icon.svg",
     "tier": "a",
     "wikiSlug": "EAT-17_Expendable_Anti-Tank",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/EAT-17_Expendable_Anti-Tank_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Expendable_Anti-Tank_Stratagem_Icon.svg",
     "properties": {
       "EAT-17 EXPENDABLE ANTI-TANK": {
         "Base": {
@@ -1345,10 +1345,10 @@
     ],
     "warbondCode": "none",
     "internalName": "mls4xcommando",
-    "imageUrl": "stratagems/MLS-4X_Commando_Support_Render.png",
+    "imageUrl": "stratagems/Commando_Stratagem_Icon.svg",
     "tier": "a",
     "wikiSlug": "MLS-4X_Commando",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/MLS-4X_Commando_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Commando_Stratagem_Icon.svg",
     "properties": {
       "MLS-4X COMMANDO": {
         "Base": {
@@ -1431,10 +1431,10 @@
     ],
     "warbondCode": "warbond20",
     "internalName": "eat700expendablenapalm",
-    "imageUrl": "stratagems/EAT-700_Expendable_Napalm_Support_Render.png",
+    "imageUrl": "stratagems/Expendable_Napalm_Stratagem_Icon.svg",
     "tier": "a",
     "wikiSlug": "EAT-700_Expendable_Napalm",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/EAT-700_Expendable_Napalm_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Expendable_Napalm_Stratagem_Icon.svg",
     "properties": {
       "EAT-700 EXPENDABLE NAPALM": {
         "Base": {
@@ -1629,10 +1629,10 @@
     ],
     "warbondCode": "warbond20",
     "internalName": "ms11solosilo",
-    "imageUrl": "stratagems/MS-11_Solo_Silo_Support_Render.png",
+    "imageUrl": "stratagems/Solo_Silo_Stratagem_Icon.svg",
     "tier": "s",
     "wikiSlug": "MS-11_Solo_Silo",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/MS-11_Solo_Silo_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Solo_Silo_Stratagem_Icon.svg",
     "properties": {
       "SOLO SILO": {
         "Base": {
@@ -2195,10 +2195,10 @@
     ],
     "warbondCode": "warbond18",
     "internalName": "stax3wasplauncher",
-    "imageUrl": "stratagems/StA-X3_W.A.S.P._Launcher_Support_Render.png",
+    "imageUrl": "stratagems/W.A.S.P._Launcher_Stratagem_Icon.svg",
     "tier": "c",
     "wikiSlug": "StA-X3_W.A.S.P._Launcher",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/StA-X3_W.A.S.P._Launcher_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/W.A.S.P._Launcher_Stratagem_Icon.svg",
     "properties": {
       "STA-X3 W.A.S.P. LAUNCHER": {
         "Base": {
@@ -4747,10 +4747,10 @@
     ],
     "warbondCode": "none",
     "internalName": "aarc3teslatower",
-    "imageUrl": "stratagems/ARC-3_Tesla_Tower_Render.png",
+    "imageUrl": "stratagems/Tesla_Tower_Stratagem_Icon.svg",
     "tier": "b",
     "wikiSlug": "A/ARC-3_Tesla_Tower",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/ARC-3_Tesla_Tower_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Tesla_Tower_Stratagem_Icon.svg",
     "properties": {
       "A/ARC-3 Tesla Tower": {
         "Base": {
@@ -5562,10 +5562,10 @@
     ],
     "warbondCode": "warbond12",
     "internalName": "eat12antitankemplacement",
-    "imageUrl": "stratagems/Anti-Tank_Emplacement_Render.png",
+    "imageUrl": "stratagems/Anti-Tank_Emplacement_Stratagem_Icon.svg",
     "tier": "b",
     "wikiSlug": "E/AT-12_Anti-Tank_Emplacement",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Tank_Emplacement_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Tank_Emplacement_Stratagem_Icon.svg",
     "properties": {
       "E/AT-12 Anti-Tank Emplacement": {
         "Base": {
@@ -5948,8 +5948,8 @@
     "internalName": "cqc9defoliationtool",
     "tier": "c",
     "wikiSlug": "CQC-9_Defoliation_Tool",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-9_Defoliation_Tool_Support_Render.png",
-    "imageUrl": "stratagems/CQC-9_Defoliation_Tool_Support_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Defoliation_Tool_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Defoliation_Tool_Stratagem_Icon.svg",
     "properties": {
       "CQC-9 Defoliation Tool": {
         "Base": {

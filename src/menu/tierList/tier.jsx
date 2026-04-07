@@ -12,9 +12,9 @@ export default function Tier({ items }) {
   return <>
     <Grid direction="column" container spacing={1}>
       {sortedTiers.map(([tier, list]) => {
-        return <Grid direction="row" container spacing={1}>
+        return <Grid key={tier} direction="row" container spacing={1}>
           <Card><Typography variant="h1" style={{ padding: '16px', width: '96px' }}>{tier.toUpperCase()}</Typography></Card>
-          {list.map(item => <ItemDisplay item={item} />)}
+          {list.map(item => <ItemDisplay key={item.displayName} item={item} />)}
         </Grid>
       })}
     </Grid>

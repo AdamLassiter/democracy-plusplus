@@ -7,9 +7,12 @@ import { THROWABLES } from "../../constants/throwables";
 import { STRATAGEMS } from "../../constants/stratagems";
 import { useState } from "react";
 import Tier from "./tier";
+import PropertyFilter from "../../propertyFilter";
+import { filterItemsByPropertyValues } from "../../constants/filters";
 
 export default function TierLists() {
   const [value, setValue] = useState(0);
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   function handleChange(_event, newValue) {
     setValue(newValue);
@@ -24,6 +27,7 @@ export default function TierLists() {
     ["Stratagems", STRATAGEMS],
   ];
   const [displayName, items] = tierLists[value];
+  const filteredItems = filterItemsByPropertyValues(items, selectedFilters);
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -33,7 +37,8 @@ export default function TierLists() {
         </Tabs>
       </Box>
       <Box sx={{ padding: '1em' }}>
-        <Tier index={value} displayName={displayName} items={items} />
+        <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+        <Tier index={value} displayName={displayName} items={filteredItems} />
       </Box>
     </Box>
   );

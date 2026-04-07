@@ -7,6 +7,8 @@ import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipmen
 import { useState } from "react";
 import { chooseSupplyCrateContents } from "../../economics/shop";
 import { setSnackbar } from "../../slices/snackbarSlice";
+import PropertyFilter from "../../propertyFilter";
+import { filterItemsByPropertyValues } from "../../constants/filters";
 
 export default function Purchases() {
   const equipment = useSelector(selectEquipment);
@@ -14,6 +16,7 @@ export default function Purchases() {
   const purchased = purchased_.map(getConstant);
 
   const [value, setValue] = useState(0);
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   function handleChange(_event, newValue) {
     setValue(newValue);
@@ -43,6 +46,7 @@ export default function Purchases() {
     ["Supply Crates", crate],
   ];
   const [, items] = purchasedLists[value];
+  const filteredItems = filterItemsByPropertyValues(items, selectedFilters);
 
   const dispatch = useDispatch();
 
@@ -79,7 +83,8 @@ export default function Purchases() {
         </Tabs>
       </Box>
       <Box paddingTop={1}>
-        <PurchasedList index={value} items={items} equip={equip} />
+        <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+        <PurchasedList index={value} items={filteredItems} equip={equip} />
       </Box>
     </Box>
   </>;
@@ -89,6 +94,6 @@ function PurchasedList({ items, equip }) {
   items.sort((a, b) => a.category.localeCompare(b.category) || a.displayName.localeCompare(b.displayName));
 
   return <Grid direction="row" container spacing={1}>
-    {items.map(item => <ItemDisplay item={item} onClick={() => equip(item.displayName)} />)}
+    {items.map(item => <ItemDisplay key={item.displayName} item={item} onClick={() => equip(item.displayName)} />)}
   </Grid>
 }
