@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { calculateShopItems, supplyCrates } from "../economics/shop";
 import { ITEMS } from '../constants/items';
 import { WARBONDS } from '../constants/warbonds';
+import { getConstant } from '../constants';
 
 const initialState = {
   initialised: false,
@@ -12,8 +13,41 @@ const initialState = {
   cart: [],
 };
 
+function normaliseCartEntry(item) {
+  if (!item?.displayName) {
+    return null;
+  }
+
+  return {
+    displayName: item.displayName,
+    cost: item.cost,
+  };
+}
+
+function hydrateCartItem(item) {
+  const hydratedItem = getConstant(item.displayName);
+  if (!hydratedItem) {
+    return null;
+  }
+
+  return {
+    ...hydratedItem,
+    cost: item.cost,
+  };
+}
+
+function normaliseShopState(state) {
+  return {
+    ...state,
+    cart: (state.cart || []).map(normaliseCartEntry).filter(Boolean),
+  };
+}
+
 export function selectShop(state) {
-  return state.shop;
+  return {
+    ...state.shop,
+    cart: state.shop.cart.map(hydrateCartItem).filter(Boolean),
+  };
 }
 
 const shopSlice = createSlice({
@@ -22,7 +56,7 @@ const shopSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const { value } = action.payload;
-      state.cart.push({ ...value });
+      state.cart.push(normaliseCartEntry(value));
       // Mark onSale / supply crates as purchased
       const onSaleItem = state.onSale.find(item => item.displayName === value.displayName && item.cost === value.cost);
       if (onSaleItem) {
@@ -81,7 +115,7 @@ const shopSlice = createSlice({
       state.initialised = true;
       state.cart = [];
     },
-    setShopState: (_state, action) => action.payload,
+    setShopState: (_state, action) => normaliseShopState(action.payload),
     setWarbonds: (state, action) => {
       const { value } = action.payload;
       state.warbonds = value;

@@ -1760,7 +1760,6 @@
     "internalName": "cqc1onetrueflag",
     "imageUrl": "stratagems/One_True_Flag_Stratagem_Icon.svg",
     "tier": "d",
-    "overrideCost": 1,
     "wikiSlug": "CQC-1_One_True_Flag",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/One_True_Flag_Stratagem_Icon.svg",
     "properties": {

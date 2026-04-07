@@ -29,6 +29,7 @@ function ItemCard({ onClick, item, isAffordable, titles }) {
     sx={{
       opacity: isAffordable ? 1 : 0.5,
       pointerEvents: isAffordable ? 'auto' : 'none',
+      height: '180px',
     }}
     variant="outlined">
     <CardActionArea>
