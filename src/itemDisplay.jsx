@@ -77,7 +77,7 @@ function Missing({ item, onClick }) {
     <ItemIcon item={item} margin={1} width={110} minHeight={80} />
   </Card>;
 
-  if (!tooltips || !item.hoverTexts?.length) {
+  if (!tooltips || !item?.properties || !Object.keys(item.properties).length) {
     return inner;
   }
 
