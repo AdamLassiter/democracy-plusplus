@@ -1,10 +1,8 @@
 import { Badge, Grid } from "@mui/material";
 import ItemDisplay from "../../itemDisplay";
 import { useDispatch, useSelector } from "react-redux";
-import { buySupplyCrate, selectShop } from "../../slices/shopSlice";
-import { selectCredits, subtractCredits } from "../../slices/creditsSlice";
-import { addPurchased } from "../../slices/purchasedSlice";
-import { chooseSupplyCrateContents } from "../../economics/shop";
+import { addToCart, selectShop } from "../../slices/shopSlice";
+import { selectCredits } from "../../slices/creditsSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
 
 export default function SupplyCrates() {
@@ -12,13 +10,12 @@ export default function SupplyCrates() {
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
-  function buy(item) {
+  function addItemToCart(item) {
     if (credits >= item.cost) {
-      const contents = chooseSupplyCrateContents(item);
-      dispatch(buySupplyCrate({ value: item, contents }));
-      dispatch(subtractCredits({ amount: item.cost }));
-      dispatch(addPurchased({ value: contents.displayName }));
-      dispatch(setSnackbar({ message: `Purchased ${contents.displayName}` }));
+      dispatch(addToCart({ value: item }));
+      dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
+    } else {
+      dispatch(setSnackbar({ message: `Not enough credits for ${item.displayName}`, severity: 'warning' }));
     }
   }
 
@@ -28,7 +25,7 @@ export default function SupplyCrates() {
     <Grid direction="row" container spacing={1}>
       {list.map(item => {
         const isAffordable = credits >= item.cost;
-        const inner = <ItemDisplay item={item} onClick={buy} isAffordable={isAffordable && !item.purchased} />
+        const inner = <ItemDisplay item={item} onClick={addItemToCart} isAffordable={isAffordable && !item.purchased} />
         if (!item.purchased) {
           return <Badge badgeContent={item.cost} color={isAffordable ? "success" : "error"}>
             {inner}

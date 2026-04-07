@@ -137,8 +137,7 @@ export class LFSR {
 }
 
 
-// eslint-disable-next-line no-loss-of-precision
-var DEFAULT_SEED = 149304961039362642461;
+var DEFAULT_SEED = 1493049610393621;
 var REGISTER_LENGTH = 31;
 var FLUSH_TIMES = 20;
 

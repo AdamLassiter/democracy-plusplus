@@ -49,6 +49,9 @@ const shopSlice = createSlice({
         crateItem.purchased = false;
       }
     },
+    buyCart: (state) => {
+      state.cart = [];
+    },
     clearCart: (state) => {
       // Mark onSale / supply crates as not purchased
       state.cart.forEach((value) => {
@@ -58,7 +61,7 @@ const shopSlice = createSlice({
         }
         const crate = state.supplyCrates.find(item => item.displayName === value.displayName);
         if (crate) {
-          crate.purchased = true;
+          crate.purchased = false;
         }
       });
       state.cart = [];
@@ -67,15 +70,6 @@ const shopSlice = createSlice({
       const { value } = action.payload;
       const target = state.onSale.find(item => item.displayName === value.displayName);
       if (target) target.purchased = true;
-    },
-    buySupplyCrate: (state, action) => {
-      const { value, contents } = action.payload;
-      const target = state.supplyCrates.find(item => item.displayName === value.displayName);
-      if (target) {
-        target.purchased = true;
-        target.imageUrl = contents.imageUrl;
-        target.displayName = contents.displayName;
-      }
     },
     resetShop: (state) => {
       const warbonds = state.warbonds.map(w => w.warbondCode);
@@ -98,10 +92,10 @@ const shopSlice = createSlice({
 export const {
   addToCart,
   removeFromCart,
+  buyCart,
   clearCart,
   checkout,
   buyOnSale,
-  buySupplyCrate,
   setWarbonds,
   setShopState,
   resetShop,

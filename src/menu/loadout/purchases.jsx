@@ -5,6 +5,8 @@ import { getConstant } from "../../constants";
 import ItemDisplay from "../../itemDisplay";
 import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipment } from "../../slices/equipmentSlice";
 import { useState } from "react";
+import { chooseSupplyCrateContents } from "../../economics/shop";
+import { setSnackbar } from "../../slices/snackbarSlice";
 
 export default function Purchases() {
   const equipment = useSelector(selectEquipment);
@@ -23,6 +25,7 @@ export default function Purchases() {
     primary = [],
     secondary = [],
     throwable = [],
+    crate = [],
     Supply = [],
     Eagle = [],
     Defense = [],
@@ -37,6 +40,7 @@ export default function Purchases() {
     ["Secondaries", secondary],
     ["Throwables", throwable],
     ["Stratagems", stratagem],
+    ["Supply Crates", crate],
   ];
   const [, items] = purchasedLists[value];
 
@@ -47,7 +51,12 @@ export default function Purchases() {
     const slot = getEquipmentSlot(item);
     const firstEmptyStratagem = equipment.stratagems.indexOf(null);
 
-    if (slot !== 'stratagems') {
+    if (item.category === "crate") {
+      const contents = chooseSupplyCrateContents(item);
+      dispatch(subtractPurchased({ value: displayName }));
+      dispatch(addPurchased({ value: contents.displayName }));
+      dispatch(setSnackbar({ message: `Unwrapped ${contents.displayName}!` }));
+    } else if (slot !== 'stratagems') {
       const equippedItem = equipment[slot];
       if (equippedItem) {
         dispatch(unsetEquipment({ value: equippedItem }));

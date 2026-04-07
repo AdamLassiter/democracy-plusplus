@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
-import { selectShop, removeFromCart, clearCart } from "../../slices/shopSlice";
+import { selectShop, removeFromCart, clearCart, buyCart } from "../../slices/shopSlice";
 import { subtractCredits, selectCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
@@ -46,7 +46,7 @@ export default function CartManager() {
 
     dispatch(subtractCredits({ amount: totalCost }));
     purchasedNames.forEach(purchasedName => dispatch(addPurchased({ value: purchasedName })));
-    dispatch(clearCart());
+    dispatch(buyCart());
     dispatch(setSnackbar({ message: `Purchased ${cart.length} items!` }));
 
     setOpen(false);
@@ -88,6 +88,7 @@ export default function CartManager() {
               <CartCategory category="Orbital" value="Orbitals" />
               <CartCategory category="Supply" value="Supplies" />
               <CartCategory category="Defense" value="Defenses" />
+              <CartCategory category="crate" value="Supply Crates" />
             </>
           )}
           <Typography color={affordable ? "success" : "error"}>

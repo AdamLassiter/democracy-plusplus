@@ -96,7 +96,7 @@ function tieredCrate(grade, category, cost) {
   return {
     displayName: `${toTitleCase(grade)}-Tier ${toTitleCase(category)} Crate`,
     type: "Care Package",
-    category: category,
+    category: "crate",
     tags: ["lootbox"],
     contents,
     warbondCode: "none",
