@@ -4,7 +4,7 @@ import { getObjectives } from "../../constants/objectives";
 import { selectMission, setFaction, setObjective, setState } from "../../slices/missionSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Debrief from "./debrief";
-import { calculateFaction, calculateMissionReward } from "../../economics/mission";
+import { calculateFaction, calculateMissionReward, calculateQuestsReward } from "../../economics/mission";
 
 export default function Setup() {
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ export default function Setup() {
       </Select>
     </FormControl>
     <Typography color="success">
-      {calculateMissionReward({ ...mission, stars: 5 })}¢ Maximum Base Reward
+      {calculateMissionReward({ ...mission, stars: 5 })}¢ (+ {mission.quests ? calculateQuestsReward(mission.quests) : '??'}¢) Maximum Base Reward
     </Typography>
     <Button variant="outlined" onClick={handleLockIn} disabled={!briefState}>Lock In</Button>
     <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState}>Debrief</Button>
