@@ -1,9 +1,11 @@
+import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEquipment, unsetEquipment } from "../../slices/equipmentSlice";
 import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../itemDisplay";
-import { Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 import { getConstant } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";
+import { calculateShopItems } from "../../economics/shop";
 
 export default function Equipped() {
   const {
@@ -16,6 +18,18 @@ export default function Equipped() {
   } = useSelector(selectEquipment);
 
   const dispatch = useDispatch();
+  const equippedItems = [
+    armorPassive && getConstant(armorPassive),
+    booster && getConstant(booster),
+    primary && getConstant(primary),
+    secondary && getConstant(secondary),
+    throwable && getConstant(throwable),
+    ...stratagems.map((stratagem) => stratagem && getConstant(stratagem)),
+  ].filter(Boolean);
+  const equippedCost = useMemo(() => {
+    const [, pricedItems] = calculateShopItems(equippedItems);
+    return pricedItems.reduce((sum, item) => sum + item.cost, 0);
+  }, [equippedItems]);
 
   function unequip(displayName) {
     dispatch(unsetEquipment({ value: displayName }));
@@ -23,7 +37,10 @@ export default function Equipped() {
   }
 
   return <>
-    <Typography variant="h5">Equipment</Typography>
+    <Box sx={{ alignItems: "baseline", display: "flex", gap: 1 }}>
+      <Typography variant="h5">Equipment</Typography>
+      <Typography color="text.secondary" variant="subtitle1">{equippedCost}¢</Typography>
+    </Box>
     <Grid direction="column" container spacing={1}>
       <Grid direction="row" container spacing={1}>
         {armorPassive ? <ItemDisplay item={getConstant(armorPassive)} onClick={() => unequip(armorPassive)} /> : <MissingArmor />}
