@@ -9,7 +9,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['eslint.config.js'],
     extends: [
       js.configs.recommended,
       reactHooks.configs['recommended-latest'],
@@ -32,7 +32,7 @@ export default defineConfig([
       'react/jsx-uses-react': ['error'],
       'react/jsx-uses-vars': ['error'],
       'func-style': ['error', 'declaration'],
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_' }],
     },
   },
 ])

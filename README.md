@@ -21,7 +21,7 @@ Democracy++ refines that formula — more depth, more math, and more ways to pro
 
 ## ⚙️ Super-Tech Specs
 
-- **Language:** JavaScript  
+- **Language:** TypeScript  
 - **Framework:** React (Redux-powered for maximum efficiency)  
 - **UI Arsenal:** Material UI (MUI)  
 - **Build Tool:** Vite  
@@ -48,7 +48,7 @@ Optimized for rapid deployment and minimal downtime — because bugs are a form 
 
 ## 🔄 Data Intelligence Updates
 
-After *Helldivers 2* receives an update from **Super Earth Command**, refresh your local intel using the **Data Enricher Protocol** found in `scripts/dataEnricher.js`.  
+After *Helldivers 2* receives an update from **Super Earth Command**, refresh your local intel using the **Data Enricher Protocol** found in `scripts/dataEnricher.ts`.  
 This script pulls the latest strategic data from the Helldivers 2 Wiki — ensuring your democracy remains up to date.
 
 
