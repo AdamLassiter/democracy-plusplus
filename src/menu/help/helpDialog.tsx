@@ -5,6 +5,8 @@ import {
   DialogActions,
   Button,
   Typography,
+  Divider,
+  Link,
 } from "@mui/material";
 
 export default function HelpDialog({ open, onClose }) {
@@ -32,6 +34,10 @@ export default function HelpDialog({ open, onClose }) {
         <Typography variant="body1" gutterBottom>
           Once your mission is complete, submit a <u>Debrief</u> to your Democracy Officer.
           Honesty is pivotal, Helldiver - there are Truth Enforcers monitoring...
+        </Typography>
+        <Typography variant="body1" gutterBottom sx={{ padding: 4 }}>
+          Inspired by <Link href="https://helldivers2challenges.com/" target="_blank" rel="noopener">Helldivers 2 Challenges</Link>.
+          Open source on <Link href="https://github.com/AdamLassiter/democracy-plusplus" target="_blank" rel="noopener">GitHub</Link>.
         </Typography>
       </DialogContent>
       <DialogActions>
