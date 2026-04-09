@@ -1,9 +1,10 @@
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List } from "@mui/material";
+import type { Dispatch, SetStateAction } from "react";
 import Preferences from "./preferences";
 import ResetAppState from "./reset";
 import ImportExport from "./importExport";
 
-export default function SettingsDialog({ open, setOpen }) {
+export default function SettingsDialog({ open, setOpen }: { open: boolean; setOpen: Dispatch<SetStateAction<boolean>> }) {
   function handleClose() {
     setOpen(false);
   }

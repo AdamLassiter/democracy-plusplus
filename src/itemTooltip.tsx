@@ -109,7 +109,7 @@ export default function ItemTooltip({ item, children }: { item: Item; children: 
     <Tooltip
       title={(
         <Box sx={{ maxHeight: 400, maxWidth: 420, overflow: "auto", p: 1 }}>
-          {Object.entries(item.properties).map(([sectionTitle, sectionValue]) => (
+          {Object.entries(item.properties ?? {}).map(([sectionTitle, sectionValue]) => (
             <PropertySection
               key={sectionTitle}
               title={sectionTitle}

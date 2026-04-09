@@ -5,17 +5,18 @@ import { PRIMARIES } from "../../constants/primaries";
 import { SECONDARIES } from "../../constants/secondaries";
 import { THROWABLES } from "../../constants/throwables";
 import { STRATAGEMS } from "../../constants/stratagems";
-import { useState } from "react";
+import { useState, type SyntheticEvent } from "react";
 import Tier from "./tier";
 import PropertyFilter from "../../propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
-import { Item } from "../../types";
+import type { Item } from "../../types";
+import type { PropertyFilterName } from "../../constants/filters";
 
 export default function TierLists() {
   const [value, setValue] = useState(0);
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
 
-  function handleChange(_event, newValue) {
+  function handleChange(_event: SyntheticEvent, newValue: number) {
     setValue(newValue);
   }
 
@@ -34,7 +35,7 @@ export default function TierLists() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>
-          {tierLists.map(([displayName]) => <Tab label={displayName} />)}
+          {tierLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
         </Tabs>
       </Box>
       <Box sx={{ padding: '1em' }}>

@@ -25,7 +25,7 @@ export default function Debrief() {
   const totalReward = missionReward + questsReward + restrictionsReward;
 
   function handleStars(_event: SyntheticEvent, newValue: number | null) {
-    if (1 <= newValue && newValue <= 5) {
+    if (newValue !== null && 1 <= newValue && newValue <= 5) {
       setStars(newValue);
     }
   }

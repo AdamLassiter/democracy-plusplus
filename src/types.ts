@@ -1,4 +1,6 @@
 export type Tier = 's' | 'a' | 'b' | 'c' | 'd';
+export type Faction = 'Terminids' | 'Automatons' | 'Illuminate';
+export type ObjectiveShortType = 'eradicate' | 'blitz';
 
 export type MissionStage = 'brief' | 'generating' | 'loadout' | 'debrief';
 
@@ -57,8 +59,9 @@ export interface CrateItem extends BaseItem {
 
 export type Item = BaseItem | CrateItem;
 
-export interface Objective extends BaseItem {
-  short: string;
+export interface Objective extends Omit<BaseItem, 'tier'> {
+  short?: ObjectiveShortType;
+  tier: Record<Faction, Tier | null>;
 }
 
 export interface Quest extends BaseItem {
@@ -74,9 +77,10 @@ export interface Quest extends BaseItem {
   value?: number;
 }
 
-export interface Restriction extends BaseItem {
+export interface Restriction extends Omit<BaseItem, 'tier'> {
   description: string;
   category: string;
+  tier: Tier | null;
   completed?: boolean;
 }
 

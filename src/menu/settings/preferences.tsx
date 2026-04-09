@@ -1,4 +1,5 @@
 import { Grid, ToggleButtonGroup, ToggleButton, FormLabel } from "@mui/material";
+import type { MouseEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectPreferences, setTitles, setTooltips } from "../../slices/preferencesSlice";
 
@@ -6,10 +7,10 @@ export default function Preferences() {
   const dispatch = useDispatch();
 
   const { titles, tooltips } = useSelector(selectPreferences);
-  function handleTitlesChange(_event, newValue) {
+  function handleTitlesChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     dispatch(setTitles(newValue === 'on'));
   }
-  function handleTooltipsChange(_event, newValue) {
+  function handleTooltipsChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     dispatch(setTooltips(newValue === 'on'));
   }
 

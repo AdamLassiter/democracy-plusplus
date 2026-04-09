@@ -1,5 +1,5 @@
 import { ITEMS } from "../constants/items";
-import { Item, Tier } from "../types";
+import type { CrateItem, EquipmentCategory, Item, ItemCategory, ShopItem, StratagemCategory, Tier } from "../types";
 
 function tier(item: { tier: Tier }) {
   return {
@@ -23,8 +23,8 @@ function randomChoice(items: Item[], n = 1) {
 
 function chooseOnSale(items: Item[], n = 12) {
   const midTierItems = items.filter((item) => item.tier !== 'd');
-  const onSaleByCategory = Object.entries(Object.groupBy(midTierItems, (item) => item.category))
-    .flatMap(([, catItems]) => randomChoice(catItems, 1));
+  const grouped = Object.groupBy(midTierItems, (item) => item.category ?? "crate") as Partial<Record<ItemCategory, Item[]>>;
+  const onSaleByCategory = Object.values(grouped).flatMap((catItems) => catItems ? randomChoice(catItems, 1) : []);
   const notYetOnSale = midTierItems.filter((item) => !onSaleByCategory.includes(item));
   const randomlyOnSale = randomChoice(notYetOnSale, n - onSaleByCategory.length);
   const onSaleItems = [...onSaleByCategory, ...randomlyOnSale];
@@ -44,7 +44,7 @@ function itemCost(item: Item) {
   if (item.overrideCost) {
     return item.overrideCost;
   }
-  return {
+  const costByCategory: Record<EquipmentCategory | StratagemCategory, number> = {
     'armor': [2, 4, 7, 10, 15][tier(item)],
     'booster': [1, 4, 8, 14, 20][tier(item)],
     'primary': [3, 8, 15, 23, 35][tier(item)],
@@ -54,16 +54,22 @@ function itemCost(item: Item) {
     'Orbital': [3, 9, 20, 28, 36][tier(item)],
     'Supply': [3, 9, 18, 27, 36][tier(item)],
     'Eagle': [3, 10, 21, 26, 36][tier(item)],
-  }[item.category];
+  };
+
+  if (!item.category || !(item.category in costByCategory)) {
+    throw new Error(`Cannot determine shop cost for item: ${item.displayName}`);
+  }
+
+  return costByCategory[item.category as EquipmentCategory | StratagemCategory];
 }
 
-export function calculateShopItems(items: Item[]) {
-  const onSale = chooseOnSale(items).map((item) => {
+export function calculateShopItems(items: Item[]): [ShopItem[], ShopItem[]] {
+  const onSale = chooseOnSale(items).map((item): ShopItem => {
     const baseCost = itemCost(item);
     const cost = sale(baseCost);
     return { ...item, cost, onSale: true };
   });
-  const notOnSale = items.map(item => {
+  const notOnSale = items.map((item): ShopItem => {
     const baseCost = itemCost(item);
     const cost = randomFlux(baseCost);
     return { ...item, cost, onSale: false };
@@ -79,13 +85,13 @@ function toTitleCase(str: string) {
   );
 }
 
-export function chooseSupplyCrateContents(crate) {
+export function chooseSupplyCrateContents(crate: CrateItem) {
   return randomChoice([...crate.contents])[0];
 }
 
-function tieredCrate(grade: Tier, category: string, cost: number): Item {
+function tieredCrate(grade: Tier, category: EquipmentCategory | "Stratagem", cost: number): CrateItem {
   const contents = ITEMS.filter((item) => (item.category === category || item.type === category) && tier(item) >= tier({ tier: grade }));
-  const images = {
+  const images: Record<EquipmentCategory | "Stratagem", string> = {
     "primary": "icons/gun.svg",
     "secondary": "icons/gun.svg",
     "throwable": "icons/gun.svg",
@@ -108,7 +114,7 @@ function tieredCrate(grade: Tier, category: string, cost: number): Item {
   };
 }
 
-export function supplyCrates(): Item[] {
+export function supplyCrates(): CrateItem[] {
   return [
     tieredCrate('a', 'primary', 25),
     tieredCrate('b', 'primary', 20),

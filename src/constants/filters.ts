@@ -11,9 +11,11 @@ export const PROPERTY_FILTERS = [
   "Fire",
   "Gas",
   "Arc",
-];
+] as const;
 
-const FILTER_MATCHERS = {
+export type PropertyFilterName = (typeof PROPERTY_FILTERS)[number];
+
+const FILTER_MATCHERS: Record<PropertyFilterName, RegExp> = {
   Unarmored: /\bunarmored\b/i,
   Light: /\blight\b/i,
   Medium: /\bmedium\b/i,
@@ -43,7 +45,7 @@ function collectPropertyValues(value: PropertyValue, output: string[] = []) {
   return output;
 }
 
-export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilters: string[]) {
+export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilters: readonly PropertyFilterName[]) {
   if (!selectedFilters?.length) {
     return true;
   }
@@ -57,6 +59,6 @@ export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilte
   return selectedFilters.some((filterName) => FILTER_MATCHERS[filterName]?.test(searchableValues));
 }
 
-export function filterItemsByPropertyValues(items: Item[], selectedFilters: string[]) {
+export function filterItemsByPropertyValues(items: Item[], selectedFilters: readonly PropertyFilterName[]) {
   return items.filter((item) => itemMatchesPropertyFilters(item, selectedFilters));
 }

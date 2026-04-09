@@ -53,7 +53,7 @@ export default function CartManager() {
     setOpen(false);
   }
 
-  const categorisedCart = Object.groupBy(cart, (item) => item.category) as Partial<Record<ItemCategory, ShopItem[]>>;
+  const categorisedCart = Object.groupBy(cart, (item) => item.category ?? "crate") as Partial<Record<ItemCategory, ShopItem[]>>;
 
   return (
     <>

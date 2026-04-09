@@ -10,7 +10,12 @@ import { chooseSupplyCrateContents } from "../../economics/shop";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
-import type { Item } from "../../types";
+import type { Item, ItemCategory } from "../../types";
+import type { PropertyFilterName } from "../../constants/filters";
+
+function isCrateItem(item: Item): item is Extract<Item, { category: "crate" }> {
+  return item.category === "crate" && "contents" in item;
+}
 
 export default function Purchases() {
   const equipment = useSelector(selectEquipment);
@@ -18,7 +23,7 @@ export default function Purchases() {
   const purchased = purchased_.map(getConstant).filter(Boolean) as Item[];
 
   const [value, setValue] = useState(0);
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
 
   function handleChange(_event: SyntheticEvent, newValue: number) {
     setValue(newValue);
@@ -35,7 +40,7 @@ export default function Purchases() {
     Eagle = [],
     Defense = [],
     Orbital = [],
-  } = Object.groupBy(purchased, (item) => item.category);
+  } = Object.groupBy(purchased, (item) => item.category ?? "crate") as Partial<Record<ItemCategory, Item[]>>;
   const stratagem = [...Supply, ...Eagle, ...Defense, ...Orbital];
 
   const purchasedLists: Array<[string, Item[]]> = [
@@ -61,11 +66,14 @@ export default function Purchases() {
     const firstEmptyStratagem = equipment.stratagems.indexOf(null);
 
     if (item.category === "crate") {
+      if (!isCrateItem(item)) {
+        return;
+      }
       const contents = chooseSupplyCrateContents(item);
       dispatch(subtractPurchased({ value: displayName }));
       dispatch(addPurchased({ value: contents.displayName }));
       dispatch(setSnackbar({ message: `Unwrapped ${contents.displayName}!` }));
-    } else if (slot !== 'stratagems') {
+    } else if (slot && slot !== 'stratagems') {
       const equippedItem = equipment[slot];
       if (equippedItem) {
         dispatch(unsetEquipment({ value: equippedItem }));

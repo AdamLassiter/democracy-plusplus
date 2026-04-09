@@ -9,7 +9,7 @@ import {
   Link,
 } from "@mui/material";
 
-export default function HelpDialog({ open, onClose }) {
+export default function HelpDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle>Help</DialogTitle>

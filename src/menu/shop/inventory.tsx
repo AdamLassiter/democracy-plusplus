@@ -9,11 +9,16 @@ import SupplyCrates from "./supplyCrate";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
-import type { Item, ItemCategory, ShopItem, Tier } from "../../types";
+import type { CrateItem, Item, ItemCategory, ShopItem, Tier } from "../../types";
+import type { PropertyFilterName } from "../../constants/filters";
+
+function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
+  return typeof item.cost === "number";
+}
 
 export default function Inventory() {
   const [value, setValue] = useState(0);
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
 
   function handleChange(_event: SyntheticEvent, newValue: number) {
     setValue(newValue);
@@ -24,7 +29,7 @@ export default function Inventory() {
   const dispatch = useDispatch();
 
   function addItemToCart(item: Item) {
-    if (credits >= item.cost) {
+    if (isPurchasableItem(item) && item.cost <= credits) {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
@@ -42,7 +47,7 @@ export default function Inventory() {
     Eagle = [],
     Defense = [],
     Orbital = [],
-  } = Object.groupBy(inventory, (item) => item.category) as Partial<Record<ItemCategory, ShopItem[]>>;
+  } = Object.groupBy(inventory, (item) => item.category ?? "crate") as Partial<Record<ItemCategory, ShopItem[]>>;
   const stratagem = [...Supply, ...Eagle, ...Defense, ...Orbital];
 
   const shops: Array<[string, Item[]]> = [
@@ -62,7 +67,7 @@ export default function Inventory() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>
-          {shops.map(([displayName]) => <Tab label={displayName} />)}
+          {shops.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
         </Tabs>
       </Box>
       <Box sx={{ paddingTop: '1em' }}>

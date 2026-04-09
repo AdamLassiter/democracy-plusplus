@@ -1,13 +1,19 @@
 import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { PROPERTY_FILTERS } from "./constants/filters";
+import { PROPERTY_FILTERS, type PropertyFilterName } from "./constants/filters";
 
-export default function PropertyFilter({ selectedFilters, onChange }: { selectedFilters: string[]; onChange: (filters: string[]) => void }) {
+export default function PropertyFilter({
+  selectedFilters,
+  onChange,
+}: {
+  selectedFilters: PropertyFilterName[];
+  onChange: (filters: PropertyFilterName[]) => void;
+}) {
   return (
     <Box sx={{ mb: 2, display: "flex", flexWrap: "wrap", gap: 1 }}>
       <ToggleButtonGroup
         color="primary"
         value={selectedFilters}
-        onChange={(_event, newFilters) => onChange(newFilters)}
+        onChange={(_event, newFilters) => onChange(newFilters as PropertyFilterName[])}
         sx={{ flexWrap: "wrap" }}
       >
         {PROPERTY_FILTERS.map((filterName) => (

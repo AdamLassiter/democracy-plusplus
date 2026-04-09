@@ -1,4 +1,4 @@
 import { loadJson } from "./loadJson";
-import type { Item } from "../types";
+import type { Quest } from "../types";
 
-export const QUESTS = await loadJson<Item[]>('/data/quests.json');
+export const QUESTS = await loadJson<Quest[]>('/data/quests.json');

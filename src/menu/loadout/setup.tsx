@@ -1,3 +1,4 @@
+import type { SelectChangeEvent } from "@mui/material";
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
 import { FACTIONS } from "../../constants/factions";
 import { getObjectives } from "../../constants/objectives";
@@ -10,12 +11,12 @@ export default function Setup() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
 
-  function handleFaction(event) {
-    dispatch(setFaction({ value: event.target.value }));
+  function handleFaction(event: SelectChangeEvent<number>) {
+    dispatch(setFaction({ value: Number(event.target.value) }));
     dispatch(setObjective({ value: 0 }));
   }
-  function handleObjective(event) {
-    dispatch(setObjective({ value: event.target.value }));
+  function handleObjective(event: SelectChangeEvent<number>) {
+    dispatch(setObjective({ value: Number(event.target.value) }));
   }
   function handleLockIn() {
     dispatch(setState({ value: 'generating' }));
@@ -38,7 +39,7 @@ export default function Setup() {
         label="Faction"
         onChange={handleFaction}
       >
-        {FACTIONS.map(((faction, i) => <MenuItem value={i}>{faction}</MenuItem>))}
+        {FACTIONS.map((faction, i) => <MenuItem key={faction} value={i}>{faction}</MenuItem>)}
       </Select>
     </FormControl>
     <FormControl sx={{ width: '250px' }}>
@@ -49,10 +50,10 @@ export default function Setup() {
         label="Objective"
         onChange={handleObjective}
       >
-        {getObjectives(FACTIONS[mission.faction]).map(((objective, i) =>
-          <MenuItem value={i}>
-            {objective.tier[calculateFaction(mission)].toUpperCase()} - {objective.displayName}
-          </MenuItem>))}
+        {getObjectives(FACTIONS[mission.faction]).map((objective, i) =>
+          <MenuItem key={objective.displayName} value={i}>
+            {(objective.tier[calculateFaction(mission)] ?? "d").toUpperCase()} - {objective.displayName}
+          </MenuItem>)}
       </Select>
     </FormControl>
     <Typography color="success">

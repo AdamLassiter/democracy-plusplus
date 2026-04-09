@@ -1,11 +1,12 @@
+import type { MouseEvent, MouseEventHandler } from "react";
 import { useDispatch } from "react-redux";
 import { persistor } from "../../slices";
 import { Button } from "@mui/material";
 
-export default function ResetAppState({ onClick }) {
+export default function ResetAppState({ onClick }: { onClick: MouseEventHandler<HTMLButtonElement> }) {
   const dispatch = useDispatch();
 
-  function handleReset(event) {
+  function handleReset(event: MouseEvent<HTMLButtonElement>) {
     const confirmed = window.confirm('Are you sure you want to reset the app state? This will clear ALL stored data.');
     if (confirmed) {
       persistor.purge();

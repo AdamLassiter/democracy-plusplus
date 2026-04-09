@@ -4,14 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, selectShop } from "../../slices/shopSlice";
 import { selectCredits } from "../../slices/creditsSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
+import type { CrateItem, Item, ShopItem } from "../../types";
+
+function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
+  return typeof item.cost === "number";
+}
 
 export default function OnSale() {
   const { onSale } = useSelector(selectShop);
   const { credits } = useSelector(selectCredits);
   const dispatch = useDispatch();
 
-  function addItemToCart(item) {
-    if (credits >= item.cost) {
+  function addItemToCart(item: Item) {
+    if (isPurchasableItem(item) && credits >= item.cost) {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
@@ -41,7 +46,7 @@ export default function OnSale() {
               </Badge>
             );
           } else {
-            return <>{inner}</>;
+            return <span key={item.displayName}>{inner}</span>;
           }
         })}
       </Grid>

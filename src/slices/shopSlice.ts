@@ -1,10 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { calculateShopItems, supplyCrates } from "../economics/shop";
 import { ITEMS } from '../constants/items';
 import { WARBONDS } from '../constants/warbonds';
 import { getConstant } from '../constants';
+import type { RootState } from './index';
+import type { CartEntry, CrateItem, ShopItem, ShopState, Warbond } from '../types';
 
-const initialState = {
+const initialState: ShopState = {
   initialised: false,
   inventory: [],
   onSale: [],
@@ -13,8 +15,8 @@ const initialState = {
   cart: [],
 };
 
-function normaliseCartEntry(item) {
-  if (!item?.displayName) {
+function normaliseCartEntry(item: { displayName?: string; cost?: number } | null | undefined): CartEntry | null {
+  if (!item?.displayName || item.cost === undefined) {
     return null;
   }
 
@@ -24,7 +26,7 @@ function normaliseCartEntry(item) {
   };
 }
 
-function hydrateCartItem(item) {
+function hydrateCartItem(item: CartEntry): ShopItem | null {
   const hydratedItem = getConstant(item.displayName);
   if (!hydratedItem) {
     return null;
@@ -36,17 +38,17 @@ function hydrateCartItem(item) {
   };
 }
 
-function normaliseShopState(state) {
+function normaliseShopState(state: ShopState): ShopState {
   return {
     ...state,
-    cart: (state.cart || []).map(normaliseCartEntry).filter(Boolean),
+    cart: (state.cart || []).map(normaliseCartEntry).filter((item): item is CartEntry => item !== null),
   };
 }
 
-export function selectShop(state) {
+export function selectShop(state: RootState) {
   return {
     ...state.shop,
-    cart: state.shop.cart.map(hydrateCartItem).filter(Boolean),
+    cart: state.shop.cart.map(hydrateCartItem).filter((item): item is ShopItem => item !== null),
   };
 }
 
@@ -54,9 +56,13 @@ const shopSlice = createSlice({
   name: 'shop',
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action: PayloadAction<{ value: ShopItem | CrateItem }>) => {
       const { value } = action.payload;
-      state.cart.push(normaliseCartEntry(value));
+      const cartEntry = normaliseCartEntry(value);
+      if (!cartEntry) {
+        return;
+      }
+      state.cart.push(cartEntry);
       // Mark onSale / supply crates as purchased
       const onSaleItem = state.onSale.find(item => item.displayName === value.displayName && item.cost === value.cost);
       if (onSaleItem) {
@@ -67,7 +73,7 @@ const shopSlice = createSlice({
         crate.purchased = true;
       }
     },
-    removeFromCart: (state, action) => {
+    removeFromCart: (state, action: PayloadAction<{ value: CartEntry }>) => {
       const { value } = action.payload;
       const cartItemIndex = state.cart.findIndex((item) => item.cost === value.cost && item.displayName === value.displayName);
       if (cartItemIndex !== -1) {
@@ -100,14 +106,14 @@ const shopSlice = createSlice({
       });
       state.cart = [];
     },
-    buyOnSale: (state, action) => {
+    buyOnSale: (state, action: PayloadAction<{ value: ShopItem }>) => {
       const { value } = action.payload;
       const target = state.onSale.find(item => item.displayName === value.displayName);
       if (target) target.purchased = true;
     },
     resetShop: (state) => {
       const warbonds = state.warbonds.map(w => w.warbondCode);
-      const items = ITEMS.filter(i => warbonds.includes(i.warbondCode));
+      const items = ITEMS.filter((i) => i.warbondCode && warbonds.includes(i.warbondCode));
       const [onSale, inventory] = calculateShopItems(items);
       state.onSale = onSale;
       state.inventory = inventory;
@@ -115,8 +121,8 @@ const shopSlice = createSlice({
       state.initialised = true;
       state.cart = [];
     },
-    setShopState: (_state, action) => normaliseShopState(action.payload),
-    setWarbonds: (state, action) => {
+    setShopState: (_state, action: PayloadAction<ShopState>) => normaliseShopState(action.payload),
+    setWarbonds: (state, action: PayloadAction<{ value: Warbond[] }>) => {
       const { value } = action.payload;
       state.warbonds = value;
     },

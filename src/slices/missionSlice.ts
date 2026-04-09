@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { MissionStage, MissionState } from '../types';
 import type { RootState } from './index';
 
@@ -27,37 +27,37 @@ const missionSlice = createSlice({
   name: 'mission',
   initialState,
   reducers: {
-    setPrng: (state, action) => {
+    setPrng: (state, action: PayloadAction<{ value: number }>) => {
       const { value } = action.payload;
       state.prng = value;
     },
-    setState: (state, action) => {
+    setState: (state, action: PayloadAction<{ value: MissionStage }>) => {
       const { value } = action.payload;
       if (states.includes(value)) {
         state.state = value;
       }
     },
-    setFaction: (state, action) => {
+    setFaction: (state, action: PayloadAction<{ value: number }>) => {
       const { value } = action.payload;
       state.faction = value;
     },
-    setObjective: (state, action) => {
+    setObjective: (state, action: PayloadAction<{ value: number }>) => {
       const { value } = action.payload;
       state.objective = value;
     },
-    setCount: (state, action) => {
+    setCount: (state, action: PayloadAction<{ value: number }>) => {
       const { value } = action.payload;
       state.count = value;
     },
-    setQuests: (state, action) => {
+    setQuests: (state, action: PayloadAction<{ value: MissionState['quests'] }>) => {
       const { value } = action.payload;
       state.quests = value;
     },
-    setRestrictions: (state, action) => {
+    setRestrictions: (state, action: PayloadAction<{ value: MissionState['restrictions'] }>) => {
       const { value } = action.payload;
       state.restrictions = value;
     },
-    setMissionState: (_state, action) => {
+    setMissionState: (_state, action: PayloadAction<MissionState>) => {
       return action.payload;
     },
     resetMission: (state) => ({ ...state, ...resetState, count: state.count + 1 }),

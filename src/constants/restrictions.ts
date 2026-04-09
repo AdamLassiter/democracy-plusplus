@@ -1,4 +1,4 @@
 import { loadJson } from "./loadJson";
-import type { Item } from "../types";
+import type { Restriction } from "../types";
 
-export const RESTRICTIONS = await loadJson<Item[]>('/data/restrictions.json');
+export const RESTRICTIONS = await loadJson<Restriction[]>('/data/restrictions.json');

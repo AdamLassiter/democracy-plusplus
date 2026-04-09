@@ -58,7 +58,7 @@ export default function ImportExport() {
   }
 
   function handleImportAllFromFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files[0];
+    const file = event.target.files?.[0];
     if (!file) return;
 
     const reader = new FileReader();

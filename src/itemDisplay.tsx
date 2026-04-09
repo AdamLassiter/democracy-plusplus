@@ -102,7 +102,7 @@ function Missing({ item, onClick }: { item: Item | MissingItem; onClick?: () => 
 
   const isFullItem = (obj: Item | MissingItem): obj is Item => 'properties' in obj;
 
-  if (!tooltips || !isFullItem(item) || !Object.keys(item.properties).length) {
+  if (!tooltips || !isFullItem(item) || !item.properties || !Object.keys(item.properties).length) {
     return inner;
   }
 
