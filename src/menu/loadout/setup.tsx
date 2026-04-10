@@ -6,6 +6,7 @@ import { selectMission, setFaction, setObjective, setState } from "../../slices/
 import { useDispatch, useSelector } from "react-redux";
 import Debrief from "./debrief";
 import { calculateFaction, calculateMissionReward, calculateQuestsReward } from "../../economics/mission";
+import { QuestionAnswer } from "@mui/icons-material";
 
 export default function Setup() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ export default function Setup() {
   const briefState = mission.state === 'brief';
   const loadoutState = mission.state === 'loadout';
   const debriefState = mission.state === 'debrief';
+
+  const missionReward = calculateMissionReward({ ...mission, stars: 5 });
+  const questsReward = !briefState && mission.quests ? calculateQuestsReward(mission.quests.map((quest) => ({...quest, completed: true}))) : '??';
 
   return <Grid direction="column" container spacing={2}>
     <Typography variant="h5">Mission Brief</Typography>
@@ -57,7 +61,7 @@ export default function Setup() {
       </Select>
     </FormControl>
     <Typography color="success">
-      {calculateMissionReward({ ...mission, stars: 5 })}¢ (+ {mission.quests ? calculateQuestsReward(mission.quests) : '??'}¢) Maximum Base Reward
+      {missionReward}¢ (+ {questsReward}¢) Maximum Reward
     </Typography>
     <Button variant="outlined" onClick={handleLockIn} disabled={!briefState}>Lock In</Button>
     <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState}>Debrief</Button>

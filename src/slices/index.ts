@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import creditsReducer from './creditsSlice';
 import equipmentReducer from './equipmentSlice';
+import logReducer from './logSlice';
 import missionReducer from './missionSlice';
 import preferencesReducer from './preferencesSlice';
 import purchasedReducer from './purchasedSlice';
@@ -17,6 +18,7 @@ const persistConfig = {
 const appReducer = combineReducers({
   credits: creditsReducer,
   equipment: equipmentReducer,
+  log: logReducer,
   mission: missionReducer,
   preferences: preferencesReducer,
   purchased: purchasedReducer,

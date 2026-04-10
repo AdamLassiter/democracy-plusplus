@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import type { ItemProperties } from "../src/types.ts";
 import {
   expandTemplate,
   extractInfoboxImageFile,
@@ -9,12 +10,26 @@ import {
   resolveImageUrls,
 } from "./wikiApi.ts";
 
-async function processArray(fileName, name) {
+interface EnrichableItem {
+  displayName: string;
+  wikiSlug: string;
+  wikiImageUrl?: string | null;
+  imageUrl?: string;
+  properties?: ItemProperties;
+  hoverTexts?: unknown;
+  [key: string]: unknown;
+}
+
+function errorMessage(error: unknown) {
+  return error instanceof Error ? error.message : String(error);
+}
+
+async function processArray(fileName: string, name: string) {
   const filePath = `./public/data/${fileName}.json`;
 
   console.log(`Reading ${filePath}...`);
   const raw = await fs.readFile(filePath, "utf-8");
-  const items = JSON.parse(raw);
+  const items = JSON.parse(raw) as EnrichableItem[];
   const pages = await fetchPageSources(items.map((item) => item.wikiSlug));
 
   console.log(`=== Processing ${name} (${items.length} items) ===`);
@@ -61,12 +76,12 @@ async function processArray(fileName, name) {
       }
       console.log(`Processed ${item.displayName}`);
     } catch (error) {
-      console.error(`Skipped ${item.displayName || item.wikiSlug}: ${error.message}`);
+      console.error(`Skipped ${item.displayName || item.wikiSlug}: ${errorMessage(error)}`);
     }
   }
 
   await fs.writeFile(filePath, JSON.stringify(items, null, 2));
-  console.log(`Saved updated ${name} → ${filePath}`);
+  console.log(`Saved updated ${name} -> ${filePath}`);
 }
 
 async function main() {
@@ -78,6 +93,6 @@ async function main() {
   console.log("All data processed successfully");
 }
 
-main().catch((err) => {
+main().catch((err: unknown) => {
   console.error("Fatal error:", err);
 });

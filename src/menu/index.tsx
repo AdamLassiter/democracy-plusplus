@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
+import Log from './log';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
 import Settings from './settings';
@@ -28,7 +29,7 @@ export default function Menu() {
   const mission = useSelector(selectMission);
   const { count } = mission;
 
-  const tabs: Array<(props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists];
+  const tabs: Array<(props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
   const CurrentTab = tabs[currentTab];
 
   return (
@@ -49,6 +50,7 @@ export default function Menu() {
           <Tab label="Loadout" />
           <Tab label="Shop" />
           <Tab label="Tier List" />
+          <Tab label="Log" />
         </Tabs>
 
         {/* Credits aligned to the center */}

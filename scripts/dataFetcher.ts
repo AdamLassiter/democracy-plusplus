@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import type { EquipmentCategory, ItemType, StratagemCategory, Tier } from "../src/types.ts";
 import {
   fetchPageSource,
   findBestScrapedMatch,
@@ -9,21 +10,67 @@ import {
   parseWeaponsPageSource,
   resolveImageUrls,
   toInternalName,
+  type LinkedWikiItem,
+  type ScrapedItem,
+  type ScrapedStratagemItem,
+  type ScrapedWeaponItem,
+  type WikiPageSource,
 } from "./wikiApi.ts";
 
-function createDefaultItem(fileName, scrapedItem) {
+type DataFileName =
+  | "primaries"
+  | "secondaries"
+  | "throwables"
+  | "stratagems"
+  | "boosters"
+  | "armor_passives";
+
+type EquipmentFileName = Exclude<DataFileName, "stratagems">;
+
+interface StoredItem {
+  displayName: string;
+  warbondCode: string;
+  internalName: string;
+  tier: Tier;
+  wikiSlug?: string;
+  wikiImageUrl?: string | null;
+  imageUrl?: string;
+  type?: ItemType;
+  category?: EquipmentCategory | StratagemCategory | "";
+  tags?: string[];
+  hoverTexts?: unknown;
+  [key: string]: unknown;
+}
+
+const CATEGORY_MAP: Record<EquipmentFileName, EquipmentCategory> = {
+  primaries: "primary",
+  secondaries: "secondary",
+  throwables: "throwable",
+  boosters: "booster",
+  armor_passives: "armor",
+};
+
+function isStratagemItem(item: ScrapedItem): item is ScrapedStratagemItem {
+  return "stratagemCategory" in item;
+}
+
+function isWeaponItem(item: ScrapedItem): item is ScrapedWeaponItem {
+  return "weaponCategory" in item;
+}
+
+function createDefaultItem(fileName: DataFileName, scrapedItem: ScrapedItem): StoredItem {
   const defaultTags =
     fileName === "armor_passives"
       ? ["ArmorPassive"]
       : fileName === "stratagems"
-        ? scrapedItem.stratagemTag
+        ? isStratagemItem(scrapedItem) && scrapedItem.stratagemTag
           ? [scrapedItem.stratagemTag]
           : []
-        : scrapedItem.weaponTag
+        : isWeaponItem(scrapedItem) && scrapedItem.weaponTag
           ? [scrapedItem.weaponTag]
           : [];
 
-  const shared = {
+  const shared: StoredItem = {
     displayName: scrapedItem.displayName,
     warbondCode: "none",
     internalName: toInternalName(scrapedItem.displayName),
@@ -41,44 +88,36 @@ function createDefaultItem(fileName, scrapedItem) {
     return {
       ...shared,
       type: "Stratagem",
-      category: scrapedItem.stratagemCategory ?? "Supply",
+      category: isStratagemItem(scrapedItem) ? scrapedItem.stratagemCategory : "Supply",
       tags: defaultTags,
     };
   }
 
-  const categoryMap = {
-    primaries: "primary",
-    secondaries: "secondary",
-    throwables: "throwable",
-    boosters: "booster",
-    armor_passives: "armor",
-  };
-
   return {
     ...shared,
     type: "Equipment",
-    category: categoryMap[fileName] ?? "",
+    category: CATEGORY_MAP[fileName],
     tags: defaultTags,
   };
 }
 
-function getScrapedItemsForFile(fileName, scrapedData) {
+function getScrapedItemsForFile(fileName: DataFileName, scrapedData: ScrapedItem[]) {
   if (fileName === "primaries") {
-    return scrapedData.filter((item) => item.weaponCategory === "primary");
+    return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "primary");
   }
 
   if (fileName === "secondaries") {
-    return scrapedData.filter((item) => item.weaponCategory === "secondary");
+    return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "secondary");
   }
 
   if (fileName === "throwables") {
-    return scrapedData.filter((item) => item.weaponCategory === "throwable");
+    return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "throwable");
   }
 
   return scrapedData;
 }
 
-async function enrichWithImageUrls(items) {
+async function enrichWithImageUrls<T extends LinkedWikiItem>(items: T[]) {
   const imageUrls = await resolveImageUrls(items.map((item) => item.imageFileTitle));
 
   return items.map((item) => ({
@@ -87,24 +126,24 @@ async function enrichWithImageUrls(items) {
   }));
 }
 
-async function mergeData(fileName, scrapedData, arrayName) {
+async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arrayName: string) {
   const filePath = `./public/data/${fileName}.json`;
 
   console.log(`Reading ${filePath}...`);
-  let existingArray = [];
+  let existingArray: StoredItem[] = [];
   try {
     const raw = await fs.readFile(filePath, "utf-8");
-    existingArray = JSON.parse(raw);
+    existingArray = JSON.parse(raw) as StoredItem[];
   } catch {
     console.warn(`File ${filePath} not found, starting with empty array.`);
   }
 
   const relevantScrapedData = getScrapedItemsForFile(fileName, scrapedData);
-  const usedScrapedIndexes = new Set();
-  const removedItems = [];
+  const usedScrapedIndexes = new Set<number>();
+  const removedItems: string[] = [];
   let renamedItems = 0;
 
-  const merged = existingArray.map((item) => {
+  const merged = existingArray.map((item): StoredItem => {
     const match = findBestScrapedMatch(item, relevantScrapedData, usedScrapedIndexes);
     if (!match) {
       removedItems.push(item.displayName);
@@ -116,7 +155,7 @@ async function mergeData(fileName, scrapedData, arrayName) {
       renamedItems++;
     }
 
-    const updatedItem = {
+    const updatedItem: StoredItem = {
       ...item,
       displayName: match.scrapedItem.displayName,
       internalName: toInternalName(match.scrapedItem.displayName),
@@ -129,12 +168,12 @@ async function mergeData(fileName, scrapedData, arrayName) {
       updatedItem.imageUrl = `${fileName}/${imageFileName}`;
     }
 
-    if (fileName === "stratagems") {
-      updatedItem.category = match.scrapedItem.stratagemCategory ?? updatedItem.category;
+    if (fileName === "stratagems" && isStratagemItem(match.scrapedItem)) {
+      updatedItem.category = match.scrapedItem.stratagemCategory;
       if (match.scrapedItem.stratagemTag) {
         updatedItem.tags = [match.scrapedItem.stratagemTag];
       }
-    } else if (match.scrapedItem.weaponTag) {
+    } else if (isWeaponItem(match.scrapedItem) && match.scrapedItem.weaponTag) {
       updatedItem.tags = [match.scrapedItem.weaponTag];
     }
 
@@ -145,7 +184,7 @@ async function mergeData(fileName, scrapedData, arrayName) {
     .filter((_, index) => !usedScrapedIndexes.has(index))
     .map((item) => createDefaultItem(fileName, item));
 
-  const output = [...merged, ...insertedItems].map((item) => {
+  const output = [...merged, ...insertedItems].map((item): StoredItem => {
     if (item.hoverTexts) {
       delete item.hoverTexts;
     }
@@ -154,7 +193,7 @@ async function mergeData(fileName, scrapedData, arrayName) {
 
   await fs.writeFile(filePath, JSON.stringify(output, null, 2));
   console.log(
-    `Updated ${arrayName} → ${filePath} (${merged.length} existing, ${insertedItems.length} inserted, ${removedItems.length} removed, ${renamedItems} renamed)`
+    `Updated ${arrayName} -> ${filePath} (${merged.length} existing, ${insertedItems.length} inserted, ${removedItems.length} removed, ${renamedItems} renamed)`,
   );
 
   if (removedItems.length) {
@@ -162,21 +201,29 @@ async function mergeData(fileName, scrapedData, arrayName) {
   }
 }
 
+async function requirePageSource(title: string): Promise<WikiPageSource> {
+  const page = await fetchPageSource(title);
+  if (!page) {
+    throw new Error(`Missing wiki page source for ${title}`);
+  }
+  return page;
+}
+
 async function main() {
   const [weaponsPage, stratagemsPage, boostersPage, passivesPage] = await Promise.all([
-    fetchPageSource("Weapons"),
-    fetchPageSource("Stratagems"),
-    fetchPageSource("Boosters"),
-    fetchPageSource("Armor Passives"),
+    requirePageSource("Weapons"),
+    requirePageSource("Stratagems"),
+    requirePageSource("Boosters"),
+    requirePageSource("Armor Passives"),
   ]);
 
   const weapons = await enrichWithImageUrls(parseWeaponsPageSource(weaponsPage.content));
   const stratagems = await enrichWithImageUrls(
-    await parseStratagemsPageSource(stratagemsPage.content)
+    await parseStratagemsPageSource(stratagemsPage.content),
   );
   const boosters = await enrichWithImageUrls(parseBoostersPageSource(boostersPage.content));
   const passives = await enrichWithImageUrls(
-    await parseArmorPassivesPageSource(passivesPage.content)
+    await parseArmorPassivesPageSource(passivesPage.content),
   );
 
   console.log("Parsed counts:", {

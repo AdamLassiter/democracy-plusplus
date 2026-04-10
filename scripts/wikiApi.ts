@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, { type AxiosError } from "axios";
+import type { ItemProperties, StratagemCategory } from "../src/types.ts";
 
 export const BASE_URL = "https://helldivers.wiki.gg";
 export const API_URL = `${BASE_URL}/api.php`;
@@ -8,14 +9,81 @@ const REQUEST_DELAY_MS = 150;
 const MAX_RETRIES = 5;
 const BASE_BACKOFF_MS = 1000;
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+type WeaponCategory = "primary" | "secondary" | "throwable";
+
+export interface WikiPageSource {
+  title: string;
+  slug: string;
+  content: string;
 }
 
-async function apiGet(params) {
+export interface LinkedWikiItem {
+  displayName: string;
+  wikiSlug: string;
+  imageFileTitle: string;
+  wikiImageUrl?: string | null;
+}
+
+export interface ScrapedWeaponItem extends LinkedWikiItem {
+  weaponCategory: WeaponCategory;
+  weaponTag: string | null;
+}
+
+export interface ScrapedStratagemItem extends LinkedWikiItem {
+  stratagemCategory: StratagemCategory;
+  stratagemTag: string;
+}
+
+export type ScrapedItem = LinkedWikiItem | ScrapedWeaponItem | ScrapedStratagemItem;
+
+interface MediaWikiApiError {
+  code?: string;
+  info?: string;
+}
+
+interface QueryPage {
+  title: string;
+  missing?: boolean;
+  revisions?: Array<{
+    slots?: {
+      main?: {
+        content?: string;
+      };
+    };
+  }>;
+  imageinfo?: Array<{
+    url?: string;
+  }>;
+}
+
+interface QueryResponse {
+  error?: MediaWikiApiError;
+  query?: {
+    pages?: QueryPage[];
+  };
+}
+
+interface ExpandTemplatesResponse {
+  error?: MediaWikiApiError;
+  expandtemplates?: {
+    wikitext?: string;
+  };
+}
+
+type ApiResponse = QueryResponse | ExpandTemplatesResponse;
+
+function isAxiosError(error: unknown): error is AxiosError {
+  return typeof error === "object" && error !== null && "isAxiosError" in error;
+}
+
+function sleep(ms: number) {
+  return new Promise<void>((resolve) => setTimeout(resolve, ms));
+}
+
+async function apiGet(params: Record<string, string | number>) {
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     try {
-      const { data } = await axios.get(API_URL, {
+      const { data } = await axios.get<ApiResponse>(API_URL, {
         params,
         headers: {
           "User-Agent": USER_AGENT,
@@ -29,10 +97,14 @@ async function apiGet(params) {
 
       return data;
     } catch (error) {
+      if (!isAxiosError(error)) {
+        throw error;
+      }
+
       const status = error.response?.status;
       const retryAfterHeader = error.response?.headers?.["retry-after"];
       const retryAfterSeconds = Number(retryAfterHeader);
-      const shouldRetry = status === 429 || (status >= 500 && status <= 599);
+      const shouldRetry = status === 429 || (status !== undefined && status >= 500 && status <= 599);
 
       if (!shouldRetry || attempt === MAX_RETRIES) {
         throw error;
@@ -43,50 +115,52 @@ async function apiGet(params) {
       const delay = Math.max(exponentialDelay, retryAfterDelay);
 
       console.warn(
-        `MediaWiki API request failed with ${status}. Retrying in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})...`
+        `MediaWiki API request failed with ${status}. Retrying in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})...`,
       );
       await sleep(delay);
     }
   }
+
+  throw new Error("Unreachable");
 }
 
-export function titleToSlug(title) {
+export function titleToSlug(title: string) {
   return title.trim().replace(/ /g, "_");
 }
 
-export function slugToTitle(slug) {
+export function slugToTitle(slug: string) {
   return slug.replace(/_/g, " ");
 }
 
-export function normalizeName(value) {
+export function normalizeName(value: string | null | undefined) {
   return value?.trim().toLowerCase();
 }
 
-export function canonicalizeName(value) {
+export function canonicalizeName(value: string | null | undefined) {
   return normalizeName(value)?.replace(/[^a-z0-9]+/g, "") ?? "";
 }
 
-export function toInternalName(displayName) {
+export function toInternalName(displayName: string) {
   return displayName.toLowerCase().replace(/[^a-z0-9]+/g, "");
 }
 
-export function getImageFileName(wikiImageUrl) {
+export function getImageFileName(wikiImageUrl: string | null | undefined) {
   return wikiImageUrl?.split("/").pop()?.replace(/\?.*/, "");
 }
 
-function stripQuery(url) {
+function stripQuery(url: string | undefined) {
   return url?.replace(/\?.*/, "");
 }
 
-function chunk(array, size) {
-  const result = [];
+function chunk<T>(array: T[], size: number) {
+  const result: T[][] = [];
   for (let index = 0; index < array.length; index += size) {
     result.push(array.slice(index, index + size));
   }
   return result;
 }
 
-function decodeHtmlEntities(value) {
+function decodeHtmlEntities(value: string) {
   return value
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
@@ -94,7 +168,7 @@ function decodeHtmlEntities(value) {
     .replace(/&gt;/g, ">");
 }
 
-export function cleanWikiText(value) {
+export function cleanWikiText(value: string) {
   return decodeHtmlEntities(
     value
       .replace(/<!--[\s\S]*?-->/g, "")
@@ -103,13 +177,13 @@ export function cleanWikiText(value) {
       .replace(/\[\[([^\]]+)\]\]/g, "$1")
       .replace(/'''?/g, "")
       .replace(/<br\s*\/?>/gi, " ")
-      .replace(/<[^>]+>/g, "")
+      .replace(/<[^>]+>/g, ""),
   )
     .replace(/\s+/g, " ")
     .trim();
 }
 
-function extractFirstWikiLink(value) {
+function extractFirstWikiLink(value: string) {
   const match = value.match(/\[\[([^|\]]+)(?:\|([^\]]+))?\]\]/);
   if (!match) {
     return null;
@@ -121,7 +195,7 @@ function extractFirstWikiLink(value) {
   };
 }
 
-function extractFileTitle(value) {
+function extractFileTitle(value: string) {
   const match = value.match(/(?:^|\[\[)File:([^|\]]+)/i);
   if (!match) {
     return null;
@@ -130,11 +204,11 @@ function extractFileTitle(value) {
   return `File:${match[1].trim()}`;
 }
 
-export async function fetchPageSources(titles) {
-  const results = new Map();
+export async function fetchPageSources(titles: string[]) {
+  const results = new Map<string, WikiPageSource>();
 
   for (const titleChunk of chunk(titles, 20)) {
-    const data = await apiGet({
+    const data = (await apiGet({
       action: "query",
       titles: titleChunk.join("|"),
       prop: "revisions",
@@ -143,7 +217,7 @@ export async function fetchPageSources(titles) {
       redirects: 1,
       format: "json",
       formatversion: 2,
-    });
+    })) as QueryResponse;
 
     for (const page of data.query?.pages ?? []) {
       const content = page.revisions?.[0]?.slots?.main?.content;
@@ -162,31 +236,31 @@ export async function fetchPageSources(titles) {
   return results;
 }
 
-export async function fetchPageSource(title) {
+export async function fetchPageSource(title: string) {
   const pages = await fetchPageSources([title]);
   return pages.get(titleToSlug(title)) ?? null;
 }
 
-export async function expandTemplate(text, title) {
-  const data = await apiGet({
+export async function expandTemplate(text: string, title: string) {
+  const data = (await apiGet({
     action: "expandtemplates",
     text,
     title,
     prop: "wikitext",
     format: "json",
     formatversion: 2,
-  });
+  })) as ExpandTemplatesResponse;
 
   await sleep(REQUEST_DELAY_MS);
   return data.expandtemplates?.wikitext ?? "";
 }
 
-export async function resolveImageUrls(fileTitles) {
-  const results = new Map();
-  const deduped = [...new Set(fileTitles.filter(Boolean))];
+export async function resolveImageUrls(fileTitles: Array<string | null | undefined>) {
+  const results = new Map<string, string>();
+  const deduped = [...new Set(fileTitles.filter((title): title is string => Boolean(title)))];
 
   for (const fileChunk of chunk(deduped, 20)) {
-    const data = await apiGet({
+    const data = (await apiGet({
       action: "query",
       titles: fileChunk.join("|"),
       prop: "imageinfo",
@@ -194,7 +268,7 @@ export async function resolveImageUrls(fileTitles) {
       redirects: 1,
       format: "json",
       formatversion: 2,
-    });
+    })) as QueryResponse;
 
     for (const page of data.query?.pages ?? []) {
       const url = stripQuery(page.imageinfo?.[0]?.url);
@@ -207,8 +281,8 @@ export async function resolveImageUrls(fileTitles) {
   return results;
 }
 
-function normalizeWeaponTag(rawTag) {
-  const map = {
+function normalizeWeaponTag(rawTag: string) {
+  const map: Record<string, string> = {
     "Assault Rifle": "AssaultRifle",
     "Marksman Rifle": "MarksmanRifle",
     "Submachine Gun": "SubmachineGun",
@@ -218,7 +292,7 @@ function normalizeWeaponTag(rawTag) {
   return map[rawTag] ?? rawTag.replace(/[^A-Za-z0-9]+/g, "");
 }
 
-function parseGalleryItem(line) {
+function parseGalleryItem(line: string): LinkedWikiItem | null {
   const parts = line.split("|");
   if (parts.length < 3) {
     return null;
@@ -242,12 +316,12 @@ function parseGalleryItem(line) {
   };
 }
 
-export function parseWeaponsPageSource(content) {
+export function parseWeaponsPageSource(content: string) {
   const weaponrySection = content.split("==Support Weapons==")[0];
   const lines = weaponrySection.split("\n");
-  const results = [];
-  let weaponCategory = null;
-  let weaponTag = null;
+  const results: ScrapedWeaponItem[] = [];
+  let weaponCategory: WeaponCategory | null = null;
+  let weaponTag: string | null = null;
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
@@ -274,7 +348,6 @@ export function parseWeaponsPageSource(content) {
       continue;
     }
 
-    // eslint-disable-next-line no-useless-escape
     const tagMatch = line.match(/^([^={}\[\]|][^=]*)=$/);
     if (tagMatch) {
       const rawTag = tagMatch[1].trim();
@@ -303,12 +376,12 @@ export function parseWeaponsPageSource(content) {
   return results;
 }
 
-function parseSimpleTableRows(wikitext) {
-  const rows = [];
+function parseSimpleTableRows(wikitext: string) {
+  const rows: string[][] = [];
   const tableMatch = wikitext.match(/{\|[\s\S]*?\|}/g) ?? [];
 
   for (const table of tableMatch) {
-    let currentRow = [];
+    let currentRow: string[] = [];
 
     for (const rawLine of table.split("\n")) {
       const line = rawLine.trim();
@@ -341,9 +414,9 @@ function parseSimpleTableRows(wikitext) {
   return rows;
 }
 
-function parseLinkedItemRows(wikitext) {
+function parseLinkedItemRows(wikitext: string) {
   return parseSimpleTableRows(wikitext)
-    .map((cells) => {
+    .map((cells): LinkedWikiItem | null => {
       const imageFileTitle = extractFileTitle(cells[0] ?? "");
       const wikiLink = extractFirstWikiLink(cells[1] ?? "");
       if (!imageFileTitle || !wikiLink) {
@@ -356,14 +429,14 @@ function parseLinkedItemRows(wikitext) {
         imageFileTitle,
       };
     })
-    .filter(Boolean);
+    .filter((item): item is LinkedWikiItem => item !== null);
 }
 
-export async function parseStratagemsPageSource(content) {
+export async function parseStratagemsPageSource(content: string) {
   const currentSection = content.split("== Mission Stratagems ==")[0];
   const lines = currentSection.split("\n");
-  const templateByHeading = [];
-  let heading = null;
+  const templateByHeading: Array<{ heading: string; templateText: string; templateArg: string | null }> = [];
+  let heading: string | null = null;
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
@@ -383,7 +456,7 @@ export async function parseStratagemsPageSource(content) {
     }
   }
 
-  const mapping = {
+  const mapping: Record<string, { category: StratagemCategory; tag: string }> = {
     "Support Weapons": { category: "Supply", tag: "Weapons" },
     "Orbital Strikes": { category: "Orbital", tag: "Orbital" },
     "Eagle Strikes": { category: "Eagle", tag: "Eagle" },
@@ -393,7 +466,7 @@ export async function parseStratagemsPageSource(content) {
     Vehicles: { category: "Supply", tag: "Vehicles" },
   };
 
-  const results = [];
+  const results: ScrapedStratagemItem[] = [];
   for (const entry of templateByHeading) {
     const mapped = mapping[entry.heading];
     if (!mapped) {
@@ -401,7 +474,7 @@ export async function parseStratagemsPageSource(content) {
     }
 
     const expanded = await expandTemplate(entry.templateText, "Stratagems");
-    const items = parseLinkedItemRows(expanded).map((item) => ({
+    const items = parseLinkedItemRows(expanded).map((item): ScrapedStratagemItem => ({
       ...item,
       stratagemCategory: mapped.category,
       stratagemTag: mapped.tag,
@@ -412,13 +485,13 @@ export async function parseStratagemsPageSource(content) {
   return results;
 }
 
-export function parseBoostersPageSource(content) {
+export function parseBoostersPageSource(content: string) {
   return parseLinkedItemRows(content);
 }
 
-export async function parseArmorPassivesPageSource(_content) {
+export async function parseArmorPassivesPageSource(_content: string) {
   const expanded = await expandTemplate("{{Armor Passive List}}", "Armor Passives");
-  const results = [];
+  const results: LinkedWikiItem[] = [];
   const regex =
     /===\s*([^=]+?)\s*===\s*\n\s*<big>\s*\[\[File:([^|\]]+)[^\]]*]\]\s*\[\[([^|\]]+)(?:\|([^\]]+))?\]\]/g;
 
@@ -433,7 +506,15 @@ export async function parseArmorPassivesPageSource(_content) {
   return results;
 }
 
-export function findBestScrapedMatch(existingItem, scrapedItems, usedScrapedIndexes) {
+interface ExistingWikiItem {
+  displayName: string;
+}
+
+export function findBestScrapedMatch(
+  existingItem: ExistingWikiItem,
+  scrapedItems: ScrapedItem[],
+  usedScrapedIndexes: Set<number>,
+) {
   const normalizedExistingName = normalizeName(existingItem.displayName);
   const canonicalExistingName = canonicalizeName(existingItem.displayName);
 
@@ -443,7 +524,7 @@ export function findBestScrapedMatch(existingItem, scrapedItems, usedScrapedInde
     }
 
     if (normalizeName(scrapedItem.displayName) === normalizedExistingName) {
-      return { index, scrapedItem, matchType: "exact" };
+      return { index, scrapedItem, matchType: "exact" as const };
     }
   }
 
@@ -457,11 +538,9 @@ export function findBestScrapedMatch(existingItem, scrapedItems, usedScrapedInde
     }
 
     const canonicalScrapedName = canonicalizeName(scrapedItem.displayName);
-    return (
-      canonicalScrapedName &&
-      (canonicalExistingName.includes(canonicalScrapedName) ||
-        canonicalScrapedName.includes(canonicalExistingName))
-    );
+    return canonicalScrapedName !== ""
+      && (canonicalExistingName.includes(canonicalScrapedName)
+        || canonicalScrapedName.includes(canonicalExistingName));
   });
 
   if (similarMatches.length !== 1) {
@@ -470,15 +549,18 @@ export function findBestScrapedMatch(existingItem, scrapedItems, usedScrapedInde
 
   const [scrapedItem] = similarMatches;
   const index = scrapedItems.indexOf(scrapedItem);
-  return { index, scrapedItem, matchType: "similar" };
+  return { index, scrapedItem, matchType: "similar" as const };
 }
 
-export function parseExpandedAttackTables(wikitext) {
-  const result = {};
+type AttackSection = Record<string, string>;
+type ParsedAttackTables = Record<string, Record<string, AttackSection>>;
+
+export function parseExpandedAttackTables(wikitext: string): ItemProperties {
+  const result: ParsedAttackTables = {};
   const tables = wikitext.match(/{\|[\s\S]*?\|}/g) ?? [];
 
   for (const table of tables) {
-    let tableTitle = null;
+    let tableTitle: string | null = null;
     let currentSection = "Base";
 
     for (const rawLine of table.split("\n")) {
@@ -525,12 +607,12 @@ export function parseExpandedAttackTables(wikitext) {
   return result;
 }
 
-export function findAttackTemplateInvocation(content) {
+export function findAttackTemplateInvocation(content: string) {
   const matches = content.match(/{{\s*Attack[\s_]+Data[^{}]*}}/gi) ?? [];
   return matches[0] ?? null;
 }
 
-export function extractInfoboxImageFile(content, pageTitle) {
+export function extractInfoboxImageFile(content: string, pageTitle: string) {
   const imageMatch = content.match(/^\|\s*image\s*=\s*(.+)$/m);
   if (!imageMatch) {
     return null;

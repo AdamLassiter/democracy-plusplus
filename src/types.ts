@@ -132,6 +132,39 @@ export interface CartEntry {
   cost: number;
 }
 
+export interface PurchaseLogEntry {
+  kind: 'purchase';
+  id: string;
+  timestamp: string;
+  itemDisplayName: string;
+  cost: number;
+}
+
+export interface MissionOutcome {
+  name: string;
+  completed: boolean;
+}
+
+export interface MissionLogEntry {
+  kind: 'mission';
+  id: string;
+  timestamp: string;
+  missionNumber: number;
+  faction: Faction;
+  objective: string;
+  stars: number;
+  usedItems: string[];
+  quests: MissionOutcome[];
+  restrictions: MissionOutcome[];
+  totalReward: number;
+}
+
+export type LogEntry = PurchaseLogEntry | MissionLogEntry;
+
+export interface LogState {
+  entries: LogEntry[];
+}
+
 export interface ShopState {
   initialised: boolean;
   inventory: ShopItem[];

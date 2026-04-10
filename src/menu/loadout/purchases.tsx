@@ -5,8 +5,8 @@ import { addPurchased, selectPurchased, subtractPurchased } from "../../slices/p
 import { getConstant } from "../../constants";
 import ItemDisplay from "../../itemDisplay";
 import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipment } from "../../slices/equipmentSlice";
-import { useState } from "react";
-import { chooseSupplyCrateContents } from "../../economics/shop";
+import { useMemo, useState } from "react";
+import { calculateShopItems, chooseSupplyCrateContents } from "../../economics/shop";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
@@ -19,6 +19,7 @@ function isCrateItem(item: Item): item is Extract<Item, { category: "crate" }> {
 
 export default function Purchases() {
   const equipment = useSelector(selectEquipment);
+  const dispatch = useDispatch();
   const { purchased: purchased_ } = useSelector(selectPurchased);
   const purchased = purchased_.map(getConstant).filter(Boolean) as Item[];
 
@@ -28,6 +29,11 @@ export default function Purchases() {
   function handleChange(_event: SyntheticEvent, newValue: number) {
     setValue(newValue);
   }
+
+  const purchasedCost = useMemo(() => {
+    const [, pricedItems] = calculateShopItems(purchased);
+    return pricedItems.reduce((sum, item) => sum + item.cost, 0);
+  }, [purchased]);
 
   const {
     armor = [],
@@ -54,8 +60,6 @@ export default function Purchases() {
   ];
   const [, items] = purchasedLists[value];
   const filteredItems = filterItemsByPropertyValues(items, selectedFilters);
-
-  const dispatch = useDispatch();
 
   function equip(displayName: string) {
     const item = getConstant(displayName);
@@ -88,7 +92,10 @@ export default function Purchases() {
   }
 
   return <>
-    <Typography variant="h5">Inventory</Typography>
+    <Box sx={{ alignItems: "baseline", display: "flex", gap: 1 }}>
+      <Typography variant="h5">Inventory</Typography>
+      <Typography color="text.secondary" variant="subtitle1">{purchasedCost}¢</Typography>
+    </Box>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>

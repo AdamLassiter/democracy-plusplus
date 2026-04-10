@@ -20,6 +20,7 @@ import { selectShop, removeFromCart, clearCart, buyCart } from "../../slices/sho
 import { subtractCredits, selectCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
+import { addPurchaseLogEntry } from "../../slices/logSlice";
 import { ItemIcon } from "../../itemDisplay";
 import type { ItemCategory, ShopItem } from "../../types";
 
@@ -46,7 +47,16 @@ export default function CartManager() {
     const purchasedNames = cart.map(i => i.displayName);
 
     dispatch(subtractCredits({ amount: totalCost }));
-    purchasedNames.forEach(purchasedName => dispatch(addPurchased({ value: purchasedName })));
+    cart.forEach((item) => {
+      dispatch(addPurchased({ value: item.displayName }));
+      dispatch(addPurchaseLogEntry({
+        kind: 'purchase',
+        id: `purchase-${Date.now()}-${item.displayName}-${item.cost}`,
+        timestamp: new Date().toISOString(),
+        itemDisplayName: item.displayName,
+        cost: item.cost,
+      }));
+    });
     dispatch(buyCart());
     dispatch(setSnackbar({ message: `Purchased ${cart.length} items!` }));
 

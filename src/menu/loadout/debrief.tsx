@@ -3,15 +3,19 @@ import { Box, Button, Checkbox, Dialog, DialogTitle, Divider, FormControlLabel, 
 import { useDispatch, useSelector } from "react-redux";
 import { resetMission, selectMission, setState } from "../../slices/missionSlice";
 import { useState } from "react";
-import { calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
+import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
 import { addCredits } from "../../slices/creditsSlice";
-import { resetEquipment } from "../../slices/equipmentSlice";
+import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";
 import { resetShop } from "../../slices/shopSlice";
+import { addMissionLogEntry } from "../../slices/logSlice";
+import { FACTIONS } from "../../constants/factions";
+import { getObjectives } from "../../constants/objectives";
 import type { Quest, Restriction } from "../../types";
 
 export default function Debrief() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
+  const equipment = useSelector(selectEquipment);
 
   const [stars, setStars] = useState(1);
   const [quests, setQuests] = useState(mission.quests);
@@ -42,6 +46,34 @@ export default function Debrief() {
 
   function handleSubmit() {
     setOpen(false);
+    const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+    const usedItems = [
+      equipment.primary,
+      equipment.secondary,
+      equipment.throwable,
+      equipment.armorPassive,
+      equipment.booster,
+      ...equipment.stratagems,
+    ].filter((item): item is string => Boolean(item));
+    dispatch(addMissionLogEntry({
+      kind: 'mission',
+      id: `mission-${Date.now()}-${mission.count}`,
+      timestamp: new Date().toISOString(),
+      missionNumber: mission.count,
+      faction: calculateFaction(mission),
+      objective: objective?.displayName ?? 'Unknown Objective',
+      stars,
+      usedItems,
+      quests: quests.map((quest) => ({
+        name: quest.displayName,
+        completed: Boolean(quest.completed),
+      })),
+      restrictions: restrictions.map((restriction) => ({
+        name: restriction.displayName,
+        completed: Boolean(restriction.completed),
+      })),
+      totalReward,
+    }));
     dispatch(addCredits({ amount: totalReward }));
     dispatch(resetEquipment());
     dispatch(resetShop());
