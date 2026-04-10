@@ -17,7 +17,7 @@ export default function Settings() {
 
   return (
     <>
-      <Tooltip title="Need help?">
+      <Tooltip title="Preferences and Save Management">
         <Button
           sx={{ width: '100px' }}
           variant="outlined"

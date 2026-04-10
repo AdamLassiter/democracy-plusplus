@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Badge,
   Button,
+  Tooltip,
 } from "@mui/material";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { useSelector } from "react-redux";
@@ -18,20 +19,22 @@ export default function Warbonds() {
 
   return (
     <>
-      <Badge
-        badgeContent={warbonds.length}
-        color="secondary"
-        overlap="circular"
-      >
-        <Button
-          variant="outlined"
+      <Tooltip title="Filter available items by warbonds">
+        <Badge
+          badgeContent={warbonds.length}
           color="secondary"
-          startIcon={<MilitaryTechIcon />}
-          onClick={handleOpen}
+          overlap="circular"
         >
-          Warbonds
-        </Button>
-      </Badge>
+          <Button
+            variant="outlined"
+            color="secondary"
+            startIcon={<MilitaryTechIcon />}
+            onClick={handleOpen}
+          >
+            Warbonds
+          </Button>
+        </Badge>
+      </Tooltip>
       <WarbondsDialog open={open} setOpen={setOpen} />
     </>
   );

@@ -154,6 +154,7 @@ export interface MissionLogEntry {
   objective: string;
   stars: number;
   usedItems: string[];
+  usedItemsCost: number;
   quests: MissionOutcome[];
   restrictions: MissionOutcome[];
   totalReward: number;

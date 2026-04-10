@@ -40,6 +40,9 @@ function UsedItems({ items = [] }: { items?: string[] }) {
 }
 
 function MissionCard({ entry }: { entry: MissionLogEntry }) {
+  const usedItemsCost = entry.usedItemsCost ?? 0;
+  const profit = entry.totalReward - usedItemsCost;
+
   return <Card sx={{ p: 2, width: "100%" }} variant="outlined">
     <Grid container direction="column" spacing={1}>
       <Grid container justifyContent="space-between" alignItems="center">
@@ -51,7 +54,12 @@ function MissionCard({ entry }: { entry: MissionLogEntry }) {
       <Typography color="text.secondary">
         {entry.faction} | {"★".repeat(entry.stars)}{"☆".repeat(5 - entry.stars)}
       </Typography>
-      <Typography>Total Reward: {entry.totalReward}¢</Typography>
+      <Typography>
+        Total Reward: {entry.totalReward}¢ | Item Cost: {usedItemsCost}¢ | Profit:{" "}
+        <Typography component="span" color={profit >= 0 ? "success" : "error"}>
+          {profit}¢
+        </Typography>
+      </Typography>
       <UsedItems items={entry.usedItems ?? []} />
       <SummaryList title="Discretionary Assignments" items={entry.quests ?? []} />
       <SummaryList title="Rules of Engagement" items={entry.restrictions ?? []} />

@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetMission, selectMission, setState } from "../../slices/missionSlice";
 import { useState } from "react";
 import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
+import { calculateShopItems } from "../../economics/shop";
 import { addCredits } from "../../slices/creditsSlice";
 import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";
 import { resetShop } from "../../slices/shopSlice";
 import { addMissionLogEntry } from "../../slices/logSlice";
+import { getConstant } from "../../constants";
 import { FACTIONS } from "../../constants/factions";
 import { getObjectives } from "../../constants/objectives";
-import type { Quest, Restriction } from "../../types";
+import type { Item, Quest, Restriction } from "../../types";
 
 export default function Debrief() {
   const dispatch = useDispatch();
@@ -55,6 +57,11 @@ export default function Debrief() {
       equipment.booster,
       ...equipment.stratagems,
     ].filter((item): item is string => Boolean(item));
+    const resolvedUsedItems = usedItems
+      .map((itemName) => getConstant(itemName))
+      .filter((item): item is Item => Boolean(item));
+    const [, pricedUsedItems] = calculateShopItems(resolvedUsedItems);
+    const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item.cost, 0);
     dispatch(addMissionLogEntry({
       kind: 'mission',
       id: `mission-${Date.now()}-${mission.count}`,
@@ -64,6 +71,7 @@ export default function Debrief() {
       objective: objective?.displayName ?? 'Unknown Objective',
       stars,
       usedItems,
+      usedItemsCost,
       quests: quests.map((quest) => ({
         name: quest.displayName,
         completed: Boolean(quest.completed),

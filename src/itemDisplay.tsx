@@ -1,5 +1,5 @@
 import type { SxProps, Theme } from "@mui/material/styles";
-import type { Item } from "./types";
+import type { Item, Tier } from "./types";
 import { Card, CardActionArea, CardMedia, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
@@ -24,6 +24,14 @@ type ItemCardProps = {
   onClick?: (item: Item) => void;
   isAffordable: boolean;
   titles: boolean;
+};
+
+const TIER_BORDER_COLORS: Record<Tier, string> = {
+  s: "#2196f3",
+  a: "#4caf50",
+  b: "#f0fd35",
+  c: "#fb8c00",
+  d: "#e53935",
 };
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }: ItemDisplayProps) {
@@ -52,6 +60,7 @@ function ItemCard({ onClick, item, isAffordable, titles }: ItemCardProps) {
       opacity: isAffordable ? 1 : 0.5,
       pointerEvents: isAffordable ? 'auto' : 'none',
       height: '180px',
+      borderColor: TIER_BORDER_COLORS[item.tier],
     }}
     variant="outlined">
     <CardActionArea>

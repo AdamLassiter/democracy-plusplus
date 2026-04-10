@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import { ARMOR_PASSIVES } from "../../constants/armor_passives";
 import { BOOSTERS } from "../../constants/boosters";
 import { PRIMARIES } from "../../constants/primaries";
@@ -33,6 +33,7 @@ export default function TierLists() {
 
   return (
     <Box sx={{ width: '100%' }}>
+      <Typography variant="h5">Tier List</Typography>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>
           {tierLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
