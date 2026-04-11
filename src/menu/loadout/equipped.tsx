@@ -5,7 +5,7 @@ import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecon
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import { getConstant } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";
-import { calculateShopItems } from "../../economics/shop";
+import { itemCost } from "../../economics/shop";
 import type { Item } from "../../types";
 
 export default function Equipped() {
@@ -28,8 +28,8 @@ export default function Equipped() {
     ...stratagems.map((stratagem) => stratagem && getConstant(stratagem)),
   ].filter((item): item is Item => Boolean(item));
   const equippedCost = useMemo(() => {
-    const [, pricedItems] = calculateShopItems(equippedItems);
-    return pricedItems.reduce((sum, item) => sum + item.cost, 0);
+    const pricedItems = equippedItems.map(itemCost);
+    return pricedItems.reduce((sum, item) => sum + item, 0);
   }, [equippedItems]);
 
   function unequip(displayName: string) {
@@ -40,7 +40,7 @@ export default function Equipped() {
   return <>
     <Box sx={{ alignItems: "baseline", display: "flex", gap: 1 }}>
       <Typography variant="h5">Equipment</Typography>
-      <Typography color="text.secondary" variant="subtitle1">{equippedCost}¢</Typography>
+      <Typography color="text.secondary" variant="subtitle1">{Math.floor(equippedCost / 2)} ~ {equippedCost}¢</Typography>
     </Box>
     <Grid direction="column" container spacing={1}>
       <Grid direction="row" container spacing={1}>

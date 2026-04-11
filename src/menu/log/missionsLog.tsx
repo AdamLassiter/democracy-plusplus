@@ -55,7 +55,11 @@ function MissionCard({ entry }: { entry: MissionLogEntry }) {
         {entry.faction} | {"★".repeat(entry.stars)}{"☆".repeat(5 - entry.stars)}
       </Typography>
       <Typography>
-        Total Reward: {entry.totalReward}¢ | Item Cost: {usedItemsCost}¢ | Profit:{" "}
+        Total Reward: {entry.totalReward}¢ | Item Cost: {Math.floor(usedItemsCost / 2)} - {usedItemsCost}¢ | Profit:{" "}
+        <Typography component="span" color={profit / 2 >= 0 ? "success" : "error"}>
+          {Math.floor(profit / 2)}
+        </Typography>
+        {" ~ "}
         <Typography component="span" color={profit >= 0 ? "success" : "error"}>
           {profit}¢
         </Typography>

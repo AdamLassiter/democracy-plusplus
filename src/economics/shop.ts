@@ -15,6 +15,18 @@ function randomFlux(cost: number) {
   return Math.round(cost * (0.8 + 0.4 * Math.random()));
 }
 
+export function calculateItemStock(displayName: string) {
+  const infiniteStockItems = [
+    "R-2124 Constitution",
+    "CQC-73 Entrenchment Tool",
+  ];
+  
+  if (infiniteStockItems.includes(displayName)) {
+    return Infinity;
+  }
+  return 1;
+}
+
 function randomChoice(items: Item[], n = 1) {
   const shuffled = items.sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, n);
@@ -40,7 +52,7 @@ function sale(cost: number) {
   return Math.round(cost * (0.45 + 0.1 * Math.random()));
 }
 
-function itemCost(item: Item) {
+export function itemCost(item: Item) {
   if (item.overrideCost) {
     return item.overrideCost;
   }

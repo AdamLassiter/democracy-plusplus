@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { calculateShopItems, supplyCrates } from "../economics/shop";
+import { calculateItemStock, calculateShopItems, supplyCrates } from "../economics/shop";
 import { ITEMS } from '../constants/items';
 import { WARBONDS } from '../constants/warbonds';
 import { getConstant } from '../constants';
@@ -24,6 +24,13 @@ function normaliseCartEntry(item: { displayName?: string; cost?: number } | null
     displayName: item.displayName,
     cost: item.cost,
   };
+}
+
+function incrementInventoryStock(items: ShopItem[], displayName: string) {
+  const target = items.find((item) => item.displayName === displayName);
+  if (target) {
+    target.stock = (target.stock ?? 0) + 1;
+  }
 }
 
 function hydrateCartItem(item: CartEntry): ShopItem | null {
@@ -62,6 +69,15 @@ const shopSlice = createSlice({
       if (!cartEntry) {
         return;
       }
+      if ("stock" in value) {
+        const inventoryItem = state.inventory.find((item) => item.displayName === value.displayName);
+        if (inventoryItem && (inventoryItem.stock ?? 0) <= 0) {
+          return;
+        }
+        if (inventoryItem) {
+          inventoryItem.stock = Math.max(0, (inventoryItem.stock ?? 0) - 1);
+        }
+      }
       state.cart.push(cartEntry);
       // Mark onSale / supply crates as purchased
       const onSaleItem = state.onSale.find(item => item.displayName === value.displayName && item.cost === value.cost);
@@ -78,6 +94,7 @@ const shopSlice = createSlice({
       const cartItemIndex = state.cart.findIndex((item) => item.cost === value.cost && item.displayName === value.displayName);
       if (cartItemIndex !== -1) {
         state.cart = state.cart.filter((_item, index) => index !== cartItemIndex);
+        incrementInventoryStock(state.inventory, value.displayName);
       }
       // Mark onSale / supply crates as not purchased
       const onSaleItem = state.onSale.find(item => item.cost === value.cost && item.displayName === value.displayName);
@@ -95,6 +112,7 @@ const shopSlice = createSlice({
     clearCart: (state) => {
       // Mark onSale / supply crates as not purchased
       state.cart.forEach((value) => {
+        incrementInventoryStock(state.inventory, value.displayName);
         const onSaleItem = state.onSale.find(item => item.displayName === value.displayName);
         if (onSaleItem) {
           onSaleItem.purchased = false;
@@ -111,12 +129,19 @@ const shopSlice = createSlice({
       const target = state.onSale.find(item => item.displayName === value.displayName);
       if (target) target.purchased = true;
     },
-    resetShop: (state) => {
+    resetShop: (state, action: PayloadAction<{ missionCount: number | null }>) => {
+      const shouldResetStock = !state.initialised || action.payload.missionCount === null || action.payload.missionCount % 3 === 0;
       const warbonds = state.warbonds.map(w => w.warbondCode);
       const items = ITEMS.filter((i) => i.warbondCode && warbonds.includes(i.warbondCode));
       const [onSale, inventory] = calculateShopItems(items);
+      const existingStockByName = new Map(state.inventory.map((item) => [item.displayName, item.stock ?? calculateItemStock(item.displayName)]));
       state.onSale = onSale;
-      state.inventory = inventory;
+      state.inventory = inventory.map((item) => ({
+        ...item,
+        stock: shouldResetStock
+          ? calculateItemStock(item.displayName)
+          : (existingStockByName.get(item.displayName) ?? calculateItemStock(item.displayName)),
+      }));
       state.supplyCrates = supplyCrates();
       state.initialised = true;
       state.cart = [];

@@ -29,7 +29,9 @@ export default function Inventory() {
   const dispatch = useDispatch();
 
   function addItemToCart(item: Item) {
-    if (isPurchasableItem(item) && item.cost <= credits) {
+    if (isPurchasableItem(item) && (item.stock ?? 1) <= 0) {
+      dispatch(setSnackbar({ message: `${item.displayName} is out of stock`, severity: 'warning' }));
+    } else if (isPurchasableItem(item) && item.cost <= credits) {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
@@ -105,10 +107,16 @@ function ShopTier({ items, tier, onClick }: { items: ShopItem[]; tier: string; o
     <Grid direction="row" container spacing={1}>
       <Card><Typography variant="h1" style={{ padding: '16px', width: '96px' }}>{tier.toUpperCase()}</Typography></Card>
       {list.map(item => {
+        const inStock = (item.stock ?? 0) > 0;
         const isAffordable = credits >= item.cost;
-        return <Badge key={item.displayName} badgeContent={item.cost} color={isAffordable ? "info" : "error"}>
-          <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable} />
-        </Badge>;
+        const itemDisplay = <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable && inStock} />;
+        if (inStock) {
+          return <Badge key={item.displayName} badgeContent={`${item.cost}¢`} color={inStock && isAffordable ? "info" : "error"}>
+            {itemDisplay}
+          </Badge>;
+        } else {
+          return itemDisplay;
+        }
       })}
     </Grid>
   </>;

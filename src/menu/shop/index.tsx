@@ -12,7 +12,7 @@ export default function Shop() {
 
   useEffect(() => {
     if (!shop.initialised) {
-      dispatch(resetShop());
+      dispatch(resetShop({ missionCount: null }));
     }
   }, [dispatch, shop.initialised]);
 

@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import readline from "readline";
 import type { EquipmentCategory, ItemType, StratagemCategory, Tier } from "../src/types.ts";
 import {
   fetchPageSource,
@@ -31,6 +32,7 @@ interface StoredItem {
   displayName: string;
   warbondCode: string;
   internalName: string;
+  stratagemCode?: string[];
   tier: Tier;
   wikiSlug?: string;
   wikiImageUrl?: string | null;
@@ -49,6 +51,27 @@ const CATEGORY_MAP: Record<EquipmentFileName, EquipmentCategory> = {
   boosters: "booster",
   armor_passives: "armor",
 };
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function ask(question: string) {
+  return new Promise<string>((resolve) => rl.question(question, (answer: string) => resolve(answer.trim())));
+}
+
+async function confirmAddItem(fileName: DataFileName, itemName: string) {
+  while (true) {
+    const response = (await ask(`Add new ${fileName} item "${itemName}"? [y/n] `)).toLowerCase();
+    if (response === "y" || response === "yes") {
+      return true;
+    }
+    if (response === "n" || response === "no") {
+      return false;
+    }
+  }
+}
 
 function isStratagemItem(item: ScrapedItem): item is ScrapedStratagemItem {
   return "stratagemCategory" in item;
@@ -90,6 +113,7 @@ function createDefaultItem(fileName: DataFileName, scrapedItem: ScrapedItem): St
       type: "Stratagem",
       category: isStratagemItem(scrapedItem) ? scrapedItem.stratagemCategory : "Supply",
       tags: defaultTags,
+      stratagemCode: isStratagemItem(scrapedItem) ? scrapedItem.stratagemCode : undefined,
     };
   }
 
@@ -170,6 +194,7 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
 
     if (fileName === "stratagems" && isStratagemItem(match.scrapedItem)) {
       updatedItem.category = match.scrapedItem.stratagemCategory;
+      updatedItem.stratagemCode = match.scrapedItem.stratagemCode;
       if (match.scrapedItem.stratagemTag) {
         updatedItem.tags = [match.scrapedItem.stratagemTag];
       }
@@ -180,9 +205,18 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
     return updatedItem;
   });
 
-  const insertedItems = relevantScrapedData
-    .filter((_, index) => !usedScrapedIndexes.has(index))
-    .map((item) => createDefaultItem(fileName, item));
+  const insertedItems: StoredItem[] = [];
+  for (const [index, item] of relevantScrapedData.entries()) {
+    if (usedScrapedIndexes.has(index)) {
+      continue;
+    }
+
+    if (await confirmAddItem(fileName, item.displayName)) {
+      insertedItems.push(createDefaultItem(fileName, item));
+    } else {
+      console.log(`Skipped new ${fileName} item: ${item.displayName}`);
+    }
+  }
 
   const output = [...merged, ...insertedItems].map((item): StoredItem => {
     if (item.hoverTexts) {
@@ -210,35 +244,39 @@ async function requirePageSource(title: string): Promise<WikiPageSource> {
 }
 
 async function main() {
-  const [weaponsPage, stratagemsPage, boostersPage, passivesPage] = await Promise.all([
-    requirePageSource("Weapons"),
-    requirePageSource("Stratagems"),
-    requirePageSource("Boosters"),
-    requirePageSource("Armor Passives"),
-  ]);
+  try {
+    const [weaponsPage, stratagemsPage, boostersPage, passivesPage] = await Promise.all([
+      requirePageSource("Weapons"),
+      requirePageSource("Stratagems"),
+      requirePageSource("Boosters"),
+      requirePageSource("Armor Passives"),
+    ]);
 
-  const weapons = await enrichWithImageUrls(parseWeaponsPageSource(weaponsPage.content));
-  const stratagems = await enrichWithImageUrls(
-    await parseStratagemsPageSource(stratagemsPage.content),
-  );
-  const boosters = await enrichWithImageUrls(parseBoostersPageSource(boostersPage.content));
-  const passives = await enrichWithImageUrls(
-    await parseArmorPassivesPageSource(passivesPage.content),
-  );
+    const weapons = await enrichWithImageUrls(parseWeaponsPageSource(weaponsPage.content));
+    const stratagems = await enrichWithImageUrls(
+      await parseStratagemsPageSource(stratagemsPage.content),
+    );
+    const boosters = await enrichWithImageUrls(parseBoostersPageSource(boostersPage.content));
+    const passives = await enrichWithImageUrls(
+      await parseArmorPassivesPageSource(passivesPage.content),
+    );
 
-  console.log("Parsed counts:", {
-    weapons: weapons.length,
-    stratagems: stratagems.length,
-    boosters: boosters.length,
-    passives: passives.length,
-  });
+    console.log("Parsed counts:", {
+      weapons: weapons.length,
+      stratagems: stratagems.length,
+      boosters: boosters.length,
+      passives: passives.length,
+    });
 
-  await mergeData("primaries", weapons, "PRIMARIES");
-  await mergeData("secondaries", weapons, "SECONDARIES");
-  await mergeData("throwables", weapons, "THROWABLES");
-  await mergeData("stratagems", stratagems, "STRATAGEMS");
-  await mergeData("boosters", boosters, "BOOSTERS");
-  await mergeData("armor_passives", passives, "ARMOR_PASSIVES");
+    await mergeData("primaries", weapons, "PRIMARIES");
+    await mergeData("secondaries", weapons, "SECONDARIES");
+    await mergeData("throwables", weapons, "THROWABLES");
+    await mergeData("stratagems", stratagems, "STRATAGEMS");
+    await mergeData("boosters", boosters, "BOOSTERS");
+    await mergeData("armor_passives", passives, "ARMOR_PASSIVES");
+  } finally {
+    rl.close();
+  }
 }
 
 main().catch(console.error);

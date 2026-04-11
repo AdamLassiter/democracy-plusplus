@@ -412,7 +412,7 @@
   },
   {
     "displayName": "Be responsible for at most X accidentals",
-    "description": "Friendly fire isn't actually friendly.",
+    "description": "Friendly fire isn't actually friendly!",
     "type": "objective",
     "category": "survivability",
     "eradicateValues": [

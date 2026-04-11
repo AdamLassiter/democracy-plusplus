@@ -32,6 +32,8 @@ export interface BaseItem {
   imageUrl?: string;
   warbondCode?: string;
   internalName?: string;
+  stratagemCode?: string[];
+  stock?: number;
   tier: Tier;
   wikiSlug?: string;
   wikiImageUrl?: string | null;

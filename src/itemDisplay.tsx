@@ -1,6 +1,10 @@
 import type { SxProps, Theme } from "@mui/material/styles";
 import type { Item, Tier } from "./types";
-import { Card, CardActionArea, CardMedia, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, CardMedia, Typography } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useSelector } from "react-redux";
 
 import { selectPreferences } from "./slices/preferencesSlice";
@@ -27,12 +31,23 @@ type ItemCardProps = {
 };
 
 const TIER_BORDER_COLORS: Record<Tier, string> = {
-  s: "#2196f3",
-  a: "#4caf50",
-  b: "#f0fd35",
-  c: "#fb8c00",
-  d: "#e53935",
+  s: "#ffb300",
+  a: "#a921df",
+  b: "#3596fd",
+  c: "#08fb00",
+  d: "#ffffff",
 };
+
+const STRATAGEM_DIRECTION_ICONS = {
+  Up: ArrowUpwardIcon,
+  Down: ArrowDownwardIcon,
+  Left: ArrowBackIcon,
+  Right: ArrowForwardIcon,
+} as const;
+
+function isStratagemDirection(direction: string): direction is keyof typeof STRATAGEM_DIRECTION_ICONS {
+  return direction in STRATAGEM_DIRECTION_ICONS;
+}
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }: ItemDisplayProps) {
   const { titles, tooltips } = useSelector(selectPreferences);
@@ -65,15 +80,33 @@ function ItemCard({ onClick, item, isAffordable, titles }: ItemCardProps) {
     variant="outlined">
     <CardActionArea>
       <ItemIcon item={item} margin={1} width={110} minHeight={80} bgcolor='black' />
-      {titles && <Typography sx={{
-        display: '-webkit-box',
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: 'vertical',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        width: '110px',
-        fontSize: '15px',
-      }} margin={1}>{item.displayName}</Typography>}
+      {titles && <>
+        <Typography sx={{
+          display: '-webkit-box',
+          WebkitLineClamp: item.stratagemCode?.length ? 1 : 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          width: '110px',
+          fontSize: '15px',
+        }} margin={1}>{item.displayName}</Typography>
+        {!!item.stratagemCode?.length && <Box sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '28px',
+          width: '110px',
+          color: 'text.secondary',
+        }} marginX={1} marginBottom={1}>
+          {item.stratagemCode.map((direction, index) => {
+            const DirectionIcon = isStratagemDirection(direction) ? STRATAGEM_DIRECTION_ICONS[direction] : null;
+            return DirectionIcon
+              ? <DirectionIcon key={`${direction}-${index}`} sx={{ fontSize: '12px' }} />
+              : <Typography key={`${direction}-${index}`} sx={{ fontSize: '9px' }}>{direction}</Typography>;
+          })}
+        </Box>}
+      </>}
     </CardActionArea>
   </Card>;
 }

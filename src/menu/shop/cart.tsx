@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Fab,
   Dialog,
@@ -29,10 +29,24 @@ export default function CartManager() {
   const { cart } = useSelector(selectShop);
   const { credits } = useSelector(selectCredits);
   const [open, setOpen] = useState(false);
+  const [pulseCart, setPulseCart] = useState(false);
+  const previousTotalItems = useRef(cart.length);
 
   const totalCost = cart.reduce((sum, item) => sum + item.cost, 0);
   const affordable = totalCost <= credits;
   const totalItems = cart.length;
+
+  useEffect(() => {
+    if (totalItems > previousTotalItems.current) {
+      setPulseCart(true);
+      const timeout = window.setTimeout(() => setPulseCart(false), 280);
+      previousTotalItems.current = totalItems;
+      return () => window.clearTimeout(timeout);
+    }
+
+    previousTotalItems.current = totalItems;
+    return undefined;
+  }, [totalItems]);
 
   function handleClear() {
     dispatch(clearCart());
@@ -70,7 +84,17 @@ export default function CartManager() {
       <Fab
         color="primary"
         aria-label="cart"
-        sx={{ position: "fixed", bottom: 24, right: 24 }}
+        sx={{
+          position: "fixed",
+          bottom: 24,
+          right: 24,
+          animation: pulseCart ? "cartPulse 280ms ease-out" : "none",
+          "@keyframes cartPulse": {
+            "0%": { transform: "scale(1)" },
+            "35%": { transform: "scale(1.14)" },
+            "100%": { transform: "scale(1)" },
+          },
+        }}
         onClick={() => setOpen(true)}
       >
         <Badge

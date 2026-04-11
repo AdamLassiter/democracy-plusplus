@@ -32,6 +32,7 @@ export interface ScrapedWeaponItem extends LinkedWikiItem {
 export interface ScrapedStratagemItem extends LinkedWikiItem {
   stratagemCategory: StratagemCategory;
   stratagemTag: string;
+  stratagemCode: string[];
 }
 
 export type ScrapedItem = LinkedWikiItem | ScrapedWeaponItem | ScrapedStratagemItem;
@@ -316,6 +317,14 @@ function parseGalleryItem(line: string): LinkedWikiItem | null {
   };
 }
 
+function parseStratagemCodeCell(value: string) {
+  const matches = [...value.matchAll(/Stratagem Arrow (Up|Down|Left|Right)\.svg/gi)];
+  return matches.map((match) => {
+    const direction = match[1].toLowerCase();
+    return direction.charAt(0).toUpperCase() + direction.slice(1);
+  });
+}
+
 export function parseWeaponsPageSource(content: string) {
   const weaponrySection = content.split("==Support Weapons==")[0];
   const lines = weaponrySection.split("\n");
@@ -474,11 +483,25 @@ export async function parseStratagemsPageSource(content: string) {
     }
 
     const expanded = await expandTemplate(entry.templateText, "Stratagems");
-    const items = parseLinkedItemRows(expanded).map((item): ScrapedStratagemItem => ({
-      ...item,
-      stratagemCategory: mapped.category,
-      stratagemTag: mapped.tag,
-    }));
+    const items = parseSimpleTableRows(expanded)
+      .map((cells): ScrapedStratagemItem | null => {
+        const imageFileTitle = extractFileTitle(cells[0] ?? "");
+        const wikiLink = extractFirstWikiLink(cells[1] ?? "");
+        const stratagemCode = parseStratagemCodeCell(cells[2] ?? "");
+        if (!imageFileTitle || !wikiLink || !stratagemCode.length) {
+          return null;
+        }
+
+        return {
+          displayName: wikiLink.text,
+          wikiSlug: titleToSlug(wikiLink.target),
+          imageFileTitle,
+          stratagemCategory: mapped.category,
+          stratagemTag: mapped.tag,
+          stratagemCode,
+        };
+      })
+      .filter((item): item is ScrapedStratagemItem => item !== null);
     results.push(...items);
   }
 

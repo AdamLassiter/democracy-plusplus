@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetMission, selectMission, setState } from "../../slices/missionSlice";
 import { useState } from "react";
 import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
-import { calculateShopItems } from "../../economics/shop";
+import { itemCost } from "../../economics/shop";
 import { addCredits } from "../../slices/creditsSlice";
 import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";
 import { resetShop } from "../../slices/shopSlice";
@@ -60,8 +60,8 @@ export default function Debrief() {
     const resolvedUsedItems = usedItems
       .map((itemName) => getConstant(itemName))
       .filter((item): item is Item => Boolean(item));
-    const [, pricedUsedItems] = calculateShopItems(resolvedUsedItems);
-    const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item.cost, 0);
+    const pricedUsedItems = resolvedUsedItems.map(itemCost);
+    const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
     dispatch(addMissionLogEntry({
       kind: 'mission',
       id: `mission-${Date.now()}-${mission.count}`,
@@ -84,7 +84,7 @@ export default function Debrief() {
     }));
     dispatch(addCredits({ amount: totalReward }));
     dispatch(resetEquipment());
-    dispatch(resetShop());
+    dispatch(resetShop({ missionCount: mission.count }));
     dispatch(resetMission());
     dispatch(setState({ value: 'brief' }));
   }

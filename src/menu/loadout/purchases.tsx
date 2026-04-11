@@ -6,7 +6,7 @@ import { getConstant } from "../../constants";
 import ItemDisplay from "../../itemDisplay";
 import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipment } from "../../slices/equipmentSlice";
 import { useMemo, useState } from "react";
-import { calculateShopItems, chooseSupplyCrateContents } from "../../economics/shop";
+import { chooseSupplyCrateContents, itemCost } from "../../economics/shop";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
@@ -31,8 +31,8 @@ export default function Purchases() {
   }
 
   const purchasedCost = useMemo(() => {
-    const [, pricedItems] = calculateShopItems(purchased);
-    return pricedItems.reduce((sum, item) => sum + item.cost, 0);
+    const pricedItems = purchased.map(itemCost);
+    return pricedItems.reduce((sum, item) => sum + item, 0);
   }, [purchased]);
 
   const {
@@ -94,7 +94,7 @@ export default function Purchases() {
   return <>
     <Box sx={{ alignItems: "baseline", display: "flex", gap: 1 }}>
       <Typography variant="h5">Inventory</Typography>
-      <Typography color="text.secondary" variant="subtitle1">{purchasedCost}¢</Typography>
+      <Typography color="text.secondary" variant="subtitle1">{Math.floor(purchasedCost / 2)} ~ {purchasedCost}¢</Typography>
     </Box>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

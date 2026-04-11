@@ -134,7 +134,7 @@ function restrictionsCount(mission: MissionState) {
 function questsCount(mission: MissionState) {
   if (mission.count < 5) {
     return 1;
-  } else if (mission.count < 7) {
+  } else if (mission.count < 9) {
     return 2;
   } else if (mission.count < 11) {
     return 3;
@@ -244,7 +244,9 @@ export function calculateRestrictions(
   const numRestrictions = restrictionsCount(mission);
   const restrictionScaling = scaling(mission);
   const pool = RESTRICTIONS.filter(
-    (restriction) => !lastRestrictions.includes(restriction) && restrictionTier(restriction) <= restrictionScaling,
+    (restriction) => !lastRestrictions.includes(restriction)
+      && restrictionTier(restriction) <= restrictionScaling
+      && restriction.category !== "questrequired",
   );
   const chosen = chooseRestrictions(pool, quests, prng, numRestrictions);
   const requiredQuests = questsRequired(mission);
