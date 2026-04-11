@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "npm run build && wrangler dev",
     "fetchData": "node --experimental-strip-types scripts/dataFetcher.ts",
     "enrichData": "node --experimental-strip-types scripts/dataEnricher.ts",
     "enrichOffline": "node --experimental-strip-types scripts/dataEnricher.ts --offline",
     "downloadImages": "node --experimental-strip-types scripts/imageDownloader.ts",
-    "rescaleImages": "node --experimental-strip-types scripts/imageRescaler.ts"
+    "rescaleImages": "node --experimental-strip-types scripts/imageRescaler.ts",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@emotion/styled": "^11.14.1",
@@ -25,6 +26,7 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.31.2",
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
@@ -43,6 +45,7 @@
     "node-fetch": "^3.3.2",
     "sharp": "^0.34.4",
     "typescript": "^6.0.2",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "wrangler": "^4.81.1"
   }
 }
