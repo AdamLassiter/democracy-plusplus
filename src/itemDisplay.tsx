@@ -1,14 +1,11 @@
 import type { SxProps, Theme } from "@mui/material/styles";
 import type { Item, Tier } from "./types";
-import { Box, Card, CardActionArea, CardMedia, Typography } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { Card, CardActionArea, CardMedia, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 import { selectPreferences } from "./slices/preferencesSlice";
 import { selectTierList } from "./slices/tierListSlice";
+import { StratagemCodeDisplay } from "./stratagemCode";
 import { getEffectiveTier } from "./tierList";
 import ItemTooltip from "./itemTooltip";
 
@@ -40,17 +37,6 @@ const TIER_BORDER_COLORS: Record<Tier, string> = {
   c: "#08fb00",
   d: "#ffffff",
 };
-
-const STRATAGEM_DIRECTION_ICONS = {
-  Up: ArrowUpwardIcon,
-  Down: ArrowDownwardIcon,
-  Left: ArrowBackIcon,
-  Right: ArrowForwardIcon,
-} as const;
-
-function isStratagemDirection(direction: string): direction is keyof typeof STRATAGEM_DIRECTION_ICONS {
-  return direction in STRATAGEM_DIRECTION_ICONS;
-}
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }: ItemDisplayProps) {
   const { titles, tooltips } = useSelector(selectPreferences);
@@ -96,22 +82,9 @@ function ItemCard({ onClick, item, effectiveTier, isAffordable, titles }: ItemCa
           width: '110px',
           fontSize: '15px',
         }} margin={1}>{item.displayName}</Typography>
-        {!!item.stratagemCode?.length && <Box sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '28px',
-          width: '110px',
-          color: 'text.secondary',
-        }} marginX={1} marginBottom={1}>
-          {item.stratagemCode.map((direction, index) => {
-            const DirectionIcon = isStratagemDirection(direction) ? STRATAGEM_DIRECTION_ICONS[direction] : null;
-            return DirectionIcon
-              ? <DirectionIcon key={`${direction}-${index}`} sx={{ fontSize: '12px' }} />
-              : <Typography key={`${direction}-${index}`} sx={{ fontSize: '9px' }}>{direction}</Typography>;
-          })}
-        </Box>}
+        {!!item.stratagemCode?.length && <Typography component="div" marginX={1} marginBottom={1} width="110px">
+          <StratagemCodeDisplay code={item.stratagemCode} iconSize={12} />
+        </Typography>}
       </>}
     </CardActionArea>
   </Card>;
