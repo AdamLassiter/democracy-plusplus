@@ -7,7 +7,9 @@ import {
   Typography,
   Divider,
   Link,
+  Grid,
 } from "@mui/material";
+import { StratagemCodeDisplay } from "../../stratagemCode";
 
 export default function HelpDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
@@ -39,6 +41,7 @@ export default function HelpDialog({ open, onClose }: { open: boolean; onClose: 
           Inspired by <Link href="https://helldivers2challenges.com/" target="_blank" rel="noopener">Helldivers 2 Challenges</Link>.
           Open source on <Link href="https://github.com/AdamLassiter/democracy-plusplus" target="_blank" rel="noopener">GitHub</Link>.
         </Typography>
+        <StratagemCodeDisplay code={["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"]} iconSize={12} />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} color="primary">
