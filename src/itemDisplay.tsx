@@ -8,6 +8,8 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useSelector } from "react-redux";
 
 import { selectPreferences } from "./slices/preferencesSlice";
+import { selectTierList } from "./slices/tierListSlice";
+import { getEffectiveTier } from "./tierList";
 import ItemTooltip from "./itemTooltip";
 
 type ItemDisplayProps = {
@@ -25,6 +27,7 @@ type MissingProps = {
 
 type ItemCardProps = {
   item: Item;
+  effectiveTier: Tier;
   onClick?: (item: Item) => void;
   isAffordable: boolean;
   titles: boolean;
@@ -51,10 +54,13 @@ function isStratagemDirection(direction: string): direction is keyof typeof STRA
 
 export default function ItemDisplay({ item, onClick, isAffordable = true }: ItemDisplayProps) {
   const { titles, tooltips } = useSelector(selectPreferences);
+  const { overrides } = useSelector(selectTierList);
+  const effectiveTier = getEffectiveTier(item, overrides);
 
   const inner = <ItemCard
     onClick={onClick}
     item={item}
+    effectiveTier={effectiveTier}
     isAffordable={isAffordable}
     titles={titles}
   />;
@@ -68,14 +74,14 @@ export default function ItemDisplay({ item, onClick, isAffordable = true }: Item
   </ItemTooltip>;
 }
 
-function ItemCard({ onClick, item, isAffordable, titles }: ItemCardProps) {
+function ItemCard({ onClick, item, effectiveTier, isAffordable, titles }: ItemCardProps) {
   return <Card
     onClick={() => onClick?.(item)}
     sx={{
       opacity: isAffordable ? 1 : 0.5,
       pointerEvents: isAffordable ? 'auto' : 'none',
       height: '180px',
-      borderColor: TIER_BORDER_COLORS[item.tier],
+      borderColor: TIER_BORDER_COLORS[effectiveTier],
     }}
     variant="outlined">
     <CardActionArea>

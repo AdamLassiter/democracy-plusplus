@@ -50,12 +50,12 @@ export default function Purchases() {
   const stratagem = [...Supply, ...Eagle, ...Defense, ...Orbital];
 
   const purchasedLists: Array<[string, Item[]]> = [
-    ["Armor Passives", armor],
-    ["Boosters", booster],
     ["Primaries", primary],
     ["Secondaries", secondary],
     ["Throwables", throwable],
+    ["Armor Passives", armor],
     ["Stratagems", stratagem],
+    ["Boosters", booster],
     ["Supply Crates", crate],
   ];
   const [, items] = purchasedLists[value];

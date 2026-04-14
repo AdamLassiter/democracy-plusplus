@@ -1,5 +1,5 @@
 import axios, { type AxiosError } from "axios";
-import type { ItemProperties, StratagemCategory } from "../src/types.ts";
+import type { ItemProperties, MissionLength, StratagemCategory } from "../src/types.ts";
 
 export const BASE_URL = "https://helldivers.wiki.gg";
 export const API_URL = `${BASE_URL}/api.php`;
@@ -37,6 +37,14 @@ export interface ScrapedStratagemItem extends LinkedWikiItem {
 
 export type ScrapedItem = LinkedWikiItem | ScrapedWeaponItem | ScrapedStratagemItem;
 
+export interface ScrapedObjectiveItem {
+  displayName: string;
+  wikiSlug: string;
+  minDifficulty: number | null;
+  maxDifficulty: number | null;
+  missionLength: MissionLength | null;
+}
+
 interface MediaWikiApiError {
   code?: string;
   info?: string;
@@ -61,6 +69,9 @@ interface QueryResponse {
   error?: MediaWikiApiError;
   query?: {
     pages?: QueryPage[];
+    categorymembers?: Array<{
+      title: string;
+    }>;
   };
 }
 
@@ -240,6 +251,64 @@ export async function fetchPageSources(titles: string[]) {
 export async function fetchPageSource(title: string) {
   const pages = await fetchPageSources([title]);
   return pages.get(titleToSlug(title)) ?? null;
+}
+
+export async function fetchCategoryMembers(categoryTitle: string) {
+  const data = (await apiGet({
+    action: "query",
+    list: "categorymembers",
+    cmtitle: categoryTitle,
+    cmlimit: "max",
+    format: "json",
+    formatversion: 2,
+  })) as QueryResponse;
+
+  return (data.query?.categorymembers ?? []).map((member) => member.title);
+}
+
+function parseInfoboxDifficulty(content: string, fieldName: "min_difficulty_main" | "max_difficulty_main") {
+  const match = content.match(new RegExp(`\\|\\s*${fieldName}\\s*=\\s*([^\\n|]+)`, "i"));
+  if (!match) {
+    return null;
+  }
+
+  const value = cleanWikiText(match[1]);
+  const difficultyMatch = value.match(/\d+/);
+  return difficultyMatch ? Number.parseInt(difficultyMatch[0], 10) : null;
+}
+
+function parseMissionLength(content: string) {
+  const match = content.match(/\|\s*time_limit_main\s*=\s*([^\n|]+)/i);
+  if (!match) {
+    return null;
+  }
+
+  const value = cleanWikiText(match[1]);
+  const minutesMatch = value.match(/\d+/);
+  if (!minutesMatch) {
+    return null;
+  }
+
+  const minutes = Number.parseInt(minutesMatch[0], 10);
+  return minutes <= 30 ? "short" : "long";
+}
+
+export async function fetchMainObjectives() {
+  const titles = await fetchCategoryMembers("Category:Main_Objectives");
+  const filteredTitles = titles.filter((title) => !title.includes("/"));
+  const pageSources = await fetchPageSources(filteredTitles);
+
+  return filteredTitles.map((title): ScrapedObjectiveItem => {
+    const pageSource = pageSources.get(titleToSlug(title));
+
+    return {
+      displayName: title,
+      wikiSlug: titleToSlug(title),
+      minDifficulty: pageSource ? parseInfoboxDifficulty(pageSource.content, "min_difficulty_main") : null,
+      maxDifficulty: pageSource ? parseInfoboxDifficulty(pageSource.content, "max_difficulty_main") : null,
+      missionLength: pageSource ? parseMissionLength(pageSource.content) : null,
+    };
+  });
 }
 
 export async function expandTemplate(text: string, title: string) {
@@ -533,9 +602,9 @@ interface ExistingWikiItem {
   displayName: string;
 }
 
-export function findBestScrapedMatch(
+export function findBestScrapedMatch<T extends ExistingWikiItem>(
   existingItem: ExistingWikiItem,
-  scrapedItems: ScrapedItem[],
+  scrapedItems: T[],
   usedScrapedIndexes: Set<number>,
 ) {
   const normalizedExistingName = normalizeName(existingItem.displayName);

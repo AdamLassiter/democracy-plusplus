@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { calculateItemStock, calculateShopItems, supplyCrates } from "../economics/shop";
+import { applyTierOverrides } from "../tierList";
 import { ITEMS } from '../constants/items';
 import { WARBONDS } from '../constants/warbonds';
 import { getConstant } from '../constants';
@@ -129,10 +130,13 @@ const shopSlice = createSlice({
       const target = state.onSale.find(item => item.displayName === value.displayName);
       if (target) target.purchased = true;
     },
-    resetShop: (state, action: PayloadAction<{ missionCount: number | null }>) => {
+    resetShop: (state, action: PayloadAction<{ missionCount: number | null; tierOverrides?: Record<string, import("../types").Tier> }>) => {
       const shouldResetStock = !state.initialised || action.payload.missionCount === null || action.payload.missionCount % 3 === 0;
       const warbonds = state.warbonds.map(w => w.warbondCode);
-      const items = ITEMS.filter((i) => i.warbondCode && warbonds.includes(i.warbondCode));
+      const items = applyTierOverrides(
+        ITEMS.filter((i) => i.warbondCode && warbonds.includes(i.warbondCode)),
+        action.payload.tierOverrides ?? {},
+      );
       const [onSale, inventory] = calculateShopItems(items);
       const existingStockByName = new Map(state.inventory.map((item) => [item.displayName, item.stock ?? calculateItemStock(item.displayName)]));
       state.onSale = onSale;

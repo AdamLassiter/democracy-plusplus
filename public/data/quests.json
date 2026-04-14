@@ -138,7 +138,7 @@
     "type": "objective",
     "category": "lethality",
     "tags": [
-      "exclisivekills"
+      "exclusivekills"
     ],
     "eradicateValues": null,
     "blitzValues": [
@@ -169,7 +169,7 @@
     "type": "objective",
     "category": "lethality",
     "tags": [
-      "exclisivekills"
+      "exclusivekills"
     ],
     "eradicateValues": [
       5,
@@ -240,7 +240,7 @@
     "type": "objective",
     "category": "lethality",
     "tags": [
-      "exclisivestratagems"
+      "exclusivestratagems"
     ],
     "eradicateValues": [
       12,
@@ -277,7 +277,7 @@
     "type": "objective",
     "category": "lethality",
     "tags": [
-      "exclisiveammunition"
+      "exclusiveammunition"
     ],
     "eradicateValues": [
       250,
@@ -450,7 +450,7 @@
     "type": "objective",
     "category": "stealth",
     "tags": [
-      "exclisivekills"
+      "exclusivekills"
     ],
     "eradicateValues": null,
     "blitzValues": [
@@ -481,7 +481,7 @@
     "type": "objective",
     "category": "stealth",
     "tags": [
-      "exclisivestratagems"
+      "exclusivestratagems"
     ],
     "eradicateValues": [
       17,
@@ -518,7 +518,7 @@
     "type": "objective",
     "category": "stealth",
     "tags": [
-      "exclisiveammunition"
+      "exclusiveammunition"
     ],
     "eradicateValues": [
       150,
@@ -555,7 +555,7 @@
     "type": "objective",
     "category": "stealth",
     "tags": [
-      "exclisivekills"
+      "exclusivekills"
     ],
     "eradicateValues": null,
     "blitzValues": [

@@ -13,12 +13,17 @@ import {
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShop, setWarbonds } from "../../slices/shopSlice";
+import { selectMission } from "../../slices/missionSlice";
+import { selectTierList } from "../../slices/tierListSlice";
 import { WARBONDS } from "../../constants/warbonds";
 import type { Warbond } from "../../types";
+import { resetShop } from "../../slices/shopSlice";
 
 export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOpen: (open: boolean) => void }) {
   const dispatch = useDispatch();
   const { warbonds } = useSelector(selectShop);
+  const { count } = useSelector(selectMission);
+  const { overrides } = useSelector(selectTierList);
   const [selected, setSelected] = useState<Warbond[]>(warbonds);
 
   function handleToggle(warbond: Warbond) {
@@ -34,6 +39,7 @@ export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOp
 
   function handleSave() {
     dispatch(setWarbonds({ value: selected }));
+    dispatch(resetShop({ missionCount: count, tierOverrides: overrides }));
     setOpen(false);
   }
 

@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import type { ItemProperties } from "../src/types.ts";
+import type { ItemProperties, ObjectiveTag } from "../src/types.ts";
 import {
   expandTemplate,
   extractInfoboxImageFile,
@@ -18,6 +18,31 @@ interface EnrichableItem {
   properties?: ItemProperties;
   hoverTexts?: unknown;
   [key: string]: unknown;
+}
+
+function getObjectiveModeTag(displayName: string): ObjectiveTag | undefined {
+  if (displayName.includes("Eradicate")) {
+    return "Eradicate";
+  }
+  if (displayName.includes("Commando")) {
+    return "Commando";
+  }
+  if (displayName.includes("Blitz")) {
+    return "Blitz";
+  }
+
+  return undefined;
+}
+
+function mergeTags(existingTags: unknown, modeTag: ObjectiveTag | undefined) {
+  const tags = Array.isArray(existingTags) ? existingTags.filter((tag): tag is string => typeof tag === "string") : [];
+  const normalizedTags = tags.filter((tag) => !["Eradicate", "Commando", "Blitz"].includes(tag));
+
+  if (modeTag) {
+    normalizedTags.push(modeTag);
+  }
+
+  return normalizedTags.length ? [...new Set(normalizedTags)] : undefined;
 }
 
 function errorMessage(error: unknown) {
@@ -84,11 +109,35 @@ async function processArray(fileName: string, name: string) {
   console.log(`Saved updated ${name} -> ${filePath}`);
 }
 
+async function processObjectives() {
+  const filePath = "./public/data/objectives.json";
+
+  console.log(`Reading ${filePath}...`);
+  const raw = await fs.readFile(filePath, "utf-8");
+  const items = JSON.parse(raw) as EnrichableItem[];
+
+  console.log(`=== Processing OBJECTIVES (${items.length} items) ===`);
+  for (const item of items) {
+    const modeTag = getObjectiveModeTag(item.displayName);
+    const tags = mergeTags(item.tags, modeTag);
+
+    if (tags) {
+      item.tags = tags;
+    } else {
+      delete item.tags;
+    }
+  }
+
+  await fs.writeFile(filePath, JSON.stringify(items, null, 2));
+  console.log(`Saved updated OBJECTIVES -> ${filePath}`);
+}
+
 async function main() {
   await processArray("primaries", "PRIMARIES");
   await processArray("secondaries", "SECONDARIES");
   await processArray("throwables", "THROWABLES");
   await processArray("stratagems", "STRATAGEMS");
+  await processObjectives();
 
   console.log("All data processed successfully");
 }

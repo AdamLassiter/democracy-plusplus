@@ -1,7 +1,8 @@
 import fs from "fs/promises";
 import readline from "readline";
-import type { EquipmentCategory, ItemType, StratagemCategory, Tier } from "../src/types.ts";
+import type { EquipmentCategory, Faction, ItemType, Objective, ObjectiveTag, StratagemCategory, Tier } from "../src/types.ts";
 import {
+  fetchMainObjectives,
   fetchPageSource,
   findBestScrapedMatch,
   getImageFileName,
@@ -26,7 +27,7 @@ type DataFileName =
   | "boosters"
   | "armor_passives";
 
-type EquipmentFileName = Exclude<DataFileName, "stratagems">;
+type EquipmentFileName = Exclude<DataFileName, "stratagems" | "objectives">;
 
 interface StoredItem {
   displayName: string;
@@ -43,6 +44,8 @@ interface StoredItem {
   hoverTexts?: unknown;
   [key: string]: unknown;
 }
+
+const FACTIONS: Faction[] = ["Terminids", "Automatons", "Illuminate"];
 
 const CATEGORY_MAP: Record<EquipmentFileName, EquipmentCategory> = {
   primaries: "primary",
@@ -61,14 +64,17 @@ function ask(question: string) {
   return new Promise<string>((resolve) => rl.question(question, (answer: string) => resolve(answer.trim())));
 }
 
-async function confirmAddItem(fileName: DataFileName, itemName: string) {
+async function confirmAddItem(fileName: string, itemName: string) {
   while (true) {
-    const response = (await ask(`Add new ${fileName} item "${itemName}"? [y/n] `)).toLowerCase();
+    const response = (await ask(`Add new ${fileName} item "${itemName}"? [Y/n] `)).toLowerCase();
     if (response === "y" || response === "yes") {
       return true;
     }
     if (response === "n" || response === "no") {
       return false;
+    }
+    if (response === "") {
+      return true;
     }
   }
 }
@@ -125,6 +131,36 @@ function createDefaultItem(fileName: DataFileName, scrapedItem: ScrapedItem): St
   };
 }
 
+function buildObjectiveTags(objective: Objective) {
+  const existingTags = objective.tags ?? [];
+  const normalizedTags = existingTags.filter((tag): tag is string => !["Eradicate", "Commando", "Blitz"].includes(tag));
+  const modeTag = getObjectiveModeTag(objective.displayName);
+  const availableFactions = FACTIONS.filter((faction) => objective.tier[faction] !== null);
+  if (modeTag) {
+    normalizedTags.push(modeTag);
+  }
+
+  if (availableFactions.length !== FACTIONS.length) {
+    normalizedTags.push(...availableFactions);
+  }
+
+  return normalizedTags.length ? [...new Set(normalizedTags)] : undefined;
+}
+
+function getObjectiveModeTag(displayName: string): ObjectiveTag | undefined {
+  if (displayName.includes("Eradicate")) {
+    return "Eradicate";
+  }
+  if (displayName.includes("Commando")) {
+    return "Commando";
+  }
+  if (displayName.includes("Blitz")) {
+    return "Blitz";
+  }
+
+  return undefined;
+}
+
 function getScrapedItemsForFile(fileName: DataFileName, scrapedData: ScrapedItem[]) {
   if (fileName === "primaries") {
     return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "primary");
@@ -139,6 +175,98 @@ function getScrapedItemsForFile(fileName: DataFileName, scrapedData: ScrapedItem
   }
 
   return scrapedData;
+}
+
+async function mergeObjectives(arrayName: string) {
+  const filePath = "./public/data/objectives.json";
+
+  console.log(`Reading ${filePath}...`);
+  let existingObjectives: Objective[] = [];
+  try {
+    const raw = await fs.readFile(filePath, "utf-8");
+    existingObjectives = JSON.parse(raw) as Objective[];
+  } catch {
+    console.warn(`File ${filePath} not found, starting with empty array.`);
+  }
+
+  const scrapedObjectives = await fetchMainObjectives();
+
+  const usedIndexes = new Set<number>();
+  const removedObjectives: string[] = [];
+  let renamedObjectives = 0;
+
+  const mergedObjectives = existingObjectives.map((objective) => {
+    const match = findBestScrapedMatch(objective, scrapedObjectives, usedIndexes);
+    if (!match) {
+      removedObjectives.push(objective.displayName);
+      return objective;
+    }
+
+    usedIndexes.add(match.index);
+    if (match.matchType === "similar") {
+      renamedObjectives++;
+    }
+
+    const updatedObjective: Objective = {
+      ...objective,
+      displayName: match.scrapedItem.displayName,
+      wikiSlug: match.scrapedItem.wikiSlug,
+      minDifficulty: match.scrapedItem.minDifficulty ?? objective.minDifficulty,
+      maxDifficulty: match.scrapedItem.maxDifficulty ?? objective.maxDifficulty,
+      missionLength: match.scrapedItem.missionLength ?? objective.missionLength,
+    };
+    const tags = buildObjectiveTags(updatedObjective);
+    if (tags?.length) {
+      updatedObjective.tags = tags;
+    } else {
+      delete updatedObjective.tags;
+    }
+
+    return updatedObjective;
+  });
+
+  const insertedObjectives: Objective[] = [];
+  for (const [index, scrapedObjective] of scrapedObjectives.entries()) {
+    if (usedIndexes.has(index)) {
+      continue;
+    }
+
+    if (await confirmAddItem("objectives", scrapedObjective.displayName)) {
+      insertedObjectives.push({
+        displayName: scrapedObjective.displayName,
+        wikiSlug: scrapedObjective.wikiSlug,
+        minDifficulty: scrapedObjective.minDifficulty ?? undefined,
+        maxDifficulty: scrapedObjective.maxDifficulty ?? undefined,
+        missionLength: scrapedObjective.missionLength ?? undefined,
+        tier: {
+          Terminids: null,
+          Automatons: null,
+          Illuminate: null,
+        },
+      });
+    } else {
+      console.log(`Skipped new objectives item: ${scrapedObjective.displayName}`);
+    }
+  }
+
+  const output = [...mergedObjectives, ...insertedObjectives].map((objective) => {
+    const tags = buildObjectiveTags(objective);
+    if (tags?.length) {
+      return { ...objective, tags };
+    }
+
+    const { tags: _tags, ...rest } = objective;
+    return rest;
+  });
+
+  await fs.writeFile(filePath, JSON.stringify(output, null, 2));
+  console.log(
+    `Updated ${arrayName} -> ${filePath} (${mergedObjectives.length} existing, ${insertedObjectives.length} inserted, ${removedObjectives.length} removed, ${renamedObjectives} renamed)`,
+  );
+
+  if (removedObjectives.length) {
+    console.warn(`Potentially removed ${arrayName}: ${removedObjectives.join(", ")}`);
+  }
 }
 
 async function enrichWithImageUrls<T extends LinkedWikiItem>(items: T[]) {
@@ -274,6 +402,7 @@ async function main() {
     await mergeData("stratagems", stratagems, "STRATAGEMS");
     await mergeData("boosters", boosters, "BOOSTERS");
     await mergeData("armor_passives", passives, "ARMOR_PASSIVES");
+    await mergeObjectives("OBJECTIVES");
   } finally {
     rl.close();
   }

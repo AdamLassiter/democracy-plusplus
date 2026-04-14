@@ -43,6 +43,17 @@ function restrictionTier(restriction: Restriction) {
   return restriction.tier === null ? -1 : tiers[restriction.tier];
 }
 
+function getObjectiveModeTags(mission: MissionState) {
+  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+  const tags = objective.tags ?? [];
+
+  return {
+    eradicate: tags.includes("Eradicate"),
+    blitz: tags.includes("Blitz"),
+    commando: tags.includes("Commando"),
+  };
+}
+
 function calculateMissionModifier(missionTier: Tier) {
   const modifiers: Record<Tier, number> = {
     s: 1.5,
@@ -253,12 +264,41 @@ export function calculateRestrictions(
   return [requiredQuests, chosen].flat();
 }
 
-function shortObjectiveImpliesShortQuest(mission: MissionState, quest: Quest): Quest | undefined {
-  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
-  const values = (!objective.short && quest.values)
-    || (objective.short === "eradicate" && quest.eradicateValues)
-    || (objective.short === "blitz" && quest.blitzValues);
+function questValuesForMission(mission: MissionState, quest: Quest) {
+  const modeTags = getObjectiveModeTags(mission);
+  const questTags = quest.tags ?? [];
+  const isStratagemExclusive = questTags.includes("exclusivestratagem")
+    || questTags.includes("exclusivestratagems")
+    || questTags.includes("exclisivestratagem")
+    || questTags.includes("exclisivestratagems");
 
+  if (modeTags.commando && isStratagemExclusive) {
+    return undefined;
+  }
+
+  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+  const isShortMission = objective.missionLength === "short"
+    || (objective.missionLength === undefined && (modeTags.eradicate || modeTags.blitz || modeTags.commando));
+
+  if (!isShortMission) {
+    return quest.values;
+  }
+
+  if (modeTags.eradicate) {
+    return quest.eradicateValues ?? quest.values;
+  }
+  if (modeTags.blitz) {
+    return quest.blitzValues ?? quest.values;
+  }
+  if (modeTags.commando) {
+    return quest.commandoValues ?? quest.values;
+  }
+
+  return quest.values;
+}
+
+function shortObjectiveImpliesShortQuest(mission: MissionState, quest: Quest): Quest | undefined {
+  const values = questValuesForMission(mission, quest);
   return values ? { ...quest, values } : undefined;
 }
 

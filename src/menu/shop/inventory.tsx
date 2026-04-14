@@ -54,12 +54,12 @@ export default function Inventory() {
 
   const shops: Array<[string, Item[]]> = [
     ["Supply Crates", []],
-    ["Armor Passives", armor],
-    ["Boosters", booster],
     ["Primaries", primary],
     ["Secondaries", secondary],
     ["Throwables", throwable],
+    ["Armor Passives", armor],
     ["Stratagems", stratagem],
+    ["Boosters", booster],
   ];
   const [, list] = shops[value];
   const filteredItems = filterItemsByPropertyValues(list, selectedFilters);

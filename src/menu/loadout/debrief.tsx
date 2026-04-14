@@ -5,10 +5,12 @@ import { resetMission, selectMission, setState } from "../../slices/missionSlice
 import { useState } from "react";
 import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
 import { itemCost } from "../../economics/shop";
+import { getEffectiveTier } from "../../tierList";
 import { addCredits } from "../../slices/creditsSlice";
 import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";
 import { resetShop } from "../../slices/shopSlice";
 import { addMissionLogEntry } from "../../slices/logSlice";
+import { selectTierList } from "../../slices/tierListSlice";
 import { getConstant } from "../../constants";
 import { FACTIONS } from "../../constants/factions";
 import { getObjectives } from "../../constants/objectives";
@@ -18,6 +20,7 @@ export default function Debrief() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
   const equipment = useSelector(selectEquipment);
+  const { overrides } = useSelector(selectTierList);
 
   const [stars, setStars] = useState(1);
   const [quests, setQuests] = useState(mission.quests);
@@ -60,7 +63,7 @@ export default function Debrief() {
     const resolvedUsedItems = usedItems
       .map((itemName) => getConstant(itemName))
       .filter((item): item is Item => Boolean(item));
-    const pricedUsedItems = resolvedUsedItems.map(itemCost);
+    const pricedUsedItems = resolvedUsedItems.map((item) => itemCost({ ...item, tier: getEffectiveTier(item, overrides) }));
     const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
     dispatch(addMissionLogEntry({
       kind: 'mission',
@@ -84,7 +87,7 @@ export default function Debrief() {
     }));
     dispatch(addCredits({ amount: totalReward }));
     dispatch(resetEquipment());
-    dispatch(resetShop({ missionCount: mission.count }));
+    dispatch(resetShop({ missionCount: mission.count, tierOverrides: overrides }));
     dispatch(resetMission());
     dispatch(setState({ value: 'brief' }));
   }

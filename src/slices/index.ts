@@ -9,6 +9,7 @@ import preferencesReducer from './preferencesSlice';
 import purchasedReducer from './purchasedSlice';
 import snackbarReducer from './snackbarSlice';
 import shopReducer from './shopSlice';
+import tierListReducer from './tierListSlice';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,7 @@ const appReducer = combineReducers({
   purchased: purchasedReducer,
   shop: shopReducer,
   snackbar: snackbarReducer,
+  tierList: tierListReducer,
 });
 
 export type RootState = ReturnType<typeof appReducer>;

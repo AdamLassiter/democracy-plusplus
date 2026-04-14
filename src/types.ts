@@ -1,6 +1,7 @@
 export type Tier = 's' | 'a' | 'b' | 'c' | 'd';
+export type EditableTier = Tier | 'uncategorized';
 export type Faction = 'Terminids' | 'Automatons' | 'Illuminate';
-export type ObjectiveShortType = 'eradicate' | 'blitz';
+export type MissionLength = 'short' | 'long';
 
 export type MissionStage = 'brief' | 'generating' | 'loadout' | 'debrief';
 
@@ -26,6 +27,7 @@ export type PropertyValue =
   | { [key: string]: PropertyValue };
 
 export type ItemProperties = Record<string, PropertyValue>;
+export type ObjectiveTag = 'Eradicate' | 'Commando' | 'Blitz';
 
 export interface BaseItem {
   displayName: string;
@@ -62,7 +64,9 @@ export interface CrateItem extends BaseItem {
 export type Item = BaseItem | CrateItem;
 
 export interface Objective extends Omit<BaseItem, 'tier'> {
-  short?: ObjectiveShortType;
+  minDifficulty?: number;
+  maxDifficulty?: number;
+  missionLength?: MissionLength;
   tier: Record<Faction, Tier | null>;
 }
 
@@ -74,6 +78,7 @@ export interface Quest extends BaseItem {
   values?: number[];
   eradicateValues?: number[];
   blitzValues?: number[];
+  commandoValues?: number[];
   datatype?: 'float';
   completed?: boolean;
   value?: number;
@@ -142,6 +147,12 @@ export interface PurchaseLogEntry {
   cost: number;
 }
 
+export interface TierListChangeLogEntry {
+  kind: 'tierListChange';
+  id: string;
+  timestamp: string;
+}
+
 export interface MissionOutcome {
   name: string;
   completed: boolean;
@@ -162,10 +173,15 @@ export interface MissionLogEntry {
   totalReward: number;
 }
 
-export type LogEntry = PurchaseLogEntry | MissionLogEntry;
+export type LogEntry = PurchaseLogEntry | MissionLogEntry | TierListChangeLogEntry;
 
 export interface LogState {
   entries: LogEntry[];
+}
+
+export interface TierListState {
+  customized: boolean;
+  overrides: Record<string, Tier>;
 }
 
 export interface ShopState {

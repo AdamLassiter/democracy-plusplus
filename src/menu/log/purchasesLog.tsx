@@ -6,7 +6,10 @@ import { SectionTimestamp } from "./shared";
 
 type PurchaseGroup = {
   id: string;
-  dividerMissionNumber?: number;
+  divider?: {
+    kind: "mission" | "tierListChange";
+    missionNumber?: number;
+  };
   purchases: PurchaseLogEntry[];
 };
 
@@ -23,8 +26,10 @@ function buildPurchaseGroups(entries: LogEntry[]): PurchaseGroup[] {
 
     if (purchases.length) {
       groups.push({
-        id: `purchase-group-${groupIndex++}-${entry.missionNumber}`,
-        dividerMissionNumber: entry.missionNumber,
+        id: `purchase-group-${groupIndex++}-${entry.kind === "mission" ? entry.missionNumber : "tier-list-change"}`,
+        divider: entry.kind === "mission"
+          ? { kind: "mission", missionNumber: entry.missionNumber }
+          : { kind: "tierListChange" },
         purchases,
       });
       purchases = [];
@@ -61,10 +66,12 @@ export default function PurchasesLog({ entries }: { entries: LogEntry[] }) {
   const groups = buildPurchaseGroups(entries);
 
   return <Grid container direction="column" spacing={2}>
-    {groups.map((group, index) => <Grid key={group.id}>
-      {index > 0 && <Divider sx={{ mb: 2 }}>
+    {groups.map((group) => <Grid key={group.id}>
+      {group.divider && <Divider sx={{ mb: 2 }}>
         <Typography variant="body2" color="text.secondary">
-          Mission {group.dividerMissionNumber} completed
+          {group.divider?.kind === "mission"
+            ? `Mission ${group.divider.missionNumber} completed`
+            : "Tier list changed"}
         </Typography>
       </Divider>}
       <Grid container spacing={2}>
