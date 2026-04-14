@@ -56,6 +56,9 @@ export function itemCost(item: Item) {
   if (item.overrideCost) {
     return item.overrideCost;
   }
+  if (item.category === "crate" && typeof item.cost === "number") {
+    return item.cost;
+  }
   const costByCategory: Record<EquipmentCategory | StratagemCategory, number> = {
     'armor': [2, 4, 7, 10, 15][tier(item)],
     'booster': [1, 4, 8, 14, 20][tier(item)],
