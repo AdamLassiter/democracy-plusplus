@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:cloudflare",
+    "build:cloudflare": "VITE_BASE_PATH=/ vite build",
+    "build:github-pages": "VITE_BASE_PATH=/democracy-plusplus/ vite build",
     "lint": "eslint .",
     "preview": "npm run build && wrangler dev",
     "fetchData": "node --experimental-strip-types scripts/dataFetcher.ts",
@@ -13,7 +15,7 @@
     "enrichOffline": "node --experimental-strip-types scripts/dataEnricher.ts --offline",
     "downloadImages": "node --experimental-strip-types scripts/imageDownloader.ts",
     "rescaleImages": "node --experimental-strip-types scripts/imageRescaler.ts",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build:cloudflare && wrangler deploy"
   },
   "dependencies": {
     "@emotion/styled": "^11.14.1",
