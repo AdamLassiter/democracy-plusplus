@@ -126,15 +126,15 @@ export default function Menu() {
 
         {/* Credits aligned to the center */}
         <Box sx={{ display: 'flex', gap: 1 }}>
-          <img src={`${import.meta.env.BASE_URL}/images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
+          <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>Mission {count}</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 1 }}>
-          <img src={`${import.meta.env.BASE_URL}/images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />
+          <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>Democracy++</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 1 }}>
-          <img src={`${import.meta.env.BASE_URL}/images/icons/dollar-circle.svg`} alt="icon" style={{ width: 24, height: 24 }} />
+          <img src={`${import.meta.env.BASE_URL}images/icons/dollar-circle.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>{credits}¢</Typography>
         </Box>
 
@@ -142,7 +142,7 @@ export default function Menu() {
         <Box sx={{ display: 'flex', gap: 1 }}>
           {isStratagemGameUnlocked && <Tooltip title="Stratagem Drill">
             <IconButton color="primary" onClick={() => setIsStratagemGameOpen(true)}>
-              <img src={`${import.meta.env.BASE_URL}/images/icons/stopwatch.svg`} alt="Stratagem Drill" style={{ width: 24, height: 24 }} />
+              <img src={`${import.meta.env.BASE_URL}images/icons/stopwatch.svg`} alt="Stratagem Drill" style={{ width: 24, height: 24 }} />
             </IconButton>
           </Tooltip>}
           <WarbondsFilter />

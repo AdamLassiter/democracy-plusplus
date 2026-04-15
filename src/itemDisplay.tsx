@@ -134,5 +134,5 @@ function Missing({ item, onClick }: { item: Item | MissingItem; onClick?: () => 
 
 export function ItemIcon({ item, ...props }: { item: Pick<Item, "imageUrl"> } & SxProps<Theme>) {
   const { imageUrl } = item;
-  return <CardMedia sx={props} component="img" src={`${import.meta.env.BASE_URL}/images/${imageUrl}`} />;
+  return <CardMedia sx={props} component="img" src={`${import.meta.env.BASE_URL}images/${imageUrl}`} />;
 }
