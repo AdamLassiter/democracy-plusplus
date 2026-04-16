@@ -25,7 +25,7 @@ export default function Settings() {
         >
           <SettingsIcon />
           &nbsp;
-          {prng}
+          {String(prng).padStart(5, '0')}
         </Button>
       </Tooltip>
       <SettingsDialog open={open} setOpen={setOpen} />
