@@ -1,7 +1,11 @@
 [
   {
     "displayName": "Collect at least X samples",
-    "description": "Collect samples so our researchers can keep inventing things that explode harder, better, and more democratically.",
+    "descriptions": [
+      "Collect samples so our researchers can keep inventing things that explode harder, better, and more democratically.",
+      "Science requires fresh specimens, and democracy requires science to produce bigger booms.",
+      "The research division requests additional alien matter for study, disposal, and commemorative desk ornaments."
+    ],
     "type": "objective",
     "category": "mobility",
     "eradicateValues": [
@@ -36,7 +40,11 @@
   },
   {
     "displayName": "Cover at least X km",
-    "description": "Every meter walked is another stomp on the face of tyranny.",
+    "descriptions": [
+      "Every meter walked is another stomp on the face of tyranny.",
+      "Patriotic conditioning reminds you that cardio is the foundation of conquest.",
+      "A Helldiver in motion is a recruitment poster with legs. Keep moving."
+    ],
     "type": "objective",
     "category": "mobility",
     "datatype": "float",
@@ -74,7 +82,11 @@
   },
   {
     "displayName": "Extract with at least X% time remaining",
-    "description": "Efficiency is the bedrock of democracy. Finish early so you can liberate even more tomorrow!",
+    "descriptions": [
+      "Efficiency is the bedrock of democracy. Finish early so you can liberate even more tomorrow!",
+      "The sooner you finish, the sooner the Ministry can spend you somewhere else.",
+      "Extraction ahead of schedule proves discipline, competence, and proper fear of L-08 overtime forms."
+    ],
     "type": "objective",
     "category": "mobility",
     "eradicateValues": [
@@ -102,7 +114,11 @@
   },
   {
     "displayName": "Cover at most X km",
-    "description": "Hold the line, and let freedom come to you. Remember: Movement is for cowards and xenos scum.",
+    "descriptions": [
+      "Hold the line, and let freedom come to you. Remember: Movement is for cowards and xenos scum.",
+      "The Ministry has determined unnecessary walking is indistinguishable from wandering.",
+      "Stand your ground. Super Earth paid for this position and expects full use of it."
+    ],
     "type": "objective",
     "category": "mobility",
     "datatype": "float",
@@ -134,7 +150,11 @@
   },
   {
     "displayName": "Secure at least X kills",
-    "description": "Stack bodies high for liberty! The more corpses you leave behind, the closer we get to peace.",
+    "descriptions": [
+      "Stack bodies high for liberty! The more corpses you leave behind, the closer we get to peace.",
+      "Peace is achieved one overwhelming casualty report at a time.",
+      "Your orders are to persuade the enemy to reconsider existing by the end of this mission."
+    ],
     "type": "objective",
     "category": "lethality",
     "tags": [
@@ -165,7 +185,11 @@
   },
   {
     "displayName": "Secure at least X melee kills",
-    "description": "Show the enemy that Super Earth's handshake comes with a closed fist.",
+    "descriptions": [
+      "Show the enemy that Super Earth's handshake comes with a closed fist.",
+      "A personal touch reminds the foe that democracy cares enough to get close.",
+      "Budget constraints have reclassified blunt trauma as premium patriotism."
+    ],
     "type": "objective",
     "category": "lethality",
     "tags": [
@@ -202,7 +226,11 @@
   },
   {
     "displayName": "Achieve at least X% weapon accuracy",
-    "description": "Precision is the difference between a hero and a court-martial.",
+    "descriptions": [
+      "Precision is the difference between a hero and a court-martial.",
+      "Every missed shot is an invoice to taxpayers and an apology to the enemy.",
+      "The taxpayer prefers your bullets meet hostiles, not scenery."
+    ],
     "type": "objective",
     "category": "lethality",
     "eradicateValues": [
@@ -236,7 +264,11 @@
   },
   {
     "displayName": "Call in at least X stratagems",
-    "description": "The skies are ours. Rain down freedom like it's a thunderstorm of democracy.",
+    "descriptions": [
+      "The skies are ours, Helldiver. Rain down freedom like it's a thunderstorm of democracy.",
+      "Orbital assets exist to be used, admired, and blamed on weather patterns.",
+      "Fleet doctrine demands constant airspace activity so the enemy never mistakes this for mercy."
+    ],
     "type": "objective",
     "category": "lethality",
     "tags": [
@@ -273,7 +305,11 @@
   },
   {
     "displayName": "Fire at least X rounds",
-    "description": "If it moves, shoots it. If it doesn't move, shoot it anyway just to be sure.",
+    "descriptions": [
+      "If it moves, shoot it. If it doesn't move, shoot it anyway just to be sure.",
+      "A silent rifle invites fear, and fear is the mind-killer.",
+      "Ammunition is cheaper than hesitation and dramatically louder."
+    ],
     "type": "objective",
     "category": "lethality",
     "tags": [
@@ -310,7 +346,11 @@
   },
   {
     "displayName": "Die at most X times",
-    "description": "Try not to die. Dying is unpatriotic, and basic training isn't cheap.",
+    "descriptions": [
+      "Try not to die. Dying is unpatriotic, and basic training isn't cheap.",
+      "Approved C-01 permit counts have exceeded this quarter's acceptable budget.",
+      "Your contribution is requested to remain technically alive for the duration."
+    ],
     "type": "objective",
     "category": "survivability",
     "eradicateValues": [
@@ -344,7 +384,11 @@
   },
   {
     "displayName": "Maintain a K:D of X:1",
-    "description": "Super Earth invested in your training. Make it a profitable return.",
+    "descriptions": [
+      "Super Earth invested in your training. Make it a profitable return.",
+      "Your casualty ratio is being monitored by auditors with very sharp pencils.",
+      "Every death on our side is expected to purchase several on theirs."
+    ],
     "type": "objective",
     "category": "survivability",
     "eradicateValues": [
@@ -378,7 +422,11 @@
   },
   {
     "displayName": "Stim at most X times",
-    "description": "Pain is weakness leaving the body. Or entering it. Either way, walk it off, helldiver.",
+    "descriptions": [
+      "Pain is weakness leaving the body. Or entering it. Either way, walk it off, Helldiver.",
+      "Medical supplies are for emergencies, not for every little puncture, burn, or missing limb.",
+      "Certain administrators suspect some Helldivers are enjoying stims recreationally. Prove them wrong."
+    ],
     "type": "objective",
     "category": "survivability",
     "eradicateValues": [
@@ -412,7 +460,11 @@
   },
   {
     "displayName": "Be responsible for at most X accidentals",
-    "description": "Friendly fire isn't actually friendly!",
+    "descriptions": [
+      "Friendly fire isn't actually friendly!",
+      "Your squadmates are state property. Please stop depreciating taxpayer assets.",
+      "The enemy should remain the leading cause of casualties."
+    ],
     "type": "objective",
     "category": "survivability",
     "eradicateValues": [
@@ -446,7 +498,11 @@
   },
   {
     "displayName": "Secure at most X kills",
-    "description": "This is a targeted operation, not a buffet. Control your enthusiasm.",
+    "descriptions": [
+      "This is a targeted operation, not a buffet. Control your enthusiasm.",
+      "The mission assigned objectives, not a personal crusade against local wildlife.",
+      "Conserve your murderous spirit for targets that actually matter."
+    ],
     "type": "objective",
     "category": "stealth",
     "tags": [
@@ -477,7 +533,11 @@
   },
   {
     "displayName": "Call in at most X stratagems",
-    "description": "Minimal fire support requested. Command is testing something. Don't ask.",
+    "descriptions": [
+      "Minimal fire support requested. Someone is testing something. Don't ask.",
+      "The Super Admiralty is conducting a thrilling study on whether restraint can be weaponized.",
+      "Excessive stratagem usage has been temporarily classified as emotional dependence."
+    ],
     "type": "objective",
     "category": "stealth",
     "tags": [
@@ -514,7 +574,11 @@
   },
   {
     "displayName": "Fire at most X rounds",
-    "description": "High Command is reviewing fleet ammo expenses. Again.",
+    "descriptions": [
+      "High Command is reviewing fleet ammo expenses. Again.",
+      "This operation is sponsored by the Ministry of Fiscal Discipline.",
+      "Every bullet must now justify itself before leaving the barrel."
+    ],
     "type": "objective",
     "category": "stealth",
     "tags": [
@@ -551,7 +615,11 @@
   },
   {
     "displayName": "Allow enemy reinforcements at most X times",
-    "description": "If we wanted a full-on war, we'd throw a thousand SEAF troopers at the problem.",
+    "descriptions": [
+      "If we wanted a full-on war, we'd throw a thousand SEAF troopers at the problem.",
+      "Keep enemy reinforcements low. We are trying to win efficiently, not theatrically.",
+      "The Ministry prefers a tidy extermination over a prolonged public spectacle."
+    ],
     "type": "objective",
     "category": "stealth",
     "tags": [

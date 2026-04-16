@@ -1,63 +1,99 @@
 [
   {
     "displayName": "Complete at least X Discretionary Assignment(s)",
-    "description": "Volunteering is mandatory!",
+    "descriptions": [
+      "Volunteering is mandatory!",
+      "High Command reminds you that discretionary means someone else already exercised discretion for you.",
+      "These assignments are optional in the same sense that breathing during a firefight is optional."
+    ],
     "type": "restriction",
     "category": "questrequired",
     "tier": null
   },
   {
     "displayName": "At most 1 call-in for Supply stratagems",
-    "description": "Liberation day parades have priority access to Super Earth stockpiles.",
+    "descriptions": [
+      "Liberation day parades have priority access to Super Earth stockpiles.",
+      "Supply officers report your ammunition has been reassigned to a more photogenic battlefield.",
+      "Quartermaster review has approved one resupply, and only because paperwork insisted."
+    ],
     "type": "restriction",
     "category": "universal",
     "tier": "a"
   },
   {
     "displayName": "At least 5 arrows in stratagem code",
-    "description": "More arrows, more democracy. Simpler codes are for traitors.",
+    "descriptions": [
+      "More arrows, more democracy. Simpler codes are for traitors.",
+      "The Ministry has ruled that any citizen can press three buttons, so you will prove you are above average.",
+      "The Ministry of Complexity assures us longer input strings dramatically improve morale."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tier": "a"
   },
   {
     "displayName": "At most 5 arrows in stratagem code",
-    "description": "Due to cuts to basic training, we've simplified stratagems for the average super-citizen.",
+    "descriptions": [
+      "Due to cuts to basic training, we've simplified stratagems for the average super-citizen.",
+      "Budget efficiency has reduced strategic doctrine to gestures even recruits can remember.",
+      "Certain officials fear some Helldivers were thinking too hard during combat, so inputs have been shortened."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tier": "a"
   },
   {
     "displayName": "No resupplies",
-    "description": "Logistics under review due to budgetary excellence.",
+    "descriptions": [
+      "Logistics under review due to budgetary excellence.",
+      "The bean-counters have won another battle for freedom. Ammunition lost that battle.",
+      "Resupply has been postponed until Accounting confirms you deserved the first magazine."
+    ],
     "type": "restriction",
     "category": "universal",
     "tier": "s"
   },
   {
     "displayName": "At most level 12 on primary weapons",
-    "description": "Ministry of Defense demand our existing stockpiles be depleted before resupplies are dispatched.",
+    "descriptions": [
+      "Ministry of Defense demand our existing stockpiles be depleted before resupplies are dispatched.",
+      "Field testing of obsolete rifles continues until the rifles or the field give out.",
+      "Procurement assures us old weapons are still cutting-edge if you stop measuring."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tier": "b"
   },
   {
     "displayName": "At most 15 horizontal recoil on primary weapons",
-    "description": "Freedom comes with specifications. Make sure your weapon meets the standards set by the Ministry of Science.",
+    "descriptions": [
+      "Freedom comes with specifications. Make sure your weapon meets the standards set by the Ministry of Science.",
+      "The Ballistics Office insists your shots spread liberty, not sideways embarrassment.",
+      "Scientists have calculated the ideal patriotic drift pattern, and your rifle will comply."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tier": "c"
   },
   {
     "displayName": "At most 20 vertical recoil on primary weapons",
-    "description": "Freedom comes with specifications. Make sure your weapon meets the standards set by the Ministry of Science.",
+    "descriptions": [
+      "Freedom comes with specifications. Make sure your weapon meets the standards set by the Ministry of Science.",
+      "The Ministry of Science would prefer your muzzle rise stop challenging low-flying aircraft.",
+      "Excessive vertical recoil has been classified as unauthorized anti-orbital fire."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tier": "c"
   },
   {
     "displayName": "At least 50 ergonomics on primary weapons",
-    "description": "Freedom comes with specifications. Make sure your weapon meets the standards set by the Ministry of Science.",
+    "descriptions": [
+      "Freedom comes with specifications. Make sure your weapon meets the standards set by the Ministry of Science.",
+      "Medical auditors have objected to rifles that dislocate shoulders faster than enemies.",
+      "A weapon must feel good in the hand if it is to look good in the recruitment reel."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tier": "c"
@@ -65,6 +101,11 @@
   {
     "displayName": "No Eagle stratagems",
     "description": "Eagle-1 is on 2 days C-01 Permitted Leave - No air support.",
+    "descriptions": [
+      "Eagle-1 is on 2 days C-01 Permitted Leave - No air support.",
+      "Air superiority has been temporarily reassigned to a ceremonial flyover for select Permacura stakeholders.",
+      "The pilot filed a perfectly legitimate complaint about all the screaming."
+    ],
     "type": "restriction",
     "category": "loadout",
     "tags": [
@@ -74,42 +115,66 @@
   },
   {
     "displayName": "No use of the same stratagem twice in a row.",
-    "description": "Ministry of Truth reports no known deficiencies in Super Destroyer capabilities.",
+    "descriptions": [
+      "Ministry of Truth reports no known deficiencies in Super Destroyer capabilities.",
+      "Repeating successful tactics may imply our other stratagems are inferior, which is sedition.",
+      "Variety is encouraged so every branch feels equally responsible for the chaos."
+    ],
     "type": "restriction",
     "category": "universal",
     "tier": "c"
   },
   {
     "displayName": "No self-stimming",
-    "description": "“After unsubstantiated reports of stim dependency, squad members are to handle your stims - for accountability.",
+    "descriptions": [
+      "After unsubstantiated reports of stim dependency, squad members are to handle your stims for accountability.",
+      "Medical review has determined self-care is dangerously close to individualism.",
+      "To prevent abuse, all stimulants will now be administered by a witness and at least one clipboard."
+    ],
     "type": "restriction",
     "category": "universal",
     "tier": "s"
   },
   {
     "displayName": "No HUD",
-    "description": "Current HUD blackouts are part of a Super Earth combat readiness drill.",
+    "descriptions": [
+      "Current HUD blackouts are part of a Super Earth combat readiness drill.",
+      "Interface support has been suspended so your instincts may receive additional democratic exercise.",
+      "Strategic planners assure you situational awareness is strongest when unsupported by situational information."
+    ],
     "type": "restriction",
     "category": "universal",
     "tier": "a"
   },
   {
     "displayName": "Hug for resupply",
-    "description": "Ministry of Unity orders require demonstration of sufficient camaraderie before resupply.",
+    "descriptions": [
+      "Ministry of Unity orders require demonstration of sufficient camaraderie before resupply.",
+      "Ammunition will only be issued after a brief but sincere display of state-approved affection.",
+      "Under new DEI regulations, Quartermaster morale doctrine now measures trust in hugs per minute."
+    ],
     "type": "restriction",
     "category": "social",
     "tier": "b"
   },
   {
     "displayName": "Celebration emote on mission progression",
-    "description": "Ministry of Unity have commissioned a wartime documentary.",
+    "descriptions": [
+      "Ministry of Unity have commissioned a wartime documentary.",
+      "Every objective milestone must be celebrated for archival footage and investor confidence.",
+      "Visible enthusiasm has been ruled tactically equivalent to discipline."
+    ],
     "type": "restriction",
     "category": "social",
     "tier": "c"
   },
   {
     "displayName": "Celebration emote after slaying Bile Titans and Dragon Roaches",
-    "description": "Ministry of Defence is trialing squad limb-checks in post-engagement scenarios.",
+    "descriptions": [
+      "Ministry of Defence is trialing squad limb-checks in post-engagement scenarios.",
+      "Terminid kills of suitable spectacle now require a brief morale dance to verify joint integrity.",
+      "After-action procedure mandates visible confidence whenever something huge stops moving."
+    ],
     "type": "restriction",
     "category": "social",
     "tags": [
@@ -119,7 +184,11 @@
   },
   {
     "displayName": "Celebration emote after shutting down Tanks and Factory Striders",
-    "description": "Ministry of Unity inform us this will curtail any further instances of post-combat inefficiency.",
+    "descriptions": [
+      "Ministry of Unity inform us this will curtail any further instances of post-combat inefficiency.",
+      "Automaton armor kills must be followed by a tasteful victory gesture for workforce motivation.",
+      "Military psychologists believe mechanical adversaries are most defeated when mocked immediately."
+    ],
     "type": "restriction",
     "category": "social",
     "tags": [
@@ -129,7 +198,11 @@
   },
   {
     "displayName": "Celebration emote after obliterating Harvesters and Stingrays",
-    "description": "Ministry of Unity inform us this will prevent further instances of squid mind-control.",
+    "descriptions": [
+      "Ministry of Unity inform us this will prevent further instances of squid mind-control.",
+      "Illuminate contacts must be followed by celebratory motions to shake out residual treacherous thoughts.",
+      "Psychological Operations recommends immediate victory posing after vaporizing anything suspiciously elegant."
+    ],
     "type": "restriction",
     "category": "social",
     "tags": [

@@ -71,7 +71,7 @@ export interface Objective extends Omit<BaseItem, 'tier'> {
 }
 
 export interface Quest extends BaseItem {
-  description: string;
+  descriptions?: string[];
   category: string;
   rewards?: number[];
   reward?: number;
@@ -85,7 +85,7 @@ export interface Quest extends BaseItem {
 }
 
 export interface Restriction extends Omit<BaseItem, 'tier'> {
-  description: string;
+  descriptions?: string[];
   category: string;
   tier: Tier | null;
   completed?: boolean;

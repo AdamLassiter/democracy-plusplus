@@ -43,6 +43,23 @@ function restrictionTier(restriction: Restriction) {
   return restriction.tier === null ? -1 : tiers[restriction.tier];
 }
 
+function descriptionOptions(item: Pick<Quest | Restriction, "description" | "descriptions">) {
+  return item.descriptions?.length ? item.descriptions : [item.description];
+}
+
+function withRandomDescription<T extends Quest | Restriction>(
+  item: T,
+  prng: { rand(min: number, max?: number): number },
+): T {
+  const options = descriptionOptions(item);
+  const description = options[prng.rand(options.length - 1)] ?? item.description;
+
+  return {
+    ...item,
+    description,
+  };
+}
+
 function getObjectiveModeTags(mission: MissionState) {
   const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
   const tags = objective.tags ?? [];
@@ -115,7 +132,7 @@ function questsRequiredCount(mission: MissionState) {
   }
 }
 
-function questsRequired(mission: MissionState): Restriction[] {
+function questsRequired(mission: MissionState, prng: { rand(min: number, max?: number): number }): Restriction[] {
   const count = questsRequiredCount(mission);
   if (!count) {
     return [];
@@ -127,7 +144,7 @@ function questsRequired(mission: MissionState): Restriction[] {
   }
 
   const displayName = questRestriction.displayName.replace("X", count.toString());
-  return [{ ...questRestriction, tier: questsRequiredTier(count), displayName }];
+  return [withRandomDescription({ ...questRestriction, tier: questsRequiredTier(count), displayName }, prng)];
 }
 
 function restrictionsCount(mission: MissionState) {
@@ -213,6 +230,7 @@ function scaleQuest(quest: Quest, prng: { rand(min: number, max?: number): numbe
 
   return {
     ...quest,
+    description: withRandomDescription(quest, prng).description,
     reward,
     value,
     displayName: quest.displayName.replace("X", value.toString()),
@@ -259,8 +277,10 @@ export function calculateRestrictions(
       && restrictionTier(restriction) <= restrictionScaling
       && restriction.category !== "questrequired",
   );
-  const chosen = chooseRestrictions(pool, quests, prng, numRestrictions);
-  const requiredQuests = questsRequired(mission);
+  const chosen = chooseRestrictions(pool, quests, prng, numRestrictions).map((restriction) =>
+    withRandomDescription(restriction, prng),
+  );
+  const requiredQuests = questsRequired(mission, prng);
   return [requiredQuests, chosen].flat();
 }
 
