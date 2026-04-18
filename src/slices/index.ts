@@ -1,6 +1,7 @@
 import { combineReducers, configureStore, type UnknownAction } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import achievementsReducer from './achievementsSlice';
 import creditsReducer from './creditsSlice';
 import equipmentReducer from './equipmentSlice';
 import logReducer from './logSlice';
@@ -17,6 +18,7 @@ const persistConfig = {
 };
 
 const appReducer = combineReducers({
+  achievements: achievementsReducer,
   credits: creditsReducer,
   equipment: equipmentReducer,
   log: logReducer,

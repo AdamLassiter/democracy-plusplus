@@ -105,6 +105,16 @@ export interface CreditsState {
   credits: number;
 }
 
+export interface AchievementDefinition {
+  id: string;
+  displayName: string;
+  description: string;
+}
+
+export interface AchievementsState {
+  unlocked: string[];
+}
+
 export interface EquipmentState {
   stratagems: Array<string | null>;
   primary: string | null;

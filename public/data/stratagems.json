@@ -4,7 +4,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Gas"
     ],
     "warbondCode": "warbond10",
     "internalName": "tx41sterilizer",
@@ -96,7 +97,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Fire"
     ],
     "warbondCode": "none",
     "internalName": "flam40flamethrower",
@@ -196,7 +198,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Gas"
     ],
     "warbondCode": "warbond20",
     "internalName": "s11speargun",
@@ -327,7 +330,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Fire"
     ],
     "warbondCode": "none",
     "internalName": "las98lasercannon",
@@ -622,7 +626,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Arc"
     ],
     "warbondCode": "none",
     "internalName": "arc3arcthrower",
@@ -698,7 +703,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "gl21grenadelauncher",
@@ -790,7 +796,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Stun",
+      "Arc"
     ],
     "warbondCode": "warbond16",
     "internalName": "gl52deescalator",
@@ -1079,7 +1087,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "las99quasarcannon",
@@ -1177,7 +1186,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "warbond17",
     "internalName": "plas45epoch",
@@ -1359,7 +1369,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Expendable",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "eat17expendableantitank",
@@ -1450,7 +1462,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Expendable",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "mls4xcommando",
@@ -1543,7 +1557,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Expendable",
+      "Fire"
     ],
     "warbondCode": "warbond20",
     "internalName": "eat700expendablenapalm",
@@ -1748,7 +1764,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "warbond20",
     "internalName": "ms11solosilo",
@@ -1936,7 +1953,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "rl77airburstrocketlauncher",
@@ -2169,7 +2187,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "ac8autocannon",
@@ -2342,7 +2361,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "warbond18",
     "internalName": "stax3wasplauncher",
@@ -2485,7 +2505,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "gr8recoillessrifle",
@@ -2626,7 +2647,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "faf14spear",
@@ -2957,7 +2979,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks"
+      "Backpacks",
+      "Expendable",
+      "Explosive"
     ],
     "warbondCode": "warbond13",
     "internalName": "b100portablehellbomb",
@@ -3001,7 +3025,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Vehicles"
+      "Vehicles",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "exo45patriotexosuit",
@@ -3159,7 +3184,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Vehicles"
+      "Vehicles",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "exo49emancipatorexosuit",
@@ -3361,7 +3387,8 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle"
+      "Eagle",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "eagleairstrike",
@@ -3444,7 +3471,8 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle"
+      "Eagle",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "eagleclusterbomb",
@@ -3580,7 +3608,8 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle"
+      "Eagle",
+      "Fire"
     ],
     "warbondCode": "none",
     "internalName": "eaglenapalmairstrike",
@@ -3711,7 +3740,8 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle"
+      "Eagle",
+      "Stealth"
     ],
     "warbondCode": "none",
     "internalName": "eaglesmokestrike",
@@ -3779,7 +3809,8 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle"
+      "Eagle",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "eagle110mmrocketpods",
@@ -3861,7 +3892,8 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle"
+      "Eagle",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "eagle500kgbomb",
@@ -3968,7 +4000,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "orbitalprecisionstrike",
@@ -4050,7 +4083,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Gas"
     ],
     "warbondCode": "none",
     "internalName": "orbitalgasstrike",
@@ -4165,7 +4199,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Stun"
     ],
     "warbondCode": "none",
     "internalName": "orbitalemsstrike",
@@ -4256,7 +4291,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Stealth"
     ],
     "warbondCode": "none",
     "internalName": "orbitalsmokestrike",
@@ -4326,7 +4362,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "orbitalairburststrike",
@@ -4543,7 +4580,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Fire"
     ],
     "warbondCode": "none",
     "internalName": "orbitallaser",
@@ -4730,7 +4768,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "orbital120mmhebarrage",
@@ -4815,7 +4854,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "orbital380mmhebarrage",
@@ -4901,7 +4941,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "orbitalwalkingbarrage",
@@ -4986,7 +5027,8 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital"
+      "Orbital",
+      "Fire"
     ],
     "warbondCode": "none",
     "internalName": "orbitalnapalmbarrage",
@@ -5120,7 +5162,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Arc"
     ],
     "warbondCode": "none",
     "internalName": "aarc3teslatower",
@@ -5181,7 +5224,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "am12mortarsentry",
@@ -5306,7 +5350,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Stun"
     ],
     "warbondCode": "none",
     "internalName": "am23emsmortarsentry",
@@ -5580,7 +5625,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Fire"
     ],
     "warbondCode": "warbond12",
     "internalName": "aflam40flamesentry",
@@ -5624,7 +5670,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Fire"
     ],
     "warbondCode": "warbond17",
     "internalName": "alas98lasersentry",
@@ -5822,7 +5869,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "amls4xrocketsentry",
@@ -6017,7 +6065,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement"
+      "Emplacement",
+      "Explosive"
     ],
     "warbondCode": "warbond12",
     "internalName": "eat12antitankemplacement",
@@ -6100,7 +6149,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement"
+      "Emplacement",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "egl21grenadierbattlement",
@@ -6192,7 +6242,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement"
+      "Emplacement",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "md17antitankmines",
@@ -6248,7 +6299,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement"
+      "Emplacement",
+      "Explosive"
     ],
     "warbondCode": "none",
     "internalName": "md6antipersonnelminefield",
@@ -6304,7 +6356,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement"
+      "Emplacement",
+      "Gas"
     ],
     "warbondCode": "none",
     "internalName": "md8gasmines",
@@ -6383,7 +6436,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement"
+      "Emplacement",
+      "Fire"
     ],
     "warbondCode": "none",
     "internalName": "mdi4incendiarymines",
@@ -6562,7 +6616,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "properties": {
       "CQC-20 Breaching Hammer": {
@@ -6636,7 +6691,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Expendable",
+      "Explosive"
     ],
     "properties": {
       "EAT-411 LEVELLER": {
@@ -6730,7 +6787,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive"
     ],
     "properties": {
       "GL-28 BELT-FED GRENADE LAUNCHER": {
@@ -6820,7 +6878,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Fire"
     ],
     "properties": {
       "B/FLAM-80 CREMATOR": {
@@ -6919,7 +6978,9 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Explosive",
+      "Stealth"
     ],
     "properties": {
       "Attacks": {
@@ -6973,7 +7034,8 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry"
+      "Sentry",
+      "Gas"
     ],
     "properties": {
       "GAS MORTAR SENTRY": {
@@ -7171,7 +7233,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Vehicles"
+      "Vehicles",
+      "Explosive"
     ],
     "properties": {
       "BASTION MK XVI": {
@@ -7374,7 +7437,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks"
+      "Backpacks",
+      "Fire"
     ],
     "properties": {
       "AX/LAS-5 ROVER": {
@@ -7472,7 +7536,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks"
+      "Backpacks",
+      "Fire"
     ],
     "properties": {
       "AX/FLAM-75 HOT DOG": {
@@ -7577,7 +7642,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks"
+      "Backpacks",
+      "Arc"
     ],
     "properties": {
       "AX/ARC-3 K-9": {
@@ -7654,7 +7720,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks"
+      "Backpacks",
+      "Gas"
     ],
     "properties": {
       "AX/TX-13 DOG BREATH": {

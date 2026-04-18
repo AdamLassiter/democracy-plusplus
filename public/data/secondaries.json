@@ -282,7 +282,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Stealth"
     ],
     "warbondCode": "warbond10",
     "internalName": "p11stimpistol",
@@ -327,7 +328,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "warbondCode": "warbond11",
     "internalName": "plas15loyalist",
@@ -641,7 +643,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "warbondCode": "warbond6",
     "internalName": "gp31grenadepistol",
@@ -842,7 +845,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Fire"
     ],
     "warbondCode": "warbond5",
     "internalName": "las7dagger",
@@ -928,7 +932,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Fire"
     ],
     "warbondCode": "warbond14",
     "internalName": "las58talon",
@@ -995,7 +1000,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Fire"
     ],
     "warbondCode": "warbond9",
     "internalName": "p72crisper",
@@ -1088,7 +1094,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "warbondCode": "warbond13",
     "internalName": "gp20ultimatum",
@@ -1255,7 +1262,9 @@
     "displayName": "M6C/SOCOM Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [],
+    "tags": [
+      "Stealth"
+    ],
     "warbondCode": "warbond19",
     "internalName": "m6csocompistol",
     "tier": "b",
@@ -1393,7 +1402,8 @@
     "type": "Equipment",
     "category": "secondary",
     "tags": [
-      "Special"
+      "Special",
+      "Gas"
     ],
     "properties": {
       "P-35 RE-EDUCATOR": {

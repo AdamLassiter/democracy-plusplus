@@ -3,7 +3,9 @@
     "displayName": "G-12 High Explosive",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [],
+    "tags": [
+      "Explosive"
+    ],
     "warbondCode": "none",
     "internalName": "g12highexplosive",
     "imageUrl": "throwables/G-12_High_Explosive_Throwable_Render.png",
@@ -45,7 +47,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Gas"
     ],
     "warbondCode": "warbond10",
     "internalName": "g4gas",
@@ -122,7 +125,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Stealth"
     ],
     "warbondCode": "warbond8",
     "internalName": "k2throwingknife",
@@ -159,7 +163,9 @@
     "displayName": "G-6 Frag",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [],
+    "tags": [
+      "Explosive"
+    ],
     "warbondCode": "warbond3",
     "internalName": "g6frag",
     "imageUrl": "throwables/G-6_Frag_Throwable_Render.png",
@@ -229,7 +235,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "warbondCode": "warbond3",
     "internalName": "g16impact",
@@ -272,7 +279,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Stealth"
     ],
     "warbondCode": "warbond3",
     "internalName": "g3smoke",
@@ -301,7 +309,9 @@
     "displayName": "G-10 Incendiary",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [],
+    "tags": [
+      "Fire"
+    ],
     "warbondCode": "warbond4",
     "internalName": "g10incendiary",
     "imageUrl": "throwables/G-10_Incendiary_Throwable_Render.png",
@@ -368,7 +378,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Stun"
     ],
     "warbondCode": "warbond5",
     "internalName": "g23stun",
@@ -418,7 +429,9 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Fire",
+      "Explosive"
     ],
     "warbondCode": "warbond6",
     "internalName": "g123thermite",
@@ -506,7 +519,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Fire"
     ],
     "warbondCode": "warbond7",
     "internalName": "g13incendiaryimpact",
@@ -574,7 +588,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "warbondCode": "warbond13",
     "internalName": "g50seeker",
@@ -616,7 +631,10 @@
     "displayName": "TED-63 Dynamite",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [],
+    "tags": [
+      "Explosive",
+      "Stealth"
+    ],
     "warbondCode": "warbond14",
     "internalName": "ted63dynamite",
     "imageUrl": "throwables/TED-63_Dynamite_Throwable_Render.png",
@@ -658,7 +676,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Fire"
     ],
     "warbondCode": "warbond15",
     "internalName": "g142pyrotech",
@@ -811,7 +830,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Arc"
     ],
     "warbondCode": "warbond17",
     "internalName": "g31arc",
@@ -884,7 +904,9 @@
     "displayName": "G-7 Pineapple",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [],
+    "tags": [
+      "Explosive"
+    ],
     "warbondCode": "warbond20",
     "internalName": "g7pineapple",
     "imageUrl": "throwables/G-7_Pineapple_Throwable_Render.png",
@@ -985,7 +1007,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "properties": {
       "Attacks": {
@@ -1056,7 +1079,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Stealth"
     ]
   },
   {
@@ -1084,7 +1108,8 @@
     "type": "Equipment",
     "category": "throwable",
     "tags": [
-      "Special"
+      "Special",
+      "Explosive"
     ],
     "properties": {
       "Attacks": {

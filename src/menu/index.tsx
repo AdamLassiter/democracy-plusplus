@@ -1,6 +1,6 @@
 import type { SyntheticEvent } from 'react';
 import { useEffect, useRef, useState } from 'react'
-import { Box, IconButton, Tab, Tabs, Tooltip, Typography } from '@mui/material';
+import { Box, ButtonBase, IconButton, Tab, Tabs, Tooltip, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
@@ -13,6 +13,7 @@ import WarbondsFilter from './warbonds';
 import Help from './help';
 import type { ReactElement } from 'react';
 import StratagemGame from './stratagemGame';
+import AchievementsDialog from './achievementsDialog';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 
@@ -44,6 +45,7 @@ export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
   const [isStratagemGameUnlocked, setIsStratagemGameUnlocked] = useState(false);
   const [isStratagemGameOpen, setIsStratagemGameOpen] = useState(false);
+  const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
   const sequenceIndexRef = useRef(0);
   const lastKeyTimeRef = useRef(0);
 
@@ -125,10 +127,13 @@ export default function Menu() {
         </Tabs>
 
         {/* Credits aligned to the center */}
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <ButtonBase
+          onClick={() => setIsAchievementsOpen(true)}
+          sx={{ borderRadius: 1, display: 'flex', gap: 1, px: 1, py: 0.5 }}
+        >
           <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>Mission {missionNumber}</Typography>
-        </Box>
+        </ButtonBase>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>Democracy++</Typography>
@@ -154,6 +159,7 @@ export default function Menu() {
       <Box sx={{ padding: '1em' }}>
         <CurrentTab index={currentTab} />
       </Box>
+      <AchievementsDialog open={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)} />
       <StratagemGame open={isStratagemGameOpen} onClose={() => setIsStratagemGameOpen(false)} />
     </Box>
   );

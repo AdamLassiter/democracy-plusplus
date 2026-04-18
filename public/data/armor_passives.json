@@ -4,7 +4,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Gas"
     ],
     "warbondCode": "warbond10",
     "internalName": "advancedfiltration",
@@ -18,7 +19,11 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Fire",
+      "Gas",
+      "Acid",
+      "Arc"
     ],
     "warbondCode": "warbond18",
     "internalName": "acclimated",
@@ -46,7 +51,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Arc"
     ],
     "warbondCode": "warbond5",
     "internalName": "electricalconduit",
@@ -88,7 +94,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Explosive"
     ],
     "warbondCode": "warbond6",
     "internalName": "fortified",
@@ -102,7 +109,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Fire"
     ],
     "warbondCode": "warbond9",
     "internalName": "inflammable",
@@ -186,7 +194,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Explosive"
     ],
     "warbondCode": "warbond13",
     "internalName": "integratedexplosives",
@@ -270,7 +279,11 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Fire",
+      "Gas",
+      "Acid",
+      "Arc"
     ],
     "warbondCode": "warbond20",
     "internalName": "desertstormer",
@@ -304,7 +317,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Explosive"
     ]
   },
   {
@@ -318,7 +332,9 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Explosive",
+      "Gas"
     ]
   },
   {
@@ -332,7 +348,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Explosive"
     ]
   },
   {

@@ -1,6 +1,7 @@
 import type { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMission, setMissionState } from "../../slices/missionSlice";
+import { setAchievementsState } from "../../slices/achievementsSlice";
 import { setPreferencesState } from "../../slices/preferencesSlice";
 import { setCreditsState } from "../../slices/creditsSlice";
 import { setEquipmentState } from "../../slices/equipmentSlice";
@@ -69,6 +70,7 @@ export default function ImportExport() {
           throw new Error('Imported file could not be read as text');
         }
         const importedState = JSON.parse(text);
+        if (importedState.achievements) dispatch(setAchievementsState(importedState.achievements));
         if (importedState.mission) dispatch(setMissionState(importedState.mission));
         if (importedState.credits) dispatch(setCreditsState(importedState.credits));
         if (importedState.equipment) dispatch(setEquipmentState(importedState.equipment));

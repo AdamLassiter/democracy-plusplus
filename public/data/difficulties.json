@@ -1,0 +1,42 @@
+[
+  {
+    "displayName": "Trivial",
+    "missions": 1
+  },
+  {
+    "displayName": "Easy",
+    "missions": 1
+  },
+  {
+    "displayName": "Medium",
+    "missions": 2
+  },
+  {
+    "displayName": "Challenging",
+    "missions": 2
+  },
+  {
+    "displayName": "Hard",
+    "missions": 3
+  },
+  {
+    "displayName": "Extreme",
+    "missions": 3
+  },
+  {
+    "displayName": "Suicide Mission",
+    "missions": 3
+  },
+  {
+    "displayName": "Impossible",
+    "missions": 3
+  },
+  {
+    "displayName": "Helldive",
+    "missions": 3
+  },
+  {
+    "displayName": "Super Helldive",
+    "missions": 3
+  }
+]

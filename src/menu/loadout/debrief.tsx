@@ -3,9 +3,11 @@ import { Box, Button, Checkbox, Dialog, DialogTitle, Divider, FormControlLabel, 
 import { useDispatch, useSelector } from "react-redux";
 import { resetMission, selectMission, setState } from "../../slices/missionSlice";
 import { useState } from "react";
+import { unlockedAchievementsForItems } from "../../constants/achievements";
 import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
 import { itemCost } from "../../economics/shop";
 import { getEffectiveTier } from "../../tierList";
+import { unlockAchievements } from "../../slices/achievementsSlice";
 import { addCredits } from "../../slices/creditsSlice";
 import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";
 import { resetShop } from "../../slices/shopSlice";
@@ -63,6 +65,7 @@ export default function Debrief() {
     const resolvedUsedItems = usedItems
       .map((itemName) => getItem(itemName))
       .filter((item): item is Item => Boolean(item));
+    const unlockedAchievementIds = unlockedAchievementsForItems(resolvedUsedItems);
     const pricedUsedItems = resolvedUsedItems.map((item) => itemCost({ ...item, tier: getEffectiveTier(item, overrides) }));
     const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
     dispatch(addMissionLogEntry({
@@ -86,6 +89,7 @@ export default function Debrief() {
       totalReward,
     }));
     dispatch(addCredits({ amount: totalReward }));
+    dispatch(unlockAchievements({ value: unlockedAchievementIds }));
     dispatch(resetEquipment());
     dispatch(resetShop({ missionCount: mission.count, tierOverrides: overrides }));
     dispatch(resetMission());
