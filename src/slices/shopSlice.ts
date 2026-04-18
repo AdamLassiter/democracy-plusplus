@@ -3,7 +3,7 @@ import { calculateItemStock, calculateShopItems, supplyCrates } from "../economi
 import { applyTierOverrides } from "../tierList";
 import { ITEMS } from '../constants/items';
 import { WARBONDS } from '../constants/warbonds';
-import { getConstant } from '../constants';
+import { getItem } from '../constants';
 import type { RootState } from './index';
 import type { CartEntry, CrateItem, ShopItem, ShopState, Warbond } from '../types';
 
@@ -35,7 +35,7 @@ function incrementInventoryStock(items: ShopItem[], displayName: string) {
 }
 
 function hydrateCartItem(item: CartEntry): ShopItem | null {
-  const hydratedItem = getConstant(item.displayName);
+  const hydratedItem = getItem(item.displayName);
   if (!hydratedItem) {
     return null;
   }

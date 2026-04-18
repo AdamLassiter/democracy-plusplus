@@ -11,7 +11,7 @@ import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";
 import { resetShop } from "../../slices/shopSlice";
 import { addMissionLogEntry } from "../../slices/logSlice";
 import { selectTierList } from "../../slices/tierListSlice";
-import { getConstant } from "../../constants";
+import { getItem } from "../../constants";
 import { FACTIONS } from "../../constants/factions";
 import { getObjectives } from "../../constants/objectives";
 import type { Item, Quest, Restriction } from "../../types";
@@ -51,7 +51,7 @@ export default function Debrief() {
 
   function handleSubmit() {
     setOpen(false);
-    const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+    const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
     const usedItems = [
       equipment.primary,
       equipment.secondary,
@@ -61,7 +61,7 @@ export default function Debrief() {
       ...equipment.stratagems,
     ].filter((item): item is string => Boolean(item));
     const resolvedUsedItems = usedItems
-      .map((itemName) => getConstant(itemName))
+      .map((itemName) => getItem(itemName))
       .filter((item): item is Item => Boolean(item));
     const pricedUsedItems = resolvedUsedItems.map((item) => itemCost({ ...item, tier: getEffectiveTier(item, overrides) }));
     const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
@@ -69,7 +69,7 @@ export default function Debrief() {
       kind: 'mission',
       id: `mission-${Date.now()}-${mission.count}`,
       timestamp: new Date().toISOString(),
-      missionNumber: mission.count,
+      missionNumber: mission.mission,
       faction: calculateFaction(mission),
       objective: objective?.displayName ?? 'Unknown Objective',
       stars,

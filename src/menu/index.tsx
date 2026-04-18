@@ -54,7 +54,7 @@ export default function Menu() {
   const { credits } = useSelector(selectCredits);
 
   const mission = useSelector(selectMission);
-  const { count } = mission;
+  const { mission: missionNumber } = mission;
 
   const tabs: Array<(props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
   const CurrentTab = tabs[currentTab];
@@ -127,7 +127,7 @@ export default function Menu() {
         {/* Credits aligned to the center */}
         <Box sx={{ display: 'flex', gap: 1 }}>
           <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
-          <Typography>Mission {count}</Typography>
+          <Typography>Mission {missionNumber}</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />

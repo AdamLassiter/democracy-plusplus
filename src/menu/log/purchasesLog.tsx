@@ -1,6 +1,6 @@
 import { Card, Divider, Grid, Typography } from "@mui/material";
 import ItemDisplay from "../../itemDisplay";
-import { getConstant } from "../../constants";
+import { getItem } from "../../constants";
 import type { LogEntry, PurchaseLogEntry } from "../../types";
 import { SectionTimestamp } from "./shared";
 
@@ -47,7 +47,7 @@ function buildPurchaseGroups(entries: LogEntry[]): PurchaseGroup[] {
 }
 
 function PurchaseCard({ entry }: { entry: PurchaseLogEntry }) {
-  const item = getConstant(entry.itemDisplayName);
+  const item = getItem(entry.itemDisplayName);
 
   return <Card sx={{ p: 1.5, height: "100%" }} variant="outlined">
     <Grid container direction="column" spacing={1} alignItems="center" textAlign="center">

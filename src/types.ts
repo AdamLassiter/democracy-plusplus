@@ -96,6 +96,11 @@ export interface Warbond {
   warbondCode: string;
 }
 
+export interface Difficulty {
+  displayName: string;
+  missions: number;
+}
+
 export interface CreditsState {
   credits: number;
 }
@@ -115,6 +120,9 @@ export interface MissionState {
   state: MissionStage;
   prng: number;
   count: number;
+  difficulty: number;
+  mission: number;
+  factionLocked: boolean;
   quests: Quest[];
   restrictions: Restriction[];
 }

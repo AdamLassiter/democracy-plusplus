@@ -61,7 +61,7 @@ function withRandomDescription<T extends Quest | Restriction>(
 }
 
 function getObjectiveModeTags(mission: MissionState) {
-  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+  const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
   const tags = objective.tags ?? [];
 
   return {
@@ -115,7 +115,7 @@ function randomChoice<T>(items: T[], prng: { rand(min: number, max?: number): nu
 }
 
 export function calculateMissionTier(mission: MissionState): Tier {
-  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+  const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
   const faction = calculateFaction(mission);
   return objective?.tier[faction] ?? "d";
 }
@@ -296,7 +296,7 @@ function questValuesForMission(mission: MissionState, quest: Quest) {
     return undefined;
   }
 
-  const objective = getObjectives(FACTIONS[mission.faction])[mission.objective];
+  const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
   const isShortMission = objective.missionLength === "short"
     || (objective.missionLength === undefined && (modeTags.eradicate || modeTags.blitz || modeTags.commando));
 

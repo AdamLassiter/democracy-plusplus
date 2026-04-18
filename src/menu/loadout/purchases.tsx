@@ -2,7 +2,7 @@ import type { SyntheticEvent } from "react";
 import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addPurchased, selectPurchased, subtractPurchased } from "../../slices/purchasedSlice";
-import { getConstant } from "../../constants";
+import { getItem } from "../../constants";
 import ItemDisplay from "../../itemDisplay";
 import { getEquipmentSlot, selectEquipment, setSlot, setStratagem, unsetEquipment } from "../../slices/equipmentSlice";
 import { useMemo, useState } from "react";
@@ -21,7 +21,7 @@ export default function Purchases() {
   const equipment = useSelector(selectEquipment);
   const dispatch = useDispatch();
   const { purchased: purchased_ } = useSelector(selectPurchased);
-  const purchased = purchased_.map(getConstant).filter(Boolean) as Item[];
+  const purchased = purchased_.map(getItem).filter(Boolean) as Item[];
 
   const [value, setValue] = useState(0);
   const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
@@ -62,7 +62,7 @@ export default function Purchases() {
   const filteredItems = filterItemsByPropertyValues(items, selectedFilters);
 
   function equip(displayName: string) {
-    const item = getConstant(displayName);
+    const item = getItem(displayName);
     if (!item) {
       return;
     }

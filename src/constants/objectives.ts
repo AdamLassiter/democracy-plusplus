@@ -8,7 +8,21 @@ export function getObjectiveNames(faction: Faction) {
     .map(objective => objective.displayName);
 }
 
-export function getObjectives(faction: Faction) {
+export function getObjectives(faction: Faction, difficulty?: number) {
+  const difficultyLevel = difficulty === undefined ? undefined : difficulty + 1;
+
   return OBJECTIVES
-    .filter(objective => objective.tier[faction] !== null);
+    .filter((objective) => {
+      if (objective.tier[faction] === null) {
+        return false;
+      }
+
+      if (difficultyLevel === undefined) {
+        return true;
+      }
+
+      const minDifficulty = objective.minDifficulty ?? 1;
+      const maxDifficulty = objective.maxDifficulty ?? Number.MAX_SAFE_INTEGER;
+      return minDifficulty <= difficultyLevel && difficultyLevel <= maxDifficulty;
+    });
 }

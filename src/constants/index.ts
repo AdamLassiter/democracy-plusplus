@@ -12,7 +12,7 @@ function getSupplyCrate(displayName: string) {
   return crates.find(crate => crate.displayName === displayName);
 }
 
-export function getConstant(displayName: string): Item | undefined {
+export function getItem(displayName: string): Item | undefined {
   return getArmorPassive(displayName)
     || getBooster(displayName)
     || getPrimary(displayName)

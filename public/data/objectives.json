@@ -42,9 +42,9 @@
   {
     "displayName": "Emergency Evacuation",
     "tier": {
-      "Terminids": "a",
-      "Automatons": "a",
-      "Illuminate": "a"
+      "Terminids": "s",
+      "Automatons": "s",
+      "Illuminate": "s"
     },
     "wikiSlug": "Emergency_Evacuation",
     "minDifficulty": 3,
@@ -62,19 +62,10 @@
       "Terminids",
       "Automatons",
       "Blitz"
-    ]
-  },
-  {
-    "displayName": "Blitz: Destroy Warp Ships",
-    "tier": {
-      "Terminids": null,
-      "Automatons": null,
-      "Illuminate": "c"
-    },
-    "tags": [
-      "Illuminate",
-      "Blitz"
-    ]
+    ],
+    "minDifficulty": 3,
+    "maxDifficulty": 10,
+    "missionLength": "long"
   },
   {
     "displayName": "Eradicate Terminid Swarm",
@@ -119,14 +110,6 @@
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "long"
-  },
-  {
-    "displayName": "Evacuate Civilians",
-    "tier": {
-      "Terminids": "s",
-      "Automatons": "s",
-      "Illuminate": "s"
-    }
   },
   {
     "displayName": "Purge Hatcheries",
@@ -202,17 +185,6 @@
     "minDifficulty": 5,
     "maxDifficulty": 10,
     "missionLength": "long"
-  },
-  {
-    "displayName": "Neutralize Orbital Defenses",
-    "tier": {
-      "Terminids": null,
-      "Automatons": "a",
-      "Illuminate": null
-    },
-    "tags": [
-      "Automatons"
-    ]
   },
   {
     "displayName": "Take Down Overship",
@@ -309,7 +281,7 @@
     "wikiSlug": "Blitz:_Destroy_Bio-Processors",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "c",
       "Illuminate": null
     },
     "tags": [
@@ -325,7 +297,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "c"
     },
     "tags": [
       "Blitz"
@@ -338,7 +310,7 @@
     "displayName": "Blitz: Secure Research Site",
     "wikiSlug": "Blitz:_Secure_Research_Site",
     "tier": {
-      "Terminids": null,
+      "Terminids": "c",
       "Automatons": null,
       "Illuminate": null
     },
@@ -353,7 +325,7 @@
     "displayName": "Chart Terminid Tunnels",
     "wikiSlug": "Chart_Terminid_Tunnels",
     "tier": {
-      "Terminids": null,
+      "Terminids": "a",
       "Automatons": null,
       "Illuminate": null
     },
@@ -365,7 +337,7 @@
     "displayName": "Cleanse Infested District",
     "wikiSlug": "Cleanse_Infested_District",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -377,7 +349,7 @@
     "displayName": "Collect Gloom Spore Readings",
     "wikiSlug": "Collect_Gloom_Spore_Readings",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -389,7 +361,7 @@
     "displayName": "Collect Gloom-Infused Oil",
     "wikiSlug": "Collect_Gloom-Infused_Oil",
     "tier": {
-      "Terminids": null,
+      "Terminids": "a",
       "Automatons": null,
       "Illuminate": null
     },
@@ -401,7 +373,7 @@
     "displayName": "Collect Meteorological Data",
     "wikiSlug": "Collect_Meteorological_Data",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -414,7 +386,7 @@
     "wikiSlug": "Commando:_Acquire_Evidence",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "a",
       "Illuminate": null
     },
     "tags": [
@@ -429,7 +401,7 @@
     "wikiSlug": "Commando:_Extract_Intel",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "a",
       "Illuminate": null
     },
     "tags": [
@@ -444,7 +416,7 @@
     "wikiSlug": "Commando:_Secure_Black_Box",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "s",
       "Illuminate": null
     },
     "tags": [
@@ -458,7 +430,7 @@
     "displayName": "Conduct Mobile E-711 Extraction",
     "wikiSlug": "Conduct_Mobile_E-711_Extraction",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -471,7 +443,7 @@
     "wikiSlug": "Confiscate_Assets",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "a",
       "Illuminate": null
     },
     "minDifficulty": 1,
@@ -482,7 +454,7 @@
     "displayName": "Deactivate Terminid Control System",
     "wikiSlug": "Deactivate_Terminid_Control_System",
     "tier": {
-      "Terminids": null,
+      "Terminids": "c",
       "Automatons": null,
       "Illuminate": null
     },
@@ -494,7 +466,7 @@
     "displayName": "Deploy Dark Fluid",
     "wikiSlug": "Deploy_Dark_Fluid",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -508,7 +480,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "a"
     },
     "minDifficulty": 3,
     "maxDifficulty": 10,
@@ -520,7 +492,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "d"
     },
     "minDifficulty": 3,
     "maxDifficulty": 3,
@@ -530,7 +502,7 @@
     "displayName": "Destroy Spore Lung",
     "wikiSlug": "Destroy_Spore_Lung",
     "tier": {
-      "Terminids": null,
+      "Terminids": "a",
       "Automatons": null,
       "Illuminate": null
     },
@@ -543,16 +515,19 @@
     "wikiSlug": "Earn_Your_Helldiver_Cape",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons":null,
       "Illuminate": null
-    }
+    },
+    "minDifficulty": 1,
+    "maxDifficulty": 1,
+    "missionLength": "long"
   },
   {
     "displayName": "Eliminate Automaton Factory Strider",
     "wikiSlug": "Eliminate_Automaton_Factory_Strider",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "c",
       "Illuminate": null
     },
     "minDifficulty": 4,
@@ -564,7 +539,7 @@
     "wikiSlug": "Eliminate_Automaton_Hulks",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "c",
       "Illuminate": null
     },
     "minDifficulty": 3,
@@ -575,7 +550,7 @@
     "displayName": "Eliminate Bile Titans",
     "wikiSlug": "Eliminate_Bile_Titans",
     "tier": {
-      "Terminids": null,
+      "Terminids": "c",
       "Automatons": null,
       "Illuminate": null
     },
@@ -587,7 +562,7 @@
     "displayName": "Eliminate Brood Commanders",
     "wikiSlug": "Eliminate_Brood_Commanders",
     "tier": {
-      "Terminids": null,
+      "Terminids": "d",
       "Automatons": null,
       "Illuminate": null
     },
@@ -599,7 +574,7 @@
     "displayName": "Eliminate Chargers",
     "wikiSlug": "Eliminate_Chargers",
     "tier": {
-      "Terminids": null,
+      "Terminids": "d",
       "Automatons": null,
       "Illuminate": null
     },
@@ -612,7 +587,7 @@
     "wikiSlug": "Eliminate_Devastators",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "d",
       "Illuminate": null
     },
     "minDifficulty": 1,
@@ -623,7 +598,7 @@
     "displayName": "Eliminate Impaler",
     "wikiSlug": "Eliminate_Impaler",
     "tier": {
-      "Terminids": null,
+      "Terminids": "c",
       "Automatons": null,
       "Illuminate": null
     },
@@ -637,7 +612,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "s"
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
@@ -647,8 +622,8 @@
     "displayName": "Evacuate High-Value Assets",
     "wikiSlug": "Evacuate_High-Value_Assets",
     "tier": {
-      "Terminids": null,
-      "Automatons": null,
+      "Terminids": "s",
+      "Automatons": "s",
       "Illuminate": null
     },
     "minDifficulty": 5,
@@ -659,7 +634,7 @@
     "displayName": "Extract E-711",
     "wikiSlug": "Extract_E-711",
     "tier": {
-      "Terminids": null,
+      "Terminids": "a",
       "Automatons": null,
       "Illuminate": null
     },
@@ -671,7 +646,7 @@
     "displayName": "Extract Research Probe Data",
     "wikiSlug": "Extract_Research_Probe_Data",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -685,7 +660,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "a"
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
@@ -696,7 +671,7 @@
     "wikiSlug": "Halt_Cyborg_Production",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "a",
       "Illuminate": null
     },
     "minDifficulty": 4,
@@ -708,7 +683,7 @@
     "wikiSlug": "Neutralize_Ground-to-Orbit_Defenses",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "b",
       "Illuminate": null
     },
     "minDifficulty": 4,
@@ -720,7 +695,7 @@
     "wikiSlug": "Rapid_Acquisition",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "b",
       "Illuminate": null
     },
     "minDifficulty": 3,
@@ -731,7 +706,7 @@
     "displayName": "Restart Pumps",
     "wikiSlug": "Restart_Pumps",
     "tier": {
-      "Terminids": null,
+      "Terminids": "b",
       "Automatons": null,
       "Illuminate": null
     },
@@ -745,7 +720,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "c"
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
@@ -755,9 +730,9 @@
     "displayName": "Retrieve Essential Personnel",
     "wikiSlug": "Retrieve_Essential_Personnel",
     "tier": {
-      "Terminids": null,
-      "Automatons": null,
-      "Illuminate": null
+      "Terminids": "a",
+      "Automatons": "a",
+      "Illuminate": "a"
     },
     "minDifficulty": 1,
     "maxDifficulty": 9,
@@ -769,7 +744,7 @@
     "tier": {
       "Terminids": null,
       "Automatons": null,
-      "Illuminate": null
+      "Illuminate": "c"
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
@@ -780,7 +755,7 @@
     "wikiSlug": "Sabotage_Orgo-Plasma_Synthesis",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "c",
       "Illuminate": null
     },
     "minDifficulty": 1,
@@ -792,7 +767,7 @@
     "wikiSlug": "Sabotage_Supply_Bases",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "b",
       "Illuminate": null
     },
     "minDifficulty": 1,
@@ -804,7 +779,7 @@
     "wikiSlug": "Seize_Industrial_Complex",
     "tier": {
       "Terminids": null,
-      "Automatons": null,
+      "Automatons": "s",
       "Illuminate": null
     },
     "minDifficulty": 1,
@@ -815,9 +790,9 @@
     "displayName": "Start Fuel Pumps",
     "wikiSlug": "Start_Fuel_Pumps",
     "tier": {
-      "Terminids": null,
-      "Automatons": null,
-      "Illuminate": null
+      "Terminids": "c",
+      "Automatons": "c",
+      "Illuminate": "c"
     },
     "minDifficulty": 1,
     "maxDifficulty": 2,
@@ -827,9 +802,9 @@
     "displayName": "Upload Escape Pod Data",
     "wikiSlug": "Upload_Escape_Pod_Data",
     "tier": {
-      "Terminids": null,
-      "Automatons": null,
-      "Illuminate": null
+      "Terminids": "c",
+      "Automatons": "c",
+      "Illuminate": "c"
     },
     "minDifficulty": 1,
     "maxDifficulty": 2,

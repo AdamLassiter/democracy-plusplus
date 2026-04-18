@@ -1,6 +1,6 @@
 import { Card, Chip, Grid, List, ListItem, Typography } from "@mui/material";
 import ItemDisplay from "../../itemDisplay";
-import { getConstant } from "../../constants";
+import { getItem } from "../../constants";
 import type { LogEntry, MissionLogEntry, MissionOutcome } from "../../types";
 import { SectionTimestamp } from "./shared";
 
@@ -27,7 +27,7 @@ function UsedItems({ items = [] }: { items?: string[] }) {
     {!items.length && <Typography color="text.secondary">None</Typography>}
     {!!items.length && <Grid container spacing={1}>
       {items.map((itemName) => {
-        const item = getConstant(itemName);
+        const item = getItem(itemName);
 
         return <Grid key={itemName}>
           {item
