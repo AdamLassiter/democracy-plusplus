@@ -11,6 +11,7 @@ export const PROPERTY_FILTERS = [
   "Fire",
   "Gas",
   "Arc",
+  "Stealth",
 ] as const;
 
 export type PropertyFilterName = (typeof PROPERTY_FILTERS)[number];
@@ -26,6 +27,7 @@ const FILTER_MATCHERS: Record<PropertyFilterName, RegExp> = {
   Fire: /\bfire\b/i,
   Ballistic: /\bballistic\b/i,
   Arc: /\barc\b/i,
+  Stealth: /\bstealth\b|\bsuppressed\b/i,
 };
 
 function collectPropertyValues(value: PropertyValue, output: string[] = []) {
@@ -47,6 +49,10 @@ function collectPropertyValues(value: PropertyValue, output: string[] = []) {
 
 export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilters: readonly PropertyFilterName[]) {
   if (!selectedFilters?.length) {
+    return true;
+  }
+
+  if (selectedFilters.some((filterName) => item?.tags?.includes(filterName))) {
     return true;
   }
 

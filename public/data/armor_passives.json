@@ -152,7 +152,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Stealth"
     ],
     "warbondCode": "warbond3",
     "internalName": "scout",
@@ -265,7 +266,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Stealth"
     ],
     "warbondCode": "warbond19",
     "internalName": "feetfirst",
@@ -377,7 +379,8 @@
     "type": "Equipment",
     "category": "armor",
     "tags": [
-      "ArmorPassive"
+      "ArmorPassive",
+      "Stealth"
     ]
   },
   {

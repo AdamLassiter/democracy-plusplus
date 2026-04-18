@@ -1,0 +1,22 @@
+[
+  {
+    "id": "all-fire",
+    "displayName": "Trial By Fire",
+    "description": "Complete a mission using only fire-themed equipment and stratagems."
+  },
+  {
+    "id": "all-explosive",
+    "displayName": "High Explosive Lifestyle",
+    "description": "Complete a mission using only explosive-themed equipment and stratagems."
+  },
+  {
+    "id": "all-stealth",
+    "displayName": "Quiet Professional",
+    "description": "Complete a mission using only stealth-themed equipment and stratagems."
+  },
+  {
+    "id": "all-gas",
+    "displayName": "Hazmat Doctrine",
+    "description": "Complete a mission using only gas-themed equipment and stratagems."
+  }
+]

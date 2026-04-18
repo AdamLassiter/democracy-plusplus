@@ -3,7 +3,9 @@
     "displayName": "Expert Extraction Pilot",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Stealth"
+    ],
     "warbondCode": "warbond6",
     "internalName": "expertextractionpilot",
     "tier": "c",
@@ -135,7 +137,9 @@
     "displayName": "UAV Recon Booster",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Stealth"
+    ],
     "warbondCode": "warbond3",
     "internalName": "uavreconbooster",
     "imageUrl": "boosters/UAV_Recon_Booster_Booster_Icon.svg",
@@ -147,7 +151,13 @@
     "displayName": "Vitality Enhancement",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Fire",
+      "Gas",
+      "Arc",
+      "Explosive",
+      "Acid"
+    ],
     "warbondCode": "warbond3",
     "internalName": "vitalityenhancement",
     "tier": "s",
@@ -159,7 +169,9 @@
     "displayName": "Firebomb Hellpods",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Fire"
+    ],
     "warbondCode": "warbond9",
     "internalName": "firebombhellpods",
     "tier": "d",
@@ -195,7 +207,9 @@
     "displayName": "Stun Pods",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Stun"
+    ],
     "warbondCode": "warbond16",
     "internalName": "stunpods",
     "tier": "d",
@@ -213,6 +227,8 @@
     "imageUrl": "boosters/Concealed_Insertion_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": []
+    "tags": [
+      "Stealth"
+    ]
   }
 ]
