@@ -1,22 +1,22 @@
 [
   {
     "id": "all-fire",
-    "displayName": "Trial By Fire",
+    "displayName": "The Pyromaniac",
     "description": "Complete a mission using only fire-themed equipment and stratagems."
   },
   {
     "id": "all-explosive",
-    "displayName": "High Explosive Lifestyle",
+    "displayName": "The Demolitionist",
     "description": "Complete a mission using only explosive-themed equipment and stratagems."
   },
   {
     "id": "all-stealth",
-    "displayName": "Quiet Professional",
+    "displayName": "The Professional",
     "description": "Complete a mission using only stealth-themed equipment and stratagems."
   },
   {
     "id": "all-gas",
-    "displayName": "Hazmat Doctrine",
+    "displayName": "The Fumigator",
     "description": "Complete a mission using only gas-themed equipment and stratagems."
   }
 ]

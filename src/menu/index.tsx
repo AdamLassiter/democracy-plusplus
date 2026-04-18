@@ -13,7 +13,7 @@ import WarbondsFilter from './warbonds';
 import Help from './help';
 import type { ReactElement } from 'react';
 import StratagemGame from './stratagemGame';
-import AchievementsDialog from './achievementsDialog';
+import AchievementsDialog from './achievements';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 
