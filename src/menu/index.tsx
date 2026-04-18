@@ -132,7 +132,9 @@ export default function Menu() {
           sx={{ borderRadius: 1, display: 'flex', gap: 1, px: 1, py: 0.5 }}
         >
           <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
-          <Typography>Mission {missionNumber}</Typography>
+          <Tooltip title="Achievements">
+            <Typography>Mission {missionNumber}</Typography>
+          </Tooltip>
         </ButtonBase>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />
