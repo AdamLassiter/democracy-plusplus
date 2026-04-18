@@ -18,5 +18,15 @@
     "id": "all-gas",
     "displayName": "The Fumigator",
     "description": "Complete a mission using only gas-themed equipment and stratagems."
+  },
+  {
+    "id": "all-laser",
+    "displayName": "The Shark with Fricking Laser Beams",
+    "description": "Complete a mission using only laser-themed equipment and stratagems."
+  },
+  {
+    "id": "all-expendable",
+    "displayName": "The Trash Panda",
+    "description": "Complete a mission using only expendable-themed equipment and stratagems."
   }
 ]

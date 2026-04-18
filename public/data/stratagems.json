@@ -331,7 +331,8 @@
     "category": "Supply",
     "tags": [
       "Weapons",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "warbondCode": "none",
     "internalName": "las98lasercannon",
@@ -1088,7 +1089,8 @@
     "category": "Supply",
     "tags": [
       "Weapons",
-      "Explosive"
+      "Explosive",
+      "Laser"
     ],
     "warbondCode": "none",
     "internalName": "las99quasarcannon",
@@ -1901,7 +1903,8 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons"
+      "Weapons",
+      "Stealth"
     ],
     "warbondCode": "warbond15",
     "internalName": "cqc1onetrueflag",
@@ -4581,7 +4584,8 @@
     "category": "Orbital",
     "tags": [
       "Orbital",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "warbondCode": "none",
     "internalName": "orbitallaser",
@@ -5671,7 +5675,8 @@
     "category": "Defense",
     "tags": [
       "Sentry",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "warbondCode": "warbond17",
     "internalName": "alas98lasersentry",
@@ -7438,7 +7443,8 @@
     "category": "Supply",
     "tags": [
       "Backpacks",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "properties": {
       "AX/LAS-5 ROVER": {

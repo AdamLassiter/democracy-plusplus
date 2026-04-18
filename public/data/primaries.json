@@ -1951,7 +1951,8 @@
     "category": "primary",
     "tags": [
       "EnergyWeapon",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "warbondCode": "warbond3",
     "internalName": "las5scythe",
@@ -2038,7 +2039,8 @@
     "category": "primary",
     "tags": [
       "EnergyWeapon",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "warbondCode": "warbond5",
     "internalName": "las16sickle",
@@ -2484,7 +2486,8 @@
     "category": "primary",
     "tags": [
       "EnergyWeapon",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "warbondCode": "warbond13",
     "internalName": "las17doubleedgesickle",
@@ -3587,7 +3590,8 @@
     "category": "primary",
     "tags": [
       "EnergyWeapon",
-      "Fire"
+      "Fire",
+      "Laser"
     ],
     "properties": {
       "LAS-13 TRIDENT": {
