@@ -37,7 +37,7 @@ type BureaucraticForm = {
 const START_TIME_MS = 15000;
 const TIME_REDUCTION_MS = 600;
 const MIN_TIME_MS = 1000;
-const REVIEW_DELAY_MS = 2000;
+const MAX_ERRORS = 3;
 
 const ACTION_KEYS: Record<string, FormAction> = {
   a: "Approve",
@@ -88,9 +88,18 @@ function colorForSeverity(severity: FieldSeverity) {
   return `${severity}.main` as const;
 }
 
-function generateField(fieldPool: FormFieldPool): FormField {
-  const severities: FieldSeverity[] = ["success", "warning", "error"];
-  const severity = randomChoice(severities);
+function severitiesForAction(action: FormAction): FieldSeverity[] {
+  if (action === "Approve") {
+    return ["success"];
+  }
+  if (action === "Escalate") {
+    return ["success", "warning"];
+  }
+  return ["success", "warning", "error"];
+}
+
+function generateField(fieldPool: FormFieldPool, allowedSeverities: FieldSeverity[], forcedSeverity?: FieldSeverity): FormField {
+  const severity = forcedSeverity ?? randomChoice(allowedSeverities);
   return {
     label: fieldPool.label,
     severity,
@@ -101,19 +110,25 @@ function generateField(fieldPool: FormFieldPool): FormField {
 function generateForm(): BureaucraticForm {
   const template = randomChoice(FORMS);
   const fieldCount = Math.min(template.possibleFields.length, Math.random() < 0.6 ? 2 : 3);
-  const fields = shuffle(template.possibleFields).slice(0, fieldCount).map(generateField);
-
-  const mostSevere = fields.some((field) => field.severity === "error")
-    ? "error"
-    : fields.some((field) => field.severity === "warning")
+  const correctAction = randomChoice<FormAction>(["Approve", "Escalate", "Reject"]);
+  const selectedFieldPools = shuffle(template.possibleFields).slice(0, fieldCount);
+  const allowedSeverities = severitiesForAction(correctAction);
+  const requiredSeverity = correctAction === "Approve"
+    ? "success"
+    : correctAction === "Escalate"
       ? "warning"
-      : "success";
+      : "error";
+  const requiredFieldIndex = Math.floor(Math.random() * selectedFieldPools.length);
+
+  const fields = selectedFieldPools.map((fieldPool, index) =>
+    generateField(fieldPool, allowedSeverities, index === requiredFieldIndex ? requiredSeverity : undefined),
+  );
 
   return {
     title: template.title,
     subtitle: template.subtitle,
     fields,
-    correctAction: actionForSeverity(mostSevere),
+    correctAction,
   };
 }
 
@@ -128,7 +143,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
   const [deadlineMs, setDeadlineMs] = useState<number | null>(null);
   const [nowMs, setNowMs] = useState(Date.now());
   const [resolvedAction, setResolvedAction] = useState<FormAction | null>(null);
-  const [advanceAtMs, setAdvanceAtMs] = useState<number | null>(null);
+  const [reviewEndsGame, setReviewEndsGame] = useState(false);
   const gameOverHandledRef = useRef(false);
 
   const remainingTimeMs = phase === "playing" && deadlineMs !== null
@@ -142,9 +157,10 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
   const bestScore = Math.max(bureaucraticFormsBestScore, score);
 
   const instructions = useMemo(() => [
-    "Approve with A, Reject with R, Escalate with E.",
-    "Values stay unclassified until you submit a decision.",
-    "After each choice, the desk pauses for two seconds so you can study the correct severity colors.",
+    "Review each form and choose Approve (A), Escalate (E), or Reject (R).",
+    "The field values are shown without their classification colors until you commit to a choice.",
+    "Once you answer, the form reveals the true field severities: any red means Reject, otherwise any yellow means Escalate, otherwise all green means Approve.",
+    "Press any key after reviewing the answer to move on. The run ends after 3 errors.",
   ], []);
 
   function resetGameState() {
@@ -157,7 +173,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setDeadlineMs(null);
     setNowMs(Date.now());
     setResolvedAction(null);
-    setAdvanceAtMs(null);
+    setReviewEndsGame(false);
   }
 
   function handleClose() {
@@ -176,7 +192,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setDeadlineMs(now + START_TIME_MS);
     setNowMs(now);
     setResolvedAction(null);
-    setAdvanceAtMs(null);
+    setReviewEndsGame(false);
   }
 
   function advanceToNextForm(nextScore: number) {
@@ -188,7 +204,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setDeadlineMs(now + nextAllowedTime);
     setNowMs(now);
     setResolvedAction(null);
-    setAdvanceAtMs(null);
+    setReviewEndsGame(false);
   }
 
   function resolveForm(action: FormAction) {
@@ -198,16 +214,17 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
 
     const correct = action === currentForm.correctAction;
     const nextScore = correct ? score + 1 : score;
+    const nextErrors = correct ? errors : errors + 1;
     const now = Date.now();
 
     if (correct) {
       setScore(nextScore);
     } else {
-      setErrors((current) => current + 1);
+      setErrors(nextErrors);
     }
 
     setResolvedAction(action);
-    setAdvanceAtMs(now + REVIEW_DELAY_MS);
+    setReviewEndsGame(nextErrors >= MAX_ERRORS);
     setDeadlineMs(null);
     setNowMs(now);
   }
@@ -227,14 +244,6 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
       const nextNow = Date.now();
       setNowMs(nextNow);
 
-      if (advanceAtMs !== null) {
-        if (nextNow >= advanceAtMs) {
-          const nextScore = wasAnswerCorrect ? score : score;
-          advanceToNextForm(nextScore);
-        }
-        return;
-      }
-
       if (deadlineMs !== null && nextNow >= deadlineMs) {
         setPhase("gameOver");
         setDeadlineMs(null);
@@ -242,7 +251,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     }, 50);
 
     return () => window.clearInterval(interval);
-  }, [advanceAtMs, deadlineMs, phase, score, wasAnswerCorrect]);
+  }, [deadlineMs, phase]);
 
   useEffect(() => {
     if (phase !== "gameOver" || gameOverHandledRef.current) {
@@ -257,12 +266,25 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
   }, [dispatch, phase, score]);
 
   useEffect(() => {
-    if (!open || phase !== "playing" || isReviewingAnswer) {
+    if (!open || phase !== "playing") {
       return undefined;
     }
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.repeat || shouldIgnoreInputTarget(event.target)) {
+        return;
+      }
+
+      if (isReviewingAnswer) {
+        event.preventDefault();
+
+        if (reviewEndsGame) {
+          setPhase("gameOver");
+          setDeadlineMs(null);
+          return;
+        }
+
+        advanceToNextForm(score);
         return;
       }
 
@@ -277,7 +299,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isReviewingAnswer, open, phase, currentForm, score]);
+  }, [isReviewingAnswer, open, phase, reviewEndsGame, score]);
 
   return <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
     <DialogTitle>Bureaucratic Forms Review</DialogTitle>
@@ -285,7 +307,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
       {phase === "idle" && <Stack spacing={2}>
         <Typography variant="h6">Mandatory administrative excellence</Typography>
         <Typography color="text.secondary">
-          Review Super Earth paperwork under severe time pressure. Classify each form correctly before the desk clock expires.
+          Process a stream of Super Earth paperwork before the desk clock expires. Each form is built from several fields, and your job is to classify the whole form based on the most severe issue it contains.
         </Typography>
         <Box component="ul" sx={{ pl: 3, m: 0 }}>
           {instructions.map((instruction) => <Typography key={instruction} component="li">{instruction}</Typography>)}
@@ -359,7 +381,11 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
             </Grid>
 
             {isReviewingAnswer && <Typography color={wasAnswerCorrect ? "success.main" : "error.main"}>
-              {wasAnswerCorrect ? `Approved judgement recorded: ${resolvedAction}.` : `Incorrect. ${currentForm.correctAction} was required.`}
+              {wasAnswerCorrect
+                ? `Approved judgement recorded: ${resolvedAction}. Press any key to continue.`
+                : reviewEndsGame
+                  ? `Incorrect. ${currentForm.correctAction} was required. Press any key to close the desk after your third error.`
+                  : `Incorrect. ${currentForm.correctAction} was required. Press any key to continue.`}
             </Typography>}
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
