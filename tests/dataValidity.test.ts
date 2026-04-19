@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 import type { Faction, MissionLength, ObjectiveTag, Tier } from "../src/types.ts";
 
-type JsonObject = Record<string, unknown>;
+type JsonObject = Record<string, any>;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -241,7 +241,7 @@ test("public data files use valid schema keys and value types", async (t) => {
           assert.ok(item.stratagemCode.length > 0, `${context}.stratagemCode must not be empty`);
           item.stratagemCode.forEach((direction, directionIndex) => {
             assert.ok(
-              STRATAGEM_DIRECTIONS.includes(direction as string),
+              STRATAGEM_DIRECTIONS.includes(direction),
               `${context}.stratagemCode[${directionIndex}] must be a valid direction`,
             );
           });
@@ -481,7 +481,7 @@ test("public data files use valid schema keys and value types", async (t) => {
         const objective = asObject(entry, `objectives[${index}]`);
         const tierMap = asObject(objective.tier, `objectives[${index}].tier`);
         const taggedFactions = new Set(
-          ((objective.tags as unknown[] | undefined) ?? []).filter((tag): tag is string => factions.includes(tag)),
+          ((objective.tags as any[] | undefined) ?? []).filter((tag): tag is string => factions.includes(tag)),
         );
 
         assert.deepEqual(
