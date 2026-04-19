@@ -13,17 +13,21 @@ export default function Setup() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
   const missionsRequired = getMissionsRequiredForDifficulty(mission.difficulty);
-  const availableObjectives = getObjectives(FACTIONS[mission.faction], mission.difficulty);
+  const availableObjectives = getObjectives(FACTIONS[mission.faction], mission.difficulty)
+    .toSorted((a, b) => sortObjectives(a, b, mission));
+  const selectedObjective = availableObjectives.some((objective) => objective.displayName === mission.objective)
+    ? mission.objective
+    : (availableObjectives[0]?.displayName ?? "");
 
   function handleFaction(event: SelectChangeEvent<number>) {
     dispatch(setFaction({ value: Number(event.target.value) }));
-    dispatch(setObjective({ value: 0 }));
+    dispatch(setObjective({ value: '' }));
   }
   function handleDifficulty(event: SelectChangeEvent<number>) {
     dispatch(setDifficulty({ value: Number(event.target.value) }));
   }
-  function handleObjective(event: SelectChangeEvent<number>) {
-    dispatch(setObjective({ value: Number(event.target.value) }));
+  function handleObjective(event: SelectChangeEvent<string>) {
+    dispatch(setObjective({ value: event.target.value }));
   }
   function handleLockIn() {
     dispatch(setState({ value: 'generating' }));
@@ -66,19 +70,19 @@ export default function Setup() {
     <FormControl>
       <InputLabel>Objective</InputLabel>
       <Select
-        value={availableObjectives[mission.objective] ? mission.objective : 0}
+        value={selectedObjective}
         disabled={!briefState}
         label="Objective"
         onChange={handleObjective}
       >
-        {availableObjectives.toSorted((a, b) => sortObjectives(a, b, mission)).map((objective, i) =>
-          <MenuItem key={objective.displayName} value={i}>
+        {availableObjectives.map((objective) =>
+          <MenuItem key={objective.displayName} value={objective.displayName}>
             {(objective.tier[calculateFaction(mission)] ?? "d").toUpperCase()} - {objective.displayName}
           </MenuItem>)}
       </Select>
     </FormControl>
     <Typography>
-      Mission {mission.mission} of {missionsRequired}
+      Operation Mission {mission.mission} of {missionsRequired}
     </Typography>
     <Typography color="success">
       {missionReward}¢ (+ {questsReward}¢) Maximum Reward

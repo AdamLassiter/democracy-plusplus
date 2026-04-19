@@ -7,7 +7,7 @@ import type { RootState } from './index';
 
 const resetState = {
   faction: 0,
-  objective: 0,
+  objective: '',
   state: 'brief' as MissionStage,
 };
 const initialState: MissionState = {
@@ -29,16 +29,34 @@ function normaliseNumber(value: unknown, fallback: number) {
   return typeof value === 'number' && Number.isFinite(value) ? value : fallback;
 }
 
+function normaliseSeed(value: unknown, fallback: number) {
+  const normalised = Math.trunc(normaliseNumber(value, fallback));
+  return ((normalised % 65536) + 65536) % 65536;
+}
+
+function normaliseObjective(
+  value: unknown,
+  availableObjectives: ReturnType<typeof getObjectives>,
+) {
+  if (typeof value === 'string' && availableObjectives.some((objective) => objective.displayName === value)) {
+    return value;
+  }
+
+  if (typeof value === 'number' && Number.isInteger(value)) {
+    return availableObjectives[value]?.displayName ?? availableObjectives[0]?.displayName ?? '';
+  }
+
+  return availableObjectives[0]?.displayName ?? '';
+}
+
 function normaliseMissionState(state: Partial<MissionState>): MissionState {
   const faction = Math.max(0, Math.min(normaliseNumber(state.faction, initialState.faction), FACTIONS.length - 1));
   const difficulty = Math.max(0, normaliseNumber(state.difficulty, initialState.difficulty));
   const availableObjectives = getObjectives(FACTIONS[faction] ?? FACTIONS[0], difficulty);
-  const objective = Math.max(
-    0,
-    Math.min(normaliseNumber(state.objective, initialState.objective), Math.max(availableObjectives.length - 1, 0)),
-  );
+  const objective = normaliseObjective(state.objective, availableObjectives);
   const count = Math.max(1, normaliseNumber(state.count, initialState.count));
   const mission = Math.max(1, normaliseNumber(state.mission, initialState.mission));
+  const prng = normaliseSeed(state.prng, initialState.prng);
 
   return {
     ...initialState,
@@ -46,6 +64,7 @@ function normaliseMissionState(state: Partial<MissionState>): MissionState {
     faction,
     difficulty,
     objective,
+    prng,
     count,
     mission,
     factionLocked: Boolean(state.factionLocked),
@@ -62,7 +81,7 @@ const missionSlice = createSlice({
   reducers: {
     setPrng: (state, action: PayloadAction<{ value: number }>) => {
       const { value } = action.payload;
-      state.prng = value;
+      state.prng = normaliseSeed(value, initialState.prng);
     },
     setState: (state, action: PayloadAction<{ value: MissionStage }>) => {
       const { value } = action.payload;
@@ -79,8 +98,9 @@ const missionSlice = createSlice({
         return;
       }
       state.faction = value;
+      state.objective = '';
     },
-    setObjective: (state, action: PayloadAction<{ value: number }>) => {
+    setObjective: (state, action: PayloadAction<{ value: string }>) => {
       const { value } = action.payload;
       state.objective = value;
     },
@@ -90,7 +110,7 @@ const missionSlice = createSlice({
         return;
       }
       state.difficulty = value;
-      state.objective = 0;
+      state.objective = '';
     },
     setCount: (state, action: PayloadAction<{ value: number }>) => {
       const { value } = action.payload;
@@ -113,7 +133,7 @@ const missionSlice = createSlice({
 
       return normaliseMissionState({
         ...state,
-        objective: 0,
+        objective: '',
         state: 'brief' as MissionStage,
         count: state.count + 1,
         mission: unlockFaction ? 1 : state.mission + 1,

@@ -8,6 +8,11 @@ export function getObjectiveNames(faction: Faction) {
     .map(objective => objective.displayName);
 }
 
+export function getObjective(faction: Faction, displayName: string, difficulty?: number) {
+  return getObjectives(faction, difficulty)
+    .find((objective) => objective.displayName === displayName);
+}
+
 export function getObjectives(faction: Faction, difficulty?: number) {
   const difficultyLevel = difficulty === undefined ? undefined : difficulty + 1;
 

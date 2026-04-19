@@ -36,7 +36,8 @@
     "tags": [],
     "warbondCode": "warbond3",
     "internalName": "helldiversMobilizeWB",
-        "tier": "s"
+    "imageUrl": "",
+    "tier": "s"
   },
   {
     "displayName": "Steeled Veterans",
@@ -45,7 +46,8 @@
     "tags": [],
     "warbondCode": "warbond4",
     "internalName": "steeledVeteransWB",
-        "tier": "a"
+    "imageUrl": "",
+    "tier": "a"
   },
   {
     "displayName": "Cutting Edge",
@@ -54,7 +56,8 @@
     "tags": [],
     "warbondCode": "warbond5",
     "internalName": "cuttingEdgeWB",
-        "tier": "a"
+    "imageUrl": "",
+    "tier": "a"
   },
   {
     "displayName": "Democratic Detonation",
@@ -63,7 +66,8 @@
     "tags": [],
     "warbondCode": "warbond6",
     "internalName": "democraticDetonationWB",
-        "tier": "s"
+    "imageUrl": "",
+    "tier": "s"
   },
   {
     "displayName": "Polar Patriots",
@@ -72,7 +76,8 @@
     "tags": [],
     "warbondCode": "warbond7",
     "internalName": "polarPatriotsWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Viper Commandos",
@@ -81,7 +86,8 @@
     "tags": [],
     "warbondCode": "warbond8",
     "internalName": "viperCommandosWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Freedom's Flame",
@@ -90,7 +96,8 @@
     "tags": [],
     "warbondCode": "warbond9",
     "internalName": "freedomsFlameWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Chemical Agents",
@@ -99,7 +106,8 @@
     "tags": [],
     "warbondCode": "warbond10",
     "internalName": "chemicalAgentsWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Truth Enforcers",
@@ -108,7 +116,8 @@
     "tags": [],
     "warbondCode": "warbond11",
     "internalName": "truthEnforcersWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Urban Legends",
@@ -117,7 +126,8 @@
     "tags": [],
     "warbondCode": "warbond12",
     "internalName": "urbanLegendsWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Servants of Freedom",
@@ -126,7 +136,8 @@
     "tags": [],
     "warbondCode": "warbond13",
     "internalName": "servantsOfFreedomWB",
-        "tier": "a"
+    "imageUrl": "",
+    "tier": "a"
   },
   {
     "displayName": "Borderline Justice",
@@ -135,7 +146,8 @@
     "tags": [],
     "warbondCode": "warbond14",
     "internalName": "borderlineJusticeWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Masters of Ceremony",
@@ -144,7 +156,8 @@
     "tags": [],
     "warbondCode": "warbond15",
     "internalName": "mastersOfCeremonyWB",
-        "tier": "c"
+    "imageUrl": "",
+    "tier": "c"
   },
   {
     "displayName": "Force of Law",
@@ -153,7 +166,8 @@
     "tags": [],
     "warbondCode": "warbond16",
     "internalName": "forceOfLawWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Control Group",
@@ -162,25 +176,28 @@
     "tags": [],
     "warbondCode": "warbond17",
     "internalName": "controlGroupWB",
-        "tier": "a"
+    "imageUrl": "",
+    "tier": "a"
   },
   {
     "displayName": "Righteous Revenants",
     "type": "Warbond",
-    "category": "legendary",
+    "category": "",
     "tags": [],
     "warbondCode": "warbond18",
-    "internalName": "odstWB",
-        "tier": "b"
+    "internalName": "righteousRevenantsWB",
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Obedient Democracy Support Troopers",
     "type": "Warbond",
-    "category": "legendary",
+    "category": "",
     "tags": [],
     "warbondCode": "warbond19",
     "internalName": "odstWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Dust Devils",
@@ -189,7 +206,8 @@
     "tags": [],
     "warbondCode": "warbond20",
     "internalName": "dustdevilsWB",
-        "tier": "b"
+    "imageUrl": "",
+    "tier": "b"
   },
   {
     "displayName": "Python Commandos",

@@ -99,10 +99,10 @@ export default function Purchases() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>
-          {purchasedLists.map(([displayName]) => <Tab label={displayName} />)}
+          {purchasedLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
         </Tabs>
       </Box>
-      <Box paddingTop={1}>
+      <Box paddingTop={1} key={purchasedLists[value]?.[0] ?? "inventory"}>
         <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
         <PurchasedList items={filteredItems} equip={equip} />
       </Box>
@@ -111,9 +111,16 @@ export default function Purchases() {
 }
 
 function PurchasedList({ items, equip }: { items: Item[]; equip: (displayName: string) => void }) {
-  items.sort((a, b) => (a.category ?? '').localeCompare(b.category ?? '') || a.displayName.localeCompare(b.displayName));
+  const sortedItems = [...items]
+    .sort((a, b) => (a.category ?? '').localeCompare(b.category ?? '') || a.displayName.localeCompare(b.displayName));
 
   return <Grid direction="row" container spacing={1}>
-    {items.map(item => <ItemDisplay key={item.displayName} item={item} onClick={() => equip(item.displayName)} />)}
+    {sortedItems.map((item, index) => (
+      <ItemDisplay
+        key={`${item.displayName}-${index}`}
+        item={item}
+        onClick={() => equip(item.displayName)}
+      />
+    ))}
   </Grid>
 }

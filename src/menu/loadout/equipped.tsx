@@ -44,13 +44,15 @@ export default function Equipped() {
     </Box>
     <Grid direction="column" container spacing={1}>
       <Grid direction="row" container spacing={1}>
-        {primary ? <ItemDisplay item={getItem(primary)!} onClick={() => unequip(primary)} /> : <MissingPrimary />}
-        {secondary ? <ItemDisplay item={getItem(secondary)!} onClick={() => unequip(secondary)} /> : <MissingSecondary />}
-        {throwable ? <ItemDisplay item={getItem(throwable)!} onClick={() => unequip(throwable)} /> : <MissingThrowable />}
-        {armorPassive ? <ItemDisplay item={getItem(armorPassive)!} onClick={() => unequip(armorPassive)} /> : <MissingArmor />}
+        {primary ? <ItemDisplay key="primary" item={getItem(primary)!} onClick={() => unequip(primary)} /> : <MissingPrimary key="primary-missing" />}
+        {secondary ? <ItemDisplay key="secondary" item={getItem(secondary)!} onClick={() => unequip(secondary)} /> : <MissingSecondary key="secondary-missing" />}
+        {throwable ? <ItemDisplay key="throwable" item={getItem(throwable)!} onClick={() => unequip(throwable)} /> : <MissingThrowable key="throwable-missing" />}
+        {armorPassive ? <ItemDisplay key="armorPassive" item={getItem(armorPassive)!} onClick={() => unequip(armorPassive)} /> : <MissingArmor key="armor-missing" />}
         <Divider orientation="vertical" variant="middle" flexItem />
-        {stratagems.map(stratagem => stratagem ? <ItemDisplay key={stratagem} item={getItem(stratagem)!} onClick={() => unequip(stratagem)} /> : <MissingStratagem />)}
-        {booster ? <ItemDisplay item={getItem(booster)!} onClick={() => unequip(booster)} /> : <MissingBooster />}
+        {stratagems.map((stratagem, index) => stratagem
+          ? <ItemDisplay key={`stratagem-${index}-${stratagem}`} item={getItem(stratagem)!} onClick={() => unequip(stratagem)} />
+          : <MissingStratagem key={`stratagem-${index}-missing`} />)}
+        {booster ? <ItemDisplay key="booster" item={getItem(booster)!} onClick={() => unequip(booster)} /> : <MissingBooster key="booster-missing" />}
       </Grid>
     </Grid>
   </>;

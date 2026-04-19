@@ -22,7 +22,7 @@ export default function Brief() {
 
       dispatch(setQuests({ value: quests }));
       dispatch(setRestrictions({ value: restrictions }));
-      dispatch(setPrng({ value: prng.rand(0, 65536) }));
+      dispatch(setPrng({ value: mission.prng + 1 }));
       dispatch(setState({ value: 'loadout' }))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

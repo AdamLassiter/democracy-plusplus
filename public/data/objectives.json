@@ -624,7 +624,7 @@
     "tier": {
       "Terminids": "s",
       "Automatons": "s",
-      "Illuminate": null
+      "Illuminate": "s"
     },
     "minDifficulty": 5,
     "maxDifficulty": 10,

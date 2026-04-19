@@ -50,6 +50,7 @@ export default function CartManager() {
 
   function handleClear() {
     dispatch(clearCart());
+    setOpen(false);
   }
 
   function handleCheckout() {

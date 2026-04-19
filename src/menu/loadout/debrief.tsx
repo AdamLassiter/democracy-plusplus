@@ -15,7 +15,7 @@ import { addMissionLogEntry } from "../../slices/logSlice";
 import { selectTierList } from "../../slices/tierListSlice";
 import { getItem } from "../../constants";
 import { FACTIONS } from "../../constants/factions";
-import { getObjectives } from "../../constants/objectives";
+import { getObjective } from "../../constants/objectives";
 import type { Item, Quest, Restriction } from "../../types";
 
 export default function Debrief() {
@@ -53,7 +53,7 @@ export default function Debrief() {
 
   function handleSubmit() {
     setOpen(false);
-    const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
+    const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
     const usedItems = [
       equipment.primary,
       equipment.secondary,

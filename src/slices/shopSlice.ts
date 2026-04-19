@@ -27,10 +27,19 @@ function normaliseCartEntry(item: { displayName?: string; cost?: number } | null
   };
 }
 
+function normaliseStock(displayName: string, stock: unknown) {
+  if (typeof stock === 'number' && Number.isFinite(stock) && stock >= 0) {
+    return stock;
+  }
+
+  return calculateItemStock(displayName);
+}
+
 function incrementInventoryStock(items: ShopItem[], displayName: string) {
   const target = items.find((item) => item.displayName === displayName);
   if (target) {
-    target.stock = (target.stock ?? 0) + 1;
+    const currentStock = normaliseStock(displayName, target.stock);
+    target.stock = currentStock === Infinity ? Infinity : currentStock + 1;
   }
 }
 
@@ -49,6 +58,10 @@ function hydrateCartItem(item: CartEntry): ShopItem | null {
 function normaliseShopState(state: ShopState): ShopState {
   return {
     ...state,
+    inventory: (state.inventory || []).map((item) => ({
+      ...item,
+      stock: normaliseStock(item.displayName, item.stock),
+    })),
     cart: (state.cart || []).map(normaliseCartEntry).filter((item): item is CartEntry => item !== null),
   };
 }

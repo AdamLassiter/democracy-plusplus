@@ -43,7 +43,7 @@ export default function Menu() {
   const { credits } = useSelector(selectCredits);
 
   const mission = useSelector(selectMission);
-  const { mission: missionNumber } = mission;
+  const { count: missionCount } = mission;
 
   const tabs: Array<(props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
   const CurrentTab = tabs[currentTab];
@@ -133,7 +133,7 @@ export default function Menu() {
         >
           <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Tooltip title="Achievements">
-            <Typography>Mission {missionNumber}</Typography>
+            <Typography>Mission: {missionCount}</Typography>
           </Tooltip>
         </ButtonBase>
         <Box sx={{ display: 'flex', gap: 1 }}>

@@ -131,11 +131,11 @@ function tieredCrate(grade: Tier, category: EquipmentCategory | "Stratagem", cos
 
 export function supplyCrates(): CrateItem[] {
   return [
-    tieredCrate('a', 'primary', 25),
-    tieredCrate('b', 'primary', 20),
-    tieredCrate('c', 'primary', 15),
-    tieredCrate('a', 'Stratagem', 25),
-    tieredCrate('b', 'Stratagem', 20),
-    tieredCrate('c', 'Stratagem', 15),
+    tieredCrate('a', 'primary', 20),
+    tieredCrate('b', 'primary', 15),
+    tieredCrate('c', 'primary', 10),
+    tieredCrate('a', 'Stratagem', 20),
+    tieredCrate('b', 'Stratagem', 15),
+    tieredCrate('c', 'Stratagem', 10),
   ];
 }

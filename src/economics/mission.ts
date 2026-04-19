@@ -1,6 +1,6 @@
 import { RESTRICTIONS } from "../constants/restrictions";
 import { QUESTS } from "../constants/quests";
-import { getObjectives } from "../constants/objectives";
+import { getObjective } from "../constants/objectives";
 import { FACTIONS } from "../constants/factions";
 import type { Faction, MissionState, Quest, Restriction, Tier } from "../types";
 
@@ -44,7 +44,11 @@ function restrictionTier(restriction: Restriction) {
 }
 
 function descriptionOptions(item: Pick<Quest | Restriction, "description" | "descriptions">) {
-  return item.descriptions?.length ? item.descriptions : [item.description];
+  if (item.descriptions?.length) {
+    return item.descriptions;
+  }
+
+  return item.description ? [item.description] : [];
 }
 
 function withRandomDescription<T extends Quest | Restriction>(
@@ -52,7 +56,9 @@ function withRandomDescription<T extends Quest | Restriction>(
   prng: { rand(min: number, max?: number): number },
 ): T {
   const options = descriptionOptions(item);
-  const description = options[prng.rand(options.length - 1)] ?? item.description;
+  const description = options.length
+    ? (options[prng.rand(options.length - 1)] ?? item.description ?? "")
+    : (item.description ?? "");
 
   return {
     ...item,
@@ -61,8 +67,8 @@ function withRandomDescription<T extends Quest | Restriction>(
 }
 
 function getObjectiveModeTags(mission: MissionState) {
-  const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
-  const tags = objective.tags ?? [];
+  const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
+  const tags = objective?.tags ?? [];
 
   return {
     eradicate: tags.includes("Eradicate"),
@@ -115,7 +121,7 @@ function randomChoice<T>(items: T[], prng: { rand(min: number, max?: number): nu
 }
 
 export function calculateMissionTier(mission: MissionState): Tier {
-  const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
+  const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
   const faction = calculateFaction(mission);
   return objective?.tier[faction] ?? "d";
 }
@@ -296,25 +302,15 @@ function questValuesForMission(mission: MissionState, quest: Quest) {
     return undefined;
   }
 
-  const objective = getObjectives(FACTIONS[mission.faction], mission.difficulty)[mission.objective];
-  const isShortMission = objective.missionLength === "short"
-    || (objective.missionLength === undefined && (modeTags.eradicate || modeTags.blitz || modeTags.commando));
+  const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
+  const isShortMission = objective?.missionLength === "short"
+    || (objective?.missionLength === undefined && (modeTags.eradicate || modeTags.blitz || modeTags.commando));
 
   if (!isShortMission) {
     return quest.values;
   }
 
-  if (modeTags.eradicate) {
-    return quest.eradicateValues ?? quest.values;
-  }
-  if (modeTags.blitz) {
-    return quest.blitzValues ?? quest.values;
-  }
-  if (modeTags.commando) {
-    return quest.commandoValues ?? quest.values;
-  }
-
-  return quest.values;
+  return quest.shortValues ?? quest.values;
 }
 
 function shortObjectiveImpliesShortQuest(mission: MissionState, quest: Quest): Quest | undefined {
