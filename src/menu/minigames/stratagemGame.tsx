@@ -12,9 +12,12 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 import { STRATAGEMS } from "../../constants/stratagems";
 import { ItemIcon } from "../../itemDisplay";
 import { StratagemCodeDisplay, isStratagemDirection, normalizeStratagemInput, type StratagemDirection } from "../../stratagemCode";
+import { unlockAchievements } from "../../slices/achievementsSlice";
+import { recordStratagemDrillScore, selectMinigames } from "../../slices/minigamesSlice";
 import type { Item } from "../../types";
 
 type GamePhase = "idle" | "playing" | "gameOver";
@@ -65,6 +68,8 @@ function shouldIgnoreInputTarget(target: EventTarget | null) {
 }
 
 export default function StratagemGame({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const dispatch = useDispatch();
+  const { stratagemDrillBestScore } = useSelector(selectMinigames);
   const [phase, setPhase] = useState<GamePhase>("idle");
   const [visibleStratagems, setVisibleStratagems] = useState<PlayableStratagem[]>([]);
   const [progress, setProgress] = useState(0);
@@ -75,11 +80,11 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
   const [nowMs, setNowMs] = useState(Date.now());
   const [flashErrorUntil, setFlashErrorUntil] = useState<number | null>(null);
   const errorTimeoutRef = useRef<number | null>(null);
+  const gameOverHandledRef = useRef(false);
 
   const remainingTimeMs = phase === "playing" && deadlineMs !== null
     ? Math.max(0, deadlineMs - nowMs)
     : allowedTimeMs;
-  const activeStratagem = visibleStratagems[0];
   const isFlashingError = flashErrorUntil !== null && flashErrorUntil > nowMs;
   const progressPercent = allowedTimeMs > 0 ? (remainingTimeMs / allowedTimeMs) * 100 : 0;
 
@@ -98,6 +103,7 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
 
   function resetGameState() {
     clearErrorTimeout();
+    gameOverHandledRef.current = false;
     setPhase("idle");
     setVisibleStratagems([]);
     setProgress(0);
@@ -127,6 +133,7 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
     setDeadlineMs(now + START_TIME_MS);
     setNowMs(now);
     setFlashErrorUntil(null);
+    gameOverHandledRef.current = false;
   }
 
   function advanceQueue(currentQueue: PlayableStratagem[]) {
@@ -143,6 +150,18 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
 
     return () => clearErrorTimeout();
   }, [open]);
+
+  useEffect(() => {
+    if (phase !== "gameOver" || gameOverHandledRef.current) {
+      return;
+    }
+
+    gameOverHandledRef.current = true;
+    dispatch(recordStratagemDrillScore({ value: completedCount }));
+    if (completedCount >= 20) {
+      dispatch(unlockAchievements({ value: ["stratagem-drill-ace"] }));
+    }
+  }, [completedCount, dispatch, phase]);
 
   useEffect(() => {
     if (phase !== "playing" || deadlineMs === null) {
@@ -319,6 +338,8 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
         <Typography variant="h4">Time&apos;s up</Typography>
         <Typography variant="h6">Score: {completedCount}</Typography>
         <Typography color="text.secondary">Errors: {errors}</Typography>
+        <Typography color="text.secondary">Best Score: {Math.max(stratagemDrillBestScore, completedCount)}</Typography>
+        {completedCount > stratagemDrillBestScore && <Typography color="success.main">New record</Typography>}
       </Stack>}
     </DialogContent>
     <DialogActions>

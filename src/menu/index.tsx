@@ -12,30 +12,13 @@ import Settings from './settings';
 import WarbondsFilter from './warbonds';
 import Help from './help';
 import type { ReactElement } from 'react';
-import StratagemGame from './stratagemGame';
+import StratagemGame from './minigames/stratagemGame';
 import AchievementsDialog from './achievements';
+import FormsGame from './minigames/formsGame';
+import { nextSecretSequenceIndex, normalizeArrowKey, shouldIgnoreSecretTarget } from '../secretCode';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
-
-function shouldIgnoreUnlockTarget(target: EventTarget | null) {
-  if (!(target instanceof HTMLElement)) {
-    return false;
-  }
-
-  const tagName = target.tagName;
-  return target.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA";
-}
-
-function normalizeUnlockKey(key: string) {
-  const keyMap = {
-    ArrowUp: "Up",
-    ArrowDown: "Down",
-    ArrowLeft: "Left",
-    ArrowRight: "Right",
-  } as const;
-
-  return keyMap[key as keyof typeof keyMap] ?? null;
-}
+const FORMS_SEQUENCE = ["Up", "Right", "Down", "Down", "Down", "Down", "Down", "Down"] as const;
 
 type MenuTabProps = {
   index: number;
@@ -45,9 +28,13 @@ export default function Menu() {
   const [currentTab, setCurrentTab] = useState(0);
   const [isStratagemGameUnlocked, setIsStratagemGameUnlocked] = useState(false);
   const [isStratagemGameOpen, setIsStratagemGameOpen] = useState(false);
+  const [isFormsGameUnlocked, setIsFormsGameUnlocked] = useState(false);
+  const [isFormsGameOpen, setIsFormsGameOpen] = useState(false);
   const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
-  const sequenceIndexRef = useRef(0);
-  const lastKeyTimeRef = useRef(0);
+  const stratagemSequenceIndexRef = useRef(0);
+  const stratagemLastKeyTimeRef = useRef(0);
+  const formsSequenceIndexRef = useRef(0);
+  const formsLastKeyTimeRef = useRef(0);
 
   function handleTabChange(_event: SyntheticEvent, newValue: number) {
     setCurrentTab(newValue);
@@ -62,48 +49,61 @@ export default function Menu() {
   const CurrentTab = tabs[currentTab];
 
   useEffect(() => {
-    if (isStratagemGameOpen) {
-      sequenceIndexRef.current = 0;
-      lastKeyTimeRef.current = 0;
+    if (isStratagemGameOpen || isFormsGameOpen) {
+      stratagemSequenceIndexRef.current = 0;
+      stratagemLastKeyTimeRef.current = 0;
+      formsSequenceIndexRef.current = 0;
+      formsLastKeyTimeRef.current = 0;
       return undefined;
     }
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.repeat || shouldIgnoreUnlockTarget(event.target)) {
+      if (event.repeat || shouldIgnoreSecretTarget(event.target)) {
         return;
       }
 
-      const input = normalizeUnlockKey(event.key);
+      const input = normalizeArrowKey(event.key);
       if (!input) {
         return;
       }
 
       const now = Date.now();
-      const timedOut = sequenceIndexRef.current > 0 && now - lastKeyTimeRef.current > 1000;
-      if (timedOut) {
-        sequenceIndexRef.current = 0;
+      const stratagemState = nextSecretSequenceIndex(
+        input,
+        KONAMI_SEQUENCE,
+        stratagemSequenceIndexRef.current,
+        stratagemLastKeyTimeRef.current,
+        now,
+        1000,
+      );
+      stratagemSequenceIndexRef.current = stratagemState.index;
+      stratagemLastKeyTimeRef.current = stratagemState.lastKeyTime;
+      if (stratagemState.completed) {
+        setIsStratagemGameUnlocked(true);
+        stratagemSequenceIndexRef.current = 0;
+        stratagemLastKeyTimeRef.current = 0;
       }
 
-      const expected = KONAMI_SEQUENCE[sequenceIndexRef.current];
-      if (input === expected) {
-        sequenceIndexRef.current += 1;
-        lastKeyTimeRef.current = now;
-
-        if (sequenceIndexRef.current === KONAMI_SEQUENCE.length) {
-          setIsStratagemGameUnlocked(true);
-          sequenceIndexRef.current = 0;
-          lastKeyTimeRef.current = 0;
-        }
-        return;
+      const formsState = nextSecretSequenceIndex(
+        input,
+        FORMS_SEQUENCE,
+        formsSequenceIndexRef.current,
+        formsLastKeyTimeRef.current,
+        now,
+        1000,
+      );
+      formsSequenceIndexRef.current = formsState.index;
+      formsLastKeyTimeRef.current = formsState.lastKeyTime;
+      if (formsState.completed) {
+        setIsFormsGameUnlocked(true);
+        formsSequenceIndexRef.current = 0;
+        formsLastKeyTimeRef.current = 0;
       }
-
-      sequenceIndexRef.current = input === KONAMI_SEQUENCE[0] ? 1 : 0;
-      lastKeyTimeRef.current = sequenceIndexRef.current ? now : 0;
     }
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isStratagemGameOpen]);
+  }, [isFormsGameOpen, isStratagemGameOpen]);
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -152,6 +152,11 @@ export default function Menu() {
               <img src={`${import.meta.env.BASE_URL}images/icons/stopwatch.svg`} alt="Stratagem Drill" style={{ width: 24, height: 24 }} />
             </IconButton>
           </Tooltip>}
+          {isFormsGameUnlocked && <Tooltip title="Bureaucratic Forms">
+            <IconButton color="primary" onClick={() => setIsFormsGameOpen(true)}>
+              <img src={`${import.meta.env.BASE_URL}images/icons/file-check.svg`} alt="Bureaucratic Forms" style={{ width: 24, height: 24 }} />
+            </IconButton>
+          </Tooltip>}
           <WarbondsFilter />
           <Settings />
           <Help />
@@ -162,6 +167,7 @@ export default function Menu() {
         <CurrentTab index={currentTab} />
       </Box>
       <AchievementsDialog open={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)} />
+      <FormsGame open={isFormsGameOpen} onClose={() => setIsFormsGameOpen(false)} />
       <StratagemGame open={isStratagemGameOpen} onClose={() => setIsStratagemGameOpen(false)} />
     </Box>
   );

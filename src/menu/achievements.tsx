@@ -11,7 +11,7 @@ export default function AchievementsDialog({ open, onClose }: { open: boolean; o
     <DialogContent>
       <Grid container direction="column" spacing={1}>
         <Typography color="text.secondary">
-          Unlock achievements by completing themed missions. Progress persists until you use Reset State.
+          Unlock achievements through themed missions and classified training exercises. Progress persists until you use Reset State.
         </Typography>
         <List sx={{ p: 0 }}>
           {ACHIEVEMENTS.map((achievement) => {

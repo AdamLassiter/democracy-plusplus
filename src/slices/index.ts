@@ -5,6 +5,7 @@ import achievementsReducer from './achievementsSlice';
 import creditsReducer from './creditsSlice';
 import equipmentReducer from './equipmentSlice';
 import logReducer from './logSlice';
+import minigamesReducer from './minigamesSlice';
 import missionReducer from './missionSlice';
 import preferencesReducer from './preferencesSlice';
 import purchasedReducer from './purchasedSlice';
@@ -22,6 +23,7 @@ const appReducer = combineReducers({
   credits: creditsReducer,
   equipment: equipmentReducer,
   log: logReducer,
+  minigames: minigamesReducer,
   mission: missionReducer,
   preferences: preferencesReducer,
   purchased: purchasedReducer,

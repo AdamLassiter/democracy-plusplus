@@ -7,6 +7,7 @@ import { setCreditsState } from "../../slices/creditsSlice";
 import { setEquipmentState } from "../../slices/equipmentSlice";
 import { setPurchasedState } from "../../slices/purchasedSlice";
 import { setShopState } from "../../slices/shopSlice";
+import { setMinigamesState } from "../../slices/minigamesSlice";
 import type { RootState } from "../../slices";
 import styled from "@emotion/styled";
 import { Button, FormLabel, Grid } from "@mui/material";
@@ -77,6 +78,7 @@ export default function ImportExport() {
         if (importedState.preferences) dispatch(setPreferencesState(importedState.preferences));
         if (importedState.purchased) dispatch(setPurchasedState(importedState.purchased));
         if (importedState.shop) dispatch(setShopState(importedState.shop));
+        if (importedState.minigames) dispatch(setMinigamesState(importedState.minigames));
       } catch (err) {
         alert(`Failed to import state: ${err}`);
       }

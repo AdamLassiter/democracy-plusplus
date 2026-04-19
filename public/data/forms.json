@@ -1,0 +1,308 @@
+[
+  {
+    "title": "Form C-01: Additional Ammunition Request",
+    "subtitle": "Supply Requisition",
+    "possibleFields": [
+      {
+        "label": "Requesting Ministry",
+        "success": ["Defense", "Defense Logistics", "Orbital Supply Corps"],
+        "warning": ["Patriotic Festivities", "Ceremonial Affairs", "Historical Reenactment Office"],
+        "error": ["Unknown", "Personal Collection", "Enemy Liaison Desk"]
+      },
+      {
+        "label": "Authorization Stamp",
+        "success": ["PRESENT", "TRIPLE-STAMPED", "VERIFIED"],
+        "warning": ["SMUDGED", "PARTIAL", "EXPIRED"],
+        "error": ["MISSING", "FORGED", "DRAWN IN CRAYON"]
+      },
+      {
+        "label": "Reason",
+        "success": ["Active warzone shortage", "Frontline escalation", "Approved siege response"],
+        "warning": ["Training surplus", "Inspirational live-fire rehearsal", "Quartermaster curiosity"],
+        "error": ["Confetti cannon rehearsal", "Personal collection upgrade", "Vibes-based stockpiling"]
+      },
+      {
+        "label": "Requested Volume",
+        "success": ["Mission-standard", "Within ration", "Audited quantity"],
+        "warning": ["Above guidance", "Optimistic", "Requires supervisor initials"],
+        "error": ["Unlimited", "Everything", "As much as fits in a parade float"]
+      },
+      {
+        "label": "Delivery Destination",
+        "success": ["Forward bunker", "Authorized destroyer", "Supply drop zone"],
+        "warning": ["Temporary platform", "Shared parade hangar", "Unlabeled crate stack"],
+        "error": ["Private residence", "Unmarked tunnel", "Suspiciously festive warehouse"]
+      }
+    ]
+  },
+  {
+    "title": "Form P-44: Parade Munitions Allocation",
+    "subtitle": "Ceremonial Priority Filing",
+    "possibleFields": [
+      {
+        "label": "Parade Type",
+        "success": ["Victory commemoration", "Liberation anniversary", "Medal ceremony"],
+        "warning": ["Seasonal morale event", "Civic rehearsal", "Influencer appearance"],
+        "error": ["Confetti artillery showcase", "Private gala", "Unauthorized yacht parade"]
+      },
+      {
+        "label": "Authorization Stamp",
+        "success": ["PRESENT", "COUNTERSIGNED", "ARCHIVED"],
+        "warning": ["PENDING", "SMUDGED", "Signed by intern"],
+        "error": ["MISSING", "REVOKED", "Stamped 'trust me'"]
+      },
+      {
+        "label": "Munitions Category",
+        "success": ["Blank rounds", "Ceremonial flares", "Sound-only charges"],
+        "warning": ["Limited explosive salute", "Prototype pyrotechnics", "Demonstration shells"],
+        "error": ["Live anti-tank payloads", "Orbital shells", "Whatever was left in storage"]
+      },
+      {
+        "label": "Spectator Clearance",
+        "success": ["Military only", "Restricted seating", "Screened attendance"],
+        "warning": ["Mixed civilian seating", "Tour approved", "Some children present"],
+        "error": ["Open public access", "No barriers", "Influencer meet-and-greet"]
+      },
+      {
+        "label": "Supervisor Note",
+        "success": ["Within acceptable spectacle", "Politically useful", "Approved for broadcast"],
+        "warning": ["May prompt questions", "Requires deniability", "Budget sensitivity noted"],
+        "error": ["Do not audit", "Delete after firing", "Can probably outrun it"]
+      }
+    ]
+  },
+  {
+    "title": "Form E-17: Civilian Promotion Petition",
+    "subtitle": "Merit Advancement Review",
+    "possibleFields": [
+      {
+        "label": "Citizen Status",
+        "success": ["Patriotic exemplar", "Consistently obedient", "Vetted volunteer"],
+        "warning": ["Questionably enthusiastic", "Recently re-educated", "Pending morale review"],
+        "error": ["Unregistered", "Actively sarcastic", "Seen asking follow-up questions"]
+      },
+      {
+        "label": "Background Check",
+        "success": ["CLEAR", "ARCHIVED", "TRUTH-VERIFIED"],
+        "warning": ["PARTIAL", "Delayed", "Cross-ministry mismatch"],
+        "error": ["FAILED", "MISSING", "Replaced with doodle"]
+      },
+      {
+        "label": "Recommendation",
+        "success": ["Filed by superior", "Filed by ministry lead", "Filed by hero of Super Earth"],
+        "warning": ["Filed by cousin", "Self-submitted", "Filed by local mascot"],
+        "error": ["Submitted anonymously", "Authored by enemy prisoner", "Signed 'trust vibes'"]
+      },
+      {
+        "label": "Reason for Promotion",
+        "success": ["Outstanding logistics", "Heroic supply escort", "Exceptional form retention"],
+        "warning": ["Strong handshake", "Photogenic profile", "Popular with auditors"],
+        "error": ["Knows someone important", "Lost original petition", "Feels ready"]
+      },
+      {
+        "label": "Truth Compliance",
+        "success": ["Certified", "Daily recitation confirmed", "No deviations noted"],
+        "warning": ["Needs refresher", "Inconsistent volume", "Skipped one slogan"],
+        "error": ["Noncompliant", "Invented own slogan", "Asked for evidence"]
+      }
+    ]
+  },
+  {
+    "title": "Form T-09: Terminid Specimen Transfer",
+    "subtitle": "Research Logistics",
+    "possibleFields": [
+      {
+        "label": "Containment Status",
+        "success": ["SEALED", "TRIPLE-LATCHED", "ACID-PROOFED"],
+        "warning": ["Vibrating", "Leaking slightly", "Making noises"],
+        "error": ["OPEN", "CHEWED THROUGH", "MISSING"]
+      },
+      {
+        "label": "Clearance",
+        "success": ["SCIENCE-4", "BIOHAZARD-3", "RESEARCH PRIORITY"],
+        "warning": ["Pending signature", "Cross-ministry dispute", "Expired yesterday"],
+        "error": ["None", "Written on napkin", "Classified 'probably fine'"]
+      },
+      {
+        "label": "Destination",
+        "success": ["Explosive Research Wing", "Approved vivarium", "Incineration annex"],
+        "warning": ["Temporary freezer", "Shared docking bay", "Overflow corridor"],
+        "error": ["Cafeteria", "Kindergarten tour", "Public transport queue"]
+      },
+      {
+        "label": "Specimen Mood",
+        "success": ["Sedated", "Dormant", "Politically compliant"],
+        "warning": ["Agitated", "Drooling", "Possibly fertile"],
+        "error": ["Escaping", "Multiplying", "Has tasted staff"]
+      },
+      {
+        "label": "Escort Detail",
+        "success": ["Armed", "Armored", "Recently briefed"],
+        "warning": ["Late", "Partially armed", "Borrowed from parade duty"],
+        "error": ["Absent", "Intern only", "Also being transported"]
+      }
+    ]
+  },
+  {
+    "title": "Form U-22: Unauthorized Cape Replacement",
+    "subtitle": "Uniform Variance",
+    "possibleFields": [
+      {
+        "label": "Reason",
+        "success": ["Combat damage", "Biohazard contamination", "Official ceremony issue"],
+        "warning": ["Aesthetic mismatch", "Minor scuffing", "Wanted fresher fringe"],
+        "error": ["Cape felt unfashionable", "Clashed with boots", "Wanted to stand out"]
+      },
+      {
+        "label": "Signature",
+        "success": ["Quartermaster approved", "Commanding officer approved", "Uniform board approved"],
+        "warning": ["Pending", "Unreadable", "Signed by roommate"],
+        "error": ["SELF-APPROVED", "Signed 'future me'", "No signature"]
+      },
+      {
+        "label": "Replacement Color",
+        "success": ["Regulation", "Ceremonial issue", "Campaign-standard"],
+        "warning": ["Experimental trim", "Legacy stock", "Slightly brighter"],
+        "error": ["Custom neon", "Designer pattern", "Enemy faction chic"]
+      },
+      {
+        "label": "Propaganda Impact",
+        "success": ["Positive", "Brand-consistent", "Morale boosting"],
+        "warning": ["Uncertain", "Potential meme risk", "Regional variance"],
+        "error": ["Disruptive", "Mockable", "Causes ideological confusion"]
+      }
+    ]
+  },
+  {
+    "title": "Form I-88: Illuminate Artifact Retention",
+    "subtitle": "Contraband Evaluation",
+    "possibleFields": [
+      {
+        "label": "Item Status",
+        "success": ["Inert", "Contained", "Properly blessed"],
+        "warning": ["Whispers softly", "Warm to touch", "Moves when ignored"],
+        "error": ["Actively levitating", "Speaking in taxpayer voices", "Trying to leave"]
+      },
+      {
+        "label": "Purity Scan",
+        "success": ["CLEAR", "NO ANOMALY", "PATRIOTICALLY BENIGN"],
+        "warning": ["INCONCLUSIVE", "GLITCHING", "REQUIRES REPEAT"],
+        "error": ["FAILED", "MELTED SCANNER", "REDACTED ITSELF"]
+      },
+      {
+        "label": "Citizen Exposure",
+        "success": ["Minimal", "Gloved handling only", "No direct contact"],
+        "warning": ["Extended", "Shared transport", "Prolonged eye contact"],
+        "error": ["Unsupervised", "Public display", "Licked by recruit"]
+      },
+      {
+        "label": "Containment Advice",
+        "success": ["Archive", "Science vault", "Destroy after cataloguing"],
+        "warning": ["Escalate to psy-ops", "Observe remotely", "Do not hum near it"],
+        "error": ["Keep in break room", "Use as lamp", "Ask it for directions"]
+      },
+      {
+        "label": "Recovered From",
+        "success": ["Approved battlefield site", "Quarantined vault", "Sanitized ruin"],
+        "warning": ["Personal locker", "Unmarked crate", "Suspiciously tidy altar"],
+        "error": ["Civilian backpack", "Marketplace stall", "Officer's desk"]
+      }
+    ]
+  },
+  {
+    "title": "Form M-12: Motivational Poster Reissue",
+    "subtitle": "Morale Materials",
+    "possibleFields": [
+      {
+        "label": "Poster Slogan",
+        "success": ["WORK HARDER, DIE LATER", "VICTORY LOVES PAPERWORK", "DEMOCRACY IS NEVER OFF DUTY"],
+        "warning": ["WORK SOMETIMES", "MAYBE LIBERTY", "TRY YOUR BEST"],
+        "error": ["QUESTION AUTHORITY", "UNIONIZE FOR PEACE", "ENEMY HAS POINTS"]
+      },
+      {
+        "label": "Approval Seal",
+        "success": ["MINISTRY OF TRUTH", "MORALE BUREAU", "PATRIOTIC MEDIA OFFICE"],
+        "warning": ["UNVERIFIED", "OUTDATED", "LOCAL PRINT SHOP"],
+        "error": ["COUNTERFEIT", "HAND-DRAWN", "STAMPED 'YOLO'"]
+      },
+      {
+        "label": "Distribution Scope",
+        "success": ["Barracks only", "Briefing halls", "Approved transports"],
+        "warning": ["Public transit", "Children's classrooms", "Civilian cafes"],
+        "error": ["Enemy territory", "Black market", "Unlicensed tattoo parlor"]
+      },
+      {
+        "label": "Image Subject",
+        "success": ["Helldiver silhouette", "Flag raising", "Perfectly square jaw"],
+        "warning": ["Ambiguous explosion", "Artist interpretation", "Stylized accountant"],
+        "error": ["Enemy sympathizer", "Sad clown", "Unclear squid geometry"]
+      }
+    ]
+  },
+  {
+    "title": "Form B-73: Budget Reclamation Notice",
+    "subtitle": "Fiscal Rectification",
+    "possibleFields": [
+      {
+        "label": "Requested By",
+        "success": ["Audit office", "Treasury liaison", "Budget emergency board"],
+        "warning": ["Three separate accountants", "Acting treasurer", "Volunteer auditor"],
+        "error": ["Anonymous", "Concerned influencer", "Guy named Steve"]
+      },
+      {
+        "label": "Supporting Documents",
+        "success": ["Attached", "Cross-referenced", "Stamped and indexed"],
+        "warning": ["Incomplete", "Out of order", "Heavily redacted"],
+        "error": ["42 pages, all blank", "Missing", "Soaked in coffee"]
+      },
+      {
+        "label": "Recovery Target",
+        "success": ["Unused surplus", "Expired vouchers", "Parade overspend"],
+        "warning": ["Active payroll", "Ongoing research", "Frontline reserve"],
+        "error": ["All salaries", "All ammunition", "The moon budget"]
+      },
+      {
+        "label": "Urgency",
+        "success": ["Quarter close", "Audit deadline", "Ministerial request"],
+        "warning": ["Soon-ish", "When possible", "Preferred before lunch"],
+        "error": ["Panic", "Vibes", "Because I said so"]
+      }
+    ]
+  },
+  {
+    "title": "Form X-31: Battlefield Miracle Claim",
+    "subtitle": "Incident Certification",
+    "possibleFields": [
+      {
+        "label": "Witness Statements",
+        "success": ["Consistent", "Signed", "Cross-verified"],
+        "warning": ["CONFLICTING", "Incomplete", "Translated twice"],
+        "error": ["None", "Mutually accusatory", "Written by enemy"]
+      },
+      {
+        "label": "Video Footage",
+        "success": ["PRESENT", "CLEAR", "BROADCAST SAFE"],
+        "warning": ["BLURRY", "CUT OFF", "Contains screaming"],
+        "error": ["MISSING", "Burned", "Replaced with cooking show"]
+      },
+      {
+        "label": "Political Sensitivity",
+        "success": ["Low", "Manageable", "Narratively useful"],
+        "warning": ["HIGH", "Needs review", "Likely to raise questions"],
+        "error": ["Catastrophic", "Embarrassing", "Directly contradicts a speech"]
+      },
+      {
+        "label": "Miracle Category",
+        "success": ["Unlikely survival", "Timely explosion", "Improbable paperwork"],
+        "warning": ["Divine coincidence", "Suspicious timing", "Too inspirational"],
+        "error": ["Physics violation", "Budget resurrection", "Talking shell casing"]
+      },
+      {
+        "label": "Recommended Response",
+        "success": ["Archive", "Publicize", "Reward carefully"],
+        "warning": ["Escalate", "Hide for now", "Rewrite statement"],
+        "error": ["Deny immediately", "Blame weather", "Delete witnesses"]
+      }
+    ]
+  }
+]

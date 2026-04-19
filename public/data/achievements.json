@@ -22,11 +22,21 @@
   {
     "id": "all-laser",
     "displayName": "The Shark with Fricking Laser Beams",
-    "description": "Complete a mission using only laser-themed equipment and stratagems."
+    "description": "Complete a mission using mostly laser-themed equipment and stratagems."
   },
   {
     "id": "all-expendable",
     "displayName": "The Trash Panda",
-    "description": "Complete a mission using only expendable-themed equipment and stratagems."
+    "description": "Complete a mission using only expendable-themed stratagems."
+  },
+  {
+    "id": "stratagem-drill-ace",
+    "displayName": "The Strategist",
+    "description": "Reach a score of 20 in the Stratagem Drill minigame."
+  },
+  {
+    "id": "bureaucratic-forms-ace",
+    "displayName": "The Bereaucrat",
+    "description": "Reach a score of 20 in the Bureaucratic Forms minigame."
   }
 ]

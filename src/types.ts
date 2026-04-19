@@ -71,6 +71,7 @@ export interface Objective extends Omit<BaseItem, 'tier'> {
 }
 
 export interface Quest extends BaseItem {
+  description: string;
   descriptions?: string[];
   category: string;
   rewards?: number[];
@@ -85,6 +86,7 @@ export interface Quest extends BaseItem {
 }
 
 export interface Restriction extends Omit<BaseItem, 'tier'> {
+  description: string;
   descriptions?: string[];
   category: string;
   tier: Tier | null;
@@ -111,8 +113,26 @@ export interface AchievementDefinition {
   description: string;
 }
 
+export interface FormFieldPool {
+  label: string;
+  success: string[];
+  warning: string[];
+  error: string[];
+}
+
+export interface FormTemplate {
+  title: string;
+  subtitle: string;
+  possibleFields: FormFieldPool[];
+}
+
 export interface AchievementsState {
   unlocked: string[];
+}
+
+export interface MinigamesState {
+  stratagemDrillBestScore: number;
+  bureaucraticFormsBestScore: number;
 }
 
 export interface EquipmentState {
