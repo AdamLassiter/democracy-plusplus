@@ -1,5 +1,5 @@
 import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { PROPERTY_FILTERS, type PropertyFilterName } from "./constants/filters";
+import { PROPERTY_FILTERS, type PropertyFilterName } from "../constants/filters";
 
 export default function PropertyFilter({
   selectedFilters,

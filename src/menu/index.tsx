@@ -15,7 +15,7 @@ import type { ReactElement } from 'react';
 import StratagemGame from './minigames/stratagemGame';
 import AchievementsDialog from './achievements';
 import FormsGame from './minigames/formsGame';
-import { nextSecretSequenceIndex, normalizeArrowKey, shouldIgnoreSecretTarget } from '../secretCode';
+import { nextSecretSequenceIndex, normalizeArrowKey, shouldIgnoreSecretTarget } from '../utils/secretCode';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 const FORMS_SEQUENCE = ["Up", "Right", "Down", "Down", "Down", "Down", "Down", "Down"] as const;

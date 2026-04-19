@@ -9,7 +9,7 @@ import {
   Link,
   Grid,
 } from "@mui/material";
-import { StratagemCodeDisplay } from "../../stratagemCode";
+import { StratagemCodeDisplay } from "../../utils/stratagemCode";
 
 export default function HelpDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (

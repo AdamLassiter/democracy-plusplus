@@ -21,7 +21,7 @@ import { subtractCredits, selectCredits } from "../../slices/creditsSlice";
 import { addPurchased } from "../../slices/purchasedSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import { addPurchaseLogEntry } from "../../slices/logSlice";
-import { ItemIcon } from "../../itemDisplay";
+import { ItemIcon } from "../../utils/itemDisplay";
 import type { ItemCategory, ShopItem } from "../../types";
 
 export default function CartManager() {

@@ -1,5 +1,5 @@
 import { Card, Chip, Grid, List, ListItem, Typography } from "@mui/material";
-import ItemDisplay from "../../itemDisplay";
+import ItemDisplay from "../../utils/itemDisplay";
 import { getItem } from "../../constants";
 import type { LogEntry, MissionLogEntry, MissionOutcome } from "../../types";
 import { SectionTimestamp } from "./shared";

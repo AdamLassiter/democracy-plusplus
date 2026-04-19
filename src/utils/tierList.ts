@@ -1,4 +1,4 @@
-import type { EditableTier, Item, Tier } from "./types";
+import type { EditableTier, Item, Tier } from "../types";
 
 export const TIER_ORDER: Tier[] = ["s", "a", "b", "c", "d"];
 export const EDITABLE_TIER_ORDER: EditableTier[] = ["s", "a", "b", "c", "d", "uncategorized"];

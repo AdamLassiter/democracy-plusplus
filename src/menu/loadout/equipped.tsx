@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEquipment, unsetEquipment } from "../../slices/equipmentSlice";
-import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../itemDisplay";
+import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../utils/itemDisplay";
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import { getItem } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";

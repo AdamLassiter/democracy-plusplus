@@ -1,10 +1,10 @@
 import type { SxProps, Theme } from "@mui/material/styles";
-import type { Item, Tier } from "./types";
+import type { Item, Tier } from "../types";
 import { Card, CardActionArea, CardMedia, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
-import { selectPreferences } from "./slices/preferencesSlice";
-import { selectTierList } from "./slices/tierListSlice";
+import { selectPreferences } from "../slices/preferencesSlice";
+import { selectTierList } from "../slices/tierListSlice";
 import { StratagemCodeDisplay } from "./stratagemCode";
 import { getEffectiveTier } from "./tierList";
 import ItemTooltip from "./itemTooltip";

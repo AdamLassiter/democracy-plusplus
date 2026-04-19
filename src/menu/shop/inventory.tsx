@@ -1,13 +1,13 @@
 import type { SyntheticEvent } from "react";
 import { Badge, Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
-import ItemDisplay from "../../itemDisplay";
+import ItemDisplay from "../../utils/itemDisplay";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, selectShop } from "../../slices/shopSlice";
 import { selectCredits } from "../../slices/creditsSlice";
 import SupplyCrates from "./supplyCrate";
 import { setSnackbar } from "../../slices/snackbarSlice";
-import PropertyFilter from "../../propertyFilter";
+import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import type { CrateItem, Item, ItemCategory, ShopItem, Tier } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";

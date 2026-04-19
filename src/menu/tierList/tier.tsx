@@ -1,7 +1,7 @@
 import { Card, Grid, Typography } from "@mui/material";
-import ItemDisplay from "../../itemDisplay";
+import ItemDisplay from "../../utils/itemDisplay";
 import type { EditableTier, Item } from "../../types";
-import { EDITABLE_TIER_ORDER, TIER_ORDER } from "../../tierList";
+import { EDITABLE_TIER_ORDER, TIER_ORDER } from "../../utils/tierList";
 
 const TIER_LABELS: Record<EditableTier, string> = {
   s: "S",

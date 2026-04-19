@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { STRATAGEMS } from "../../constants/stratagems";
-import { ItemIcon } from "../../itemDisplay";
-import { StratagemCodeDisplay, isStratagemDirection, normalizeStratagemInput, type StratagemDirection } from "../../stratagemCode";
+import { ItemIcon } from "../../utils/itemDisplay";
+import { StratagemCodeDisplay, isStratagemDirection, normalizeStratagemInput, type StratagemDirection } from "../../utils/stratagemCode";
 import { unlockAchievements } from "../../slices/achievementsSlice";
 import { recordStratagemDrillScore, selectMinigames } from "../../slices/minigamesSlice";
 import type { Item } from "../../types";

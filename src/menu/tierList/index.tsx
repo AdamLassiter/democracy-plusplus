@@ -10,14 +10,14 @@ import { SECONDARIES } from "../../constants/secondaries";
 import { STRATAGEMS } from "../../constants/stratagems";
 import { THROWABLES } from "../../constants/throwables";
 import { ITEMS } from "../../constants/items";
-import PropertyFilter from "../../propertyFilter";
+import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import TierBoard from "./tier";
 import { addTierListChangeLogEntry } from "../../slices/logSlice";
 import { selectMission } from "../../slices/missionSlice";
 import { resetShop } from "../../slices/shopSlice";
 import { selectTierList, setTierList } from "../../slices/tierListSlice";
-import { applyTierOverrides, buildTierDraft } from "../../tierList";
+import { applyTierOverrides, buildTierDraft } from "../../utils/tierList";
 import type { EditableTier, Item, Tier } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";
 

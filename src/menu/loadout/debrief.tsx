@@ -6,7 +6,7 @@ import { useState } from "react";
 import { unlockedAchievementsForItems } from "../../constants/achievements";
 import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
 import { itemCost } from "../../economics/shop";
-import { getEffectiveTier } from "../../tierList";
+import { getEffectiveTier } from "../../utils/tierList";
 import { unlockAchievements } from "../../slices/achievementsSlice";
 import { addCredits } from "../../slices/creditsSlice";
 import { resetEquipment, selectEquipment } from "../../slices/equipmentSlice";

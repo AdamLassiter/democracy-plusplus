@@ -6,8 +6,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import Menu from './menu';
 import { persistor, store } from './slices';
-import LoadingSpinner from './loadingSpinner';
-import AppSnackbar from './snackbar';
+import LoadingSpinner from './utils/loadingSpinner';
+import AppSnackbar from './utils/snackbar';
 
 const darkTheme = createTheme({
   palette: {

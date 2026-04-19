@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
-import { setSnackbar } from './slices/snackbarSlice';
-import { selectSnackbar } from './slices/snackbarSlice';
+import { setSnackbar } from '../slices/snackbarSlice';
+import { selectSnackbar } from '../slices/snackbarSlice';
 
 export function AppSnackbar() {
   const dispatch = useDispatch();

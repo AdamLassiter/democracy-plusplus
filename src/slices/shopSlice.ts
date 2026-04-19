@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { calculateItemStock, calculateShopItems, supplyCrates } from "../economics/shop";
-import { applyTierOverrides } from "../tierList";
+import { applyTierOverrides } from "../utils/tierList";
 import { ITEMS } from '../constants/items';
 import { WARBONDS } from '../constants/warbonds';
 import { getItem } from '../constants';

@@ -1,5 +1,5 @@
 import { Badge, Grid, Typography } from "@mui/material";
-import ItemDisplay from "../../itemDisplay";
+import ItemDisplay from "../../utils/itemDisplay";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, selectShop } from "../../slices/shopSlice";
 import { selectCredits } from "../../slices/creditsSlice";

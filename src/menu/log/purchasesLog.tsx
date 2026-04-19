@@ -1,5 +1,5 @@
 import { Card, Divider, Grid, Typography } from "@mui/material";
-import ItemDisplay from "../../itemDisplay";
+import ItemDisplay from "../../utils/itemDisplay";
 import { getItem } from "../../constants";
 import type { LogEntry, PurchaseLogEntry } from "../../types";
 import { SectionTimestamp } from "./shared";
