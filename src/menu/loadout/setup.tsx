@@ -7,7 +7,7 @@ import { selectMission, setDifficulty, setFaction, setObjective, setState } from
 import { useDispatch, useSelector } from "react-redux";
 import Debrief from "./debrief";
 import { calculateFaction, calculateMissionReward, calculateQuestsReward } from "../../economics/mission";
-import { MissionState, Objective, Tier } from "../../types";
+import { Difficulty, MissionState, Objective, Tier } from "../../types";
 
 export default function Setup() {
   const dispatch = useDispatch();
@@ -88,7 +88,7 @@ export default function Setup() {
       {missionReward}¢ (+ {questsReward}¢) Maximum Reward
     </Typography>
     <Button variant="outlined" onClick={handleLockIn} disabled={!briefState}>Lock In</Button>
-    <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState}>Debrief</Button>
+    <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState}>Deploy</Button>
     {debriefState && <Debrief />}
   </Grid>;
 }

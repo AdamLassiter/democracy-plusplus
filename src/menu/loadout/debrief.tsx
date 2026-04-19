@@ -98,9 +98,13 @@ export default function Debrief() {
 
   return <Dialog open={open}>
     <DialogTitle>
-      Mission Debrief
+      Mission Report
     </DialogTitle>
     <Box padding={2}>
+      <Typography color="text.secondary" paddingBottom={2} variant="body2">
+        Complete this report after finishing the mission in-game. Record your final star rating, completed assignments,
+        and any failed rules of engagement before submitting.
+      </Typography>
       <FormLabel component="legend">Mission Performance</FormLabel>
       <Rating
         value={stars}
@@ -149,7 +153,7 @@ export default function Debrief() {
           {totalReward}¢ Final Reward
         </Typography>
       </Box>
-      <Button variant="outlined" onClick={handleSubmit} >Submit Report</Button>
+      <Button variant="outlined" onClick={handleSubmit} >Submit Mission Report</Button>
     </Box>
   </Dialog>;
 }

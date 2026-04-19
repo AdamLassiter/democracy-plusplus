@@ -97,6 +97,7 @@ export interface Warbond {
 }
 
 export interface Difficulty {
+  tier: number;
   displayName: string;
   missions: number;
 }
@@ -158,6 +159,7 @@ export interface MissionState {
 export interface PreferencesState {
   titles: boolean;
   tooltips: boolean;
+  missionFlowBanner: boolean;
 }
 
 export interface PurchasedState {

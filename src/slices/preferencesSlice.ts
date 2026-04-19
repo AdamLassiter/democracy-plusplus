@@ -5,6 +5,7 @@ import type { RootState } from './index';
 const initialState: PreferencesState = {
   titles: true,
   tooltips: true,
+  missionFlowBanner: true,
 };
 
 export function selectPreferences(state: RootState) {
@@ -23,6 +24,10 @@ const preferencesSlice = createSlice({
       const tooltips = action.payload;
       state.tooltips = tooltips;
     },
+    setMissionFlowBanner: (state, action) => {
+      const missionFlowBanner = action.payload;
+      state.missionFlowBanner = missionFlowBanner;
+    },
     setPreferencesState: (_state, action) => {
       return action.payload;
     },
@@ -30,5 +35,5 @@ const preferencesSlice = createSlice({
   },
 });
 
-export const { setTitles, setTooltips, setPreferencesState, resetPreferences } = preferencesSlice.actions;
+export const { setTitles, setTooltips, setMissionFlowBanner, setPreferencesState, resetPreferences } = preferencesSlice.actions;
 export default preferencesSlice.reducer;

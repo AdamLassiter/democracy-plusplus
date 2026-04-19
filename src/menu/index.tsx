@@ -1,13 +1,14 @@
 import type { SyntheticEvent } from 'react';
 import { useEffect, useRef, useState } from 'react'
-import { Box, ButtonBase, IconButton, Tab, Tabs, Tooltip, Typography } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { Alert, Box, ButtonBase, IconButton, Tab, Tabs, Tooltip, Typography } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
 import Log from './log';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
+import { selectPreferences, setMissionFlowBanner } from '../slices/preferencesSlice';
 import Settings from './settings';
 import WarbondsFilter from './warbonds';
 import Help from './help';
@@ -25,6 +26,7 @@ type MenuTabProps = {
 };
 
 export default function Menu() {
+  const dispatch = useDispatch();
   const [currentTab, setCurrentTab] = useState(0);
   const [isStratagemGameUnlocked, setIsStratagemGameUnlocked] = useState(false);
   const [isStratagemGameOpen, setIsStratagemGameOpen] = useState(false);
@@ -41,9 +43,14 @@ export default function Menu() {
   }
 
   const { credits } = useSelector(selectCredits);
-
   const mission = useSelector(selectMission);
+  const { missionFlowBanner } = useSelector(selectPreferences);
   const { count: missionCount } = mission;
+  const nextStepText = mission.state === 'brief'
+    ? "Choose a faction, difficulty, and objective, then lock in to reveal the mission conditions."
+    : mission.state === 'loadout'
+      ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
+      : "After playing the mission in-game, submit the mission report with the final results.";
 
   const tabs: Array<(props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
   const CurrentTab = tabs[currentTab];
@@ -133,7 +140,7 @@ export default function Menu() {
         >
           <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Tooltip title="Achievements">
-            <Typography>Mission: {missionCount}</Typography>
+            <Typography>Mission {missionCount}</Typography>
           </Tooltip>
         </ButtonBase>
         <Box sx={{ display: 'flex', gap: 1 }}>
@@ -162,6 +169,15 @@ export default function Menu() {
           <Help />
         </Box>
       </Box>
+      {missionFlowBanner && (
+        <Alert
+          severity="info"
+          onClose={() => dispatch(setMissionFlowBanner(false))}
+          sx={{ borderRadius: 0 }}
+        >
+          {nextStepText}
+        </Alert>
+      )}
 
       <Box sx={{ padding: '1em' }}>
         <CurrentTab index={currentTab} />

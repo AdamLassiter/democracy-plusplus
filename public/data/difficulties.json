@@ -1,42 +1,52 @@
 [
   {
     "displayName": "Trivial",
-    "missions": 1
+    "missions": 1,
+    "tier": 1
   },
   {
     "displayName": "Easy",
-    "missions": 1
+    "missions": 1,
+    "tier": 2
   },
   {
     "displayName": "Medium",
-    "missions": 2
+    "missions": 2,
+    "tier": 3
   },
   {
     "displayName": "Challenging",
-    "missions": 2
+    "missions": 2,
+    "tier": 4
   },
   {
     "displayName": "Hard",
-    "missions": 3
+    "missions": 3,
+    "tier": 5
   },
   {
     "displayName": "Extreme",
-    "missions": 3
+    "missions": 3,
+    "tier": 6
   },
   {
     "displayName": "Suicide Mission",
-    "missions": 3
+    "missions": 3,
+    "tier": 7
   },
   {
     "displayName": "Impossible",
-    "missions": 3
+    "missions": 3,
+    "tier": 8
   },
   {
     "displayName": "Helldive",
-    "missions": 3
+    "missions": 3,
+    "tier": 9
   },
   {
     "displayName": "Super Helldive",
-    "missions": 3
+    "missions": 3,
+    "tier": 10
   }
 ]

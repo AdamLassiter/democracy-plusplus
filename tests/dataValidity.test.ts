@@ -147,12 +147,15 @@ test("public data files use valid schema keys and value types", async (t) => {
     data.forEach((entry, index) => {
       const context = `difficulties[${index}]`;
       const item = asObject(entry, context);
-      assertAllowedKeys(item, ["displayName", "missions"], context);
-      assertRequiredKeys(item, ["displayName", "missions"], context);
+      assertAllowedKeys(item, ["displayName", "missions", "tier"], context);
+      assertRequiredKeys(item, ["displayName", "missions", "tier"], context);
       expectString(item.displayName, `${context}.displayName`);
       assert.equal(typeof item.missions, "number", `${context}.missions must be a number`);
       assert.ok(Number.isInteger(item.missions), `${context}.missions must be an integer`);
       assert.ok(item.missions >= 1 && item.missions <= 3, `${context}.missions must be between 1 and 3`);
+      assert.equal(typeof item.tier, "number", `${context}.tier must be a number`);
+      assert.ok(Number.isInteger(item.tier), `${context}.tier must be an integer`);
+      assert.ok(item.tier >= 1 && item.tier <= 10, `${context}.tier must be between 1 and 10`);
     });
   });
 

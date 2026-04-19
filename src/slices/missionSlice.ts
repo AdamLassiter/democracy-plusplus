@@ -14,7 +14,7 @@ const initialState: MissionState = {
   ...resetState,
   prng: Math.floor(Math.random() * 65536),
   count: 1,
-  difficulty: 0,
+  difficulty: 9,
   mission: 1,
   factionLocked: false,
   quests: [],
