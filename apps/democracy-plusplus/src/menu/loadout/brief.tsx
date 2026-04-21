@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Setup from "./setup";
 import Quests from "./quests";
 import Restrictions from "./restrictions";
+import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../../utils/missionDebug";
 
 export default function Brief() {
   const dispatch = useDispatch();
@@ -14,12 +15,36 @@ export default function Brief() {
 
   const generatingState = mission.state === 'generating';
 
+  useMissionDebugRender("Brief", {
+    missionState: mission.state,
+    prng: mission.prng,
+    quests: mission.quests.length,
+    restrictions: mission.restrictions.length,
+    generatingState,
+  });
+  useMissionDebugEffect("Brief generation gate", {
+    missionState: mission.state,
+    prng: mission.prng,
+    quests: mission.quests,
+    restrictions: mission.restrictions,
+  });
+
   useEffect(() => {
     if (generatingState) {
+      logMissionDebug("Brief generating start", {
+        prng: mission.prng,
+        questCount: mission.quests.length,
+        restrictionCount: mission.restrictions.length,
+      });
       const prng = new PRNG(mission.prng);
       const quests = calculateQuests(mission, prng, mission.quests);
       const restrictions = calculateRestrictions(mission, quests, prng, mission.restrictions);
 
+      logMissionDebug("Brief generating result", {
+        nextQuestCount: quests.length,
+        nextRestrictionCount: restrictions.length,
+        nextPrng: mission.prng + 1,
+      });
       dispatch(setQuests({ value: quests }));
       dispatch(setRestrictions({ value: restrictions }));
       dispatch(setPrng({ value: mission.prng + 1 }));

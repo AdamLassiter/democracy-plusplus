@@ -60,10 +60,10 @@ export function normaliseDisplayName(value: unknown) {
 }
 
 export function createLobbyCode(): LobbyCode {
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const alphabet = "123456789";
   let code = "";
   do {
-    code = Array.from({ length: 6 }, () => alphabet[crypto.randomInt(alphabet.length)]).join("");
+    code = crypto.randomInt(0, 65536).toString();
   } while (lobbies.has(code));
   return code;
 }

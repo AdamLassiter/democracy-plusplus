@@ -2,7 +2,6 @@ import { Divider, Grid } from "@mui/material";
 import Brief from "./brief";
 import Purchases from "./purchases";
 import Equipped from "./equipped";
-import LobbyPanel from "./lobbyPanel";
 
 export default function Loadout() {
   return <Grid container spacing={2}>
@@ -12,9 +11,6 @@ export default function Loadout() {
       <Equipped />
       <Divider />
       <Purchases />
-    </Grid>
-    <Grid>
-      <LobbyPanel />
     </Grid>
   </Grid>;
 }

@@ -20,6 +20,7 @@ import AchievementsDialog from './achievements';
 import FormsGame from './minigames/formsGame';
 import { nextSecretSequenceIndex, normalizeArrowKey, shouldIgnoreSecretTarget } from '../utils/secretCode';
 import { resetLobbySession, selectMultiplayer, setConnecting, setConnectionError, setDisplayName, setLobbySession } from '../slices/multiplayerSlice';
+import LobbyPanel from '../multiplayer/lobbyPanel';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 const FORMS_SEQUENCE = ["Up", "Right", "Down", "Down", "Down", "Down", "Down", "Down"] as const;
@@ -55,7 +56,7 @@ export default function Menu() {
   const { missionFlowBanner } = useSelector(selectPreferences);
   const { count: missionCount } = mission;
   const nextStepText = mission.state === 'brief'
-    ? "Choose a faction, difficulty, and objective, then lock in to reveal the mission conditions."
+    ? "Choose a faction, difficulty, and objective, then lock in to reveal the mission requirements."
     : mission.state === 'loadout'
       ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
       : "After playing the mission in-game, submit the mission report with the final results.";
@@ -169,6 +170,7 @@ export default function Menu() {
   return (
     <Box sx={{ width: '100%' }}>
       <MultiplayerManager />
+      <LobbyPanel />
       {/* Flex container for Tabs and ToggleButtons */}
       <Box
         sx={{
@@ -211,20 +213,17 @@ export default function Menu() {
         <Box sx={{ display: 'flex', gap: 1 }}>
           {!lobbyConnected && (
             <>
-              <Button disabled={!multiplayerEnabled} onClick={() => setIsHostDialogOpen(true)} variant="outlined">
+              <Button color="success" disabled={!multiplayerEnabled} onClick={() => setIsHostDialogOpen(true)} variant="outlined">
                 Host Lobby
               </Button>
-              <Button disabled={!multiplayerEnabled} onClick={() => setIsJoinDialogOpen(true)} variant="outlined">
+              <Button color="info" disabled={!multiplayerEnabled} onClick={() => setIsJoinDialogOpen(true)} variant="outlined">
                 Join Lobby
               </Button>
             </>
           )}
           {lobbyConnected && (
             <>
-              <Typography color="text.secondary" sx={{ alignSelf: "center" }}>
-                Lobby {multiplayer.lobbyCode} · {isHost ? "Host" : "Member"}
-              </Typography>
-              <Button color="warning" onClick={handleLeaveLobby} variant="outlined">
+              <Button color="error" onClick={handleLeaveLobby} variant="outlined">
                 Leave Lobby
               </Button>
             </>

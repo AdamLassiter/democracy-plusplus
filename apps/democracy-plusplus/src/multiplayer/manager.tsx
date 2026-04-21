@@ -6,6 +6,7 @@ import { checkBackendHealth } from "./api";
 import { selectEquipment, setEquipmentState } from "../slices/equipmentSlice";
 import { selectMission, setMissionState } from "../slices/missionSlice";
 import type { EquipmentState, LobbyMember, LobbyMissionState, MissionState } from "../types";
+import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../utils/missionDebug";
 
 function jsonEqual(a: unknown, b: unknown) {
   return JSON.stringify(a) === JSON.stringify(b);
@@ -31,6 +32,7 @@ export default function MultiplayerManager() {
   const mission = useSelector(selectMission);
   const eventSourceRef = useRef<EventSource | null>(null);
   const syncingFromLobbyRef = useRef(false);
+  const previousLobbyLoadoutRef = useRef<string | null>(null);
 
   const currentMember = useMemo(
     () => multiplayer.lobbyState?.members.find((member: LobbyMember) => member.memberId === multiplayer.memberId) ?? null,
@@ -43,6 +45,24 @@ export default function MultiplayerManager() {
   const sessionToken = multiplayer.sessionToken;
   const backendAvailable = multiplayer.backendAvailable;
   const lobbyState = multiplayer.lobbyState;
+
+  useMissionDebugRender("MultiplayerManager", {
+    backendAvailable,
+    lobbyCode,
+    memberId,
+    isHost,
+    missionState: mission.state,
+    lobbyMissionState: lobbyMission?.state ?? null,
+    syncingFromLobby: syncingFromLobbyRef.current,
+  });
+  useMissionDebugEffect("MultiplayerManager mission sync inputs", {
+    currentMemberId: currentMember?.memberId ?? null,
+    mission,
+    lobbyMission,
+    equipment,
+    currentMemberLoadout: currentMember?.loadout ?? null,
+    syncingFromLobby: syncingFromLobbyRef.current,
+  });
 
   useEffect(() => {
     void checkBackendHealth()
@@ -85,17 +105,38 @@ export default function MultiplayerManager() {
       return;
     }
 
-    const nextMission = syncMissionState(mission, lobbyMission);
-    if (!jsonEqual(nextMission, mission)) {
-      syncingFromLobbyRef.current = true;
-      dispatch(setMissionState(nextMission));
+    if (!isHost) {
+      const nextMission = syncMissionState(mission, lobbyMission);
+      if (!jsonEqual(nextMission, mission)) {
+        logMissionDebug("MultiplayerManager applying lobby mission", {
+          missionState: mission.state,
+          lobbyMissionState: lobbyMission.state,
+        });
+        syncingFromLobbyRef.current = true;
+        dispatch(setMissionState(nextMission));
+      }
     }
 
-    if (!jsonEqual(currentMember.loadout, equipment)) {
-      syncingFromLobbyRef.current = true;
-      dispatch(setEquipmentState(currentMember.loadout));
+  }, [currentMember, dispatch, isHost, lobbyMission, mission]);
+
+  useEffect(() => {
+    if (!currentMember) {
+      previousLobbyLoadoutRef.current = null;
+      return;
     }
-  }, [currentMember, dispatch, equipment, lobbyMission, mission]);
+
+    const serialisedLobbyLoadout = JSON.stringify(currentMember.loadout);
+    const lobbyLoadoutChanged = previousLobbyLoadoutRef.current !== serialisedLobbyLoadout;
+    previousLobbyLoadoutRef.current = serialisedLobbyLoadout;
+
+    if (!lobbyLoadoutChanged || jsonEqual(currentMember.loadout, equipment)) {
+      return;
+    }
+
+    logMissionDebug("MultiplayerManager applying lobby equipment");
+    syncingFromLobbyRef.current = true;
+    dispatch(setEquipmentState(currentMember.loadout));
+  }, [currentMember, dispatch, equipment]);
 
   useEffect(() => {
     if (!backendAvailable || !lobbyCode || !memberId || !sessionToken || !lobbyState || syncingFromLobbyRef.current) {
@@ -126,6 +167,10 @@ export default function MultiplayerManager() {
       || lobbyState.mission.factionLocked !== mission.factionLocked;
 
     if (missionConfigChanged) {
+      logMissionDebug("MultiplayerManager syncing mission config to lobby", {
+        localMissionState: mission.state,
+        lobbyMissionState: lobbyState.mission.state,
+      });
       void sendLobbyCommand(lobbyCode, memberId, sessionToken, {
         type: "setMissionConfig",
         mission: {
@@ -141,6 +186,10 @@ export default function MultiplayerManager() {
     }
 
     if (!jsonEqual(lobbyState.mission.quests, mission.quests)) {
+      logMissionDebug("MultiplayerManager syncing quests to lobby", {
+        localQuestCount: mission.quests.length,
+        lobbyQuestCount: lobbyState.mission.quests.length,
+      });
       void sendLobbyCommand(lobbyCode, memberId, sessionToken, {
         type: "setQuests",
         quests: mission.quests,
@@ -150,6 +199,10 @@ export default function MultiplayerManager() {
     }
 
     if (!jsonEqual(lobbyState.mission.restrictions, mission.restrictions)) {
+      logMissionDebug("MultiplayerManager syncing restrictions to lobby", {
+        localRestrictionCount: mission.restrictions.length,
+        lobbyRestrictionCount: lobbyState.mission.restrictions.length,
+      });
       void sendLobbyCommand(lobbyCode, memberId, sessionToken, {
         type: "setRestrictions",
         restrictions: mission.restrictions,
@@ -160,6 +213,9 @@ export default function MultiplayerManager() {
   }, [backendAvailable, dispatch, isHost, lobbyCode, lobbyState, memberId, mission, sessionToken]);
 
   useEffect(() => {
+    if (syncingFromLobbyRef.current) {
+      logMissionDebug("MultiplayerManager clearing syncingFromLobby flag");
+    }
     syncingFromLobbyRef.current = false;
   });
 

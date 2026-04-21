@@ -13,6 +13,7 @@ type ItemDisplayProps = {
   item: Item;
   onClick?: (item: Item) => void;
   isAffordable?: boolean;
+  compact?: boolean;
 };
 
 type MissingItem = Pick<Item, "displayName" | "imageUrl">;
@@ -28,6 +29,7 @@ type ItemCardProps = {
   onClick?: (item: Item) => void;
   isAffordable: boolean;
   titles: boolean;
+  compact: boolean;
 };
 
 const TIER_BORDER_COLORS: Record<Tier, string> = {
@@ -38,7 +40,7 @@ const TIER_BORDER_COLORS: Record<Tier, string> = {
   d: "#ffffff",
 };
 
-export default function ItemDisplay({ item, onClick, isAffordable = true }: ItemDisplayProps) {
+export default function ItemDisplay({ item, onClick, isAffordable = true, compact = false }: ItemDisplayProps) {
   const { titles, tooltips } = useSelector(selectPreferences);
   const { overrides } = useSelector(selectTierList);
   const effectiveTier = getEffectiveTier(item, overrides);
@@ -49,6 +51,7 @@ export default function ItemDisplay({ item, onClick, isAffordable = true }: Item
     effectiveTier={effectiveTier}
     isAffordable={isAffordable}
     titles={titles}
+    compact={compact}
   />;
 
   if (!tooltips) {
@@ -60,19 +63,29 @@ export default function ItemDisplay({ item, onClick, isAffordable = true }: Item
   </ItemTooltip>;
 }
 
-function ItemCard({ onClick, item, effectiveTier, isAffordable, titles }: ItemCardProps) {
+export function CompactItemDisplay(props: Omit<ItemDisplayProps, "compact">) {
+  return <ItemDisplay {...props} compact />;
+}
+
+function ItemCard({ onClick, item, effectiveTier, isAffordable, titles, compact }: ItemCardProps) {
+  const imageWidth = compact ? 44 : 110;
+  const imageHeight = compact ? 32 : 80;
+  const cardHeight = compact ? 60 : 180;
+  const showTitles = titles && !compact;
+
   return <Card
     onClick={() => onClick?.(item)}
     sx={{
       opacity: isAffordable ? 1 : 0.5,
       pointerEvents: isAffordable ? 'auto' : 'none',
-      height: '180px',
+      height: `${cardHeight}px`,
+      width: compact ? `${imageWidth + 16}px` : undefined,
       borderColor: TIER_BORDER_COLORS[effectiveTier],
     }}
     variant="outlined">
     <CardActionArea>
-      <ItemIcon item={item} margin={1} width={110} minHeight={80} bgcolor='black' />
-      {titles && <>
+      <ItemIcon item={item} margin={1} width={imageWidth} minHeight={imageHeight} bgcolor='black' />
+      {showTitles && <>
         <Typography sx={{
           display: '-webkit-box',
           WebkitLineClamp: item.stratagemCode?.length ? 1 : 2,

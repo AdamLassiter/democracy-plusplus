@@ -11,6 +11,7 @@ import Debrief from "./debrief";
 import { calculateFaction, calculateMissionReward, calculateQuestsReward } from "../../economics/mission";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import { Difficulty, LobbyMember, MissionState, Objective, Tier } from "../../types";
+import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../../utils/missionDebug";
 
 export default function Setup() {
   const dispatch = useDispatch();
@@ -29,6 +30,29 @@ export default function Setup() {
     ? mission.objective
     : (availableObjectives[0]?.displayName ?? "");
 
+  useMissionDebugRender("Setup", {
+    missionState: mission.state,
+    faction: mission.faction,
+    difficulty: mission.difficulty,
+    objective: mission.objective,
+    selectedObjective,
+    availableObjectives: availableObjectives.length,
+    playerCount: mission.playerCount,
+    factionLocked: mission.factionLocked,
+    multiplayerLocked,
+  });
+  useMissionDebugEffect("Setup mission inputs", {
+    missionState: mission.state,
+    faction: mission.faction,
+    difficulty: mission.difficulty,
+    objective: mission.objective,
+    selectedObjective,
+    availableObjectives: availableObjectives.map((objective) => objective.displayName),
+    playerCount: mission.playerCount,
+    factionLocked: mission.factionLocked,
+    multiplayerLocked,
+  });
+
   function handleFaction(event: SelectChangeEvent<number>) {
     dispatch(setFaction({ value: Number(event.target.value) }));
     dispatch(setObjective({ value: '' }));
@@ -43,6 +67,27 @@ export default function Setup() {
     dispatch(setPlayerCount({ value: Number(event.target.value) }));
   }
   async function handleLockIn() {
+    logMissionDebug("Setup.handleLockIn", {
+      missionState: mission.state,
+      objective: mission.objective,
+      selectedObjective,
+      multiplayerLobbyCode: multiplayer.lobbyCode,
+      isHost,
+    });
+
+    if (mission.objective !== selectedObjective) {
+      logMissionDebug("Setup.handleLockIn dispatch setObjective", {
+        from: mission.objective,
+        to: selectedObjective,
+      });
+      dispatch(setObjective({ value: selectedObjective }));
+    }
+    logMissionDebug("Setup.handleLockIn dispatch setState", {
+      from: mission.state,
+      to: "generating",
+    });
+    dispatch(setState({ value: 'generating' }));
+
     if (multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken && isHost) {
       try {
         await sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
@@ -61,11 +106,6 @@ export default function Setup() {
       }
       return;
     }
-
-    if (mission.objective !== selectedObjective) {
-      dispatch(setObjective({ value: selectedObjective }));
-    }
-    dispatch(setState({ value: 'generating' }));
   }
   function handleDebrief() {
     dispatch(setState({ value: 'debrief' }));
