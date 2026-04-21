@@ -1,12 +1,21 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { connectLobbyEvents, sendLobbyCommand } from "./api";
-import { applyServerEvent, selectMultiplayer, setBackendAvailability, setConnectionError } from "../slices/multiplayerSlice";
+import { ApiError, connectLobbyEvents, pollLobbyPresence, sendLobbyCommand } from "./api";
+import {
+  applyServerEvent,
+  resetLobbySession,
+  selectMultiplayer,
+  setBackendAvailability,
+  setConnectionError,
+  setLobbyState,
+} from "../slices/multiplayerSlice";
 import { checkBackendHealth } from "./api";
 import { selectEquipment, setEquipmentState } from "../slices/equipmentSlice";
 import { selectMission, setMissionState } from "../slices/missionSlice";
 import type { EquipmentState, LobbyMember, LobbyMissionState, MissionState } from "../types";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../utils/missionDebug";
+
+const HEARTBEAT_INTERVAL_MS = 10_000;
 
 function jsonEqual(a: unknown, b: unknown) {
   return JSON.stringify(a) === JSON.stringify(b);
@@ -101,6 +110,45 @@ export default function MultiplayerManager() {
   ]);
 
   useEffect(() => {
+    if (!backendAvailable || !lobbyCode || !memberId || !sessionToken) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const runHeartbeat = async () => {
+      try {
+        const nextLobbyState = await pollLobbyPresence(lobbyCode, memberId, sessionToken);
+        if (!cancelled) {
+          dispatch(setLobbyState(nextLobbyState));
+        }
+      } catch (error: unknown) {
+        if (cancelled) {
+          return;
+        }
+
+        if (error instanceof ApiError && (error.status === 401 || error.status === 404)) {
+          dispatch(resetLobbySession());
+          dispatch(setConnectionError("Disconnected from lobby"));
+          return;
+        }
+
+        dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to refresh lobby presence"));
+      }
+    };
+
+    void runHeartbeat();
+    const intervalId = window.setInterval(() => {
+      void runHeartbeat();
+    }, HEARTBEAT_INTERVAL_MS);
+
+    return () => {
+      cancelled = true;
+      window.clearInterval(intervalId);
+    };
+  }, [backendAvailable, dispatch, lobbyCode, memberId, sessionToken]);
+
+  useEffect(() => {
     if (!currentMember || !lobbyMission) {
       return;
     }
@@ -118,6 +166,15 @@ export default function MultiplayerManager() {
     }
 
   }, [currentMember, dispatch, isHost, lobbyMission, mission]);
+
+  useEffect(() => {
+    if (!lobbyState || !memberId || currentMember) {
+      return;
+    }
+
+    dispatch(resetLobbySession());
+    dispatch(setConnectionError("Disconnected from lobby"));
+  }, [currentMember, dispatch, lobbyState, memberId]);
 
   useEffect(() => {
     if (!currentMember) {

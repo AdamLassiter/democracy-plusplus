@@ -10,6 +10,7 @@ export type LobbySession = {
   memberId: LobbyMemberId;
   sessionToken: string;
   expiresAt: number;
+  lastSeenAt: number;
 };
 
 export type LobbyRecord = {

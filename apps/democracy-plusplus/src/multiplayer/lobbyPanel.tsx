@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Box, Card, Chip, Divider, Grid, IconButton, Stack, Typography } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useSelector } from "react-redux";
 import { getItem } from "../constants";
 import { selectMultiplayer } from "../slices/multiplayerSlice";
@@ -24,6 +25,7 @@ function memberLoadoutItems(member: LobbyMember) {
 export default function LobbyPanel() {
   const multiplayer = useSelector(selectMultiplayer);
   const [open, setOpen] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   if (!multiplayer.lobbyState) {
     return null;
@@ -31,10 +33,14 @@ export default function LobbyPanel() {
 
   const { lobbyState } = multiplayer;
   const missionSummary = [
-    lobbyState.mission.stars === null ? null : `${lobbyState.mission.stars} star(s)`,
-    lobbyState.mission.quests.length ? `${lobbyState.mission.quests.length} quest(s)` : null,
-    lobbyState.mission.restrictions.length ? `${lobbyState.mission.restrictions.length} restriction(s)` : null,
+    lobbyState.mission.stars === null ? null : `${lobbyState.mission.stars} star${lobbyState.mission.stars !== 1 ? "s" : ""}`,
   ].filter(Boolean);
+
+  async function handleCopyLobbyCode() {
+    await navigator.clipboard.writeText(lobbyState.lobbyCode);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1500);
+  }
 
   return (
     <Box
@@ -64,11 +70,26 @@ export default function LobbyPanel() {
       >
         <Box sx={{ p: 2 }}>
           <Typography variant="h6">Lobby</Typography>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <Typography color="text.secondary" variant="body2">
+              Code: {lobbyState.lobbyCode}
+            </Typography>
+            <IconButton
+              aria-label="Copy lobby code"
+              color={copied ? "success" : "default"}
+              onClick={() => void handleCopyLobbyCode()}
+              size="small"
+            >
+              <ContentCopyIcon fontSize="inherit" />
+            </IconButton>
+            {copied && (
+              <Typography color="success.main" variant="caption">
+                Copied
+              </Typography>
+            )}
+          </Box>
           <Typography color="text.secondary" variant="body2">
-            Code: {lobbyState.lobbyCode}
-          </Typography>
-          <Typography color="text.secondary" variant="body2">
-            Mission Outcome: {missionSummary.length ? missionSummary.join(" · ") : "No synced report yet"}
+            Mission Outcome: {missionSummary.length ? missionSummary.join(" · ") : "No pending reports"}
           </Typography>
           <Divider sx={{ my: 1.5 }} />
           <Stack spacing={1.5}>
@@ -80,7 +101,8 @@ export default function LobbyPanel() {
                   <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 0.75 }}>
                     <Typography variant="subtitle2">{member.displayName}</Typography>
                     <Chip
-                      label={member.isHost ? "Host" : "Member"}
+                      label={member.isHost ? "Democracy Officer" : "Helldiver"}
+                      color={member.isHost ? "warning" : "success"}
                       size="small"
                       variant="outlined"
                     />
@@ -117,7 +139,7 @@ export default function LobbyPanel() {
           boxShadow: 6,
         }}
       >
-        <IconButton aria-label={open ? "Collapse lobby panel" : "Expand lobby panel"} onClick={() => setOpen((value) => !value)}>
+        <IconButton onClick={() => setOpen((value) => !value)}>
           {open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
       </Card>

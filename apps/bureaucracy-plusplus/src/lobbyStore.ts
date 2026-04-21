@@ -13,14 +13,14 @@ import type {
   Restriction,
   ServerEvent,
 } from "@plusplus/shared-types";
-import { EMPTY_LOBBY_TTL_MS, SESSION_TTL_MS } from "./config.ts";
+import { EMPTY_LOBBY_TTL_MS, LOBBY_CLEANUP_INTERVAL_MS, PRESENCE_TTL_MS, SESSION_TTL_MS } from "./config.ts";
 import { logEvent } from "./logger.ts";
 import type { LobbyRecord, LobbySession } from "./types.ts";
 
 const lobbies = new Map<LobbyCode, LobbyRecord>();
 
 export function startLobbyCleanupTimer() {
-  setInterval(cleanupExpiredLobbies, 60_000).unref();
+  setInterval(cleanupExpiredLobbies, LOBBY_CLEANUP_INTERVAL_MS).unref();
 }
 
 export function initialMissionState(): LobbyMissionState {
@@ -88,7 +88,7 @@ export function createLobby(displayName: string) {
     updatedAt: now,
     mission: initialMissionState(),
     members: new Map([[memberId, hostMember]]),
-    sessions: new Map([[memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS }]]),
+    sessions: new Map([[memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS, lastSeenAt: now }]]),
     streams: new Map(),
   };
 
@@ -118,7 +118,7 @@ export function joinLobby(code: string, displayName: string) {
   };
 
   lobby.members.set(memberId, member);
-  lobby.sessions.set(memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS });
+  lobby.sessions.set(memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS, lastSeenAt: now });
   lobby.updatedAt = now;
 
   const payload = sessionResponse(lobby, memberId, sessionToken);
@@ -149,7 +149,7 @@ export function authenticate(code: string, memberIdValue: unknown, sessionTokenV
 }
 
 export function attachEventStream(lobby: LobbyRecord, session: LobbySession, request: Request, response: Response) {
-  session.expiresAt = Date.now() + SESSION_TTL_MS;
+  markSessionActive(session);
 
   response.setHeader("Content-Type", "text/event-stream");
   response.setHeader("Cache-Control", "no-cache, no-transform");
@@ -187,9 +187,14 @@ export function handleCommand(lobby: LobbyRecord, session: LobbySession, command
   });
   applyCommand(lobby, actor, command);
   lobby.updatedAt = Date.now();
-  session.expiresAt = Date.now() + SESSION_TTL_MS;
+  markSessionActive(session);
   broadcastLobby(lobby);
 
+  return toLobbyState(lobby);
+}
+
+export function pollLobbyPresence(lobby: LobbyRecord, session: LobbySession) {
+  markSessionActive(session);
   return toLobbyState(lobby);
 }
 
@@ -228,6 +233,12 @@ export function broadcastLobby(lobby: LobbyRecord) {
   for (const response of lobby.streams.values()) {
     sendEvent(response, event);
   }
+}
+
+function markSessionActive(session: LobbySession) {
+  const now = Date.now();
+  session.expiresAt = now + SESSION_TTL_MS;
+  session.lastSeenAt = now;
 }
 
 function assertHost(lobby: LobbyRecord, member: LobbyMember) {
@@ -320,18 +331,7 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
         lobbyCode: lobby.lobbyCode,
         memberId: actor.memberId,
       });
-      lobby.members.delete(actor.memberId);
-      lobby.sessions.delete(actor.memberId);
-      const stream = lobby.streams.get(actor.memberId);
-      stream?.end();
-      lobby.streams.delete(actor.memberId);
-      if (lobby.hostMemberId === actor.memberId) {
-        const nextHost = lobby.members.values().next().value as LobbyMember | undefined;
-        if (nextHost) {
-          lobby.hostMemberId = nextHost.memberId;
-          nextHost.isHost = true;
-        }
-      }
+      removeMember(lobby, actor.memberId);
       return;
     }
   }
@@ -340,24 +340,25 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
 function cleanupExpiredLobbies() {
   const now = Date.now();
   for (const [code, lobby] of lobbies.entries()) {
+    let changed = false;
+
     for (const [memberId, session] of lobby.sessions.entries()) {
-      if (session.expiresAt < now && !lobby.streams.has(memberId)) {
-        lobby.sessions.delete(memberId);
-        lobby.members.delete(memberId);
+      const sessionExpired = session.expiresAt < now;
+      const presenceExpired = session.lastSeenAt < now - PRESENCE_TTL_MS;
+      if (sessionExpired || presenceExpired) {
+        logEvent("lobby.member.disconnected", {
+          lobbyCode: lobby.lobbyCode,
+          memberId,
+          reason: sessionExpired ? "session_expired" : "presence_expired",
+        });
+        removeMember(lobby, memberId);
+        changed = true;
       }
     }
 
-    const memberIds = new Set(lobby.members.keys());
-    for (const member of lobby.members.values()) {
-      member.isHost = member.memberId === lobby.hostMemberId;
-    }
-
-    if (!memberIds.has(lobby.hostMemberId)) {
-      const nextHost = lobby.members.values().next().value as LobbyMember | undefined;
-      if (nextHost) {
-        lobby.hostMemberId = nextHost.memberId;
-        nextHost.isHost = true;
-      }
+    if (changed) {
+      lobby.updatedAt = now;
+      broadcastLobby(lobby);
     }
 
     if (lobby.members.size === 0 && now - lobby.updatedAt > EMPTY_LOBBY_TTL_MS) {
@@ -366,5 +367,40 @@ function cleanupExpiredLobbies() {
       });
       lobbies.delete(code);
     }
+  }
+}
+
+function removeMember(lobby: LobbyRecord, memberId: LobbyMemberId) {
+  const member = lobby.members.get(memberId);
+  if (!member) {
+    return false;
+  }
+
+  lobby.members.delete(memberId);
+  lobby.sessions.delete(memberId);
+  const stream = lobby.streams.get(memberId);
+  stream?.end();
+  lobby.streams.delete(memberId);
+  reconcileLobbyHost(lobby);
+  return true;
+}
+
+function reconcileLobbyHost(lobby: LobbyRecord) {
+  const previousHostMemberId = lobby.hostMemberId;
+  const previousHost = lobby.members.get(previousHostMemberId);
+  if (!previousHost) {
+    const nextHost = lobby.members.values().next().value as LobbyMember | undefined;
+    lobby.hostMemberId = nextHost?.memberId ?? "";
+    if (nextHost && nextHost.memberId !== previousHostMemberId) {
+      logEvent("lobby.host.promoted", {
+        lobbyCode: lobby.lobbyCode,
+        previousHostMemberId,
+        hostMemberId: nextHost.memberId,
+      });
+    }
+  }
+
+  for (const member of lobby.members.values()) {
+    member.isHost = member.memberId === lobby.hostMemberId;
   }
 }

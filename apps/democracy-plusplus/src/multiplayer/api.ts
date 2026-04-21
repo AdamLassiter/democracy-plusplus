@@ -1,6 +1,7 @@
 import type {
   ClientCommand,
   LobbyCode,
+  LobbyState,
   LobbySessionResponse,
   ServerEvent,
 } from "../types";
@@ -20,6 +21,16 @@ function endpoint(path: string) {
 
 export function getBackendUrl() {
   return BACKEND_URL;
+}
+
+export class ApiError extends Error {
+  status: number;
+
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+  }
 }
 
 export async function checkBackendHealth() {
@@ -52,6 +63,21 @@ export async function sendLobbyCommand(
   });
 }
 
+export async function pollLobbyPresence(
+  lobbyCode: LobbyCode,
+  memberId: string,
+  sessionToken: string,
+): Promise<LobbyState> {
+  const response = await postJson<{ ok: boolean; lobbyState: LobbyState }>(
+    `/api/lobbies/${encodeURIComponent(lobbyCode)}/poll`,
+    {
+      memberId,
+      sessionToken,
+    },
+  );
+  return response.lobbyState;
+}
+
 export function connectLobbyEvents(
   lobbyCode: LobbyCode,
   memberId: string,
@@ -76,7 +102,7 @@ export function connectLobbyEvents(
   return stream;
 }
 
-async function postJson(path: string, body: unknown) {
+async function postJson<T>(path: string, body: unknown): Promise<T> {
   const response = await fetch(endpoint(path), {
     method: "POST",
     headers: {
@@ -87,7 +113,7 @@ async function postJson(path: string, body: unknown) {
 
   const json = await response.json();
   if (!response.ok) {
-    throw new Error(json.error ?? "Request failed");
+    throw new ApiError(json.error ?? "Request failed", response.status);
   }
   return json;
 }

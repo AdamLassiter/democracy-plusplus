@@ -7,3 +7,5 @@ export const DEV_ALLOWED_ORIGINS = (process.env.DEV_ALLOWED_ORIGINS ?? "")
   .filter(Boolean);
 export const EMPTY_LOBBY_TTL_MS = Number(process.env.EMPTY_LOBBY_TTL_MS ?? 1000 * 60 * 15);
 export const SESSION_TTL_MS = Number(process.env.SESSION_TTL_MS ?? 1000 * 60 * 60 * 4);
+export const PRESENCE_TTL_MS = Number(process.env.PRESENCE_TTL_MS ?? 1000 * 30);
+export const LOBBY_CLEANUP_INTERVAL_MS = Number(process.env.LOBBY_CLEANUP_INTERVAL_MS ?? 1000 * 5);

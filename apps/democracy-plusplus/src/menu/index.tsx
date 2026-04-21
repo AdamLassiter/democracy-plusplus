@@ -211,12 +211,19 @@ export default function Menu() {
 
         {/* Preferences aligned to the right */}
         <Box sx={{ display: 'flex', gap: 1 }}>
-          {!lobbyConnected && (
+          {!multiplayerEnabled && (
             <>
-              <Button color="success" disabled={!multiplayerEnabled} onClick={() => setIsHostDialogOpen(true)} variant="outlined">
+              <Button disabled variant="outlined">
+                Server Unavailable
+              </Button>
+            </>
+          )}
+          {multiplayerEnabled && !lobbyConnected && (
+            <>
+              <Button color="success" onClick={() => setIsHostDialogOpen(true)} variant="outlined">
                 Host Lobby
               </Button>
-              <Button color="info" disabled={!multiplayerEnabled} onClick={() => setIsJoinDialogOpen(true)} variant="outlined">
+              <Button color="info" onClick={() => setIsJoinDialogOpen(true)} variant="outlined">
                 Join Lobby
               </Button>
             </>
@@ -275,7 +282,7 @@ export default function Menu() {
           <TextField
             autoFocus
             fullWidth
-            label="Display Name"
+            label="Player Name"
             margin="dense"
             onChange={(event) => setDisplayNameInput(event.target.value)}
             value={displayNameInput}
@@ -292,7 +299,7 @@ export default function Menu() {
           <TextField
             autoFocus
             fullWidth
-            label="Display Name"
+            label="Player Name"
             margin="dense"
             onChange={(event) => setDisplayNameInput(event.target.value)}
             value={displayNameInput}

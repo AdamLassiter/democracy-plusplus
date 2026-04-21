@@ -9,6 +9,7 @@ import {
   handleCommand,
   joinLobby,
   normaliseDisplayName,
+  pollLobbyPresence,
 } from "./lobbyStore.ts";
 
 export function createApp() {
@@ -111,6 +112,25 @@ export function createApp() {
       });
       response.status(status).json({ error: message });
     }
+  });
+
+  app.post("/api/lobbies/:code/poll", (request, response) => {
+    const auth = authenticate(
+      request.params.code,
+      request.body?.memberId,
+      request.body?.sessionToken,
+    );
+    if (!auth) {
+      logEvent("lobby.poll.rejected", {
+        lobbyCode: request.params.code,
+        reason: "unauthorized",
+      });
+      response.status(401).json({ error: "Unauthorized" });
+      return;
+    }
+
+    const lobbyState = pollLobbyPresence(auth.lobby, auth.session);
+    response.json({ ok: true, lobbyState });
   });
 
   return app;

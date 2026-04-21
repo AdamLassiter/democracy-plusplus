@@ -84,7 +84,6 @@ export default function CartManager() {
     <>
       <Fab
         color="primary"
-        aria-label="cart"
         sx={{
           position: "fixed",
           bottom: 24,
