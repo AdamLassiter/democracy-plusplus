@@ -14,7 +14,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "paths": {
+      "@plusplus/shared-types": ["../../packages/shared-types/src/index.ts"]
+    }
   },
   "include": ["src", "scripts", "vite.config.ts"]
 }

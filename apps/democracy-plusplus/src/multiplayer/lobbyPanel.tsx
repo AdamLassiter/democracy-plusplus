@@ -93,7 +93,7 @@ export default function LobbyPanel() {
           </Typography>
           <Divider sx={{ my: 1.5 }} />
           <Stack spacing={1.5}>
-            {lobbyState.members.map((member) => {
+            {lobbyState.members.map((member: LobbyMember) => {
               const loadout = memberLoadoutItems(member);
 
               return (

@@ -50,11 +50,11 @@ export default function Debrief() {
     }
 
     const nextStars = syncedMission?.stars ?? 1;
-    const nextQuests = (syncedMission?.quests ?? mission.quests).map((quest) => ({
+    const nextQuests = (syncedMission?.quests ?? mission.quests).map((quest: Quest) => ({
       ...quest,
       completed: quest.completed ?? false,
     }));
-    const nextRestrictions = (syncedMission?.restrictions ?? mission.restrictions).map((restriction) => ({
+    const nextRestrictions = (syncedMission?.restrictions ?? mission.restrictions).map((restriction: Restriction) => ({
       ...restriction,
       completed: restriction.completed ?? true,
     }));

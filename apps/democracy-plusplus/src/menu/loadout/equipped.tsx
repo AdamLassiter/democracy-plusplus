@@ -25,7 +25,7 @@ export default function Equipped() {
     primary && getItem(primary),
     secondary && getItem(secondary),
     throwable && getItem(throwable),
-    ...stratagems.map((stratagem) => stratagem && getItem(stratagem)),
+    ...stratagems.map((stratagem: string | null) => stratagem && getItem(stratagem)),
   ].filter((item): item is Item => Boolean(item));
   const equippedCost = useMemo(() => {
     const pricedItems = equippedItems.map((item: Item) => itemCost(item));

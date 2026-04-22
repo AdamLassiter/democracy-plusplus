@@ -32,7 +32,7 @@ export function calculateFaction(mission: MissionState): Faction {
   return factions[mission.faction] ?? factions[0];
 }
 
-function restrictionTier(restriction: Restriction) {
+function restrictionTier(restriction: Restriction): number {
   const tiers: Record<Exclude<Tier, null>, number> = {
     s: 4,
     a: 3,
