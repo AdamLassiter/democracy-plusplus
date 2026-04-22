@@ -23,6 +23,10 @@ export function startLobbyCleanupTimer() {
   setInterval(cleanupExpiredLobbies, LOBBY_CLEANUP_INTERVAL_MS).unref();
 }
 
+export function resetLobbyStoreForTests() {
+  lobbies.clear();
+}
+
 export function initialMissionState(): LobbyMissionState {
   return {
     faction: 0,
@@ -337,7 +341,7 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
   }
 }
 
-function cleanupExpiredLobbies() {
+export function cleanupExpiredLobbies() {
   const now = Date.now();
   for (const [code, lobby] of lobbies.entries()) {
     let changed = false;

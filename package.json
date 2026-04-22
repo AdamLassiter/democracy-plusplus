@@ -9,14 +9,18 @@
     "dev": "npm run dev:frontend",
     "dev:frontend": "npm run dev -w democracy-plusplus",
     "dev:backend": "npm run dev -w bureaucracy-plusplus",
+    "check:frontend": "npm run check -w democracy-plusplus",
+    "check:backend": "npm run check -w bureaucracy-plusplus",
+    "lint:frontend": "npm run lint -w democracy-plusplus",
+    "lint:backend": "npm run lint -w bureaucracy-plusplus",
     "build": "npm run build:cloudflare",
     "build:shared": "npm run build -w @plusplus/shared-types",
     "build:frontend": "npm run build:shared && npm run build -w democracy-plusplus",
     "build:cloudflare": "npm run build:shared && npm run build:cloudflare -w democracy-plusplus",
     "build:github-pages": "npm run build:shared && npm run build:github-pages -w democracy-plusplus",
     "build:backend": "npm run build:shared && npm run build -w bureaucracy-plusplus",
-    "test": "npm run test -w democracy-plusplus",
-    "lint": "npm run lint -w democracy-plusplus",
+    "test:frontend": "npm run test -w democracy-plusplus",
+    "test:backend": "npm run test -w bureaucracy-plusplus",
     "preview": "npm run preview -w democracy-plusplus",
     "fetchData": "npm run fetchData -w democracy-plusplus",
     "enrichData": "npm run enrichData -w democracy-plusplus",
@@ -26,6 +30,6 @@
     "deploy": "npm run deploy -w democracy-plusplus"
   },
   "devDependencies": {
-    "typescript": "^6.0.2"
+    "@typescript/native-preview": "^7.0.0-dev.20260421.2"
   }
 }
