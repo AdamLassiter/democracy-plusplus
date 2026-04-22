@@ -54,7 +54,7 @@ function descriptionOptions(item: Pick<Quest | Restriction, "description" | "des
 
 function withRandomDescription<T extends Quest | Restriction>(
   item: T,
-  prng: { rand(min: number, max?: number): number },
+  prng: { rand(_min: number, _max?: number): number },
 ): T {
   const options = descriptionOptions(item);
   const description = options.length
@@ -116,7 +116,7 @@ function scaling(mission: MissionState) {
   }
 }
 
-function randomChoice<T>(items: T[], prng: { rand(min: number, max?: number): number }, n = 1): T[] {
+function randomChoice<T>(items: T[], prng: { rand(_min: number, _max?: number): number }, n = 1): T[] {
   const shuffled = items.sort(() => 0.5 - prng.rand(65536) / 65536);
   return shuffled.slice(0, n);
 }
@@ -139,7 +139,7 @@ function questsRequiredCount(mission: MissionState) {
   }
 }
 
-function questsRequired(mission: MissionState, prng: { rand(min: number, max?: number): number }): Restriction[] {
+function questsRequired(mission: MissionState, prng: { rand(_min: number, _max?: number): number }): Restriction[] {
   const count = questsRequiredCount(mission);
   if (!count) {
     return [];
@@ -181,7 +181,7 @@ function questsCount(mission: MissionState) {
 function chooseRestrictions(
   pool: Restriction[],
   quests: Quest[],
-  prng: { rand(min: number, max?: number): number },
+  prng: { rand(_min: number, _max?: number): number },
   n: number,
 ): Restriction[] {
   const restrictions: Restriction[] = [];
@@ -214,7 +214,7 @@ function chooseRestrictions(
   return restrictions;
 }
 
-function scaleQuest(quest: Quest, prng: { rand(min: number, max?: number): number }, questScaling: number): Quest {
+function scaleQuest(quest: Quest, prng: { rand(_min: number, _max?: number): number }, questScaling: number): Quest {
   const values = quest.values ?? [];
   let min: number;
   let max: number;
@@ -246,7 +246,7 @@ function scaleQuest(quest: Quest, prng: { rand(min: number, max?: number): numbe
 
 function chooseQuests(
   pool: Quest[],
-  prng: { rand(min: number, max?: number): number },
+  prng: { rand(_min: number, _max?: number): number },
   n: number,
   questScaling: number,
 ): Quest[] {
@@ -274,7 +274,7 @@ function chooseQuests(
 export function calculateRestrictions(
   mission: MissionState,
   quests: Quest[],
-  prng: { rand(min: number, max?: number): number },
+  prng: { rand(_min: number, _max?: number): number },
   lastRestrictions: Restriction[] = [],
 ) {
   const numRestrictions = restrictionsCount(mission);
@@ -321,7 +321,7 @@ function shortObjectiveImpliesShortQuest(mission: MissionState, quest: Quest): Q
 
 export function calculateQuests(
   mission: MissionState,
-  prng: { rand(min: number, max?: number): number },
+  prng: { rand(_min: number, _max?: number): number },
   lastQuests: Quest[] = [],
 ) {
   const numQuests = questsCount(mission);

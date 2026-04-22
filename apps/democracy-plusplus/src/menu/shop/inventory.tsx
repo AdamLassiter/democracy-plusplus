@@ -84,8 +84,8 @@ export default function Inventory() {
   </>;
 }
 
-function Shop({ items, onClick }: { items: Item[]; onClick: (item: Item) => void }) {
-  const lists = Object.groupBy(items, (item) => item.tier) as Partial<Record<Tier, ShopItem[]>>;
+function Shop({ items, onClick }: { items: Item[]; onClick: (_item: Item) => void }) {
+  const lists = Object.groupBy(items, ({ tier }) => tier) as Partial<Record<Tier, ShopItem[]>>;
   const tierOrder: Tier[] = ["s", "a", "b", "c", "d"];
 
   const sortedTiers: Array<[Tier, ShopItem[]]> = tierOrder
@@ -99,7 +99,7 @@ function Shop({ items, onClick }: { items: Item[]; onClick: (item: Item) => void
   </>;
 }
 
-function ShopTier({ items, tier, onClick }: { items: ShopItem[]; tier: string; onClick: (item: Item) => void }) {
+function ShopTier({ items, tier, onClick }: { items: ShopItem[]; tier: string; onClick: (_item: Item) => void }) {
   const { credits } = useSelector(selectCredits);
   const list = [...items].sort((a, b) => b.cost - a.cost);
 

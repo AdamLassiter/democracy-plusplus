@@ -21,7 +21,7 @@ import type { Warbond } from "../../types";
 import { resetShop } from "../../slices/shopSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 
-export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOpen: (open: boolean) => void }) {
+export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOpen: (_open: boolean) => void }) {
   const dispatch = useDispatch();
   const { warbonds } = useSelector(selectShop);
   const { count, playerCount: localPlayerCount } = useSelector(selectMission);

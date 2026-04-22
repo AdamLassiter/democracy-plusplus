@@ -10,7 +10,7 @@ import { sendLobbyCommand } from "../../multiplayer/api";
 import Debrief from "./debrief";
 import { calculateFaction, calculateMissionReward, calculateQuestsReward } from "../../economics/mission";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
-import { Difficulty, LobbyMember, MissionState, Objective, Tier } from "../../types";
+import { LobbyMember, MissionState, Objective, Tier } from "../../types";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../../utils/missionDebug";
 
 export default function Setup() {

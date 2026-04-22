@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -101,7 +101,7 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
     }
   }
 
-  function resetGameState() {
+  const resetGameState = useEffectEvent(() => {
     clearErrorTimeout();
     gameOverHandledRef.current = false;
     setPhase("idle");
@@ -113,7 +113,7 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
     setDeadlineMs(null);
     setNowMs(Date.now());
     setFlashErrorUntil(null);
-  }
+  });
 
   function handleClose() {
     resetGameState();
@@ -149,7 +149,7 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
     }
 
     return () => clearErrorTimeout();
-  }, [open]);
+  }, [open, resetGameState]);
 
   useEffect(() => {
     if (phase !== "gameOver" || gameOverHandledRef.current) {

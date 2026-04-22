@@ -110,7 +110,7 @@ export default function Purchases() {
   </>;
 }
 
-function PurchasedList({ items, equip }: { items: Item[]; equip: (displayName: string) => void }) {
+function PurchasedList({ items, equip }: { items: Item[]; equip: (_displayName: string) => void }) {
   const sortedItems = [...items]
     .sort((a, b) => (a.category ?? '').localeCompare(b.category ?? '') || a.displayName.localeCompare(b.displayName));
 

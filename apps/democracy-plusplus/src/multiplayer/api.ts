@@ -82,7 +82,7 @@ export function connectLobbyEvents(
   lobbyCode: LobbyCode,
   memberId: string,
   sessionToken: string,
-  onEvent: (event: ServerEvent) => void,
+  onEvent: (_event: ServerEvent) => void,
   onError: () => void,
 ) {
   const url = new URL(endpoint(`/api/lobbies/${encodeURIComponent(lobbyCode)}/events`));

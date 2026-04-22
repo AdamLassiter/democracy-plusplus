@@ -11,11 +11,11 @@ function filterStratagems(items: Item[]) {
   return items.filter((item) => item.type === "Stratagem");
 }
 
-function majorityThemeLoadout(items: Item[], matcher: (item: Item) => boolean, threshold: number) {
+function majorityThemeLoadout(items: Item[], matcher: (_item: Item) => boolean, threshold: number) {
   return items.length > 0 && items.filter(matcher).length >= threshold;
 }
 
-function isThemeLoadout(items: Item[], matcher: (item: Item) => boolean) {
+function isThemeLoadout(items: Item[], matcher: (_item: Item) => boolean) {
   return items.length > 0 && items.every(matcher);
 }
 

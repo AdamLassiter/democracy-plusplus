@@ -426,7 +426,7 @@ export function parseWeaponsPageSource(content: string) {
       continue;
     }
 
-    const tagMatch = line.match(/^([^={}\[\]|][^=]*)=$/);
+    const tagMatch = line.match(/^([^={}[\\]|][^=]*)=$/);
     if (tagMatch) {
       const rawTag = tagMatch[1].trim();
       if (!["Primary", "Secondary", "Throwable"].includes(rawTag)) {

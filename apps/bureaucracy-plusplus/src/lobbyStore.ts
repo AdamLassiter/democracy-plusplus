@@ -64,7 +64,6 @@ export function normaliseDisplayName(value: unknown) {
 }
 
 export function createLobbyCode(): LobbyCode {
-  const alphabet = "123456789";
   let code = "";
   do {
     code = crypto.randomInt(0, 65536).toString();

@@ -59,8 +59,6 @@ export default function CartManager() {
       return;
     }
 
-    const purchasedNames = cart.map(i => i.displayName);
-
     dispatch(subtractCredits({ amount: totalCost }));
     cart.forEach((item) => {
       dispatch(addPurchased({ value: item.displayName }));

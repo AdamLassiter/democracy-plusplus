@@ -80,5 +80,5 @@ export function useMissionDebugEffect(name: string, trackedValues: Record<string
     }
 
     previousRef.current = current;
-  }, serialisedEntries.map(([, value]) => value));
+  }, [name, trackedValues, serialisedEntries]);
 }

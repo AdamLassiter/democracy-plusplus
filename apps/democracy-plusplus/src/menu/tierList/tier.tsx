@@ -1,5 +1,6 @@
 import { Card, Grid, Typography } from "@mui/material";
 import ItemDisplay from "../../utils/itemDisplay";
+import type { DragEvent } from "react";
 import type { EditableTier, Item } from "../../types";
 import { EDITABLE_TIER_ORDER, TIER_ORDER } from "../../utils/tierList";
 
@@ -16,8 +17,8 @@ type TierBoardProps = {
   items: Item[];
   editMode?: boolean;
   draftAssignments?: Record<string, EditableTier>;
-  onMoveToTier?: (displayName: string, tier: EditableTier) => void;
-  onUncategorize?: (displayName: string) => void;
+  onMoveToTier?: (_displayName: string, _tier: EditableTier) => void;
+  onUncategorize?: (_displayName: string) => void;
 };
 
 function TierBucket({
@@ -30,10 +31,10 @@ function TierBucket({
   tier: EditableTier;
   items: Item[];
   editMode?: boolean;
-  onMoveToTier?: (displayName: string, tier: EditableTier) => void;
-  onUncategorize?: (displayName: string) => void;
+  onMoveToTier?: (_displayName: string, _tier: EditableTier) => void;
+  onUncategorize?: (_displayName: string) => void;
 }) {
-  function handleDrop(event: React.DragEvent<HTMLDivElement>) {
+  function handleDrop(event: DragEvent<HTMLDivElement>) {
     if (!editMode || !onMoveToTier) {
       return;
     }

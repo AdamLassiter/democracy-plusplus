@@ -1,4 +1,4 @@
-import { Box, Fab, Tab, Tabs, Tooltip, Typography } from "@mui/material";
+import { Box, Fab, Tab, Tabs, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import { useMemo, useState, type SyntheticEvent } from "react";
@@ -23,6 +23,15 @@ import { getEffectivePlayerCount } from "../../utils/playerCount";
 import type { EditableTier, Item, Tier } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";
 
+const TIER_LISTS: [string, Item[]][] = [
+  ["Primaries", PRIMARIES],
+  ["Secondaries", SECONDARIES],
+  ["Throwables", THROWABLES],
+  ["Armor Passives", ARMOR_PASSIVES],
+  ["Stratagems", STRATAGEMS],
+  ["Boosters", BOOSTERS],
+];
+
 export default function TierLists() {
   const dispatch = useDispatch();
   const { overrides } = useSelector(selectTierList);
@@ -35,17 +44,8 @@ export default function TierLists() {
   const [editMode, setEditMode] = useState(false);
   const [draftAssignments, setDraftAssignments] = useState<Record<string, EditableTier>>({});
 
-  const tierLists: [string, Item[]][] = [
-    ["Primaries", PRIMARIES],
-    ["Secondaries", SECONDARIES],
-    ["Throwables", THROWABLES],
-    ["Armor Passives", ARMOR_PASSIVES],
-    ["Stratagems", STRATAGEMS],
-    ["Boosters", BOOSTERS],
-  ];
-
   const effectiveTierLists = useMemo(
-    () => tierLists.map(([label, items]) => [label, applyTierOverrides(items, overrides)] as const),
+    () => TIER_LISTS.map(([label, items]) => [label, applyTierOverrides(items, overrides)] as const),
     [overrides],
   );
 

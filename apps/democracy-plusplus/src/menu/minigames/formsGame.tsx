@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FORMS } from "../../constants/forms";
 import { unlockAchievements } from "../../slices/achievementsSlice";
 import { recordBureaucraticFormsScore, selectMinigames } from "../../slices/minigamesSlice";
-import type { FormFieldPool, FormTemplate } from "../../types";
+import type { FormFieldPool } from "../../types";
 
 type GamePhase = "idle" | "playing" | "gameOver";
 type FormAction = "Approve" | "Reject" | "Escalate";
@@ -72,16 +72,6 @@ function shuffle<T>(items: T[]) {
     [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
   }
   return copy;
-}
-
-function actionForSeverity(severity: FieldSeverity): FormAction {
-  if (severity === "error") {
-    return "Reject";
-  }
-  if (severity === "warning") {
-    return "Escalate";
-  }
-  return "Approve";
 }
 
 function colorForSeverity(severity: FieldSeverity) {
@@ -207,7 +197,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setReviewEndsGame(false);
   }
 
-  function resolveForm(action: FormAction) {
+  const resolveForm = useEffectEvent((action: FormAction) => {
     if (!currentForm || isReviewingAnswer) {
       return;
     }
@@ -227,7 +217,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setReviewEndsGame(nextErrors >= MAX_ERRORS);
     setDeadlineMs(null);
     setNowMs(now);
-  }
+  });
 
   useEffect(() => {
     if (!open) {
@@ -299,7 +289,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isReviewingAnswer, open, phase, reviewEndsGame, score]);
+  }, [isReviewingAnswer, open, phase, resolveForm, reviewEndsGame, score]);
 
   return <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
     <DialogTitle>Bureaucratic Forms Review</DialogTitle>

@@ -79,7 +79,9 @@ function normaliseMissionState(state: Partial<MissionState>): MissionState {
   };
 }
 
-const selectRawMission = (state: RootState) => state.mission;
+function selectRawMission(state: RootState) {
+  return state.mission;
+}
 
 export const selectMission = createSelector(
   [selectRawMission],
@@ -90,11 +92,11 @@ const missionSlice = createSlice({
   name: 'mission',
   initialState,
   reducers: {
-    setPrng: (state, action: PayloadAction<{ value: number }>) => {
+    setPrng(state, action: PayloadAction<{ value: number }>) {
       const { value } = action.payload;
       state.prng = normaliseSeed(value, initialState.prng);
     },
-    setState: (state, action: PayloadAction<{ value: MissionStage }>) => {
+    setState(state, action: PayloadAction<{ value: MissionStage }>) {
       const { value } = action.payload;
       if (states.includes(value)) {
         state.state = value;
@@ -103,7 +105,7 @@ const missionSlice = createSlice({
         }
       }
     },
-    setFaction: (state, action: PayloadAction<{ value: number }>) => {
+    setFaction(state, action: PayloadAction<{ value: number }>) {
       const { value } = action.payload;
       if (state.factionLocked) {
         return;
@@ -111,11 +113,11 @@ const missionSlice = createSlice({
       state.faction = value;
       state.objective = '';
     },
-    setObjective: (state, action: PayloadAction<{ value: string }>) => {
+    setObjective(state, action: PayloadAction<{ value: string }>) {
       const { value } = action.payload;
       state.objective = value;
     },
-    setDifficulty: (state, action: PayloadAction<{ value: number }>) => {
+    setDifficulty(state, action: PayloadAction<{ value: number }>) {
       const { value } = action.payload;
       if (state.factionLocked) {
         return;
@@ -123,25 +125,25 @@ const missionSlice = createSlice({
       state.difficulty = value;
       state.objective = '';
     },
-    setPlayerCount: (state, action: PayloadAction<{ value: number }>) => {
+    setPlayerCount(state, action: PayloadAction<{ value: number }>) {
       state.playerCount = clampPlayerCount(action.payload.value);
     },
-    setCount: (state, action: PayloadAction<{ value: number }>) => {
+    setCount(state, action: PayloadAction<{ value: number }>) {
       const { value } = action.payload;
       state.count = value;
     },
-    setQuests: (state, action: PayloadAction<{ value: MissionState['quests'] }>) => {
+    setQuests(state, action: PayloadAction<{ value: MissionState['quests'] }>) {
       const { value } = action.payload;
       state.quests = value;
     },
-    setRestrictions: (state, action: PayloadAction<{ value: MissionState['restrictions'] }>) => {
+    setRestrictions(state, action: PayloadAction<{ value: MissionState['restrictions'] }>) {
       const { value } = action.payload;
       state.restrictions = value;
     },
-    setMissionState: (_state, action: PayloadAction<MissionState>) => {
+    setMissionState(_state, action: PayloadAction<MissionState>) {
       return normaliseMissionState(action.payload);
     },
-    resetMission: (state) => {
+    resetMission(state) {
       const missionsRequired = getMissionsRequiredForDifficulty(state.difficulty);
       const unlockFaction = state.mission >= missionsRequired;
 

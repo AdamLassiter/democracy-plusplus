@@ -1,8 +1,6 @@
 import type {
-  EquipmentState,
   Faction,
   LobbyCode,
-  LobbyMember,
   LobbyMemberId,
   LobbySessionResponse,
   LobbyState,

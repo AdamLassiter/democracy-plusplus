@@ -14,7 +14,6 @@ import MultiplayerManager from '../multiplayer/manager';
 import Settings from './settings';
 import WarbondsFilter from './warbonds';
 import Help from './help';
-import type { LobbyMember } from '../types';
 import StratagemGame from './minigames/stratagemGame';
 import AchievementsDialog from './achievements';
 import FormsGame from './minigames/formsGame';
@@ -61,12 +60,8 @@ export default function Menu() {
       ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
       : "After playing the mission in-game, submit the mission report with the final results.";
 
-  const tabs: Array<(props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
+  const tabs: Array<(_props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
   const CurrentTab = tabs[currentTab];
-  const currentMember = multiplayer.lobbyState?.members.find(
-    (member: LobbyMember) => member.memberId === multiplayer.memberId,
-  ) ?? null;
-  const isHost = currentMember?.isHost ?? false;
   const multiplayerEnabled = multiplayer.backendAvailable;
   const lobbyConnected = multiplayer.connectionStatus === "connected" && Boolean(multiplayer.lobbyState);
 

@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+ 
 
 import axios, { type AxiosError } from "axios";
 import fs from "fs/promises";

@@ -6,7 +6,7 @@ export default function PropertyFilter({
   onChange,
 }: {
   selectedFilters: PropertyFilterName[];
-  onChange: (filters: PropertyFilterName[]) => void;
+  onChange: (_filters: PropertyFilterName[]) => void;
 }) {
   return (
     <Box sx={{ mb: 2, display: "flex", flexWrap: "wrap", gap: 1 }}>

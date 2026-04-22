@@ -11,7 +11,7 @@ import ItemTooltip from "./itemTooltip";
 
 type ItemDisplayProps = {
   item: Item;
-  onClick?: (item: Item) => void;
+  onClick?: (_item: Item) => void;
   isAffordable?: boolean;
   compact?: boolean;
 };
@@ -26,7 +26,7 @@ type MissingProps = {
 type ItemCardProps = {
   item: Item;
   effectiveTier: Tier;
-  onClick?: (item: Item) => void;
+  onClick?: (_item: Item) => void;
   isAffordable: boolean;
   titles: boolean;
   compact: boolean;
@@ -134,7 +134,9 @@ function Missing({ item, onClick }: { item: Item | MissingItem; onClick?: () => 
     <ItemIcon item={item} margin={1} width={110} minHeight={80} />
   </Card>;
 
-  const isFullItem = (obj: Item | MissingItem): obj is Item => 'properties' in obj;
+  function isFullItem(obj: Item | MissingItem): obj is Item {
+    return "properties" in obj;
+  }
 
   if (!tooltips || !isFullItem(item) || !item.properties || !Object.keys(item.properties).length) {
     return inner;

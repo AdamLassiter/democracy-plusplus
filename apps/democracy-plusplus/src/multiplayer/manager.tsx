@@ -114,11 +114,14 @@ export default function MultiplayerManager() {
       return;
     }
 
+    const activeLobbyCode = lobbyCode;
+    const activeMemberId = memberId;
+    const activeSessionToken = sessionToken;
     let cancelled = false;
 
-    const runHeartbeat = async () => {
+    async function runHeartbeat() {
       try {
-        const nextLobbyState = await pollLobbyPresence(lobbyCode, memberId, sessionToken);
+        const nextLobbyState = await pollLobbyPresence(activeLobbyCode, activeMemberId, activeSessionToken);
         if (!cancelled) {
           dispatch(setLobbyState(nextLobbyState));
         }
@@ -135,7 +138,7 @@ export default function MultiplayerManager() {
 
         dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to refresh lobby presence"));
       }
-    };
+    }
 
     void runHeartbeat();
     const intervalId = window.setInterval(() => {

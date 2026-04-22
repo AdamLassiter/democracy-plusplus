@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, Typography, type TabProps } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import { useState, type SyntheticEvent } from "react";
 import { useSelector } from "react-redux";
 import { selectLog } from "../../slices/logSlice";

@@ -5,9 +5,7 @@ import {
   DialogActions,
   Button,
   Typography,
-  Divider,
   Link,
-  Grid,
 } from "@mui/material";
 import { StratagemCodeDisplay } from "../../utils/stratagemCode";
 
