@@ -42,7 +42,7 @@ By default the frontend listens on `http://localhost:5173`.
 
 Available frontend environment variables:
 
-- `BUREAUCRACY_URL` - http port for the backend server. default: `8080`
+- `VITE_BASE_PATH` - base path used for the built frontend
 
 The frontend uses this backend for:
 
@@ -50,7 +50,8 @@ The frontend uses this backend for:
 - server-sent event lobby snapshots
 - lobby presence polling and command updates
 
-If `BUREAUCRACY_URL` is unset in development, multiplayer assumes `http://localhost:8080`.
+If `VITE_DEV` is set in development, multiplayer assumes `http://localhost:8080` for the backend.
+In production, multiplayer assumes `https://bureaucracy-plusplus.lassiter.uk`
 If the backend is unavailable, the app falls back to singleplayer mode.
 
 ## 🛰️ Backend Operations

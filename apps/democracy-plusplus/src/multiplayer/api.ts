@@ -6,16 +6,9 @@ import type {
   ServerEvent,
 } from "../types";
 
-const DEFAULT_DEV_BACKEND_URL = "http://localhost:8080";
-const BACKEND_URL = (
-  import.meta.env.BUREAUCRACY_URL
-  ?? (import.meta.env.DEV ? DEFAULT_DEV_BACKEND_URL : "")
-)?.replace(/\/+$/, "") ?? "";
+const BACKEND_URL = import.meta.env.DEV ?  "http://localhost:8080" : "https://bureaucracy-plusplus.lassiter.uk";
 
 function endpoint(path: string) {
-  if (!BACKEND_URL) {
-    throw new Error("Backend URL is not configured");
-  }
   return `${BACKEND_URL}${path}`;
 }
 
