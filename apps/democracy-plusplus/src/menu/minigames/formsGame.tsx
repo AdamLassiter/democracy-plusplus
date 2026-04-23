@@ -1,4 +1,4 @@
-import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -197,7 +197,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setReviewEndsGame(false);
   }
 
-  const resolveForm = useEffectEvent((action: FormAction) => {
+  function resolveForm(action: FormAction) {
     if (!currentForm || isReviewingAnswer) {
       return;
     }
@@ -217,7 +217,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
     setReviewEndsGame(nextErrors >= MAX_ERRORS);
     setDeadlineMs(null);
     setNowMs(now);
-  });
+  }
 
   useEffect(() => {
     if (!open) {
@@ -289,7 +289,9 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isReviewingAnswer, open, phase, resolveForm, reviewEndsGame, score]);
+    // `resolveForm` is intentionally omitted to avoid re-binding the global key handler every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isReviewingAnswer, open, phase, reviewEndsGame, score]);
 
   return <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
     <DialogTitle>Bureaucratic Forms Review</DialogTitle>
