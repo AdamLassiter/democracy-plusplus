@@ -16,7 +16,9 @@
     "strict": true,
     "noImplicitAny": true,
     "paths": {
-      "@plusplus/shared-types": ["../../packages/shared-types/src/index.ts"]
+      "@plusplus/shared-types": [
+        "../../packages/shared-types/src/index.ts"
+      ]
     }
   },
   "include": ["src", "scripts", "vite.config.ts"]
