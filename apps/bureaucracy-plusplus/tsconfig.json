@@ -9,12 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
-    "rewriteRelativeImportExtensions": true,
-    "paths": {
-      "@plusplus/shared-types": [
-        "../../packages/shared-types/src/index.ts"
-      ]
-    }
+    "rewriteRelativeImportExtensions": true
   },
   "include": [
     "src"

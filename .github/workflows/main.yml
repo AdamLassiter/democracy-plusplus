@@ -73,7 +73,7 @@ jobs:
         run: |
           timestamp="$(date -u +'%Y%m%d-%H%M%S')"
           owner="$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')"
-          image="ghcr.io/${owner}/democracy-plusplus-bureaucracy-plusplus"
+          image="ghcr.io/${owner}/bureaucracy-plusplus"
           echo "timestamp=${timestamp}" >> "${GITHUB_OUTPUT}"
           echo "image=${image}" >> "${GITHUB_OUTPUT}"
           echo "tag=${image}:${timestamp}" >> "${GITHUB_OUTPUT}"
