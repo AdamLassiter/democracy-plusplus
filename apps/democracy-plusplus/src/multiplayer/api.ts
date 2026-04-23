@@ -8,7 +8,7 @@ import type {
 
 const DEFAULT_DEV_BACKEND_URL = "http://localhost:8080";
 const BACKEND_URL = (
-  import.meta.env.VITE_BACKEND_URL
+  import.meta.env.BUREAUCRACY_URL
   ?? (import.meta.env.DEV ? DEFAULT_DEV_BACKEND_URL : "")
 )?.replace(/\/+$/, "") ?? "";
 
