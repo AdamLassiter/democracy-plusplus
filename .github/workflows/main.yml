@@ -89,7 +89,7 @@ jobs:
           context: .
           file: ./apps/bureaucracy-plusplus/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tag }}
+          tags: ${{ steps.meta.outputs.tag }},${{steps.meta.outputs.image}}:latest
 
   deploy-frontend:
     needs: test-frontend
