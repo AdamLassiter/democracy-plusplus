@@ -49,6 +49,7 @@ export interface LobbyMissionState {
   quests: Quest[];
   restrictions: Restriction[];
   stars: number | null;
+  debriefSubmissionId: number;
 }
 
 export interface LobbyMemberLoadout extends EquipmentState {}
@@ -58,6 +59,7 @@ export interface LobbyMember {
   displayName: string;
   isHost: boolean;
   loadout: LobbyMemberLoadout;
+  debriefReady: boolean;
 }
 
 export interface LobbyState {
@@ -79,9 +81,11 @@ export type ClientCommand =
   | { type: 'setMissionConfig'; mission: Partial<Pick<LobbyMissionState, 'faction' | 'difficulty' | 'objective' | 'state' | 'factionLocked'>> }
   | { type: 'lockMissionConfig' }
   | { type: 'setEquippedLoadout'; loadout: LobbyMemberLoadout }
+  | { type: 'setDebriefReady'; ready: boolean }
   | { type: 'setQuests'; quests: Quest[] }
   | { type: 'setRestrictions'; restrictions: Restriction[] }
   | { type: 'setMissionStars'; stars: number | null }
+  | { type: 'submitDebriefReports' }
   | { type: 'leaveLobby' };
 
 export interface LobbySnapshotEvent {

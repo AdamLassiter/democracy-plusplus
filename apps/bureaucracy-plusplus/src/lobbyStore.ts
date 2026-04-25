@@ -37,6 +37,7 @@ export function initialMissionState(): LobbyMissionState {
     quests: [],
     restrictions: [],
     stars: null,
+    debriefSubmissionId: 0,
   };
 }
 
@@ -82,6 +83,7 @@ export function createLobby(displayName: string) {
     displayName,
     isHost: true,
     loadout: emptyLoadout(),
+    debriefReady: false,
   };
 
   const lobby: LobbyRecord = {
@@ -118,6 +120,7 @@ export function joinLobby(code: string, displayName: string) {
     displayName,
     isHost: false,
     loadout: emptyLoadout(),
+    debriefReady: false,
   };
 
   lobby.members.set(memberId, member);
@@ -250,6 +253,12 @@ function assertHost(lobby: LobbyRecord, member: LobbyMember) {
   }
 }
 
+function resetDebriefReadiness(lobby: LobbyRecord) {
+  for (const member of lobby.members.values()) {
+    member.debriefReady = false;
+  }
+}
+
 function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCommand) {
   switch (command.type) {
     case "setDisplayName": {
@@ -267,6 +276,7 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
     }
     case "setMissionConfig": {
       assertHost(lobby, actor);
+      resetDebriefReadiness(lobby);
       lobby.mission = {
         ...lobby.mission,
         ...command.mission,
@@ -280,6 +290,7 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
     }
     case "lockMissionConfig": {
       assertHost(lobby, actor);
+      resetDebriefReadiness(lobby);
       lobby.mission.factionLocked = true;
       if (lobby.mission.state === "brief") {
         lobby.mission.state = "generating";
@@ -296,6 +307,15 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
       logEvent("lobby.loadout.updated", {
         lobbyCode: lobby.lobbyCode,
         memberId: actor.memberId,
+      });
+      return;
+    }
+    case "setDebriefReady": {
+      actor.debriefReady = command.ready;
+      logEvent("lobby.debrief.ready", {
+        lobbyCode: lobby.lobbyCode,
+        memberId: actor.memberId,
+        ready: command.ready,
       });
       return;
     }
@@ -326,6 +346,21 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
         lobbyCode: lobby.lobbyCode,
         memberId: actor.memberId,
         stars: command.stars,
+      });
+      return;
+    }
+    case "submitDebriefReports": {
+      assertHost(lobby, actor);
+      const pendingGuests = [...lobby.members.values()].filter((member) => !member.isHost && !member.debriefReady);
+      if (pendingGuests.length) {
+        throw new Error("All non-host lobby members must finalise their reports first");
+      }
+      lobby.mission.debriefSubmissionId += 1;
+      resetDebriefReadiness(lobby);
+      logEvent("lobby.debrief.submitted", {
+        lobbyCode: lobby.lobbyCode,
+        memberId: actor.memberId,
+        debriefSubmissionId: lobby.mission.debriefSubmissionId,
       });
       return;
     }

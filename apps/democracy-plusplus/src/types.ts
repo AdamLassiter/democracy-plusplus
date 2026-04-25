@@ -240,6 +240,7 @@ export interface MultiplayerState {
   sessionToken: string | null;
   displayName: string;
   lobbyState: LobbyState | null;
+  lastProcessedDebriefSubmissionId: number;
 }
 
 export interface LobbyCommandResponse {

@@ -1,17 +1,26 @@
-import { Divider, Grid } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { selectMission, setQuests, setRestrictions, setPrng, setState } from "../../slices/missionSlice";
 import { PRNG } from "../../economics/lfsr";
 import { calculateQuests, calculateRestrictions } from "../../economics/mission";
 import { useDispatch, useSelector } from "react-redux";
+import { selectMultiplayer } from "../../slices/multiplayerSlice";
 import Setup from "./setup";
 import Quests from "./quests";
 import Restrictions from "./restrictions";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../../utils/missionDebug";
+import type { LobbyMember } from "../../types";
+import { canGenerateMission } from "../../multiplayer/missionSync";
 
 export default function Brief() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
+  const multiplayer = useSelector(selectMultiplayer);
+  const currentMember = multiplayer.lobbyState?.members.find(
+    (member: LobbyMember) => member.memberId === multiplayer.memberId,
+  ) ?? null;
+  const isHost = currentMember?.isHost ?? false;
+  const canGenerateLocally = canGenerateMission(Boolean(multiplayer.lobbyState), isHost);
 
   const generatingState = mission.state === 'generating';
 
@@ -21,16 +30,19 @@ export default function Brief() {
     quests: mission.quests.length,
     restrictions: mission.restrictions.length,
     generatingState,
+    canGenerateLocally,
   });
   useMissionDebugEffect("Brief generation gate", {
     missionState: mission.state,
     prng: mission.prng,
     quests: mission.quests,
     restrictions: mission.restrictions,
+    canGenerateLocally,
   });
 
   useEffect(() => {
-    if (generatingState) {
+    // In multiplayer, only the host generates the shared mission payload.
+    if (generatingState && canGenerateLocally) {
       logMissionDebug("Brief generating start", {
         prng: mission.prng,
         questCount: mission.quests.length,
@@ -51,11 +63,16 @@ export default function Brief() {
       dispatch(setState({ value: 'loadout' }))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mission.state]);
+  }, [canGenerateLocally, mission.state]);
 
   return <>
     <Grid direction="row" container spacing={2}>
       <Setup />
+      {generatingState && !canGenerateLocally && (
+        <Typography color="text.secondary" sx={{ alignSelf: "center", paddingLeft: 2 }}>
+          Host is generating the mission briefing...
+        </Typography>
+      )}
       {!!mission.quests.length && <>
         <Divider orientation="vertical" variant="middle" flexItem />
         <Quests />

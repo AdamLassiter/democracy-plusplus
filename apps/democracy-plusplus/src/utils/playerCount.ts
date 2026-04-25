@@ -31,5 +31,5 @@ export function getEffectivePlayerCount(
 }
 
 export function playerCountMultiplier(playerCount: PlayerCount) {
-  return playerCount;
+  return [1.2, 1, 0.9, 0.8][playerCount - 1];
 }

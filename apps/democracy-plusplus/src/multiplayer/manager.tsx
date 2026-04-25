@@ -12,26 +12,14 @@ import {
 import { checkBackendHealth } from "./api";
 import { selectEquipment, setEquipmentState } from "../slices/equipmentSlice";
 import { selectMission, setMissionState } from "../slices/missionSlice";
-import type { EquipmentState, LobbyMember, LobbyMissionState, MissionState } from "../types";
+import type { EquipmentState, LobbyMember } from "../types";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../utils/missionDebug";
+import { syncMissionState } from "./missionSync";
 
 const HEARTBEAT_INTERVAL_MS = 10_000;
 
 function jsonEqual(a: unknown, b: unknown) {
   return JSON.stringify(a) === JSON.stringify(b);
-}
-
-function syncMissionState(localMission: MissionState, lobbyMission: LobbyMissionState): MissionState {
-  return {
-    ...localMission,
-    faction: lobbyMission.faction,
-    difficulty: lobbyMission.difficulty,
-    objective: lobbyMission.objective,
-    state: lobbyMission.state,
-    factionLocked: lobbyMission.factionLocked,
-    quests: lobbyMission.quests,
-    restrictions: lobbyMission.restrictions,
-  };
 }
 
 export default function MultiplayerManager() {
@@ -157,7 +145,9 @@ export default function MultiplayerManager() {
     }
 
     if (!isHost) {
-      const nextMission = syncMissionState(mission, lobbyMission);
+      const nextMission = syncMissionState(mission, lobbyMission, {
+        lastProcessedDebriefSubmissionId: multiplayer.lastProcessedDebriefSubmissionId,
+      });
       if (!jsonEqual(nextMission, mission)) {
         logMissionDebug("MultiplayerManager applying lobby mission", {
           missionState: mission.state,
@@ -167,8 +157,7 @@ export default function MultiplayerManager() {
         dispatch(setMissionState(nextMission));
       }
     }
-
-  }, [currentMember, dispatch, isHost, lobbyMission, mission]);
+  }, [currentMember, dispatch, isHost, lobbyMission, mission, multiplayer.lastProcessedDebriefSubmissionId]);
 
   useEffect(() => {
     if (!lobbyState || !memberId || currentMember) {

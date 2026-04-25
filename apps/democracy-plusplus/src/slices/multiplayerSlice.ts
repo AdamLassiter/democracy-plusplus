@@ -12,6 +12,7 @@ const initialState: MultiplayerState = {
   sessionToken: null,
   displayName: "",
   lobbyState: null,
+  lastProcessedDebriefSubmissionId: 0,
 };
 
 export function selectMultiplayer(state: RootState) {
@@ -40,6 +41,7 @@ const multiplayerSlice = createSlice({
       state.memberId = action.payload.memberId;
       state.sessionToken = action.payload.sessionToken;
       state.lobbyState = action.payload.lobbyState;
+      state.lastProcessedDebriefSubmissionId = 0;
     },
     setDisplayName(state, action: PayloadAction<string>) {
       state.displayName = action.payload;
@@ -56,6 +58,9 @@ const multiplayerSlice = createSlice({
       state.connectionStatus = "error";
       state.error = action.payload;
     },
+    setLastProcessedDebriefSubmissionId(state, action: PayloadAction<number>) {
+      state.lastProcessedDebriefSubmissionId = action.payload;
+    },
     resetLobbySession(state) {
       state.connectionStatus = "idle";
       state.error = null;
@@ -63,6 +68,7 @@ const multiplayerSlice = createSlice({
       state.memberId = null;
       state.sessionToken = null;
       state.lobbyState = null;
+      state.lastProcessedDebriefSubmissionId = 0;
     },
   },
 });
@@ -74,6 +80,7 @@ export const {
   setConnecting,
   setConnectionError,
   setDisplayName,
+  setLastProcessedDebriefSubmissionId,
   setLobbySession,
   setLobbyState,
 } = multiplayerSlice.actions;
