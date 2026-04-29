@@ -181,6 +181,10 @@ function getScrapedItemsForFile(fileName: DataFileName, scrapedData: ScrapedItem
 async function mergeObjectives(arrayName: string) {
   const filePath = "./public/data/objectives.json";
 
+  const scrapeTask = createTask("Fetching objectives page", "wiki");
+  const scrapedObjectives = await fetchMainObjectives();
+  scrapeTask.succeed(`${scrapedObjectives.length} scraped`);
+
   const loadTask = createTask(`Loading ${arrayName}`, filePath);
   let existingObjectives: Objective[] = [];
   try {
@@ -190,10 +194,6 @@ async function mergeObjectives(arrayName: string) {
   } catch {
     loadTask.warn("starting with empty array");
   }
-
-  const scrapeTask = createTask("Scraping main objectives", "wiki");
-  const scrapedObjectives = await fetchMainObjectives();
-  scrapeTask.succeed(`${scrapedObjectives.length} scraped`);
 
   const usedIndexes = new Set<number>();
   const removedObjectives: string[] = [];
@@ -269,6 +269,7 @@ async function mergeObjectives(arrayName: string) {
   saveTask.succeed("written");
   summary(`${arrayName} summary`, {
     existing: mergedObjectives.length,
+    scraped: scrapedObjectives.length,
     inserted: insertedObjectives.length,
     removed: removedObjectives.length,
     renamed: renamedObjectives,
