@@ -34,7 +34,6 @@
       },
       "5.5x50mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
           "Drag Factor": "30%",
@@ -94,7 +93,6 @@
       },
       "5.5x50mm PENETRATOR P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "1000 m/s",
           "Drag Factor": "30%",
@@ -155,7 +153,6 @@
       },
       "5.5x50mm EXPLOSIVE P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "800 m/s",
           "Drag Factor": "30%",
@@ -215,7 +212,6 @@
       },
       "5.5x50mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
           "Drag Factor": "30%",
@@ -275,7 +271,6 @@
       },
       "8x60mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -335,7 +330,6 @@
       },
       "5.5x50mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
           "Drag Factor": "30%",
@@ -397,7 +391,6 @@
       },
       "AR-32 P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
           "Drag Factor": "30%",
@@ -465,7 +458,6 @@
       },
       "AR-61 P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -525,7 +517,6 @@
       },
       "MA5C P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -587,7 +578,6 @@
       },
       "AR-2 P": {
         "Projectile": {
-          "Caliber": "7 mm",
           "Mass": "8 g",
           "Initial Velocity": "650 m/s",
           "Drag Factor": "30%",
@@ -672,7 +662,6 @@
       },
       "VG-70 P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "7 g",
           "Initial Velocity": "320 m/s",
           "Drag Factor": "60%",
@@ -732,7 +721,6 @@
       },
       "12x25mm FULL METAL JACKET P2": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "120%",
@@ -794,7 +782,6 @@
       },
       "SMG-72 P": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "210 m/s",
           "Drag Factor": "120%",
@@ -862,7 +849,6 @@
       },
       "12x25mm FULL METAL JACKET P1": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "120%",
@@ -922,7 +908,6 @@
       },
       "9x20mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
           "Drag Factor": "120%",
@@ -982,7 +967,6 @@
       },
       "9x20mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
           "Drag Factor": "120%",
@@ -1043,7 +1027,6 @@
       },
       "M7S P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "7 g",
           "Initial Velocity": "320 m/s",
           "Drag Factor": "120%",
@@ -1104,7 +1087,6 @@
       "BUCKSHOT P1": {
         "Projectile": {
           "Pellets": "x 9",
-          "Caliber": "8 mm",
           "Mass": "6 g",
           "Initial Velocity": "385 m/s",
           "Drag Factor": "50%",
@@ -1167,7 +1149,6 @@
       "SG-451 P": {
         "Projectile": {
           "Pellets": "x 20",
-          "Caliber": "8 mm",
           "Mass": "2 g",
           "Initial Velocity": "120 m/s",
           "Drag Factor": "80%",
@@ -1251,7 +1232,6 @@
       },
       "10g RIFLED SLUGS P": {
         "Projectile": {
-          "Caliber": "18 mm",
           "Mass": "50 g",
           "Initial Velocity": "390 m/s",
           "Drag Factor": "200%",
@@ -1312,7 +1292,6 @@
       "12g BUCKSHOT P": {
         "Projectile": {
           "Pellets": "x 11",
-          "Caliber": "8 mm",
           "Mass": "4 g",
           "Initial Velocity": "360 m/s",
           "Drag Factor": "50%",
@@ -1375,7 +1354,6 @@
       "12g LIBERTY FIRE P": {
         "Projectile": {
           "Pellets": "x 12",
-          "Caliber": "8 mm",
           "Mass": "2 g",
           "Initial Velocity": "120 m/s",
           "Drag Factor": "80%",
@@ -1460,7 +1438,6 @@
       "12g BIRDSHOT P": {
         "Projectile": {
           "Pellets": "x 16",
-          "Caliber": "3 mm",
           "Mass": "1 g",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "50%",
@@ -1524,7 +1501,6 @@
       "10g FLECHETTES P": {
         "Projectile": {
           "Pellets": "x 11",
-          "Caliber": "8 mm",
           "Mass": "6 g",
           "Initial Velocity": "385 m/s",
           "Drag Factor": "30%",
@@ -1550,7 +1526,6 @@
       "10g STUN ROUNDS P": {
         "Projectile": {
           "Pellets": "x 20",
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "800 m/s",
           "Drag Factor": "30%",
@@ -1619,7 +1594,6 @@
       "BUCKSHOT P": {
         "Projectile": {
           "Pellets": "x 11",
-          "Caliber": "8 mm",
           "Mass": "6 g",
           "Initial Velocity": "385 m/s",
           "Drag Factor": "50%",
@@ -1679,7 +1653,6 @@
       },
       "9x70mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "20 g",
           "Initial Velocity": "850 m/s",
           "Drag Factor": "30%",
@@ -1739,7 +1712,6 @@
       },
       "9x70mm HIGH VELOCITY P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "20 g",
           "Initial Velocity": "940 m/s",
           "Drag Factor": "30%",
@@ -1799,7 +1771,6 @@
       },
       "R-6 P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "20 g",
           "Initial Velocity": "850 m/s",
           "Drag Factor": "30%",
@@ -1859,7 +1830,6 @@
       },
       "R-2 P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "20 g",
           "Initial Velocity": "850 m/s",
           "Drag Factor": "30%",
@@ -1920,7 +1890,6 @@
       },
       "R-2124 P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "20 g",
           "Initial Velocity": "850 m/s",
           "Drag Factor": "30%",
@@ -2076,7 +2045,6 @@
       },
       "LASER P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -2139,7 +2107,6 @@
       },
       "MEDIUM PLASMA BOLT P": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "25 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "150%",
@@ -2233,7 +2200,6 @@
       },
       "LARGE PLASMA BOLT P": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "25 g",
           "Initial Velocity": "350 m/s",
           "Drag Factor": "150%",
@@ -2283,7 +2249,6 @@
       },
       "VOLATILE PLASMA BOLT P": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "25 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "150%",
@@ -2368,7 +2333,6 @@
       },
       "LARGE PLASMA BOLT P3": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "100 g",
           "Initial Velocity": "90 m/s",
           "Drag Factor": "400%",
@@ -2526,7 +2490,6 @@
       },
       "LASER P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -2552,7 +2515,6 @@
       },
       "LASER P1": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -2578,7 +2540,6 @@
       },
       "LASER P2": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -2604,7 +2565,6 @@
       },
       "LASER P3": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -2675,7 +2635,6 @@
       },
       "MEDIUM PLASMA BOLT P1": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "25 g",
           "Initial Velocity": "1000 m/s",
           "Drag Factor": "10%",
@@ -2760,7 +2719,6 @@
       },
       "15x100mm HIGH EXPLOSIVE P": {
         "Projectile": {
-          "Caliber": "15 mm",
           "Mass": "100 g",
           "Initial Velocity": "180 m/s",
           "Drag Factor": "0%",
@@ -2812,7 +2770,6 @@
       },
       "SHRAPNEL P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
           "Drag Factor": "40%",
@@ -2873,7 +2830,6 @@
       },
       "CB-9 P": {
         "Projectile": {
-          "Caliber": "15 mm",
           "Mass": "100 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "100%",
@@ -2958,7 +2914,6 @@
       },
       "15x100mm STANDARD ROCKET P": {
         "Projectile": {
-          "Caliber": "15 mm",
           "Mass": "100 g",
           "Initial Velocity": "180 m/s",
           "Drag Factor": "0%",
@@ -3127,7 +3082,6 @@
       },
       "AR/GL-21 P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "920 m/s",
           "Drag Factor": "30%",
@@ -3152,7 +3106,6 @@
       },
       "40mm HEAT GRENADE P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
@@ -3238,7 +3191,6 @@
       "DBS-2 P": {
         "Projectile": {
           "Pellets": "x 12",
-          "Caliber": "8 mm",
           "Mass": "6 g",
           "Initial Velocity": "385 m/s",
           "Drag Factor": "50%",
@@ -3299,7 +3251,6 @@
       },
       "5.5x50mm SUBSONIC P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "330 m/s",
           "Drag Factor": "30%",
@@ -3360,7 +3311,6 @@
       },
       "8x60mm SUBSONIC P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "20 g",
           "Initial Velocity": "330 m/s",
           "Drag Factor": "30%",
@@ -3436,7 +3386,6 @@
       },
       "12x25mm FULL METAL JACKET P3": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "120%",
@@ -3553,7 +3502,6 @@
       "SG-97 P": {
         "Projectile": {
           "Pellets": "x 12",
-          "Caliber": "12 mm",
           "Mass": "10 g",
           "Initial Velocity": "385 m/s",
           "Drag Factor": "30%",
@@ -3642,5 +3590,64 @@
         }
       }
     }
+  },
+  {
+    "displayName": "SMG-203 Gallant",
+    "warbondCode": "warbond25",
+    "internalName": "smg203gallant",
+    "tier": "a",
+    "wikiSlug": "SMG-203_Gallant",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [
+      "SubmachineGun"
+    ],
+    "properties": {
+      "SMG-203 GALLANT": {
+        "Base": {
+          "Fire Rate": "1380 rpm",
+          "Recoil": "14.875",
+          "Horizontal Recoil": "8.75",
+          "Vertical Recoil": "21",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1.2",
+          "Ergonomics": "80",
+          "Capacity": "50",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*9x20mm HIGH VELOCITY P": "Projectile"
+        }
+      },
+      "9x20mm HIGH VELOCITY P": {
+        "Projectile": {
+          "Mass": "7 g",
+          "Initial Velocity": "450 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "65 Damage",
+          "vs. Durable": "13 Damage"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "4"
+        }
+      }
+    },
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/SMG-203_Gallant_Primary_Render.png",
+    "imageUrl": "primaries/SMG-203_Gallant_Primary_Render.png"
   }
 ]

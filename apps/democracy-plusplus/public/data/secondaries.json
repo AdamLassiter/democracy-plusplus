@@ -32,7 +32,6 @@
       },
       "9x20mm HOLLOW POINT P": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "7 g",
           "Initial Velocity": "320 m/s",
           "Drag Factor": "120%",
@@ -313,7 +312,6 @@
       },
       "P-11 P": {
         "Projectile": {
-          "Caliber": "1 mm",
           "Mass": "1 g",
           "Initial Velocity": "300 m/s",
           "Drag Factor": "10%",
@@ -372,7 +370,6 @@
       },
       "SMALL PLASMA BOLT P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "10 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "100%",
@@ -420,7 +417,6 @@
       },
       "SMALL PLASMA BOLT P1": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "25 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "150%",
@@ -468,7 +464,6 @@
       },
       "SMALL PLASMA BOLT P2": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "25 g",
           "Initial Velocity": "350 m/s",
           "Drag Factor": "150%",
@@ -555,7 +550,6 @@
       "BUCKSHOT P1": {
         "Projectile": {
           "Pellets": "x 9",
-          "Caliber": "8 mm",
           "Mass": "6 g",
           "Initial Velocity": "385 m/s",
           "Drag Factor": "50%",
@@ -613,7 +607,6 @@
       },
       "9x20mm FULL METAL JACKET P1": {
         "Projectile": {
-          "Caliber": "9 mm",
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
           "Drag Factor": "120%",
@@ -675,7 +668,6 @@
       },
       "40mm HEAT GRENADE P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
@@ -757,7 +749,6 @@
       },
       "12x25mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "120%",
@@ -815,7 +806,6 @@
       },
       "13x40mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "120%",
@@ -971,7 +961,6 @@
       },
       "LASER P4": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -1128,7 +1117,6 @@
       },
       "GP-20 P": {
         "Projectile": {
-          "Caliber": "80 mm",
           "Mass": "500 g",
           "Initial Velocity": "20 m/s",
           "Drag Factor": "50%",
@@ -1204,13 +1192,12 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*Guided P": "Projectile",
-          "*Non-Guided P": "Projectile"
+          "*Guided P1": "Projectile",
+          "*Non-Guided P1": "Projectile"
         }
       },
-      "Guided P": {
+      "Guided P1": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "0%",
@@ -1233,9 +1220,8 @@
           "Push Force": "10"
         }
       },
-      "Non-Guided P": {
+      "Non-Guided P1": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "0%",
@@ -1295,7 +1281,6 @@
       },
       "M6C/SOCOM P": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "120%",
@@ -1353,7 +1338,6 @@
       },
       "15x100mm STANDARD ROCKET P1": {
         "Projectile": {
-          "Caliber": "12 mm",
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
           "Drag Factor": "0%",
@@ -1431,7 +1415,6 @@
       },
       "P-35 P": {
         "Projectile": {
-          "Caliber": "1 mm",
           "Mass": "10 g",
           "Initial Velocity": "150 m/s",
           "Drag Factor": "200%",
@@ -1485,6 +1468,117 @@
         "Status": {
           "Status Strength": "0.25",
           "Status Duration": "5 sec"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "P-33 Missile Pistol",
+    "warbondCode": "warbond25",
+    "internalName": "p33missilepistol",
+    "tier": "d",
+    "wikiSlug": "P-33_Missile_Pistol",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-33_Missile_Pistol_Secondary_Render.png",
+    "imageUrl": "secondaries/P-33_Missile_Pistol_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": [],
+    "properties": {
+      "P-33 MISSILE PISTOL": {
+        "Base": {
+          "Fire Rate": "60 rpm",
+          "Recoil": "312.5",
+          "Horizontal Recoil": "150",
+          "Vertical Recoil": "475",
+          "Spread": "↔[8.00] ↕[8.00]",
+          "Sway": "1",
+          "Ergonomics": "45",
+          "Capacity": "1",
+          "Spare Magazines": "3",
+          "Starting Magazines": "1",
+          "Mags from Supply": "2",
+          "Mags from Ammo Box": "1"
+        },
+        "Attacks": {
+          "*Guided P": "Projectile",
+          "*Non-Guided P": "Projectile",
+          "**Guided P IE": "Explosion"
+        }
+      },
+      "Guided P": {
+        "Projectile": {
+          "Mass": "15 g",
+          "Initial Velocity": "1 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "30%",
+          "Lifetime": "3 sec",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "Guided_P_IE",
+          "Explode After": "Guided_P_IE"
+        },
+        "Damage": {
+          "Standard": "1000 Damage",
+          "vs. Durable": "1000 Damage"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank I",
+          "Slight Angle": "Anti-Tank I",
+          "Large Angle": "Anti-Tank I",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "30",
+          "Stagger Force": "40",
+          "Push Force": "25"
+        }
+      },
+      "Guided P IE": {
+        "Area of Effect": {
+          "Inner Radius": "2 m",
+          "Outer Radius": "4 m",
+          "Shockwave Radius": "12 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "300 Explosion",
+          "Inner Durable": "300 Explosion",
+          "Outer Radius": "299 - 0",
+          "Outer Durable": "299 - 0"
+        },
+        "Penetration": {
+          "Direct": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "40",
+          "Push Force": "40"
+        }
+      },
+      "Non-Guided P": {
+        "Projectile": {
+          "Mass": "15 g",
+          "Initial Velocity": "1 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "30%",
+          "Lifetime": "3 sec",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "Guided_P_IE",
+          "Explode After": "Guided_P_IE"
+        },
+        "Damage": {
+          "Standard": "1000 Damage",
+          "vs. Durable": "1000 Damage"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank I",
+          "Slight Angle": "Anti-Tank I",
+          "Large Angle": "Anti-Tank I",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "30",
+          "Stagger Force": "40",
+          "Push Force": "25"
         }
       }
     }

@@ -1,5 +1,6 @@
 import axios, { type AxiosError } from "axios";
 import type { ItemProperties, MissionLength, StratagemCategory } from "../src/types.ts";
+import { note } from "./terminalUi.ts";
 
 export const BASE_URL = "https://helldivers.wiki.gg";
 export const API_URL = `${BASE_URL}/api.php`;
@@ -126,9 +127,7 @@ async function apiGet(params: Record<string, string | number>) {
       const retryAfterDelay = Number.isFinite(retryAfterSeconds) ? retryAfterSeconds * 1000 : 0;
       const delay = Math.max(exponentialDelay, retryAfterDelay);
 
-      console.warn(
-        `MediaWiki API request failed with ${status}. Retrying in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})...`,
-      );
+      note(`MediaWiki API ${status ?? "error"} retry in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})`, "warn");
       await sleep(delay);
     }
   }

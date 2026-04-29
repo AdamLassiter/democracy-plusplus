@@ -396,5 +396,19 @@
     "tags": [
       "ArmorPassive"
     ]
+  },
+  {
+    "displayName": "Oxygenator",
+    "warbondCode": "warbond25",
+    "internalName": "oxygenator",
+    "tier": "a",
+    "wikiSlug": "Oxygenator",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Oxygenator_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Oxygenator_Armor_Passive_Icon.svg",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
   }
 ]

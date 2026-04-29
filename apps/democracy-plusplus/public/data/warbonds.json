@@ -6,7 +6,6 @@
     "tags": [],
     "warbondCode": "none",
     "internalName": "noneWB",
-    "imageUrl": "",
     "tier": "d"
   },
   {
@@ -16,7 +15,6 @@
     "tags": [],
     "warbondCode": "warbond0",
     "internalName": "superCitizenWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -26,7 +24,6 @@
     "tags": [],
     "warbondCode": "warbond1",
     "internalName": "superStoreWB",
-    "imageUrl": "",
     "tier": "a"
   },
   {
@@ -36,7 +33,6 @@
     "tags": [],
     "warbondCode": "warbond3",
     "internalName": "helldiversMobilizeWB",
-    "imageUrl": "",
     "tier": "s"
   },
   {
@@ -46,7 +42,6 @@
     "tags": [],
     "warbondCode": "warbond4",
     "internalName": "steeledVeteransWB",
-    "imageUrl": "",
     "tier": "a"
   },
   {
@@ -56,7 +51,6 @@
     "tags": [],
     "warbondCode": "warbond5",
     "internalName": "cuttingEdgeWB",
-    "imageUrl": "",
     "tier": "a"
   },
   {
@@ -66,7 +60,6 @@
     "tags": [],
     "warbondCode": "warbond6",
     "internalName": "democraticDetonationWB",
-    "imageUrl": "",
     "tier": "s"
   },
   {
@@ -76,7 +69,6 @@
     "tags": [],
     "warbondCode": "warbond7",
     "internalName": "polarPatriotsWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -86,7 +78,6 @@
     "tags": [],
     "warbondCode": "warbond8",
     "internalName": "viperCommandosWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -96,7 +87,6 @@
     "tags": [],
     "warbondCode": "warbond9",
     "internalName": "freedomsFlameWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -106,7 +96,6 @@
     "tags": [],
     "warbondCode": "warbond10",
     "internalName": "chemicalAgentsWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -116,7 +105,6 @@
     "tags": [],
     "warbondCode": "warbond11",
     "internalName": "truthEnforcersWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -126,7 +114,6 @@
     "tags": [],
     "warbondCode": "warbond12",
     "internalName": "urbanLegendsWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -136,7 +123,6 @@
     "tags": [],
     "warbondCode": "warbond13",
     "internalName": "servantsOfFreedomWB",
-    "imageUrl": "",
     "tier": "a"
   },
   {
@@ -146,7 +132,6 @@
     "tags": [],
     "warbondCode": "warbond14",
     "internalName": "borderlineJusticeWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -156,7 +141,6 @@
     "tags": [],
     "warbondCode": "warbond15",
     "internalName": "mastersOfCeremonyWB",
-    "imageUrl": "",
     "tier": "c"
   },
   {
@@ -166,7 +150,6 @@
     "tags": [],
     "warbondCode": "warbond16",
     "internalName": "forceOfLawWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -176,7 +159,6 @@
     "tags": [],
     "warbondCode": "warbond17",
     "internalName": "controlGroupWB",
-    "imageUrl": "",
     "tier": "a"
   },
   {
@@ -186,7 +168,6 @@
     "tags": [],
     "warbondCode": "warbond18",
     "internalName": "righteousRevenantsWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -196,7 +177,6 @@
     "tags": [],
     "warbondCode": "warbond19",
     "internalName": "odstWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -206,7 +186,6 @@
     "tags": [],
     "warbondCode": "warbond20",
     "internalName": "dustdevilsWB",
-    "imageUrl": "",
     "tier": "b"
   },
   {
@@ -216,7 +195,6 @@
     "tags": [],
     "warbondCode": "warbond21",
     "internalName": "pythoncommandosWB",
-    "imageUrl": "warbonds/pythoncommandosWB.png",
     "tier": "b"
   },
   {
@@ -226,7 +204,6 @@
     "tags": [],
     "warbondCode": "warbond22",
     "internalName": "redactedregimentWB",
-    "imageUrl": "warbonds/redactedregimentWB.png",
     "tier": "b"
   },
   {
@@ -236,7 +213,6 @@
     "tags": [],
     "warbondCode": "warbond23",
     "internalName": "siegebreakersWB",
-    "imageUrl": "warbonds/siegebreakersWB.png",
     "tier": "b"
   },
   {
@@ -246,7 +222,15 @@
     "tags": [],
     "warbondCode": "warbond24",
     "internalName": "entrencheddivisionWB",
-    "imageUrl": "warbonds/entrencheddivisionWB.png",
+    "tier": "b"
+  },
+  {
+    "displayName": "Exo Experts",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond25",
+    "internalName": "exoexpertsWB",
     "tier": "b"
   }
 ]

@@ -4,8 +4,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Gas"
+      "Weapons"
     ],
     "warbondCode": "warbond10",
     "internalName": "tx41sterilizer",
@@ -97,8 +96,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Fire"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "flam40flamethrower",
@@ -198,8 +196,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Gas"
+      "Weapons"
     ],
     "warbondCode": "warbond20",
     "internalName": "s11speargun",
@@ -232,7 +229,6 @@
       },
       "S-11 P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "100 g",
           "Initial Velocity": "300 m/s",
           "Drag Factor": "400%",
@@ -330,9 +326,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Fire",
-      "Laser"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "las98lasercannon",
@@ -455,7 +449,6 @@
       },
       "5.5x50mm FULL METAL JACKET P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
           "Drag Factor": "30%",
@@ -523,7 +516,6 @@
       },
       "8x60mm FULL METAL JACKET P1": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -590,7 +582,6 @@
       },
       "12.5mm BCHP RIFLE ROUNDS P": {
         "Projectile": {
-          "Caliber": "12.5 mm",
           "Mass": "52 g",
           "Initial Velocity": "980 m/s",
           "Drag Factor": "30%",
@@ -627,8 +618,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Arc"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "arc3arcthrower",
@@ -704,8 +694,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "gl21grenadelauncher",
@@ -736,7 +725,6 @@
       },
       "40mm HE GRENADE P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
@@ -797,9 +785,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Stun",
-      "Arc"
+      "Weapons"
     ],
     "warbondCode": "warbond16",
     "internalName": "gl52deescalator",
@@ -832,7 +818,6 @@
       },
       "GL-52 P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
@@ -951,7 +936,6 @@
       },
       "12.5mm EIT ROUNDS P": {
         "Projectile": {
-          "Caliber": "12.5 mm",
           "Mass": "52 g",
           "Initial Velocity": "880 m/s",
           "Drag Factor": "30%",
@@ -1027,7 +1011,6 @@
       },
       "RAILGUN ROUND P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "50 g",
           "Initial Velocity": "2000 m/s",
           "Drag Factor": "30%",
@@ -1088,9 +1071,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive",
-      "Laser"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "las99quasarcannon",
@@ -1127,7 +1108,6 @@
       },
       "LASER P5": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
           "Drag Factor": "0%",
@@ -1188,8 +1168,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "warbond17",
     "internalName": "plas45epoch",
@@ -1231,7 +1210,6 @@
       },
       "LARGE PLASMA BOLT P1": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "100 g",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "10%",
@@ -1283,7 +1261,6 @@
       },
       "LARGE PLASMA BOLT P2": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "100 g",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "10%",
@@ -1371,9 +1348,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Expendable",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "eat17expendableantitank",
@@ -1404,7 +1379,6 @@
       },
       "75mm HEAT GRENADE P": {
         "Projectile": {
-          "Caliber": "75 mm",
           "Mass": "2.5 kg",
           "Initial Velocity": "200 m/s",
           "Drag Factor": "0%",
@@ -1464,9 +1438,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Expendable",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "mls4xcommando",
@@ -1498,7 +1470,6 @@
       },
       "66mm MISSILE P": {
         "Projectile": {
-          "Caliber": "66 mm",
           "Mass": "350 g",
           "Initial Velocity": "70 m/s",
           "Drag Factor": "30%",
@@ -1559,9 +1530,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Expendable",
-      "Fire"
+      "Weapons"
     ],
     "warbondCode": "warbond20",
     "internalName": "eat700expendablenapalm",
@@ -1596,7 +1565,6 @@
       },
       "EAT-700 P": {
         "Projectile": {
-          "Caliber": "75 mm",
           "Mass": "2.5 kg",
           "Initial Velocity": "200 m/s",
           "Drag Factor": "0%",
@@ -1676,7 +1644,6 @@
       },
       "20mm FLAK ROUNDS P1": {
         "Projectile": {
-          "Caliber": "85 mm",
           "Mass": "3 kg",
           "Initial Velocity": "15 m/s",
           "Drag Factor": "1500%",
@@ -1766,8 +1733,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "warbond20",
     "internalName": "ms11solosilo",
@@ -1782,61 +1748,8 @@
           "Uses": "∞",
           "Main Health": "1500",
           "Main Armor": "Light",
-          "*15x100mm HIGH EXPLOSIVE P IE": "Explosion",
           "*SWP SOLO SILO E": "Explosion",
           "*SWP SOLO SILO EImpact": "Explosion"
-        },
-        "Attacks": {
-          "**SHRAPNEL P": "Projectile"
-        }
-      },
-      "15x100mm HIGH EXPLOSIVE P IE": {
-        "Area of Effect": {
-          "Inner Radius": "4 m",
-          "Outer Radius": "7 m",
-          "Shockwave Radius": "8 m",
-          "Shrapnel Count": "30",
-          "Shrapnel": "SHRAPNEL_P"
-        },
-        "Damage": {
-          "Damage Element": "None",
-          "Inner Radius": "225 Explosion",
-          "Inner Durable": "225 Explosion",
-          "Outer Radius": "224 - 0",
-          "Outer Durable": "224 - 0"
-        },
-        "Penetration": {
-          "Direct": "Medium"
-        },
-        "AoE Effect": {
-          "Demolition Force": "20",
-          "Stagger Force": "35",
-          "Push Force": "40"
-        }
-      },
-      "SHRAPNEL P": {
-        "Projectile": {
-          "Caliber": "10 mm",
-          "Mass": "100 g",
-          "Initial Velocity": "30 m/s",
-          "Drag Factor": "40%",
-          "Gravity Factor": "100%",
-          "Penetration Slowdown": "25%"
-        },
-        "Damage": {
-          "Standard": "110 Ballistic",
-          "vs. Durable": "35 Ballistic"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
-        },
-        "Special Effects": {
-          "Demolition Force": "10",
-          "Stagger Force": "10",
-          "Push Force": "20"
         }
       },
       "SWP SOLO SILO E": {
@@ -1903,8 +1816,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Stealth"
+      "Weapons"
     ],
     "warbondCode": "warbond15",
     "internalName": "cqc1onetrueflag",
@@ -1956,8 +1868,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "rl77airburstrocketlauncher",
@@ -1993,7 +1904,6 @@
       },
       "20mm FLAK ROUNDS P2": {
         "Projectile": {
-          "Caliber": "85 mm",
           "Mass": "3.3 kg",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "30%",
@@ -2047,7 +1957,6 @@
       },
       "CLUSTER BOMB P1": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "100 g",
           "Initial Velocity": "25 m/s",
           "Drag Factor": "50%",
@@ -2097,7 +2006,6 @@
       },
       "CLUSTER BOMB P2": {
         "Projectile": {
-          "Caliber": "85 mm",
           "Mass": "3.3 kg",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "30%",
@@ -2151,7 +2059,6 @@
       },
       "CLUSTER BOMB P3": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "100 g",
           "Initial Velocity": "25 m/s",
           "Drag Factor": "50%",
@@ -2190,8 +2097,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "ac8autocannon",
@@ -2225,7 +2131,6 @@
       },
       "20mm APHET ROUNDS P": {
         "Projectile": {
-          "Caliber": "20 mm",
           "Mass": "120 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -2253,9 +2158,7 @@
         "Area of Effect": {
           "Inner Radius": "2 m",
           "Outer Radius": "4 m",
-          "Shockwave Radius": "5.5 m",
-          "Shrapnel Count": "0",
-          "Shrapnel": "SHRAPNEL_P"
+          "Shockwave Radius": "5.5 m"
         },
         "Damage": {
           "Damage Element": "None",
@@ -2273,34 +2176,8 @@
           "Push Force": "40"
         }
       },
-      "SHRAPNEL P": {
-        "Projectile": {
-          "Caliber": "10 mm",
-          "Mass": "100 g",
-          "Initial Velocity": "30 m/s",
-          "Drag Factor": "40%",
-          "Gravity Factor": "100%",
-          "Penetration Slowdown": "25%"
-        },
-        "Damage": {
-          "Standard": "110 Ballistic",
-          "vs. Durable": "35 Ballistic"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
-        },
-        "Special Effects": {
-          "Demolition Force": "10",
-          "Stagger Force": "10",
-          "Push Force": "20"
-        }
-      },
       "20mm FLAK ROUNDS P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "130 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -2348,6 +2225,30 @@
           "Stagger Force": "25",
           "Push Force": "40"
         }
+      },
+      "SHRAPNEL P": {
+        "Projectile": {
+          "Mass": "100 g",
+          "Initial Velocity": "30 m/s",
+          "Drag Factor": "40%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "110 Ballistic",
+          "vs. Durable": "35 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "20"
+        }
       }
     },
     "stratagemCode": [
@@ -2364,8 +2265,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "warbond18",
     "internalName": "stax3wasplauncher",
@@ -2398,7 +2298,6 @@
       },
       "Artillery P": {
         "Projectile": {
-          "Caliber": "1 mm",
           "Mass": "11 g",
           "Initial Velocity": "500 m/s",
           "Drag Factor": "30%",
@@ -2448,7 +2347,6 @@
       },
       "Burst P": {
         "Projectile": {
-          "Caliber": "1 mm",
           "Mass": "11 g",
           "Initial Velocity": "500 m/s",
           "Drag Factor": "30%",
@@ -2508,8 +2406,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "gr8recoillessrifle",
@@ -2542,7 +2439,6 @@
       },
       "85mm HEAT GRENADE P": {
         "Projectile": {
-          "Caliber": "85 mm",
           "Mass": "3.3 kg",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "30%",
@@ -2590,7 +2486,6 @@
       },
       "85mm HIGH-EXPLOSIVE GRENADE P": {
         "Projectile": {
-          "Caliber": "85 mm",
           "Mass": "3.3 kg",
           "Initial Velocity": "250 m/s",
           "Drag Factor": "0%",
@@ -2650,8 +2545,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "warbondCode": "none",
     "internalName": "faf14spear",
@@ -2682,7 +2576,6 @@
       },
       "HOMING GROUND MISSILE P": {
         "Projectile": {
-          "Caliber": "66 mm",
           "Mass": "350 g",
           "Initial Velocity": "70 m/s",
           "Drag Factor": "30%",
@@ -2982,9 +2875,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks",
-      "Expendable",
-      "Explosive"
+      "Backpacks"
     ],
     "warbondCode": "warbond13",
     "internalName": "b100portablehellbomb",
@@ -3028,8 +2919,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Vehicles",
-      "Explosive"
+      "Vehicles"
     ],
     "warbondCode": "none",
     "internalName": "exo45patriotexosuit",
@@ -3038,79 +2928,44 @@
     "wikiSlug": "EXO-45_Patriot_Exosuit",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Patriot_Exosuit_Stratagem_Icon.svg",
     "properties": {
-      "EXO-45 Patriot Exosuit": {
+      "Patriot Exosuit": {
         "Base": {
-          "Main Health": "850",
-          "Main Armor": "Medium",
-          "Total Uses": "3",
-          "Cooldown": "600 sec",
-          "Call-in Time": "0 s"
+          "Cooldown": "600 s",
+          "Uses": "3",
+          "Main Health": "1600",
+          "Main Armor": "Medium"
         },
-        "Weapons": {},
-        "Patriot Exosuit - Left": {
-          "Fire Rate": "90 rpm",
-          "Ergonomics": "65",
-          "Capacity": "14",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Missile Exosuit": "Explosion"
-        },
-        "Patriot Exosuit - Right": {
+        "PATRIOT EXOSUIT HMG": {
+          "Main Health": "350",
+          "Main Armor": "Light",
           "Fire Rate": "1200 rpm",
+          "Recoil": "5",
+          "Horizontal Recoil": "5",
+          "Vertical Recoil": "5",
+          "Spread": "↔[50.00] ↕[50.00]",
+          "Sway": "1",
           "Ergonomics": "65",
           "Capacity": "1350",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Rifle 8x60mm Full Metal Jacket": "Projectile"
+          "*8x60mm FULL METAL JACKET P1": "Projectile"
         },
-        "Attacks": {
-          "Exosuit Stomp": "Damage",
-          "Exosuit Destruction": "Explosion"
+        "PATRIOT EXOSUIT MISSILE LAUNCHER": {
+          "Main Health": "350",
+          "Main Armor": "Light",
+          "Fire Rate": "90 rpm",
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "14",
+          "Barrels": "x 14",
+          "*70mm MISSILE P": "Projectile",
+          "**70mm MISSILE P IE": "Explosion"
         }
       },
-      "Missile Exosuit": {
+      "8x60mm FULL METAL JACKET P1": {
         "Projectile": {
-          "Caliber": "75 mm",
-          "Mass": "2.5 kg",
-          "Initial Velocity": "200 m/s",
-          "Drag Factor": "30%",
-          "Gravity Factor": "100%",
-          "Lifetime": "15 sec",
-          "Penetration Slowdown": "85%"
-        },
-        "Damage": {
-          "Standard": "1250 Damage",
-          "vs. Durable": "1250 Damage",
-          "Inner Radius": "400 Explosion",
-          "Inner Durable": "400 Explosion",
-          "Outer Radius": "399 - 0",
-          "Outer Durable": "399 - 0"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Anti-Tank II",
-          "Large Angle": "Anti-Tank I",
-          "Extreme Angle": "Unarmored I"
-        },
-        "Special Effects": {
-          "Demolition Force": "30",
-          "Stagger Force": "40",
-          "Push Force": "25"
-        },
-        "Area of Effect": {
-          "Inner Radius": "1 m",
-          "Outer Radius": "2 m",
-          "Shockwave Radius": "4 m"
-        },
-        "AoE Effect": {
-          "Demolition Force": "30",
-          "Stagger Force": "60",
-          "Push Force": "70"
-        }
-      },
-      "Rifle 8x60mm Full Metal Jacket": {
-        "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -3118,8 +2973,8 @@
           "Penetration Slowdown": "25%"
         },
         "Damage": {
-          "Standard": "90 Damage",
-          "vs. Durable": "23 Damage"
+          "Standard": "90 Ballistic",
+          "vs. Durable": "23 Ballistic"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -3133,42 +2988,52 @@
           "Push Force": "12"
         }
       },
-      "Exosuit Stomp": {
+      "70mm MISSILE P": {
+        "Projectile": {
+          "Mass": "2.5 kg",
+          "Initial Velocity": "200 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Lifetime": "15 sec",
+          "Penetration Slowdown": "85%",
+          "Explosion On Impact": "70mm MISSILE_P_IE"
+        },
         "Damage": {
-          "Standard": "200 Damage",
-          "vs. Durable": "200 Damage"
+          "Standard": "1250 Damage",
+          "vs. Durable": "1250 Damage"
         },
         "Penetration": {
-          "Direct": "Heavy",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
+          "Direct": "Anti-Tank II",
+          "Slight Angle": "Anti-Tank II",
+          "Large Angle": "Anti-Tank I",
           "Extreme Angle": "Unarmored I"
         },
         "Special Effects": {
           "Demolition Force": "30",
-          "Stagger Force": "20",
-          "Push Force": "20"
+          "Stagger Force": "40",
+          "Push Force": "25"
         }
       },
-      "Exosuit Destruction": {
+      "70mm MISSILE P IE": {
         "Area of Effect": {
-          "Inner Radius": "0.6 m",
-          "Outer Radius": "7 m",
-          "Shockwave Radius": "10 m"
+          "Inner Radius": "1 m",
+          "Outer Radius": "2 m",
+          "Shockwave Radius": "4 m"
         },
         "Damage": {
-          "Inner Radius": "200 Explosion",
-          "Inner Durable": "200 Explosion",
-          "Outer Radius": "199 - 0",
-          "Outer Durable": "199 - 0"
+          "Damage Element": "None",
+          "Inner Radius": "400 Explosion",
+          "Inner Durable": "400 Explosion",
+          "Outer Radius": "399 - 0",
+          "Outer Durable": "399 - 0"
         },
         "Penetration": {
           "Direct": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "30",
-          "Stagger Force": "50",
-          "Push Force": "40"
+          "Stagger Force": "60",
+          "Push Force": "70"
         }
       }
     },
@@ -3187,8 +3052,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Vehicles",
-      "Explosive"
+      "Vehicles"
     ],
     "warbondCode": "none",
     "internalName": "exo49emancipatorexosuit",
@@ -3201,7 +3065,7 @@
         "Base": {
           "Cooldown": "600 s",
           "Uses": "3",
-          "Main Health": "850",
+          "Main Health": "1600",
           "Main Armor": "Medium"
         },
         "EMANCIPATOR EXOSUIT LEFT AUTOCANNON": {
@@ -3237,7 +3101,6 @@
       },
       "30mm APHE CANNON P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "900 g",
           "Initial Velocity": "1021 m/s",
           "Drag Factor": "30%",
@@ -3332,7 +3195,6 @@
       },
       "23mm HE CANNON P": {
         "Projectile": {
-          "Caliber": "23 mm",
           "Mass": "400 g",
           "Initial Velocity": "1050 m/s",
           "Drag Factor": "30%",
@@ -3390,8 +3252,7 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle",
-      "Explosive"
+      "Eagle"
     ],
     "warbondCode": "none",
     "internalName": "eagleairstrike",
@@ -3417,7 +3278,6 @@
       },
       "Bomb 100kg": {
         "Projectile": {
-          "Caliber": "25 mm",
           "Mass": "100 g",
           "Initial Velocity": "500 m/s",
           "Drag Factor": "50%",
@@ -3474,8 +3334,7 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle",
-      "Explosive"
+      "Eagle"
     ],
     "warbondCode": "none",
     "internalName": "eagleclusterbomb",
@@ -3500,7 +3359,6 @@
       },
       "100KG CLUSTER BOMB P": {
         "Projectile": {
-          "Caliber": "25 mm",
           "Mass": "100 g",
           "Initial Velocity": "300 m/s",
           "Drag Factor": "50%",
@@ -3551,7 +3409,6 @@
       },
       "CLUSTER BOMB P4": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "30 m/s",
           "Drag Factor": "50%",
@@ -3611,8 +3468,7 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle",
-      "Fire"
+      "Eagle"
     ],
     "warbondCode": "none",
     "internalName": "eaglenapalmairstrike",
@@ -3637,7 +3493,6 @@
       },
       "NAPALM BOMB P": {
         "Projectile": {
-          "Caliber": "25 mm",
           "Mass": "100 g",
           "Initial Velocity": "500 m/s",
           "Drag Factor": "50%",
@@ -3743,8 +3598,7 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle",
-      "Stealth"
+      "Eagle"
     ],
     "warbondCode": "none",
     "internalName": "eaglesmokestrike",
@@ -3767,7 +3621,6 @@
       },
       "100KG BOMB P1": {
         "Projectile": {
-          "Caliber": "25 mm",
           "Mass": "100 g",
           "Initial Velocity": "500 m/s",
           "Drag Factor": "50%",
@@ -3812,8 +3665,7 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle",
-      "Explosive"
+      "Eagle"
     ],
     "warbondCode": "none",
     "internalName": "eagle110mmrocketpods",
@@ -3836,7 +3688,6 @@
       },
       "110mm STANDARD ROCKET P": {
         "Projectile": {
-          "Caliber": "110 mm",
           "Mass": "3.3 kg",
           "Initial Velocity": "700 m/s",
           "Drag Factor": "0%",
@@ -3895,8 +3746,7 @@
     "type": "Stratagem",
     "category": "Eagle",
     "tags": [
-      "Eagle",
-      "Explosive"
+      "Eagle"
     ],
     "warbondCode": "none",
     "internalName": "eagle500kgbomb",
@@ -3920,7 +3770,6 @@
       },
       "500kg BOMB P": {
         "Projectile": {
-          "Caliber": "50 mm",
           "Mass": "500 g",
           "Initial Velocity": "500 m/s",
           "Drag Factor": "50%",
@@ -4003,8 +3852,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Explosive"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalprecisionstrike",
@@ -4028,7 +3876,6 @@
       },
       "380mm HE CANNON ROUND P": {
         "Projectile": {
-          "Caliber": "406 mm",
           "Mass": "30 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4086,8 +3933,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Gas"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalgasstrike",
@@ -4113,7 +3959,6 @@
       },
       "110mm GAS CANNON ROUND P": {
         "Projectile": {
-          "Caliber": "84 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4202,8 +4047,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Stun"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalemsstrike",
@@ -4228,7 +4072,6 @@
       },
       "110mm E.M.S. CANNON ROUND P": {
         "Projectile": {
-          "Caliber": "84 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4294,8 +4137,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Stealth"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalsmokestrike",
@@ -4320,7 +4162,6 @@
       },
       "S P": {
         "Projectile": {
-          "Caliber": "84 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4365,8 +4206,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Explosive"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalairburststrike",
@@ -4392,7 +4232,6 @@
       },
       "110mm AIRBURST CANNON ROUND P": {
         "Projectile": {
-          "Caliber": "110 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4444,7 +4283,6 @@
       },
       "SHRAPNEL P1": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "2 g",
           "Initial Velocity": "300 m/s",
           "Drag Factor": "50%",
@@ -4523,7 +4361,6 @@
       },
       "RAIL CANNON ROUND P": {
         "Projectile": {
-          "Caliber": "100 mm",
           "Mass": "5 kg",
           "Initial Velocity": "14000 m/s",
           "Drag Factor": "0%",
@@ -4583,9 +4420,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Fire",
-      "Laser"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitallaser",
@@ -4687,7 +4522,6 @@
       },
       "23mm HE CANNON P1": {
         "Projectile": {
-          "Caliber": "23 mm",
           "Mass": "400 g",
           "Initial Velocity": "1050 m/s",
           "Drag Factor": "30%",
@@ -4735,7 +4569,6 @@
       },
       "23mm HE CANNON P2": {
         "Projectile": {
-          "Caliber": "23 mm",
           "Mass": "400 g",
           "Initial Velocity": "1050 m/s",
           "Drag Factor": "30%",
@@ -4772,8 +4605,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Explosive"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbital120mmhebarrage",
@@ -4797,7 +4629,6 @@
       },
       "120mm HE CANNON ROUND P1": {
         "Projectile": {
-          "Caliber": "84 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4858,8 +4689,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Explosive"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbital380mmhebarrage",
@@ -4883,7 +4713,6 @@
       },
       "380mm HE CANNON ROUND P1": {
         "Projectile": {
-          "Caliber": "406 mm",
           "Mass": "30 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -4945,8 +4774,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Explosive"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalwalkingbarrage",
@@ -4970,7 +4798,6 @@
       },
       "380mm HE CANNON ROUND P1": {
         "Projectile": {
-          "Caliber": "406 mm",
           "Mass": "30 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -5031,8 +4858,7 @@
     "type": "Stratagem",
     "category": "Orbital",
     "tags": [
-      "Orbital",
-      "Fire"
+      "Orbital"
     ],
     "warbondCode": "none",
     "internalName": "orbitalnapalmbarrage",
@@ -5058,7 +4884,6 @@
       },
       "120mm HE CANNON ROUND P3": {
         "Projectile": {
-          "Caliber": "84 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -5166,8 +4991,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Arc"
+      "Sentry"
     ],
     "warbondCode": "none",
     "internalName": "aarc3teslatower",
@@ -5228,8 +5052,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Explosive"
+      "Sentry"
     ],
     "warbondCode": "none",
     "internalName": "am12mortarsentry",
@@ -5267,7 +5090,6 @@
       },
       "40mm HE MORTAR P": {
         "Projectile": {
-          "Caliber": "360 mm",
           "Mass": "70 kg",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "25%",
@@ -5317,7 +5139,6 @@
       },
       "SHRAPNEL P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
           "Drag Factor": "40%",
@@ -5354,8 +5175,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Stun"
+      "Sentry"
     ],
     "warbondCode": "none",
     "internalName": "am23emsmortarsentry",
@@ -5394,7 +5214,6 @@
       },
       "EMS MORTAR SHELL P": {
         "Projectile": {
-          "Caliber": "360 mm",
           "Mass": "70 kg",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "25%",
@@ -5520,7 +5339,6 @@
       },
       "8x60mm FULL METAL JACKET P1": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -5593,7 +5411,6 @@
       },
       "8x60mm FULL METAL JACKET P1": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
           "Drag Factor": "30%",
@@ -5629,8 +5446,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Fire"
+      "Sentry"
     ],
     "warbondCode": "warbond12",
     "internalName": "aflam40flamesentry",
@@ -5674,9 +5490,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Fire",
-      "Laser"
+      "Sentry"
     ],
     "warbondCode": "warbond17",
     "internalName": "alas98lasersentry",
@@ -5813,7 +5627,6 @@
       },
       "40mm APHE CANNON P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "900 g",
           "Initial Velocity": "1021 m/s",
           "Drag Factor": "30%",
@@ -5874,8 +5687,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Explosive"
+      "Sentry"
     ],
     "warbondCode": "none",
     "internalName": "amls4xrocketsentry",
@@ -5913,7 +5725,6 @@
       },
       "70mm STANDARD ROCKET P": {
         "Projectile": {
-          "Caliber": "70 mm",
           "Mass": "6 kg",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "0%",
@@ -6032,7 +5843,6 @@
       },
       "Rifle 12.5x100mm Full Metal Jacket": {
         "Projectile": {
-          "Caliber": "12.5 mm",
           "Mass": "52 g",
           "Initial Velocity": "880 m/s",
           "Drag Factor": "30%",
@@ -6070,8 +5880,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement",
-      "Explosive"
+      "Emplacement"
     ],
     "warbondCode": "warbond12",
     "internalName": "eat12antitankemplacement",
@@ -6095,7 +5904,6 @@
       },
       "ET Cannon 75mm APHE": {
         "Projectile": {
-          "Caliber": "75 mm",
           "Mass": "6.5 kg",
           "Initial Velocity": "625 m/s",
           "Drag Factor": "75%",
@@ -6154,8 +5962,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement",
-      "Explosive"
+      "Emplacement"
     ],
     "warbondCode": "none",
     "internalName": "egl21grenadierbattlement",
@@ -6186,7 +5993,6 @@
       },
       "40mm HE GRENADE P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
@@ -6247,8 +6053,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement",
-      "Explosive"
+      "Emplacement"
     ],
     "warbondCode": "none",
     "internalName": "md17antitankmines",
@@ -6304,8 +6109,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement",
-      "Explosive"
+      "Emplacement"
     ],
     "warbondCode": "none",
     "internalName": "md6antipersonnelminefield",
@@ -6361,8 +6165,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement",
-      "Gas"
+      "Emplacement"
     ],
     "warbondCode": "none",
     "internalName": "md8gasmines",
@@ -6441,8 +6244,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Emplacement",
-      "Fire"
+      "Emplacement"
     ],
     "warbondCode": "none",
     "internalName": "mdi4incendiarymines",
@@ -6577,7 +6379,6 @@
       },
       "8x60mm HIGH VELOCITY P": {
         "Projectile": {
-          "Caliber": "8 mm",
           "Mass": "11 g",
           "Initial Velocity": "920 m/s",
           "Drag Factor": "30%",
@@ -6621,8 +6422,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "properties": {
       "CQC-20 Breaching Hammer": {
@@ -6696,9 +6496,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Expendable",
-      "Explosive"
+      "Weapons"
     ],
     "properties": {
       "EAT-411 LEVELLER": {
@@ -6723,7 +6521,6 @@
       },
       "EAT-411 P": {
         "Projectile": {
-          "Caliber": "80 mm",
           "Mass": "500 g",
           "Initial Velocity": "50 m/s",
           "Drag Factor": "50%",
@@ -6792,8 +6589,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive"
+      "Weapons"
     ],
     "properties": {
       "GL-28 BELT-FED GRENADE LAUNCHER": {
@@ -6816,7 +6612,6 @@
       },
       "GL-28 P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
@@ -6883,8 +6678,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Fire"
+      "Weapons"
     ],
     "properties": {
       "B/FLAM-80 CREMATOR": {
@@ -6983,9 +6777,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Weapons",
-      "Explosive",
-      "Stealth"
+      "Weapons"
     ],
     "properties": {
       "Attacks": {
@@ -7039,8 +6831,7 @@
     "type": "Stratagem",
     "category": "Defense",
     "tags": [
-      "Sentry",
-      "Gas"
+      "Sentry"
     ],
     "properties": {
       "GAS MORTAR SENTRY": {
@@ -7073,7 +6864,6 @@
       },
       "GAS MORTAR SHELL P": {
         "Projectile": {
-          "Caliber": "360 mm",
           "Mass": "70 kg",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "25%",
@@ -7193,7 +6983,6 @@
       },
       "12.5mm BCHP RIFLE ROUNDS P": {
         "Projectile": {
-          "Caliber": "12.5 mm",
           "Mass": "52 g",
           "Initial Velocity": "980 m/s",
           "Drag Factor": "30%",
@@ -7238,8 +7027,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Vehicles",
-      "Explosive"
+      "Vehicles"
     ],
     "properties": {
       "BASTION MK XVI": {
@@ -7277,7 +7065,6 @@
       },
       "120mm HE CANNON ROUND P": {
         "Projectile": {
-          "Caliber": "84 mm",
           "Mass": "5 kg",
           "Initial Velocity": "400 m/s",
           "Drag Factor": "0%",
@@ -7325,7 +7112,6 @@
       },
       "12.5mm BCHP RIFLE ROUNDS P": {
         "Projectile": {
-          "Caliber": "12.5 mm",
           "Mass": "52 g",
           "Initial Velocity": "980 m/s",
           "Drag Factor": "30%",
@@ -7398,7 +7184,6 @@
       },
       "5.5x50mm PENETRATOR P": {
         "Projectile": {
-          "Caliber": "5.5 mm",
           "Mass": "4.5 g",
           "Initial Velocity": "1000 m/s",
           "Drag Factor": "30%",
@@ -7442,9 +7227,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks",
-      "Fire",
-      "Laser"
+      "Backpacks"
     ],
     "properties": {
       "AX/LAS-5 ROVER": {
@@ -7542,8 +7325,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks",
-      "Fire"
+      "Backpacks"
     ],
     "properties": {
       "AX/FLAM-75 HOT DOG": {
@@ -7648,8 +7430,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks",
-      "Arc"
+      "Backpacks"
     ],
     "properties": {
       "AX/ARC-3 K-9": {
@@ -7726,8 +7507,7 @@
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
-      "Backpacks",
-      "Gas"
+      "Backpacks"
     ],
     "properties": {
       "AX/TX-13 DOG BREATH": {
@@ -7812,5 +7592,309 @@
       "Right",
       "Up"
     ]
+  },
+  {
+    "displayName": "MGX-42 Bullet Storm",
+    "warbondCode": "warbond25",
+    "internalName": "mgx42bulletstorm",
+    "tier": "b",
+    "wikiSlug": "MGX-42_Bullet_Storm",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Bullet_Storm_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Bullet_Storm_Stratagem_Icon.svg",
+    "type": "Stratagem",
+    "category": "Supply",
+    "tags": [
+      "Weapons"
+    ],
+    "stratagemCode": [
+      "Down",
+      "Left",
+      "Down",
+      "Right",
+      "Up",
+      "Left"
+    ],
+    "properties": {
+      "MGX-42 BULLET STORM": {
+        "Base": {
+          "Fire Rate": "1300 rpm",
+          "Recoil": "6.75",
+          "Horizontal Recoil": "4.5",
+          "Vertical Recoil": "9",
+          "Spread": "↔[5.00] ↕[5.00]",
+          "Sway": "1",
+          "Ergonomics": "25",
+          "Capacity": "300",
+          "Spare Magazines": "0",
+          "Starting Magazines": "0",
+          "Mags from Supply": "0",
+          "Mags from Ammo Box": "1",
+          "Barrels": "x 24"
+        },
+        "Attacks": {
+          "*MGX-42 P": "Projectile"
+        }
+      },
+      "MGX-42 P": {
+        "Projectile": {
+          "Mass": "4.5 g",
+          "Initial Velocity": "450 m/s",
+          "Drag Factor": "60%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "100 Damage",
+          "vs. Durable": "25 Damage"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "EXO-55 Breakthrough Exosuit",
+    "warbondCode": "warbond25",
+    "internalName": "exo55breakthroughexosuit",
+    "tier": "a",
+    "wikiSlug": "EXO-55_Breakthrough_Exosuit",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Breakthrough_Exosuit_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Breakthrough_Exosuit_Stratagem_Icon.svg",
+    "type": "Stratagem",
+    "category": "Supply",
+    "tags": [
+      "Vehicles"
+    ],
+    "stratagemCode": [
+      "Left",
+      "Down",
+      "Right",
+      "Left",
+      "Right",
+      "Down",
+      "Up"
+    ],
+    "properties": {
+      "BREAKTHROUGH": {
+        "Base": {
+          "Cooldown": "600 s",
+          "Uses": "3",
+          "Main Health": "1600",
+          "Main Armor": "Medium"
+        },
+        "BREAKTHROUGH SCATTERGUN": {
+          "Main Health": "600",
+          "Main Armor": "Light",
+          "Fire Rate": "180 rpm",
+          "Recoil": "80",
+          "Horizontal Recoil": "60",
+          "Vertical Recoil": "100",
+          "Spread": "↔[200.00] ↕[200.00]",
+          "Sway": "0",
+          "Ergonomics": "65",
+          "Capacity": "6",
+          "*P": "Projectile"
+        }
+      },
+      "P": {
+        "Projectile": {
+          "Pellets": "x 40",
+          "Mass": "6 g",
+          "Initial Velocity": "385 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "90 Damage",
+          "vs. Durable": "30 Damage"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "20",
+          "Stagger Force": "40",
+          "Push Force": "30"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "EXO-51 Lumberer Exosuit",
+    "warbondCode": "warbond25",
+    "internalName": "exo51lumbererexosuit",
+    "tier": "a",
+    "wikiSlug": "EXO-51_Lumberer_Exosuit",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Lumberer_Exosuit_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Lumberer_Exosuit_Stratagem_Icon.svg",
+    "type": "Stratagem",
+    "category": "Supply",
+    "tags": [
+      "Vehicles"
+    ],
+    "stratagemCode": [
+      "Left",
+      "Down",
+      "Right",
+      "Up",
+      "Right",
+      "Left",
+      "Up"
+    ],
+    "properties": {
+      "LUMBERER": {
+        "Base": {
+          "Cooldown": "600 s",
+          "Uses": "3",
+          "Main Health": "1600",
+          "Main Armor": "Medium"
+        },
+        "LUMBERER FLAMETHROWER": {
+          "Main Health": "600",
+          "Main Armor": "Light",
+          "Recoil": "0",
+          "Horizontal Recoil": "0",
+          "Vertical Recoil": "0",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "0",
+          "Ergonomics": "65",
+          "Capacity": "500",
+          "*LUMBERER FLAMETHROWER S": "Spray",
+          "**Fire": "status",
+          "**Fire Panic": "status",
+          "**FlamerSlowed": "status"
+        },
+        "LUMBERER ANTI TANK CANNON": {
+          "Main Health": "600",
+          "Main Armor": "Light",
+          "Fire Rate": "30 rpm",
+          "Recoil": "222.5",
+          "Horizontal Recoil": "125",
+          "Vertical Recoil": "320",
+          "Spread": "↔[2.00] ↕[2.00]",
+          "Sway": "0",
+          "Ergonomics": "65",
+          "Capacity": "25",
+          "*75mm HEAT GRENADE P1": "Projectile",
+          "**75mm HEAT GRENADE P1 IE": "Explosion"
+        }
+      },
+      "LUMBERER FLAMETHROWER S": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "3 Fire",
+          "vs. Durable": "3 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Heavy"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "4",
+          "Second Status": "FlamerSlowed",
+          "Third Status": "Fire_Panic",
+          "Demolition Force": "10",
+          "Stagger Force": "5",
+          "Push Force": "5"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Strength": "5",
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "Fire Panic": {
+        "Status": {
+          "Status Strength": "0.25",
+          "Status Duration": "1 sec"
+        }
+      },
+      "FlamerSlowed": {
+        "Status": {
+          "Status Strength": "0.5",
+          "Status Duration": "0.5 sec"
+        }
+      },
+      "75mm HEAT GRENADE P1": {
+        "Projectile": {
+          "Mass": "6.5 kg",
+          "Initial Velocity": "625 m/s",
+          "Drag Factor": "75%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "85%",
+          "Explosion On Impact": "75mm HEAT GRENADE_P1_IE"
+        },
+        "Damage": {
+          "Standard": "1300 Damage",
+          "vs. Durable": "1300 Damage"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank II",
+          "Slight Angle": "Anti-Tank II",
+          "Large Angle": "Anti-Tank II",
+          "Extreme Angle": "Medium"
+        },
+        "Special Effects": {
+          "Demolition Force": "30",
+          "Stagger Force": "50",
+          "Push Force": "25"
+        }
+      },
+      "75mm HEAT GRENADE P1 IE": {
+        "Area of Effect": {
+          "Inner Radius": "3 m",
+          "Outer Radius": "6 m",
+          "Shockwave Radius": "7 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "150 Explosion",
+          "Inner Durable": "150 Explosion",
+          "Outer Radius": "149 - 0",
+          "Outer Durable": "149 - 0"
+        },
+        "Penetration": {
+          "Direct": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "60",
+          "Push Force": "40"
+        }
+      }
+    }
   }
 ]

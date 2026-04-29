@@ -285,6 +285,7 @@
       "Illuminate": null
     },
     "tags": [
+      "Automatons",
       "Blitz"
     ],
     "minDifficulty": 5,
@@ -300,6 +301,7 @@
       "Illuminate": "c"
     },
     "tags": [
+      "Illuminate",
       "Blitz"
     ],
     "minDifficulty": 3,
@@ -315,6 +317,7 @@
       "Illuminate": null
     },
     "tags": [
+      "Terminids",
       "Blitz"
     ],
     "minDifficulty": 1,
@@ -331,7 +334,10 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Cleanse Infested District",
@@ -343,7 +349,10 @@
     },
     "minDifficulty": 4,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Collect Gloom Spore Readings",
@@ -355,7 +364,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Collect Gloom-Infused Oil",
@@ -367,7 +379,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Collect Meteorological Data",
@@ -379,7 +394,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Commando: Acquire Evidence",
@@ -390,6 +408,7 @@
       "Illuminate": null
     },
     "tags": [
+      "Automatons",
       "Commando"
     ],
     "minDifficulty": 1,
@@ -405,6 +424,7 @@
       "Illuminate": null
     },
     "tags": [
+      "Automatons",
       "Commando"
     ],
     "minDifficulty": 1,
@@ -420,6 +440,7 @@
       "Illuminate": null
     },
     "tags": [
+      "Automatons",
       "Commando"
     ],
     "minDifficulty": 1,
@@ -436,7 +457,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Confiscate Assets",
@@ -448,7 +472,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Deactivate Terminid Control System",
@@ -460,7 +487,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 9,
-    "missionLength": "short"
+    "missionLength": "short",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Deploy Dark Fluid",
@@ -472,7 +502,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 9,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Destroy Exospire",
@@ -484,7 +517,10 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Destroy Harvesters",
@@ -496,7 +532,10 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 3,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Destroy Spore Lung",
@@ -508,14 +547,17 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Earn Your Helldiver Cape",
     "wikiSlug": "Earn_Your_Helldiver_Cape",
     "tier": {
       "Terminids": null,
-      "Automatons":null,
+      "Automatons": null,
       "Illuminate": null
     },
     "minDifficulty": 1,
@@ -532,7 +574,10 @@
     },
     "minDifficulty": 4,
     "maxDifficulty": 6,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Eliminate Automaton Hulks",
@@ -544,7 +589,10 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 3,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Eliminate Bile Titans",
@@ -556,7 +604,10 @@
     },
     "minDifficulty": 4,
     "maxDifficulty": 5,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Eliminate Brood Commanders",
@@ -568,7 +619,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 2,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Eliminate Chargers",
@@ -580,7 +634,10 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 3,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Eliminate Devastators",
@@ -592,7 +649,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 2,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Eliminate Impaler",
@@ -604,7 +664,10 @@
     },
     "minDifficulty": 5,
     "maxDifficulty": 5,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Evacuate Colonists",
@@ -616,7 +679,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Evacuate High-Value Assets",
@@ -640,7 +706,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Extract Research Probe Data",
@@ -652,7 +721,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Free Colony",
@@ -664,7 +736,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Halt Cyborg Production",
@@ -676,7 +751,10 @@
     },
     "minDifficulty": 4,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Neutralize Ground-to-Orbit Defenses",
@@ -688,7 +766,10 @@
     },
     "minDifficulty": 4,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Rapid Acquisition",
@@ -700,7 +781,10 @@
     },
     "minDifficulty": 3,
     "maxDifficulty": 10,
-    "missionLength": "short"
+    "missionLength": "short",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Restart Pumps",
@@ -712,7 +796,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Terminids"
+    ]
   },
   {
     "displayName": "Restore Air Quality",
@@ -724,7 +811,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Retrieve Essential Personnel",
@@ -748,7 +838,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Sabotage Orgo-Plasma Synthesis",
@@ -760,7 +853,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Sabotage Supply Bases",
@@ -772,7 +868,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Seize Industrial Complex",
@@ -784,7 +883,10 @@
     },
     "minDifficulty": 1,
     "maxDifficulty": 10,
-    "missionLength": "long"
+    "missionLength": "long",
+    "tags": [
+      "Automatons"
+    ]
   },
   {
     "displayName": "Start Fuel Pumps",

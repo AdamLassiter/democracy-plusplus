@@ -18,6 +18,7 @@ import {
   type ScrapedWeaponItem,
   type WikiPageSource,
 } from "./wikiApi.ts";
+import { banner, createTask, detail, errorMessage, item, note, promptLabel, summary } from "./terminalUi.ts";
 
 type DataFileName =
   | "primaries"
@@ -66,7 +67,7 @@ function ask(question: string) {
 
 async function confirmAddItem(fileName: string, itemName: string) {
   while (true) {
-    const response = (await ask(`Add new ${fileName} item "${itemName}"? [Y/n] `)).toLowerCase();
+    const response = (await ask(promptLabel(`Add new ${fileName} item "${itemName}"? [Y/n]`))).toLowerCase();
     if (response === "y" || response === "yes") {
       return true;
     }
@@ -180,16 +181,19 @@ function getScrapedItemsForFile(fileName: DataFileName, scrapedData: ScrapedItem
 async function mergeObjectives(arrayName: string) {
   const filePath = "./public/data/objectives.json";
 
-  console.log(`Reading ${filePath}...`);
+  const loadTask = createTask(`Loading ${arrayName}`, filePath);
   let existingObjectives: Objective[] = [];
   try {
     const raw = await fs.readFile(filePath, "utf-8");
     existingObjectives = JSON.parse(raw) as Objective[];
+    loadTask.succeed(`${existingObjectives.length} records`);
   } catch {
-    console.warn(`File ${filePath} not found, starting with empty array.`);
+    loadTask.warn("starting with empty array");
   }
 
+  const scrapeTask = createTask("Scraping main objectives", "wiki");
   const scrapedObjectives = await fetchMainObjectives();
+  scrapeTask.succeed(`${scrapedObjectives.length} scraped`);
 
   const usedIndexes = new Set<number>();
   const removedObjectives: string[] = [];
@@ -232,6 +236,7 @@ async function mergeObjectives(arrayName: string) {
     }
 
     if (await confirmAddItem("objectives", scrapedObjective.displayName)) {
+      item(scrapedObjective.displayName, "accepted", "success");
       insertedObjectives.push({
         displayName: scrapedObjective.displayName,
         wikiSlug: scrapedObjective.wikiSlug,
@@ -245,7 +250,7 @@ async function mergeObjectives(arrayName: string) {
         },
       });
     } else {
-      console.log(`Skipped new objectives item: ${scrapedObjective.displayName}`);
+      item(scrapedObjective.displayName, "skipped", "warn");
     }
   }
 
@@ -259,13 +264,18 @@ async function mergeObjectives(arrayName: string) {
     return rest;
   });
 
+  const saveTask = createTask(`Saving ${arrayName}`, filePath);
   await fs.writeFile(filePath, JSON.stringify(output, null, 2));
-  console.log(
-    `Updated ${arrayName} -> ${filePath} (${mergedObjectives.length} existing, ${insertedObjectives.length} inserted, ${removedObjectives.length} removed, ${renamedObjectives} renamed)`,
-  );
+  saveTask.succeed("written");
+  summary(`${arrayName} summary`, {
+    existing: mergedObjectives.length,
+    inserted: insertedObjectives.length,
+    removed: removedObjectives.length,
+    renamed: renamedObjectives,
+  });
 
   if (removedObjectives.length) {
-    console.warn(`Potentially removed ${arrayName}: ${removedObjectives.join(", ")}`);
+    note(`Potentially removed ${arrayName}: ${removedObjectives.join(", ")}`, "warn");
   }
 }
 
@@ -281,13 +291,14 @@ async function enrichWithImageUrls<T extends LinkedWikiItem>(items: T[]) {
 async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arrayName: string) {
   const filePath = `./public/data/${fileName}.json`;
 
-  console.log(`Reading ${filePath}...`);
+  const loadTask = createTask(`Loading ${arrayName}`, filePath);
   let existingArray: StoredItem[] = [];
   try {
     const raw = await fs.readFile(filePath, "utf-8");
     existingArray = JSON.parse(raw) as StoredItem[];
+    loadTask.succeed(`${existingArray.length} records`);
   } catch {
-    console.warn(`File ${filePath} not found, starting with empty array.`);
+    loadTask.warn("starting with empty array");
   }
 
   const relevantScrapedData = getScrapedItemsForFile(fileName, scrapedData);
@@ -334,15 +345,16 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
   });
 
   const insertedItems: StoredItem[] = [];
-  for (const [index, item] of relevantScrapedData.entries()) {
+  for (const [index, scrapedItem] of relevantScrapedData.entries()) {
     if (usedScrapedIndexes.has(index)) {
       continue;
     }
 
-    if (await confirmAddItem(fileName, item.displayName)) {
-      insertedItems.push(createDefaultItem(fileName, item));
+    if (await confirmAddItem(fileName, scrapedItem.displayName)) {
+      item(scrapedItem.displayName, "accepted", "success");
+      insertedItems.push(createDefaultItem(fileName, scrapedItem));
     } else {
-      console.log(`Skipped new ${fileName} item: ${item.displayName}`);
+      item(scrapedItem.displayName, "skipped", "warn");
     }
   }
 
@@ -353,13 +365,18 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
     return item;
   });
 
+  const saveTask = createTask(`Saving ${arrayName}`, filePath);
   await fs.writeFile(filePath, JSON.stringify(output, null, 2));
-  console.log(
-    `Updated ${arrayName} -> ${filePath} (${merged.length} existing, ${insertedItems.length} inserted, ${removedItems.length} removed, ${renamedItems} renamed)`,
-  );
+  saveTask.succeed("written");
+  summary(`${arrayName} summary`, {
+    existing: merged.length,
+    inserted: insertedItems.length,
+    removed: removedItems.length,
+    renamed: renamedItems,
+  });
 
   if (removedItems.length) {
-    console.warn(`Potentially removed ${arrayName}: ${removedItems.join(", ")}`);
+    note(`Potentially removed ${arrayName}: ${removedItems.join(", ")}`, "warn");
   }
 }
 
@@ -373,13 +390,18 @@ async function requirePageSource(title: string): Promise<WikiPageSource> {
 
 async function main() {
   try {
+    banner("Data Fetcher", "Scrape wiki data, merge records, and keep prompts readable");
+    detail("cwd", process.cwd());
+    const sourceTask = createTask("Fetching source pages", "Weapons, Stratagems, Boosters, Armor Passives");
     const [weaponsPage, stratagemsPage, boostersPage, passivesPage] = await Promise.all([
       requirePageSource("Weapons"),
       requirePageSource("Stratagems"),
       requirePageSource("Boosters"),
       requirePageSource("Armor Passives"),
     ]);
+    sourceTask.succeed("all sources ready");
 
+    const parseTask = createTask("Parsing wiki pages", "equipment and support data");
     const weapons = await enrichWithImageUrls(parseWeaponsPageSource(weaponsPage.content));
     const stratagems = await enrichWithImageUrls(
       await parseStratagemsPageSource(stratagemsPage.content),
@@ -388,8 +410,8 @@ async function main() {
     const passives = await enrichWithImageUrls(
       await parseArmorPassivesPageSource(passivesPage.content),
     );
-
-    console.log("Parsed counts:", {
+    parseTask.succeed("parsed");
+    summary("Parsed counts", {
       weapons: weapons.length,
       stratagems: stratagems.length,
       boosters: boosters.length,
@@ -403,9 +425,12 @@ async function main() {
     await mergeData("boosters", boosters, "BOOSTERS");
     await mergeData("armor_passives", passives, "ARMOR_PASSIVES");
     await mergeObjectives("OBJECTIVES");
+    note("Data fetch completed", "success");
   } finally {
     rl.close();
   }
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  note(`Fatal error: ${errorMessage(error)}`, "error");
+});

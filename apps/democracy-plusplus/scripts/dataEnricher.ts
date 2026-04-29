@@ -9,6 +9,7 @@ import {
   parseExpandedAttackTables,
   resolveImageUrls,
 } from "./wikiApi.ts";
+import { banner, createTask, detail, errorMessage, item, note, section, summary } from "./terminalUi.ts";
 
 interface EnrichableItem {
   displayName: string;
@@ -45,23 +46,31 @@ function mergeTags(existingTags: unknown, modeTag: ObjectiveTag | undefined) {
   return normalizedTags.length ? [...new Set(normalizedTags)] : undefined;
 }
 
-function errorMessage(error: unknown) {
-  return error instanceof Error ? error.message : String(error);
-}
-
 async function processArray(fileName: string, name: string) {
   const filePath = `./public/data/${fileName}.json`;
 
-  console.log(`Reading ${filePath}...`);
+  const loadTask = createTask(`Loading ${name}`, filePath);
   const raw = await fs.readFile(filePath, "utf-8");
   const items = JSON.parse(raw) as EnrichableItem[];
-  const pages = await fetchPageSources(items.map((item) => item.wikiSlug));
+  loadTask.succeed(`${items.length} records`);
 
-  console.log(`=== Processing ${name} (${items.length} items) ===`);
-  for (const item of items) {
-    const page = pages.get(item.wikiSlug);
+  const fetchTask = createTask(`Fetching sources`, name);
+  const pages = await fetchPageSources(items.map((record) => record.wikiSlug));
+  fetchTask.succeed(`${pages.size} pages`);
+
+  section(`Processing ${name}`, `${items.length} items`);
+  let processed = 0;
+  let refreshedImages = 0;
+  let missingPages = 0;
+  let missingTemplates = 0;
+  let emptyProperties = 0;
+  let failures = 0;
+
+  for (const record of items) {
+    const page = pages.get(record.wikiSlug);
     if (!page) {
-      console.warn(`Missing wiki source for ${item.wikiSlug}`);
+      missingPages++;
+      item(record.displayName || record.wikiSlug, "missing wiki source", "warn");
       continue;
     }
 
@@ -70,20 +79,22 @@ async function processArray(fileName: string, name: string) {
       const imageUrls = await resolveImageUrls([imageFile]);
       const wikiImageUrl = imageUrls.get(imageFile);
       if (wikiImageUrl) {
-        item.wikiImageUrl = wikiImageUrl;
+        record.wikiImageUrl = wikiImageUrl;
         const imageFileName = getImageFileName(wikiImageUrl);
         if (imageFileName) {
-          item.imageUrl = `${fileName}/${imageFileName}`;
+          record.imageUrl = `${fileName}/${imageFileName}`;
         }
+        refreshedImages++;
       }
     }
 
-    item.displayName = page.title;
-    item.wikiSlug = page.slug;
+    record.displayName = page.title;
+    record.wikiSlug = page.slug;
 
     const attackTemplate = findAttackTemplateInvocation(page.content);
     if (!attackTemplate) {
-      console.warn(`No attack data template found for ${item.wikiSlug}`);
+      missingTemplates++;
+      item(record.displayName, "no attack template", "warn");
       continue;
     }
 
@@ -91,57 +102,79 @@ async function processArray(fileName: string, name: string) {
       const expanded = await expandTemplate(attackTemplate, page.title);
       const properties = parseExpandedAttackTables(expanded);
       if (!Object.keys(properties).length) {
-        console.warn(`No structured properties parsed for ${item.wikiSlug}`);
+        emptyProperties++;
+        item(record.displayName, "no structured properties", "warn");
         continue;
       }
 
-      item.properties = properties;
-      if (item.hoverTexts) {
-        delete item.hoverTexts;
+      record.properties = properties;
+      if (record.hoverTexts) {
+        delete record.hoverTexts;
       }
-      console.log(`Processed ${item.displayName}`);
+      processed++;
+      item(record.displayName, `${Object.keys(properties).length} property groups`, "success");
     } catch (error) {
-      console.error(`Skipped ${item.displayName || item.wikiSlug}: ${errorMessage(error)}`);
+      failures++;
+      item(record.displayName || record.wikiSlug, errorMessage(error), "error");
     }
   }
 
+  const saveTask = createTask(`Saving ${name}`, filePath);
   await fs.writeFile(filePath, JSON.stringify(items, null, 2));
-  console.log(`Saved updated ${name} -> ${filePath}`);
+  saveTask.succeed("written");
+  summary(`${name} summary`, {
+    processed,
+    refreshedImages,
+    missingPages,
+    missingTemplates,
+    emptyProperties,
+    failures,
+  });
 }
 
 async function processObjectives() {
   const filePath = "./public/data/objectives.json";
 
-  console.log(`Reading ${filePath}...`);
+  const loadTask = createTask("Loading OBJECTIVES", filePath);
   const raw = await fs.readFile(filePath, "utf-8");
   const items = JSON.parse(raw) as EnrichableItem[];
+  loadTask.succeed(`${items.length} records`);
 
-  console.log(`=== Processing OBJECTIVES (${items.length} items) ===`);
-  for (const item of items) {
-    const modeTag = getObjectiveModeTag(item.displayName);
-    const tags = mergeTags(item.tags, modeTag);
+  section("Processing OBJECTIVES", `${items.length} items`);
+  let tagged = 0;
+  let cleared = 0;
+
+  for (const record of items) {
+    const modeTag = getObjectiveModeTag(record.displayName);
+    const tags = mergeTags(record.tags, modeTag);
 
     if (tags) {
-      item.tags = tags;
+      record.tags = tags;
+      tagged++;
     } else {
-      delete item.tags;
+      delete record.tags;
+      cleared++;
     }
   }
 
+  const saveTask = createTask("Saving OBJECTIVES", filePath);
   await fs.writeFile(filePath, JSON.stringify(items, null, 2));
-  console.log(`Saved updated OBJECTIVES -> ${filePath}`);
+  saveTask.succeed("written");
+  summary("OBJECTIVES summary", { tagged, cleared });
 }
 
 async function main() {
+  banner("Data Enricher", "Wiki properties, image links, and objective tag cleanup");
+  detail("cwd", process.cwd());
   await processArray("primaries", "PRIMARIES");
   await processArray("secondaries", "SECONDARIES");
   await processArray("throwables", "THROWABLES");
   await processArray("stratagems", "STRATAGEMS");
   await processObjectives();
 
-  console.log("All data processed successfully");
+  note("All data processed successfully", "success");
 }
 
 main().catch((err: unknown) => {
-  console.error("Fatal error:", err);
+  note(`Fatal error: ${errorMessage(err)}`, "error");
 });

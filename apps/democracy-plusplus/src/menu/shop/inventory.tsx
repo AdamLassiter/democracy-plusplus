@@ -1,5 +1,5 @@
 import type { SyntheticEvent } from "react";
-import { Badge, Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { Badge, Box, Card, Grid, Tab, Tabs, Tooltip, Typography } from "@mui/material";
 import ItemDisplay from "../../utils/itemDisplay";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -65,7 +65,9 @@ export default function Inventory() {
   const filteredItems = filterItemsByPropertyValues(list, selectedFilters);
 
   return <>
-    <Typography variant="h5">Super Earth's Finest</Typography>
+    <Tooltip title="Items available for purchase. Restocked only on operation completion.">
+      <Typography variant="h5">Super Earth's Finest</Typography>
+    </Tooltip>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>

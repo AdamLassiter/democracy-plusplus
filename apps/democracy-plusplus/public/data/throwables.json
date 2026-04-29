@@ -13,8 +13,13 @@
     "wikiSlug": "G-12_High_Explosive",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-12_High_Explosive_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-12 HIGH EXPLOSIVE": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-12 HIGH EXPLOSIVE E": "Explosion"
         }
       },
@@ -57,8 +62,13 @@
     "wikiSlug": "G-4_Gas",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-4_Gas_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-4 GAS": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-4 GAS E": "Explosion",
           "**Gas": "status",
           "**Gas Confusion": "status"
@@ -135,8 +145,13 @@
     "wikiSlug": "K-2_Throwing_Knife",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/K-2_Throwing_Knife_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "K-2 THROWING KNIFE": {
         "Base": {
+          "Throwables from Supply": "20",
+          "Max Rounds": "20",
+          "Starting Rounds": "10"
+        },
+        "Attacks": {
           "*K-2 THROWING KNIFE_dm": "Damage"
         }
       },
@@ -173,8 +188,13 @@
     "wikiSlug": "G-6_Frag",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-6_Frag_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-6 FRAG": {
         "Base": {
+          "Throwables from Supply": "4",
+          "Max Rounds": "6",
+          "Starting Rounds": "4"
+        },
+        "Attacks": {
           "*G-6 FRAG E": "Explosion",
           "**SHRAPNEL P": "Projectile"
         }
@@ -205,7 +225,6 @@
       },
       "SHRAPNEL P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
           "Drag Factor": "40%",
@@ -245,8 +264,13 @@
     "wikiSlug": "G-16_Impact",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-16_Impact_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-16 IMPACT": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-16 IMPACT E": "Explosion"
         }
       },
@@ -290,8 +314,13 @@
     "wikiSlug": "G-3_Smoke",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-3_Smoke_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-3 SMOKE": {
         "Base": {
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
+        },
+        "Attacks": {
           "*G-3 SMOKE E": "Explosion"
         }
       },
@@ -319,8 +348,13 @@
     "wikiSlug": "G-10_Incendiary",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-10_Incendiary_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-10 INCENDIARY": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-10 INCENDIARY E": "Explosion",
           "**Fire": "status"
         }
@@ -388,8 +422,13 @@
     "wikiSlug": "G-23_Stun",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-23_Stun_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-23 STUN": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-23 STUN E": "Explosion",
           "**Stun Large": "status"
         }
@@ -440,8 +479,13 @@
     "wikiSlug": "G-123_Thermite",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-123_Thermite_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-123 THERMITE": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "3",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
           "*G-123 THERMITE E": "Explosion",
           "*Thermite": "status",
           "*Fire": "status"
@@ -529,8 +573,13 @@
     "wikiSlug": "G-13_Incendiary_Impact",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-13_Incendiary_Impact_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-13 INCENDIARY IMPACT": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-13 INCENDIARY IMPACT E": "Explosion",
           "**Fire": "status"
         }
@@ -598,8 +647,13 @@
     "wikiSlug": "G-50_Seeker",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-50_Seeker_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-50 SEEKER": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-50 SEEKER E": "Explosion"
         }
       },
@@ -642,8 +696,13 @@
     "wikiSlug": "TED-63_Dynamite",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/TED-63_Dynamite_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "TED-63 DYNAMITE": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "3",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*TED-63 DYNAMITE E": "Explosion"
         }
       },
@@ -789,8 +848,13 @@
     "wikiSlug": "G-109_Urchin",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-109_Urchin_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-109 URCHIN": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
           "*G-109 URCHIN E": "Explosion",
           "**Stun Large": "status"
         }
@@ -840,8 +904,13 @@
     "wikiSlug": "G-31_Arc",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-31_ARC_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-31 ARC": {
         "Base": {
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-31 ARC E": "Explosion",
           "**G-31 ARC E A": "Arc",
           "***Stun Small": "status"
@@ -914,8 +983,13 @@
     "wikiSlug": "G-7_Pineapple",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-7_Pineapple_Throwable_Render.png",
     "properties": {
-      "Attacks": {
+      "G-7 PINEAPPLE": {
         "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G-7 PINEAPPLE E": "Explosion",
           "**CLUSTER BOMB P": "Projectile",
           "***CLUSTER BOMB P IE": "Explosion"
@@ -947,7 +1021,6 @@
       },
       "CLUSTER BOMB P": {
         "Projectile": {
-          "Caliber": "40 mm",
           "Mass": "150 g",
           "Initial Velocity": "25 m/s",
           "Drag Factor": "50%",
@@ -1011,8 +1084,15 @@
       "Explosive"
     ],
     "properties": {
-      "Attacks": {
+      "TM-1 LURE MINE": {
         "Base": {
+          "Main Health": "300",
+          "Main Armor": "Unarmored I",
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*TM-1 LURE MINE E": "Explosion",
           "**SHRAPNEL P": "Projectile"
         }
@@ -1043,7 +1123,6 @@
       },
       "SHRAPNEL P": {
         "Projectile": {
-          "Caliber": "10 mm",
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
           "Drag Factor": "40%",
@@ -1095,7 +1174,21 @@
     "category": "throwable",
     "tags": [
       "Special"
-    ]
+    ],
+    "properties": {
+      "G/SH-39 SHIELD": {
+        "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3",
+          "Shield Capacity": "1000",
+          "Shield Regen": "0 shield/s",
+          "Shield Regen Delay": "20 s",
+          "Shield Broken Delay": "20 s",
+          "Shield Radius": "1.79999995 m"
+        }
+      }
+    }
   },
   {
     "displayName": "G-48 Giga Grenade",
@@ -1112,8 +1205,13 @@
       "Explosive"
     ],
     "properties": {
-      "Attacks": {
+      "G-48 GIGA GRENADE": {
         "Base": {
+          "Throwables from Supply": "1",
+          "Max Rounds": "2",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
           "*G-48 GIGA GRENADE E": "Explosion"
         }
       },
