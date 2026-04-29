@@ -142,14 +142,14 @@ export function createTask(title: string, meta?: string) {
   let frame = 0;
   let timer: NodeJS.Timeout | null = null;
 
-  const render = (symbol: string, color: string, trailing?: string) => {
+  function render(symbol: string, color: string, trailing?: string) {
     const line = `${colorize(symbol, `${BOLD}${color}`)} ${strong(title)}${meta ? ` ${subtle(meta)}` : ""}${trailing ? ` ${subtle(trailing)}` : ""}`;
     if (interactive) {
       process.stdout.write(`\r\u001B[2K${fitLine(line)}`);
     } else {
       writeLine(line);
     }
-  };
+  }
 
   render(SPINNER_FRAMES[frame], FG.cyan);
 
@@ -160,7 +160,7 @@ export function createTask(title: string, meta?: string) {
     }, 90);
   }
 
-  const finish = (symbol: string, color: string, message?: string) => {
+  function finish(symbol: string, color: string, message?: string) {
     if (timer) {
       clearInterval(timer);
     }
@@ -170,7 +170,7 @@ export function createTask(title: string, meta?: string) {
     if (interactive) {
       process.stdout.write("\n");
     }
-  };
+  }
 
   return {
     update(nextMeta: string) {

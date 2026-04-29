@@ -1,6 +1,6 @@
 import type { ReactElement, SyntheticEvent } from 'react';
 import { useEffect, useRef, useState } from 'react'
-import { Alert, Box, Button, ButtonBase, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Tab, Tabs, TextField, Tooltip, Typography } from '@mui/material';
+import { Alert, Box, Button, ButtonBase, IconButton, Tab, Tabs, Tooltip, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
@@ -20,6 +20,7 @@ import FormsGame from './minigames/formsGame';
 import { nextSecretSequenceIndex, normalizeArrowKey, shouldIgnoreSecretTarget } from '../utils/secretCode';
 import { resetLobbySession, selectMultiplayer, setConnecting, setConnectionError, setDisplayName, setLobbySession } from '../slices/multiplayerSlice';
 import LobbyPanel from '../multiplayer/lobbyPanel';
+import { HostLobby, JoinLobby } from './lobby';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 const FORMS_SEQUENCE = ["Up", "Right", "Down", "Down", "Down", "Down", "Down", "Down"] as const;
@@ -271,47 +272,8 @@ export default function Menu() {
       <AchievementsDialog open={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)} />
       <FormsGame open={isFormsGameOpen} onClose={() => setIsFormsGameOpen(false)} />
       <StratagemGame open={isStratagemGameOpen} onClose={() => setIsStratagemGameOpen(false)} />
-      <Dialog open={isHostDialogOpen} onClose={() => setIsHostDialogOpen(false)}>
-        <DialogTitle>Host Lobby</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            fullWidth
-            label="Player Name"
-            margin="dense"
-            onChange={(event) => setDisplayNameInput(event.target.value)}
-            value={displayNameInput}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsHostDialogOpen(false)}>Cancel</Button>
-          <Button disabled={!displayNameInput.trim()} onClick={() => void handleCreateLobby()} variant="contained">Host</Button>
-        </DialogActions>
-      </Dialog>
-      <Dialog open={isJoinDialogOpen} onClose={() => setIsJoinDialogOpen(false)}>
-        <DialogTitle>Join Lobby</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            fullWidth
-            label="Player Name"
-            margin="dense"
-            onChange={(event) => setDisplayNameInput(event.target.value)}
-            value={displayNameInput}
-          />
-          <TextField
-            fullWidth
-            label="Lobby Code"
-            margin="dense"
-            onChange={(event) => setJoinCodeInput(event.target.value.toUpperCase())}
-            value={joinCodeInput}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsJoinDialogOpen(false)}>Cancel</Button>
-          <Button disabled={!displayNameInput.trim() || !joinCodeInput.trim()} onClick={() => void handleJoinLobby()} variant="contained">Join</Button>
-        </DialogActions>
-      </Dialog>
+      <HostLobby isHostDialogOpen={isHostDialogOpen} setIsHostDialogOpen={setIsHostDialogOpen} setDisplayNameInput={setDisplayNameInput} displayNameInput={displayNameInput} handleCreateLobby={handleCreateLobby} />
+      <JoinLobby isJoinDialogOpen={isJoinDialogOpen} setIsJoinDialogOpen={setIsJoinDialogOpen} setDisplayNameInput={setDisplayNameInput} displayNameInput={displayNameInput} setJoinCodeInput={setJoinCodeInput} joinCodeInput={joinCodeInput} handleJoinLobby={handleJoinLobby} />
     </Box>
   );
 }

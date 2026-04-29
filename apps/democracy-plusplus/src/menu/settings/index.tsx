@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Button, CircularProgress, Tooltip } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import SettingsDialog from "./settingsDialog";
 import { useSelector } from "react-redux";
 import { selectMission } from "../../slices/missionSlice";
 import { selectMultiplayer } from "../../slices/multiplayerSlice";
-import { Settings as SettingsIcon } from "@mui/icons-material";
+import { Settings as SettingsIcon, Link as LinkIcon } from "@mui/icons-material";
 
 export default function Settings() {
   const [open, setOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Settings() {
           variant="outlined"
           onClick={handleOpen}
             startIcon={showConnectedSpinner
-            ? <CircularProgress size={18} thickness={5} />
+            ? <LinkIcon />
             : <SettingsIcon />}
         >
           {displayCode}

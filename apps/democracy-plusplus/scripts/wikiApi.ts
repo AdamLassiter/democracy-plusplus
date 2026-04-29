@@ -403,19 +403,19 @@ export function parseWeaponsPageSource(content: string) {
   for (const rawLine of lines) {
     const line = rawLine.trim();
 
-    if (line === "Primary=") {
+    if (line.endsWith("Primary=")) {
       weaponCategory = "primary";
       weaponTag = null;
       continue;
     }
 
-    if (line === "|-|Secondary=") {
+    if (line.endsWith("Secondary=")) {
       weaponCategory = "secondary";
       weaponTag = null;
       continue;
     }
 
-    if (line === "|-|Throwable=") {
+    if (line.endsWith("Throwable=")) {
       weaponCategory = "throwable";
       weaponTag = null;
       continue;

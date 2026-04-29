@@ -370,6 +370,7 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
   saveTask.succeed("written");
   summary(`${arrayName} summary`, {
     existing: merged.length,
+    scraped: relevantScrapedData.length,
     inserted: insertedItems.length,
     removed: removedItems.length,
     renamed: renamedItems,
