@@ -417,7 +417,6 @@
       },
       "Stun Medium": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "3 sec"
         }
       }
@@ -604,7 +603,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -808,7 +806,6 @@
       },
       "Stun Medium": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "3 sec"
         }
       }
@@ -1175,7 +1172,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -1380,7 +1376,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -1552,7 +1547,6 @@
       },
       "Stun Large": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "5 sec"
         }
       }
@@ -1703,8 +1697,8 @@
           "Capacity": "15",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
-          "Mags from Supply": "8",
-          "Mags from Ammo Box": "4"
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
         },
         "Attacks": {
           "*9x70mm HIGH VELOCITY P": "Projectile"
@@ -1980,7 +1974,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -2438,7 +2431,6 @@
       },
       "Stun Small": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1.5 sec"
         }
       }
@@ -2998,7 +2990,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -3020,13 +3011,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       }
@@ -3432,7 +3421,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -3454,13 +3442,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       }
@@ -3649,5 +3635,86 @@
     },
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SMG-203_Gallant_Primary_Render.png",
     "imageUrl": "primaries/SMG-203_Gallant_Primary_Render.png"
+  },
+  {
+    "displayName": "R-4 Hyena",
+    "warbondCode": "none",
+    "internalName": "r4hyena",
+    "tier": "b",
+    "wikiSlug": "R-4_Hyena",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/R-4_Hyena_Primary_Render.png",
+    "imageUrl": "primaries/R-4_Hyena_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [],
+    "properties": {
+      "R-4 HYENA": {
+        "Base": {
+          "Fire Rate": "190 rpm",
+          "Recoil": "65",
+          "Horizontal Recoil": "40",
+          "Vertical Recoil": "90",
+          "Spread": "↔[0.50] ↕[0.50]",
+          "Sway": "1",
+          "Ergonomics": "30",
+          "Capacity": "15",
+          "Spare Magazines": "5",
+          "Starting Magazines": "4",
+          "Mags from Supply": "5",
+          "Mags from Ammo Box": "2"
+        },
+        "Attacks": {
+          "*9x70mm FULL METAL JACKET P1": "Projectile",
+          "**Fire": "status"
+        }
+      },
+      "9x70mm FULL METAL JACKET P1": {
+        "Projectile": {
+          "Mass": "20 g",
+          "Initial Velocity": "950 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "220 Ballistic",
+          "vs. Durable": "45 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Status": "Fire",
+          "Status Strength": "3",
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "14"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
   }
 ]

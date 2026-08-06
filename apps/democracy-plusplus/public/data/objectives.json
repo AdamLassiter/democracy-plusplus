@@ -304,7 +304,7 @@
       "Illuminate",
       "Blitz"
     ],
-    "minDifficulty": 3,
+    "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "short"
   },
@@ -911,5 +911,17 @@
     "minDifficulty": 1,
     "maxDifficulty": 2,
     "missionLength": "long"
+  },
+  {
+    "displayName": "Activate TCS+ Station",
+    "wikiSlug": "Activate_TCS+_Station",
+    "minDifficulty": 1,
+    "maxDifficulty": 10,
+    "missionLength": "short",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": null
+    }
   }
 ]

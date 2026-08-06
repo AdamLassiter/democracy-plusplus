@@ -21,9 +21,9 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "20",
-          "Capacity": "100",
+          "Capacity": "125",
           "Spare Magazines": "4",
-          "Starting Magazines": "2",
+          "Starting Magazines": "3",
           "Mags from Supply": "6",
           "Mags from Ammo Box": "3"
         },
@@ -56,13 +56,11 @@
       },
       "Gas Confusion Var2": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "9 sec"
         }
       },
       "Gas Var2": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "10 sec"
         },
         "Damage": {
@@ -150,7 +148,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -172,13 +169,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       }
@@ -238,9 +233,8 @@
           "Explode After": "S-11_P_E"
         },
         "Damage": {
-          "Element": "Gas",
-          "Standard": "650 Gas",
-          "vs. Durable": "275 Gas"
+          "Standard": "650 Damage",
+          "vs. Durable": "275 Damage"
         },
         "Penetration": {
           "Direct": "Anti-Tank I",
@@ -249,9 +243,6 @@
           "Extreme Angle": "Anti-Tank I"
         },
         "Special Effects": {
-          "Status": "Gas",
-          "Status Strength": "50",
-          "Second Status": "Gas_Confusion",
           "Demolition Force": "30",
           "Stagger Force": "80",
           "Push Force": "35"
@@ -259,7 +250,6 @@
       },
       "Gas": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "6 sec"
         },
         "Damage": {
@@ -281,7 +271,6 @@
       },
       "Gas Confusion": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "5 sec"
         }
       },
@@ -385,7 +374,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -675,7 +663,6 @@
       },
       "Stun Small": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1.5 sec"
         }
       }
@@ -888,7 +875,6 @@
       },
       "Stun Small": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1.5 sec"
         }
       }
@@ -1088,11 +1074,7 @@
           "Vertical Recoil": "110",
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
-          "Ergonomics": "35",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3"
+          "Ergonomics": "35"
         },
         "Heat Data": {
           "Overheats at": "100 °C",
@@ -1366,11 +1348,7 @@
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
           "Ergonomics": "15",
-          "Capacity": "1",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3"
+          "Capacity": "1"
         },
         "Attacks": {
           "*75mm HEAT GRENADE P": "Projectile",
@@ -1457,10 +1435,6 @@
           "Sway": "1",
           "Ergonomics": "10",
           "Capacity": "4",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3",
           "Barrels": "x 4"
         },
         "Attacks": {
@@ -1472,8 +1446,8 @@
         "Projectile": {
           "Mass": "350 g",
           "Initial Velocity": "70 m/s",
-          "Drag Factor": "30%",
-          "Gravity Factor": "100%",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
           "Lifetime": "15 sec",
           "Penetration Slowdown": "25%",
           "Explosion On Impact": "66mm MISSILE_P_IE"
@@ -1548,11 +1522,7 @@
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
           "Ergonomics": "15",
-          "Capacity": "1",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3"
+          "Capacity": "1"
         },
         "Attacks": {
           "*EAT-700 P": "Projectile",
@@ -1592,7 +1562,6 @@
       },
       "BurningHeavy": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1 sec"
         },
         "Damage": {
@@ -1699,7 +1668,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -1837,8 +1805,9 @@
       },
       "One True Flag": {
         "Damage": {
-          "Standard": "200 Damage",
-          "vs. Durable": "100 Damage"
+          "Element": "Melee",
+          "Standard": "200 Melee",
+          "vs. Durable": "100 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -2300,8 +2269,8 @@
         "Projectile": {
           "Mass": "11 g",
           "Initial Velocity": "500 m/s",
-          "Drag Factor": "30%",
-          "Gravity Factor": "100%",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
           "Penetration Slowdown": "25%",
           "Explosion On Impact": "Artillery_P_IE"
         },
@@ -2349,8 +2318,8 @@
         "Projectile": {
           "Mass": "11 g",
           "Initial Velocity": "500 m/s",
-          "Drag Factor": "30%",
-          "Gravity Factor": "100%",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
           "Penetration Slowdown": "25%",
           "Explosion On Impact": "Burst_P_IE"
         },
@@ -2578,8 +2547,8 @@
         "Projectile": {
           "Mass": "350 g",
           "Initial Velocity": "70 m/s",
-          "Drag Factor": "30%",
-          "Gravity Factor": "100%",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
           "Lifetime": "15 sec",
           "Penetration Slowdown": "25%",
           "Explosion On Impact": "HOMING GROUND MISSILE_P_IE"
@@ -2930,14 +2899,14 @@
     "properties": {
       "Patriot Exosuit": {
         "Base": {
-          "Cooldown": "600 s",
+          "Cooldown": "420 s",
           "Uses": "3",
-          "Main Health": "1600",
-          "Main Armor": "Medium"
+          "Main Health": "1800",
+          "Main Armor": "Heavy"
         },
         "PATRIOT EXOSUIT HMG": {
-          "Main Health": "350",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Fire Rate": "1200 rpm",
           "Recoil": "5",
           "Horizontal Recoil": "5",
@@ -2949,8 +2918,8 @@
           "*8x60mm FULL METAL JACKET P1": "Projectile"
         },
         "PATRIOT EXOSUIT MISSILE LAUNCHER": {
-          "Main Health": "350",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Fire Rate": "90 rpm",
           "Recoil": "6.25",
           "Horizontal Recoil": "2.5",
@@ -3063,14 +3032,14 @@
     "properties": {
       "Emancipator Exosuit": {
         "Base": {
-          "Cooldown": "600 s",
+          "Cooldown": "420 s",
           "Uses": "3",
-          "Main Health": "1600",
-          "Main Armor": "Medium"
+          "Main Health": "1800",
+          "Main Armor": "Heavy"
         },
         "EMANCIPATOR EXOSUIT LEFT AUTOCANNON": {
-          "Main Health": "350",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Fire Rate": "175 rpm",
           "Recoil": "15.5",
           "Horizontal Recoil": "11",
@@ -3084,8 +3053,8 @@
           "**30mm APHE CANNON P IE": "Explosion"
         },
         "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON": {
-          "Main Health": "350",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Fire Rate": "175 rpm",
           "Recoil": "15.5",
           "Horizontal Recoil": "11",
@@ -3543,7 +3512,6 @@
       },
       "BurningHeavy": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1 sec"
         },
         "Damage": {
@@ -3565,7 +3533,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -3719,18 +3686,18 @@
         },
         "Damage": {
           "Damage Element": "None",
-          "Inner Radius": "200 Explosion",
-          "Inner Durable": "200 Explosion",
-          "Outer Radius": "199 - 0",
-          "Outer Durable": "199 - 0"
+          "Inner Radius": "300 Explosion",
+          "Inner Durable": "300 Explosion",
+          "Outer Radius": "299 - 0",
+          "Outer Durable": "299 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Direct": "Heavy"
         },
         "AoE Effect": {
           "Demolition Force": "30",
           "Stagger Force": "30",
-          "Push Force": "40"
+          "Push Force": "10"
         }
       }
     },
@@ -3884,8 +3851,8 @@
           "Explosion On Impact": "380mm HE CANNON ROUND_P_IE"
         },
         "Damage": {
-          "Standard": "3500 Damage",
-          "vs. Durable": "3500 Damage"
+          "Standard": "4000 Damage",
+          "vs. Durable": "4000 Damage"
         },
         "Penetration": {
           "Direct": "Anti-Tank IV",
@@ -3907,10 +3874,10 @@
         },
         "Damage": {
           "Damage Element": "None",
-          "Inner Radius": "1000 Explosion",
-          "Inner Durable": "1000 Explosion",
-          "Outer Radius": "999 - 0",
-          "Outer Durable": "999 - 0"
+          "Inner Radius": "1500 Explosion",
+          "Inner Durable": "1500 Explosion",
+          "Outer Radius": "1499 - 0",
+          "Outer Durable": "1499 - 0"
         },
         "Penetration": {
           "Direct": "Anti-Tank II"
@@ -3937,10 +3904,10 @@
     ],
     "warbondCode": "none",
     "internalName": "orbitalgasstrike",
-    "imageUrl": "stratagems/Orbital_Gas_Strike_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Orbital_Gas_Strike_Stratagem_Icon_Background.svg",
     "tier": "a",
     "wikiSlug": "Orbital_Gas_Strike",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Orbital_Gas_Strike_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Orbital_Gas_Strike_Stratagem_Icon_Background.svg",
     "properties": {
       "Orbital Gas Strike": {
         "Base": {
@@ -4008,7 +3975,6 @@
       },
       "Gas": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "6 sec"
         },
         "Damage": {
@@ -4030,7 +3996,6 @@
       },
       "Gas Confusion": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "5 sec"
         }
       }
@@ -4051,10 +4016,10 @@
     ],
     "warbondCode": "none",
     "internalName": "orbitalemsstrike",
-    "imageUrl": "stratagems/Orbital_EMS_Strike_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Orbital_EMS_Strike_Stratagem_Icon_Background.svg",
     "tier": "d",
     "wikiSlug": "Orbital_EMS_Strike",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Orbital_EMS_Strike_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Orbital_EMS_Strike_Stratagem_Icon_Background.svg",
     "properties": {
       "Orbital EMS Strike": {
         "Base": {
@@ -4120,7 +4085,6 @@
       },
       "Stun Medium": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "3 sec"
         }
       }
@@ -4141,11 +4105,11 @@
     ],
     "warbondCode": "none",
     "internalName": "orbitalsmokestrike",
-    "imageUrl": "stratagems/Orbital_Smoke_Strike_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Orbital_Smoke_Strike_Stratagem_Icon_Background.svg",
     "tier": "d",
     "overrideCost": 1,
     "wikiSlug": "Orbital_Smoke_Strike",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Orbital_Smoke_Strike_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Orbital_Smoke_Strike_Stratagem_Icon_Background.svg",
     "properties": {
       "Orbital Smoke Strike": {
         "Base": {
@@ -4369,8 +4333,8 @@
           "Explode After": "RAIL CANNON ROUND_P_E"
         },
         "Damage": {
-          "Standard": "7500 Damage",
-          "vs. Durable": "7500 Damage"
+          "Standard": "10000 Damage",
+          "vs. Durable": "10000 Damage"
         },
         "Penetration": {
           "Direct": "Anti-Tank III",
@@ -4463,7 +4427,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -4637,8 +4600,8 @@
           "Explosion On Impact": "120mm HE CANNON ROUND_P1_IE"
         },
         "Damage": {
-          "Standard": "2500 Damage",
-          "vs. Durable": "2500 Damage"
+          "Standard": "3500 Damage",
+          "vs. Durable": "3500 Damage"
         },
         "Penetration": {
           "Direct": "Anti-Tank III",
@@ -4660,10 +4623,10 @@
         },
         "Damage": {
           "Damage Element": "None",
-          "Inner Radius": "750 Explosion",
-          "Inner Durable": "750 Explosion",
-          "Outer Radius": "749 - 0",
-          "Outer Durable": "749 - 0"
+          "Inner Radius": "1200 Explosion",
+          "Inner Durable": "1200 Explosion",
+          "Outer Radius": "1199 - 0",
+          "Outer Durable": "1199 - 0"
         },
         "Penetration": {
           "Direct": "Anti-Tank I"
@@ -4721,8 +4684,8 @@
           "Explosion On Impact": "380mm HE CANNON ROUND_P1_IE"
         },
         "Damage": {
-          "Standard": "3500 Damage",
-          "vs. Durable": "3500 Damage"
+          "Standard": "4000 Damage",
+          "vs. Durable": "4000 Damage"
         },
         "Penetration": {
           "Direct": "Anti-Tank IV",
@@ -4744,10 +4707,10 @@
         },
         "Damage": {
           "Damage Element": "None",
-          "Inner Radius": "1000 Explosion",
-          "Inner Durable": "1000 Explosion",
-          "Outer Radius": "999 - 0",
-          "Outer Durable": "999 - 0"
+          "Inner Radius": "1500 Explosion",
+          "Inner Durable": "1500 Explosion",
+          "Outer Radius": "1499 - 0",
+          "Outer Durable": "1499 - 0"
         },
         "Penetration": {
           "Direct": "Anti-Tank II"
@@ -4806,8 +4769,8 @@
           "Explosion On Impact": "380mm HE CANNON ROUND_P1_IE"
         },
         "Damage": {
-          "Standard": "3500 Damage",
-          "vs. Durable": "3500 Damage"
+          "Standard": "4000 Damage",
+          "vs. Durable": "4000 Damage"
         },
         "Penetration": {
           "Direct": "Anti-Tank IV",
@@ -4829,10 +4792,10 @@
         },
         "Damage": {
           "Damage Element": "None",
-          "Inner Radius": "1000 Explosion",
-          "Inner Durable": "1000 Explosion",
-          "Outer Radius": "999 - 0",
-          "Outer Durable": "999 - 0"
+          "Inner Radius": "1500 Explosion",
+          "Inner Durable": "1500 Explosion",
+          "Outer Radius": "1499 - 0",
+          "Outer Durable": "1499 - 0"
         },
         "Penetration": {
           "Direct": "Anti-Tank II"
@@ -4934,7 +4897,6 @@
       },
       "BurningHeavy": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1 sec"
         },
         "Damage": {
@@ -4956,7 +4918,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -4995,10 +4956,10 @@
     ],
     "warbondCode": "none",
     "internalName": "aarc3teslatower",
-    "imageUrl": "stratagems/Tesla_Tower_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/ARC-3_Tesla_Tower_Render.png",
     "tier": "b",
     "wikiSlug": "A/ARC-3_Tesla_Tower",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Tesla_Tower_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/ARC-3_Tesla_Tower_Render.png",
     "properties": {
       "A/ARC-3 Tesla Tower": {
         "Base": {
@@ -5065,7 +5026,7 @@
         "Base": {
           "Cooldown": "180 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "55",
           "Vertical Turn Speed": "55",
@@ -5073,7 +5034,7 @@
           "Vertical Limit": "(35.00) (89.00)"
         },
         "SWP MORTAR SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "60 rpm",
           "Recoil": "6.25",
@@ -5098,13 +5059,13 @@
           "Explosion On Impact": "40mm HE MORTAR_P_IE"
         },
         "Damage": {
-          "Standard": "0 Damage",
-          "vs. Durable": "0 Damage"
+          "Standard": "20 Damage",
+          "vs. Durable": "2 Damage"
         },
         "Penetration": {
-          "Direct": "Heavy",
-          "Slight Angle": "Heavy",
-          "Large Angle": "Heavy",
+          "Direct": "Unarmored I",
+          "Slight Angle": "Unarmored I",
+          "Large Angle": "Unarmored I",
           "Extreme Angle": "Unarmored I"
         },
         "Special Effects": {
@@ -5188,7 +5149,7 @@
         "Base": {
           "Cooldown": "180 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "55",
           "Vertical Turn Speed": "55",
@@ -5196,7 +5157,7 @@
           "Vertical Limit": "(35.00) (89.00)"
         },
         "SWP EMS MORTAR SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "60 rpm",
           "Recoil": "6.25",
@@ -5223,13 +5184,13 @@
           "Explode After": "EMS MORTAR SHELL_P_E"
         },
         "Damage": {
-          "Standard": "0 Damage",
-          "vs. Durable": "0 Damage"
+          "Standard": "20 Damage",
+          "vs. Durable": "2 Damage"
         },
         "Penetration": {
-          "Direct": "Heavy",
-          "Slight Angle": "Heavy",
-          "Large Angle": "Heavy",
+          "Direct": "Unarmored I",
+          "Slight Angle": "Unarmored I",
+          "Large Angle": "Unarmored I",
           "Extreme Angle": "Unarmored I"
         },
         "Special Effects": {
@@ -5263,7 +5224,6 @@
       },
       "Stun Medium": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "3 sec"
         }
       },
@@ -5316,7 +5276,7 @@
         "Base": {
           "Cooldown": "90 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "80",
           "Vertical Turn Speed": "50",
@@ -5324,7 +5284,7 @@
           "Vertical Limit": "(-60.00) (90.00)"
         },
         "SWP MACHINE GUN SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "630 rpm",
           "Recoil": "5.5",
@@ -5388,7 +5348,7 @@
         "Base": {
           "Cooldown": "150 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "80",
           "Vertical Turn Speed": "50",
@@ -5396,7 +5356,7 @@
           "Vertical Limit": "(-60.00) (90.00)"
         },
         "SWP GATLING SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "1600 rpm",
           "Recoil": "3.25",
@@ -5455,11 +5415,38 @@
     "wikiSlug": "A/FLAM-40_Flame_Sentry",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Flame_Sentry_Stratagem_Icon.svg",
     "properties": {
-      "Flame Sentry Stream": {
+      "FLAME SENTRY": {
+        "Base": {
+          "Cooldown": "100 s",
+          "Uses": "∞",
+          "Main Health": "400",
+          "Main Armor": "Light",
+          "Horizontal Turn Speed": "140",
+          "Vertical Turn Speed": "140",
+          "Lifetime": "150 sec",
+          "Vertical Limit": "(-45.00) (90.00)"
+        },
+        "SWP FLAME SENTRY": {
+          "Main Health": "400",
+          "Main Armor": "Light",
+          "Recoil": "0",
+          "Horizontal Recoil": "0",
+          "Vertical Recoil": "0",
+          "Spread": "↔[50.00] ↕[25.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Capacity": "600",
+          "*SWP FLAME SENTRY S": "Spray",
+          "**Fire": "status",
+          "**Fire Panic": "status",
+          "**FlamerSlowed": "status"
+        }
+      },
+      "SWP FLAME SENTRY S": {
         "Damage": {
           "Element": "Fire",
-          "Standard": "150 DPS",
-          "vs. Durable": "150 DPS"
+          "Standard": "3 Fire",
+          "vs. Durable": "3 Fire"
         },
         "Penetration": {
           "Direct": "Heavy",
@@ -5469,10 +5456,43 @@
         },
         "Special Effects": {
           "Status": "Fire",
-          "Status Strength": "2",
+          "Status Strength": "4",
+          "Second Status": "FlamerSlowed",
+          "Third Status": "Fire_Panic",
           "Demolition Force": "10",
           "Stagger Force": "5",
           "Push Force": "5"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "Fire Panic": {
+        "Status": {
+          "Status Duration": "1 sec"
+        }
+      },
+      "FlamerSlowed": {
+        "Status": {
+          "Status Duration": "0.5 sec"
         }
       }
     },
@@ -5503,7 +5523,7 @@
         "Base": {
           "Cooldown": "150 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "80",
           "Vertical Turn Speed": "50",
@@ -5511,7 +5531,7 @@
           "Vertical Limit": "(-60.00) (90.00)"
         },
         "SWP LASER SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Recoil": "0",
           "Horizontal Recoil": "0",
@@ -5521,7 +5541,7 @@
           "Ergonomics": "65"
         },
         "Heat Data": {
-          "Overheats at": "200 °C",
+          "Overheats at": "250 °C",
           "Warmup": "0.5 sec",
           "Heat Per Second": "8 °C",
           "Cool Per Sec": "7.5 - 5 - 3.8",
@@ -5555,7 +5575,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -5603,7 +5622,7 @@
         "Base": {
           "Cooldown": "150 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "20",
           "Vertical Turn Speed": "20",
@@ -5611,7 +5630,7 @@
           "Vertical Limit": "(-60.00) (70.00)"
         },
         "SWP AUTOCANNON SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "160 rpm",
           "Recoil": "6.25",
@@ -5700,7 +5719,7 @@
         "Base": {
           "Cooldown": "150 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "40",
           "Vertical Turn Speed": "40",
@@ -5708,7 +5727,7 @@
           "Vertical Limit": "(-45.00) (90.00)"
         },
         "SWP ROCKET SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "90 rpm",
           "Recoil": "6.25",
@@ -5884,10 +5903,10 @@
     ],
     "warbondCode": "warbond12",
     "internalName": "eat12antitankemplacement",
-    "imageUrl": "stratagems/Anti-Tank_Emplacement_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Anti-Tank_Emplacement_Render.png",
     "tier": "b",
     "wikiSlug": "E/AT-12_Anti-Tank_Emplacement",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Tank_Emplacement_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Tank_Emplacement_Render.png",
     "properties": {
       "E/AT-12 Anti-Tank Emplacement": {
         "Base": {
@@ -5966,17 +5985,17 @@
     ],
     "warbondCode": "none",
     "internalName": "egl21grenadierbattlement",
-    "imageUrl": "stratagems/Grenadier_Battlement_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Grenadier_Battlement_Stratagem_Icon_Background.svg",
     "tier": "c",
     "wikiSlug": "E/GL-21_Grenadier_Battlement",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Grenadier_Battlement_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Grenadier_Battlement_Stratagem_Icon_Background.svg",
     "properties": {
       "GRENADIER BATTLEMENT": {
         "Base": {
           "Cooldown": "120 s",
           "Uses": "∞",
           "Main Health": "3000",
-          "Main Armor": "Unarmored I"
+          "Main Armor": "Heavy"
         },
         "SWP GRENADIER BATTLEMENT": {
           "Fire Rate": "160 rpm",
@@ -6057,10 +6076,10 @@
     ],
     "warbondCode": "none",
     "internalName": "md17antitankmines",
-    "imageUrl": "stratagems/Anti-Tank_Mines_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Anti-Tank_Mines_Stratagem_Icon_Background.svg",
     "tier": "d",
     "wikiSlug": "MD-17_Anti-Tank_Mines",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Tank_Mines_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Tank_Mines_Stratagem_Icon_Background.svg",
     "properties": {
       "MD-17 Anti-Tank Mines": {
         "Base": {
@@ -6113,10 +6132,10 @@
     ],
     "warbondCode": "none",
     "internalName": "md6antipersonnelminefield",
-    "imageUrl": "stratagems/Anti-Personnel_Minefield_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Anti-Personnel_Minefield_Stratagem_Icon_Background.svg",
     "tier": "d",
     "wikiSlug": "MD-6_Anti-Personnel_Minefield",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Personnel_Minefield_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Anti-Personnel_Minefield_Stratagem_Icon_Background.svg",
     "properties": {
       "MD-6 Anti-Personnel Minefield": {
         "Base": {
@@ -6169,10 +6188,10 @@
     ],
     "warbondCode": "none",
     "internalName": "md8gasmines",
-    "imageUrl": "stratagems/Gas_Mines_Stratagem_Icon.svg",
+    "imageUrl": "stratagems/Gas_Mines_Stratagem_Icon_Background.svg",
     "tier": "b",
     "wikiSlug": "MD-8_Gas_Mines",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Gas_Mines_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Gas_Mines_Stratagem_Icon_Background.svg",
     "properties": {
       "MD-8 Gas Mines": {
         "Base": {
@@ -6320,8 +6339,9 @@
       },
       "Defolation Tool": {
         "Damage": {
-          "Standard": "450 Damage",
-          "vs. Durable": "225 Damage"
+          "Element": "Melee",
+          "Standard": "450 Melee",
+          "vs. Durable": "225 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -6438,8 +6458,9 @@
       },
       "Breaching Hammer Impact": {
         "Damage": {
-          "Standard": "300 Damage",
-          "vs. Durable": "150 Damage"
+          "Element": "Melee",
+          "Standard": "300 Melee",
+          "vs. Durable": "150 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -6460,6 +6481,7 @@
           "Shockwave Radius": "12 m"
         },
         "Damage": {
+          "Damage Element": "Explosion",
           "Inner Radius": "2200 Explosion",
           "Inner Durable": "2200 Explosion",
           "Outer Radius": "2199 - 0",
@@ -6508,11 +6530,7 @@
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
           "Ergonomics": "15",
-          "Capacity": "1",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3"
+          "Capacity": "1"
         },
         "Attacks": {
           "*EAT-411 P": "Projectile",
@@ -6724,7 +6742,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -6746,13 +6763,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       }
@@ -6838,7 +6853,7 @@
         "Base": {
           "Cooldown": "180 s",
           "Uses": "∞",
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Horizontal Turn Speed": "55",
           "Vertical Turn Speed": "55",
@@ -6846,7 +6861,7 @@
           "Vertical Limit": "(35.00) (89.00)"
         },
         "SWP GAS MORTAR SENTRY": {
-          "Main Health": "200",
+          "Main Health": "400",
           "Main Armor": "Light",
           "Fire Rate": "80 rpm",
           "Recoil": "6.25",
@@ -6913,7 +6928,6 @@
       },
       "Gas": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "6 sec"
         },
         "Damage": {
@@ -6935,7 +6949,6 @@
       },
       "Gas Confusion": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "5 sec"
         }
       }
@@ -6962,22 +6975,23 @@
       "Vehicles"
     ],
     "properties": {
-      "MG-206 HEAVY MACHINE GUN": {
+      "FAST RECON VEHICLE": {
         "Base": {
+          "Cooldown": "480 s",
+          "Uses": "∞",
+          "Main Health": "2400",
+          "Main Armor": "Medium"
+        },
+        "SWP HEAVY MACHINE GUN": {
           "Fire Rate": "600 rpm",
-          "Recoil": "43.75",
-          "Horizontal Recoil": "32.5",
-          "Vertical Recoil": "55",
+          "Recoil": "20.5",
+          "Horizontal Recoil": "11",
+          "Vertical Recoil": "30",
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
-          "Ergonomics": "0",
+          "Ergonomics": "30",
           "Capacity": "100",
-          "Spare Magazines": "2",
-          "Starting Magazines": "1",
-          "Mags from Supply": "2",
-          "Mags from Ammo Box": "1"
-        },
-        "Attacks": {
+          "Spare Magazines": "4",
           "*12.5mm BCHP RIFLE ROUNDS P": "Projectile"
         }
       },
@@ -7035,11 +7049,11 @@
           "Cooldown": "780 s",
           "Uses": "∞",
           "Main Health": "8000",
-          "Main Armor": "Medium"
+          "Main Armor": "Heavy"
         },
         "SWP BASTION MK XVI": {
           "Main Health": "100000",
-          "Main Armor": "Medium",
+          "Main Armor": "Heavy",
           "Fire Rate": "12 rpm",
           "Recoil": "6.25",
           "Horizontal Recoil": "2.5",
@@ -7222,8 +7236,8 @@
     "internalName": "axlas5rover",
     "tier": "c",
     "wikiSlug": "AX/LAS-5_Rover",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Rover_Stratagem_Icon.svg",
-    "imageUrl": "stratagems/Rover_Stratagem_Icon.svg",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Rover_Stratagem_Icon_Background.svg",
+    "imageUrl": "stratagems/Rover_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
     "tags": [
@@ -7233,11 +7247,7 @@
       "AX/LAS-5 ROVER": {
         "Base": {
           "Main Health": "100",
-          "Main Armor": "Unarmored II",
-          "Mags from Supply": "2",
-          "Mags from Ammo Box": "1",
-          "Max Rounds": "4",
-          "Starting Rounds": "4"
+          "Main Armor": "Unarmored II"
         },
         "AX/LAS-5 ROVERDR 0": {
           "Recoil": "1",
@@ -7284,7 +7294,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -7377,7 +7386,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -7399,13 +7407,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       }
@@ -7436,11 +7442,7 @@
       "AX/ARC-3 K-9": {
         "Base": {
           "Main Health": "100",
-          "Main Armor": "Unarmored II",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3",
-          "Max Rounds": "6",
-          "Starting Rounds": "6"
+          "Main Armor": "Unarmored II"
         },
         "AX/ARC-3 K-9DR 0": {
           "Recoil": "45",
@@ -7482,7 +7484,6 @@
       },
       "Stun Small": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1.5 sec"
         }
       }
@@ -7557,13 +7558,11 @@
       },
       "Gas Confusion Var2": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "9 sec"
         }
       },
       "Gas Var2": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "10 sec"
         },
         "Damage": {
@@ -7625,10 +7624,6 @@
           "Sway": "1",
           "Ergonomics": "25",
           "Capacity": "300",
-          "Spare Magazines": "0",
-          "Starting Magazines": "0",
-          "Mags from Supply": "0",
-          "Mags from Ammo Box": "1",
           "Barrels": "x 24"
         },
         "Attacks": {
@@ -7686,14 +7681,14 @@
     "properties": {
       "BREAKTHROUGH": {
         "Base": {
-          "Cooldown": "600 s",
+          "Cooldown": "420 s",
           "Uses": "3",
-          "Main Health": "1600",
-          "Main Armor": "Medium"
+          "Main Health": "1800",
+          "Main Armor": "Heavy"
         },
         "BREAKTHROUGH SCATTERGUN": {
-          "Main Health": "600",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Fire Rate": "180 rpm",
           "Recoil": "80",
           "Horizontal Recoil": "60",
@@ -7757,14 +7752,14 @@
     "properties": {
       "LUMBERER": {
         "Base": {
-          "Cooldown": "600 s",
+          "Cooldown": "420 s",
           "Uses": "3",
-          "Main Health": "1600",
-          "Main Armor": "Medium"
+          "Main Health": "1800",
+          "Main Armor": "Heavy"
         },
         "LUMBERER FLAMETHROWER": {
-          "Main Health": "600",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Recoil": "0",
           "Horizontal Recoil": "0",
           "Vertical Recoil": "0",
@@ -7778,8 +7773,8 @@
           "**FlamerSlowed": "status"
         },
         "LUMBERER ANTI TANK CANNON": {
-          "Main Health": "600",
-          "Main Armor": "Light",
+          "Main Health": "800",
+          "Main Armor": "Medium",
           "Fire Rate": "30 rpm",
           "Recoil": "222.5",
           "Horizontal Recoil": "125",
@@ -7816,7 +7811,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -7838,13 +7832,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       },

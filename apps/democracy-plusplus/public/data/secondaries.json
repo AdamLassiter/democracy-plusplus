@@ -83,8 +83,9 @@
       },
       "Combat Hatchet": {
         "Damage": {
-          "Standard": "240 Damage",
-          "vs. Durable": "120 Damage"
+          "Element": "Melee",
+          "Standard": "240 Melee",
+          "vs. Durable": "120 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -126,8 +127,9 @@
       },
       "Saber": {
         "Damage": {
-          "Standard": "188 Damage",
-          "vs. Durable": "98 Damage"
+          "Element": "Melee",
+          "Standard": "188 Melee",
+          "vs. Durable": "98 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -169,8 +171,9 @@
       },
       "Machete": {
         "Damage": {
-          "Standard": "300 Damage",
-          "vs. Durable": "150 Damage"
+          "Element": "Melee",
+          "Standard": "300 Melee",
+          "vs. Durable": "150 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -212,8 +215,9 @@
       },
       "Stun Lance": {
         "Damage": {
-          "Standard": "165 Damage",
-          "vs. Durable": "83 Damage"
+          "Element": "Melee",
+          "Standard": "165 Melee",
+          "vs. Durable": "83 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -257,8 +261,9 @@
       },
       "Stun Baton": {
         "Damage": {
-          "Standard": "75 Damage",
-          "vs. Durable": "38 Damage"
+          "Element": "Melee",
+          "Standard": "120 Melee",
+          "vs. Durable": "60 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -896,7 +901,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -1046,7 +1050,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -1068,13 +1071,11 @@
       },
       "Fire Panic": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "1 sec"
         }
       },
       "FlamerSlowed": {
         "Status": {
-          "Status Strength": "0.5",
           "Status Duration": "0.5 sec"
         }
       }
@@ -1201,7 +1202,7 @@
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "0%",
-          "Gravity Factor": "30%",
+          "Gravity Factor": "0%",
           "Penetration Slowdown": "25%"
         },
         "Damage": {
@@ -1225,7 +1226,7 @@
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
           "Drag Factor": "0%",
-          "Gravity Factor": "30%",
+          "Gravity Factor": "0%",
           "Penetration Slowdown": "25%"
         },
         "Damage": {
@@ -1311,8 +1312,8 @@
     "internalName": "p69veto",
     "tier": "b",
     "wikiSlug": "P-69_Veto",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-69_Veto_Secondary_Render.png",
-    "imageUrl": "secondaries/P-69_Veto_Secondary_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-69_Veto_Secondary_Icon.png",
+    "imageUrl": "secondaries/P-69_Veto_Secondary_Icon.png",
     "type": "Equipment",
     "category": "secondary",
     "tags": [],
@@ -1375,7 +1376,39 @@
     "category": "secondary",
     "tags": [
       "Melee"
-    ]
+    ],
+    "properties": {
+      "CQC-73 Entrenchment Tool": {
+        "Base": {
+          "Fire Rate": "150 rpm",
+          "Recoil": "0",
+          "Ergonomics": "0",
+          "Capacity": "0",
+          "Reload Time": "0 s",
+          "Tactical Reload": "0 s",
+          "Spare Magazines": "0"
+        },
+        "Attacks": {
+          "CQC-73 Entrenchment Tool": "Damage"
+        },
+        "Damage": {
+          "Element": "Melee",
+          "Standard": "165 Melee",
+          "vs. Durable": "55 Melee"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Unarmored I",
+          "Large Angle": "Unarmored I",
+          "Extreme Angle": "Unarmored I"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "25",
+          "Push Force": "30"
+        }
+      }
+    }
   },
   {
     "displayName": "P-35 Re-Educator",
@@ -1444,7 +1477,6 @@
       },
       "Gas": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "6 sec"
         },
         "Damage": {
@@ -1466,7 +1498,6 @@
       },
       "Gas Confusion": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "5 sec"
         }
       }
@@ -1510,7 +1541,7 @@
           "Mass": "15 g",
           "Initial Velocity": "1 m/s",
           "Drag Factor": "0%",
-          "Gravity Factor": "30%",
+          "Gravity Factor": "0%",
           "Lifetime": "3 sec",
           "Penetration Slowdown": "25%",
           "Explosion On Impact": "Guided_P_IE",
@@ -1559,7 +1590,7 @@
           "Mass": "15 g",
           "Initial Velocity": "1 m/s",
           "Drag Factor": "0%",
-          "Gravity Factor": "30%",
+          "Gravity Factor": "0%",
           "Lifetime": "3 sec",
           "Penetration Slowdown": "25%",
           "Explosion On Impact": "Guided_P_IE",

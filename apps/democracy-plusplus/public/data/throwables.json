@@ -15,9 +15,9 @@
     "properties": {
       "G-12 HIGH EXPLOSIVE": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-12 HIGH EXPLOSIVE E": "Explosion"
@@ -102,7 +102,6 @@
       },
       "Gas": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "6 sec"
         },
         "Damage": {
@@ -124,7 +123,6 @@
       },
       "Gas Confusion": {
         "Status": {
-          "Status Strength": "0.25",
           "Status Duration": "5 sec"
         }
       }
@@ -266,9 +264,9 @@
     "properties": {
       "G-16 IMPACT": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-16 IMPACT E": "Explosion"
@@ -350,9 +348,9 @@
     "properties": {
       "G-10 INCENDIARY": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-10 INCENDIARY E": "Explosion",
@@ -385,7 +383,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -424,9 +421,9 @@
     "properties": {
       "G-23 STUN": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-23 STUN E": "Explosion",
@@ -457,7 +454,6 @@
       },
       "Stun Large": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "5 sec"
         }
       }
@@ -515,7 +511,6 @@
       },
       "Thermite": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1 sec"
         },
         "Damage": {
@@ -536,7 +531,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -575,9 +569,9 @@
     "properties": {
       "G-13 INCENDIARY IMPACT": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-13 INCENDIARY IMPACT E": "Explosion",
@@ -610,7 +604,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -649,9 +642,9 @@
     "properties": {
       "G-50 SEEKER": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-50 SEEKER E": "Explosion"
@@ -699,7 +692,7 @@
       "TED-63 DYNAMITE": {
         "Base": {
           "Throwables from Supply": "2",
-          "Max Rounds": "3",
+          "Max Rounds": "4",
           "Starting Rounds": "3"
         },
         "Attacks": {
@@ -792,7 +785,6 @@
       },
       "Fire": {
         "Status": {
-          "Status Strength": "5",
           "Status Duration": "3 sec"
         },
         "Damage": {
@@ -850,9 +842,9 @@
     "properties": {
       "G-109 URCHIN": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "2"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-109 URCHIN E": "Explosion",
@@ -883,7 +875,6 @@
       },
       "Stun Large": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "5 sec"
         }
       }
@@ -963,7 +954,6 @@
       },
       "Stun Small": {
         "Status": {
-          "Status Strength": "1",
           "Status Duration": "1.5 sec"
         }
       }
@@ -985,9 +975,9 @@
     "properties": {
       "G-7 PINEAPPLE": {
         "Base": {
-          "Throwables from Supply": "2",
-          "Max Rounds": "4",
-          "Starting Rounds": "3"
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-7 PINEAPPLE E": "Explosion",
@@ -1207,7 +1197,7 @@
     "properties": {
       "G-48 GIGA GRENADE": {
         "Base": {
-          "Throwables from Supply": "1",
+          "Throwables from Supply": "2",
           "Max Rounds": "2",
           "Starting Rounds": "2"
         },

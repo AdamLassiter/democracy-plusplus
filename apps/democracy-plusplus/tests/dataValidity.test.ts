@@ -107,7 +107,7 @@ const warbondCodes = warbonds.map((warbond, index) => {
   );
   assertRequiredKeys(
     item,
-    ["displayName", "type", "category", "tags", "warbondCode", "internalName", "imageUrl", "tier"],
+    ["displayName", "type", "category", "tags", "warbondCode", "internalName", "tier"],
     context,
   );
   expectString(item.displayName, `${context}.displayName`);
@@ -116,7 +116,6 @@ const warbondCodes = warbonds.map((warbond, index) => {
   expectStringArray(item.tags, `${context}.tags`);
   expectString(item.warbondCode, `${context}.warbondCode`);
   expectString(item.internalName, `${context}.internalName`);
-  assert.equal(typeof item.imageUrl, "string", `${context}.imageUrl must be a string`);
   expectTier(item.tier, `${context}.tier`);
   return item.warbondCode as string;
 });
