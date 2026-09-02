@@ -23,7 +23,7 @@
       "Terminids",
       "Automatons"
     ],
-    "minDifficulty": 3,
+    "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long"
   },
@@ -922,6 +922,99 @@
       "Terminids": null,
       "Automatons": null,
       "Illuminate": null
+    }
+  },
+  {
+    "displayName": "Blitz: Destroy Illuminate Warp Gateways",
+    "wikiSlug": "Blitz:_Destroy_Illuminate_Warp_Gateways",
+    "minDifficulty": 1,
+    "maxDifficulty": 10,
+    "missionLength": "short",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "d"
+    },
+    "tags": [
+      "Blitz"
+    ]
+  },
+  {
+    "displayName": "Blitz: Suppress Toxic Pollination",
+    "wikiSlug": "Blitz:_Suppress_Toxic_Pollination",
+    "minDifficulty": 3,
+    "maxDifficulty": 10,
+    "missionLength": "short",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "c"
+    },
+    "tags": [
+      "Blitz"
+    ]
+  },
+  {
+    "displayName": "Democratize the Void",
+    "wikiSlug": "Democratize_the_Void",
+    "minDifficulty": 1,
+    "maxDifficulty": 10,
+    "missionLength": "long",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "b"
+    }
+  },
+  {
+    "displayName": "Destroy Gazer Spire",
+    "wikiSlug": "Destroy_Gazer_Spire",
+    "minDifficulty": 5,
+    "maxDifficulty": 10,
+    "missionLength": "long",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "b"
+    }
+  },
+  {
+    "displayName": "Eradicate Illuminate Forces",
+    "wikiSlug": "Eradicate_Illuminate_Forces",
+    "minDifficulty": 3,
+    "maxDifficulty": 10,
+    "missionLength": "short",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "d"
+    },
+    "tags": [
+      "Eradicate"
+    ]
+  },
+  {
+    "displayName": "Extract Anomalous Material",
+    "wikiSlug": "Extract_Anomalous_Material",
+    "minDifficulty": 3,
+    "maxDifficulty": 10,
+    "missionLength": "long",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "b"
+    }
+  },
+  {
+    "displayName": "Infiltrate Illuminate Lair",
+    "wikiSlug": "Infiltrate_Illuminate_Lair",
+    "minDifficulty": 1,
+    "maxDifficulty": 10,
+    "missionLength": "long",
+    "tier": {
+      "Terminids": null,
+      "Automatons": null,
+      "Illuminate": "b"
     }
   }
 ]

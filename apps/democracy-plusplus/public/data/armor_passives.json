@@ -410,5 +410,33 @@
     "tags": [
       "ArmorPassive"
     ]
+  },
+  {
+    "displayName": "True Grit",
+    "warbondCode": "none",
+    "internalName": "truegrit",
+    "tier": "c",
+    "wikiSlug": "True_Grit",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/True_Grit_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/True_Grit_Armor_Passive_Icon.svg",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
+  },
+  {
+    "displayName": "Kinetic Displacement Mitigation",
+    "warbondCode": "warbond26",
+    "internalName": "kineticdisplacementmitigation",
+    "tier": "d",
+    "wikiSlug": "Kinetic_Displacement_Mitigation",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Kinetic_Displacement_Mitigation_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Kinetic_Displacement_Mitigation_Armor_Passive_Icon.svg",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
   }
 ]

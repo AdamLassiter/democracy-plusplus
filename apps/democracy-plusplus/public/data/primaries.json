@@ -48,7 +48,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -107,7 +107,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -226,7 +226,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -285,7 +285,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored II"
+          "Extreme Angle": "Very Light"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -344,7 +344,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -405,7 +405,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Medium",
@@ -471,7 +471,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -530,7 +530,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -591,7 +591,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -614,7 +614,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -674,7 +674,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -733,7 +733,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -794,7 +794,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Medium",
@@ -860,7 +860,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -919,7 +919,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -978,7 +978,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1038,7 +1038,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1098,7 +1098,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1160,7 +1160,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -1183,7 +1183,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -1242,7 +1242,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1302,7 +1302,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1364,7 +1364,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -1387,7 +1387,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -1447,7 +1447,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1510,7 +1510,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1535,7 +1535,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Large",
@@ -1602,7 +1602,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1661,7 +1661,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1720,7 +1720,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1779,7 +1779,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1838,7 +1838,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1873,10 +1873,10 @@
           "Sway": "1",
           "Ergonomics": "65",
           "Capacity": "5",
-          "Spare Rounds": "99",
+          "Spare Rounds": "100",
           "Starting Rounds": "60",
-          "Rounds from Supply": "99",
-          "Rounds from Ammo Box": "49"
+          "Rounds from Supply": "100",
+          "Rounds from Ammo Box": "50"
         },
         "Attacks": {
           "*R-2124 P": "Projectile"
@@ -1898,7 +1898,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1962,7 +1962,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -1985,7 +1985,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -2053,7 +2053,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2115,7 +2115,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2201,14 +2201,14 @@
           "Explosion On Impact": "LARGE PLASMA BOLT_P_IE"
         },
         "Damage": {
-          "Standard": "200 Ballistic",
-          "vs. Durable": "100 Ballistic"
+          "Standard": "100 Ballistic",
+          "vs. Durable": "50 Ballistic"
         },
         "Penetration": {
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2257,7 +2257,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2341,7 +2341,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2419,7 +2419,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Small",
@@ -2497,7 +2497,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2522,7 +2522,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2547,7 +2547,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2572,7 +2572,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2642,7 +2642,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2728,7 +2728,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
@@ -2776,7 +2776,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2837,7 +2837,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
@@ -2920,7 +2920,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -2976,7 +2976,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -3001,7 +3001,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -3085,7 +3085,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3111,7 +3111,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
@@ -3194,7 +3194,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3254,7 +3254,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3314,7 +3314,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3330,8 +3330,8 @@
     "internalName": "smgflam34stoker",
     "tier": "c",
     "wikiSlug": "SMG/FLAM-34_Stoker",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/SMGFLAM-34_Stoker_Primary_Render.png",
-    "imageUrl": "primaries/SMGFLAM-34_Stoker_Primary_Render.png",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/SMGFLAM-34_Stoker_Primary_Icon.png",
+    "imageUrl": "primaries/SMGFLAM-34_Stoker_Primary_Icon.png",
     "type": "Equipment",
     "category": "primary",
     "tags": [
@@ -3389,7 +3389,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3407,7 +3407,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -3432,7 +3432,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -3502,7 +3502,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3567,7 +3567,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3596,7 +3596,7 @@
           "Horizontal Recoil": "8.75",
           "Vertical Recoil": "21",
           "Spread": "↔[5.00] ↕[5.00]",
-          "Sway": "1.2",
+          "Sway": "1",
           "Ergonomics": "80",
           "Capacity": "50",
           "Spare Magazines": "7",
@@ -3617,14 +3617,14 @@
           "Penetration Slowdown": "25%"
         },
         "Damage": {
-          "Standard": "65 Damage",
-          "vs. Durable": "13 Damage"
+          "Standard": "65 Ballistic",
+          "vs. Durable": "13 Ballistic"
         },
         "Penetration": {
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -3684,7 +3684,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -3707,12 +3707,70 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
           "Stagger Force": "0",
           "Push Force": "0"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "R/40-K Hot-Shot Marksman Rifle",
+    "warbondCode": "none",
+    "internalName": "r40khotshotmarksmanrifle",
+    "tier": "a",
+    "wikiSlug": "R/40-K_Hot-Shot_Marksman_Rifle",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/R-40-K_Hot-Shot_Primary_Render.png",
+    "imageUrl": "primaries/R-40-K_Hot-Shot_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [],
+    "properties": {
+      "R/40-K HOT-SHOT MARKSMAN RIFLE": {
+        "Base": {
+          "Fire Rate": "210 rpm",
+          "Recoil": "18.75",
+          "Horizontal Recoil": "12.5",
+          "Vertical Recoil": "25",
+          "Spread": "↔[0.50] ↕[0.50]",
+          "Sway": "1",
+          "Ergonomics": "30",
+          "Capacity": "12",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "7",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*R/40-K P": "Projectile"
+        }
+      },
+      "R/40-K P": {
+        "Projectile": {
+          "Mass": "10 g",
+          "Initial Velocity": "500 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
+          "Lifetime": "3 sec",
+          "Penetration Slowdown": "0%"
+        },
+        "Damage": {
+          "Standard": "275 Ballistic",
+          "vs. Durable": "40 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "14"
         }
       }
     }

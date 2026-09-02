@@ -206,6 +206,21 @@ function extractFirstWikiLink(value: string) {
   };
 }
 
+function extractFirstNonFileWikiLink(value: string) {
+  for (const match of value.matchAll(/\[\[([^|\]]+)(?:\|([^\]]+))?\]\]/g)) {
+    if (/^File:/i.test(match[1].trim())) {
+      continue;
+    }
+
+    return {
+      target: match[1].trim(),
+      text: (match[2] ?? match[1]).trim(),
+    };
+  }
+
+  return null;
+}
+
 function extractFileTitle(value: string) {
   const match = value.match(/(?:^|\[\[)File:([^|\]]+)/i);
   if (!match) {
@@ -509,7 +524,9 @@ function parseLinkedItemRows(wikitext: string) {
     .filter((item): item is LinkedWikiItem => item !== null);
 }
 
-export async function parseStratagemsPageSource(content: string) {
+type TemplateExpander = (_text: string, _title: string) => Promise<string>;
+
+export async function parseStratagemsPageSource(content: string, expand: TemplateExpander = expandTemplate) {
   const currentSection = content.split("== Mission Stratagems ==")[0];
   const lines = currentSection.split("\n");
   const templateByHeading: Array<{ heading: string; templateText: string; templateArg: string | null }> = [];
@@ -523,10 +540,10 @@ export async function parseStratagemsPageSource(content: string) {
       continue;
     }
 
-    const templateMatch = line.match(/^{{Stratagem Table(?:\|([^}]+))?}}$/);
-    if (templateMatch && heading) {
+    const templateMatch = line.match(/^{{\s*Stratagem Table(?:\s*\|\s*([^}]+?))?\s*}}$/i);
+    if (templateMatch) {
       templateByHeading.push({
-        heading,
+        heading: heading ?? "",
         templateText: line,
         templateArg: templateMatch[1]?.trim() ?? null,
       });
@@ -542,15 +559,24 @@ export async function parseStratagemsPageSource(content: string) {
     Backpacks: { category: "Supply", tag: "Backpacks" },
     Vehicles: { category: "Supply", tag: "Vehicles" },
   };
+  const templateArgumentMapping: Record<string, { category: StratagemCategory; tag: string }> = {
+    "": { category: "Supply", tag: "Weapons" },
+    orbital: { category: "Orbital", tag: "Orbital" },
+    eagle: { category: "Eagle", tag: "Eagle" },
+    sentry: { category: "Defense", tag: "Sentry" },
+    emplacement: { category: "Defense", tag: "Emplacement" },
+    backpack: { category: "Supply", tag: "Backpacks" },
+    vehicle: { category: "Supply", tag: "Vehicles" },
+  };
 
   const results: ScrapedStratagemItem[] = [];
   for (const entry of templateByHeading) {
-    const mapped = mapping[entry.heading];
+    const mapped = templateArgumentMapping[(entry.templateArg ?? "").toLowerCase()] ?? mapping[entry.heading];
     if (!mapped) {
       continue;
     }
 
-    const expanded = await expandTemplate(entry.templateText, "Stratagems");
+    const expanded = await expand(entry.templateText, "Stratagems");
     const items = parseSimpleTableRows(expanded)
       .map((cells): ScrapedStratagemItem | null => {
         const imageFileTitle = extractFileTitle(cells[0] ?? "");
@@ -580,17 +606,25 @@ export function parseBoostersPageSource(content: string) {
   return parseLinkedItemRows(content);
 }
 
-export async function parseArmorPassivesPageSource(_content: string) {
-  const expanded = await expandTemplate("{{Armor Passive List}}", "Armor Passives");
+export async function parseArmorPassivesPageSource(_content: string, expand: TemplateExpander = expandTemplate) {
+  const expanded = await expand("{{Armor Passive List}}", "Armor Passives");
   const results: LinkedWikiItem[] = [];
-  const regex =
-    /===\s*([^=]+?)\s*===\s*\n\s*<big>\s*\[\[File:([^|\]]+)[^\]]*]\]\s*\[\[([^|\]]+)(?:\|([^\]]+))?\]\]/g;
+  const headings = [...expanded.matchAll(/^===\s*([^=\n]+?)\s*===\s*$/gm)];
 
-  for (const match of expanded.matchAll(regex)) {
+  for (const [index, heading] of headings.entries()) {
+    const bodyStart = (heading.index ?? 0) + heading[0].length;
+    const bodyEnd = headings[index + 1]?.index ?? expanded.length;
+    const body = expanded.slice(bodyStart, bodyEnd);
+    const imageFileTitle = extractFileTitle(body);
+    const wikiLink = extractFirstNonFileWikiLink(body);
+    if (!imageFileTitle || !wikiLink) {
+      continue;
+    }
+
     results.push({
-      displayName: (match[4] ?? match[3]).trim(),
-      wikiSlug: titleToSlug(match[3].trim()),
-      imageFileTitle: `File:${match[2].trim()}`,
+      displayName: wikiLink.text,
+      wikiSlug: titleToSlug(wikiLink.target),
+      imageFileTitle,
     });
   }
 

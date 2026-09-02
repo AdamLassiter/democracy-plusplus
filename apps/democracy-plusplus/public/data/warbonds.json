@@ -177,7 +177,7 @@
     "tags": [],
     "warbondCode": "warbond19",
     "internalName": "odstWB",
-    "tier": "b"
+    "tier": "d"
   },
   {
     "displayName": "Dust Devils",
@@ -204,7 +204,7 @@
     "tags": [],
     "warbondCode": "warbond22",
     "internalName": "redactedregimentWB",
-    "tier": "b"
+    "tier": "d"
   },
   {
     "displayName": "Siege Breakers",
@@ -231,6 +231,15 @@
     "tags": [],
     "warbondCode": "warbond25",
     "internalName": "exoexpertsWB",
-    "tier": "b"
+    "tier": "a"
+  },
+  {
+    "displayName": "Castellan's Creed",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond26",
+    "internalName": "castellanscreedWB",
+    "tier": "s"
   }
 ]

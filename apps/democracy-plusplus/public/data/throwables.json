@@ -113,7 +113,7 @@
           "Direct": "Anti-Tank II",
           "Slight Angle": "Anti-Tank II",
           "Large Angle": "Anti-Tank II",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -237,7 +237,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -394,7 +394,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -521,7 +521,7 @@
           "Direct": "Anti-Tank III",
           "Slight Angle": "Anti-Tank III",
           "Large Angle": "Anti-Tank III",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -542,7 +542,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -615,7 +615,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -796,7 +796,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -814,7 +814,7 @@
           "Direct": "Anti-Tank III",
           "Slight Angle": "Anti-Tank III",
           "Large Angle": "Anti-Tank III",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -942,7 +942,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Small",
@@ -1025,9 +1025,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
@@ -1077,7 +1077,7 @@
       "TM-1 LURE MINE": {
         "Base": {
           "Main Health": "300",
-          "Main Armor": "Unarmored I",
+          "Main Armor": "Unarmored",
           "Throwables from Supply": "2",
           "Max Rounds": "4",
           "Starting Rounds": "3"
@@ -1127,7 +1127,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1226,6 +1226,68 @@
         },
         "AoE Effect": {
           "Demolition Force": "40",
+          "Stagger Force": "40",
+          "Push Force": "40"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "G/40-K Melta Mine",
+    "warbondCode": "warbond26",
+    "internalName": "g40kmeltamine",
+    "tier": "a",
+    "wikiSlug": "G/40-K_Melta_Mine",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-40-K_Melta_Mine_Throwable_Render.png",
+    "imageUrl": "throwables/G-40-K_Melta_Mine_Throwable_Render.png",
+    "type": "Equipment",
+    "category": "throwable",
+    "tags": [],
+    "properties": {
+      "Attacks": {
+        "Base": {
+          "*G/40-K MELTA MINE E": "Explosion",
+          "*FLAMEWALL": "Damage"
+        }
+      },
+      "G/40-K MELTA MINE E": {
+        "Area of Effect": {
+          "Inner Radius": "2.5 m",
+          "Outer Radius": "6 m",
+          "Shockwave Radius": "15 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "2000 Explosion",
+          "Inner Durable": "2000 Explosion",
+          "Outer Radius": "1999 - 0",
+          "Outer Durable": "1999 - 0"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank III",
+          "Slight Angle": "Anti-Tank III",
+          "Large Angle": "Anti-Tank III"
+        },
+        "AoE Effect": {
+          "Demolition Force": "40",
+          "Stagger Force": "40",
+          "Push Force": "40"
+        }
+      },
+      "FLAMEWALL": {
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "600 Fire",
+          "vs. Durable": "600 Fire"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank III",
+          "Slight Angle": "Anti-Tank III",
+          "Large Angle": "Anti-Tank III",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
           "Stagger Force": "40",
           "Push Force": "40"
         }

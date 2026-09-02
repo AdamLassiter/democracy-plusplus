@@ -46,7 +46,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -89,9 +89,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -133,9 +133,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -177,9 +177,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -221,9 +221,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Large",
@@ -267,9 +267,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Stun Large",
@@ -350,7 +350,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "95",
-          "Capacity": "7",
+          "Capacity": "8",
           "Spare Magazines": "5",
           "Starting Magazines": "3",
           "Mags from Supply": "5",
@@ -390,7 +390,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -437,7 +437,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -484,7 +484,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -569,7 +569,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -601,10 +601,10 @@
           "Sway": "1",
           "Ergonomics": "95",
           "Capacity": "31",
-          "Spare Magazines": "4",
+          "Spare Magazines": "6",
           "Starting Magazines": "4",
-          "Mags from Supply": "4",
-          "Mags from Ammo Box": "2"
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
         },
         "Attacks": {
           "*9x20mm FULL METAL JACKET P1": "Projectile"
@@ -626,7 +626,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -689,7 +689,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
@@ -743,10 +743,10 @@
           "Sway": "1",
           "Ergonomics": "100",
           "Capacity": "10",
-          "Spare Magazines": "8",
-          "Starting Magazines": "4",
-          "Mags from Supply": "8",
-          "Mags from Ammo Box": "4"
+          "Spare Magazines": "10",
+          "Starting Magazines": "6",
+          "Mags from Supply": "10",
+          "Mags from Ammo Box": "5"
         },
         "Attacks": {
           "*12x25mm FULL METAL JACKET P": "Projectile"
@@ -768,7 +768,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -825,7 +825,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -889,7 +889,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -912,7 +912,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -980,7 +980,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1036,7 +1036,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Fire",
@@ -1061,7 +1061,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Heavy",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -1213,7 +1213,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1237,7 +1237,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1271,10 +1271,10 @@
           "Sway": "1",
           "Ergonomics": "100",
           "Capacity": "12",
-          "Spare Magazines": "8",
-          "Starting Magazines": "5",
-          "Mags from Supply": "8",
-          "Mags from Ammo Box": "4"
+          "Spare Magazines": "10",
+          "Starting Magazines": "6",
+          "Mags from Supply": "10",
+          "Mags from Ammo Box": "5"
         },
         "Attacks": {
           "*M6C/SOCOM P": "Projectile"
@@ -1296,7 +1296,7 @@
           "Direct": "Light",
           "Slight Angle": "Light",
           "Large Angle": "Light",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1353,7 +1353,7 @@
           "Direct": "Medium",
           "Slight Angle": "Medium",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1398,9 +1398,9 @@
         },
         "Penetration": {
           "Direct": "Medium",
-          "Slight Angle": "Unarmored I",
-          "Large Angle": "Unarmored I",
-          "Extreme Angle": "Unarmored I"
+          "Slight Angle": "Unarmored",
+          "Large Angle": "Unarmored",
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "10",
@@ -1464,7 +1464,7 @@
           "Direct": "Heavy",
           "Slight Angle": "Heavy",
           "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Status": "Gas",
@@ -1488,7 +1488,7 @@
           "Direct": "Anti-Tank II",
           "Slight Angle": "Anti-Tank II",
           "Large Angle": "Anti-Tank II",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "0",
@@ -1507,7 +1507,7 @@
     "displayName": "P-33 Missile Pistol",
     "warbondCode": "warbond25",
     "internalName": "p33missilepistol",
-    "tier": "d",
+    "tier": "s",
     "wikiSlug": "P-33_Missile_Pistol",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/P-33_Missile_Pistol_Secondary_Render.png",
     "imageUrl": "secondaries/P-33_Missile_Pistol_Secondary_Render.png",
@@ -1555,7 +1555,7 @@
           "Direct": "Anti-Tank I",
           "Slight Angle": "Anti-Tank I",
           "Large Angle": "Anti-Tank I",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
@@ -1604,12 +1604,94 @@
           "Direct": "Anti-Tank I",
           "Slight Angle": "Anti-Tank I",
           "Large Angle": "Anti-Tank I",
-          "Extreme Angle": "Unarmored I"
+          "Extreme Angle": "Unarmored"
         },
         "Special Effects": {
           "Demolition Force": "30",
           "Stagger Force": "40",
           "Push Force": "25"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "P/40-K Bolt Pistol",
+    "warbondCode": "warbond26",
+    "internalName": "p40kboltpistol",
+    "tier": "a",
+    "wikiSlug": "P/40-K_Bolt_Pistol",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-40-K_Bolt_Pistol_Secondary_Render.png",
+    "imageUrl": "secondaries/P-40-K_Bolt_Pistol_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": [],
+    "properties": {
+      "P/40-K BOLT PISTOL": {
+        "Base": {
+          "Fire Rate": "150 rpm",
+          "Recoil": "325",
+          "Horizontal Recoil": "150",
+          "Vertical Recoil": "500",
+          "Spread": "↔[2.00] ↕[2.00]",
+          "Sway": "1",
+          "Ergonomics": "30",
+          "Capacity": "6",
+          "Spare Magazines": "4",
+          "Starting Magazines": "3",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*P/40-K P": "Projectile",
+          "**P/40-K P IE": "Explosion"
+        }
+      },
+      "P/40-K P": {
+        "Projectile": {
+          "Mass": "100 g",
+          "Initial Velocity": "350 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "30%",
+          "Lifetime": "0.600000024 sec",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "P/40-K_P_IE"
+        },
+        "Damage": {
+          "Standard": "325 Ballistic",
+          "vs. Durable": "115 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "20",
+          "Stagger Force": "35",
+          "Push Force": "15"
+        }
+      },
+      "P/40-K P IE": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "3.5 m",
+          "Shockwave Radius": "5 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "175 Explosion",
+          "Inner Durable": "175 Explosion",
+          "Outer Radius": "174 - 0",
+          "Outer Durable": "174 - 0"
+        },
+        "Penetration": {
+          "Direct": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "5"
         }
       }
     }
