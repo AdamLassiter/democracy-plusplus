@@ -1,17 +1,27 @@
 import { Grid, ToggleButtonGroup, ToggleButton, FormLabel } from "@mui/material";
 import type { MouseEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectPreferences, setTitles, setTooltips } from "../../slices/preferencesSlice";
+import {
+  selectPreferences,
+  setDetailedAntiTank,
+  setTitles,
+  setTooltips,
+} from "../../slices/preferencesSlice";
 
 export default function Preferences() {
   const dispatch = useDispatch();
 
-  const { titles, tooltips } = useSelector(selectPreferences);
+  const { detailedAntiTank, titles, tooltips } = useSelector(selectPreferences);
   function handleTitlesChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     dispatch(setTitles(newValue === 'on'));
   }
   function handleTooltipsChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     dispatch(setTooltips(newValue === 'on'));
+  }
+  function handleDetailedAntiTankChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
+    if (newValue !== null) {
+      dispatch(setDetailedAntiTank(newValue === 'on'));
+    }
   }
 
   return (
@@ -37,6 +47,17 @@ export default function Preferences() {
       >
         <ToggleButton value="on">Tooltips</ToggleButton>
         <ToggleButton value="off">Hidden</ToggleButton>
+      </ToggleButtonGroup>
+
+      <ToggleButtonGroup
+        color="primary"
+        fullWidth
+        exclusive
+        value={detailedAntiTank ? 'on' : 'off'}
+        onChange={handleDetailedAntiTankChange}
+      >
+        <ToggleButton value="on">Detailed Anti-Tank</ToggleButton>
+        <ToggleButton value="off">Grouped Anti-Tank</ToggleButton>
       </ToggleButtonGroup>
     </Grid>
   );

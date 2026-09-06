@@ -55,6 +55,13 @@ export default defineConfig([
     },
   },
   {
+    files: ["scripts/**/*.ts"],
+    rules: {
+      "no-control-regex": "off",
+      "no-undef": "off",
+    },
+  },
+  {
     files: ["scripts/**/*.d.ts"],
     rules: {
       "no-unused-vars": "off",

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { PreferencesState } from '../types';
 import type { RootState } from './index';
 
@@ -6,6 +6,7 @@ const initialState: PreferencesState = {
   titles: true,
   tooltips: true,
   missionFlowBanner: true,
+  detailedAntiTank: false,
 };
 
 export function selectPreferences(state: RootState) {
@@ -28,12 +29,22 @@ const preferencesSlice = createSlice({
       const missionFlowBanner = action.payload;
       state.missionFlowBanner = missionFlowBanner;
     },
-    setPreferencesState: (_state, action) => {
-      return action.payload;
+    setDetailedAntiTank: (state, action: PayloadAction<boolean>) => {
+      state.detailedAntiTank = action.payload;
+    },
+    setPreferencesState: (_state, action: PayloadAction<Partial<PreferencesState>>) => {
+      return { ...initialState, ...action.payload };
     },
     resetPreferences: () => initialState,
   },
 });
 
-export const { setTitles, setTooltips, setMissionFlowBanner, setPreferencesState, resetPreferences } = preferencesSlice.actions;
+export const {
+  setTitles,
+  setTooltips,
+  setMissionFlowBanner,
+  setDetailedAntiTank,
+  setPreferencesState,
+  resetPreferences,
+} = preferencesSlice.actions;
 export default preferencesSlice.reducer;

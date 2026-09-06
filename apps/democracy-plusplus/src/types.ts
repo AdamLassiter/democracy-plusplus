@@ -158,6 +158,7 @@ export interface PreferencesState {
   titles: boolean;
   tooltips: boolean;
   missionFlowBanner: boolean;
+  detailedAntiTank: boolean;
 }
 
 export interface PurchasedState {
