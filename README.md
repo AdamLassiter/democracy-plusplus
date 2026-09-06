@@ -88,6 +88,20 @@ Available backend environment variables:
 After *Helldivers 2* receives an update from **Super Earth Command**, refresh your local intel using the **Data Enricher Protocol** found in `scripts/dataEnricher.ts`.  
 This script pulls the latest strategic data from the Helldivers 2 Wiki - ensuring your democracy remains up to date.
 
+Refresh the enemy bestiary from the wiki's Factions page and each linked enemy's Anatomy and Variants sections with:
+
+```sh
+npm run fetchBestiary
+```
+
+The full `npm run fetchData` workflow also refreshes `public/data/enemies.json`.
+After refreshing wiki data, cache and resize its images locally with:
+
+```sh
+npm run downloadImages
+npm run rescaleImages
+```
+
 ## 🧩 Project Structure (Command Layout)
 
 - `src/constants/` - Immutable truths of democracy, and the contents of your armory

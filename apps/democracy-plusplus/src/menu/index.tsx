@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
+import Bestiary from './bestiary';
 import Log from './log';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
@@ -61,7 +62,7 @@ export default function Menu() {
       ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
       : "After playing the mission in-game, submit the mission report with the final results.";
 
-  const tabs: Array<(_props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Log];
+  const tabs: Array<(_props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Bestiary, Log];
   const CurrentTab = tabs[currentTab];
   const multiplayerEnabled = multiplayer.backendAvailable;
   const lobbyConnected = multiplayer.connectionStatus === "connected" && Boolean(multiplayer.lobbyState);
@@ -183,6 +184,7 @@ export default function Menu() {
           <Tab label="Loadout" />
           <Tab label="Shop" />
           <Tab label="Tier List" />
+          <Tab label="Bestiary" />
           <Tab label="Log" />
         </Tabs>
 

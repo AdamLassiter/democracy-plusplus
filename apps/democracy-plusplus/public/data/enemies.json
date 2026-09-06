@@ -1,0 +1,6398 @@
+{
+  "subfactions": {
+    "Terminids": [
+      "Predator Strain",
+      "Spore Burst Strain",
+      "Rupture Strain"
+    ],
+    "Automatons": [
+      "Jet Brigade",
+      "Incineration Corps",
+      "Cyborg Legion"
+    ],
+    "Illuminate": [
+      "Appropriators",
+      "Vote Snatchers",
+      "Mindless Masses",
+      "Invasion Fleet"
+    ],
+    "Super Earth": []
+  },
+  "enemies": [
+    {
+      "displayName": "Scavenger",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "The lowliest of Terminids, slow and weak, but capable of attracting nearby bug breaches.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Scavenger",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Scavenger_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Spore Burst Scavenger",
+          "wikiSlug": "Spore_Burst_Scavenger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Scavenger_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Scavenger_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            },
+            {
+              "name": "Limbs (6)",
+              "armor": "0",
+              "health": "30",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Scavenger_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Bile Spitter",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "One of the smallest Terminids, but still deadly with its ranged acid spit.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Bile_Spitter",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Spitter_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            },
+            {
+              "name": "Limbs (6)",
+              "armor": "0",
+              "health": "30",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Bile_Spitter_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Pouncer",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Agile Terminids that are able to leap great distances to attack Helldivers.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Pouncer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Pouncer_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            },
+            {
+              "name": "Limbs (6)",
+              "armor": "0",
+              "health": "30",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Pouncer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hunter",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Stealthy Terminids engaging in ambush tactics, able to leap great distances and slow Helldivers with their tongue.",
+      "enemyClass": "Light",
+      "wikiSlug": "Hunter",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hunter_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Predator Hunter",
+          "wikiSlug": "Predator_Hunter",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Hunter_Enemy_Icon.png",
+          "imageUrl": "enemies/Predator_Hunter_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Burst Hunter",
+          "wikiSlug": "Spore_Burst_Hunter",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Hunter_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Hunter_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "130 [Default] 160 at 4",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "0",
+              "health": "45 [Default] 60 at 4",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "0",
+              "health": "45 [Default] 60 at 4",
+              "durability": "0%"
+            },
+            {
+              "name": "Wings (2)",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hunter_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Shrieker",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Flying Terminids specialized in hit-and-run tactics.",
+      "enemyClass": "Special",
+      "wikiSlug": "Shrieker",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Shrieker_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "80",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "30",
+              "durability": "0%"
+            },
+            {
+              "name": "Limbs",
+              "armor": "0",
+              "health": "30",
+              "durability": "0%"
+            },
+            {
+              "name": "Wings (2)",
+              "armor": "0",
+              "health": "20",
+              "durability": "100%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Shrieker_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Warrior",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Medium sized Terminid adept in close-quarters combat.",
+      "enemyClass": "Light",
+      "wikiSlug": "Warrior",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Warrior_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Alpha Warrior",
+          "wikiSlug": "Alpha_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Alpha_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Bile Warrior",
+          "wikiSlug": "Bile_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Warrior",
+          "wikiSlug": "Rupture_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Burst Warrior",
+          "wikiSlug": "Spore_Burst_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Warrior_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "250 [Default] 325 at 4",
+              "durability": "20%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110 [Default] 150 at 4",
+              "durability": "20%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "75 [Default] 100 at 4",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "75 [Default] 100 at 4",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Warrior_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Bile Warrior",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A mutated variant of the Warrior that explodes upon death.",
+      "enemyClass": "Light",
+      "wikiSlug": "Bile_Warrior",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Warrior_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Warrior",
+          "wikiSlug": "Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Alpha Warrior",
+          "wikiSlug": "Alpha_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Alpha_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Warrior",
+          "wikiSlug": "Rupture_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Burst Warrior",
+          "wikiSlug": "Spore_Burst_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Warrior_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "325",
+              "durability": "20%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "150",
+              "durability": "20%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs(4)",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Bile_Warrior_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Alpha Warrior",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A faster and deadlier variant of the Warrior. Spawned by Alpha Commanders.",
+      "enemyClass": "Light",
+      "wikiSlug": "Alpha_Warrior",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Warrior_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Warrior",
+          "wikiSlug": "Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Bile Warrior",
+          "wikiSlug": "Bile_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Warrior",
+          "wikiSlug": "Rupture_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Burst Warrior",
+          "wikiSlug": "Spore_Burst_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Warrior_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "325",
+              "durability": "20%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "150",
+              "durability": "20%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Alpha_Warrior_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hive Guard",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A variant of the Warrior with medium armor covering its head and legs.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Hive_Guard",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hive_Guard_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            },
+            {
+              "name": "Head",
+              "armor": "3",
+              "health": "250",
+              "durability": "35%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Frontal Tarsal Plate Armor (2)",
+              "armor": "3",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Front Legs (2)",
+              "armor": "1",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Legs (2)",
+              "armor": "1",
+              "health": "125",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hive_Guard_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Nursing Spewer",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A sluggish, medium armored Terminid that can spew corrosive bile over a wide area.",
+      "enemyClass": "Special",
+      "wikiSlug": "Nursing_Spewer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Nursing_Spewer_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Bile Spewer",
+          "wikiSlug": "Bile_Spewer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Spewer_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Spewer_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Spewer",
+          "wikiSlug": "Rupture_Spewer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Spewer_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Spewer_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "50%"
+            },
+            {
+              "name": "Head",
+              "armor": "2",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Mouth",
+              "armor": "0",
+              "health": "250",
+              "durability": "0%"
+            },
+            {
+              "name": "Spinal Plates",
+              "armor": "2",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Legs (2)",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Legs (2)",
+              "armor": "2",
+              "health": "250",
+              "durability": "30%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Nursing_Spewer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Bile Spewer",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "An armored variant of the Nursing Spewer capable of launching Bile mortars.",
+      "enemyClass": "Special",
+      "wikiSlug": "Bile_Spewer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Spewer_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "armorByDifficulty": {
+                "6": "3"
+              },
+              "health": "750",
+              "durability": "50%"
+            },
+            {
+              "name": "Head",
+              "armor": "2",
+              "armorByDifficulty": {
+                "6": "3"
+              },
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Mouth",
+              "armor": "0",
+              "health": "250",
+              "durability": "0%"
+            },
+            {
+              "name": "Spinal Plates",
+              "armor": "2",
+              "armorByDifficulty": {
+                "6": "3"
+              },
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Legs (2)",
+              "armor": "2",
+              "armorByDifficulty": {
+                "6": "3"
+              },
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Legs (2)",
+              "armor": "2",
+              "health": "250",
+              "durability": "30%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Bile_Spewer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Brood Commander",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Leadership-class Terminid capable of coordinating attacks and deploying reinforcements.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Brood_Commander",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Brood_Commander_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Alpha Commander",
+          "wikiSlug": "Alpha_Commander",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Commander_Enemy_Icon.png",
+          "imageUrl": "enemies/Alpha_Commander_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "2",
+              "health": "200",
+              "durability": "60%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "2",
+              "health": "200",
+              "durability": "50%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "170",
+              "durability": "40%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Brood_Commander_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Alpha Commander",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A heavier variant of the Brood Commander, capable of calling in Alpha Warriors.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Alpha_Commander",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Commander_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "1,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Head",
+              "armor": "2",
+              "health": "250",
+              "durability": "70%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "2",
+              "health": "200",
+              "durability": "50%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "200",
+              "durability": "50%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Alpha_Commander_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Stalker",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A specialized Terminid capable of turning partially invisible and ambushing Helldivers. Spawns from Stalker Lairs.",
+      "enemyClass": "Special",
+      "wikiSlug": "Stalker",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Stalker_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Predator Stalker",
+          "wikiSlug": "Predator_Stalker",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Stalker_Enemy_Icon.png",
+          "imageUrl": "enemies/Predator_Stalker_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "175",
+              "durability": "0%"
+            },
+            {
+              "name": "Body Armor",
+              "armor": "2",
+              "health": "Main",
+              "durability": "50%"
+            },
+            {
+              "name": "Underbelly",
+              "armor": "1",
+              "health": "Main",
+              "durability": "50%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "Main",
+              "durability": "50%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "Main",
+              "durability": "50%"
+            },
+            {
+              "name": "Wings",
+              "armor": "0",
+              "health": "125",
+              "durability": "50%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Stalker_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Charger",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Fast-moving Terminid specialized in charging attacks. Covered head to claw in heavy armor.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Charger",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Charger Behemoth",
+          "wikiSlug": "Charger_Behemoth",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Behemoth_Enemy_Icon.png",
+          "imageUrl": "enemies/Charger_Behemoth_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Charger",
+          "wikiSlug": "Rupture_Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Charger_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Charger",
+          "wikiSlug": "Spore_Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Charger_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "2,400",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "1,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "85%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "1",
+              "health": "Main",
+              "durability": "30%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Armor Plates",
+              "armor": "4",
+              "health": "2,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "950",
+              "durability": "80%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Front Leg Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Rear Leg Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Leg Flesh (4)",
+              "armor": "2",
+              "health": "800",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Charger_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Spore Charger",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A Charger variant that creates a thick fog and a massive explosion on death.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Spore_Charger",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Charger_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Charger Behemoth",
+          "wikiSlug": "Charger_Behemoth",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Behemoth_Enemy_Icon.png",
+          "imageUrl": "enemies/Charger_Behemoth_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Charger",
+          "wikiSlug": "Rupture_Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Charger_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Charger",
+          "wikiSlug": "Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Charger_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "2,400",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "1,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "85%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "1",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Armor Plates",
+              "armor": "4",
+              "health": "2,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "950",
+              "durability": "100%"
+            },
+            {
+              "name": "Spore Flesh (6)",
+              "armor": "1",
+              "health": "500",
+              "durability": "100%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Front Leg Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Rear Leg Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Leg Flesh (4)",
+              "armor": "2",
+              "health": "800",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Spore_Charger_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Charger Behemoth",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "A Charger variant with even more durable armor.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Charger_Behemoth",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Behemoth_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Charger",
+          "wikiSlug": "Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Charger_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Charger",
+          "wikiSlug": "Rupture_Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Charger_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Charger",
+          "wikiSlug": "Spore_Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Charger_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "3,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "1,600",
+              "durability": "100%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "85%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "1",
+              "health": "Main",
+              "durability": "30%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Armor Plates",
+              "armor": "4",
+              "health": "2,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "950",
+              "durability": "100%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Front Leg Armor (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "80%"
+            },
+            {
+              "name": "Rear Leg Armor (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "80%"
+            },
+            {
+              "name": "Leg Flesh (4)",
+              "armor": "2",
+              "health": "800",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Charger_Behemoth_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Impaler",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Heavily armored Terminid that uses large, bladed tentacles to disrupt Helldiver movements.",
+      "enemyClass": "Superheavy",
+      "wikiSlug": "Impaler",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Impaler_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "4,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "1,250",
+              "durability": "75%"
+            },
+            {
+              "name": "Tentacle Armor (3)",
+              "armor": "4",
+              "health": "Main",
+              "durability": "75%"
+            },
+            {
+              "name": "Tentacle Flesh (3)",
+              "armor": "1",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Crest Armor",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "80%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "75%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "0",
+              "health": "Main",
+              "durability": "90%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Armor Plates",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "75%"
+            },
+            {
+              "name": "Butt",
+              "armor": "1",
+              "health": "1,100",
+              "durability": "85%"
+            },
+            {
+              "name": "Leg Armor (4)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Leg Flesh (4)",
+              "armor": "0",
+              "health": "1,000",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Impaler_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Bile Titan",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Massive Terminid with a potent bile attack, stomp attacks, and heavy armor.",
+      "enemyClass": "Miniboss",
+      "wikiSlug": "Bile_Titan",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Titan_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Spore Burst Bile Titan",
+          "wikiSlug": "Spore_Burst_Bile_Titan",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Bile_Titan_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Bile_Titan_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "6,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "95%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "0",
+              "health": "Main",
+              "durability": "70%"
+            },
+            {
+              "name": "Butt Armor",
+              "armor": "4",
+              "health": "3,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Upper Sac",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Lower Sac",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "4,000",
+              "durability": "80%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Leg Armor (12)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Left Leg Flesh",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Leg Flesh (3)",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "100%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Bile_Titan_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Dragonroach",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Massive flying Terminid with a potent fire breath attack and heavy armor.",
+      "enemyClass": "Miniboss",
+      "wikiSlug": "Dragonroach",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Dragonroach_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "6,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "95%"
+            },
+            {
+              "name": "Carapace (2)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Wings (4)",
+              "armor": "0",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Thorax Sac",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Abdomen Sac",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Thorax Innards",
+              "armor": "4",
+              "health": "3,000",
+              "durability": "80%"
+            },
+            {
+              "name": "Abdomen Innards",
+              "armor": "4",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Abdomen Armor",
+              "armor": "4",
+              "health": "3,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Leg Armor (12)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Dragonroach_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hive Lord",
+      "faction": "Terminids",
+      "subfactions": [],
+      "description": "Gigantic Terminid capable of traversing underground, expelling bile and crushing targets with its body weight.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Hive_Lord",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hive_Lord_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Top & Side",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "5",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Crown",
+              "armor": "10",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Jaws",
+              "armor": "6",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Mandibles (2)",
+              "armor": "6",
+              "health": "10,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Mouth",
+              "armor": "2",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Dorsal Plate Armor (6)",
+              "armor": "5",
+              "health": "15,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Sterna Plate Armor (6)",
+              "armor": "5",
+              "health": "15,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Lower Sterna Plate Armor",
+              "armor": "5",
+              "health": "20,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Inner Flesh (6)",
+              "armor": "2",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Fins (14)",
+              "armor": "5",
+              "health": "5,000",
+              "durability": "0%"
+            }
+          ]
+        },
+        {
+          "name": "Bottom & Face",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "5",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Crown",
+              "armor": "10",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Jaws",
+              "armor": "6",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Mandibles (2)",
+              "armor": "6",
+              "health": "10,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Mouth",
+              "armor": "2",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Dorsal Plate Armor (6)",
+              "armor": "5",
+              "health": "15,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Sterna Plate Armor (6)",
+              "armor": "5",
+              "health": "15,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Lower Sterna Plate Armor",
+              "armor": "5",
+              "health": "20,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Inner Flesh (6)",
+              "armor": "2",
+              "health": "150,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Fins (14)",
+              "armor": "5",
+              "health": "5,000",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hive_Lord_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Predator Hunter",
+      "faction": "Terminids",
+      "subfactions": [
+        "Predator Strain"
+      ],
+      "description": "A mutated variant of the Hunter that is significantly more aggressive, capable of cloaking, and can spew bile.",
+      "enemyClass": "Light",
+      "wikiSlug": "Predator_Hunter",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Hunter_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hunter",
+          "wikiSlug": "Hunter",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hunter_Enemy_Icon.png",
+          "imageUrl": "enemies/Hunter_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Burst Hunter",
+          "wikiSlug": "Spore_Burst_Hunter",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Hunter_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Hunter_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "175",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Wings (2)",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Predator_Hunter_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Predator Stalker",
+      "faction": "Terminids",
+      "subfactions": [
+        "Predator Strain"
+      ],
+      "description": "A mutated, more aggressive variant of the Stalker that is unable to cloak but spawns as a regular part of patrols.",
+      "enemyClass": "Special",
+      "wikiSlug": "Predator_Stalker",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Stalker_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "650",
+              "durability": "50%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "175",
+              "durability": "0%"
+            },
+            {
+              "name": "Body Armor",
+              "armor": "2",
+              "health": "Main",
+              "durability": "50%"
+            },
+            {
+              "name": "Underbelly",
+              "armor": "1",
+              "health": "Main",
+              "durability": "50%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "200",
+              "durability": "50%"
+            },
+            {
+              "name": "Left Legs (2)",
+              "armor": "1",
+              "health": "200",
+              "durability": "50%"
+            },
+            {
+              "name": "Right Legs (2)",
+              "armor": "1",
+              "health": "200",
+              "durability": "50%"
+            },
+            {
+              "name": "Wings",
+              "armor": "0",
+              "health": "125",
+              "durability": "50%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Predator_Stalker_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Spore Burst Scavenger",
+      "faction": "Terminids",
+      "subfactions": [
+        "Spore Burst Strain"
+      ],
+      "description": "A mutated variant of the Scavenger that explodes into a deadly spore cloud upon death.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Spore_Burst_Scavenger",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Scavenger_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Scavenger",
+          "wikiSlug": "Scavenger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Scavenger_Enemy_Icon.png",
+          "imageUrl": "enemies/Scavenger_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            },
+            {
+              "name": "Limbs (6)",
+              "armor": "0",
+              "health": "30",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Spore_Burst_Scavenger_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Spore Burst Hunter",
+      "faction": "Terminids",
+      "subfactions": [
+        "Spore Burst Strain"
+      ],
+      "description": "A mutated variant of the Hunter that explodes into a deadly spore cloud upon death.",
+      "enemyClass": "Light",
+      "wikiSlug": "Spore_Burst_Hunter",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Hunter_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hunter",
+          "wikiSlug": "Hunter",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hunter_Enemy_Icon.png",
+          "imageUrl": "enemies/Hunter_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Predator Hunter",
+          "wikiSlug": "Predator_Hunter",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Hunter_Enemy_Icon.png",
+          "imageUrl": "enemies/Predator_Hunter_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "160",
+              "durability": "35%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "0",
+              "health": "60",
+              "durability": "25%"
+            },
+            {
+              "name": "Wings (2)",
+              "armor": "0",
+              "health": "20",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Spore_Burst_Hunter_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Spore Burst Warrior",
+      "faction": "Terminids",
+      "subfactions": [
+        "Spore Burst Strain"
+      ],
+      "description": "A mutated variant of the Warrior that explodes into a deadly spore cloud upon death.",
+      "enemyClass": "Light",
+      "wikiSlug": "Spore_Burst_Warrior",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Warrior_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Warrior",
+          "wikiSlug": "Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Bile Warrior",
+          "wikiSlug": "Bile_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Alpha Warrior",
+          "wikiSlug": "Alpha_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Alpha_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rupture Warrior",
+          "wikiSlug": "Rupture_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Rupture_Warrior_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "325",
+              "durability": "50%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "150",
+              "durability": "40%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "1",
+              "health": "100",
+              "durability": "25%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "100",
+              "durability": "35%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Spore_Burst_Warrior_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Spore Burst Bile Titan",
+      "faction": "Terminids",
+      "subfactions": [
+        "Spore Burst Strain"
+      ],
+      "description": "A mutated variant of the Bile Titan with a potent bile spew capable of buffing nearby enemies.",
+      "enemyClass": "Miniboss",
+      "wikiSlug": "Spore_Burst_Bile_Titan",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Bile_Titan_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Bile Titan",
+          "wikiSlug": "Bile_Titan",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Titan_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Titan_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "7,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "2,500",
+              "durability": "95%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "0",
+              "health": "Main",
+              "durability": "70%"
+            },
+            {
+              "name": "Butt Armor",
+              "armor": "4",
+              "health": "3,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Upper Sac",
+              "armor": "0",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Lower Sac",
+              "armor": "0",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "4,000",
+              "durability": "80%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Leg Armor (12)",
+              "armor": "4",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Left Leg Flesh",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Leg Flesh (3)",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "100%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Spore_Burst_Bile_Titan_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Rupture Warrior",
+      "faction": "Terminids",
+      "subfactions": [
+        "Rupture Strain"
+      ],
+      "description": "A burrowing variant of the Warrior.",
+      "enemyClass": "Light",
+      "wikiSlug": "Rupture_Warrior",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Warrior_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Warrior",
+          "wikiSlug": "Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Bile Warrior",
+          "wikiSlug": "Bile_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Alpha Warrior",
+          "wikiSlug": "Alpha_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Alpha_Warrior_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Burst Warrior",
+          "wikiSlug": "Spore_Burst_Warrior",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Warrior_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Burst_Warrior_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "250",
+              "durability": "20%"
+            },
+            {
+              "name": "Head",
+              "armor": "3",
+              "health": "110",
+              "durability": "20%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "3",
+              "health": "75",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (4)",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Rupture_Warrior_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Rupture Spewer",
+      "faction": "Terminids",
+      "subfactions": [
+        "Rupture Strain"
+      ],
+      "description": "A burrowing variant of the Bile Spewer.",
+      "enemyClass": "Special",
+      "wikiSlug": "Rupture_Spewer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Spewer_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Nursing Spewer",
+          "wikiSlug": "Nursing_Spewer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Nursing_Spewer_Enemy_Icon.png",
+          "imageUrl": "enemies/Nursing_Spewer_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Bile Spewer",
+          "wikiSlug": "Bile_Spewer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Spewer_Enemy_Icon.png",
+          "imageUrl": "enemies/Bile_Spewer_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "50%"
+            },
+            {
+              "name": "Head",
+              "armor": "3",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Mouth",
+              "armor": "0",
+              "health": "250",
+              "durability": "0%"
+            },
+            {
+              "name": "Spinal Plates",
+              "armor": "2",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Legs (2)",
+              "armor": "3",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Legs (2)",
+              "armor": "2",
+              "health": "250",
+              "durability": "30%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Rupture_Spewer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Rupture Charger",
+      "faction": "Terminids",
+      "subfactions": [
+        "Rupture Strain"
+      ],
+      "description": "A burrowing variant of the Charger.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Rupture_Charger",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Charger_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Charger",
+          "wikiSlug": "Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Charger_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Charger Behemoth",
+          "wikiSlug": "Charger_Behemoth",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Behemoth_Enemy_Icon.png",
+          "imageUrl": "enemies/Charger_Behemoth_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Spore Charger",
+          "wikiSlug": "Spore_Charger",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Charger_Enemy_Icon.png",
+          "imageUrl": "enemies/Spore_Charger_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "2,400",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "5",
+              "health": "1,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Torso Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "85%"
+            },
+            {
+              "name": "Inner Flesh",
+              "armor": "1",
+              "health": "Main",
+              "durability": "30%"
+            },
+            {
+              "name": "Rear Armor Plates",
+              "armor": "4",
+              "health": "2,200",
+              "durability": "75%"
+            },
+            {
+              "name": "Butt",
+              "armor": "0",
+              "health": "950",
+              "durability": "80%"
+            },
+            {
+              "name": "Underside",
+              "armor": "2",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Frontal Tarsal Plate Armor (2)",
+              "armor": "5",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Front Leg Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Rear Leg Armor (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Leg Flesh (4)",
+              "armor": "2",
+              "health": "800",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Rupture_Charger_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Trooper",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Light Automaton unit armed with a fusion SMG and explosive grenades.",
+      "enemyClass": "Light",
+      "wikiSlug": "Trooper",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Trooper_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Jet Brigade Trooper",
+          "wikiSlug": "Jet_Brigade_Trooper",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Trooper_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Trooper_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Pyro Trooper",
+          "wikiSlug": "Pyro_Trooper",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Pyro_Trooper_Enemy_Icon.png",
+          "imageUrl": "enemies/Pyro_Trooper_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Trooper_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Brawler",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Light Automaton unit armed with twin heated blades that specializes in close quarters combat.",
+      "enemyClass": "Light",
+      "wikiSlug": "Brawler",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Brawler_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "Main",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Left Arm",
+              "armor": "0",
+              "health": "85",
+              "durability": "0%"
+            },
+            {
+              "name": "Right Arm",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Leg (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Brawler_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Commissar",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Light Automaton squad leader armed with sidearm and heat blade for versatile offensive options.",
+      "enemyClass": "Light",
+      "wikiSlug": "Commissar",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Commissar_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Jet Brigade Commissar",
+          "wikiSlug": "Jet_Brigade_Commissar",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Commissar_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Commissar_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "1",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Commissar_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Rocket Raider",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Light Automaton unit armed with a rocket launcher.",
+      "enemyClass": "Light",
+      "wikiSlug": "Rocket_Raider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Raider_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Incendiary Rocket Raider",
+          "wikiSlug": "Incendiary_Rocket_Raider",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_Rocket_Raider_Enemy_Icon.png",
+          "imageUrl": "enemies/Incendiary_Rocket_Raider_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Rocket_Raider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Assault Raider",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "Light Automaton unit armed with a fusion pistol, a blade, and a jetpack.",
+      "enemyClass": "Light",
+      "wikiSlug": "Assault_Raider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Assault_Raider_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "2",
+              "health": "50",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Assault_Raider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Marauder",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Reinforced Automaton unit armed with a fusion rifle and explosive grenades.",
+      "enemyClass": "Light",
+      "wikiSlug": "Marauder",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Marauder_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "2",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Marauder_Enemy_Icon.png"
+    },
+    {
+      "displayName": "MG Raider",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Reinforced Automaton unit armed with a fusion machine gun, explosive grenades, and a volatile backpack with a tendency to explode.",
+      "enemyClass": "Light",
+      "wikiSlug": "MG_Raider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/MG_Raider_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Jet Brigade MG Raider",
+          "wikiSlug": "Jet_Brigade_MG_Raider",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_MG_Raider_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_MG_Raider_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Backpack Main",
+              "armor": "2",
+              "health": "10",
+              "durability": "0%"
+            },
+            {
+              "name": "Backpack",
+              "armor": "2",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/MG_Raider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Berserker",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Durable Automaton unit armed with dual chainsaws that specialize in close quarters combat.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Berserker",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Berserker_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Chest",
+              "armor": "2",
+              "health": "425",
+              "durability": "40%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "1",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Shoulder (2)",
+              "armor": "0",
+              "health": "180",
+              "durability": "0%"
+            },
+            {
+              "name": "Arm (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "30%"
+            },
+            {
+              "name": "Leg (2)",
+              "armor": "1",
+              "health": "750",
+              "durability": "30%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Berserker_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Devastator",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Medium-armored Automaton unit armed with fusion assault cannons.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Devastator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Rocket Devastator",
+          "wikiSlug": "Rocket_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Heavy Devastator",
+          "wikiSlug": "Heavy_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Incendiary MG Devastator",
+          "wikiSlug": "Incendiary_MG_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Conflagration Devastator",
+          "wikiSlug": "Conflagration_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Devastator",
+          "wikiSlug": "Jet_Brigade_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "3",
+              "health": "425",
+              "durability": "30%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "0%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "2",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Devastator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Rocket Devastator",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Devastator variant armed with fusion arm cannons and shoulder-mounted rocket launchers, capable of hitting Helldivers behind cover.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Rocket_Devastator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "3",
+              "health": "425",
+              "durability": "30%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "0%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "1",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            },
+            {
+              "name": "Rockets",
+              "armor": "0",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Rocket Pods",
+              "armor": "1",
+              "health": "300",
+              "durability": "100%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Heavy Devastator",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Devastator variant armed with a fusion machine gun and a large shield, capable of suppressing Helldivers and blocking incoming fire.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Heavy_Devastator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Devastator",
+          "wikiSlug": "Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rocket Devastator",
+          "wikiSlug": "Rocket_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Incendiary MG Devastator",
+          "wikiSlug": "Incendiary_MG_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Conflagration Devastator",
+          "wikiSlug": "Conflagration_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Devastator",
+          "wikiSlug": "Jet_Brigade_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "3",
+              "health": "425",
+              "durability": "30%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "0%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "2",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            },
+            {
+              "name": "Backpack",
+              "armor": "2",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Shield",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Scout Strider",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Armored Automaton recon walker, armed with a heavy fusion repeater and manned by a single Trooper shielded from small arms fire from the front.",
+      "enemyClass": "Light",
+      "wikiSlug": "Scout_Strider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Scout_Strider_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Scout Strider",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Pilot",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Front Plate",
+              "armor": "4",
+              "health": "350",
+              "durability": "40%"
+            },
+            {
+              "name": "HMG",
+              "armor": "4",
+              "health": "300",
+              "durability": "100%"
+            },
+            {
+              "name": "Turret System",
+              "armor": "3",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Waist",
+              "armor": "3",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "400",
+              "durability": "75%"
+            }
+          ]
+        },
+        {
+          "name": "Pilot",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Scout_Strider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Reinforced Scout Strider",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "A reinforced variant of the Scout Strider armed with rockets and armor surrounding the entire pilot.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Reinforced_Scout_Strider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Reinforced_Scout_Strider_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Faceplate",
+              "armor": "4",
+              "health": "400",
+              "durability": "40%"
+            },
+            {
+              "name": "HMG",
+              "armor": "4",
+              "health": "300",
+              "durability": "100%"
+            },
+            {
+              "name": "Rocket Rails (2)",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Rockets (4)",
+              "armor": "2",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Turret System",
+              "armor": "3",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Waist",
+              "armor": "3",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "400",
+              "durability": "75%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Reinforced_Scout_Strider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hulk Obliterator",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Large, heavily armored Automaton unit armed with dual rocket launchers.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Hulk_Obliterator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hulk Bruiser",
+          "wikiSlug": "Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Firebomber",
+          "wikiSlug": "Hulk_Firebomber",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Scorcher",
+          "wikiSlug": "Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Scorcher",
+          "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Bruiser",
+          "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "250",
+              "durability": "25%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Heatsink",
+              "armor": "1",
+              "health": "900",
+              "durability": "60%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hulk Scorcher",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Hulk variant armed with a heavy flamethrower and large sawblade, specializing in close quarters combat.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Hulk_Scorcher",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hulk Bruiser",
+          "wikiSlug": "Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Firebomber",
+          "wikiSlug": "Hulk_Firebomber",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Obliterator",
+          "wikiSlug": "Hulk_Obliterator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Scorcher",
+          "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Bruiser",
+          "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "250",
+              "durability": "25%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Heatsink",
+              "armor": "1",
+              "health": "900",
+              "durability": "60%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hulk Bruiser",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Hulk variant equipped with a burst rocket launcher and fusion autocannon.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Hulk_Bruiser",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hulk Firebomber",
+          "wikiSlug": "Hulk_Firebomber",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Scorcher",
+          "wikiSlug": "Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Obliterator",
+          "wikiSlug": "Hulk_Obliterator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Scorcher",
+          "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Bruiser",
+          "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "250",
+              "durability": "25%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Heatsink",
+              "armor": "1",
+              "health": "900",
+              "durability": "60%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
+    },
+    {
+      "displayName": "War Strider",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Heavily armored Automaton walker unit armed with Heavy Fusion Repeaters and explosive grenade launchers.",
+      "enemyClass": "Superheavy",
+      "wikiSlug": "War_Strider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/War_Strider_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "3,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Torso",
+              "armor": "4",
+              "health": "3,300",
+              "durability": "100%"
+            },
+            {
+              "name": "Eyes (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Fusion Cannons (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Grenade Launchers (2)",
+              "armor": "4",
+              "health": "400",
+              "durability": "70%"
+            },
+            {
+              "name": "Crotch",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "100%"
+            },
+            {
+              "name": "Heatsink",
+              "armor": "4",
+              "health": "700",
+              "durability": "70%"
+            },
+            {
+              "name": "Hip Joints (2)",
+              "armor": "3",
+              "health": "750",
+              "durability": "80%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "80%"
+            },
+            {
+              "name": "Greaves (2)",
+              "armor": "5",
+              "health": "150",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/War_Strider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Annihilator Tank",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Tank-armored Automaton unit armed with fusion machine guns and a large cannon.",
+      "enemyClass": "Superheavy",
+      "wikiSlug": "Annihilator_Tank",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Annihilator_Tank_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Turret Main",
+              "armor": "5",
+              "health": "2,100",
+              "durability": "100%"
+            },
+            {
+              "name": "Turret Front",
+              "armor": "5",
+              "health": "Main (Turret)",
+              "durability": "100%"
+            },
+            {
+              "name": "Turret Heatsink",
+              "armor": "3",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Main",
+              "armor": "5",
+              "health": "4,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Front",
+              "armor": "5",
+              "health": "Main (Hull)",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Sides (2)",
+              "armor": "5",
+              "health": "Main (Hull)",
+              "durability": "100%"
+            },
+            {
+              "name": "Engine Bay",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Tracks (2)",
+              "armor": "3",
+              "health": "750",
+              "durability": "80%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Annihilator_Tank_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Shredder Tank",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Tank variant armed with a quad-linked heavy fusion cycler turret.",
+      "enemyClass": "Superheavy",
+      "wikiSlug": "Shredder_Tank",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Shredder_Tank_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Turret Main",
+              "armor": "5",
+              "health": "2,100",
+              "durability": "100%"
+            },
+            {
+              "name": "Turret Front and Sides",
+              "armor": "5",
+              "health": "Main (Turret)",
+              "durability": "100%"
+            },
+            {
+              "name": "Turret Heatsink",
+              "armor": "3",
+              "health": "750",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Main",
+              "armor": "5",
+              "health": "4,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Front",
+              "armor": "5",
+              "health": "Main (Hull)",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Side (2)",
+              "armor": "5",
+              "health": "Main (Hull)",
+              "durability": "100%"
+            },
+            {
+              "name": "Engine Bay",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Tracks (2)",
+              "armor": "3",
+              "health": "750",
+              "durability": "80%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Shredder_Tank_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Barrager Tank",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Tank variant armed with a large missile array capable of direct & mortar fire.",
+      "enemyClass": "Superheavy",
+      "wikiSlug": "Barrager_Tank",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Barrager_Tank_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Turret Main",
+              "armor": "5",
+              "health": "2,100",
+              "durability": "100%"
+            },
+            {
+              "name": "Launch Tubes",
+              "armor": "3",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Main",
+              "armor": "5",
+              "health": "4,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Front",
+              "armor": "5",
+              "health": "Main (Hull)",
+              "durability": "100%"
+            },
+            {
+              "name": "Hull Sides (2)",
+              "armor": "5",
+              "health": "Main (Hull)",
+              "durability": "100%"
+            },
+            {
+              "name": "Engine Bay",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Tracks (2)",
+              "armor": "3",
+              "health": "750",
+              "durability": "80%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Barrager_Tank_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Gunship",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Medium-armored flying Automaton unit armed with fusion machine guns and rockets.",
+      "enemyClass": "Special",
+      "wikiSlug": "Gunship",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Gunship_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "3",
+              "health": "950",
+              "durability": "0%"
+            },
+            {
+              "name": "Fuselage",
+              "armor": "3",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Thrusters (2)",
+              "armor": "3",
+              "health": "400",
+              "durability": "85%"
+            },
+            {
+              "name": "Rear Thrusters (2)",
+              "armor": "3",
+              "health": "400",
+              "durability": "80%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Gunship_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Dropship",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Unarmed Automaton ship that drops in fellow Automaton units in response to a Bot Drop flare.",
+      "enemyClass": "Special",
+      "wikiSlug": "Dropship",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Dropship_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "5",
+              "health": "3,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Fuselage",
+              "armor": "5",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Thruster (4)",
+              "armor": "5",
+              "health": "1,500",
+              "durability": "100%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Dropship_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Factory Strider",
+      "faction": "Automatons",
+      "subfactions": [],
+      "description": "Massive Automaton quad-walker, armed with twin fusion gatling guns and a large burst-cannon. Capable of creating and deploying squads of Devastators.",
+      "enemyClass": "Miniboss",
+      "wikiSlug": "Factory_Strider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Factory_Strider_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Intact",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "10,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Stratagem Scrambler",
+              "armor": "0",
+              "health": "5,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Cannon Turret",
+              "armor": "5",
+              "health": "900",
+              "durability": "100%"
+            },
+            {
+              "name": "Fusion Gatling Guns (2)",
+              "armor": "3",
+              "health": "300",
+              "durability": "100%"
+            },
+            {
+              "name": "Head Armor",
+              "armor": "5",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Head Body",
+              "armor": "4",
+              "health": "2,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Neck Armor",
+              "armor": "5",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Neck",
+              "armor": "4",
+              "health": "2,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Top Armor",
+              "armor": "5",
+              "health": "2,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Engine Weakspot",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Front Armor",
+              "armor": "5",
+              "health": "2,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Side Armor (2)",
+              "armor": "5",
+              "health": "2,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Engine Armor",
+              "armor": "5",
+              "health": "2,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Engine Weakspot",
+              "armor": "3",
+              "health": "1,500",
+              "durability": "75%"
+            },
+            {
+              "name": "Rear Armor",
+              "armor": "5",
+              "health": "2,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Leg Armor (8)",
+              "armor": "5",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Knee Armor (4)",
+              "armor": "5",
+              "health": "800",
+              "durability": "100%"
+            },
+            {
+              "name": "Leg Assembly (4)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Belly Panels (2)",
+              "armor": "3",
+              "health": "1,200",
+              "durability": "100%"
+            }
+          ]
+        },
+        {
+          "name": "Armor Broken",
+          "parts": [
+            {
+              "name": "Head Body (Broken Head Armor)",
+              "armor": "4",
+              "health": "2,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Neck",
+              "armor": "4",
+              "health": "2,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Circuits Front (Broken Front Armor)",
+              "armor": "3",
+              "health": "1,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Side Circuits (2) (Broken Side Armor)",
+              "armor": "3",
+              "health": "1,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Circuits (Broken Rear Armor)",
+              "armor": "3",
+              "health": "1,200",
+              "durability": "100%"
+            },
+            {
+              "name": "Leg Assembly (4) (Broken Leg Armor)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "100%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Factory_Strider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Jet Brigade Commissar",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "Commissar variant equipped with a jetpack for leaping large distances.",
+      "enemyClass": "Light",
+      "wikiSlug": "Jet_Brigade_Commissar",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Commissar_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Commissar",
+          "wikiSlug": "Commissar",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Commissar_Enemy_Icon.png",
+          "imageUrl": "enemies/Commissar_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "2",
+              "health": "50",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Jet_Brigade_Commissar_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Jet Brigade Trooper",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "Trooper variant equipped with a jetpack for leaping large distances.",
+      "enemyClass": "Light",
+      "wikiSlug": "Jet_Brigade_Trooper",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Trooper_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Trooper",
+          "wikiSlug": "Trooper",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Trooper_Enemy_Icon.png",
+          "imageUrl": "enemies/Trooper_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Pyro Trooper",
+          "wikiSlug": "Pyro_Trooper",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Pyro_Trooper_Enemy_Icon.png",
+          "imageUrl": "enemies/Pyro_Trooper_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "2",
+              "health": "50",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Jet_Brigade_Trooper_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Jet Brigade MG Raider",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "MG Raider variant equipped with a jetpack for leaping large distances.",
+      "enemyClass": "Light",
+      "wikiSlug": "Jet_Brigade_MG_Raider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_MG_Raider_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "MG Raider",
+          "wikiSlug": "MG_Raider",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/MG_Raider_Enemy_Icon.png",
+          "imageUrl": "enemies/MG_Raider_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "2",
+              "health": "50",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Jet_Brigade_MG_Raider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Jet Brigade Devastator",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "Devastator variant equipped with a jetpack for leaping large distances.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Jet_Brigade_Devastator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Devastator",
+          "wikiSlug": "Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rocket Devastator",
+          "wikiSlug": "Rocket_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Heavy Devastator",
+          "wikiSlug": "Heavy_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Incendiary MG Devastator",
+          "wikiSlug": "Incendiary_MG_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Conflagration Devastator",
+          "wikiSlug": "Conflagration_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "3",
+              "health": "425",
+              "durability": "30%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "0%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "2",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "2",
+              "health": "300",
+              "durability": "20%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Jet Brigade Hulk Scorcher",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "A variant of the Hulk Scorcher equipped with a large jetpack, allowing them to leap great distances.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hulk Bruiser",
+          "wikiSlug": "Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Firebomber",
+          "wikiSlug": "Hulk_Firebomber",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Scorcher",
+          "wikiSlug": "Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Obliterator",
+          "wikiSlug": "Hulk_Obliterator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Bruiser",
+          "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "250",
+              "durability": "25%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "3",
+              "health": "750",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Jet Brigade Hulk Bruiser",
+      "faction": "Automatons",
+      "subfactions": [
+        "Jet Brigade"
+      ],
+      "description": "A variant of the Hulk Bruiser equipped with a large jetpack, allowing them to leap great distances.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hulk Bruiser",
+          "wikiSlug": "Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Firebomber",
+          "wikiSlug": "Hulk_Firebomber",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Scorcher",
+          "wikiSlug": "Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Obliterator",
+          "wikiSlug": "Hulk_Obliterator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Scorcher",
+          "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "250",
+              "durability": "25%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "3",
+              "health": "750",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Pyro Trooper",
+      "faction": "Automatons",
+      "subfactions": [
+        "Incineration Corps"
+      ],
+      "description": "Reinforced Automaton unit equipped with a flamethrower and a backpack-mounted fuel tank.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Pyro_Trooper",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Pyro_Trooper_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            },
+            {
+              "name": "Fuel Tanks Main",
+              "armor": "2",
+              "health": "10",
+              "durability": "0%"
+            },
+            {
+              "name": "Fuel Tanks",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Pyro_Trooper_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Incendiary Rocket Raider",
+      "faction": "Automatons",
+      "subfactions": [
+        "Incineration Corps"
+      ],
+      "description": "Light Automaton unit armed with a specialized rocket launcher.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Incendiary_Rocket_Raider",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_Rocket_Raider_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Rocket Raider",
+          "wikiSlug": "Rocket_Raider",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Raider_Enemy_Icon.png",
+          "imageUrl": "enemies/Rocket_Raider_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "90",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Incendiary_Rocket_Raider_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Incendiary MG Devastator",
+      "faction": "Automatons",
+      "subfactions": [
+        "Incineration Corps"
+      ],
+      "description": "Heavy Devastator variant with a slower firing incendiary fusion machine gun.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Incendiary_MG_Devastator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Devastator",
+          "wikiSlug": "Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rocket Devastator",
+          "wikiSlug": "Rocket_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Heavy Devastator",
+          "wikiSlug": "Heavy_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Conflagration Devastator",
+          "wikiSlug": "Conflagration_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Devastator",
+          "wikiSlug": "Jet_Brigade_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "3",
+              "health": "425",
+              "durability": "30%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "0%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "2",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            },
+            {
+              "name": "Shield",
+              "armor": "5",
+              "health": "Infinite",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Conflagration Devastator",
+      "faction": "Automatons",
+      "subfactions": [
+        "Incineration Corps"
+      ],
+      "description": "Devastator variant armed with an incendiary fusion shotgun and a large shield, capable of suppressing Helldivers and blocking incoming fire.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Conflagration_Devastator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Devastator",
+          "wikiSlug": "Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Rocket Devastator",
+          "wikiSlug": "Rocket_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Heavy Devastator",
+          "wikiSlug": "Heavy_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Incendiary MG Devastator",
+          "wikiSlug": "Incendiary_MG_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Devastator",
+          "wikiSlug": "Jet_Brigade_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "2",
+              "health": "750",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "110",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "3",
+              "health": "425",
+              "durability": "30%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "260",
+              "durability": "0%"
+            },
+            {
+              "name": "Stomach",
+              "armor": "1",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "2",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "2",
+              "health": "500",
+              "durability": "30%"
+            },
+            {
+              "name": "Shield",
+              "armor": "4",
+              "health": "800",
+              "durability": "70%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Hulk Firebomber",
+      "faction": "Automatons",
+      "subfactions": [
+        "Incineration Corps"
+      ],
+      "description": "Hulk variant equipped with a large flamethrower and incendiary grenade launcher.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Hulk_Firebomber",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
+      "variants": [
+        {
+          "displayName": "Hulk Bruiser",
+          "wikiSlug": "Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Scorcher",
+          "wikiSlug": "Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Hulk Obliterator",
+          "wikiSlug": "Hulk_Obliterator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
+          "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Scorcher",
+          "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Hulk Bruiser",
+          "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
+        }
+      ],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "1,800",
+              "durability": "60%"
+            },
+            {
+              "name": "Head",
+              "armor": "4",
+              "health": "250",
+              "durability": "25%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "70%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "4",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Heatsink",
+              "armor": "1",
+              "health": "900",
+              "durability": "60%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Radical",
+      "faction": "Automatons",
+      "subfactions": [
+        "Cyborg Legion"
+      ],
+      "description": "Cybernetically enhanced human soldiers equipped with a heavy shotgun and \"techno-martial arts.\"",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Radical",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Radical_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "750",
+              "durability": "20%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso Circuits",
+              "armor": "2",
+              "health": "1,200",
+              "durability": "0%"
+            },
+            {
+              "name": "Pauldron",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Upper Arms (2)",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Forearms (2)",
+              "armor": "2",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis and Left Leg",
+              "armor": "2",
+              "health": "1,400",
+              "durability": "0%"
+            },
+            {
+              "name": "Right Leg",
+              "armor": "2",
+              "health": "1,400",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Radical_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Agitator",
+      "faction": "Automatons",
+      "subfactions": [
+        "Cyborg Legion"
+      ],
+      "description": "Cyborg field commanders, able to take direct command of their Automaton underlings.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Agitator",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Agitator_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "750",
+              "durability": "20%"
+            },
+            {
+              "name": "Helmet",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso Armor",
+              "armor": "2",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "2",
+              "health": "1,200",
+              "durability": "0%"
+            },
+            {
+              "name": "Pauldrons (2)",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Upper Arms (2)",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Forearms (2)",
+              "armor": "2",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Pelvis and Left Leg",
+              "armor": "2",
+              "health": "1,400",
+              "durability": "0%"
+            },
+            {
+              "name": "Right Leg",
+              "armor": "2",
+              "health": "1,400",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Agitator_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Vox Engine",
+      "faction": "Automatons",
+      "subfactions": [
+        "Cyborg Legion"
+      ],
+      "description": "Massive Cyborg Mech equipped with heavy fusion cannons, a missile array and gatling guns.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Vox_Engine",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Vox_Engine_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "5",
+              "health": "9,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Sarcophagus",
+              "armor": "5",
+              "health": "7,000",
+              "durability": "60%"
+            },
+            {
+              "name": "Torso",
+              "armor": "5",
+              "health": "9,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Cannons (2)",
+              "armor": "4",
+              "health": "3,500",
+              "durability": "70%"
+            },
+            {
+              "name": "Missile Launchers (2)",
+              "armor": "3",
+              "health": "1,200",
+              "durability": "60%"
+            },
+            {
+              "name": "Miniguns (2)",
+              "armor": "3",
+              "health": "300",
+              "durability": "100%"
+            },
+            {
+              "name": "Speakers (2)",
+              "armor": "3",
+              "health": "800",
+              "durability": "0%"
+            },
+            {
+              "name": "Fog Lights (2)",
+              "armor": "1",
+              "health": "50",
+              "durability": "60%"
+            },
+            {
+              "name": "Torso Flaps (2)",
+              "armor": "3",
+              "health": "500",
+              "durability": "0%"
+            },
+            {
+              "name": "Vents (6)",
+              "armor": "1",
+              "health": "300",
+              "durability": "60%"
+            },
+            {
+              "name": "Hatches (2)",
+              "armor": "0",
+              "health": "-",
+              "durability": "-"
+            },
+            {
+              "name": "Undercarriage",
+              "armor": "5",
+              "health": "9,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Trackpod Latches (4)",
+              "armor": "3",
+              "health": "2,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Tracks (4)",
+              "armor": "4",
+              "health": "3,000",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Vox_Engine_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Voteless",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Mindless Masses"
+      ],
+      "description": "An Agile skirmisher unit that attacks in hordes.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Voteless",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Voteless_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Light",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Upper Arms (2)",
+              "armor": "0",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Forearms (2)",
+              "armor": "0",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs",
+              "armor": "0",
+              "health": "80",
+              "durability": "0%"
+            }
+          ]
+        },
+        {
+          "name": "Medium",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "130",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Upper Arms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Forearms (2)",
+              "armor": "0",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs",
+              "armor": "0",
+              "health": "80",
+              "durability": "0%"
+            }
+          ]
+        },
+        {
+          "name": "Heavy",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "160",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Upper Arms (2)",
+              "armor": "0",
+              "health": "80",
+              "durability": "0%"
+            },
+            {
+              "name": "Forearms (2)",
+              "armor": "0",
+              "health": "65",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs",
+              "armor": "0",
+              "health": "80",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Voteless_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Watcher",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Flying drone equipped with arc weaponry and the ability to call for reinforcements.",
+      "enemyClass": "Support",
+      "wikiSlug": "Watcher",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Watcher_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Body",
+              "armor": "2",
+              "health": "400",
+              "durability": "0%"
+            },
+            {
+              "name": "Eye",
+              "armor": "0",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Upper Fin",
+              "armor": "0",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Lower Fin",
+              "armor": "0",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Side Fins (2)",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Watcher_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Overseer",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Elite unit equipped with an energy shield and a deadly lance capable of launching an explosive projectile, usually accompanies hordes of Voteless.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Overseer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Overseer_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "3",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Chest Armor",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Crotch Armor",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Limb Armor (8)",
+              "armor": "2",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "1",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Right Arm",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Left Arm",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "Main",
+              "durability": "0%"
+            },
+            {
+              "name": "Shield",
+              "armor": "2",
+              "health": "1,500",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Overseer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Elevated Overseer",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Elite unit equipped with automatic plasma rifles and jet-packs, usually accompanies hordes of Voteless.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Elevated_Overseer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Elevated_Overseer_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "450",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Jetpack",
+              "armor": "2",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Chest Armor",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Crotch Armor",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Limb Armor",
+              "armor": "2",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "1",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Right Arm",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Left Arm",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "Main",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Elevated_Overseer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Crescent Overseer",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Elite unit equipped with a large plasma cannon, capable of direct & mortar fire, usually accompanies hordes of Voteless.",
+      "enemyClass": "Medium",
+      "wikiSlug": "Crescent_Overseer",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Crescent_Overseer_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "3",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Chest Armor",
+              "armor": "2",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Crotch Armor",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Limb Armor",
+              "armor": "2",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "1",
+              "health": "600",
+              "durability": "0%"
+            },
+            {
+              "name": "Right Arm",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Left Arm",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "Main",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Crescent_Overseer_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Fleshmob",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Mindless Masses"
+      ],
+      "description": "An amalgamation of Voteless corpses, this large Illuminate unit specializes in close quarters combat and charges at Helldivers to attack.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Fleshmob",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Fleshmob_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "5,000",
+              "durability": "40%"
+            },
+            {
+              "name": "Head Chunks (6)",
+              "armor": "0",
+              "health": "400",
+              "durability": "25%"
+            },
+            {
+              "name": "Stomach Chunks (2)",
+              "armor": "0",
+              "health": "400",
+              "durability": "40%"
+            },
+            {
+              "name": "Arms (4)",
+              "armor": "0",
+              "health": "200",
+              "durability": "40%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "400",
+              "durability": "40%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Fleshmob_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Harvester",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Massive autonomous tripod with an energy shield and a large laser weapon. Can also use arc weaponry in close-quarters.",
+      "enemyClass": "Heavy",
+      "wikiSlug": "Harvester",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Harvester_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Intact",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "3,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Eye",
+              "armor": "2",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Shield Generators (3)",
+              "armor": "3",
+              "health": "350",
+              "durability": "0%"
+            },
+            {
+              "name": "Chassis",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "75%"
+            },
+            {
+              "name": "Carapace (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "75%"
+            },
+            {
+              "name": "Carapace Weakspots (2)",
+              "armor": "1",
+              "health": "500",
+              "durability": "80%"
+            },
+            {
+              "name": "Left Hip Joint",
+              "armor": "3",
+              "health": "1,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Right & Middle Hip Joints (2)",
+              "armor": "3",
+              "health": "1,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Left Upper Thigh Armor",
+              "armor": "4",
+              "health": "600",
+              "durability": "75%"
+            },
+            {
+              "name": "Right & Middle Upper Thigh Armor (2)",
+              "armor": "4",
+              "health": "900",
+              "durability": "75%"
+            },
+            {
+              "name": "Lower Thigh Armor (3)",
+              "armor": "4",
+              "health": "900",
+              "durability": "75%"
+            },
+            {
+              "name": "Shin armor (3)",
+              "armor": "4",
+              "health": "900",
+              "durability": "75%"
+            },
+            {
+              "name": "Left Foot Armor",
+              "armor": "4",
+              "health": "900",
+              "durability": "0%"
+            },
+            {
+              "name": "Right & Middle Foot Armor (2)",
+              "armor": "4",
+              "health": "900",
+              "durability": "75%"
+            },
+            {
+              "name": "Exposed Leg Internals",
+              "armor": "3",
+              "health": "1,000",
+              "durability": "25%"
+            },
+            {
+              "name": "Shield",
+              "armor": "0",
+              "health": "1,500",
+              "durability": "0%"
+            }
+          ]
+        },
+        {
+          "name": "Armor Broken",
+          "parts": [
+            {
+              "name": "Damaged Chassis",
+              "armor": "4",
+              "health": "2,000",
+              "durability": "75%"
+            },
+            {
+              "name": "Internals (2)",
+              "armor": "2",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Right & Left Upper Leg Internals (3)",
+              "armor": "3",
+              "health": "1,000",
+              "durability": "25%"
+            },
+            {
+              "name": "Middle Upper Leg Internals",
+              "armor": "3",
+              "health": "1,000",
+              "durability": "25%"
+            },
+            {
+              "name": "Lower Leg Internals (3)",
+              "armor": "3",
+              "health": "1,000",
+              "durability": "25%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Harvester_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Stingray",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Flying Illuminate unit that deploys strafing runs against Helldivers, dealing massive damage over a large area.",
+      "enemyClass": "Special",
+      "wikiSlug": "Stingray",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Stingray_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "3",
+              "health": "800",
+              "durability": "70%"
+            },
+            {
+              "name": "Gun Ports",
+              "armor": "3",
+              "health": "Main",
+              "durability": "50%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Stingray_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Warp Ship",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Transport aircraft used for deploying reinforcements for the Illuminate.",
+      "enemyClass": "Special",
+      "wikiSlug": "Warp_Ship",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Warp_Ship_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "5",
+              "health": "3,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Beamer",
+              "armor": "5",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Frontal Fuselage (2)",
+              "armor": "5",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Rear Fuselage (2)",
+              "armor": "5",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Engine",
+              "armor": "5",
+              "health": "Main",
+              "durability": "100%"
+            },
+            {
+              "name": "Stern (2)",
+              "armor": "5",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Bow",
+              "armor": "5",
+              "health": "1,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Shield",
+              "armor": "0",
+              "health": "2,500",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Warp_Ship_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Leviathan",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Tank-armored flying Illuminate unit, armed with large beams cannons and bomb bays.",
+      "enemyClass": "Superheavy",
+      "wikiSlug": "Leviathan",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Leviathan_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Intact",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "15,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Turrets (4)",
+              "armor": "4",
+              "health": "1,500",
+              "durability": "85%"
+            },
+            {
+              "name": "Front Vertebra",
+              "armor": "5",
+              "health": "7,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Front Fins (2)",
+              "armor": "5",
+              "health": "5,500",
+              "durability": "0%"
+            },
+            {
+              "name": "Warp Disc",
+              "armor": "5",
+              "health": "3,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Forward-Middle Vertebra",
+              "armor": "5",
+              "health": "5,500",
+              "durability": "0%"
+            },
+            {
+              "name": "Forward-Middle Fins (2)",
+              "armor": "5",
+              "health": "5,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Rearward-Middle Vertebra",
+              "armor": "5",
+              "health": "5,500",
+              "durability": "0%"
+            },
+            {
+              "name": "Rearward-Middle Fins (2)",
+              "armor": "5",
+              "health": "3,900",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Vertebra",
+              "armor": "5",
+              "health": "5,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Fins (2)",
+              "armor": "5",
+              "health": "3,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Tail",
+              "armor": "5",
+              "health": "3,900",
+              "durability": "0%"
+            }
+          ]
+        },
+        {
+          "name": "Broken",
+          "parts": [
+            {
+              "name": "Internals",
+              "armor": "4",
+              "health": "15,000",
+              "durability": "0%"
+            },
+            {
+              "name": "Damaged Rearward- Middle Vertebra",
+              "armor": "5",
+              "health": "5,500",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Leviathan_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Illuminate Overship",
+      "faction": "Illuminate",
+      "subfactions": [],
+      "description": "Unarmed host ships, these units act as command centers for Illuminate ground forces.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Illuminate_Overship",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Illuminate_Overship_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "10",
+              "health": "18,001",
+              "durability": "100%"
+            },
+            {
+              "name": "Port",
+              "armor": "10",
+              "health": "1,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Shield",
+              "armor": "0",
+              "health": "10,000",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Illuminate_Overship_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Veracitor",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Appropriators"
+      ],
+      "description": "A piloted Illuminate war machine, with arm-like appendages.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Veracitor",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Veracitor_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "3",
+              "health": "3,000",
+              "durability": "100%"
+            },
+            {
+              "name": "Head",
+              "armor": "3",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Chassis",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Carapace (2)",
+              "armor": "3",
+              "health": "400",
+              "durability": "50%"
+            },
+            {
+              "name": "Internals (2)",
+              "armor": "1",
+              "health": "600",
+              "durability": "50%"
+            },
+            {
+              "name": "Shield",
+              "armor": "2",
+              "health": "1,300",
+              "durability": "0%"
+            },
+            {
+              "name": "Pilot",
+              "armor": "2",
+              "health": "700",
+              "durability": "0%"
+            },
+            {
+              "name": "Cockpit",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Cockpit Weakspot",
+              "armor": "1",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Shoulders (2)",
+              "armor": "2",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Upper Arms (2)",
+              "armor": "2",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Lower Arms (2)",
+              "armor": "3",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Arm Weakspots (2)",
+              "armor": "1",
+              "health": "800",
+              "durability": "0%"
+            },
+            {
+              "name": "Hips (2)",
+              "armor": "2",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Rear Hip",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Upper Legs (2)",
+              "armor": "2",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Lower Legs (2)",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Rear Leg",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Veracitor_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Gatekeeper",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Appropriators"
+      ],
+      "description": "A piloted Illuminate war machine, with plasma guns and increased armor.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Gatekeeper",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Gatekeeper_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Intact",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "4",
+              "health": "2,500",
+              "durability": "100%"
+            },
+            {
+              "name": "Shield Generator",
+              "armor": "4",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Chassis",
+              "armor": "4",
+              "health": "1,600",
+              "durability": "80%"
+            },
+            {
+              "name": "Carapace (2)",
+              "armor": "4",
+              "health": "400",
+              "durability": "0%"
+            },
+            {
+              "name": "Rear Weakspot",
+              "armor": "1",
+              "health": "800",
+              "durability": "80%"
+            },
+            {
+              "name": "Shield",
+              "armor": "2",
+              "health": "1,300",
+              "durability": "0%"
+            },
+            {
+              "name": "Pilot",
+              "armor": "2",
+              "health": "700",
+              "durability": "50%"
+            },
+            {
+              "name": "Cockpit",
+              "armor": "4",
+              "health": "1,200",
+              "durability": "80%"
+            },
+            {
+              "name": "Cockpit Weakspot",
+              "armor": "1",
+              "health": "800",
+              "durability": "80%"
+            },
+            {
+              "name": "Shoulder Armor (2)",
+              "armor": "4",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Arm Armor (2)",
+              "armor": "4",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Guns (2)",
+              "armor": "4",
+              "health": "800",
+              "durability": "0%"
+            },
+            {
+              "name": "Gun Weakspots (2)",
+              "armor": "2",
+              "health": "800",
+              "durability": "0%"
+            },
+            {
+              "name": "Leg Armor (6)",
+              "armor": "4",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Hips (3)",
+              "armor": "3",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Legs (3)",
+              "armor": "3",
+              "health": "800",
+              "durability": "50%"
+            }
+          ]
+        },
+        {
+          "name": "Broken",
+          "parts": [
+            {
+              "name": "Internals (2)",
+              "armor": "2",
+              "health": "800",
+              "durability": "50%"
+            },
+            {
+              "name": "Arms (Broken Armor) (2)",
+              "armor": "3",
+              "health": "1,600",
+              "durability": "50%"
+            },
+            {
+              "name": "Legs (Broken Armor) (3)",
+              "armor": "3",
+              "health": "800",
+              "durability": "50%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Gatekeeper_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Obtruder",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Appropriators"
+      ],
+      "description": "Swarming drones that fire plasma projectiles and travel in groups. A variation of the watcher.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Obtruder",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Obtruder.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "400",
+              "durability": "0%"
+            },
+            {
+              "name": "Body",
+              "armor": "1",
+              "health": "400",
+              "durability": "0%"
+            },
+            {
+              "name": "Eye",
+              "armor": "0",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Vertical Fins (2)",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Lateral Fins (2)",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Obtruder.png"
+    },
+    {
+      "displayName": "Wretch",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Vote Snatchers"
+      ],
+      "description": "Former Super Earth citizens twisted beyond recognition into ravenous predators as violent as they are nimble.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Wretch",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Wretch_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "450",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "100",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (4)",
+              "armor": "1",
+              "health": "50",
+              "durability": "0%"
+            },
+            {
+              "name": "Claws (2)",
+              "armor": "3",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "1",
+              "health": "450",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Wretch_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Crusher",
+      "faction": "Illuminate",
+      "subfactions": [
+        "Vote Snatchers"
+      ],
+      "description": "Ungainly flesh amalgamations that wield massive metallic clubs and are capable of regenerating tissue damage.",
+      "enemyClass": "Unclassified",
+      "wikiSlug": "Crusher",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Crusher_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "1",
+              "health": "6,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Helmet",
+              "armor": "4",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "1",
+              "health": "300",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "1",
+              "health": "6,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "1",
+              "health": "2,000",
+              "durability": "70%"
+            },
+            {
+              "name": "Pelvis",
+              "armor": "1",
+              "health": "4,000",
+              "durability": "60%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "1",
+              "health": "4,000",
+              "durability": "60%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Crusher_Enemy_Icon.png"
+    },
+    {
+      "displayName": "Civilian",
+      "faction": "Super Earth",
+      "subfactions": [],
+      "description": "Unarmed Super Earth citizens, mostly found running away from danger.",
+      "enemyClass": "Fodder",
+      "wikiSlug": "Civilian",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Civilian_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "70",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "40",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "1",
+              "health": "70",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "70",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "100",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Civilian_Enemy_Icon.png"
+    },
+    {
+      "displayName": "SEAF Soldier",
+      "faction": "Super Earth",
+      "subfactions": [],
+      "description": "Lightly-armored Super Earth ground troops, variously armed with assault rifles, SMGs, machine guns, expendable anti-tank launchers, and explosive grenades.",
+      "enemyClass": "Light",
+      "wikiSlug": "SEAF_Soldier",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/SEAF_Soldiers_Enemy_Icon_Render.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "150",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "2",
+              "health": "75",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "2",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "200",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "300",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/SEAF_Soldiers_Enemy_Icon_Render.png"
+    },
+    {
+      "displayName": "Helldiver",
+      "faction": "Super Earth",
+      "subfactions": [],
+      "description": "Super Earth's elite fighting force, these units can be equipped with a variety of weapons, stratagems, and employ a variety of tactics.",
+      "enemyClass": "Light",
+      "wikiSlug": "Helldiver",
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Helldiver_Enemy_Icon.png",
+      "variants": [],
+      "anatomy": [
+        {
+          "name": "Standard",
+          "parts": [
+            {
+              "name": "Main",
+              "armor": "0",
+              "health": "125",
+              "durability": "0%"
+            },
+            {
+              "name": "Head",
+              "armor": "0",
+              "health": "85",
+              "durability": "0%"
+            },
+            {
+              "name": "Torso",
+              "armor": "0",
+              "health": "60",
+              "durability": "0%"
+            },
+            {
+              "name": "Arms (2)",
+              "armor": "0",
+              "health": "35 (52 w/Servo-Assisted)",
+              "durability": "0%"
+            },
+            {
+              "name": "Legs (2)",
+              "armor": "0",
+              "health": "45 (67 w/Servo-Assisted)",
+              "durability": "0%"
+            }
+          ]
+        }
+      ],
+      "imageUrl": "enemies/Helldiver_Enemy_Icon.png"
+    }
+  ]
+}

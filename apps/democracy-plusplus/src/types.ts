@@ -108,6 +108,46 @@ export interface Difficulty {
   missions: number;
 }
 
+export interface EnemyVariant {
+  displayName: string;
+  wikiSlug: string;
+  wikiImageUrl: string | null;
+  imageUrl: string;
+}
+
+export interface EnemyAnatomyPart {
+  name: string;
+  armor: string;
+  armorByDifficulty?: Record<string, string>;
+  health: string;
+  durability: string;
+}
+
+export interface EnemyAnatomy {
+  name: string;
+  parts: EnemyAnatomyPart[];
+}
+
+export type EnemyFaction = Faction | "Super Earth";
+
+export interface Enemy {
+  displayName: string;
+  faction: EnemyFaction;
+  subfactions: string[];
+  description: string;
+  enemyClass: string;
+  wikiSlug: string;
+  wikiImageUrl: string | null;
+  imageUrl: string;
+  variants: EnemyVariant[];
+  anatomy: EnemyAnatomy[];
+}
+
+export interface BestiaryData {
+  subfactions: Record<EnemyFaction, string[]>;
+  enemies: Enemy[];
+}
+
 export interface CreditsState {
   credits: number;
 }

@@ -3,6 +3,7 @@ import readline from "readline";
 import type { EquipmentCategory, Faction, ItemType, Objective, ObjectiveTag, StratagemCategory, Tier } from "../src/types.ts";
 import {
   fetchMainObjectives,
+  fetchBestiary,
   fetchPageSource,
   findBestScrapedMatch,
   getImageFileName,
@@ -412,13 +413,17 @@ async function main() {
     const passives = await enrichWithImageUrls(
       await parseArmorPassivesPageSource(passivesPage.content),
     );
+    const bestiary = await fetchBestiary();
     parseTask.succeed("parsed");
     summary("Parsed counts", {
       weapons: weapons.length,
       stratagems: stratagems.length,
       boosters: boosters.length,
       passives: passives.length,
+      enemies: bestiary.enemies.length,
     });
+
+    await fs.writeFile("./public/data/enemies.json", JSON.stringify(bestiary, null, 2));
 
     await mergeData("primaries", weapons, "PRIMARIES");
     await mergeData("secondaries", weapons, "SECONDARIES");

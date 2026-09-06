@@ -15,6 +15,7 @@ const IMAGES_DIR = path.join(ROOT, "public", "images");
 
 const TIERS = ["s", "a", "b", "c", "d"] as const satisfies readonly Tier[];
 const FACTIONS = ["Terminids", "Automatons", "Illuminate"] as const satisfies readonly Faction[];
+const BESTIARY_FACTIONS = [...FACTIONS, "Super Earth"] as const;
 const OBJECTIVE_TAGS = ["Eradicate", "Commando", "Blitz"] as const satisfies readonly ObjectiveTag[];
 const MISSION_LENGTHS = ["short", "long"] as const satisfies readonly MissionLength[];
 const STRATAGEM_DIRECTIONS = ["Up", "Down", "Left", "Right"] as const;
@@ -97,6 +98,8 @@ function assertUnique(values: string[], context: string) {
 const warbonds = readJson<JsonObject[]>("warbonds.json");
 const factions = readJson<string[]>("factions.json");
 const objectives = readJson<JsonObject[]>("objectives.json");
+const bestiary = readJson<JsonObject>("enemies.json");
+const enemies = bestiary.enemies as JsonObject[];
 const warbondCodes = warbonds.map((warbond, index) => {
   const context = `warbonds[${index}]`;
   const item = asObject(warbond, context);
@@ -306,6 +309,82 @@ test("public data files use valid schema keys and value types", async (t) => {
     });
 
     assertUnique(displayNames, "objective display names");
+  });
+
+  await t.test("enemies.json contains faction, variant, and anatomy data", () => {
+    assertAllowedKeys(bestiary, ["subfactions", "enemies"], "enemies.json");
+    assertRequiredKeys(bestiary, ["subfactions", "enemies"], "enemies.json");
+    const subfactions = asObject(bestiary.subfactions, "enemies.json.subfactions");
+    assert.deepEqual(Object.keys(subfactions).sort(), [...BESTIARY_FACTIONS].sort());
+    for (const faction of BESTIARY_FACTIONS) {
+      expectStringArray(subfactions[faction], `enemies.json.subfactions.${faction}`);
+    }
+    assert.ok(enemies.length > 0, "enemies.json must not be empty");
+    const displayNames: string[] = [];
+
+    enemies.forEach((entry, index) => {
+      const context = `enemies[${index}]`;
+      const enemy = asObject(entry, context);
+      assertAllowedKeys(
+        enemy,
+        ["displayName", "faction", "subfactions", "description", "enemyClass", "wikiSlug", "wikiImageUrl", "imageUrl", "variants", "anatomy"],
+        context,
+      );
+      assertRequiredKeys(
+        enemy,
+        ["displayName", "faction", "subfactions", "description", "enemyClass", "wikiSlug", "wikiImageUrl", "imageUrl", "variants", "anatomy"],
+        context,
+      );
+      expectString(enemy.displayName, `${context}.displayName`);
+      expectString(enemy.faction, `${context}.faction`);
+      assert.ok(BESTIARY_FACTIONS.includes(enemy.faction as typeof BESTIARY_FACTIONS[number]), `${context}.faction must be supported`);
+      expectStringArray(enemy.subfactions, `${context}.subfactions`);
+      expectString(enemy.description, `${context}.description`);
+      expectOptionalString(enemy.enemyClass, `${context}.enemyClass`);
+      expectString(enemy.wikiSlug, `${context}.wikiSlug`);
+      expectOptionalString(enemy.wikiImageUrl, `${context}.wikiImageUrl`);
+      expectImagePath(enemy.imageUrl, `${context}.imageUrl`);
+      assert.ok(Array.isArray(enemy.variants), `${context}.variants must be an array`);
+      assert.ok(Array.isArray(enemy.anatomy), `${context}.anatomy must be an array`);
+      assert.ok(enemy.anatomy.length > 0, `${context}.anatomy must not be empty`);
+
+      enemy.variants.forEach((entry: unknown, variantIndex: number) => {
+        const variant = asObject(entry, `${context}.variants[${variantIndex}]`);
+        assertAllowedKeys(variant, ["displayName", "wikiSlug", "wikiImageUrl", "imageUrl"], `${context}.variants[${variantIndex}]`);
+        expectString(variant.displayName, `${context}.variants[${variantIndex}].displayName`);
+        expectString(variant.wikiSlug, `${context}.variants[${variantIndex}].wikiSlug`);
+        expectOptionalString(variant.wikiImageUrl, `${context}.variants[${variantIndex}].wikiImageUrl`);
+        expectImagePath(variant.imageUrl, `${context}.variants[${variantIndex}].imageUrl`);
+      });
+
+      enemy.anatomy.forEach((entry: unknown, anatomyIndex: number) => {
+        const anatomy = asObject(entry, `${context}.anatomy[${anatomyIndex}]`);
+        assertAllowedKeys(anatomy, ["name", "parts"], `${context}.anatomy[${anatomyIndex}]`);
+        expectString(anatomy.name, `${context}.anatomy[${anatomyIndex}].name`);
+        assert.ok(Array.isArray(anatomy.parts), `${context}.anatomy[${anatomyIndex}].parts must be an array`);
+        assert.ok(anatomy.parts.length > 0, `${context}.anatomy[${anatomyIndex}].parts must not be empty`);
+        anatomy.parts.forEach((entry: unknown, partIndex: number) => {
+          const partContext = `${context}.anatomy[${anatomyIndex}].parts[${partIndex}]`;
+          const part = asObject(entry, partContext);
+          assertAllowedKeys(part, ["name", "armor", "armorByDifficulty", "health", "durability"], partContext);
+          expectString(part.name, `${partContext}.name`);
+          expectString(part.armor, `${partContext}.armor`);
+          expectString(part.health, `${partContext}.health`);
+          expectString(part.durability, `${partContext}.durability`);
+          if (part.armorByDifficulty !== undefined) {
+            const armorByDifficulty = asObject(part.armorByDifficulty, `${partContext}.armorByDifficulty`);
+            Object.entries(armorByDifficulty).forEach(([difficulty, armor]) => {
+              assert.match(difficulty, /^\d+$/, `${partContext}.armorByDifficulty keys must be difficulties`);
+              expectString(armor, `${partContext}.armorByDifficulty.${difficulty}`);
+            });
+          }
+        });
+      });
+
+      displayNames.push(enemy.displayName as string);
+    });
+
+    assertUnique(displayNames, "enemy display names");
   });
 
   await t.test("quests.json contains valid quest definitions", () => {

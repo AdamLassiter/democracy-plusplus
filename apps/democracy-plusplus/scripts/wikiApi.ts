@@ -46,6 +46,50 @@ export interface ScrapedObjectiveItem {
   missionLength: MissionLength | null;
 }
 
+export type ScrapedEnemyFaction = "Terminids" | "Automatons" | "Illuminate" | "Super Earth";
+
+export interface ScrapedEnemyListing extends LinkedWikiItem {
+  faction: ScrapedEnemyFaction;
+  subfactions: string[];
+  description: string;
+}
+
+export interface ScrapedEnemyVariant {
+  displayName: string;
+  wikiSlug: string;
+  wikiImageUrl: string | null;
+}
+
+export interface ScrapedEnemyAnatomyPart {
+  name: string;
+  armor: string;
+  armorByDifficulty?: Record<string, string>;
+  health: string;
+  durability: string;
+}
+
+export interface ScrapedEnemyAnatomy {
+  name: string;
+  parts: ScrapedEnemyAnatomyPart[];
+}
+
+export interface ScrapedEnemy {
+  displayName: string;
+  faction: ScrapedEnemyListing["faction"];
+  subfactions: string[];
+  description: string;
+  enemyClass: string;
+  wikiSlug: string;
+  wikiImageUrl: string | null;
+  variants: ScrapedEnemyVariant[];
+  anatomy: ScrapedEnemyAnatomy[];
+}
+
+export interface ScrapedBestiary {
+  subfactions: Record<ScrapedEnemyListing["faction"], string[]>;
+  enemies: ScrapedEnemy[];
+}
+
 interface MediaWikiApiError {
   code?: string;
   info?: string;
@@ -70,6 +114,14 @@ interface QueryResponse {
   error?: MediaWikiApiError;
   query?: {
     pages?: QueryPage[];
+    redirects?: Array<{
+      from: string;
+      to: string;
+    }>;
+    normalized?: Array<{
+      from: string;
+      to: string;
+    }>;
     categorymembers?: Array<{
       title: string;
     }>;
@@ -257,6 +309,13 @@ export async function fetchPageSources(titles: string[]) {
         content,
       });
     }
+
+    for (const redirect of data.query?.redirects ?? []) {
+      const target = results.get(titleToSlug(redirect.to));
+      if (target) {
+        results.set(titleToSlug(redirect.from), target);
+      }
+    }
   }
 
   return results;
@@ -358,6 +417,18 @@ export async function resolveImageUrls(fileTitles: Array<string | null | undefin
       const url = stripQuery(page.imageinfo?.[0]?.url);
       if (url) {
         results.set(page.title, url);
+        for (const requestedTitle of fileChunk) {
+          if (titleToSlug(requestedTitle).toLowerCase() === titleToSlug(page.title).toLowerCase()) {
+            results.set(requestedTitle, url);
+          }
+        }
+      }
+    }
+
+    for (const alias of [...(data.query?.normalized ?? []), ...(data.query?.redirects ?? [])]) {
+      const url = results.get(alias.to);
+      if (url) {
+        results.set(alias.from, url);
       }
     }
   }
@@ -524,7 +595,109 @@ function parseLinkedItemRows(wikitext: string) {
     .filter((item): item is LinkedWikiItem => item !== null);
 }
 
+function parseEnemyTableRows(wikitext: string) {
+  return parseSimpleTableRows(wikitext)
+    .map((cells): Omit<LinkedWikiItem, "wikiImageUrl"> & { description: string } | null => {
+      const imageFileTitle = extractFileTitle(cells[0] ?? "");
+      const wikiLink = extractFirstWikiLink(cells[1] ?? "");
+      if (!imageFileTitle || !wikiLink) {
+        return null;
+      }
+
+      return {
+        displayName: cleanWikiText(wikiLink.text),
+        wikiSlug: titleToSlug(wikiLink.target),
+        imageFileTitle,
+        description: cleanWikiText(cells[2] ?? ""),
+      };
+    })
+    .filter((item): item is Omit<LinkedWikiItem, "wikiImageUrl"> & { description: string } => item !== null);
+}
+
 type TemplateExpander = (_text: string, _title: string) => Promise<string>;
+
+const ENEMY_FACTIONS = ["Terminids", "Automatons", "Illuminate", "Super Earth"] as const;
+
+function isEnemyFaction(value: string): value is ScrapedEnemyListing["faction"] {
+  return ENEMY_FACTIONS.includes(value as ScrapedEnemyListing["faction"]);
+}
+
+function parseFactionSubfactions(content: string) {
+  const result = new Map<ScrapedEnemyListing["faction"], string[]>();
+  let faction: ScrapedEnemyListing["faction"] | null = null;
+
+  for (const rawLine of content.split("\n")) {
+    const line = rawLine.trim();
+    const factionHeading = line.match(/^==\s*([^=]+?)\s*==$/);
+    if (factionHeading) {
+      const name = factionHeading[1].trim();
+      faction = isEnemyFaction(name) ? name : null;
+      if (faction && !result.has(faction)) {
+        result.set(faction, []);
+      }
+      continue;
+    }
+
+    const subfactionHeading = line.match(/^===\s*([^=]+?)\s*===$/);
+    if (faction && subfactionHeading) {
+      result.get(faction)?.push(subfactionHeading[1].trim());
+    }
+  }
+
+  return result;
+}
+
+function pageHasCategory(content: string, category: string) {
+  return [...content.matchAll(/\[\[Category:([^|\]]+)/gi)]
+    .some((match) => normalizeName(match[1]) === normalizeName(category));
+}
+
+export async function parseFactionsPageSource(content: string, expand: TemplateExpander = expandTemplate) {
+  const listings = new Map<string, ScrapedEnemyListing>();
+  let faction: ScrapedEnemyListing["faction"] | null = null;
+  let subfaction: string | null = null;
+
+  for (const rawLine of content.split("\n")) {
+    const line = rawLine.trim();
+    const factionHeading = line.match(/^==\s*([^=]+?)\s*==$/);
+    if (factionHeading) {
+      faction = isEnemyFaction(factionHeading[1].trim()) ? factionHeading[1].trim() as ScrapedEnemyListing["faction"] : null;
+      subfaction = null;
+      continue;
+    }
+
+    const subfactionHeading = line.match(/^===\s*([^=]+?)\s*===$/);
+    if (subfactionHeading) {
+      subfaction = subfactionHeading[1].trim();
+    }
+
+    if (!faction) {
+      continue;
+    }
+
+    for (const match of line.matchAll(/{{\s*Enemy Table\s*\|\s*([^}]+?)\s*}}/gi)) {
+      const template = match[0];
+      const expanded = await expand(template, "Factions");
+      for (const parsed of parseEnemyTableRows(expanded)) {
+        const existing = listings.get(parsed.wikiSlug);
+        if (existing) {
+          if (subfaction && !existing.subfactions.includes(subfaction)) {
+            existing.subfactions.push(subfaction);
+          }
+          continue;
+        }
+
+        listings.set(parsed.wikiSlug, {
+          ...parsed,
+          faction,
+          subfactions: subfaction ? [subfaction] : [],
+        });
+      }
+    }
+  }
+
+  return [...listings.values()];
+}
 
 export async function parseStratagemsPageSource(content: string, expand: TemplateExpander = expandTemplate) {
   const currentSection = content.split("== Mission Stratagems ==")[0];
@@ -629,6 +802,258 @@ export async function parseArmorPassivesPageSource(_content: string, expand: Tem
   }
 
   return results;
+}
+
+interface TemplateInvocation {
+  text: string;
+  index: number;
+}
+
+function extractTemplateInvocations(content: string, templateName: string): TemplateInvocation[] {
+  const results: TemplateInvocation[] = [];
+  const matcher = new RegExp(`{{\\s*${templateName}\\b`, "gi");
+
+  for (const match of content.matchAll(matcher)) {
+    const start = match.index ?? 0;
+    let depth = 0;
+
+    for (let index = start; index < content.length - 1; index++) {
+      const pair = content.slice(index, index + 2);
+      if (pair === "{{") {
+        depth++;
+        index++;
+      } else if (pair === "}}") {
+        depth--;
+        index++;
+        if (depth === 0) {
+          results.push({ text: content.slice(start, index + 1), index: start });
+          break;
+        }
+      }
+    }
+  }
+
+  return results;
+}
+
+function splitTopLevelTemplateParts(invocation: string) {
+  const body = invocation.slice(2, -2);
+  const parts: string[] = [];
+  let current = "";
+  let templateDepth = 0;
+  let linkDepth = 0;
+
+  for (let index = 0; index < body.length; index++) {
+    const pair = body.slice(index, index + 2);
+    if (pair === "{{") {
+      templateDepth++;
+      current += pair;
+      index++;
+      continue;
+    }
+    if (pair === "}}") {
+      templateDepth--;
+      current += pair;
+      index++;
+      continue;
+    }
+    if (pair === "[[") {
+      linkDepth++;
+      current += pair;
+      index++;
+      continue;
+    }
+    if (pair === "]]" && linkDepth > 0) {
+      linkDepth--;
+      current += pair;
+      index++;
+      continue;
+    }
+    if (body[index] === "|" && templateDepth === 0 && linkDepth === 0) {
+      parts.push(current);
+      current = "";
+      continue;
+    }
+    current += body[index];
+  }
+
+  parts.push(current);
+  return parts;
+}
+
+function parseTemplateParameters(invocation: string) {
+  const parameters = new Map<string, string>();
+  for (const part of splitTopLevelTemplateParts(invocation).slice(1)) {
+    const separator = part.indexOf("=");
+    if (separator === -1) {
+      continue;
+    }
+    parameters.set(part.slice(0, separator).trim().toLowerCase(), part.slice(separator + 1).trim());
+  }
+  return parameters;
+}
+
+function cleanEnemyValue(value: string | undefined) {
+  if (!value) {
+    return "";
+  }
+
+  let result = value;
+  let previous = "";
+  while (result !== previous && /{{[^{}]*}}/.test(result)) {
+    previous = result;
+    result = result.replace(/{{([^{}]*)}}/g, (_template, body: string) => {
+      const parts = body.split("|").map((part) => part.trim());
+      return parts.slice(1).find((part) => part && !part.includes("=")) ?? "";
+    });
+  }
+
+  return cleanWikiText(result);
+}
+
+function extractWikiSection(content: string, sectionName: string) {
+  const heading = new RegExp(`^-?==\\s*${sectionName}\\s*==\\s*$`, "im").exec(content);
+  if (!heading) {
+    return "";
+  }
+
+  const start = heading.index + heading[0].length;
+  const remainder = content.slice(start);
+  const nextHeading = /^==[^=][^\n]*==\s*$/m.exec(remainder);
+  return remainder.slice(0, nextHeading?.index ?? remainder.length);
+}
+
+function nearestAnatomyName(section: string, tableIndex: number) {
+  const prefix = section.slice(0, tableIndex);
+  const candidates: Array<{ index: number; name: string }> = [];
+
+  for (const match of prefix.matchAll(/^\|-\|\s*([^=\n]+?)\s*=\s*$/gm)) {
+    candidates.push({ index: match.index ?? 0, name: cleanWikiText(match[1]) });
+  }
+  for (const match of prefix.matchAll(/^===\s*([^=\n]+?)\s*===\s*$/gm)) {
+    candidates.push({ index: match.index ?? 0, name: cleanWikiText(match[1]) });
+  }
+
+  return candidates.sort((left, right) => right.index - left.index)[0]?.name ?? "Standard";
+}
+
+export function parseEnemyAnatomy(content: string): ScrapedEnemyAnatomy[] {
+  const anatomySection = extractWikiSection(content, "Anatomy");
+  const anatomyTables = extractTemplateInvocations(anatomySection, "Anatomy Table");
+
+  return anatomyTables.map((table) => ({
+    name: nearestAnatomyName(anatomySection, table.index),
+    parts: extractTemplateInvocations(table.text, "Anatomy Row").map((row) => {
+      const parameters = parseTemplateParameters(row.text);
+      const armorByDifficulty = Object.fromEntries(
+        [...parameters.entries()]
+          .filter(([key]) => /^av\d+$/.test(key))
+          .map(([key, value]) => [key.slice(2), cleanEnemyValue(value)]),
+      );
+      return {
+        name: cleanEnemyValue(parameters.get("part_name")),
+        armor: cleanEnemyValue(parameters.get("av")),
+        ...(Object.keys(armorByDifficulty).length ? { armorByDifficulty } : {}),
+        health: cleanEnemyValue(parameters.get("health")),
+        durability: cleanEnemyValue(parameters.get("durability")),
+      };
+    }).filter((part) => part.name),
+  })).filter((anatomy) => anatomy.parts.length > 0);
+}
+
+function parseEnemyVariants(content: string) {
+  const variantsSection = extractWikiSection(content, "Variants");
+  const variants: Array<Omit<ScrapedEnemyVariant, "wikiImageUrl"> & { imageFileTitle: string }> = [];
+
+  for (const rawLine of variantsSection.split("\n")) {
+    const wikiLink = extractFirstNonFileWikiLink(rawLine);
+    const rawImageName = rawLine.split("|")[0]?.trim().replace(/^File:/i, "");
+    if (!rawImageName || !wikiLink) {
+      continue;
+    }
+
+    variants.push({
+      displayName: cleanWikiText(wikiLink.text),
+      wikiSlug: titleToSlug(wikiLink.target),
+      imageFileTitle: `File:${rawImageName}`,
+    });
+  }
+
+  return variants;
+}
+
+export function parseEnemyPageSource(page: WikiPageSource, listing: ScrapedEnemyListing) {
+  const infobox = extractTemplateInvocations(page.content, "Infobox Enemy")[0];
+  const parameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
+
+  return {
+    displayName: page.title,
+    faction: listing.faction,
+    subfactions: listing.subfactions,
+    description: cleanEnemyValue(parameters.get("description")) || listing.description,
+    enemyClass: cleanEnemyValue(parameters.get("class")) || "Unclassified",
+    wikiSlug: page.slug,
+    imageFileTitle: extractInfoboxImageFile(page.content, page.title) ?? listing.imageFileTitle,
+    variants: parseEnemyVariants(page.content),
+    anatomy: parseEnemyAnatomy(page.content),
+  };
+}
+
+export async function fetchBestiary(): Promise<ScrapedBestiary> {
+  const factionsPage = await fetchPageSource("Factions");
+  if (!factionsPage) {
+    throw new Error("Missing wiki page source for Factions");
+  }
+
+  const listings = await parseFactionsPageSource(factionsPage.content);
+  const subfactionsByFaction = parseFactionSubfactions(factionsPage.content);
+  const pages = await fetchPageSources(listings.map((listing) => listing.wikiSlug));
+  const parsed = listings.map((listing) => {
+    const page = pages.get(listing.wikiSlug);
+    const categorizedSubfactions = page
+      ? (subfactionsByFaction.get(listing.faction) ?? []).filter((subfaction) =>
+        pageHasCategory(page.content, subfaction),
+      )
+      : [];
+    const enrichedListing = {
+      ...listing,
+      subfactions: [...new Set([...listing.subfactions, ...categorizedSubfactions])],
+    };
+    return page ? parseEnemyPageSource(page, enrichedListing) : {
+      ...enrichedListing,
+      enemyClass: "Unclassified",
+      imageFileTitle: listing.imageFileTitle,
+      variants: [],
+      anatomy: [],
+    };
+  });
+  const imageUrls = await resolveImageUrls(parsed.flatMap((enemy) => [
+    enemy.imageFileTitle,
+    ...enemy.variants.map((variant) => variant.imageFileTitle),
+  ]));
+
+  const enemies = parsed.map((enemy) => ({
+    displayName: enemy.displayName,
+    faction: enemy.faction,
+    subfactions: enemy.subfactions,
+    description: enemy.description,
+    enemyClass: enemy.enemyClass,
+    wikiSlug: enemy.wikiSlug,
+    wikiImageUrl: imageUrls.get(enemy.imageFileTitle) ?? null,
+    variants: enemy.variants.map((variant) => ({
+      displayName: variant.displayName,
+      wikiSlug: variant.wikiSlug,
+      wikiImageUrl: imageUrls.get(variant.imageFileTitle) ?? null,
+    })),
+    anatomy: enemy.anatomy,
+  }));
+
+  return {
+    subfactions: Object.fromEntries(
+      ENEMY_FACTIONS.map((faction) => [faction, subfactionsByFaction.get(faction) ?? []]),
+    ) as ScrapedBestiary["subfactions"],
+    enemies,
+  };
 }
 
 interface ExistingWikiItem {
@@ -746,6 +1171,7 @@ export function extractInfoboxImageFile(content: string, pageTitle: string) {
   const rawValue = imageMatch[1]
     .replace(/{{\s*PAGENAME\s*}}/gi, pageTitle)
     .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/\|\s*$/, "")
     .trim();
 
   if (!rawValue) {
