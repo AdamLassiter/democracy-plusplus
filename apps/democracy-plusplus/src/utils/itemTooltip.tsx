@@ -100,6 +100,18 @@ function PropertySection({ title, value, depth = 0 }: { title?: string; value: P
   );
 }
 
+export function ItemPropertiesDisplay({ item }: { item: Item }) {
+  if (!hasProperties(item)) {
+    return <Typography color="text.secondary">No detailed properties are available for this item.</Typography>;
+  }
+
+  return <Box>
+    {Object.entries(item.properties ?? {}).map(([sectionTitle, sectionValue]) => (
+      <PropertySection key={sectionTitle} title={sectionTitle} value={sectionValue} />
+    ))}
+  </Box>;
+}
+
 export default function ItemTooltip({ item, children }: { item: Item; children: ReactNode }) {
   if (!hasProperties(item)) {
     return children;
@@ -109,13 +121,7 @@ export default function ItemTooltip({ item, children }: { item: Item; children: 
     <Tooltip
       title={(
         <Box sx={{ maxHeight: 400, maxWidth: 420, overflow: "auto", p: 1 }}>
-          {Object.entries(item.properties ?? {}).map(([sectionTitle, sectionValue]) => (
-            <PropertySection
-              key={sectionTitle}
-              title={sectionTitle}
-              value={sectionValue}
-            />
-          ))}
+          <ItemPropertiesDisplay item={item} />
         </Box>
       )}
       enterDelay={600}

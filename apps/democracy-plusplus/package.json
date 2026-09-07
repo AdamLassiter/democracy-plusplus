@@ -14,6 +14,7 @@
     "preview": "npm run build && wrangler dev",
     "fetchData": "node --experimental-strip-types scripts/dataFetcher.ts",
     "fetchBestiary": "node --experimental-strip-types scripts/bestiaryFetcher.ts",
+    "fetchStructures": "node --experimental-strip-types scripts/structuresFetcher.ts",
     "enrichData": "node --experimental-strip-types scripts/dataEnricher.ts",
     "enrichOffline": "node --experimental-strip-types scripts/dataEnricher.ts --offline",
     "downloadImages": "node --experimental-strip-types scripts/imageDownloader.ts",

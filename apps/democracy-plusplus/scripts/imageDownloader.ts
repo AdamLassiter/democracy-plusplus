@@ -165,6 +165,20 @@ async function downloadBestiary() {
   saveTask.succeed("written");
 }
 
+async function downloadStructures() {
+  const filePath = path.resolve("public/data/structures.json");
+  const loadTask = createTask("Loading STRUCTURES", filePath);
+  const raw = await fs.readFile(filePath, "utf-8");
+  const data = JSON.parse(raw) as { structures: DownloadableItem[] };
+  loadTask.succeed(`${data.structures.length} structures`);
+  await downloadRecords(data.structures, "structures", "STRUCTURES");
+  for (const structure of data.structures) {
+    structure.imageUrl ??= "icons/bank.svg";
+  }
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+  note("Saved STRUCTURES image paths", "success");
+}
+
 async function main() {
   banner("Image Downloader", "Cache-aware downloads with prompts and retry telemetry");
   await downloadAll("primaries", "PRIMARIES");
@@ -174,6 +188,7 @@ async function main() {
   await downloadAll("boosters", "BOOSTERS");
   await downloadAll("armor_passives", "ARMOR_PASSIVES");
   await downloadBestiary();
+  await downloadStructures();
 
   rl.close();
   note("All image downloads complete", "success");

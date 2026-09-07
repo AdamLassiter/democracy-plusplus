@@ -5,6 +5,8 @@ import {
   parseArmorPassivesPageSource,
   parseEnemyPageSource,
   parseFactionsPageSource,
+  parseDemolitionPageSource,
+  parseStructurePageSource,
   parseStratagemsPageSource,
 } from "../scripts/wikiApi.ts";
 
@@ -43,6 +45,69 @@ test("parseStratagemsPageSource uses current template arguments for categories",
     "Sentry",
     "Emplacement",
   ]);
+});
+
+test("parseDemolitionPageSource reads structure targets, rowspans, and attack sources", () => {
+  const source = `
+{| class="wikitable"
+! Faction !! Structure !! BaDR !! Demo Force
+|-
+| rowspan="2" | {{Automatons|text=Automatons}}
+| [[Fabricator]] (Main) || Yes || 40
+|-
+| [[Fabricator]] (Vent) || No || 20
+|}
+{| class="wikitable"
+|+ Support Weapons
+! Source !! Attack !! Demo Force !! Explosive?
+|-
+| rowspan="2" | [[GR-8 Recoilless Rifle]]
+| Projectile || 30 || No
+|-
+| Explosion || 40 || Yes
+|}`;
+
+  const parsed = parseDemolitionPageSource(source);
+  assert.deepEqual(parsed.structures, [{
+    id: "automatons-fabricator",
+    displayName: "Fabricator",
+    faction: "Automatons",
+    description: "",
+    wikiSlug: "Fabricator",
+    imageFileTitle: null,
+    targets: [
+      { name: "Main", demolitionForce: 40, badr: true },
+      { name: "Vent", demolitionForce: 20, badr: false },
+    ],
+  }]);
+  assert.deepEqual(parsed.demolitionSources, [{
+    displayName: "GR-8 Recoilless Rifle",
+    wikiSlug: "GR-8_Recoilless_Rifle",
+    category: "Support Weapons",
+    attacks: [
+      { name: "Projectile", demolitionForce: 30, explosive: false },
+      { name: "Explosion", demolitionForce: 40, explosive: true },
+    ],
+  }]);
+});
+
+test("parseStructurePageSource adds infobox imagery and a lead description", () => {
+  const parsed = parseStructurePageSource({
+    title: "Fabricator",
+    slug: "Fabricator",
+    content: `{{Infobox Structure\n| image = Fabricator.png\n}}\nA factory that produces Automaton troops.\n\n== Anatomy ==`,
+  }, {
+    id: "automatons-fabricator",
+    displayName: "Fabricator",
+    faction: "Automatons",
+    description: "",
+    wikiSlug: "Fabricator",
+    imageFileTitle: null,
+    targets: [{ name: "Main", demolitionForce: 40, badr: true }],
+  });
+
+  assert.equal(parsed.imageFileTitle, "File:Fabricator.png");
+  assert.equal(parsed.description, "A factory that produces Automaton troops.");
 });
 
 test("parseArmorPassivesPageSource reads div-based passive panels", async () => {

@@ -9,6 +9,7 @@ import minigamesReducer from './minigamesSlice';
 import missionReducer from './missionSlice';
 import multiplayerReducer from './multiplayerSlice';
 import preferencesReducer from './preferencesSlice';
+import plannerReducer from './plannerSlice';
 import purchasedReducer from './purchasedSlice';
 import snackbarReducer from './snackbarSlice';
 import shopReducer from './shopSlice';
@@ -17,7 +18,7 @@ import tierListReducer from './tierListSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['multiplayer'],
+  blacklist: ['multiplayer', 'planner'],
 };
 
 const appReducer = combineReducers({
@@ -29,6 +30,7 @@ const appReducer = combineReducers({
   mission: missionReducer,
   multiplayer: multiplayerReducer,
   preferences: preferencesReducer,
+  planner: plannerReducer,
   purchased: purchasedReducer,
   shop: shopReducer,
   snackbar: snackbarReducer,

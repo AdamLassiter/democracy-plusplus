@@ -26,10 +26,11 @@ import {
 import { selectMultiplayer } from "../../slices/multiplayerSlice";
 import { setConnectionError, setLastProcessedDebriefSubmissionId } from "../../slices/multiplayerSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
-import type { Item, LobbyMember, Quest, Restriction } from "../../types";
+import type { EquipmentState, Item, LobbyMember, MissionState, PlayerCount, Quest, Restriction, Tier } from "../../types";
+import type { AppDispatch } from "../../slices";
 
 export default function Debrief() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const mission = useSelector(selectMission);
   const equipment = useSelector(selectEquipment);
   const multiplayer = useSelector(selectMultiplayer);
@@ -43,9 +44,8 @@ export default function Debrief() {
   const initialDebriefState = createDebriefStateSnapshot(mission, syncedMission);
 
   // Hosts keep the shared lobby debrief state in sync; guests keep their own local completion choices.
-  const [stars, setStars] = useState(initialDebriefState.stars);
-  const [quests, setQuests] = useState<Quest[]>(initialDebriefState.quests);
-  const [restrictions, setRestrictions] = useState<Restriction[]>(initialDebriefState.restrictions);
+  const [debriefState, setDebriefState] = useState(initialDebriefState);
+  const { stars, quests, restrictions } = debriefState;
   const [isFinalised, setIsFinalised] = useState(currentMember?.debriefReady ?? false);
   const [open, setOpen] = useState(true);
   const pendingDebriefMembers = countPendingDebriefMembers(multiplayer.lobbyState?.members);
@@ -54,30 +54,13 @@ export default function Debrief() {
   const hostSubmitDisabled = hasLobbyState && pendingDebriefMembers > 0;
 
   useEffect(() => {
-    const nextStars = syncedMission?.stars ?? 1;
-    setStars((currentStars) => currentStars === nextStars ? currentStars : nextStars);
-    if (isHost) {
-      return;
-    }
-    setQuests((currentQuests) => {
-      const nextSnapshot = syncDebriefStateSnapshot(
-        { stars: nextStars, quests: currentQuests, restrictions },
-        mission,
-        syncedMission,
-        isHost,
-      );
-      return areMissionEntriesEqual(currentQuests, nextSnapshot.quests) ? currentQuests : nextSnapshot.quests;
-    });
-    setRestrictions((currentRestrictions) => {
-      const nextSnapshot = syncDebriefStateSnapshot(
-        { stars: nextStars, quests, restrictions: currentRestrictions },
-        mission,
-        syncedMission,
-        isHost,
-      );
-      return areMissionEntriesEqual(currentRestrictions, nextSnapshot.restrictions)
-        ? currentRestrictions
-        : nextSnapshot.restrictions;
+    setDebriefState((current) => {
+      const next = syncDebriefStateSnapshot(current, mission, syncedMission, isHost);
+      return current.stars === next.stars
+        && areMissionEntriesEqual(current.quests, next.quests)
+        && areMissionEntriesEqual(current.restrictions, next.restrictions)
+        ? current
+        : next;
     });
   }, [isHost, mission, syncedMission]);
 
@@ -98,7 +81,9 @@ export default function Debrief() {
     }
 
     dispatch(setLastProcessedDebriefSubmissionId(submissionId));
-    applyDebriefSubmission();
+    setOpen(false);
+    setIsFinalised(false);
+    applyDebriefSubmission(dispatch, mission, equipment, overrides, playerCount, stars, quests, restrictions);
 
     if (isHost && multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken) {
       void sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
@@ -110,12 +95,18 @@ export default function Debrief() {
     }
   }, [
     dispatch,
+    equipment,
     isHost,
     mission,
     multiplayer.lastProcessedDebriefSubmissionId,
     multiplayer.lobbyCode,
     multiplayer.memberId,
     multiplayer.sessionToken,
+    overrides,
+    playerCount,
+    quests,
+    restrictions,
+    stars,
     syncedMission,
   ]);
 
@@ -124,55 +115,15 @@ export default function Debrief() {
   const restrictionsReward = calculateRestrictionsReward(restrictions, missionReward, questsReward);
   const totalReward = missionReward + questsReward + restrictionsReward;
 
-  function applyDebriefSubmission() {
+  function finaliseDebriefSubmission() {
     setOpen(false);
     setIsFinalised(false);
-    const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
-    const usedItems = [
-      equipment.primary,
-      equipment.secondary,
-      equipment.throwable,
-      equipment.armorPassive,
-      equipment.booster,
-      ...equipment.stratagems,
-    ].filter((item): item is string => Boolean(item));
-    const resolvedUsedItems = usedItems
-      .map((itemName) => getItem(itemName))
-      .filter((item): item is Item => Boolean(item));
-    const unlockedAchievementIds = unlockedAchievementsForItems(resolvedUsedItems);
-    const pricedUsedItems = resolvedUsedItems.map((item) => itemCost({ ...item, tier: getEffectiveTier(item, overrides) }));
-    const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
-    dispatch(addMissionLogEntry({
-      kind: 'mission',
-      id: `mission-${Date.now()}-${mission.count}`,
-      timestamp: new Date().toISOString(),
-      missionNumber: mission.mission,
-      faction: calculateFaction(mission),
-      objective: objective?.displayName ?? 'Unknown Objective',
-      stars,
-      usedItems,
-      usedItemsCost,
-      quests: quests.map((quest) => ({
-        name: quest.displayName,
-        completed: Boolean(quest.completed),
-      })),
-      restrictions: restrictions.map((restriction) => ({
-        name: restriction.displayName,
-        completed: Boolean(restriction.completed),
-      })),
-      totalReward,
-    }));
-    dispatch(addCredits({ amount: totalReward }));
-    dispatch(unlockAchievements({ value: unlockedAchievementIds }));
-    dispatch(resetEquipment());
-    dispatch(resetShop({ missionCount: mission.count, playerCount, tierOverrides: overrides }));
-    dispatch(resetMission());
-    dispatch(setState({ value: 'brief' }));
+    applyDebriefSubmission(dispatch, mission, equipment, overrides, playerCount, stars, quests, restrictions);
   }
 
   function handleStars(_event: SyntheticEvent, newValue: number | null) {
     if (newValue !== null && 1 <= newValue && newValue <= 5) {
-      setStars(newValue);
+      setDebriefState((current) => ({ ...current, stars: newValue }));
       if (multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken && isHost) {
         void sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
           type: "setMissionStars",
@@ -186,7 +137,7 @@ export default function Debrief() {
   function handleRestrictions(event: ChangeEvent<HTMLInputElement>, i: number) {
     const newRestrictions = [...restrictions];
     newRestrictions[i] = { ...newRestrictions[i], completed: event.target.checked };
-    setRestrictions(newRestrictions);
+    setDebriefState((current) => ({ ...current, restrictions: newRestrictions }));
     if (isHost) {
       dispatch(setMissionRestrictions({ value: newRestrictions }));
     }
@@ -194,7 +145,7 @@ export default function Debrief() {
   function handleQuests(event: ChangeEvent<HTMLInputElement>, i: number) {
     const newQuests = [...quests];
     newQuests[i] = { ...newQuests[i], completed: event.target.checked };
-    setQuests(newQuests);
+    setDebriefState((current) => ({ ...current, quests: newQuests }));
     // Guests keep debrief completion local so each player can submit their own report.
     if (isHost) {
       dispatch(setMissionQuests({ value: newQuests }));
@@ -203,7 +154,7 @@ export default function Debrief() {
 
   async function handleSubmit() {
     if (!hasLobbyState) {
-      applyDebriefSubmission();
+      finaliseDebriefSubmission();
       return;
     }
 
@@ -324,6 +275,63 @@ export default function Debrief() {
       </Box>
     </Box>
   </Dialog>;
+}
+
+function applyDebriefSubmission(
+  dispatch: AppDispatch,
+  mission: MissionState,
+  equipment: EquipmentState,
+  overrides: Record<string, Tier>,
+  playerCount: PlayerCount,
+  stars: number,
+  quests: Quest[],
+  restrictions: Restriction[],
+) {
+  const missionReward = calculateMissionReward({ ...mission, stars, playerCount });
+  const questsReward = calculateQuestsReward(quests);
+  const restrictionsReward = calculateRestrictionsReward(restrictions, missionReward, questsReward);
+  const totalReward = missionReward + questsReward + restrictionsReward;
+  const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
+  const usedItems = [
+    equipment.primary,
+    equipment.secondary,
+    equipment.throwable,
+    equipment.armorPassive,
+    equipment.booster,
+    ...equipment.stratagems,
+  ].filter((item): item is string => Boolean(item));
+  const resolvedUsedItems = usedItems
+    .map((itemName) => getItem(itemName))
+    .filter((item): item is Item => Boolean(item));
+  const unlockedAchievementIds = unlockedAchievementsForItems(resolvedUsedItems);
+  const pricedUsedItems = resolvedUsedItems.map((item) => itemCost({ ...item, tier: getEffectiveTier(item, overrides) }));
+  const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
+  dispatch(addMissionLogEntry({
+    kind: "mission",
+    id: `mission-${Date.now()}-${mission.count}`,
+    timestamp: new Date().toISOString(),
+    missionNumber: mission.mission,
+    faction: calculateFaction(mission),
+    objective: objective?.displayName ?? "Unknown Objective",
+    stars,
+    usedItems,
+    usedItemsCost,
+    quests: quests.map((quest) => ({
+      name: quest.displayName,
+      completed: Boolean(quest.completed),
+    })),
+    restrictions: restrictions.map((restriction) => ({
+      name: restriction.displayName,
+      completed: Boolean(restriction.completed),
+    })),
+    totalReward,
+  }));
+  dispatch(addCredits({ amount: totalReward }));
+  dispatch(unlockAchievements({ value: unlockedAchievementIds }));
+  dispatch(resetEquipment());
+  dispatch(resetShop({ missionCount: mission.count, playerCount, tierOverrides: overrides }));
+  dispatch(resetMission());
+  dispatch(setState({ value: "brief" }));
 }
 
 function areMissionEntriesEqual<T extends Quest | Restriction>(current: T[], next: T[]) {

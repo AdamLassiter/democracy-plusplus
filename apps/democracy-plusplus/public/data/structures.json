@@ -1,0 +1,1890 @@
+{
+  "structures": [
+    {
+      "id": "neutral-cargocontainer",
+      "displayName": "Cargo Container",
+      "faction": "Neutral",
+      "description": "",
+      "wikiSlug": "Minor_Places_of_Interest#Cargo_Containers",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 20,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "neutral-illegalbroadcasttower",
+      "displayName": "Illegal Broadcast Tower",
+      "faction": "Neutral",
+      "description": "",
+      "wikiSlug": "Missions#Terminate_Illegal_Broadcast_Tower",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 30,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "neutral-rogueresearchstation",
+      "displayName": "Rogue Research Station",
+      "faction": "Neutral",
+      "description": "This facility contains unpatriotically produced research data, and must be razed to the ground.",
+      "wikiSlug": "Destroy_Rogue_Research_Station",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 50,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Rogue_Research_Lab_OO.png",
+      "imageUrl": "structures/Rogue_Research_Lab_OO.png"
+    },
+    {
+      "id": "superearth-colonywall",
+      "displayName": "Colony Wall",
+      "faction": "Super Earth",
+      "description": "",
+      "wikiSlug": "Colonies",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "superearth-defensegate",
+      "displayName": "Defense Gate",
+      "faction": "Super Earth",
+      "description": "",
+      "wikiSlug": "Evacuate_High-Value_Assets#Defense_Gate",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "superearth-defensegenerator",
+      "displayName": "Defense Generator",
+      "faction": "Super Earth",
+      "description": "",
+      "wikiSlug": "Evacuate_High-Value_Assets#Generator",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "superearth-megacitystructures",
+      "displayName": "Megacity Structures",
+      "faction": "Super Earth",
+      "description": "",
+      "wikiSlug": "Mega_City",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "terminids-biletitanbughole",
+      "displayName": "Bile Titan Bug Hole",
+      "faction": "Terminids",
+      "description": "The Bug Hole is a text exclusive structure found primarily in Bug Nests. These holes will continuously deploy new Terminid units until they are destroyed. They are usually indicated by yellow-orangish spores in-game.",
+      "wikiSlug": "Bug_Hole#Bile_Titan_Bug_Hole",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bug_Hole_Icon.png",
+      "imageUrl": "structures/Bug_Hole_Icon.png"
+    },
+    {
+      "id": "terminids-bughole",
+      "displayName": "Bug Hole",
+      "faction": "Terminids",
+      "description": "The Bug Hole is a text exclusive structure found primarily in Bug Nests. These holes will continuously deploy new Terminid units until they are destroyed. They are usually indicated by yellow-orangish spores in-game.",
+      "wikiSlug": "Bug_Hole",
+      "targets": [
+        {
+          "name": "Inner",
+          "demolitionForce": 20,
+          "badr": true
+        },
+        {
+          "name": "Outer",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bug_Hole_Icon.png",
+      "imageUrl": "structures/Bug_Hole_Icon.png"
+    },
+    {
+      "id": "terminids-infestedtower",
+      "displayName": "Infested Tower",
+      "faction": "Terminids",
+      "description": "Satellite imagery has revealed that entire skyscrapers in this district are infested with Terminids. These beautiful homes and prosperous offices are now nothing but Shrieker breeding grounds. Destroy the former icons of Prosperity that have been so cruelly parasitized.",
+      "wikiSlug": "Cleanse_Infested_District",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 50,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "terminids-shriekernesttower",
+      "displayName": "Shrieker Nest Tower",
+      "faction": "Terminids",
+      "description": "The Shrieker Nest is an Optional Objective contained within a group of Terminid structures. For as long as they are standing, they will spawn Shriekers: flying Terminids that flock around the nest until a Helldiver draws near. The nests consist of two or three mushroom-like structures similar in shape to Spore Spewers which act as a spawn point for the Shriekers. To complete the Optional Objective, Helldivers must destroy the structures, after which the Shriekers will cease spawning.",
+      "wikiSlug": "Shrieker_Nest",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 60,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Shrieker_Nest.png",
+      "imageUrl": "structures/Shrieker_Nest.png"
+    },
+    {
+      "id": "terminids-sporespewer",
+      "displayName": "Spore Spewer",
+      "faction": "Terminids",
+      "description": "The Spore Spewer is a Terminid structure and Optional Objective. To complete the objective, Helldivers must destroy the structure.",
+      "wikiSlug": "Spore_Spewer",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 50,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Terminid_City_Spore_Spewer.png",
+      "imageUrl": "structures/Terminid_City_Spore_Spewer.png"
+    },
+    {
+      "id": "automatons-bioprocessor",
+      "displayName": "Bio-Processor",
+      "faction": "Automatons",
+      "description": "",
+      "wikiSlug": "Enemy_Bio-Processors",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/EnemyBioProcessor.png",
+      "imageUrl": "structures/EnemyBioProcessor.png"
+    },
+    {
+      "id": "automatons-bulkfabricator",
+      "displayName": "Bulk Fabricator",
+      "faction": "Automatons",
+      "description": "The Bulk Fabricator is an Automaton megastructure found exclusively at Automaton Outposts in cities. They periodically deploy heavy enemies such as Hulks until they are destroyed.",
+      "wikiSlug": "Bulk_Fabricator",
+      "targets": [
+        {
+          "name": "Outer",
+          "demolitionForce": 50,
+          "badr": false
+        },
+        {
+          "name": "Vent",
+          "demolitionForce": 20,
+          "badr": true
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Bulk_Fabricator.png",
+      "imageUrl": "structures/Bulk_Fabricator.png"
+    },
+    {
+      "id": "automatons-detectortower",
+      "displayName": "Detector Tower",
+      "faction": "Automatons",
+      "description": "Detector Tower is an Optional Objective exclusive to the text, consisting of a large, rotating surveillance tower that will summon reinforcements if it detects the presence of Helldivers. To complete the objective, Helldivers must destroy the tower.",
+      "wikiSlug": "Detector_Tower",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 50,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Detector_Tower_Desert.png",
+      "imageUrl": "structures/Detector_Tower_Desert.png"
+    },
+    {
+      "id": "automatons-fabricator",
+      "displayName": "Fabricator",
+      "faction": "Automatons",
+      "description": "The Automaton Fabricator, or Light Fabricators in-game, is an Automaton exclusive structure found in Automaton Outposts. These fabricators will continuously deploy new Troopers and their variants until the structure runs out of troopers or is destroyed.",
+      "wikiSlug": "Automaton_Fabricator",
+      "targets": [
+        {
+          "name": "Outer",
+          "demolitionForce": 40,
+          "badr": false
+        },
+        {
+          "name": "Vent",
+          "demolitionForce": 20,
+          "badr": true
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Automaton_Fabricator.png",
+      "imageUrl": "structures/Automaton_Fabricator.png"
+    },
+    {
+      "id": "automatons-fuelreserve",
+      "displayName": "Fuel Reserve",
+      "faction": "Automatons",
+      "description": "",
+      "wikiSlug": "Sabotage_Supply_Bases#Destroy_Fuel_Reserves",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 60,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "automatons-gunshipfacility",
+      "displayName": "Gunship Facility",
+      "faction": "Automatons",
+      "description": "The Gunship Facility is an Optional Objective contained within an Automaton structure. For as long as it is standing, it will continuously spawn Gunships. To complete the Objective, Helldivers must destroy the structure.",
+      "wikiSlug": "Gunship_Facility",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 60,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "automatons-megafactorygates",
+      "displayName": "Megafactory Gates",
+      "faction": "Automatons",
+      "description": "Megafactories are a type of megastructure, unique to Regions that are found on some planets. They are exclusively found on planets Automaton control, and produce the Cyborg Legion.",
+      "wikiSlug": "Automaton_Megafactory#Gates",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 40,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "automatons-orbitalcannon",
+      "displayName": "Orbital Cannon",
+      "faction": "Automatons",
+      "description": "",
+      "wikiSlug": "Neutralize_Ground-to-Orbit_Defenses",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 60,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": null,
+      "imageUrl": "icons/bank.svg"
+    },
+    {
+      "id": "automatons-stratagemjammer",
+      "displayName": "Stratagem Jammer",
+      "faction": "Automatons",
+      "description": "The Stratagem Jammer is an Optional Objective contained within an Automaton structure. For as long as it is standing, it disables the ability for Helldivers within 150m to call down any Stratagem except for SEAF Artillery. To complete the Objective, Helldivers must destroy the structure.",
+      "wikiSlug": "Stratagem_Jammer",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 50,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Stratagem_Jammer_OO_Structure.png",
+      "imageUrl": "structures/Stratagem_Jammer_OO_Structure.png"
+    },
+    {
+      "id": "illuminate-cognitivedisruptorpsu",
+      "displayName": "Cognitive Disruptor PSU",
+      "faction": "Illuminate",
+      "description": "The Cognitive Disruptor is an Illuminate structure. For as long as it is standing, it obscures the names and randomizes the inputs of all Stratagems for Helldivers within 200 meters of the Disruptor. To complete the Objective, Helldivers must disable the structure. This is primarily achieved by destroying the power taps that the Illuminate have placed on nearby structures.",
+      "wikiSlug": "Cognitive_Disruptor#Cognitive_Disruptor_PSU",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 30,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Cognitive_Disruptor_On.png",
+      "imageUrl": "structures/Cognitive_Disruptor_On.png"
+    },
+    {
+      "id": "illuminate-gazer",
+      "displayName": "Gazer",
+      "faction": "Illuminate",
+      "description": "The Gazer are Illuminate defenses found at Illuminate structures.",
+      "wikiSlug": "Gazer",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 20,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Illuminate_Gazer.png",
+      "imageUrl": "structures/Illuminate_Gazer.png"
+    },
+    {
+      "id": "illuminate-gazerspire",
+      "displayName": "Gazer Spire",
+      "faction": "Illuminate",
+      "description": "The Gazer Spire is an Illuminate structure found exclusively on Destroy Gazer Spire and Infiltrate Illuminate Lair.",
+      "wikiSlug": "Gazer_Spire",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 60,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Illuminate_Gazer_Spire.png",
+      "imageUrl": "structures/Illuminate_Gazer_Spire.png"
+    },
+    {
+      "id": "illuminate-groundedwarpship",
+      "displayName": "Grounded Warp Ship",
+      "faction": "Illuminate",
+      "description": "Grounded Warp Ship as a structure",
+      "wikiSlug": "Grounded_Warp_Ship",
+      "targets": [
+        {
+          "name": "Door",
+          "demolitionForce": 20,
+          "badr": true
+        },
+        {
+          "name": "Outer",
+          "demolitionForce": 50,
+          "badr": false
+        },
+        {
+          "name": "Shield",
+          "demolitionForce": 50,
+          "badr": true
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Warp_Ship_Bay_Door.png",
+      "imageUrl": "structures/Warp_Ship_Bay_Door.png"
+    },
+    {
+      "id": "illuminate-lightningspire",
+      "displayName": "Lightning Spire",
+      "faction": "Illuminate",
+      "description": "The Lightning Spire is a static defense found at Illuminate structures.",
+      "wikiSlug": "Lightning_Spire",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 20,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Illuminate_Lightning_Spire_Render.png",
+      "imageUrl": "structures/Illuminate_Lightning_Spire_Render.png"
+    },
+    {
+      "id": "illuminate-monolith",
+      "displayName": "Monolith",
+      "faction": "Illuminate",
+      "description": "Strange Illuminate monoliths seem to be creating fields of negative energy. We do not understand their purpose or their true nature. That is why they must be destroyed. The Monolith appears to be a towering machine with a ring in the base of it. This tower pulses blue lights up the tower at set times along with a sound effect.",
+      "wikiSlug": "Monolith",
+      "targets": [
+        {
+          "name": "Main",
+          "demolitionForce": 60,
+          "badr": false
+        }
+      ],
+      "wikiImageUrl": "https://helldivers.wiki.gg/images/Monolith_POI.png",
+      "imageUrl": "structures/Monolith_POI.png"
+    }
+  ],
+  "demolitionSources": [
+    {
+      "displayName": "AR/GL-21 One-Two",
+      "wikiSlug": "AR/GL-21_One-Two",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile (40mm)",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion (40mm)",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "CB-9 Exploding Crossbow",
+      "wikiSlug": "CB-9_Exploding_Crossbow",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "GP-20 Ultimatum",
+      "wikiSlug": "GP-20_Ultimatum",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "GP-31 Grenade Pistol",
+      "wikiSlug": "GP-31_Grenade_Pistol",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "P-33 Missile Pistol",
+      "wikiSlug": "P-33_Missile_Pistol",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "P/40-K Bolt Pistol",
+      "wikiSlug": "P/40-K_Bolt_Pistol",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "R-36 Eruptor",
+      "wikiSlug": "R-36_Eruptor",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-4 Gas",
+      "wikiSlug": "G-4_Gas",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-6 Frag",
+      "wikiSlug": "G-6_Frag",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-7 Pineapple",
+      "wikiSlug": "G-7_Pineapple",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Cluster Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Cluster Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-10 Incendiary",
+      "wikiSlug": "G-10_Incendiary",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-12 High Explosive",
+      "wikiSlug": "G-12_High_Explosive",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-13 Incendiary Impact",
+      "wikiSlug": "G-13_Incendiary_Impact",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-16 Impact",
+      "wikiSlug": "G-16_Impact",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-31 Arc",
+      "wikiSlug": "G-31_Arc",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Arc",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "G/40-K Melta Mine",
+      "wikiSlug": "G/40-K_Melta_Mine",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-48 Giga Grenade",
+      "wikiSlug": "G-48_Giga_Grenade",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-50 Seeker",
+      "wikiSlug": "G-50_Seeker",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-123 Thermite",
+      "wikiSlug": "G-123_Thermite",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-142 Pyrotech",
+      "wikiSlug": "G-142_Pyrotech",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "TED-63 Dynamite",
+      "wikiSlug": "TED-63_Dynamite",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "TM-1 Lure Mine",
+      "wikiSlug": "TM-1_Lure_Mine",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "40-K Meltagun",
+      "wikiSlug": "40-K_Meltagun",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Beam",
+          "demolitionForce": 30,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "AC-8 Autocannon",
+      "wikiSlug": "AC-8_Autocannon",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "APHET Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "APHET Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Flak Impact",
+          "demolitionForce": 20,
+          "explosive": false
+        },
+        {
+          "name": "Flak Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "APW-1 Anti-Materiel Rifle",
+      "wikiSlug": "APW-1_Anti-Materiel_Rifle",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "ARC-3 Arc Thrower",
+      "wikiSlug": "ARC-3_Arc_Thrower",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Arc",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "B/MD C4 Pack",
+      "wikiSlug": "B/MD_C4_Pack",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "CQC-9 Defoliation Tool",
+      "wikiSlug": "CQC-9_Defoliation_Tool",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "1s Contact",
+          "demolitionForce": 20,
+          "explosive": false
+        },
+        {
+          "name": "2s Contact",
+          "demolitionForce": 30,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "CQC-20 Breaching Hammer",
+      "wikiSlug": "CQC-20_Breaching_Hammer",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EAT-17 Expendable Anti-Tank",
+      "wikiSlug": "EAT-17_Expendable_Anti-Tank",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EAT-411 Leveller",
+      "wikiSlug": "EAT-411_Leveller",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EAT-700 Expendable Napalm",
+      "wikiSlug": "EAT-700_Expendable_Napalm",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Cluster Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Cluster Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "FAF-14 Spear",
+      "wikiSlug": "FAF-14_Spear",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "GL-21 Grenade Launcher",
+      "wikiSlug": "GL-21_Grenade_Launcher",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "GL-28 Belt-Fed Grenade Launcher",
+      "wikiSlug": "GL-28_Belt-Fed_Grenade_Launcher",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "GL-52 De-Escalator",
+      "wikiSlug": "GL-52_De-Escalator",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Arc",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "GR-8 Recoilless Rifle",
+      "wikiSlug": "GR-8_Recoilless_Rifle",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "HEAT Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "HEAT Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "HE Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "HE Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "LAS-98 Laser Cannon",
+      "wikiSlug": "LAS-98_Laser_Cannon",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Beam",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "LAS-99 Quasar Cannon",
+      "wikiSlug": "LAS-99_Quasar_Cannon",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "MLS-4X Commando",
+      "wikiSlug": "MLS-4X_Commando",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "MS-11 Solo Silo",
+      "wikiSlug": "MS-11_Solo_Silo",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Explosion 1",
+          "demolitionForce": 40,
+          "explosive": true
+        },
+        {
+          "name": "Explosion 2",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "PLAS-45 Epoch",
+      "wikiSlug": "PLAS-45_Epoch",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Charged Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Destruct Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "RL-77 Airburst Rocket Launcher",
+      "wikiSlug": "RL-77_Airburst_Rocket_Launcher",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Rocket Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Rocket Explosion",
+          "demolitionForce": 25,
+          "explosive": true
+        },
+        {
+          "name": "Cluster Impact",
+          "demolitionForce": 25,
+          "explosive": false
+        },
+        {
+          "name": "Cluster Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "RS-422 Railgun",
+      "wikiSlug": "RS-422_Railgun",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Destruct Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "S-11 Speargun",
+      "wikiSlug": "S-11_Speargun",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "StA-X3 W.A.S.P. Launcher",
+      "wikiSlug": "StA-X3_W.A.S.P._Launcher",
+      "category": "Support Weapons",
+      "attacks": [
+        {
+          "name": "Rocket Impact",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Rocket Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Artillery Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Gatling Barrage",
+      "wikiSlug": "Orbital_Gatling_Barrage",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Airburst Strike",
+      "wikiSlug": "Orbital_Airburst_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Heavy Shrapnel Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital 120mm HE Barrage",
+      "wikiSlug": "Orbital_120mm_HE_Barrage",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital 380mm HE Barrage",
+      "wikiSlug": "Orbital_380mm_HE_Barrage",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Walking Barrage",
+      "wikiSlug": "Orbital_Walking_Barrage",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Laser",
+      "wikiSlug": "Orbital_Laser",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Beam",
+          "demolitionForce": 50,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Napalm Barrage",
+      "wikiSlug": "Orbital_Napalm_Barrage",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Railcannon Strike",
+      "wikiSlug": "Orbital_Railcannon_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Precision Strike",
+      "wikiSlug": "Orbital_Precision_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Gas Strike",
+      "wikiSlug": "Orbital_Gas_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital EMS Strike",
+      "wikiSlug": "Orbital_EMS_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Orbital Smoke Strike",
+      "wikiSlug": "Orbital_Smoke_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle Strafing Run",
+      "wikiSlug": "Eagle_Strafing_Run",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle Airstrike",
+      "wikiSlug": "Eagle_Airstrike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle Cluster Bomb",
+      "wikiSlug": "Eagle_Cluster_Bomb",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Cluster Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle Napalm Airstrike",
+      "wikiSlug": "Eagle_Napalm_Airstrike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle Smoke Strike",
+      "wikiSlug": "Eagle_Smoke_Strike",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle 110mm Rocket Pods",
+      "wikiSlug": "Eagle_110mm_Rocket_Pods",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Eagle 500kg Bomb",
+      "wikiSlug": "Eagle_500kg_Bomb",
+      "category": "Orbital and Eagle Strikes",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "E/MG-101 HMG Emplacement",
+      "wikiSlug": "E/MG-101_HMG_Emplacement",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "E/AT-12 Anti-Tank Emplacement",
+      "wikiSlug": "E/AT-12_Anti-Tank_Emplacement",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "A/ARC-3 Tesla Tower",
+      "wikiSlug": "A/ARC-3_Tesla_Tower",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Arc",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "E/GL-21 Grenadier Battlement",
+      "wikiSlug": "E/GL-21_Grenadier_Battlement",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "MD-6 Anti-Personnel Minefield",
+      "wikiSlug": "MD-6_Anti-Personnel_Minefield",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "MD-14 Incendiary Mines",
+      "wikiSlug": "MD-I4_Incendiary_Mines",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "MD-17 Anti-Tank Mines",
+      "wikiSlug": "MD-17_Anti-Tank_Mines",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "MD-8 Gas Mines",
+      "wikiSlug": "MD-8_Gas_Mines",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "A/M-12 Mortar Sentry",
+      "wikiSlug": "A/M-12_Mortar_Sentry",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "A/AC-8 Autocannon Sentry",
+      "wikiSlug": "A/AC-8_Autocannon_Sentry",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "A/MLS-4X Rocket Sentry",
+      "wikiSlug": "A/MLS-4X_Rocket_Sentry",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "A/M-23 EMS Mortar Sentry",
+      "wikiSlug": "A/M-23_EMS_Mortar_Sentry",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "A/FLAM-40 Flame Sentry",
+      "wikiSlug": "A/FLAM-40_Flame_Sentry",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Destruction Explosion",
+          "demolitionForce": 20,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Exosuits",
+      "wikiSlug": "Exosuit_(disambiguation)",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Stomp",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Destruction Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EXO-45 Patriot Exosuit",
+      "wikiSlug": "EXO-45_Patriot_Exosuit",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Rocket Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Rocket Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EXO-49 Emancipator Exosuit",
+      "wikiSlug": "EXO-49_Emancipator_Exosuit",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "APHE Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "APHE Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EXO-51 Lumberer Exosuit",
+      "wikiSlug": "EXO-51_Lumberer_Exosuit",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Cannon Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Cannon Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "EXO-55 Breakthrough Exosuit",
+      "wikiSlug": "EXO-55_Breakthrough_Exosuit",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Shield Bash",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Scattergun Projectile",
+          "demolitionForce": 20,
+          "explosive": false
+        }
+      ]
+    },
+    {
+      "displayName": "TD-220 Bastion MK XVI",
+      "wikiSlug": "TD-220_Bastion_MK_XVI",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Cannon Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Cannon Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "B-100 Portable Hellbomb",
+      "wikiSlug": "B-100_Portable_Hellbomb",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 60,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "NUX-223 Hellbomb",
+      "wikiSlug": "NUX-223_Hellbomb",
+      "category": "Other",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 60,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Hellpod",
+      "wikiSlug": "Hellpod",
+      "category": "Other",
+      "attacks": [
+        {
+          "name": "Impact",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "SEAF Artillery",
+      "wikiSlug": "SEAF_Artillery",
+      "category": "Other",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 50,
+          "explosive": false
+        },
+        {
+          "name": "Explosion (Explosive)",
+          "demolitionForce": 50,
+          "explosive": true
+        },
+        {
+          "name": "Explosion (High-Yield Explosive)",
+          "demolitionForce": 50,
+          "explosive": true
+        },
+        {
+          "name": "Explosion (Mini-Nuke)",
+          "demolitionForce": 60,
+          "explosive": true
+        },
+        {
+          "name": "Explosion (Static Field)",
+          "demolitionForce": 30,
+          "explosive": true
+        },
+        {
+          "name": "Explosion (Napalm)",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "SEAF SAM Site",
+      "wikiSlug": "SEAF_SAM_Site",
+      "category": "Other",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 40,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 60,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Planetary Defense Cannon",
+      "wikiSlug": "Take_Down_Overship",
+      "category": "Other",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 60,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 50,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "Ground All-Terrain Extraction Rig (GATER)",
+      "wikiSlug": "Ground_All-Terrain_Extraction_Rig_(GATER)",
+      "category": "Other",
+      "attacks": [
+        {
+          "name": "Projectile",
+          "demolitionForce": 30,
+          "explosive": false
+        },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    }
+  ]
+}

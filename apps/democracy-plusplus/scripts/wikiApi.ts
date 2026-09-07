@@ -5,7 +5,7 @@ import { note } from "./terminalUi.ts";
 export const BASE_URL = "https://helldivers.wiki.gg";
 export const API_URL = `${BASE_URL}/api.php`;
 
-const USER_AGENT = "DemocracyPlusPlus/1.0";
+const USER_AGENT = "DemocracyPlusPlus/1.0 (https://github.com/AdamLassiter/democracy-plusplus)";
 const REQUEST_DELAY_MS = 150;
 const MAX_RETRIES = 5;
 const BASE_BACKOFF_MS = 1000;
@@ -90,6 +90,37 @@ export interface ScrapedBestiary {
   enemies: ScrapedEnemy[];
 }
 
+export type ScrapedStructureFaction = ScrapedEnemyFaction | "Neutral";
+
+export interface ScrapedStructureTarget {
+  name: string;
+  demolitionForce: number;
+  badr: boolean;
+}
+
+export interface ScrapedStructureListing {
+  id: string;
+  displayName: string;
+  faction: ScrapedStructureFaction;
+  description: string;
+  wikiSlug: string;
+  imageFileTitle: string | null;
+  wikiImageUrl?: string | null;
+  targets: ScrapedStructureTarget[];
+}
+
+export interface ScrapedDemolitionSource {
+  displayName: string;
+  wikiSlug: string;
+  category: string;
+  attacks: Array<{ name: string; demolitionForce: number; explosive: boolean }>;
+}
+
+export interface ScrapedStructuresData {
+  structures: Array<Omit<ScrapedStructureListing, "imageFileTitle">>;
+  demolitionSources: ScrapedDemolitionSource[];
+}
+
 interface MediaWikiApiError {
   code?: string;
   info?: string;
@@ -149,7 +180,7 @@ async function apiGet(params: Record<string, string | number>) {
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     try {
       const { data } = await axios.get<ApiResponse>(API_URL, {
-        params,
+        params: { maxlag: 5, ...params },
         headers: {
           "User-Agent": USER_AGENT,
           Accept: "application/json",
@@ -1053,6 +1084,177 @@ export async function fetchBestiary(): Promise<ScrapedBestiary> {
       ENEMY_FACTIONS.map((faction) => [faction, subfactionsByFaction.get(faction) ?? []]),
     ) as ScrapedBestiary["subfactions"],
     enemies,
+  };
+}
+
+function tableCaption(table: string) {
+  return cleanWikiText(table.match(/^\|\+\s*(.+)$/m)?.[1] ?? "");
+}
+
+function tableRows(table: string) {
+  return table
+    .split(/^\|-.*$/m)
+    .slice(1)
+    .map((row) => {
+      const cells: string[] = [];
+      for (const rawLine of row.split("\n")) {
+        const line = rawLine.trim();
+        if (!line || line === "|}" || (!line.startsWith("|") && !line.startsWith("!"))) continue;
+        const separator = line.startsWith("!") ? "!!" : "||";
+        for (const rawCell of line.slice(1).split(separator)) {
+          const attributeSeparator = rawCell.match(/^\s*(?:rowspan|colspan|style|class)\s*=.*?\|(.*)$/i);
+          cells.push((attributeSeparator?.[1] ?? rawCell).trim());
+        }
+      }
+      return cells;
+    })
+    .filter((row) => row.length > 0);
+}
+
+function cleanDemolitionText(value: string) {
+  return cleanEnemyValue(value
+    .replace(/{{\s*Super Earth Federation\s*\|[^}]*}}/gi, "Super Earth")
+    .replace(/{{\s*(Terminids|Automatons|Illuminate)\s*\|[^}]*}}/gi, "$1"));
+}
+
+function normalizeStructureFaction(value: string): ScrapedStructureFaction | null {
+  const normalized = canonicalizeName(cleanDemolitionText(value));
+  if (normalized === "neutral") return "Neutral";
+  if (normalized.includes("superearth")) return "Super Earth";
+  if (normalized.includes("terminid")) return "Terminids";
+  if (normalized.includes("automaton")) return "Automatons";
+  if (normalized.includes("illuminate")) return "Illuminate";
+  return null;
+}
+
+function structureNameParts(value: string) {
+  const link = extractFirstWikiLink(value);
+  if (!link) return null;
+  const fullName = cleanDemolitionText(value);
+  const targetMatch = fullName.match(/\s+\(([^)]+)\)\s*$/);
+  return {
+    displayName: targetMatch ? fullName.slice(0, targetMatch.index).trim() : fullName,
+    targetName: targetMatch?.[1].trim() ?? "Main",
+    wikiSlug: titleToSlug(link.target),
+  };
+}
+
+export function parseDemolitionPageSource(content: string) {
+  const tables = content.match(/{\|[\s\S]*?\|}/g) ?? [];
+  const structureTable = tables.find((table) => /Faction\s*!!\s*Structure\s*!!\s*BaDR/i.test(table));
+  const structures = new Map<string, ScrapedStructureListing>();
+  let faction: ScrapedStructureFaction | null = null;
+
+  for (const cells of structureTable ? tableRows(structureTable) : []) {
+    let offset = 0;
+    const parsedFaction = normalizeStructureFaction(cells[0] ?? "");
+    if (parsedFaction) {
+      faction = parsedFaction;
+      offset = 1;
+    }
+    if (!faction) continue;
+    const structure = structureNameParts(cells[offset] ?? "");
+    const badr = /^yes$/i.test(cleanDemolitionText(cells[offset + 1] ?? ""));
+    const demolitionForce = Number.parseInt(cleanDemolitionText(cells[offset + 2] ?? ""), 10);
+    if (!structure || !Number.isFinite(demolitionForce)) continue;
+    const id = `${canonicalizeName(faction)}-${canonicalizeName(structure.displayName)}`;
+    const existing = structures.get(id) ?? {
+      id,
+      displayName: structure.displayName,
+      faction,
+      description: "",
+      wikiSlug: structure.wikiSlug,
+      imageFileTitle: null,
+      targets: [],
+    };
+    existing.targets.push({ name: structure.targetName, demolitionForce, badr });
+    structures.set(id, existing);
+  }
+
+  const demolitionSources = new Map<string, ScrapedDemolitionSource>();
+  for (const table of tables) {
+    const category = tableCaption(table);
+    if (!category || !/Demo Force/i.test(table) || !/Explosive\?/i.test(table)) continue;
+    let currentSource: { displayName: string; wikiSlug: string } | null = null;
+    for (const cells of tableRows(table)) {
+      let offset = 0;
+      const link = extractFirstWikiLink(cells[0] ?? "");
+      if (link) {
+        currentSource = { displayName: cleanDemolitionText(link.text), wikiSlug: titleToSlug(link.target) };
+        offset = 1;
+      }
+      if (!currentSource) continue;
+      const attackName = cleanDemolitionText(cells[offset] ?? "");
+      const demolitionForce = Number.parseInt(cleanDemolitionText(cells[offset + 1] ?? ""), 10);
+      const explosive = /^yes$/i.test(cleanDemolitionText(cells[offset + 2] ?? ""));
+      if (!attackName || !Number.isFinite(demolitionForce)) continue;
+      const source = demolitionSources.get(currentSource.wikiSlug) ?? { ...currentSource, category, attacks: [] };
+      source.attacks.push({ name: attackName, demolitionForce, explosive });
+      demolitionSources.set(currentSource.wikiSlug, source);
+    }
+  }
+  return { structures: [...structures.values()], demolitionSources: [...demolitionSources.values()] };
+}
+
+function structureLeadDescription(content: string, pageTitle: string) {
+  const withoutInfoboxes = content
+    .replace(/{{Infobox[\s\S]*?^}}\s*$/gim, "")
+    .replace(/{{Breadcrumb[^}]*}}/gi, "")
+    .replace(/{{\s*PAGENAME\s*}}/gi, pageTitle)
+    .trim();
+  return withoutInfoboxes.split(/^==/m)[0]
+    .split(/\n\s*\n/)
+    .map((value) => cleanDemolitionText(value)
+      .replace(/^\|-\|[^=]+=/, "")
+      .split(/\|-\|[^=]+=/)[0]
+      .trim())
+    .find((value) => value.length > 20
+      && !value.startsWith("File:")
+      && !value.startsWith("Category:")
+      && /^[A-Z0-9]/.test(value)
+      && !/looking for something|must be added|add damage info/i.test(value)
+      && !/^(?:\d+\.)+\d+(?:\s+(?:\d+\.)+\d+)*$/.test(value)) ?? "";
+}
+
+function structureTitleMatchesPage(structureName: string, pageTitle: string) {
+  function words(value: string) {
+    return new Set(value.toLowerCase().match(/[a-z0-9]+/g)?.map((word) => word.replace(/s$/, "")) ?? []);
+  }
+  const structureWords = words(structureName);
+  return [...words(pageTitle)].some((word) => word.length > 3 && structureWords.has(word));
+}
+
+export function parseStructurePageSource(page: WikiPageSource, listing: ScrapedStructureListing) {
+  const infobox = extractTemplateInvocations(page.content, "Infobox Structure")[0];
+  const parameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
+  const image = parameters.get("image")?.split("\n")[0]?.trim();
+  const description = structureTitleMatchesPage(listing.displayName, page.title)
+    ? structureLeadDescription(page.content, page.title)
+    : "";
+  return {
+    ...listing,
+    description: description || listing.description,
+    imageFileTitle: image ? `File:${image.replace(/^File:/i, "")}` : listing.imageFileTitle,
+  };
+}
+
+export async function fetchStructures(): Promise<ScrapedStructuresData> {
+  const demolitionPage = await fetchPageSource("Demolition");
+  if (!demolitionPage) throw new Error("Missing wiki page source for Demolition");
+  const parsed = parseDemolitionPageSource(demolitionPage.content);
+  const pageTitles = [...new Set(parsed.structures.map((structure) => structure.wikiSlug.split("#")[0]))];
+  const pages = await fetchPageSources(pageTitles);
+  const detailed = parsed.structures.map((structure) => {
+    const page = pages.get(structure.wikiSlug.split("#")[0]);
+    return page ? parseStructurePageSource(page, structure) : structure;
+  });
+  const imageUrls = await resolveImageUrls(detailed.map((structure) => structure.imageFileTitle));
+  return {
+    structures: detailed.map(({ imageFileTitle, ...structure }) => ({
+      ...structure,
+      wikiImageUrl: imageFileTitle ? imageUrls.get(imageFileTitle) ?? null : null,
+    })),
+    demolitionSources: parsed.demolitionSources,
   };
 }
 

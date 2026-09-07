@@ -22,6 +22,7 @@ import { applyTierOverrides, buildTierDraft } from "../../utils/tierList";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import type { EditableTier, Item, Tier } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";
+import ItemDetailsDialog from "./itemDetailsDialog";
 
 const TIER_LISTS: [string, Item[]][] = [
   ["Primaries", PRIMARIES],
@@ -43,6 +44,7 @@ export default function TierLists() {
   const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
   const [editMode, setEditMode] = useState(false);
   const [draftAssignments, setDraftAssignments] = useState<Record<string, EditableTier>>({});
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
   const effectiveTierLists = useMemo(
     () => TIER_LISTS.map(([label, items]) => [label, applyTierOverrides(items, overrides)] as const),
@@ -99,7 +101,7 @@ export default function TierLists() {
 
   return (
     <Box sx={{ width: "100%", position: "relative" }}>
-      <Typography variant="h5">Tier List</Typography>
+      <Typography variant="h5">Armory</Typography>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange}>
           {effectiveTierLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
@@ -116,8 +118,10 @@ export default function TierLists() {
           draftAssignments={draftAssignments}
           onMoveToTier={handleMoveToTier}
           onUncategorize={(displayName) => handleMoveToTier(displayName, "uncategorized")}
+          onOpenItem={setSelectedItem}
         />
       </Box>
+      <ItemDetailsDialog item={selectedItem} onClose={() => setSelectedItem(null)} />
           <Fab
             color="primary"
             sx={{ position: "fixed", bottom: 24, right: 24 }}

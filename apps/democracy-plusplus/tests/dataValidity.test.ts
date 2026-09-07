@@ -100,6 +100,7 @@ const factions = readJson<string[]>("factions.json");
 const objectives = readJson<JsonObject[]>("objectives.json");
 const bestiary = readJson<JsonObject>("enemies.json");
 const enemies = bestiary.enemies as JsonObject[];
+const structuresData = readJson<JsonObject>("structures.json");
 const warbondCodes = warbonds.map((warbond, index) => {
   const context = `warbonds[${index}]`;
   const item = asObject(warbond, context);
@@ -385,6 +386,59 @@ test("public data files use valid schema keys and value types", async (t) => {
     });
 
     assertUnique(displayNames, "enemy display names");
+  });
+
+  await t.test("structures.json contains demolition targets, attack sources, and local images", () => {
+    assertAllowedKeys(structuresData, ["structures", "demolitionSources"], "structures.json");
+    assert.ok(Array.isArray(structuresData.structures), "structures.json.structures must be an array");
+    assert.ok(Array.isArray(structuresData.demolitionSources), "structures.json.demolitionSources must be an array");
+    assert.ok(structuresData.structures.length > 0, "structures must not be empty");
+    assert.ok(structuresData.demolitionSources.length > 0, "demolitionSources must not be empty");
+
+    const structureIds: string[] = [];
+    structuresData.structures.forEach((entry: unknown, index: number) => {
+      const context = `structures[${index}]`;
+      const structure = asObject(entry, context);
+      assertAllowedKeys(structure, ["id", "displayName", "faction", "description", "wikiSlug", "wikiImageUrl", "imageUrl", "targets"], context);
+      assertRequiredKeys(structure, ["id", "displayName", "faction", "description", "wikiSlug", "wikiImageUrl", "imageUrl", "targets"], context);
+      expectString(structure.id, `${context}.id`);
+      expectString(structure.displayName, `${context}.displayName`);
+      assert.ok(["Neutral", ...BESTIARY_FACTIONS].includes(structure.faction), `${context}.faction must be supported`);
+      assert.equal(typeof structure.description, "string", `${context}.description must be a string`);
+      expectString(structure.wikiSlug, `${context}.wikiSlug`);
+      expectOptionalString(structure.wikiImageUrl, `${context}.wikiImageUrl`);
+      expectImagePath(structure.imageUrl, `${context}.imageUrl`);
+      assert.ok(Array.isArray(structure.targets) && structure.targets.length > 0, `${context}.targets must not be empty`);
+      structure.targets.forEach((entry: unknown, targetIndex: number) => {
+        const targetContext = `${context}.targets[${targetIndex}]`;
+        const target = asObject(entry, targetContext);
+        assertAllowedKeys(target, ["name", "demolitionForce", "badr"], targetContext);
+        expectString(target.name, `${targetContext}.name`);
+        assert.equal(typeof target.demolitionForce, "number", `${targetContext}.demolitionForce must be a number`);
+        assert.ok(target.demolitionForce >= 0, `${targetContext}.demolitionForce must be non-negative`);
+        assert.equal(typeof target.badr, "boolean", `${targetContext}.badr must be a boolean`);
+      });
+      structureIds.push(structure.id as string);
+    });
+    assertUnique(structureIds, "structure ids");
+
+    structuresData.demolitionSources.forEach((entry: unknown, index: number) => {
+      const context = `demolitionSources[${index}]`;
+      const source = asObject(entry, context);
+      assertAllowedKeys(source, ["displayName", "wikiSlug", "category", "attacks"], context);
+      expectString(source.displayName, `${context}.displayName`);
+      expectString(source.wikiSlug, `${context}.wikiSlug`);
+      expectString(source.category, `${context}.category`);
+      assert.ok(Array.isArray(source.attacks) && source.attacks.length > 0, `${context}.attacks must not be empty`);
+      source.attacks.forEach((entry: unknown, attackIndex: number) => {
+        const attackContext = `${context}.attacks[${attackIndex}]`;
+        const attack = asObject(entry, attackContext);
+        assertAllowedKeys(attack, ["name", "demolitionForce", "explosive"], attackContext);
+        expectString(attack.name, `${attackContext}.name`);
+        assert.equal(typeof attack.demolitionForce, "number", `${attackContext}.demolitionForce must be a number`);
+        assert.equal(typeof attack.explosive, "boolean", `${attackContext}.explosive must be a boolean`);
+      });
+    });
   });
 
   await t.test("quests.json contains valid quest definitions", () => {

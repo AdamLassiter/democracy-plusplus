@@ -4,6 +4,7 @@ import type { EquipmentCategory, Faction, ItemType, Objective, ObjectiveTag, Str
 import {
   fetchMainObjectives,
   fetchBestiary,
+  fetchStructures,
   fetchPageSource,
   findBestScrapedMatch,
   getImageFileName,
@@ -413,7 +414,7 @@ async function main() {
     const passives = await enrichWithImageUrls(
       await parseArmorPassivesPageSource(passivesPage.content),
     );
-    const bestiary = await fetchBestiary();
+    const [bestiary, structures] = await Promise.all([fetchBestiary(), fetchStructures()]);
     parseTask.succeed("parsed");
     summary("Parsed counts", {
       weapons: weapons.length,
@@ -421,9 +422,11 @@ async function main() {
       boosters: boosters.length,
       passives: passives.length,
       enemies: bestiary.enemies.length,
+      structures: structures.structures.length,
     });
 
     await fs.writeFile("./public/data/enemies.json", JSON.stringify(bestiary, null, 2));
+    await fs.writeFile("./public/data/structures.json", JSON.stringify(structures, null, 2));
 
     await mergeData("primaries", weapons, "PRIMARIES");
     await mergeData("secondaries", weapons, "SECONDARIES");

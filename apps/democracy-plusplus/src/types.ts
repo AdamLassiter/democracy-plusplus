@@ -148,6 +148,64 @@ export interface BestiaryData {
   enemies: Enemy[];
 }
 
+export type StructureFaction = EnemyFaction | "Neutral";
+
+export interface StructureTarget {
+  name: string;
+  demolitionForce: number;
+  badr: boolean;
+}
+
+export interface Structure {
+  id: string;
+  displayName: string;
+  faction: StructureFaction;
+  description: string;
+  wikiSlug: string;
+  wikiImageUrl: string | null;
+  imageUrl: string;
+  targets: StructureTarget[];
+}
+
+export interface DemolitionAttackSource {
+  name: string;
+  demolitionForce: number;
+  explosive: boolean;
+}
+
+export interface DemolitionSource {
+  displayName: string;
+  wikiSlug: string;
+  category: string;
+  attacks: DemolitionAttackSource[];
+}
+
+export interface StructuresData {
+  structures: Structure[];
+  demolitionSources: DemolitionSource[];
+}
+
+export type CoverageState = "none" | "partial" | "full";
+export type EnemyCoverageState = "none" | "partialResisted" | "partial" | "fullResisted" | "full";
+
+export interface AttackCapability {
+  itemName: string;
+  attackName: string;
+  armorPenetration: number | null;
+  demolitionForce: number | null;
+  explosive: boolean;
+}
+
+export type PlannerScope = "local" | "squad" | string;
+
+export interface PlannerState {
+  mode: "browse" | "planner";
+  scope: PlannerScope;
+  disabledItemKeys: string[];
+  enemyCoverageFilters: EnemyCoverageState[];
+  structureCoverageFilters: CoverageState[];
+}
+
 export interface CreditsState {
   credits: number;
 }

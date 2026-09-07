@@ -24,6 +24,7 @@
     "preview": "npm run preview -w democracy-plusplus",
     "fetchData": "npm run fetchData -w democracy-plusplus",
     "fetchBestiary": "npm run fetchBestiary -w democracy-plusplus",
+    "fetchStructures": "npm run fetchStructures -w democracy-plusplus",
     "enrichData": "npm run enrichData -w democracy-plusplus",
     "enrichOffline": "npm run enrichOffline -w democracy-plusplus",
     "downloadImages": "npm run downloadImages -w democracy-plusplus",

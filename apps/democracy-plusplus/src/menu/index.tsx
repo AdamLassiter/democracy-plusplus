@@ -6,6 +6,7 @@ import Loadout from './loadout';
 import Shop from './shop';
 import TierLists from './tierList';
 import Bestiary from './bestiary';
+import Structures from './structures';
 import Log from './log';
 import { selectCredits } from '../slices/creditsSlice';
 import { selectMission } from '../slices/missionSlice';
@@ -22,9 +23,11 @@ import { nextSecretSequenceIndex, normalizeArrowKey, shouldIgnoreSecretTarget } 
 import { resetLobbySession, selectMultiplayer, setConnecting, setConnectionError, setDisplayName, setLobbySession } from '../slices/multiplayerSlice';
 import LobbyPanel from '../multiplayer/lobbyPanel';
 import { HostLobby, JoinLobby } from './lobby';
+import { retainQueryKeys, updateQuery, useQueryValue } from '../utils/browseUrl';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 const FORMS_SEQUENCE = ["Up", "Right", "Down", "Down", "Down", "Down", "Down", "Down"] as const;
+const TAB_NAMES = ["loadout", "shop", "armory", "bestiary", "structures", "log"];
 
 type MenuTabProps = {
   index: number;
@@ -32,7 +35,7 @@ type MenuTabProps = {
 
 export default function Menu() {
   const dispatch = useDispatch();
-  const [currentTab, setCurrentTab] = useState(0);
+  const [tabName] = useQueryValue("tab", "loadout");
   const [isStratagemGameUnlocked, setIsStratagemGameUnlocked] = useState(false);
   const [isStratagemGameOpen, setIsStratagemGameOpen] = useState(false);
   const [isFormsGameUnlocked, setIsFormsGameUnlocked] = useState(false);
@@ -47,8 +50,12 @@ export default function Menu() {
   const formsSequenceIndexRef = useRef(0);
   const formsLastKeyTimeRef = useRef(0);
 
+  useEffect(() => {
+    retainQueryKeys(["tab"]);
+  }, []);
+
   function handleTabChange(_event: SyntheticEvent, newValue: number) {
-    setCurrentTab(newValue);
+    updateQuery({ tab: TAB_NAMES[newValue] === "loadout" ? null : TAB_NAMES[newValue] }, true);
   }
 
   const { credits } = useSelector(selectCredits);
@@ -62,7 +69,8 @@ export default function Menu() {
       ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
       : "After playing the mission in-game, submit the mission report with the final results.";
 
-  const tabs: Array<(_props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Bestiary, Log];
+  const tabs: Array<(_props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Bestiary, Structures, Log];
+  const currentTab = Math.max(0, TAB_NAMES.indexOf(tabName));
   const CurrentTab = tabs[currentTab];
   const multiplayerEnabled = multiplayer.backendAvailable;
   const lobbyConnected = multiplayer.connectionStatus === "connected" && Boolean(multiplayer.lobbyState);
@@ -180,11 +188,12 @@ export default function Menu() {
         }}
       >
         {/* Tabs aligned to the left */}
-        <Tabs value={currentTab} onChange={handleTabChange}>
+        <Tabs value={currentTab} onChange={handleTabChange} variant="scrollable" scrollButtons="auto">
           <Tab label="Loadout" />
           <Tab label="Shop" />
-          <Tab label="Tier List" />
+          <Tab label="Armory" />
           <Tab label="Bestiary" />
+          <Tab label="Structures" />
           <Tab label="Log" />
         </Tabs>
 

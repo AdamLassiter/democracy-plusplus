@@ -92,9 +92,14 @@ Refresh the enemy bestiary from the wiki's Factions page and each linked enemy's
 
 ```sh
 npm run fetchBestiary
+npm run fetchStructures
 ```
 
-The full `npm run fetchData` workflow also refreshes `public/data/enemies.json`.
+The full `npm run fetchData` workflow also refreshes `public/data/enemies.json` and
+`public/data/structures.json`. The structures scraper follows the Demolition table
+to linked structure pages for descriptions and imagery, while retaining the source
+table's demolition force and BaDR requirements.
+
 After refreshing wiki data, cache and resize its images locally with:
 
 ```sh
