@@ -22,6 +22,7 @@
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "45",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -29,10 +30,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*5.5x50mm FULL METAL JACKET P": "Projectile"
+          "*AR-23 P": "Projectile"
         }
       },
-      "5.5x50mm FULL METAL JACKET P": {
+      "AR-23 P": {
         "Projectile": {
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
@@ -81,6 +82,7 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "59",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "45",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -88,10 +90,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*5.5x50mm PENETRATOR P": "Projectile"
+          "*AR-23P P": "Projectile"
         }
       },
-      "5.5x50mm PENETRATOR P": {
+      "AR-23P P": {
         "Projectile": {
           "Mass": "4.5 g",
           "Initial Velocity": "1000 m/s",
@@ -141,6 +143,7 @@
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "60",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -148,10 +151,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*5.5x50mm EXPLOSIVE P": "Projectile"
+          "*AR-23C P": "Projectile"
         }
       },
-      "5.5x50mm EXPLOSIVE P": {
+      "AR-23C P": {
         "Projectile": {
           "Mass": "4.5 g",
           "Initial Velocity": "800 m/s",
@@ -200,6 +203,7 @@
           "Spread": "↔[3.00] ↕[3.00]",
           "Sway": "1",
           "Ergonomics": "70",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "45",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -207,10 +211,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*5.5x50mm FULL METAL JACKET P": "Projectile"
+          "*AR-23 P": "Projectile"
         }
       },
-      "5.5x50mm FULL METAL JACKET P": {
+      "AR-23 P": {
         "Projectile": {
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
@@ -259,6 +263,7 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "40",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "30",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -266,10 +271,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*8x60mm FULL METAL JACKET P": "Projectile"
+          "*BR-14 P": "Projectile"
         }
       },
-      "8x60mm FULL METAL JACKET P": {
+      "BR-14 P": {
         "Projectile": {
           "Mass": "11 g",
           "Initial Velocity": "820 m/s",
@@ -318,6 +323,7 @@
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "55",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "56",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -325,10 +331,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*5.5x50mm FULL METAL JACKET P": "Projectile"
+          "*AR-23 P": "Projectile"
         }
       },
-      "5.5x50mm FULL METAL JACKET P": {
+      "AR-23 P": {
         "Projectile": {
           "Mass": "4.5 g",
           "Initial Velocity": "900 m/s",
@@ -378,6 +384,7 @@
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
           "Ergonomics": "60",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "40",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -445,6 +452,7 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "35",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -504,6 +512,7 @@
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "60",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "32",
           "Spare Magazines": "8",
           "Starting Magazines": "5",
@@ -564,6 +573,7 @@
           "Spread": "↔[4.00] ↕[4.00]",
           "Sway": "1",
           "Ergonomics": "50",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "45",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -647,6 +657,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "25",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "49",
           "Spare Magazines": "7",
           "Starting Magazines": "6",
@@ -707,6 +718,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "90",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "45",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -714,10 +726,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*12x25mm FULL METAL JACKET P2": "Projectile"
+          "*SMG-37 P": "Projectile"
         }
       },
-      "12x25mm FULL METAL JACKET P2": {
+      "SMG-37 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
@@ -767,6 +779,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "90",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "45",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -834,6 +847,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "55",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "25",
           "Spare Magazines": "9",
           "Starting Magazines": "5",
@@ -841,10 +855,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*12x25mm FULL METAL JACKET P1": "Projectile"
+          "*SMG-32 P": "Projectile"
         }
       },
-      "12x25mm FULL METAL JACKET P1": {
+      "SMG-32 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
@@ -893,6 +907,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "0.7",
           "Ergonomics": "80",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "48",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -900,10 +915,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*9x20mm FULL METAL JACKET P": "Projectile"
+          "*MP-98 P": "Projectile"
         }
       },
-      "9x20mm FULL METAL JACKET P": {
+      "MP-98 P": {
         "Projectile": {
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
@@ -952,6 +967,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "90",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "50",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -959,10 +975,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*9x20mm FULL METAL JACKET P": "Projectile"
+          "*MP-98 P": "Projectile"
         }
       },
-      "9x20mm FULL METAL JACKET P": {
+      "MP-98 P": {
         "Projectile": {
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
@@ -1012,6 +1028,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "90",
+          "Noise When Firing": "Suppressed (~13m)",
           "Capacity": "48",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -1071,6 +1088,7 @@
           "Spread": "↔[150.00] ↕[120.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "16",
           "Spare Rounds": "60",
           "Starting Rounds": "32",
@@ -1078,10 +1096,10 @@
           "Rounds from Ammo Box": "30"
         },
         "Attacks": {
-          "*BUCKSHOT P1": "Projectile"
+          "*SG-22 P": "Projectile"
         }
       },
-      "BUCKSHOT P1": {
+      "SG-22 P": {
         "Projectile": {
           "Pellets": "x 9",
           "Mass": "6 g",
@@ -1132,6 +1150,7 @@
           "Spread": "↔[180.00] ↕[140.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "16",
           "Spare Rounds": "60",
           "Starting Rounds": "32",
@@ -1216,6 +1235,7 @@
           "Spread": "↔[6.00] ↕[6.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "16",
           "Spare Rounds": "60",
           "Starting Rounds": "32",
@@ -1223,10 +1243,10 @@
           "Rounds from Ammo Box": "30"
         },
         "Attacks": {
-          "*10g RIFLED SLUGS P": "Projectile"
+          "*SG-8S P": "Projectile"
         }
       },
-      "10g RIFLED SLUGS P": {
+      "SG-8S P": {
         "Projectile": {
           "Mass": "50 g",
           "Initial Velocity": "390 m/s",
@@ -1275,6 +1295,7 @@
           "Spread": "↔[100.00] ↕[100.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "16",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -1282,10 +1303,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*12g BUCKSHOT P": "Projectile"
+          "*SG-225 P": "Projectile"
         }
       },
-      "12g BUCKSHOT P": {
+      "SG-225 P": {
         "Projectile": {
           "Pellets": "x 11",
           "Mass": "4 g",
@@ -1336,6 +1357,7 @@
           "Spread": "↔[300.00] ↕[300.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "26",
           "Spare Magazines": "4",
           "Starting Magazines": "3",
@@ -1343,11 +1365,11 @@
           "Mags from Ammo Box": "2"
         },
         "Attacks": {
-          "*12g LIBERTY FIRE P": "Projectile",
+          "*SG-225IE P": "Projectile",
           "**Fire": "status"
         }
       },
-      "12g LIBERTY FIRE P": {
+      "SG-225IE P": {
         "Projectile": {
           "Pellets": "x 12",
           "Mass": "2 g",
@@ -1409,7 +1431,7 @@
     "tier": "a",
     "wikiSlug": "SG-225SP_Breaker_Spray&Pray",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/SG-225SP_Breaker_Spray%26Pray_Primary_Render.png",
-    "imageUrl": "primaries/SG-225SP_Breaker_Spray%26Pray_Primary_Render.png",
+    "imageUrl": "primaries/SG-225SP_Breaker_Spray&Pray_Primary_Render.png",
     "properties": {
       "SG-225SP BREAKER SPRAY&PRAY": {
         "Base": {
@@ -1420,6 +1442,7 @@
           "Spread": "↔[200.00] ↕[200.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "26",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -1427,10 +1450,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*12g BIRDSHOT P": "Projectile"
+          "*SG-225SP P": "Projectile"
         }
       },
-      "12g BIRDSHOT P": {
+      "SG-225SP P": {
         "Projectile": {
           "Pellets": "x 16",
           "Mass": "1 g",
@@ -1481,6 +1504,7 @@
           "Spread": "↔[300.00] ↕[200.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "16",
           "Spare Rounds": "60",
           "Starting Rounds": "32",
@@ -1488,12 +1512,12 @@
           "Rounds from Ammo Box": "30"
         },
         "Attacks": {
-          "*10g FLECHETTES P": "Projectile",
-          "*10g STUN ROUNDS P": "Projectile",
+          "*SG-20 P": "Projectile",
+          "*SG-20 P1": "Projectile",
           "**Stun Large": "status"
         }
       },
-      "10g FLECHETTES P": {
+      "SG-20 P": {
         "Projectile": {
           "Pellets": "x 11",
           "Mass": "6 g",
@@ -1518,7 +1542,7 @@
           "Push Force": "20"
         }
       },
-      "10g STUN ROUNDS P": {
+      "SG-20 P1": {
         "Projectile": {
           "Pellets": "x 20",
           "Mass": "4.5 g",
@@ -1575,6 +1599,7 @@
           "Spread": "↔[120.00] ↕[100.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "6",
           "Spare Rounds": "44",
           "Starting Rounds": "24",
@@ -1582,10 +1607,10 @@
           "Rounds from Ammo Box": "22"
         },
         "Attacks": {
-          "*BUCKSHOT P": "Projectile"
+          "*M90A P": "Projectile"
         }
       },
-      "BUCKSHOT P": {
+      "M90A P": {
         "Projectile": {
           "Pellets": "x 11",
           "Mass": "6 g",
@@ -1635,6 +1660,7 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "25",
           "Spare Magazines": "8",
           "Starting Magazines": "5",
@@ -1642,10 +1668,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*9x70mm FULL METAL JACKET P": "Projectile"
+          "*R-63 P": "Projectile"
         }
       },
-      "9x70mm FULL METAL JACKET P": {
+      "R-63 P": {
         "Projectile": {
           "Mass": "20 g",
           "Initial Velocity": "850 m/s",
@@ -1694,17 +1720,18 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "0.8",
           "Ergonomics": "35",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "15",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
-          "Mags from Supply": "6",
-          "Mags from Ammo Box": "3"
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*9x70mm HIGH VELOCITY P": "Projectile"
+          "*R-63CS P": "Projectile"
         }
       },
-      "9x70mm HIGH VELOCITY P": {
+      "R-63CS P": {
         "Projectile": {
           "Mass": "20 g",
           "Initial Velocity": "940 m/s",
@@ -1753,6 +1780,7 @@
           "Spread": "↔[0.10] ↕[0.10]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "8",
           "Spare Rounds": "60",
           "Starting Rounds": "32",
@@ -1812,6 +1840,7 @@
           "Spread": "↔[0.10] ↕[0.10]",
           "Sway": "1",
           "Ergonomics": "50",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "20",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -1872,6 +1901,7 @@
           "Spread": "↔[0.10] ↕[0.10]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "5",
           "Spare Rounds": "100",
           "Starting Rounds": "60",
@@ -1932,6 +1962,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Spare Magazines": "4",
           "Starting Magazines": "3",
           "Mags from Supply": "6",
@@ -2020,6 +2051,7 @@
           "Spread": "↔[20.00] ↕[20.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Spare Magazines": "3",
           "Starting Magazines": "2",
           "Mags from Supply": "6",
@@ -2033,10 +2065,10 @@
           "Cooldown After Overheat": "RELOAD NEEDED"
         },
         "Attacks": {
-          "*LASER P": "Projectile"
+          "*LAS-16 P": "Projectile"
         }
       },
-      "LASER P": {
+      "LAS-16 P": {
         "Projectile": {
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
@@ -2087,6 +2119,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "20",
           "Spare Magazines": "5",
           "Starting Magazines": "3",
@@ -2094,18 +2127,18 @@
           "Mags from Ammo Box": "2"
         },
         "Attacks": {
-          "*MEDIUM PLASMA BOLT P": "Projectile",
-          "**MEDIUM PLASMA BOLT P IE": "Explosion"
+          "*PLAS-1 P": "Projectile",
+          "**PLAS-1 P IE": "Explosion"
         }
       },
-      "MEDIUM PLASMA BOLT P": {
+      "PLAS-1 P": {
         "Projectile": {
           "Mass": "25 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "150%",
           "Gravity Factor": "50%",
           "Penetration Slowdown": "35%",
-          "Explosion On Impact": "MEDIUM PLASMA BOLT_P_IE"
+          "Explosion On Impact": "PLAS-1_P_IE"
         },
         "Damage": {
           "Standard": "100 Ballistic",
@@ -2123,7 +2156,7 @@
           "Push Force": "10"
         }
       },
-      "MEDIUM PLASMA BOLT P IE": {
+      "PLAS-1 P IE": {
         "Area of Effect": {
           "Inner Radius": "1 m",
           "Outer Radius": "2 m",
@@ -2137,7 +2170,9 @@
           "Outer Durable": "99 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "10",
@@ -2171,6 +2206,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "15",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -2178,76 +2214,27 @@
           "Mags from Ammo Box": "3"
         },
         "Charge": {
-          "at (0.01)s": "VOLATILE PLASMA BOLT_P× 0.50 dmg",
-          "at (1.00)s": "LARGE PLASMA BOLT_P× 1.00 dmg",
+          "at (0.01)s": "0.50 dmg × P",
+          "at (1.00)s": "1.00 dmg × PLAS-101_P",
           "Speed Mult Range": "(1.00) (1.00)",
           "Distance Mult Range": "(0.70) (1.40)",
           "Damage Mult Range": "(0.50) (1.00)"
         },
         "Attacks": {
-          "*LARGE PLASMA BOLT P": "Projectile",
-          "*VOLATILE PLASMA BOLT P": "Projectile",
-          "**LARGE PLASMA BOLT P IE": "Explosion",
-          "**VOLATILE PLASMA BOLT P IE": "Explosion"
+          "*P": "Projectile",
+          "*PLAS-101 P": "Projectile",
+          "**PLAS-101 P IE": "Explosion",
+          "**P IE": "Explosion"
         }
       },
-      "LARGE PLASMA BOLT P": {
-        "Projectile": {
-          "Mass": "25 g",
-          "Initial Velocity": "350 m/s",
-          "Drag Factor": "150%",
-          "Gravity Factor": "100%",
-          "Penetration Slowdown": "35%",
-          "Explosion On Impact": "LARGE PLASMA BOLT_P_IE"
-        },
-        "Damage": {
-          "Standard": "100 Ballistic",
-          "vs. Durable": "50 Ballistic"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored"
-        },
-        "Special Effects": {
-          "Demolition Force": "10",
-          "Stagger Force": "20",
-          "Push Force": "10"
-        }
-      },
-      "LARGE PLASMA BOLT P IE": {
-        "Area of Effect": {
-          "Inner Radius": "2.9000001 m",
-          "Outer Radius": "3 m",
-          "Shockwave Radius": "4 m"
-        },
-        "Damage": {
-          "Damage Element": "None",
-          "Inner Radius": "300 Explosion",
-          "Inner Durable": "300 Explosion",
-          "Outer Radius": "299 - 0",
-          "Outer Durable": "299 - 0"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium"
-        },
-        "AoE Effect": {
-          "Demolition Force": "10",
-          "Stagger Force": "35",
-          "Push Force": "30"
-        }
-      },
-      "VOLATILE PLASMA BOLT P": {
+      "P": {
         "Projectile": {
           "Mass": "25 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "150%",
           "Gravity Factor": "100%",
           "Penetration Slowdown": "35%",
-          "Explosion On Impact": "VOLATILE PLASMA BOLT_P_IE"
+          "Explosion On Impact": "P_IE"
         },
         "Damage": {
           "Standard": "200 Ballistic",
@@ -2265,7 +2252,7 @@
           "Push Force": "10"
         }
       },
-      "VOLATILE PLASMA BOLT P IE": {
+      "P IE": {
         "Area of Effect": {
           "Inner Radius": "1 m",
           "Outer Radius": "2 m",
@@ -2279,12 +2266,63 @@
           "Outer Durable": "74 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "10",
           "Stagger Force": "10",
           "Push Force": "7"
+        }
+      },
+      "PLAS-101 P": {
+        "Projectile": {
+          "Mass": "25 g",
+          "Initial Velocity": "350 m/s",
+          "Drag Factor": "150%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "PLAS-101_P_IE"
+        },
+        "Damage": {
+          "Standard": "200 Ballistic",
+          "vs. Durable": "100 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "PLAS-101 P IE": {
+        "Area of Effect": {
+          "Inner Radius": "2.9000001 m",
+          "Outer Radius": "3 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "300 Explosion",
+          "Inner Durable": "300 Explosion",
+          "Outer Radius": "299 - 0",
+          "Outer Durable": "299 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "30"
         }
       }
     }
@@ -2313,6 +2351,7 @@
           "Spread": "↔[8.00] ↕[8.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "10",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -2320,18 +2359,20 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*LARGE PLASMA BOLT P3": "Projectile",
-          "**LARGE PLASMA BOLT P3 IE": "Explosion"
+          "*SG-8P P": "Projectile",
+          "**SG-8P P IE": "Explosion"
         }
       },
-      "LARGE PLASMA BOLT P3": {
+      "SG-8P P": {
         "Projectile": {
           "Mass": "100 g",
           "Initial Velocity": "90 m/s",
           "Drag Factor": "400%",
           "Gravity Factor": "300%",
           "Penetration Slowdown": "35%",
-          "Explosion On Impact": "LARGE PLASMA BOLT_P3_IE"
+          "Explosion On Impact": "SG-8P_P_IE",
+          "Explosion Proximity": "0.5 m",
+          "Arming Distance": "1 m"
         },
         "Damage": {
           "Standard": "0 Ballistic",
@@ -2349,7 +2390,7 @@
           "Push Force": "10"
         }
       },
-      "LARGE PLASMA BOLT P3 IE": {
+      "SG-8P P IE": {
         "Area of Effect": {
           "Inner Radius": "2.29999995 m",
           "Outer Radius": "3 m",
@@ -2363,9 +2404,9 @@
           "Outer Durable": "224 - 0"
         },
         "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "10",
@@ -2398,6 +2439,7 @@
           "Spread": "↔[1350.00] ↕[350.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Barrels": "x 5"
         },
         "Attacks": {
@@ -2408,10 +2450,14 @@
       "ARC-12 BLITZER A": {
         "Arc": {
           "Arc Range": "25 m",
-          "Arc Velocity": "300 m/s"
+          "Arc Velocity": "300 m/s",
+          "Arc Spread": "10 °",
+          "Chain Spread": "10 °",
+          "Chain Count": "1",
+          "Max Split": "0"
         },
         "Damage": {
-          "Element": "Arc",
+          "Element": "Electricity",
           "Standard": "50 Arc",
           "vs. Durable": "35 Arc"
         },
@@ -2461,6 +2507,7 @@
           "Spread": "↔[20.00] ↕[20.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Spare Magazines": "3",
           "Starting Magazines": "2",
           "Mags from Supply": "6",
@@ -2474,13 +2521,13 @@
           "Cooldown After Overheat": "RELOAD NEEDED"
         },
         "Attacks": {
-          "*LASER P": "Projectile",
-          "*LASER P1": "Projectile",
-          "*LASER P2": "Projectile",
-          "*LASER P3": "Projectile"
+          "*LAS-16 P": "Projectile",
+          "*LAS-17 P": "Projectile",
+          "*LAS-17 P1": "Projectile",
+          "*LAS-17 P2": "Projectile"
         }
       },
-      "LASER P": {
+      "LAS-16 P": {
         "Projectile": {
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
@@ -2505,7 +2552,7 @@
           "Push Force": "10"
         }
       },
-      "LASER P1": {
+      "LAS-17 P": {
         "Projectile": {
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
@@ -2530,7 +2577,7 @@
           "Push Force": "10"
         }
       },
-      "LASER P2": {
+      "LAS-17 P1": {
         "Projectile": {
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
@@ -2555,7 +2602,7 @@
           "Push Force": "10"
         }
       },
-      "LASER P3": {
+      "LAS-17 P2": {
         "Projectile": {
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
@@ -2606,6 +2653,7 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "1",
           "Ergonomics": "60",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "9",
           "Spare Magazines": "12",
           "Starting Magazines": "8",
@@ -2613,26 +2661,26 @@
           "Mags from Ammo Box": "6"
         },
         "Charge": {
-          "at (0.45)s": "DEFAULT× 1.00 dmg",
-          "at (0.50)s": "DEFAULT× 1.17 dmg",
-          "at (0.90)s": "DEFAULT× 2.50 dmg",
+          "at (0.45)s": "1.00 dmg × DEFAULT",
+          "at (0.50)s": "1.17 dmg × DEFAULT",
+          "at (0.90)s": "2.50 dmg × DEFAULT",
           "Speed Mult Range": "(0.70) (1.00)",
           "Distance Mult Range": "(0.70) (1.40)",
           "Damage Mult Range": "(1.00) (2.50)"
         },
         "Attacks": {
-          "*MEDIUM PLASMA BOLT P1": "Projectile",
-          "**MEDIUM PLASMA BOLT P1 IE": "Explosion"
+          "*PLAS-39 P": "Projectile",
+          "**PLAS-39 P IE": "Explosion"
         }
       },
-      "MEDIUM PLASMA BOLT P1": {
+      "PLAS-39 P": {
         "Projectile": {
           "Mass": "25 g",
           "Initial Velocity": "1000 m/s",
           "Drag Factor": "10%",
           "Gravity Factor": "50%",
           "Penetration Slowdown": "35%",
-          "Explosion On Impact": "MEDIUM PLASMA BOLT_P1_IE"
+          "Explosion On Impact": "PLAS-39_P_IE"
         },
         "Damage": {
           "Standard": "250 Ballistic",
@@ -2650,7 +2698,7 @@
           "Push Force": "10"
         }
       },
-      "MEDIUM PLASMA BOLT P1 IE": {
+      "PLAS-39 P IE": {
         "Area of Effect": {
           "Inner Radius": "1 m",
           "Outer Radius": "2 m",
@@ -2664,7 +2712,9 @@
           "Outer Durable": "99 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "10",
@@ -2697,6 +2747,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "0.8",
           "Ergonomics": "25",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "5",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -2704,12 +2755,12 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*15x100mm HIGH EXPLOSIVE P": "Projectile",
-          "**15x100mm HIGH EXPLOSIVE P IE": "Explosion",
-          "***SHRAPNEL P": "Projectile"
+          "*R-36 P": "Projectile",
+          "**R-36 P IE": "Explosion",
+          "***AC-8 P2": "Projectile"
         }
       },
-      "15x100mm HIGH EXPLOSIVE P": {
+      "R-36 P": {
         "Projectile": {
           "Mass": "100 g",
           "Initial Velocity": "180 m/s",
@@ -2717,8 +2768,9 @@
           "Gravity Factor": "30%",
           "Lifetime": "1 sec",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "15x100mm HIGH EXPLOSIVE_P_IE",
-          "Explode After": "15x100mm HIGH EXPLOSIVE_P_IE"
+          "Explosion On Impact": "R-36_P_IE",
+          "Explode After": "R-36_P_IE",
+          "Arming Distance": "0.100000001 m"
         },
         "Damage": {
           "Standard": "230 Ballistic",
@@ -2736,13 +2788,13 @@
           "Push Force": "20"
         }
       },
-      "15x100mm HIGH EXPLOSIVE P IE": {
+      "R-36 P IE": {
         "Area of Effect": {
           "Inner Radius": "4 m",
           "Outer Radius": "7 m",
           "Shockwave Radius": "8 m",
           "Shrapnel Count": "30",
-          "Shrapnel": "SHRAPNEL_P"
+          "Shrapnel": "AC-8_P2"
         },
         "Damage": {
           "Damage Element": "None",
@@ -2752,7 +2804,9 @@
           "Outer Durable": "224 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "20",
@@ -2760,7 +2814,7 @@
           "Push Force": "40"
         }
       },
-      "SHRAPNEL P": {
+      "AC-8 P2": {
         "Projectile": {
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
@@ -2809,6 +2863,7 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "1",
           "Ergonomics": "45",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "5",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -2827,7 +2882,8 @@
           "Drag Factor": "100%",
           "Gravity Factor": "50%",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "CB-9_P_IE"
+          "Explosion On Impact": "CB-9_P_IE",
+          "Arming Distance": "0.100000001 m"
         },
         "Damage": {
           "Standard": "270 Ballistic",
@@ -2859,9 +2915,9 @@
           "Outer Durable": "349 - 0"
         },
         "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "20",
@@ -2894,6 +2950,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "0.8",
           "Ergonomics": "30",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "15",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -2901,10 +2958,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*15x100mm STANDARD ROCKET P": "Projectile"
+          "*JAR-5 P": "Projectile"
         }
       },
-      "15x100mm STANDARD ROCKET P": {
+      "JAR-5 P": {
         "Projectile": {
           "Mass": "100 g",
           "Initial Velocity": "180 m/s",
@@ -2953,6 +3010,7 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "45",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "100",
           "Spare Magazines": "6",
           "Starting Magazines": "3",
@@ -3045,6 +3103,7 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "30",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "40",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -3060,13 +3119,14 @@
           "Spread": "↔[30.00] ↕[30.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "1",
-          "Spare Rounds": "3",
-          "Starting Rounds": "2",
-          "Rounds from Supply": "3",
-          "Rounds from Ammo Box": "1",
-          "*40mm HEAT GRENADE P": "Projectile",
-          "**40mm HEAT GRENADE P IE": "Explosion"
+          "Spare Rounds": "5",
+          "Starting Rounds": "3",
+          "Rounds from Supply": "5",
+          "Rounds from Ammo Box": "2",
+          "*GP-31 P": "Projectile",
+          "**GP-31 P IE": "Explosion"
         }
       },
       "AR/GL-21 P": {
@@ -3093,15 +3153,16 @@
           "Push Force": "12"
         }
       },
-      "40mm HEAT GRENADE P": {
+      "GP-31 P": {
         "Projectile": {
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
           "Gravity Factor": "100%",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "40mm HEAT GRENADE_P_IE",
-          "Explode After": "40mm HEAT GRENADE_P_IE"
+          "Explosion On Impact": "GP-31_P_IE",
+          "Explode After": "GP-31_P_IE",
+          "Arming Distance": "4 m"
         },
         "Damage": {
           "Standard": "250 Ballistic",
@@ -3119,7 +3180,7 @@
           "Push Force": "10"
         }
       },
-      "40mm HEAT GRENADE P IE": {
+      "GP-31 P IE": {
         "Area of Effect": {
           "Inner Radius": "2.25 m",
           "Outer Radius": "6.5 m",
@@ -3133,7 +3194,9 @@
           "Outer Durable": "399 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -3166,6 +3229,7 @@
           "Spread": "↔[150.00] ↕[120.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "2",
           "Spare Rounds": "40",
           "Starting Rounds": "22",
@@ -3228,6 +3292,7 @@
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "60",
+          "Noise When Firing": "Suppressed (~13m)",
           "Capacity": "45",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -3235,10 +3300,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*5.5x50mm SUBSONIC P": "Projectile"
+          "*AR-59 P": "Projectile"
         }
       },
-      "5.5x50mm SUBSONIC P": {
+      "AR-59 P": {
         "Projectile": {
           "Mass": "4.5 g",
           "Initial Velocity": "330 m/s",
@@ -3288,6 +3353,7 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "1",
           "Ergonomics": "60",
+          "Noise When Firing": "Suppressed (~13m)",
           "Capacity": "20",
           "Spare Magazines": "8",
           "Starting Magazines": "6",
@@ -3295,10 +3361,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*8x60mm SUBSONIC P": "Projectile"
+          "*R-72 P": "Projectile"
         }
       },
-      "8x60mm SUBSONIC P": {
+      "R-72 P": {
         "Projectile": {
           "Mass": "20 g",
           "Initial Velocity": "330 m/s",
@@ -3348,12 +3414,13 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "60",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "45",
           "Spare Magazines": "5",
           "Starting Magazines": "3",
           "Mags from Supply": "5",
           "Mags from Ammo Box": "2",
-          "*12x25mm FULL METAL JACKET P3": "Projectile"
+          "*SMG/FLAM-34 P": "Projectile"
         },
         "Underbarrel SMG/FLAM-34 STOKER 0": {
           "Recoil": "1.5",
@@ -3362,18 +3429,15 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "70",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "50",
-          "Spare Magazines": "3",
-          "Starting Magazines": "2",
-          "Mags from Supply": "3",
-          "Mags from Ammo Box": "1",
           "*Underbarrel SMG/FLAM-34 STOKER 0 S": "Spray",
           "**Fire": "status",
           "**Fire Panic": "status",
           "**FlamerSlowed": "status"
         }
       },
-      "12x25mm FULL METAL JACKET P3": {
+      "SMG/FLAM-34 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
@@ -3475,6 +3539,7 @@
           "Spread": "↔[125.00] ↕[105.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "7",
           "Spare Rounds": "70",
           "Starting Rounds": "46",
@@ -3530,12 +3595,13 @@
     "properties": {
       "LAS-13 TRIDENT": {
         "Base": {
-          "Recoil": "4.25",
+          "Recoil": "1.75",
           "Horizontal Recoil": "1.5",
-          "Vertical Recoil": "7",
+          "Vertical Recoil": "2",
           "Spread": "↔[200.00] ↕[50.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Spare Magazines": "3",
           "Starting Magazines": "2",
           "Mags from Supply": "6",
@@ -3598,6 +3664,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "80",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "50",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -3605,10 +3672,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*9x20mm HIGH VELOCITY P": "Projectile"
+          "*SMG-203 P": "Projectile"
         }
       },
-      "9x20mm HIGH VELOCITY P": {
+      "SMG-203 P": {
         "Projectile": {
           "Mass": "7 g",
           "Initial Velocity": "450 m/s",
@@ -3657,6 +3724,7 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "1",
           "Ergonomics": "30",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "15",
           "Spare Magazines": "5",
           "Starting Magazines": "4",
@@ -3664,11 +3732,11 @@
           "Mags from Ammo Box": "2"
         },
         "Attacks": {
-          "*9x70mm FULL METAL JACKET P1": "Projectile",
+          "*R-4 P": "Projectile",
           "**Fire": "status"
         }
       },
-      "9x70mm FULL METAL JACKET P1": {
+      "R-4 P": {
         "Projectile": {
           "Mass": "20 g",
           "Initial Velocity": "950 m/s",
@@ -3738,6 +3806,7 @@
           "Spread": "↔[0.50] ↕[0.50]",
           "Sway": "1",
           "Ergonomics": "30",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "12",
           "Spare Magazines": "7",
           "Starting Magazines": "5",
@@ -3771,6 +3840,254 @@
           "Demolition Force": "10",
           "Stagger Force": "20",
           "Push Force": "14"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "AR-11 Arbitrator",
+    "warbondCode": "warbond27",
+    "internalName": "ar11arbitrator",
+    "tier": "b",
+    "wikiSlug": "AR-11_Arbitrator",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/AR-11_Arbitrator_Primary_Render.png",
+    "imageUrl": "primaries/AR-11_Arbitrator_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [],
+    "properties": {
+      "AR-11 ARBITRATOR": {
+        "Base": {
+          "Fire Rate": "1200 rpm",
+          "Recoil": "13.25",
+          "Horizontal Recoil": "9",
+          "Vertical Recoil": "17.5",
+          "Spread": "↔[1.00] ↕[1.00]",
+          "Sway": "1",
+          "Ergonomics": "30",
+          "Noise When Firing": "Medium (~48m)",
+          "Capacity": "45",
+          "Spare Magazines": "7",
+          "Starting Magazines": "5",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3",
+          "*AR-11 P": "Projectile"
+        },
+        "Underbarrel AR-11 ARBITRATOR 0": {
+          "Fire Rate": "80 rpm",
+          "Recoil": "30.75",
+          "Horizontal Recoil": "11.5",
+          "Vertical Recoil": "50",
+          "Spread": "↔[150.00] ↕[130.00]",
+          "Sway": "1",
+          "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
+          "Capacity": "4",
+          "Spare Rounds": "20",
+          "Starting Rounds": "20",
+          "Rounds from Supply": "20",
+          "Rounds from Ammo Box": "10",
+          "*P4": "Projectile"
+        }
+      },
+      "AR-11 P": {
+        "Projectile": {
+          "Mass": "11 g",
+          "Initial Velocity": "920 m/s",
+          "Drag Factor": "30%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "70 Ballistic",
+          "vs. Durable": "20 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "15",
+          "Push Force": "12"
+        }
+      },
+      "P4": {
+        "Projectile": {
+          "Pellets": "x 9",
+          "Mass": "6 g",
+          "Initial Velocity": "385 m/s",
+          "Drag Factor": "50%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "50 Ballistic",
+          "vs. Durable": "12 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "20"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "GL-15 Evictor",
+    "warbondCode": "warbond27",
+    "internalName": "gl15evictor",
+    "tier": "s",
+    "wikiSlug": "GL-15_Evictor",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/GL-15_Evictor_Primary_Render.png",
+    "imageUrl": "primaries/GL-15_Evictor_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [],
+    "properties": {
+      "GL-15 EVICTOR": {
+        "Base": {
+          "Fire Rate": "60 rpm",
+          "Recoil": "82.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "120",
+          "Spread": "↔[15.00] ↕[12.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
+          "Capacity": "4",
+          "Spare Rounds": "32",
+          "Starting Rounds": "24",
+          "Rounds from Supply": "32",
+          "Rounds from Ammo Box": "16"
+        },
+        "Attacks": {
+          "*GL-15 P": "Projectile",
+          "**GL-15 P IE": "Explosion"
+        }
+      },
+      "GL-15 P": {
+        "Projectile": {
+          "Mass": "50 g",
+          "Initial Velocity": "100 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%",
+          "Explosion On Impact": "GL-15_P_IE",
+          "Explode After": "GL-15_P_IE",
+          "Arming Distance": "7 m"
+        },
+        "Damage": {
+          "Standard": "50 Ballistic",
+          "vs. Durable": "2 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "30",
+          "Push Force": "10"
+        }
+      },
+      "GL-15 P IE": {
+        "Area of Effect": {
+          "Inner Radius": "2.25 m",
+          "Outer Radius": "5.5 m",
+          "Shockwave Radius": "8 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "440 Explosion",
+          "Inner Durable": "440 Explosion",
+          "Outer Radius": "439 - 0",
+          "Outer Durable": "439 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "25",
+          "Push Force": "30"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "LAS-12 Sai",
+    "warbondCode": "none",
+    "internalName": "las12sai",
+    "tier": "a",
+    "wikiSlug": "LAS-12_Sai",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/LAS-12_Sai_Primary_Render.png",
+    "imageUrl": "primaries/LAS-12_Sai_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [],
+    "properties": {
+      "LAS-12 SAI": {
+        "Base": {
+          "Fire Rate": "800 rpm",
+          "Recoil": "10.75",
+          "Horizontal Recoil": "5",
+          "Vertical Recoil": "16.5",
+          "Spread": "↔[140.00] ↕[140.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
+          "Spare Magazines": "5",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Heat Data": {
+          "Overheats at": "100 °C",
+          "Warmup": "0 sec",
+          "Heat Per Shot": "2 °C",
+          "Cool Per Sec": "8.1 - 5.4 - 4.1",
+          "Cooldown After Overheat": "RELOAD NEEDED"
+        },
+        "Attacks": {
+          "*LAS-12 P": "Projectile"
+        }
+      },
+      "LAS-12 P": {
+        "Projectile": {
+          "Mass": "12 g",
+          "Initial Velocity": "100 m/s",
+          "Drag Factor": "0%",
+          "Gravity Factor": "0%",
+          "Lifetime": "6 sec",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "80 Ballistic",
+          "vs. Durable": "4 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "10"
         }
       }
     }

@@ -239,7 +239,16 @@ export function toInternalName(displayName: string) {
 }
 
 export function getImageFileName(wikiImageUrl: string | null | undefined) {
-  return wikiImageUrl?.split("/").pop()?.replace(/\?.*/, "");
+  const encodedFileName = wikiImageUrl?.split("/").pop()?.replace(/\?.*/, "");
+  if (!encodedFileName) {
+    return undefined;
+  }
+
+  try {
+    return decodeURIComponent(encodedFileName);
+  } catch {
+    return encodedFileName;
+  }
 }
 
 function stripQuery(url: string | undefined) {
@@ -500,6 +509,30 @@ function parseGalleryItem(line: string): LinkedWikiItem | null {
     wikiSlug,
     imageFileTitle: `File:${imageName}`,
   };
+}
+
+export function parseWarbondsPageSource(content: string) {
+  const results: LinkedWikiItem[] = [];
+
+  for (const galleryMatch of content.matchAll(/<gallery\b[^>]*>([\s\S]*?)<\/gallery>/gi)) {
+    for (const rawLine of galleryMatch[1].split("\n")) {
+      const line = rawLine.trim();
+      const imageName = line.split("|", 1)[0];
+      if (!line || !/warbond[_ ]cover/i.test(imageName)) {
+        continue;
+      }
+
+      const warbond = parseGalleryItem(line);
+      if (warbond) {
+        results.push({
+          ...warbond,
+          displayName: cleanWikiText(warbond.displayName),
+        });
+      }
+    }
+  }
+
+  return results;
 }
 
 function parseStratagemCodeCell(value: string) {

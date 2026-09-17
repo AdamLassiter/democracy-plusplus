@@ -438,5 +438,19 @@
     "tags": [
       "ArmorPassive"
     ]
+  },
+  {
+    "displayName": "Blunt-Force Mitigation",
+    "warbondCode": "warbond27",
+    "internalName": "bluntforcemitigation",
+    "tier": "b",
+    "wikiSlug": "Blunt-Force_Mitigation",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Blunt-Force_Mitigation_Armor_Passive_Icon.svg",
+    "imageUrl": "armor_passives/Blunt-Force_Mitigation_Armor_Passive_Icon.svg",
+    "type": "Equipment",
+    "category": "armor",
+    "tags": [
+      "ArmorPassive"
+    ]
   }
 ]

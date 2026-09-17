@@ -106,7 +106,18 @@ const warbondCodes = warbonds.map((warbond, index) => {
   const item = asObject(warbond, context);
   assertAllowedKeys(
     item,
-    ["displayName", "type", "category", "tags", "warbondCode", "internalName", "imageUrl", "tier"],
+    [
+      "displayName",
+      "type",
+      "category",
+      "tags",
+      "warbondCode",
+      "internalName",
+      "imageUrl",
+      "tier",
+      "wikiSlug",
+      "wikiImageUrl",
+    ],
     context,
   );
   assertRequiredKeys(
@@ -121,6 +132,11 @@ const warbondCodes = warbonds.map((warbond, index) => {
   expectString(item.warbondCode, `${context}.warbondCode`);
   expectString(item.internalName, `${context}.internalName`);
   expectTier(item.tier, `${context}.tier`);
+  expectOptionalString(item.wikiSlug, `${context}.wikiSlug`);
+  expectOptionalString(item.wikiImageUrl, `${context}.wikiImageUrl`);
+  if (item.imageUrl !== undefined) {
+    expectImagePath(item.imageUrl, `${context}.imageUrl`);
+  }
   return item.warbondCode as string;
 });
 

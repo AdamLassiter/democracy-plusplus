@@ -936,6 +936,7 @@
       "Illuminate": "d"
     },
     "tags": [
+      "Illuminate",
       "Blitz"
     ]
   },
@@ -951,6 +952,7 @@
       "Illuminate": "c"
     },
     "tags": [
+      "Illuminate",
       "Blitz"
     ]
   },
@@ -964,7 +966,10 @@
       "Terminids": null,
       "Automatons": null,
       "Illuminate": "b"
-    }
+    },
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Destroy Gazer Spire",
@@ -976,7 +981,10 @@
       "Terminids": null,
       "Automatons": null,
       "Illuminate": "b"
-    }
+    },
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Eradicate Illuminate Forces",
@@ -990,6 +998,7 @@
       "Illuminate": "d"
     },
     "tags": [
+      "Illuminate",
       "Eradicate"
     ]
   },
@@ -1003,7 +1012,10 @@
       "Terminids": null,
       "Automatons": null,
       "Illuminate": "b"
-    }
+    },
+    "tags": [
+      "Illuminate"
+    ]
   },
   {
     "displayName": "Infiltrate Illuminate Lair",
@@ -1015,6 +1027,9 @@
       "Terminids": null,
       "Automatons": null,
       "Illuminate": "b"
-    }
+    },
+    "tags": [
+      "Illuminate"
+    ]
   }
 ]

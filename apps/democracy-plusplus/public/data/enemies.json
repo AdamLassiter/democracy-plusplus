@@ -24,7 +24,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "The lowliest of Terminids, slow and weak, but capable of attracting nearby bug breaches.",
-      "enemyClass": "Fodder",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Scavenger",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Scavenger_Enemy_Icon.png",
       "variants": [
@@ -67,7 +67,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "One of the smallest Terminids, but still deadly with its ranged acid spit.",
-      "enemyClass": "Fodder",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Bile_Spitter",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Spitter_Enemy_Icon.png",
       "variants": [],
@@ -103,7 +103,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Agile Terminids that are able to leap great distances to attack Helldivers.",
-      "enemyClass": "Fodder",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Pouncer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Pouncer_Enemy_Icon.png",
       "variants": [],
@@ -139,7 +139,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Stealthy Terminids engaging in ambush tactics, able to leap great distances and slow Helldivers with their tongue.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Hunter",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Hunter_Enemy_Icon.png",
       "variants": [
@@ -200,7 +200,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Flying Terminids specialized in hit-and-run tactics.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Shrieker",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Shrieker_Enemy_Icon.png",
       "variants": [],
@@ -242,7 +242,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Medium sized Terminid adept in close-quarters combat.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Warrior",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Warrior_Enemy_Icon.png",
       "variants": [
@@ -309,7 +309,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A mutated variant of the Warrior that explodes upon death.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Bile_Warrior",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Warrior_Enemy_Icon.png",
       "variants": [
@@ -376,7 +376,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A faster and deadlier variant of the Warrior. Spawned by Alpha Commanders.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Alpha_Warrior",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Warrior_Enemy_Icon.png",
       "variants": [
@@ -443,7 +443,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A variant of the Warrior with medium armor covering its head and legs.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Hive_Guard",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Hive_Guard_Enemy_Icon.png",
       "variants": [],
@@ -497,7 +497,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A sluggish, medium armored Terminid that can spew corrosive bile over a wide area.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Nursing_Spewer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Nursing_Spewer_Enemy_Icon.png",
       "variants": [
@@ -570,7 +570,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "An armored variant of the Nursing Spewer capable of launching Bile mortars.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Bile_Spewer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Spewer_Enemy_Icon.png",
       "variants": [],
@@ -642,7 +642,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Leadership-class Terminid capable of coordinating attacks and deploying reinforcements.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Brood_Commander",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Brood_Commander_Enemy_Icon.png",
       "variants": [
@@ -691,7 +691,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A heavier variant of the Brood Commander, capable of calling in Alpha Warriors.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Alpha_Commander",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Alpha_Commander_Enemy_Icon.png",
       "variants": [],
@@ -733,7 +733,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A specialized Terminid capable of turning partially invisible and ambushing Helldivers. Spawns from Stalker Lairs.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Stalker",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Stalker_Enemy_Icon.png",
       "variants": [
@@ -800,7 +800,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Fast-moving Terminid specialized in charging attacks. Covered head to claw in heavy armor.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Charger",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Enemy_Icon.png",
       "variants": [
@@ -903,7 +903,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A Charger variant that creates a thick fog and a massive explosion on death.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Spore_Charger",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Charger_Enemy_Icon.png",
       "variants": [
@@ -1012,7 +1012,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "A Charger variant with even more durable armor.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Charger_Behemoth",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Charger_Behemoth_Enemy_Icon.png",
       "variants": [
@@ -1115,7 +1115,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Heavily armored Terminid that uses large, bladed tentacles to disrupt Helldiver movements.",
-      "enemyClass": "Superheavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Impaler",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Impaler_Enemy_Icon.png",
       "variants": [],
@@ -1205,7 +1205,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Massive Terminid with a potent bile attack, stomp attacks, and heavy armor.",
-      "enemyClass": "Miniboss",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Bile_Titan",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Bile_Titan_Enemy_Icon.png",
       "variants": [
@@ -1302,7 +1302,7 @@
       "faction": "Terminids",
       "subfactions": [],
       "description": "Massive flying Terminid with a potent fire breath attack and heavy armor.",
-      "enemyClass": "Miniboss",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Dragonroach",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Dragonroach_Enemy_Icon.png",
       "variants": [],
@@ -1531,7 +1531,7 @@
         "Predator Strain"
       ],
       "description": "A mutated variant of the Hunter that is significantly more aggressive, capable of cloaking, and can spew bile.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Predator_Hunter",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Hunter_Enemy_Icon.png",
       "variants": [
@@ -1594,7 +1594,7 @@
         "Predator Strain"
       ],
       "description": "A mutated, more aggressive variant of the Stalker that is unable to cloak but spawns as a regular part of patrols.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Predator_Stalker",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Predator_Stalker_Enemy_Icon.png",
       "variants": [],
@@ -1662,7 +1662,7 @@
         "Spore Burst Strain"
       ],
       "description": "A mutated variant of the Scavenger that explodes into a deadly spore cloud upon death.",
-      "enemyClass": "Fodder",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Spore_Burst_Scavenger",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Scavenger_Enemy_Icon.png",
       "variants": [
@@ -1707,7 +1707,7 @@
         "Spore Burst Strain"
       ],
       "description": "A mutated variant of the Hunter that explodes into a deadly spore cloud upon death.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Spore_Burst_Hunter",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Hunter_Enemy_Icon.png",
       "variants": [
@@ -1770,7 +1770,7 @@
         "Spore Burst Strain"
       ],
       "description": "A mutated variant of the Warrior that explodes into a deadly spore cloud upon death.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Spore_Burst_Warrior",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Warrior_Enemy_Icon.png",
       "variants": [
@@ -1839,7 +1839,7 @@
         "Spore Burst Strain"
       ],
       "description": "A mutated variant of the Bile Titan with a potent bile spew capable of buffing nearby enemies.",
-      "enemyClass": "Miniboss",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Spore_Burst_Bile_Titan",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Spore_Burst_Bile_Titan_Enemy_Icon.png",
       "variants": [
@@ -1938,7 +1938,7 @@
         "Rupture Strain"
       ],
       "description": "A burrowing variant of the Warrior.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Rupture_Warrior",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Warrior_Enemy_Icon.png",
       "variants": [
@@ -2007,7 +2007,7 @@
         "Rupture Strain"
       ],
       "description": "A burrowing variant of the Bile Spewer.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Rupture_Spewer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Spewer_Enemy_Icon.png",
       "variants": [
@@ -2082,7 +2082,7 @@
         "Rupture Strain"
       ],
       "description": "A burrowing variant of the Charger.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Rupture_Charger",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Rupture_Charger_Enemy_Icon.png",
       "variants": [
@@ -2191,7 +2191,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Light Automaton unit armed with a fusion SMG and explosive grenades.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Trooper",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Trooper_Enemy_Icon.png",
       "variants": [
@@ -2251,8 +2251,8 @@
       "displayName": "Brawler",
       "faction": "Automatons",
       "subfactions": [],
-      "description": "Light Automaton unit armed with twin heated blades that specializes in close quarters combat.",
-      "enemyClass": "Light",
+      "description": "Light Automaton unit armed with twin heated blades that specializes in close-quarters combat.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Brawler",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Brawler_Enemy_Icon.png",
       "variants": [],
@@ -2305,8 +2305,8 @@
       "displayName": "Commissar",
       "faction": "Automatons",
       "subfactions": [],
-      "description": "Light Automaton squad leader armed with sidearm and heat blade for versatile offensive options.",
-      "enemyClass": "Light",
+      "description": "Light Automaton squad leader armed with a sidearm and heat blade for versatile offensive options.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Commissar",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Commissar_Enemy_Icon.png",
       "variants": [
@@ -2361,7 +2361,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Light Automaton unit armed with a rocket launcher.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Rocket_Raider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Raider_Enemy_Icon.png",
       "variants": [
@@ -2418,7 +2418,7 @@
         "Jet Brigade"
       ],
       "description": "Light Automaton unit armed with a fusion pistol, a blade, and a jetpack.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Assault_Raider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Assault_Raider_Enemy_Icon.png",
       "variants": [],
@@ -2472,7 +2472,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Reinforced Automaton unit armed with a fusion rifle and explosive grenades.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Marauder",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Marauder_Enemy_Icon.png",
       "variants": [],
@@ -2520,7 +2520,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Reinforced Automaton unit armed with a fusion machine gun, explosive grenades, and a volatile backpack with a tendency to explode.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "MG_Raider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/MG_Raider_Enemy_Icon.png",
       "variants": [
@@ -2586,8 +2586,8 @@
       "displayName": "Berserker",
       "faction": "Automatons",
       "subfactions": [],
-      "description": "Durable Automaton unit armed with dual chainsaws that specialize in close quarters combat.",
-      "enemyClass": "Medium",
+      "description": "Durable Automaton unit armed with dual chainsaws that specialize in close-quarters combat.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Berserker",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Berserker_Enemy_Icon.png",
       "variants": [],
@@ -2653,7 +2653,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Medium-armored Automaton unit armed with fusion assault cannons.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Devastator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
       "variants": [
@@ -2750,10 +2750,41 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Devastator variant armed with fusion arm cannons and shoulder-mounted rocket launchers, capable of hitting Helldivers behind cover.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Rocket_Devastator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Rocket_Devastator_Enemy_Icon.png",
-      "variants": [],
+      "variants": [
+        {
+          "displayName": "Devastator",
+          "wikiSlug": "Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Heavy Devastator",
+          "wikiSlug": "Heavy_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Incendiary MG Devastator",
+          "wikiSlug": "Incendiary_MG_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Conflagration Devastator",
+          "wikiSlug": "Conflagration_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Jet Brigade Devastator",
+          "wikiSlug": "Jet_Brigade_Devastator",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
+          "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
+        }
+      ],
       "anatomy": [
         {
           "name": "Standard",
@@ -2828,7 +2859,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Devastator variant armed with a fusion machine gun and a large shield, capable of suppressing Helldivers and blocking incoming fire.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Heavy_Devastator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Heavy_Devastator_Enemy_Icon.png",
       "variants": [
@@ -2937,7 +2968,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Armored Automaton recon walker, armed with a heavy fusion repeater and manned by a single Trooper shielded from small arms fire from the front.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Scout_Strider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Scout_Strider_Enemy_Icon.png",
       "variants": [],
@@ -3032,7 +3063,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "A reinforced variant of the Scout Strider armed with rockets and armor surrounding the entire pilot.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Reinforced_Scout_Strider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Reinforced_Scout_Strider_Enemy_Icon.png",
       "variants": [],
@@ -3098,7 +3129,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Large, heavily armored Automaton unit armed with dual rocket launchers.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Hulk_Obliterator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Obliterator_Enemy_Icon.png",
       "variants": [
@@ -3176,8 +3207,8 @@
       "displayName": "Hulk Scorcher",
       "faction": "Automatons",
       "subfactions": [],
-      "description": "Hulk variant armed with a heavy flamethrower and large sawblade, specializing in close quarters combat.",
-      "enemyClass": "Heavy",
+      "description": "Hulk variant armed with a heavy flamethrower and large sawblade, specializing in close-quarters combat.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Hulk_Scorcher",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Scorcher_Enemy_Icon.png",
       "variants": [
@@ -3256,7 +3287,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Hulk variant equipped with a burst rocket launcher and fusion autocannon.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Hulk_Bruiser",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Bruiser_Enemy_Icon.png",
       "variants": [
@@ -3335,7 +3366,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Heavily armored Automaton walker unit armed with Heavy Fusion Repeaters and explosive grenade launchers.",
-      "enemyClass": "Superheavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "War_Strider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/War_Strider_Enemy_Icon.png",
       "variants": [],
@@ -3413,7 +3444,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Tank-armored Automaton unit armed with fusion machine guns and a large cannon.",
-      "enemyClass": "Superheavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Annihilator_Tank",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Annihilator_Tank_Enemy_Icon.png",
       "variants": [],
@@ -3479,7 +3510,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Tank variant armed with a quad-linked heavy fusion cycler turret.",
-      "enemyClass": "Superheavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Shredder_Tank",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Shredder_Tank_Enemy_Icon.png",
       "variants": [],
@@ -3545,7 +3576,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Tank variant armed with a large missile array capable of direct & mortar fire.",
-      "enemyClass": "Superheavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Barrager_Tank",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Barrager_Tank_Enemy_Icon.png",
       "variants": [],
@@ -3605,7 +3636,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Medium-armored flying Automaton unit armed with fusion machine guns and rockets.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Gunship",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Gunship_Enemy_Icon.png",
       "variants": [],
@@ -3647,7 +3678,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Unarmed Automaton ship that drops in fellow Automaton units in response to a Bot Drop flare.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Dropship",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Dropship_Enemy_Icon.png",
       "variants": [],
@@ -3683,7 +3714,7 @@
       "faction": "Automatons",
       "subfactions": [],
       "description": "Massive Automaton quad-walker, armed with twin fusion gatling guns and a large burst-cannon. Capable of creating and deploying squads of Devastators.",
-      "enemyClass": "Miniboss",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Factory_Strider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Factory_Strider_Enemy_Icon.png",
       "variants": [],
@@ -3858,7 +3889,7 @@
         "Jet Brigade"
       ],
       "description": "Commissar variant equipped with a jetpack for leaping large distances.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Jet_Brigade_Commissar",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Commissar_Enemy_Icon.png",
       "variants": [
@@ -3921,7 +3952,7 @@
         "Jet Brigade"
       ],
       "description": "Trooper variant equipped with a jetpack for leaping large distances.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Jet_Brigade_Trooper",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Trooper_Enemy_Icon.png",
       "variants": [
@@ -3990,7 +4021,7 @@
         "Jet Brigade"
       ],
       "description": "MG Raider variant equipped with a jetpack for leaping large distances.",
-      "enemyClass": "Light",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Jet_Brigade_MG_Raider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_MG_Raider_Enemy_Icon.png",
       "variants": [
@@ -4053,7 +4084,7 @@
         "Jet Brigade"
       ],
       "description": "Devastator variant equipped with a jetpack for leaping large distances.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Jet_Brigade_Devastator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Devastator_Enemy_Icon.png",
       "variants": [
@@ -4158,7 +4189,7 @@
         "Jet Brigade"
       ],
       "description": "A variant of the Hulk Scorcher equipped with a large jetpack, allowing them to leap great distances.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png",
       "variants": [
@@ -4239,7 +4270,7 @@
         "Jet Brigade"
       ],
       "description": "A variant of the Hulk Bruiser equipped with a large jetpack, allowing them to leap great distances.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png",
       "variants": [
@@ -4320,7 +4351,7 @@
         "Incineration Corps"
       ],
       "description": "Reinforced Automaton unit equipped with a flamethrower and a backpack-mounted fuel tank.",
-      "enemyClass": "Fodder",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Pyro_Trooper",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Pyro_Trooper_Enemy_Icon.png",
       "variants": [],
@@ -4382,7 +4413,7 @@
         "Incineration Corps"
       ],
       "description": "Light Automaton unit armed with a specialized rocket launcher.",
-      "enemyClass": "Fodder",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Incendiary_Rocket_Raider",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_Rocket_Raider_Enemy_Icon.png",
       "variants": [
@@ -4438,8 +4469,8 @@
       "subfactions": [
         "Incineration Corps"
       ],
-      "description": "Heavy Devastator variant with a slower firing incendiary fusion machine gun.",
-      "enemyClass": "Medium",
+      "description": "Heavy Devastator variant with a slower-firing incendiary fusion machine gun.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Incendiary_MG_Devastator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Incendiary_MG_Devastator_Enemy_Icon.png",
       "variants": [
@@ -4544,7 +4575,7 @@
         "Incineration Corps"
       ],
       "description": "Devastator variant armed with an incendiary fusion shotgun and a large shield, capable of suppressing Helldivers and blocking incoming fire.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Conflagration_Devastator",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Conflagration_Devastator_Enemy_Icon.png",
       "variants": [
@@ -4649,7 +4680,7 @@
         "Incineration Corps"
       ],
       "description": "Hulk variant equipped with a large flamethrower and incendiary grenade launcher.",
-      "enemyClass": "Heavy",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Hulk_Firebomber",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Hulk_Firebomber_Enemy_Icon.png",
       "variants": [
@@ -4877,7 +4908,7 @@
       "subfactions": [
         "Cyborg Legion"
       ],
-      "description": "Massive Cyborg Mech equipped with heavy fusion cannons, a missile array and gatling guns.",
+      "description": "Massive Cyborg Mech equipped with heavy fusion cannons, a missile array, and gatling guns.",
       "enemyClass": "Unclassified",
       "wikiSlug": "Vox_Engine",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Vox_Engine_Enemy_Icon.png",
@@ -5100,7 +5131,7 @@
       "faction": "Illuminate",
       "subfactions": [],
       "description": "Flying drone equipped with arc weaponry and the ability to call for reinforcements.",
-      "enemyClass": "Support",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Watcher",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Watcher_Enemy_Icon.png",
       "variants": [],
@@ -5128,19 +5159,19 @@
             },
             {
               "name": "Upper Fin",
-              "armor": "0",
+              "armor": "2",
               "health": "200",
               "durability": "0%"
             },
             {
               "name": "Lower Fin",
-              "armor": "0",
+              "armor": "2",
               "health": "200",
               "durability": "0%"
             },
             {
               "name": "Side Fins (2)",
-              "armor": "2",
+              "armor": "0",
               "health": "150",
               "durability": "0%"
             }
@@ -5154,10 +5185,23 @@
       "faction": "Illuminate",
       "subfactions": [],
       "description": "Elite unit equipped with an energy shield and a deadly lance capable of launching an explosive projectile, usually accompanies hordes of Voteless.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Overseer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Overseer_Enemy_Icon.png",
-      "variants": [],
+      "variants": [
+        {
+          "displayName": "Elevated Overseer",
+          "wikiSlug": "Elevated_Overseer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Elevated_Overseer_Enemy_Icon.png",
+          "imageUrl": "enemies/Elevated_Overseer_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Crescent Overseer",
+          "wikiSlug": "Crescent_Overseer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Crescent_Overseer_Enemy_Icon.png",
+          "imageUrl": "enemies/Crescent_Overseer_Enemy_Icon.png"
+        }
+      ],
       "anatomy": [
         {
           "name": "Standard",
@@ -5232,10 +5276,23 @@
       "faction": "Illuminate",
       "subfactions": [],
       "description": "Elite unit equipped with automatic plasma rifles and jet-packs, usually accompanies hordes of Voteless.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Elevated_Overseer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Elevated_Overseer_Enemy_Icon.png",
-      "variants": [],
+      "variants": [
+        {
+          "displayName": "Overseer",
+          "wikiSlug": "Overseer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Overseer_Enemy_Icon.png",
+          "imageUrl": "enemies/Overseer_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Crescent Overseer",
+          "wikiSlug": "Crescent_Overseer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Crescent_Overseer_Enemy_Icon.png",
+          "imageUrl": "enemies/Crescent_Overseer_Enemy_Icon.png"
+        }
+      ],
       "anatomy": [
         {
           "name": "Standard",
@@ -5310,10 +5367,23 @@
       "faction": "Illuminate",
       "subfactions": [],
       "description": "Elite unit equipped with a large plasma cannon, capable of direct & mortar fire, usually accompanies hordes of Voteless.",
-      "enemyClass": "Medium",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Crescent_Overseer",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Crescent_Overseer_Enemy_Icon.png",
-      "variants": [],
+      "variants": [
+        {
+          "displayName": "Overseer",
+          "wikiSlug": "Overseer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Overseer_Enemy_Icon.png",
+          "imageUrl": "enemies/Overseer_Enemy_Icon.png"
+        },
+        {
+          "displayName": "Elevated Overseer",
+          "wikiSlug": "Elevated_Overseer",
+          "wikiImageUrl": "https://helldivers.wiki.gg/images/Elevated_Overseer_Enemy_Icon.png",
+          "imageUrl": "enemies/Elevated_Overseer_Enemy_Icon.png"
+        }
+      ],
       "anatomy": [
         {
           "name": "Standard",
@@ -5383,8 +5453,8 @@
       "subfactions": [
         "Mindless Masses"
       ],
-      "description": "An amalgamation of Voteless corpses, this large Illuminate unit specializes in close quarters combat and charges at Helldivers to attack.",
-      "enemyClass": "Heavy",
+      "description": "An amalgamation of Voteless corpses, this large Illuminate unit specializes in close-quarters combat and charges at Helldivers to attack.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Fleshmob",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Fleshmob_Enemy_Icon.png",
       "variants": [],
@@ -5431,8 +5501,8 @@
       "displayName": "Harvester",
       "faction": "Illuminate",
       "subfactions": [],
-      "description": "Massive autonomous tripod with an energy shield and a large laser weapon. Can also use arc weaponry in close-quarters.",
-      "enemyClass": "Heavy",
+      "description": "Massive autonomous tripod with an energy shield and a large laser weapon. Can also use arc weaponry in close quarters.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Harvester",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Harvester_Enemy_Icon.png",
       "variants": [],
@@ -5581,7 +5651,7 @@
       "faction": "Illuminate",
       "subfactions": [],
       "description": "Flying Illuminate unit that deploys strafing runs against Helldivers, dealing massive damage over a large area.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Stingray",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Stingray_Enemy_Icon.png",
       "variants": [],
@@ -5611,7 +5681,7 @@
       "faction": "Illuminate",
       "subfactions": [],
       "description": "Transport aircraft used for deploying reinforcements for the Illuminate.",
-      "enemyClass": "Special",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Warp_Ship",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Warp_Ship_Enemy_Icon.png",
       "variants": [],
@@ -5676,8 +5746,8 @@
       "displayName": "Leviathan",
       "faction": "Illuminate",
       "subfactions": [],
-      "description": "Tank-armored flying Illuminate unit, armed with large beams cannons and bomb bays.",
-      "enemyClass": "Superheavy",
+      "description": "Tank-armored flying Illuminate unit, armed with large beam cannons and bomb bays.",
+      "enemyClass": "Unclassified",
       "wikiSlug": "Leviathan",
       "wikiImageUrl": "https://helldivers.wiki.gg/images/Leviathan_Enemy_Icon.png",
       "variants": [],

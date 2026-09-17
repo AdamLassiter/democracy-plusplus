@@ -5,6 +5,7 @@ import fs from "fs/promises";
 import path from "path";
 import readline from "readline";
 import { banner, createTask, errorMessage, item, note, promptLabel, section, summary } from "./terminalUi.ts";
+import { getImageFileName } from "./wikiApi.ts";
 
 const USER_AGENT = "DemocracyPlusPlus/1.0";
 
@@ -32,10 +33,13 @@ function ask(q: string) {
 }
 
 async function downloadImage(imageUrl: string, folder: string, maxRetries = 6): Promise<string | undefined> {
-  const filename = path.basename(imageUrl.split("?")[0]);
+  const filename = getImageFileName(imageUrl);
+  if (!filename) {
+    return undefined;
+  }
   const destDir = path.resolve("public/images", folder);
   await fs.mkdir(destDir, { recursive: true });
-  const destPath = path.join(destDir, filename).replace(/%[0-9]{2}/, "");
+  const destPath = path.join(destDir, filename);
 
   try {
     await fs.access(destPath);
@@ -187,6 +191,7 @@ async function main() {
   await downloadAll("stratagems", "STRATAGEMS");
   await downloadAll("boosters", "BOOSTERS");
   await downloadAll("armor_passives", "ARMOR_PASSIVES");
+  await downloadAll("warbonds", "WARBONDS");
   await downloadBestiary();
   await downloadStructures();
 

@@ -10,6 +10,7 @@ import { SECONDARIES } from "../../constants/secondaries";
 import { STRATAGEMS } from "../../constants/stratagems";
 import { THROWABLES } from "../../constants/throwables";
 import { ITEMS } from "../../constants/items";
+import { WARBONDS } from "../../constants/warbonds";
 import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import TierBoard from "./tier";
@@ -24,6 +25,13 @@ import type { EditableTier, Item, Tier } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";
 import ItemDetailsDialog from "./itemDetailsDialog";
 
+const WARBOND_ITEMS: Item[] = WARBONDS.map((warbond) => ({
+  ...warbond,
+  imageUrl: warbond.imageUrl ?? "icons/medal.svg",
+}));
+
+const TIERABLE_ITEMS = [...ITEMS, ...WARBOND_ITEMS];
+
 const TIER_LISTS: [string, Item[]][] = [
   ["Primaries", PRIMARIES],
   ["Secondaries", SECONDARIES],
@@ -31,6 +39,7 @@ const TIER_LISTS: [string, Item[]][] = [
   ["Armor Passives", ARMOR_PASSIVES],
   ["Stratagems", STRATAGEMS],
   ["Boosters", BOOSTERS],
+  ["Warbonds", WARBOND_ITEMS],
 ];
 
 export default function TierLists() {
@@ -52,7 +61,8 @@ export default function TierLists() {
   );
 
   const [, items] = effectiveTierLists[value];
-  const filteredItems = filterItemsByPropertyValues(items, selectedFilters);
+  const isWarbondTab = effectiveTierLists[value]?.[0] === "Warbonds";
+  const filteredItems = isWarbondTab ? items : filterItemsByPropertyValues(items, selectedFilters);
   const uncategorizedCount = Object.values(draftAssignments).filter((tier) => tier === "uncategorized").length;
   const hasUncategorized = uncategorizedCount > 0;
 
@@ -61,7 +71,7 @@ export default function TierLists() {
   }
 
   function handleEnterEditMode() {
-    setDraftAssignments(buildTierDraft(ITEMS, overrides));
+    setDraftAssignments(buildTierDraft(TIERABLE_ITEMS, overrides));
     setEditMode(true);
   }
 
@@ -77,7 +87,7 @@ export default function TierLists() {
       return;
     }
 
-    const nextOverrides = ITEMS.reduce<Record<string, Tier>>((acc, item) => {
+    const nextOverrides = TIERABLE_ITEMS.reduce<Record<string, Tier>>((acc, item) => {
       const assignedTier = draftAssignments[item.displayName];
       if (assignedTier && assignedTier !== "uncategorized" && assignedTier !== item.tier) {
         acc[item.displayName] = assignedTier;
@@ -108,7 +118,7 @@ export default function TierLists() {
         </Tabs>
       </Box>
       <Box sx={{ padding: "1em", pb: 10 }}>
-        <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+        {!isWarbondTab && <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />}
         {editMode && hasUncategorized && <Typography color="warning.main" sx={{ mb: 2 }}>
           Assign all uncategorized items to S, A, B, C, or D before saving.
         </Typography>}

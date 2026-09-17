@@ -33,7 +33,10 @@
     "tags": [],
     "warbondCode": "warbond3",
     "internalName": "helldiversMobilizeWB",
-    "tier": "s"
+    "tier": "s",
+    "wikiSlug": "Helldivers_Mobilize_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Helldivers_Mobilize_Warbond_Cover.png",
+    "imageUrl": "warbonds/Helldivers_Mobilize_Warbond_Cover.png"
   },
   {
     "displayName": "Steeled Veterans",
@@ -42,7 +45,10 @@
     "tags": [],
     "warbondCode": "warbond4",
     "internalName": "steeledVeteransWB",
-    "tier": "a"
+    "tier": "a",
+    "wikiSlug": "Steeled_Veterans_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Steeled_Veterans_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Steeled_Veterans_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Cutting Edge",
@@ -51,7 +57,10 @@
     "tags": [],
     "warbondCode": "warbond5",
     "internalName": "cuttingEdgeWB",
-    "tier": "a"
+    "tier": "a",
+    "wikiSlug": "Cutting_Edge_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Cutting_Edge_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Cutting_Edge_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Democratic Detonation",
@@ -60,7 +69,10 @@
     "tags": [],
     "warbondCode": "warbond6",
     "internalName": "democraticDetonationWB",
-    "tier": "s"
+    "tier": "s",
+    "wikiSlug": "Democratic_Detonation_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Democratic_Detonation_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Democratic_Detonation_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Polar Patriots",
@@ -69,7 +81,10 @@
     "tags": [],
     "warbondCode": "warbond7",
     "internalName": "polarPatriotsWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Polar_Patriots_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Polar_Patriots_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Polar_Patriots_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Viper Commandos",
@@ -78,7 +93,10 @@
     "tags": [],
     "warbondCode": "warbond8",
     "internalName": "viperCommandosWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Viper_Commandos_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Viper_Commandos_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Viper_Commandos_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Freedom's Flame",
@@ -87,7 +105,10 @@
     "tags": [],
     "warbondCode": "warbond9",
     "internalName": "freedomsFlameWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Freedom's_Flame_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Freedom%27s_Flame_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Freedom's_Flame_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Chemical Agents",
@@ -96,7 +117,10 @@
     "tags": [],
     "warbondCode": "warbond10",
     "internalName": "chemicalAgentsWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Chemical_Agents_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Chemical_Agents_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Chemical_Agents_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Truth Enforcers",
@@ -105,7 +129,10 @@
     "tags": [],
     "warbondCode": "warbond11",
     "internalName": "truthEnforcersWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Truth_Enforcers_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Truth_Enforcers_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Truth_Enforcers_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Urban Legends",
@@ -114,7 +141,10 @@
     "tags": [],
     "warbondCode": "warbond12",
     "internalName": "urbanLegendsWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Urban_Legends_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Urban_Legends_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Urban_Legends_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Servants of Freedom",
@@ -123,7 +153,10 @@
     "tags": [],
     "warbondCode": "warbond13",
     "internalName": "servantsOfFreedomWB",
-    "tier": "a"
+    "tier": "a",
+    "wikiSlug": "Servants_of_Freedom_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Servants_of_Freedom_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Servants_of_Freedom_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Borderline Justice",
@@ -132,7 +165,10 @@
     "tags": [],
     "warbondCode": "warbond14",
     "internalName": "borderlineJusticeWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Borderline_Justice_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Borderline_Justice_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Borderline_Justice_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Masters of Ceremony",
@@ -141,7 +177,10 @@
     "tags": [],
     "warbondCode": "warbond15",
     "internalName": "mastersOfCeremonyWB",
-    "tier": "c"
+    "tier": "c",
+    "wikiSlug": "Masters_of_Ceremony_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Masters_of_Ceremony_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Masters_of_Ceremony_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Force of Law",
@@ -150,7 +189,10 @@
     "tags": [],
     "warbondCode": "warbond16",
     "internalName": "forceOfLawWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Force_of_Law_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Force_of_Law_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Force_of_Law_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Control Group",
@@ -159,7 +201,10 @@
     "tags": [],
     "warbondCode": "warbond17",
     "internalName": "controlGroupWB",
-    "tier": "a"
+    "tier": "a",
+    "wikiSlug": "Control_Group_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Control_Group_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Control_Group_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Righteous Revenants",
@@ -168,7 +213,10 @@
     "tags": [],
     "warbondCode": "warbond18",
     "internalName": "righteousRevenantsWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Righteous_Revenants_Legendary_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Righteous_Revenants_Legendary_Warbond_Cover.png",
+    "imageUrl": "warbonds/Righteous_Revenants_Legendary_Warbond_Cover.png"
   },
   {
     "displayName": "Obedient Democracy Support Troopers",
@@ -177,7 +225,10 @@
     "tags": [],
     "warbondCode": "warbond19",
     "internalName": "odstWB",
-    "tier": "d"
+    "tier": "d",
+    "wikiSlug": "Obedient_Democracy_Support_Troopers_Legendary_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Halo_ODST_Legendary_Warbond_Cover.png",
+    "imageUrl": "warbonds/Halo_ODST_Legendary_Warbond_Cover.png"
   },
   {
     "displayName": "Dust Devils",
@@ -186,7 +237,10 @@
     "tags": [],
     "warbondCode": "warbond20",
     "internalName": "dustdevilsWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Dust_Devils_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Dust_Devils_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Dust_Devils_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Python Commandos",
@@ -195,7 +249,10 @@
     "tags": [],
     "warbondCode": "warbond21",
     "internalName": "pythoncommandosWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Python_Commandos_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Python_Commandos_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Python_Commandos_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Redacted Regiment",
@@ -204,7 +261,10 @@
     "tags": [],
     "warbondCode": "warbond22",
     "internalName": "redactedregimentWB",
-    "tier": "d"
+    "tier": "d",
+    "wikiSlug": "Redacted_Regiment_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Redacted_Regiment_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Redacted_Regiment_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Siege Breakers",
@@ -213,7 +273,10 @@
     "tags": [],
     "warbondCode": "warbond23",
     "internalName": "siegebreakersWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Siege_Breakers_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Siege_Breakers_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Siege_Breakers_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Entrenched Division",
@@ -222,7 +285,10 @@
     "tags": [],
     "warbondCode": "warbond24",
     "internalName": "entrencheddivisionWB",
-    "tier": "b"
+    "tier": "b",
+    "wikiSlug": "Entrenched_Division_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Entrenched_Division_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Entrenched_Division_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Exo Experts",
@@ -231,7 +297,10 @@
     "tags": [],
     "warbondCode": "warbond25",
     "internalName": "exoexpertsWB",
-    "tier": "a"
+    "tier": "a",
+    "wikiSlug": "Exo_Experts_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Exo_Experts_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Exo_Experts_Premium_Warbond_Cover.png"
   },
   {
     "displayName": "Castellan's Creed",
@@ -240,6 +309,21 @@
     "tags": [],
     "warbondCode": "warbond26",
     "internalName": "castellanscreedWB",
-    "tier": "s"
+    "tier": "s",
+    "wikiSlug": "Castellan's_Creed_Legendary_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Castellan%27s_Creed_Legendary_Warbond_Cover.png",
+    "imageUrl": "warbonds/Castellan's_Creed_Legendary_Warbond_Cover.png"
+  },
+  {
+    "displayName": "Ironclad Democracy",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond27",
+    "internalName": "ironcladdemocracyWB",
+    "tier": "a",
+    "wikiSlug": "Ironclad_Democracy_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Ironclad_Democracy_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Ironclad_Democracy_Premium_Warbond_Cover.png"
   }
 ]

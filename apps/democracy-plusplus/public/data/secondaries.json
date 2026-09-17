@@ -20,6 +20,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "15",
           "Spare Magazines": "8",
           "Starting Magazines": "5",
@@ -27,10 +28,10 @@
           "Mags from Ammo Box": "4"
         },
         "Attacks": {
-          "*9x20mm HOLLOW POINT P": "Projectile"
+          "*P-2 P": "Projectile"
         }
       },
-      "9x20mm HOLLOW POINT P": {
+      "P-2 P": {
         "Projectile": {
           "Mass": "7 g",
           "Initial Velocity": "320 m/s",
@@ -71,19 +72,23 @@
     "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-5_Combat_Hatchet_Secondary_Render.png",
     "imageUrl": "secondaries/CQC-5_Combat_Hatchet_Secondary_Render.png",
     "properties": {
-      "CQC-5 Combat Hatchet": {
+      "CQC-5 COMBAT HATCHET": {
         "Base": {
-          "Fire Rate": "100 rpm",
-          "Recoil": "0",
-          "Ergonomics": "0"
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "No sound",
+          "Stamina Cost": "4%"
         },
         "Attacks": {
-          "Combat Hatchet": "Damage"
+          "*CQC-5 COMBAT HATCHET_dm": "Damage"
         }
       },
-      "Combat Hatchet": {
+      "CQC-5 COMBAT HATCHET_dm": {
         "Damage": {
-          "Element": "Melee",
           "Standard": "240 Melee",
           "vs. Durable": "120 Melee"
         },
@@ -115,19 +120,23 @@
     "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-2_Saber_Secondary_Render.png",
     "imageUrl": "secondaries/CQC-2_Saber_Secondary_Render.png",
     "properties": {
-      "CQC-2 Saber": {
+      "CQC-2 SABER": {
         "Base": {
-          "Fire Rate": "150 rpm",
-          "Recoil": "6",
-          "Ergonomics": "0"
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "No sound",
+          "Stamina Cost": "3%"
         },
         "Attacks": {
-          "Saber": "Damage"
+          "*CQC-2 SABER_dm": "Damage"
         }
       },
-      "Saber": {
+      "CQC-2 SABER_dm": {
         "Damage": {
-          "Element": "Melee",
           "Standard": "188 Melee",
           "vs. Durable": "98 Melee"
         },
@@ -159,19 +168,23 @@
     "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-42_Machete_Secondary_Render.png",
     "imageUrl": "secondaries/CQC-42_Machete_Secondary_Render.png",
     "properties": {
-      "CQC-42 Machete": {
+      "CQC-42 MACHETE": {
         "Base": {
-          "Fire Rate": "72 rpm",
-          "Recoil": "0",
-          "Ergonomics": "0"
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "No sound",
+          "Stamina Cost": "5%"
         },
         "Attacks": {
-          "Machete": "Damage"
+          "*CQC-42 MACHETE_dm": "Damage"
         }
       },
-      "Machete": {
+      "CQC-42 MACHETE_dm": {
         "Damage": {
-          "Element": "Melee",
           "Standard": "300 Melee",
           "vs. Durable": "150 Melee"
         },
@@ -203,19 +216,23 @@
     "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-19_Stun_Lance_Secondary_Render.png",
     "imageUrl": "secondaries/CQC-19_Stun_Lance_Secondary_Render.png",
     "properties": {
-      "CQC-19 Stun Lance": {
+      "CQC-19 STUN LANCE": {
         "Base": {
-          "Fire Rate": "117 rpm",
-          "Recoil": "0",
-          "Ergonomics": "0"
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "No sound",
+          "Stamina Cost": "3%"
         },
         "Attacks": {
-          "Stun Lance": "Damage"
+          "*CQC-19 STUN LANCE_dm": "Damage"
         }
       },
-      "Stun Lance": {
+      "CQC-19 STUN LANCE_dm": {
         "Damage": {
-          "Element": "Melee",
           "Standard": "165 Melee",
           "vs. Durable": "83 Melee"
         },
@@ -249,19 +266,23 @@
     "wikiImageUrl": "https://helldivers.wiki.gg/images/CQC-30_Stun_Baton_Secondary_Render.png",
     "imageUrl": "secondaries/CQC-30_Stun_Baton_Secondary_Render.png",
     "properties": {
-      "CQC-30 Stun Baton": {
+      "CQC-30 STUN BATON": {
         "Base": {
-          "Fire Rate": "150 rpm",
-          "Recoil": "0",
-          "Ergonomics": "0"
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "No sound",
+          "Stamina Cost": "3%"
         },
         "Attacks": {
-          "Stun Baton": "Damage"
+          "*CQC-30 STUN BATON_dm": "Damage"
         }
       },
-      "Stun Baton": {
+      "CQC-30 STUN BATON_dm": {
         "Damage": {
-          "Element": "Melee",
           "Standard": "120 Melee",
           "vs. Durable": "60 Melee"
         },
@@ -305,6 +326,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "No sound",
           "Capacity": "6",
           "Spare Rounds": "24",
           "Starting Rounds": "18",
@@ -350,6 +372,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "8",
           "Spare Magazines": "5",
           "Starting Magazines": "3",
@@ -357,30 +380,128 @@
           "Mags from Ammo Box": "2"
         },
         "Charge": {
-          "at (0.01)s": "SMALL PLASMA BOLT_P1× 0.50 dmg",
-          "at (1.00)s": "SMALL PLASMA BOLT_P2× 0.67 dmg",
-          "at (3.00)s": "SMALL PLASMA BOLT_P2× 1.00 dmg",
+          "at (0.01)s": "0.50 dmg × P1",
+          "at (0.75)s": "0.62 dmg × P2",
+          "at (3.00)s": "1.00 dmg × P2",
           "Speed Mult Range": "(1.00) (1.00)",
           "Distance Mult Range": "(0.70) (1.40)",
           "Damage Mult Range": "(0.50) (1.00)"
         },
         "Attacks": {
-          "*SMALL PLASMA BOLT P": "Projectile",
-          "*SMALL PLASMA BOLT P1": "Projectile",
-          "*SMALL PLASMA BOLT P2": "Projectile",
-          "**SMALL PLASMA BOLT P1 IE": "Explosion",
-          "**SMALL PLASMA BOLT P2 IE": "Explosion",
-          "**SMALL PLASMA BOLT P IE": "Explosion"
+          "*P1": "Projectile",
+          "*P2": "Projectile",
+          "*PLAS-15 P": "Projectile",
+          "**P1 IE": "Explosion",
+          "**P2 IE": "Explosion",
+          "**PLAS-15 P IE": "Explosion"
         }
       },
-      "SMALL PLASMA BOLT P": {
+      "P1": {
+        "Projectile": {
+          "Mass": "25 g",
+          "Initial Velocity": "550 m/s",
+          "Drag Factor": "150%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "P1_IE"
+        },
+        "Damage": {
+          "Standard": "150 Ballistic",
+          "vs. Durable": "75 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "P1 IE": {
+        "Area of Effect": {
+          "Inner Radius": "1 m",
+          "Outer Radius": "2 m",
+          "Shockwave Radius": "2 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "75 Explosion",
+          "Inner Durable": "75 Explosion",
+          "Outer Radius": "74 - 0",
+          "Outer Durable": "74 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "7"
+        }
+      },
+      "P2": {
+        "Projectile": {
+          "Mass": "25 g",
+          "Initial Velocity": "350 m/s",
+          "Drag Factor": "150%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "35%",
+          "Explosion On Impact": "P2_IE"
+        },
+        "Damage": {
+          "Standard": "150 Ballistic",
+          "vs. Durable": "75 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Medium",
+          "Slight Angle": "Medium",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "10"
+        }
+      },
+      "P2 IE": {
+        "Area of Effect": {
+          "Inner Radius": "2.9000001 m",
+          "Outer Radius": "3 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "225 Explosion",
+          "Inner Durable": "225 Explosion",
+          "Outer Radius": "224 - 0",
+          "Outer Durable": "224 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
+        },
+        "AoE Effect": {
+          "Demolition Force": "10",
+          "Stagger Force": "35",
+          "Push Force": "30"
+        }
+      },
+      "PLAS-15 P": {
         "Projectile": {
           "Mass": "10 g",
           "Initial Velocity": "550 m/s",
           "Drag Factor": "100%",
           "Gravity Factor": "50%",
           "Penetration Slowdown": "35%",
-          "Explosion On Impact": "SMALL PLASMA BOLT_P_IE"
+          "Explosion On Impact": "PLAS-15_P_IE"
         },
         "Damage": {
           "Standard": "100 Ballistic",
@@ -398,7 +519,7 @@
           "Push Force": "10"
         }
       },
-      "SMALL PLASMA BOLT P IE": {
+      "PLAS-15 P IE": {
         "Area of Effect": {
           "Inner Radius": "0.75 m",
           "Outer Radius": "1.5 m",
@@ -412,108 +533,14 @@
           "Outer Durable": "24 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "10",
           "Stagger Force": "10",
           "Push Force": "5"
-        }
-      },
-      "SMALL PLASMA BOLT P1": {
-        "Projectile": {
-          "Mass": "25 g",
-          "Initial Velocity": "550 m/s",
-          "Drag Factor": "150%",
-          "Gravity Factor": "100%",
-          "Penetration Slowdown": "35%",
-          "Explosion On Impact": "SMALL PLASMA BOLT_P1_IE"
-        },
-        "Damage": {
-          "Standard": "150 Ballistic",
-          "vs. Durable": "75 Ballistic"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored"
-        },
-        "Special Effects": {
-          "Demolition Force": "10",
-          "Stagger Force": "20",
-          "Push Force": "10"
-        }
-      },
-      "SMALL PLASMA BOLT P1 IE": {
-        "Area of Effect": {
-          "Inner Radius": "1 m",
-          "Outer Radius": "2 m",
-          "Shockwave Radius": "2 m"
-        },
-        "Damage": {
-          "Damage Element": "None",
-          "Inner Radius": "75 Explosion",
-          "Inner Durable": "75 Explosion",
-          "Outer Radius": "74 - 0",
-          "Outer Durable": "74 - 0"
-        },
-        "Penetration": {
-          "Direct": "Medium"
-        },
-        "AoE Effect": {
-          "Demolition Force": "10",
-          "Stagger Force": "10",
-          "Push Force": "7"
-        }
-      },
-      "SMALL PLASMA BOLT P2": {
-        "Projectile": {
-          "Mass": "25 g",
-          "Initial Velocity": "350 m/s",
-          "Drag Factor": "150%",
-          "Gravity Factor": "100%",
-          "Penetration Slowdown": "35%",
-          "Explosion On Impact": "SMALL PLASMA BOLT_P2_IE"
-        },
-        "Damage": {
-          "Standard": "150 Ballistic",
-          "vs. Durable": "75 Ballistic"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium",
-          "Extreme Angle": "Unarmored"
-        },
-        "Special Effects": {
-          "Demolition Force": "10",
-          "Stagger Force": "20",
-          "Push Force": "10"
-        }
-      },
-      "SMALL PLASMA BOLT P2 IE": {
-        "Area of Effect": {
-          "Inner Radius": "2.9000001 m",
-          "Outer Radius": "3 m",
-          "Shockwave Radius": "4 m"
-        },
-        "Damage": {
-          "Damage Element": "None",
-          "Inner Radius": "225 Explosion",
-          "Inner Durable": "225 Explosion",
-          "Outer Radius": "224 - 0",
-          "Outer Durable": "224 - 0"
-        },
-        "Penetration": {
-          "Direct": "Medium",
-          "Slight Angle": "Medium",
-          "Large Angle": "Medium"
-        },
-        "AoE Effect": {
-          "Demolition Force": "10",
-          "Stagger Force": "35",
-          "Push Force": "30"
         }
       }
     }
@@ -541,6 +568,7 @@
           "Spread": "↔[200.00] ↕[150.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "3",
           "Spare Rounds": "30",
           "Starting Rounds": "30",
@@ -549,10 +577,10 @@
           "Barrels": "x 3"
         },
         "Attacks": {
-          "*BUCKSHOT P1": "Projectile"
+          "*SG-22 P": "Projectile"
         }
       },
-      "BUCKSHOT P1": {
+      "SG-22 P": {
         "Projectile": {
           "Pellets": "x 9",
           "Mass": "6 g",
@@ -600,6 +628,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "31",
           "Spare Magazines": "6",
           "Starting Magazines": "4",
@@ -607,10 +636,10 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*9x20mm FULL METAL JACKET P1": "Projectile"
+          "*P-19 P": "Projectile"
         }
       },
-      "9x20mm FULL METAL JACKET P1": {
+      "P-19 P": {
         "Projectile": {
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
@@ -660,6 +689,7 @@
           "Spread": "↔[30.00] ↕[30.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "1",
           "Spare Rounds": "6",
           "Starting Rounds": "4",
@@ -667,19 +697,20 @@
           "Rounds from Ammo Box": "2"
         },
         "Attacks": {
-          "*40mm HEAT GRENADE P": "Projectile",
-          "**40mm HEAT GRENADE P IE": "Explosion"
+          "*GP-31 P": "Projectile",
+          "**GP-31 P IE": "Explosion"
         }
       },
-      "40mm HEAT GRENADE P": {
+      "GP-31 P": {
         "Projectile": {
           "Mass": "50 g",
           "Initial Velocity": "100 m/s",
           "Drag Factor": "120%",
           "Gravity Factor": "100%",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "40mm HEAT GRENADE_P_IE",
-          "Explode After": "40mm HEAT GRENADE_P_IE"
+          "Explosion On Impact": "GP-31_P_IE",
+          "Explode After": "GP-31_P_IE",
+          "Arming Distance": "4 m"
         },
         "Damage": {
           "Standard": "250 Ballistic",
@@ -697,7 +728,7 @@
           "Push Force": "10"
         }
       },
-      "40mm HEAT GRENADE P IE": {
+      "GP-31 P IE": {
         "Area of Effect": {
           "Inner Radius": "2.25 m",
           "Outer Radius": "6.5 m",
@@ -711,7 +742,9 @@
           "Outer Durable": "399 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -742,6 +775,7 @@
           "Spread": "↔[8.00] ↕[8.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "10",
           "Spare Magazines": "10",
           "Starting Magazines": "6",
@@ -749,10 +783,10 @@
           "Mags from Ammo Box": "5"
         },
         "Attacks": {
-          "*12x25mm FULL METAL JACKET P": "Projectile"
+          "*P-113 P": "Projectile"
         }
       },
-      "12x25mm FULL METAL JACKET P": {
+      "P-113 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
@@ -799,6 +833,7 @@
           "Spread": "↔[8.00] ↕[8.00]",
           "Sway": "1",
           "Ergonomics": "75",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "6",
           "Spare Rounds": "40",
           "Starting Rounds": "32",
@@ -806,10 +841,10 @@
           "Rounds from Ammo Box": "20"
         },
         "Attacks": {
-          "*13x40mm FULL METAL JACKET P": "Projectile"
+          "*P-4 P": "Projectile"
         }
       },
-      "13x40mm FULL METAL JACKET P": {
+      "P-4 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "550 m/s",
@@ -859,6 +894,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Spare Magazines": "3",
           "Starting Magazines": "3",
           "Mags from Supply": "6",
@@ -947,6 +983,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Spare Magazines": "3",
           "Starting Magazines": "2",
           "Mags from Supply": "6",
@@ -960,10 +997,10 @@
           "Cooldown After Overheat": "RELOAD NEEDED"
         },
         "Attacks": {
-          "*LASER P4": "Projectile"
+          "*LAS-58 P": "Projectile"
         }
       },
-      "LASER P4": {
+      "LAS-58 P": {
         "Projectile": {
           "Mass": "12 g",
           "Initial Velocity": "1300 m/s",
@@ -1013,6 +1050,7 @@
           "Spread": "↔[1.00] ↕[1.00]",
           "Sway": "1",
           "Ergonomics": "95",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "50",
           "Spare Magazines": "4",
           "Starting Magazines": "2",
@@ -1105,6 +1143,7 @@
           "Spread": "↔[50.00] ↕[50.00]",
           "Sway": "1",
           "Ergonomics": "35",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "1",
           "Spare Magazines": "1",
           "Starting Magazines": "0",
@@ -1155,7 +1194,9 @@
           "Outer Durable": "1999 - 0"
         },
         "Penetration": {
-          "Direct": "Anti-Tank II"
+          "Inner AP": "Anti-Tank II",
+          "Outer AP": "Anti-Tank I",
+          "Shockwave AP": "Anti-Tank II"
         },
         "AoE Effect": {
           "Demolition Force": "40",
@@ -1186,6 +1227,7 @@
           "Spread": "↔[8.00] ↕[8.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "13",
           "Spare Magazines": "7",
           "Starting Magazines": "4",
@@ -1193,11 +1235,11 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*Guided P1": "Projectile",
-          "*Non-Guided P1": "Projectile"
+          "*P-92 P": "Projectile",
+          "*P-92 P1": "Projectile"
         }
       },
-      "Guided P1": {
+      "P-92 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
@@ -1221,7 +1263,7 @@
           "Push Force": "10"
         }
       },
-      "Non-Guided P1": {
+      "P-92 P1": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "285 m/s",
@@ -1258,7 +1300,7 @@
     "internalName": "m6csocompistol",
     "tier": "b",
     "wikiSlug": "M6C/SOCOM_Pistol",
-    "wikiImageUrl": null,
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/M6C-SOCOM_Pistol_Secondary_Render.png",
     "imageUrl": "secondaries/M6C-SOCOM_Pistol_Secondary_Render.png",
     "properties": {
       "M6C/SOCOM PISTOL": {
@@ -1270,6 +1312,7 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "Suppressed (~13m)",
           "Capacity": "12",
           "Spare Magazines": "10",
           "Starting Magazines": "6",
@@ -1327,6 +1370,7 @@
           "Spread": "↔[8.00] ↕[8.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "12",
           "Spare Rounds": "90",
           "Starting Rounds": "52",
@@ -1334,10 +1378,10 @@
           "Rounds from Ammo Box": "45"
         },
         "Attacks": {
-          "*15x100mm STANDARD ROCKET P1": "Projectile"
+          "*P-69 P": "Projectile"
         }
       },
-      "15x100mm STANDARD ROCKET P1": {
+      "P-69 P": {
         "Projectile": {
           "Mass": "7 g",
           "Initial Velocity": "375 m/s",
@@ -1378,23 +1422,25 @@
       "Melee"
     ],
     "properties": {
-      "CQC-73 Entrenchment Tool": {
+      "CQC-72 ENTRENCHMENT TOOL": {
         "Base": {
-          "Fire Rate": "150 rpm",
-          "Recoil": "0",
-          "Ergonomics": "0",
-          "Capacity": "0",
-          "Reload Time": "0 s",
-          "Tactical Reload": "0 s",
-          "Spare Magazines": "0"
+          "Recoil": "6.25",
+          "Horizontal Recoil": "2.5",
+          "Vertical Recoil": "10",
+          "Spread": "↔[10.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "65",
+          "Noise When Firing": "No sound",
+          "Stamina Cost": "3%"
         },
         "Attacks": {
-          "CQC-73 Entrenchment Tool": "Damage"
-        },
+          "*CQC-72 ENTRENCHMENT TOOL_dm": "Damage"
+        }
+      },
+      "CQC-72 ENTRENCHMENT TOOL_dm": {
         "Damage": {
-          "Element": "Melee",
           "Standard": "165 Melee",
-          "vs. Durable": "55 Melee"
+          "vs. Durable": "83 Melee"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -1434,6 +1480,7 @@
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "1",
           "Ergonomics": "100",
+          "Noise When Firing": "No sound",
           "Capacity": "6",
           "Spare Magazines": "2",
           "Starting Magazines": "2",
@@ -1524,6 +1571,7 @@
           "Spread": "↔[8.00] ↕[8.00]",
           "Sway": "1",
           "Ergonomics": "45",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "1",
           "Spare Magazines": "3",
           "Starting Magazines": "1",
@@ -1531,12 +1579,12 @@
           "Mags from Ammo Box": "1"
         },
         "Attacks": {
-          "*Guided P": "Projectile",
-          "*Non-Guided P": "Projectile",
-          "**Guided P IE": "Explosion"
+          "*P-33 P": "Projectile",
+          "*P-33 P1": "Projectile",
+          "**P-33 P IE": "Explosion"
         }
       },
-      "Guided P": {
+      "P-33 P": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "1 m/s",
@@ -1544,12 +1592,12 @@
           "Gravity Factor": "0%",
           "Lifetime": "3 sec",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "Guided_P_IE",
-          "Explode After": "Guided_P_IE"
+          "Explosion On Impact": "P-33_P_IE",
+          "Explode After": "P-33_P_IE"
         },
         "Damage": {
-          "Standard": "1000 Damage",
-          "vs. Durable": "1000 Damage"
+          "Standard": "1000 Ballistic",
+          "vs. Durable": "1000 Ballistic"
         },
         "Penetration": {
           "Direct": "Anti-Tank I",
@@ -1563,7 +1611,7 @@
           "Push Force": "25"
         }
       },
-      "Guided P IE": {
+      "P-33 P IE": {
         "Area of Effect": {
           "Inner Radius": "2 m",
           "Outer Radius": "4 m",
@@ -1577,7 +1625,9 @@
           "Outer Durable": "299 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -1585,7 +1635,7 @@
           "Push Force": "40"
         }
       },
-      "Non-Guided P": {
+      "P-33 P1": {
         "Projectile": {
           "Mass": "15 g",
           "Initial Velocity": "1 m/s",
@@ -1593,12 +1643,12 @@
           "Gravity Factor": "0%",
           "Lifetime": "3 sec",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "Guided_P_IE",
-          "Explode After": "Guided_P_IE"
+          "Explosion On Impact": "P-33_P_IE",
+          "Explode After": "P-33_P_IE"
         },
         "Damage": {
-          "Standard": "1000 Damage",
-          "vs. Durable": "1000 Damage"
+          "Standard": "1000 Ballistic",
+          "vs. Durable": "1000 Ballistic"
         },
         "Penetration": {
           "Direct": "Anti-Tank I",
@@ -1635,6 +1685,7 @@
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "30",
+          "Noise When Firing": "Small (~33m)",
           "Capacity": "6",
           "Spare Magazines": "4",
           "Starting Magazines": "3",
@@ -1686,12 +1737,143 @@
           "Outer Durable": "174 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "10",
           "Stagger Force": "35",
           "Push Force": "5"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "P-34 Breacher",
+    "warbondCode": "warbond27",
+    "internalName": "p34breacher",
+    "tier": "s",
+    "wikiSlug": "P-34_Breacher",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-34_Breacher_Secondary_Render.png",
+    "imageUrl": "secondaries/P-34_Breacher_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": [],
+    "properties": {
+      "P-34 BREACHER": {
+        "Base": {
+          "Fire Rate": "20 rpm",
+          "Recoil": "312.5",
+          "Horizontal Recoil": "150",
+          "Vertical Recoil": "475",
+          "Spread": "↔[8.00] ↕[8.00]",
+          "Sway": "1",
+          "Ergonomics": "45",
+          "Noise When Firing": "Small (~33m)",
+          "Capacity": "1",
+          "Spare Magazines": "2",
+          "Starting Magazines": "1",
+          "Mags from Supply": "1",
+          "Mags from Ammo Box": "1"
+        },
+        "Attacks": {
+          "*P-34 P": "Projectile",
+          "**P-34 BREACHER E": "Explosion",
+          "**Fire": "status",
+          "**Thermite": "status"
+        }
+      },
+      "P-34 P": {
+        "Projectile": {
+          "Mass": "10 g",
+          "Initial Velocity": "150 m/s",
+          "Drag Factor": "200%",
+          "Gravity Factor": "100%",
+          "Lifetime": "1.70000005 sec",
+          "Penetration Slowdown": "0%",
+          "Explosion On Impact": "P-34_P_IE",
+          "Explode After": "P-34_P_IE"
+        },
+        "Damage": {
+          "Standard": "60 Ballistic",
+          "vs. Durable": "0 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Medium",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "15",
+          "Stagger Force": "10",
+          "Push Force": "10"
+        }
+      },
+      "P-34 BREACHER E": {
+        "Area of Effect": {
+          "Inner Radius": "1.5 m",
+          "Outer Radius": "2.5 m",
+          "Shockwave Radius": "4 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "2000 Explosion",
+          "Inner Durable": "2000 Explosion",
+          "Outer Radius": "1999 - 0",
+          "Outer Durable": "1999 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Anti-Tank III",
+          "Outer AP": "Anti-Tank II",
+          "Shockwave AP": "Anti-Tank III"
+        },
+        "AoE Effect": {
+          "Demolition Force": "30",
+          "Stagger Force": "20",
+          "Push Force": "40"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      },
+      "Thermite": {
+        "Status": {
+          "Status Duration": "1 sec"
+        },
+        "Damage": {
+          "Standard": "150 Damage",
+          "vs. Durable": "150 Damage"
+        },
+        "Penetration": {
+          "Direct": "Anti-Tank III",
+          "Slight Angle": "Anti-Tank III",
+          "Large Angle": "Anti-Tank III",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "0",
+          "Push Force": "0"
         }
       }
     }

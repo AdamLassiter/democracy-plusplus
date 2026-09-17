@@ -105,7 +105,9 @@ npm run fetchStructures
 The full `npm run fetchData` workflow also refreshes `public/data/enemies.json` and
 `public/data/structures.json`. The structures scraper follows the Demolition table
 to linked structure pages for descriptions and imagery, while retaining the source
-table's demolition force and BaDR requirements.
+table's demolition force and BaDR requirements. It also reads the Warbonds page's
+cover galleries and attaches the matching cover image metadata to the curated
+warbond records without automatically adding wiki-only entries.
 
 After refreshing wiki data, cache and resize its images locally with:
 
@@ -113,6 +115,11 @@ After refreshing wiki data, cache and resize its images locally with:
 npm run downloadImages
 npm run rescaleImages
 ```
+
+Warbond covers are downloaded to `public/images/warbonds`; the recursive rescaler
+then reduces them to the same 640px maximum width as the other PNG assets.
+To refresh only warbond cover metadata before those two image steps, run
+`npm run fetchWarbondImages` instead of the full data fetch.
 
 ## 🧩 Project Structure (Command Layout)
 

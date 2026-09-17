@@ -7,10 +7,12 @@ import {
   fetchStructures,
   fetchPageSource,
   findBestScrapedMatch,
+  canonicalizeName,
   getImageFileName,
   parseArmorPassivesPageSource,
   parseBoostersPageSource,
   parseStratagemsPageSource,
+  parseWarbondsPageSource,
   parseWeaponsPageSource,
   resolveImageUrls,
   toInternalName,
@@ -45,6 +47,14 @@ interface StoredItem {
   category?: EquipmentCategory | StratagemCategory | "";
   tags?: string[];
   hoverTexts?: unknown;
+  [key: string]: unknown;
+}
+
+interface StoredWarbond {
+  displayName: string;
+  wikiSlug?: string;
+  wikiImageUrl?: string | null;
+  imageUrl?: string;
   [key: string]: unknown;
 }
 
@@ -384,6 +394,60 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
   }
 }
 
+async function mergeWarbondImages(scrapedWarbonds: LinkedWikiItem[]) {
+  const filePath = "./public/data/warbonds.json";
+  const loadTask = createTask("Loading WARBONDS", filePath);
+  const raw = await fs.readFile(filePath, "utf-8");
+  const existingWarbonds = JSON.parse(raw) as StoredWarbond[];
+  loadTask.succeed(`${existingWarbonds.length} records`);
+
+  const scrapedByName = new Map(
+    scrapedWarbonds.map((warbond) => [canonicalizeName(warbond.displayName), warbond]),
+  );
+  const matchedNames = new Set<string>();
+  const missingImages: string[] = [];
+
+  const merged = existingWarbonds.map((warbond): StoredWarbond => {
+    const canonicalName = canonicalizeName(warbond.displayName);
+    const scrapedWarbond = scrapedByName.get(canonicalName);
+    if (!scrapedWarbond) {
+      missingImages.push(warbond.displayName);
+      return warbond;
+    }
+
+    matchedNames.add(canonicalName);
+    const imageFileName = getImageFileName(scrapedWarbond.wikiImageUrl);
+    return {
+      ...warbond,
+      wikiSlug: scrapedWarbond.wikiSlug,
+      wikiImageUrl: scrapedWarbond.wikiImageUrl,
+      ...(imageFileName ? { imageUrl: `warbonds/${imageFileName}` } : {}),
+    };
+  });
+
+  const wikiOnlyWarbonds = scrapedWarbonds
+    .filter((warbond) => !matchedNames.has(canonicalizeName(warbond.displayName)))
+    .map((warbond) => warbond.displayName);
+
+  const saveTask = createTask("Saving WARBONDS", filePath);
+  await fs.writeFile(filePath, JSON.stringify(merged, null, 2));
+  saveTask.succeed("written");
+  summary("WARBONDS summary", {
+    existing: existingWarbonds.length,
+    scraped: scrapedWarbonds.length,
+    matched: matchedNames.size,
+    missingImages: missingImages.length,
+    wikiOnly: wikiOnlyWarbonds.length,
+  });
+
+  if (missingImages.length) {
+    note(`No wiki cover for: ${missingImages.join(", ")}`, "warn");
+  }
+  if (wikiOnlyWarbonds.length) {
+    note(`Wiki-only warbonds were not added: ${wikiOnlyWarbonds.join(", ")}`, "warn");
+  }
+}
+
 async function requirePageSource(title: string): Promise<WikiPageSource> {
   const page = await fetchPageSource(title);
   if (!page) {
@@ -392,16 +456,34 @@ async function requirePageSource(title: string): Promise<WikiPageSource> {
   return page;
 }
 
+async function refreshWarbondImages() {
+  const sourceTask = createTask("Fetching source page", "Warbonds");
+  const warbondsPage = await requirePageSource("Warbonds");
+  sourceTask.succeed("source ready");
+
+  const parseTask = createTask("Parsing wiki page", "warbond covers");
+  const warbonds = await enrichWithImageUrls(parseWarbondsPageSource(warbondsPage.content));
+  parseTask.succeed(`${warbonds.length} covers`);
+  await mergeWarbondImages(warbonds);
+}
+
 async function main() {
   try {
     banner("Data Fetcher", "Scrape wiki data, merge records, and keep prompts readable");
     detail("cwd", process.cwd());
-    const sourceTask = createTask("Fetching source pages", "Weapons, Stratagems, Boosters, Armor Passives");
-    const [weaponsPage, stratagemsPage, boostersPage, passivesPage] = await Promise.all([
+    if (process.argv.includes("--warbonds-only")) {
+      await refreshWarbondImages();
+      note("Warbond image metadata refresh completed", "success");
+      return;
+    }
+
+    const sourceTask = createTask("Fetching source pages", "Weapons, Stratagems, Boosters, Armor Passives, Warbonds");
+    const [weaponsPage, stratagemsPage, boostersPage, passivesPage, warbondsPage] = await Promise.all([
       requirePageSource("Weapons"),
       requirePageSource("Stratagems"),
       requirePageSource("Boosters"),
       requirePageSource("Armor Passives"),
+      requirePageSource("Warbonds"),
     ]);
     sourceTask.succeed("all sources ready");
 
@@ -414,6 +496,7 @@ async function main() {
     const passives = await enrichWithImageUrls(
       await parseArmorPassivesPageSource(passivesPage.content),
     );
+    const warbonds = await enrichWithImageUrls(parseWarbondsPageSource(warbondsPage.content));
     const [bestiary, structures] = await Promise.all([fetchBestiary(), fetchStructures()]);
     parseTask.succeed("parsed");
     summary("Parsed counts", {
@@ -421,6 +504,7 @@ async function main() {
       stratagems: stratagems.length,
       boosters: boosters.length,
       passives: passives.length,
+      warbonds: warbonds.length,
       enemies: bestiary.enemies.length,
       structures: structures.structures.length,
     });
@@ -434,6 +518,7 @@ async function main() {
     await mergeData("stratagems", stratagems, "STRATAGEMS");
     await mergeData("boosters", boosters, "BOOSTERS");
     await mergeData("armor_passives", passives, "ARMOR_PASSIVES");
+    await mergeWarbondImages(warbonds);
     await mergeObjectives("OBJECTIVES");
     note("Data fetch completed", "success");
   } finally {

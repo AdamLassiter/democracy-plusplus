@@ -2,13 +2,58 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  getImageFileName,
   parseArmorPassivesPageSource,
   parseEnemyPageSource,
   parseFactionsPageSource,
   parseDemolitionPageSource,
   parseStructurePageSource,
   parseStratagemsPageSource,
+  parseWarbondsPageSource,
 } from "../scripts/wikiApi.ts";
+
+test("parseWarbondsPageSource reads standard, premium, and legendary cover galleries", () => {
+  const source = `
+== Standard ==
+<gallery widths="240" heights="122">
+Helldivers Mobilize Warbond Cover.png|alt=Helldivers Mobilize!|link=Helldivers Mobilize! Warbond|[[Helldivers Mobilize! Warbond|Helldivers Mobilize!]]
+</gallery>
+== Premium ==
+<gallery>
+Freedom's Flame Premium Warbond Cover.png|alt=Freedom's Flame|link=Freedom's Flame Premium Warbond|[[Freedom's Flame Premium Warbond|Freedom's Flame]]
+</gallery>
+== Legendary ==
+<gallery mode="packed">
+Castellan's_Creed_Legendary_Warbond_Cover.png|alt=Castellan's Creed|link=Castellan's Creed Legendary Warbond|[[Castellan's Creed Legendary Warbond|Castellan's Creed]]
+Unrelated Screenshot.png|alt=Not a cover|link=Warbonds|[[Warbonds|Gallery screenshot]]
+</gallery>
+`;
+
+  assert.deepEqual(parseWarbondsPageSource(source), [
+    {
+      displayName: "Helldivers Mobilize!",
+      wikiSlug: "Helldivers_Mobilize!_Warbond",
+      imageFileTitle: "File:Helldivers Mobilize Warbond Cover.png",
+    },
+    {
+      displayName: "Freedom's Flame",
+      wikiSlug: "Freedom's_Flame_Premium_Warbond",
+      imageFileTitle: "File:Freedom's Flame Premium Warbond Cover.png",
+    },
+    {
+      displayName: "Castellan's Creed",
+      wikiSlug: "Castellan's_Creed_Legendary_Warbond",
+      imageFileTitle: "File:Castellan's_Creed_Legendary_Warbond_Cover.png",
+    },
+  ]);
+});
+
+test("getImageFileName decodes wiki URL filenames", () => {
+  assert.equal(
+    getImageFileName("https://helldivers.wiki.gg/images/Castellan%27s_Creed_Cover.png?661a59"),
+    "Castellan's_Creed_Cover.png",
+  );
+});
 
 test("parseStratagemsPageSource uses current template arguments for categories", async () => {
   const source = `

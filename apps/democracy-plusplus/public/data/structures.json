@@ -494,6 +494,18 @@
       ]
     },
     {
+      "displayName": "GL-15 Evictor",
+      "wikiSlug": "GL-15_Evictor",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
       "displayName": "GP-20 Ultimatum",
       "wikiSlug": "GP-20_Ultimatum",
       "category": "Primary and Secondary Weapons",
@@ -537,6 +549,18 @@
           "demolitionForce": 30,
           "explosive": false
         },
+        {
+          "name": "Explosion",
+          "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "P-34 Breacher",
+      "wikiSlug": "P-34_Breacher",
+      "category": "Primary and Secondary Weapons",
+      "attacks": [
         {
           "name": "Explosion",
           "demolitionForce": 30,
@@ -711,6 +735,18 @@
         {
           "name": "Explosion",
           "demolitionForce": 30,
+          "explosive": true
+        }
+      ]
+    },
+    {
+      "displayName": "G-60 Anti-Tank Seeker",
+      "wikiSlug": "G-60_Anti-Tank_Seeker",
+      "category": "Throwables",
+      "attacks": [
+        {
+          "name": "Explosion",
+          "demolitionForce": 40,
           "explosive": true
         }
       ]

@@ -32,7 +32,7 @@ function demolitionSource(item: Item) {
 export default function ItemDetailsDialog({ item, onClose }: { item: Item | null; onClose: () => void }) {
   if (!item) return null;
 
-  const warbond = item.warbondCode ? getWarbondByCode(item.warbondCode) : undefined;
+  const warbond = item.type !== "Warbond" && item.warbondCode ? getWarbondByCode(item.warbondCode) : undefined;
   const capabilities = extractItemCapabilities(item, demolitionSource(item));
   const wikiUrl = item.wikiSlug
     ? `https://helldivers.wiki.gg/wiki/${item.wikiSlug.split("/").map(encodeURIComponent).join("/")}`

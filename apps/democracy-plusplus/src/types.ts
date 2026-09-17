@@ -49,7 +49,7 @@ export type StratagemCategory = 'Supply' | 'Eagle' | 'Defense' | 'Orbital';
 
 export type ItemCategory = EquipmentCategory | StratagemCategory | 'crate' | 'questrequired';
 
-export type ItemType = 'Equipment' | 'Stratagem' | 'Care Package';
+export type ItemType = 'Equipment' | 'Stratagem' | 'Care Package' | 'Warbond';
 
 export type PropertyValue =
   | string
@@ -103,9 +103,10 @@ export interface Objective extends Omit<BaseItem, 'tier'> {
   tier: Record<Faction, Tier | null>;
 }
 
-export interface Warbond {
-  displayName: string;
+export interface Warbond extends BaseItem {
+  type: 'Warbond';
   warbondCode: string;
+  tier: Tier;
 }
 
 export interface Difficulty {

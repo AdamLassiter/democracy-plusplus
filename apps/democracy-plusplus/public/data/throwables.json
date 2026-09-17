@@ -37,7 +37,9 @@
           "Outer Durable": "799 - 0"
         },
         "Penetration": {
-          "Direct": "Heavy"
+          "Inner AP": "Heavy",
+          "Outer AP": "Medium",
+          "Shockwave AP": "Heavy"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -89,7 +91,9 @@
           "Outer Durable": "2 - 0"
         },
         "Penetration": {
-          "Direct": "Anti-Tank II"
+          "Inner AP": "Anti-Tank II",
+          "Outer AP": "Anti-Tank I",
+          "Shockwave AP": "Anti-Tank II"
         },
         "AoE Effect": {
           "Status": "Gas",
@@ -194,7 +198,7 @@
         },
         "Attacks": {
           "*G-6 FRAG E": "Explosion",
-          "**SHRAPNEL P": "Projectile"
+          "**AC-8 P2": "Projectile"
         }
       },
       "G-6 FRAG E": {
@@ -203,7 +207,7 @@
           "Outer Radius": "10 m",
           "Shockwave Radius": "14 m",
           "Shrapnel Count": "35",
-          "Shrapnel": "SHRAPNEL_P"
+          "Shrapnel": "AC-8_P2"
         },
         "Damage": {
           "Damage Element": "None",
@@ -213,7 +217,9 @@
           "Outer Durable": "499 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "20",
@@ -221,7 +227,7 @@
           "Push Force": "40"
         }
       },
-      "SHRAPNEL P": {
+      "AC-8 P2": {
         "Projectile": {
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
@@ -286,7 +292,9 @@
           "Outer Durable": "399 - 0"
         },
         "Penetration": {
-          "Direct": "Heavy"
+          "Inner AP": "Heavy",
+          "Outer AP": "Medium",
+          "Shockwave AP": "Heavy"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -371,7 +379,9 @@
           "Outer Durable": "299 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Status": "Fire",
@@ -442,7 +452,9 @@
           "Inner Durable": "0 Explosion"
         },
         "Penetration": {
-          "Direct": "Anti-Tank II"
+          "Inner AP": "Anti-Tank II",
+          "Outer AP": "Anti-Tank I",
+          "Shockwave AP": "Anti-Tank II"
         },
         "AoE Effect": {
           "Status": "Stun Large",
@@ -501,7 +513,9 @@
           "Outer Durable": "1999 - 0"
         },
         "Penetration": {
-          "Direct": "Anti-Tank III"
+          "Inner AP": "Anti-Tank III",
+          "Outer AP": "Anti-Tank II",
+          "Shockwave AP": "Anti-Tank III"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -592,7 +606,9 @@
           "Outer Durable": "149 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Status": "Fire",
@@ -664,7 +680,9 @@
           "Outer Durable": "499 - 0"
         },
         "Penetration": {
-          "Direct": "Heavy"
+          "Inner AP": "Heavy",
+          "Outer AP": "Medium",
+          "Shockwave AP": "Heavy"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -713,7 +731,9 @@
           "Outer Durable": "999 - 0"
         },
         "Penetration": {
-          "Direct": "Heavy"
+          "Inner AP": "Heavy",
+          "Outer AP": "Medium",
+          "Shockwave AP": "Heavy"
         },
         "AoE Effect": {
           "Demolition Force": "40",
@@ -746,9 +766,12 @@
           "Spread": "↔[10.00] ↕[10.00]",
           "Sway": "1",
           "Ergonomics": "65",
+          "Noise When Firing": "Medium (~48m)",
           "Capacity": "2000",
           "Spare Magazines": "4",
           "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3",
           "Throwables from Supply": "3",
           "Max Rounds": "6",
           "Starting Rounds": "4"
@@ -773,7 +796,9 @@
           "Outer Durable": "49 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Status": "Fire",
@@ -863,7 +888,9 @@
           "Inner Durable": "0 Explosion"
         },
         "Penetration": {
-          "Direct": "Anti-Tank II"
+          "Inner AP": "Anti-Tank II",
+          "Outer AP": "Anti-Tank I",
+          "Shockwave AP": "Anti-Tank II"
         },
         "AoE Effect": {
           "Status": "Stun Large",
@@ -899,7 +926,7 @@
         "Base": {
           "Throwables from Supply": "3",
           "Max Rounds": "5",
-          "Starting Rounds": "3"
+          "Starting Rounds": "4"
         },
         "Attacks": {
           "*G-31 ARC E": "Explosion",
@@ -915,12 +942,14 @@
           "Arc": "G-31 ARC_E_A"
         },
         "Damage": {
-          "Damage Element": "Arc",
+          "Damage Element": "Electricity",
           "Inner Radius": "0 Arc",
           "Inner Durable": "0 Arc"
         },
         "Penetration": {
-          "Direct": "Anti-Tank II"
+          "Inner AP": "Anti-Tank II",
+          "Outer AP": "Anti-Tank I",
+          "Shockwave AP": "Anti-Tank II"
         },
         "AoE Effect": {
           "Demolition Force": "0",
@@ -931,10 +960,14 @@
       "G-31 ARC E A": {
         "Arc": {
           "Arc Range": "10 m",
-          "Arc Velocity": "2000 m/s"
+          "Arc Velocity": "2000 m/s",
+          "Arc Spread": "6 °",
+          "Chain Spread": "180 °",
+          "Chain Count": "2",
+          "Max Split": "2"
         },
         "Damage": {
-          "Element": "Arc",
+          "Element": "Electricity",
           "Standard": "100 Arc",
           "vs. Durable": "70 Arc"
         },
@@ -981,8 +1014,8 @@
         },
         "Attacks": {
           "*G-7 PINEAPPLE E": "Explosion",
-          "**CLUSTER BOMB P": "Projectile",
-          "***CLUSTER BOMB P IE": "Explosion"
+          "**G-7 P": "Projectile",
+          "***G-7 P IE": "Explosion"
         }
       },
       "G-7 PINEAPPLE E": {
@@ -991,7 +1024,7 @@
           "Outer Radius": "10 m",
           "Shockwave Radius": "14 m",
           "Shrapnel Count": "18",
-          "Shrapnel": "CLUSTER BOMB_P"
+          "Shrapnel": "G-7_P"
         },
         "Damage": {
           "Damage Element": "None",
@@ -1001,7 +1034,9 @@
           "Outer Durable": "299 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -1009,15 +1044,16 @@
           "Push Force": "40"
         }
       },
-      "CLUSTER BOMB P": {
+      "G-7 P": {
         "Projectile": {
           "Mass": "150 g",
           "Initial Velocity": "25 m/s",
           "Drag Factor": "50%",
           "Gravity Factor": "400%",
           "Penetration Slowdown": "25%",
-          "Explosion On Impact": "CLUSTER BOMB_P_IE",
-          "Explode After": "CLUSTER BOMB_P_IE"
+          "Explosion On Impact": "G-7_P_IE",
+          "Explode After": "G-7_P_IE",
+          "Arming Distance": "15 m"
         },
         "Damage": {
           "Standard": "300 Ballistic",
@@ -1035,7 +1071,7 @@
           "Push Force": "40"
         }
       },
-      "CLUSTER BOMB P IE": {
+      "G-7 P IE": {
         "Area of Effect": {
           "Inner Radius": "2.5 m",
           "Outer Radius": "5 m",
@@ -1049,7 +1085,9 @@
           "Outer Durable": "99 - 0"
         },
         "Penetration": {
-          "Direct": "Medium"
+          "Inner AP": "Medium",
+          "Outer AP": "Light",
+          "Shockwave AP": "Medium"
         },
         "AoE Effect": {
           "Demolition Force": "20",
@@ -1084,7 +1122,7 @@
         },
         "Attacks": {
           "*TM-1 LURE MINE E": "Explosion",
-          "**SHRAPNEL P": "Projectile"
+          "**AC-8 P2": "Projectile"
         }
       },
       "TM-1 LURE MINE E": {
@@ -1093,7 +1131,7 @@
           "Outer Radius": "8 m",
           "Shockwave Radius": "12 m",
           "Shrapnel Count": "35",
-          "Shrapnel": "SHRAPNEL_P"
+          "Shrapnel": "AC-8_P2"
         },
         "Damage": {
           "Damage Element": "None",
@@ -1103,7 +1141,9 @@
           "Outer Durable": "999 - 0"
         },
         "Penetration": {
-          "Direct": "Anti-Tank I"
+          "Inner AP": "Anti-Tank I",
+          "Outer AP": "Heavy",
+          "Shockwave AP": "Anti-Tank I"
         },
         "AoE Effect": {
           "Demolition Force": "30",
@@ -1111,7 +1151,7 @@
           "Push Force": "40"
         }
       },
-      "SHRAPNEL P": {
+      "AC-8 P2": {
         "Projectile": {
           "Mass": "100 g",
           "Initial Velocity": "30 m/s",
@@ -1142,7 +1182,7 @@
     "warbondCode": "warbond1",
     "internalName": "g89smokescreen",
     "tier": "d",
-    "wikiSlug": "Smokescreen",
+    "wikiSlug": "G-89_Smokescreen",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-89_Smokescreen_Throwable_Render.png",
     "imageUrl": "throwables/G-89_Smokescreen_Throwable_Render.png",
     "type": "Equipment",
@@ -1150,7 +1190,27 @@
     "tags": [
       "Special",
       "Stealth"
-    ]
+    ],
+    "properties": {
+      "G-89 SMOKESCREEN": {
+        "Base": {
+          "Throwables from Supply": "3",
+          "Max Rounds": "5",
+          "Starting Rounds": "4"
+        },
+        "Attacks": {
+          "*G-89 SMOKESCREEN E": "Explosion"
+        }
+      },
+      "G-89 SMOKESCREEN E": {
+        "Area of Effect": {
+          "Inner Radius": "5 m",
+          "Outer Radius": "5 m",
+          "Shockwave Radius": "0 m",
+          "AoE Duration": "30 s"
+        }
+      }
+    }
   },
   {
     "displayName": "G/SH-39 Shield",
@@ -1158,7 +1218,7 @@
     "internalName": "gsh39shield",
     "tier": "c",
     "wikiSlug": "G/SH-39_Shield",
-    "wikiImageUrl": null,
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-SH-39_Shield_Throwable_Render.png",
     "imageUrl": "throwables/G-SH-39_Shield_Throwable_Render.png",
     "type": "Equipment",
     "category": "throwable",
@@ -1219,10 +1279,9 @@
           "Outer Durable": "1999 - 0"
         },
         "Penetration": {
-          "Direct": "Anti-Tank I",
-          "Slight Angle": "Anti-Tank I",
-          "Large Angle": "Anti-Tank I",
-          "Extreme Angle": "Heavy"
+          "Inner AP": "Anti-Tank I",
+          "Outer AP": "Heavy",
+          "Shockwave AP": "Anti-Tank I"
         },
         "AoE Effect": {
           "Demolition Force": "40",
@@ -1244,8 +1303,15 @@
     "category": "throwable",
     "tags": [],
     "properties": {
-      "Attacks": {
+      "G/40-K MELTA MINE": {
         "Base": {
+          "Main Health": "150",
+          "Main Armor": "Unarmored",
+          "Throwables from Supply": "2",
+          "Max Rounds": "4",
+          "Starting Rounds": "3"
+        },
+        "Attacks": {
           "*G/40-K MELTA MINE E": "Explosion",
           "*FLAMEWALL": "Damage"
         }
@@ -1264,9 +1330,9 @@
           "Outer Durable": "1999 - 0"
         },
         "Penetration": {
-          "Direct": "Anti-Tank III",
-          "Slight Angle": "Anti-Tank III",
-          "Large Angle": "Anti-Tank III"
+          "Inner AP": "Anti-Tank III",
+          "Outer AP": "Anti-Tank II",
+          "Shockwave AP": "Anti-Tank III"
         },
         "AoE Effect": {
           "Demolition Force": "40",
@@ -1290,6 +1356,126 @@
           "Demolition Force": "10",
           "Stagger Force": "40",
           "Push Force": "40"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "G-8 Immolation",
+    "warbondCode": "warbond27",
+    "internalName": "g8immolation",
+    "tier": "b",
+    "wikiSlug": "G-8_Immolation",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-8_Immolation_Throwable_Render.png",
+    "imageUrl": "throwables/G-8_Immolation_Throwable_Render.png",
+    "type": "Equipment",
+    "category": "throwable",
+    "tags": [],
+    "properties": {
+      "G-8 IMMOLATION": {
+        "Base": {
+          "Throwables from Supply": "3",
+          "Max Rounds": "6",
+          "Starting Rounds": "4"
+        },
+        "Attacks": {
+          "*G-8 IMMOLATION E": "Explosion",
+          "**Fire": "status"
+        }
+      },
+      "G-8 IMMOLATION E": {
+        "Area of Effect": {
+          "Inner Radius": "4 m",
+          "Outer Radius": "10 m",
+          "Shockwave Radius": "10 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "20 Explosion",
+          "Inner Durable": "20 Explosion",
+          "Outer Radius": "19 - 0",
+          "Outer Durable": "19 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Unarmored",
+          "Outer AP": "No Hitbox",
+          "Shockwave AP": "Unarmored"
+        },
+        "AoE Effect": {
+          "Status": "Fire",
+          "Status Strength": "100",
+          "Demolition Force": "0",
+          "Stagger Force": "40",
+          "Push Force": "0"
+        }
+      },
+      "Fire": {
+        "Status": {
+          "Status Duration": "3 sec"
+        },
+        "Damage": {
+          "Element": "Fire",
+          "Standard": "100 Fire",
+          "vs. Durable": "100 Fire"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "0",
+          "Stagger Force": "0",
+          "Push Force": "0"
+        }
+      }
+    }
+  },
+  {
+    "displayName": "G-60 Anti-Tank Seeker",
+    "warbondCode": "warbond27",
+    "internalName": "g60antitankseeker",
+    "tier": "b",
+    "wikiSlug": "G-60_Anti-Tank_Seeker",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/G-60_Anti-Tank_Seeker_Throwable_Render.png",
+    "imageUrl": "throwables/G-60_Anti-Tank_Seeker_Throwable_Render.png",
+    "type": "Equipment",
+    "category": "throwable",
+    "tags": [],
+    "properties": {
+      "G-60 ANTI-TANK SEEKER": {
+        "Base": {
+          "Throwables from Supply": "2",
+          "Max Rounds": "3",
+          "Starting Rounds": "2"
+        },
+        "Attacks": {
+          "*G-60 ANTI-TANK SEEKER E": "Explosion"
+        }
+      },
+      "G-60 ANTI-TANK SEEKER E": {
+        "Area of Effect": {
+          "Inner Radius": "4 m",
+          "Outer Radius": "12 m",
+          "Shockwave Radius": "15 m"
+        },
+        "Damage": {
+          "Damage Element": "None",
+          "Inner Radius": "1800 Explosion",
+          "Inner Durable": "1800 Explosion",
+          "Outer Radius": "1799 - 0",
+          "Outer Durable": "1799 - 0"
+        },
+        "Penetration": {
+          "Inner AP": "Anti-Tank I",
+          "Outer AP": "Heavy",
+          "Shockwave AP": "Anti-Tank I"
+        },
+        "AoE Effect": {
+          "Demolition Force": "40",
+          "Stagger Force": "40",
+          "Push Force": "45"
         }
       }
     }
