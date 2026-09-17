@@ -24,10 +24,18 @@ import { resetLobbySession, selectMultiplayer, setConnecting, setConnectionError
 import LobbyPanel from '../multiplayer/lobbyPanel';
 import { HostLobby, JoinLobby } from './lobby';
 import { retainQueryKeys, updateQuery, useQueryValue } from '../utils/browseUrl';
+import { selectChallengeDefinition } from '../slices/challengesSlice';
 
 const KONAMI_SEQUENCE = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"] as const;
 const FORMS_SEQUENCE = ["Up", "Right", "Down", "Down", "Down", "Down", "Down", "Down"] as const;
-const TAB_NAMES = ["loadout", "shop", "armory", "bestiary", "structures", "log"];
+const TAB_DEFINITIONS: Array<{ name: string; label: string; component: (_props: MenuTabProps) => ReactElement }> = [
+  { name: "loadout", label: "Loadout", component: Loadout },
+  { name: "shop", label: "Shop", component: Shop },
+  { name: "armory", label: "Armory", component: TierLists },
+  { name: "bestiary", label: "Bestiary", component: Bestiary },
+  { name: "structures", label: "Structures", component: Structures },
+  { name: "log", label: "Log", component: Log },
+];
 
 type MenuTabProps = {
   index: number;
@@ -55,25 +63,39 @@ export default function Menu() {
   }, []);
 
   function handleTabChange(_event: SyntheticEvent, newValue: number) {
-    updateQuery({ tab: TAB_NAMES[newValue] === "loadout" ? null : TAB_NAMES[newValue] }, true);
+    const nextTab = visibleTabs[newValue]?.name ?? "loadout";
+    updateQuery({ tab: nextTab === "loadout" ? null : nextTab }, true);
   }
 
   const { credits } = useSelector(selectCredits);
   const mission = useSelector(selectMission);
   const multiplayer = useSelector(selectMultiplayer);
   const { missionFlowBanner } = useSelector(selectPreferences);
+  const challengeDefinition = useSelector(selectChallengeDefinition);
   const { count: missionCount } = mission;
   const nextStepText = mission.state === 'brief'
-    ? "Choose a faction, difficulty, and objective, then lock in to reveal the mission requirements."
+    ? challengeDefinition.economy
+      ? "Choose a faction, difficulty, and objective, then lock in to reveal the mission requirements."
+      : "Choose a challenge, faction, difficulty, and objective, then lock in to prepare the loadout."
     : mission.state === 'loadout'
-      ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
-      : "After playing the mission in-game, submit the mission report with the final results.";
+      ? challengeDefinition.economy
+        ? "Review the assignments, use the shop and inventory to assemble your loadout, then deploy into the mission."
+        : "Assemble the permitted loadout, then deploy into the mission."
+      : "After playing the mission in-game, report its star rating and complete the challenge round.";
 
-  const tabs: Array<(_props: MenuTabProps) => ReactElement> = [Loadout, Shop, TierLists, Bestiary, Structures, Log];
-  const currentTab = Math.max(0, TAB_NAMES.indexOf(tabName));
-  const CurrentTab = tabs[currentTab];
+  const visibleTabs = challengeDefinition.economy
+    ? TAB_DEFINITIONS
+    : TAB_DEFINITIONS.filter((tab) => tab.name !== "shop");
+  const currentTab = Math.max(0, visibleTabs.findIndex((tab) => tab.name === tabName));
+  const CurrentTab = visibleTabs[currentTab]?.component ?? Loadout;
   const multiplayerEnabled = multiplayer.backendAvailable;
   const lobbyConnected = multiplayer.connectionStatus === "connected" && Boolean(multiplayer.lobbyState);
+
+  useEffect(() => {
+    if (!challengeDefinition.economy && tabName === "shop") {
+      updateQuery({ tab: null }, true);
+    }
+  }, [challengeDefinition.economy, tabName]);
 
   async function handleCreateLobby() {
     try {
@@ -189,12 +211,7 @@ export default function Menu() {
       >
         {/* Tabs aligned to the left */}
         <Tabs value={currentTab} onChange={handleTabChange} variant="scrollable" scrollButtons="auto">
-          <Tab label="Loadout" />
-          <Tab label="Shop" />
-          <Tab label="Armory" />
-          <Tab label="Bestiary" />
-          <Tab label="Structures" />
-          <Tab label="Log" />
+          {visibleTabs.map((tab) => <Tab key={tab.name} label={tab.label} />)}
         </Tabs>
 
         {/* Credits aligned to the center */}
@@ -211,10 +228,10 @@ export default function Menu() {
           <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>Democracy++</Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        {challengeDefinition.economy && <Box sx={{ display: 'flex', gap: 1 }}>
           <img src={`${import.meta.env.BASE_URL}images/icons/dollar-circle.svg`} alt="icon" style={{ width: 24, height: 24 }} />
           <Typography>{credits}¢</Typography>
-        </Box>
+        </Box>}
 
         {/* Preferences aligned to the right */}
         <Box sx={{ display: 'flex', gap: 1 }}>

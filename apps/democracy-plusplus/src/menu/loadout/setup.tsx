@@ -3,20 +3,32 @@ import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Typography } f
 import { DIFFICULTIES, getMissionsRequiredForDifficulty } from "../../constants/difficulties";
 import { FACTIONS } from "../../constants/factions";
 import { getObjectives } from "../../constants/objectives";
-import { selectMission, setDifficulty, setFaction, setObjective, setPlayerCount, setState } from "../../slices/missionSlice";
+import { selectMission, setDifficulty, setFaction, setObjective, setPlayerCount, setQuests, setRestrictions, setState } from "../../slices/missionSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMultiplayer, setConnectionError } from "../../slices/multiplayerSlice";
 import { sendLobbyCommand } from "../../multiplayer/api";
 import Debrief from "./debrief";
 import { calculateFaction, calculateMissionReward, calculateQuestsReward } from "../../economics/mission";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
-import { LobbyMember, MissionState, Objective, Tier } from "../../types";
+import type { ChallengeModeId, LobbyMember, MissionState, Objective, Tier } from "../../types";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../../utils/missionDebug";
+import { CHALLENGE_DEFINITIONS } from "../../challenges/engine";
+import {
+  selectCanDeployChallenge,
+  selectChallenges,
+  selectEffectiveChallengeMode,
+  setPreferredChallengeMode,
+} from "../../slices/challengesSlice";
+import ChallengeDebrief from "./challengeDebrief";
 
 export default function Setup() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
   const multiplayer = useSelector(selectMultiplayer);
+  const challenges = useSelector(selectChallenges);
+  const challengeMode = useSelector(selectEffectiveChallengeMode);
+  const canDeployChallenge = useSelector(selectCanDeployChallenge);
+  const challengeDefinition = CHALLENGE_DEFINITIONS[challengeMode];
   const missionsRequired = getMissionsRequiredForDifficulty(mission.difficulty);
   const availableObjectives = getObjectives(FACTIONS[mission.faction], mission.difficulty)
     .toSorted((a, b) => sortObjectives(a, b, mission));
@@ -66,6 +78,23 @@ export default function Setup() {
   function handlePlayerCount(event: SelectChangeEvent<string>) {
     dispatch(setPlayerCount({ value: Number(event.target.value) }));
   }
+  async function handleChallengeMode(event: SelectChangeEvent<ChallengeModeId>) {
+    const modeId = event.target.value as ChallengeModeId;
+    dispatch(setQuests({ value: [] }));
+    dispatch(setRestrictions({ value: [] }));
+    if (multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken && isHost) {
+      try {
+        await sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
+          type: "setChallengeSelection",
+          challengeSelection: { version: 1, modeId },
+        });
+      } catch (error) {
+        dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to change challenge mode"));
+      }
+    } else if (!multiplayer.lobbyState) {
+      dispatch(setPreferredChallengeMode(modeId));
+    }
+  }
   async function handleLockIn() {
     logMissionDebug("Setup.handleLockIn", {
       missionState: mission.state,
@@ -114,12 +143,28 @@ export default function Setup() {
   const briefState = mission.state === 'brief';
   const loadoutState = mission.state === 'loadout';
   const debriefState = mission.state === 'debrief';
+  const warbondModeUnavailable = challengeMode === "warbond-knockout"
+    && !challenges.ownedWarbondCodes.some((code) => code !== "none");
 
   const missionReward = calculateMissionReward({ ...mission, stars: 5, playerCount: effectivePlayerCount });
   const questsReward = !briefState && mission.quests ? calculateQuestsReward(mission.quests.map((quest) => ({...quest, completed: true}))) : '??';
 
   return <Grid direction="column" container spacing={2} sx={{width: '250px'}}>
     <Typography variant="h5">Mission Brief</Typography>
+    <FormControl>
+      <InputLabel>Challenge Mode</InputLabel>
+      <Select
+        value={challengeMode}
+        disabled={!briefState || multiplayerLocked}
+        label="Challenge Mode"
+        onChange={handleChallengeMode}
+      >
+        {Object.values(CHALLENGE_DEFINITIONS).map((definition) => (
+          <MenuItem key={definition.id} value={definition.id}>{definition.name}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+    <Typography color="text.secondary" variant="body2">{challengeDefinition.shortDescription}</Typography>
     <FormControl>
       <InputLabel>Faction</InputLabel>
       <Select
@@ -169,15 +214,21 @@ export default function Setup() {
         </Select>
       </FormControl>
     )}
-    <Typography>
+    {challengeDefinition.economy && <Typography>
       Operation Mission {mission.mission} of {missionsRequired}
-    </Typography>
-    <Typography color="success">
+    </Typography>}
+    {challengeDefinition.economy && <Typography color="success">
       {missionReward}¢ (+ {questsReward}¢) Maximum Reward · {effectivePlayerCount} Player{effectivePlayerCount === 1 ? "" : "s"}
-    </Typography>
-    <Button variant="outlined" onClick={() => void handleLockIn()} disabled={!briefState || multiplayerLocked}>Lock In</Button>
-    <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState || multiplayerLocked}>Deploy</Button>
-    {debriefState && <Debrief />}
+    </Typography>}
+    {warbondModeUnavailable && <Typography color="warning.main" variant="body2">
+      Select at least one non-Basic warbond.
+    </Typography>}
+    <Button variant="outlined" onClick={() => void handleLockIn()} disabled={!briefState || multiplayerLocked || warbondModeUnavailable}>Lock In</Button>
+    <Button variant="outlined" onClick={handleDebrief} disabled={!loadoutState || multiplayerLocked || !canDeployChallenge}>Deploy</Button>
+    {loadoutState && challengeMode === "all-item-knockout" && !canDeployChallenge && (
+      <Typography color="warning.main" variant="body2">Equip at least one remaining item before deploying.</Typography>
+    )}
+    {debriefState && (challengeDefinition.economy ? <Debrief /> : <ChallengeDebrief />)}
   </Grid>;
 }
 

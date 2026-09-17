@@ -5,14 +5,21 @@
 > “For liberty! For Managed Democracy! For Super Earth!”
 
 **Democracy++** is a *Helldivers 2* companion web app that dares to push the frontiers of freedom itself.  
-Earn credits for your heroic service, spend them on stratagems and weaponry, and survive the ever-rising tide of galactic oppression - one procedurally intensifying challenge at a time.
+Choose a structured loadout challenge, survive the ever-rising tide of galactic oppression, and rotate through your arsenal one mission at a time.
 
 👉 [**Helldivers to Hellpods**](https://adamlassiter.github.io/democracy-plusplus/) and do your part, soldier.
 
 ## 🌍 Mission Briefing
 
 Democracy++ is a metagame built for Helldivers who crave **order**, **structure**, and **painful fairness**.  
-It introduces a **quest, challenge & shop** system to the Helldivers 2 experience, letting players earn, spend, and suffer in glorious liberation.
+It supports several metagames built around a shared mission flow:
+
+- **Budget** — earn credits, shop for equipment, and complete assignments under restrictive rules of engagement.
+- **Pure Randomizer** — accept an exact randomly assigned loadout.
+- **All-item Knockout** — retire used equipment until the complete owned arsenal has been exhausted.
+- **Warbond Knockout** — rotate through owned warbonds, backed up by Basic Training gear where required.
+
+Owned content and progress are stored locally. In multiplayer, the host chooses the challenge mode and mission while each player keeps an independent randomizer or knockout run.
 
 While lesser recruits may settle for [helldivers2challenges.com](https://helldivers2challenges.com/), *true patriots* know that balance and challenge are the twin engines of liberty.  
 Democracy++ refines that formula - more depth, more math, and more ways to prove your devotion to Super Earth.

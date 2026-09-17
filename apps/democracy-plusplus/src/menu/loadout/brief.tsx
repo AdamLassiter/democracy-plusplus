@@ -11,11 +11,13 @@ import Restrictions from "./restrictions";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../../utils/missionDebug";
 import type { LobbyMember } from "../../types";
 import { canGenerateMission } from "../../multiplayer/missionSync";
+import { prepareChallengeRound, selectEffectiveChallengeMode } from "../../slices/challengesSlice";
 
 export default function Brief() {
   const dispatch = useDispatch();
   const mission = useSelector(selectMission);
   const multiplayer = useSelector(selectMultiplayer);
+  const challengeMode = useSelector(selectEffectiveChallengeMode);
   const currentMember = multiplayer.lobbyState?.members.find(
     (member: LobbyMember) => member.memberId === multiplayer.memberId,
   ) ?? null;
@@ -42,6 +44,13 @@ export default function Brief() {
 
   useEffect(() => {
     // In multiplayer, only the host generates the shared mission payload.
+    if (generatingState && challengeMode !== "budget") {
+      dispatch(prepareChallengeRound(challengeMode));
+      dispatch(setQuests({ value: [] }));
+      dispatch(setRestrictions({ value: [] }));
+      dispatch(setState({ value: 'loadout' }));
+      return;
+    }
     if (generatingState && canGenerateLocally) {
       logMissionDebug("Brief generating start", {
         prng: mission.prng,
@@ -63,12 +72,12 @@ export default function Brief() {
       dispatch(setState({ value: 'loadout' }))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [canGenerateLocally, mission.state]);
+  }, [canGenerateLocally, challengeMode, mission.state]);
 
   return <>
     <Grid direction="row" container spacing={2}>
       <Setup />
-      {generatingState && !canGenerateLocally && (
+      {generatingState && challengeMode === "budget" && !canGenerateLocally && (
         <Typography color="text.secondary" sx={{ alignSelf: "center", paddingLeft: 2 }}>
           Host is generating the mission briefing...
         </Typography>

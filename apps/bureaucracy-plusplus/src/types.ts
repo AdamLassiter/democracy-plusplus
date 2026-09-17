@@ -1,5 +1,6 @@
 import type { Response } from "express";
 import type {
+  ChallengeSelection,
   LobbyCode,
   LobbyMember,
   LobbyMemberId,
@@ -18,6 +19,7 @@ export type LobbyRecord = {
   hostMemberId: LobbyMemberId;
   createdAt: number;
   updatedAt: number;
+  challengeSelection: ChallengeSelection;
   mission: LobbyMissionState;
   members: Map<LobbyMemberId, LobbyMember>;
   sessions: Map<LobbyMemberId, LobbySession>;

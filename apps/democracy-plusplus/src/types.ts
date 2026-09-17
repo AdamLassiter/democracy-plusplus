@@ -1,4 +1,6 @@
 import type {
+  ChallengeModeId,
+  EquipmentState,
   Faction,
   LobbyCode,
   LobbyMemberId,
@@ -11,6 +13,8 @@ import type {
 } from "@plusplus/shared-types";
 
 export type {
+  ChallengeModeId,
+  ChallengeSelection,
   EquipmentState,
   Faction,
   LobbyCode,
@@ -31,6 +35,8 @@ export type {
 export type Tier = 's' | 'a' | 'b' | 'c' | 'd';
 export type EditableTier = Tier | 'uncategorized';
 export type MissionLength = 'short' | 'long';
+// Catalog display names are the existing persisted key; this alias centralizes that contract for future migration.
+export type ItemId = string;
 
 export type EquipmentCategory =
   | 'armor'
@@ -297,15 +303,53 @@ export interface MissionLogEntry {
   kind: 'mission';
   id: string;
   timestamp: string;
+  modeId?: ChallengeModeId;
   missionNumber: number;
   faction: Faction;
   objective: string;
   stars: number;
   usedItems: string[];
-  usedItemsCost: number;
-  quests: MissionOutcome[];
-  restrictions: MissionOutcome[];
-  totalReward: number;
+  usedItemsCost?: number;
+  quests?: MissionOutcome[];
+  restrictions?: MissionOutcome[];
+  totalReward?: number;
+}
+
+export interface RandomizerRunState {
+  seed: number;
+  round: number;
+  prepared: boolean;
+  assignment: EquipmentState;
+}
+
+export interface AllItemKnockoutRunState {
+  seed: number;
+  round: number;
+  cycle: number;
+  prepared: boolean;
+  cycleItemIds: ItemId[];
+  remainingItemIds: ItemId[];
+  loadout: EquipmentState;
+}
+
+export interface WarbondKnockoutRunState {
+  seed: number;
+  round: number;
+  cycle: number;
+  prepared: boolean;
+  cycleWarbondCodes: string[];
+  remainingWarbondCodes: string[];
+  activeWarbondCode: string | null;
+  loadout: EquipmentState;
+}
+
+export interface ChallengesState {
+  version: 1;
+  preferredModeId: ChallengeModeId;
+  ownedWarbondCodes: string[];
+  randomizer: RandomizerRunState;
+  allItemKnockout: AllItemKnockoutRunState;
+  warbondKnockout: WarbondKnockoutRunState;
 }
 
 export type LogEntry = PurchaseLogEntry | MissionLogEntry | TierListChangeLogEntry;

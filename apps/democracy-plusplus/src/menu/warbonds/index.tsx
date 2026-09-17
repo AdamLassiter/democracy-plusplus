@@ -6,11 +6,13 @@ import {
 } from "@mui/material";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { useSelector } from "react-redux";
-import { selectShop } from "../../slices/shopSlice";
+import { selectChallenges } from "../../slices/challengesSlice";
+import { selectMission } from "../../slices/missionSlice";
 import WarbondsDialog from "./warbondsDialog";
 
 export default function Warbonds() {
-  const { warbonds } = useSelector(selectShop);
+  const { ownedWarbondCodes } = useSelector(selectChallenges);
+  const mission = useSelector(selectMission);
   const [open, setOpen] = useState(false);
 
   function handleOpen() {
@@ -19,13 +21,14 @@ export default function Warbonds() {
 
   return (
     <>
-      <Tooltip title="Filter available items by warbonds">
+      <Tooltip title="Choose the content you own for every challenge mode">
         <Badge
-          badgeContent={warbonds.length}
+          badgeContent={ownedWarbondCodes.length}
           color="secondary"
           overlap="circular"
         >
           <Button
+            disabled={mission.state !== "brief"}
             variant="outlined"
             color="secondary"
             startIcon={<MilitaryTechIcon />}

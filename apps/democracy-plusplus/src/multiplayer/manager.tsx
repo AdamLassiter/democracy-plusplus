@@ -10,11 +10,11 @@ import {
   setLobbyState,
 } from "../slices/multiplayerSlice";
 import { checkBackendHealth } from "./api";
-import { selectEquipment, setEquipmentState } from "../slices/equipmentSlice";
 import { selectMission, setMissionState } from "../slices/missionSlice";
 import type { EquipmentState, LobbyMember } from "../types";
 import { logMissionDebug, useMissionDebugEffect, useMissionDebugRender } from "../utils/missionDebug";
 import { syncMissionState } from "./missionSync";
+import { selectActiveEquipment } from "../slices/challengesSlice";
 
 const HEARTBEAT_INTERVAL_MS = 10_000;
 
@@ -25,11 +25,10 @@ function jsonEqual(a: unknown, b: unknown) {
 export default function MultiplayerManager() {
   const dispatch = useDispatch();
   const multiplayer = useSelector(selectMultiplayer);
-  const equipment = useSelector(selectEquipment);
+  const equipment = useSelector(selectActiveEquipment);
   const mission = useSelector(selectMission);
   const eventSourceRef = useRef<EventSource | null>(null);
   const syncingFromLobbyRef = useRef(false);
-  const previousLobbyLoadoutRef = useRef<string | null>(null);
 
   const currentMember = useMemo(
     () => multiplayer.lobbyState?.members.find((member: LobbyMember) => member.memberId === multiplayer.memberId) ?? null,
@@ -167,25 +166,6 @@ export default function MultiplayerManager() {
     dispatch(resetLobbySession());
     dispatch(setConnectionError("Disconnected from lobby"));
   }, [currentMember, dispatch, lobbyState, memberId]);
-
-  useEffect(() => {
-    if (!currentMember) {
-      previousLobbyLoadoutRef.current = null;
-      return;
-    }
-
-    const serialisedLobbyLoadout = JSON.stringify(currentMember.loadout);
-    const lobbyLoadoutChanged = previousLobbyLoadoutRef.current !== serialisedLobbyLoadout;
-    previousLobbyLoadoutRef.current = serialisedLobbyLoadout;
-
-    if (!lobbyLoadoutChanged || jsonEqual(currentMember.loadout, equipment)) {
-      return;
-    }
-
-    logMissionDebug("MultiplayerManager applying lobby equipment");
-    syncingFromLobbyRef.current = true;
-    dispatch(setEquipmentState(currentMember.loadout));
-  }, [currentMember, dispatch, equipment]);
 
   useEffect(() => {
     if (!backendAvailable || !lobbyCode || !memberId || !sessionToken || !lobbyState || syncingFromLobbyRef.current) {

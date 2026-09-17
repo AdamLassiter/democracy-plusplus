@@ -8,6 +8,7 @@ import { getItem } from "../constants";
 import { selectMultiplayer } from "../slices/multiplayerSlice";
 import type { Item, LobbyMember } from "../types";
 import { CompactItemDisplay } from "../utils/itemDisplay";
+import { CHALLENGE_DEFINITIONS } from "../challenges/engine";
 
 function memberLoadoutItems(member: LobbyMember) {
   return [
@@ -90,6 +91,9 @@ export default function LobbyPanel() {
           </Box>
           <Typography color="text.secondary" variant="body2">
             Mission Outcome: {missionSummary.length ? missionSummary.join(" · ") : "No pending reports"}
+          </Typography>
+          <Typography color="text.secondary" variant="body2">
+            Challenge: {CHALLENGE_DEFINITIONS[lobbyState.challengeSelection?.modeId ?? "budget"]?.name ?? CHALLENGE_DEFINITIONS.budget.name}
           </Typography>
           <Divider sx={{ my: 1.5 }} />
           <Stack spacing={1.5}>

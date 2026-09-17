@@ -8,6 +8,8 @@ import { setEquipmentState } from "../../slices/equipmentSlice";
 import { setPurchasedState } from "../../slices/purchasedSlice";
 import { setShopState } from "../../slices/shopSlice";
 import { setMinigamesState } from "../../slices/minigamesSlice";
+import { setChallengesState } from "../../slices/challengesSlice";
+import { setLogState } from "../../slices/logSlice";
 import type { RootState } from "../../slices";
 import styled from "@emotion/styled";
 import { Button, FormLabel, Grid } from "@mui/material";
@@ -72,6 +74,16 @@ export default function ImportExport() {
         }
         const importedState = JSON.parse(text);
         if (importedState.achievements) dispatch(setAchievementsState(importedState.achievements));
+        if (importedState.challenges) {
+          dispatch(setChallengesState(importedState.challenges));
+        } else if (Array.isArray(importedState.shop?.warbonds)) {
+          dispatch(setChallengesState({
+            preferredModeId: "budget",
+            ownedWarbondCodes: importedState.shop.warbonds
+              .map((warbond: { warbondCode?: unknown }) => warbond.warbondCode)
+              .filter((code: unknown): code is string => typeof code === "string"),
+          }));
+        }
         if (importedState.mission) dispatch(setMissionState(importedState.mission));
         if (importedState.credits) dispatch(setCreditsState(importedState.credits));
         if (importedState.equipment) dispatch(setEquipmentState(importedState.equipment));
@@ -79,6 +91,7 @@ export default function ImportExport() {
         if (importedState.purchased) dispatch(setPurchasedState(importedState.purchased));
         if (importedState.shop) dispatch(setShopState(importedState.shop));
         if (importedState.minigames) dispatch(setMinigamesState(importedState.minigames));
+        if (importedState.log) dispatch(setLogState(importedState.log));
       } catch (err) {
         alert(`Failed to import state: ${err}`);
       }

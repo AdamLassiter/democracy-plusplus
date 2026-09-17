@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import type { Request, Response } from "express";
 import type {
+  ChallengeModeId,
   ClientCommand,
   EquipmentState,
   LobbyCode,
@@ -18,6 +19,7 @@ import { logEvent } from "./logger.ts";
 import type { LobbyRecord, LobbySession } from "./types.ts";
 
 const lobbies = new Map<LobbyCode, LobbyRecord>();
+const CHALLENGE_MODES: ChallengeModeId[] = ["budget", "randomizer", "all-item-knockout", "warbond-knockout"];
 
 export function startLobbyCleanupTimer() {
   setInterval(cleanupExpiredLobbies, LOBBY_CLEANUP_INTERVAL_MS).unref();
@@ -91,6 +93,7 @@ export function createLobby(displayName: string) {
     hostMemberId: memberId,
     createdAt: now,
     updatedAt: now,
+    challengeSelection: { version: 1, modeId: "budget" },
     mission: initialMissionState(),
     members: new Map([[memberId, hostMember]]),
     sessions: new Map([[memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS, lastSeenAt: now }]]),
@@ -217,6 +220,7 @@ export function toLobbyState(lobby: LobbyRecord): LobbyState {
   return {
     lobbyCode: lobby.lobbyCode,
     hostMemberId: lobby.hostMemberId,
+    challengeSelection: structuredClone(lobby.challengeSelection),
     mission: structuredClone(lobby.mission),
     members: [...lobby.members.values()].map((member) => structuredClone(member)),
   };
@@ -271,6 +275,25 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
         lobbyCode: lobby.lobbyCode,
         memberId: actor.memberId,
         displayName,
+      });
+      return;
+    }
+    case "setChallengeSelection": {
+      assertHost(lobby, actor);
+      if (command.challengeSelection.version !== 1 || !CHALLENGE_MODES.includes(command.challengeSelection.modeId)) {
+        throw new Error("Unsupported challenge mode");
+      }
+      if (lobby.mission.state !== "brief") {
+        throw new Error("Challenge mode can only be changed during mission briefing");
+      }
+      lobby.challengeSelection = structuredClone(command.challengeSelection);
+      lobby.mission.quests = [];
+      lobby.mission.restrictions = [];
+      resetDebriefReadiness(lobby);
+      logEvent("lobby.challenge.updated", {
+        lobbyCode: lobby.lobbyCode,
+        memberId: actor.memberId,
+        modeId: lobby.challengeSelection.modeId,
       });
       return;
     }

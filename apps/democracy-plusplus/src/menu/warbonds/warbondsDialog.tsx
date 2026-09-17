@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   Dialog,
@@ -12,7 +12,7 @@ import {
   Checkbox,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { selectShop, setWarbonds } from "../../slices/shopSlice";
+import { setWarbonds } from "../../slices/shopSlice";
 import { selectMission } from "../../slices/missionSlice";
 import { selectTierList } from "../../slices/tierListSlice";
 import { selectMultiplayer } from "../../slices/multiplayerSlice";
@@ -20,17 +20,25 @@ import { WARBONDS } from "../../constants/warbonds";
 import type { Warbond } from "../../types";
 import { resetShop } from "../../slices/shopSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
+import { selectChallenges, setOwnedWarbondCodes } from "../../slices/challengesSlice";
 
 export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOpen: (_open: boolean) => void }) {
   const dispatch = useDispatch();
-  const { warbonds } = useSelector(selectShop);
+  const { ownedWarbondCodes } = useSelector(selectChallenges);
   const { count, playerCount: localPlayerCount } = useSelector(selectMission);
   const { overrides } = useSelector(selectTierList);
   const multiplayer = useSelector(selectMultiplayer);
   const playerCount = getEffectivePlayerCount(localPlayerCount, multiplayer.lobbyState);
-  const [selected, setSelected] = useState<Warbond[]>(warbonds);
+  const [selected, setSelected] = useState<Warbond[]>(() => WARBONDS.filter((warbond) => ownedWarbondCodes.includes(warbond.warbondCode)));
+
+  useEffect(() => {
+    if (open) {
+      setSelected(WARBONDS.filter((warbond) => ownedWarbondCodes.includes(warbond.warbondCode)));
+    }
+  }, [open, ownedWarbondCodes]);
 
   function handleToggle(warbond: Warbond) {
+    if (warbond.warbondCode === "none") return;
     setSelected((prev) => {
       const exists = prev.find((w) => w.warbondCode === warbond.warbondCode);
       if (exists) {
@@ -42,19 +50,20 @@ export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOp
   }
 
   function handleSave() {
+    dispatch(setOwnedWarbondCodes(selected.map((warbond) => warbond.warbondCode)));
     dispatch(setWarbonds({ value: selected }));
     dispatch(resetShop({ missionCount: count, playerCount, tierOverrides: overrides }));
     setOpen(false);
   }
 
   function handleCancel() {
-    setSelected(warbonds);
+    setSelected(WARBONDS.filter((warbond) => ownedWarbondCodes.includes(warbond.warbondCode)));
     setOpen(false);
   }
 
   return (
     <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
-      <DialogTitle>Select Warbonds</DialogTitle>
+      <DialogTitle>Warbonds</DialogTitle>
       <DialogContent dividers>
         <List>
           {WARBONDS.map((warbond) => {
@@ -72,6 +81,7 @@ export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOp
                     checked={isChecked}
                     tabIndex={-1}
                     disableRipple
+                    disabled={warbond.warbondCode === "none"}
                   />
                 </ListItemIcon>
                 <ListItemText primary={warbond.displayName} />

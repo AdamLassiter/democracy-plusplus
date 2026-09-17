@@ -3,6 +3,7 @@ import ItemDisplay from "../../utils/itemDisplay";
 import { getItem } from "../../constants";
 import type { LogEntry, MissionLogEntry, MissionOutcome } from "../../types";
 import { SectionTimestamp } from "./shared";
+import { CHALLENGE_DEFINITIONS } from "../../challenges/engine";
 
 function SummaryList({ title, items = [] }: { title: string; items?: MissionOutcome[] }) {
   return <Grid container direction="column" spacing={1}>
@@ -41,7 +42,9 @@ function UsedItems({ items = [] }: { items?: string[] }) {
 
 function MissionCard({ entry }: { entry: MissionLogEntry }) {
   const usedItemsCost = entry.usedItemsCost ?? 0;
-  const profit = entry.totalReward - usedItemsCost;
+  const modeId = entry.modeId && entry.modeId in CHALLENGE_DEFINITIONS ? entry.modeId : "budget";
+  const totalReward = entry.totalReward ?? 0;
+  const profit = totalReward - usedItemsCost;
 
   return <Card sx={{ p: 2, width: "100%" }} variant="outlined">
     <Grid container direction="column" spacing={1}>
@@ -52,10 +55,10 @@ function MissionCard({ entry }: { entry: MissionLogEntry }) {
         <SectionTimestamp timestamp={entry.timestamp} />
       </Grid>
       <Typography color="text.secondary">
-        {entry.faction} | {"★".repeat(entry.stars)}{"☆".repeat(5 - entry.stars)}
+        {CHALLENGE_DEFINITIONS[modeId].name} · {entry.faction} | {"★".repeat(entry.stars)}{"☆".repeat(5 - entry.stars)}
       </Typography>
-      <Typography>
-        Total Reward: {entry.totalReward}¢ | Item Cost: {Math.floor(usedItemsCost / 2)} - {usedItemsCost}¢ | Profit:{" "}
+      {modeId === "budget" && <Typography>
+        Total Reward: {totalReward}¢ | Item Cost: {Math.floor(usedItemsCost / 2)} - {usedItemsCost}¢ | Profit:{" "}
         <Typography component="span" color={profit / 2 >= 0 ? "success" : "error"}>
           {Math.floor(profit / 2)}
         </Typography>
@@ -63,10 +66,10 @@ function MissionCard({ entry }: { entry: MissionLogEntry }) {
         <Typography component="span" color={profit >= 0 ? "success" : "error"}>
           {profit}¢
         </Typography>
-      </Typography>
+      </Typography>}
       <UsedItems items={entry.usedItems ?? []} />
-      <SummaryList title="Discretionary Assignments" items={entry.quests ?? []} />
-      <SummaryList title="Rules of Engagement" items={entry.restrictions ?? []} />
+      {modeId === "budget" && <SummaryList title="Discretionary Assignments" items={entry.quests ?? []} />}
+      {modeId === "budget" && <SummaryList title="Rules of Engagement" items={entry.restrictions ?? []} />}
     </Grid>
   </Card>;
 }

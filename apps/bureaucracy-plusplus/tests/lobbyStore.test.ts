@@ -31,6 +31,47 @@ test("createLobby returns a host member with an initial snapshot", () => {
   assert.equal(session.lobbyState.members[0]?.isHost, true);
   assert.equal(session.lobbyState.members[0]?.debriefReady, false);
   assert.equal(session.lobbyState.mission.debriefSubmissionId, 0);
+  assert.deepEqual(session.lobbyState.challengeSelection, { version: 1, modeId: "budget" });
+});
+
+test("host can select a challenge mode during briefing", () => {
+  const host = createLobby("Host");
+  const auth = authenticate(host.lobbyCode, host.memberId, host.sessionToken);
+  assert.ok(auth);
+
+  const lobbyState = handleCommand(auth.lobby, auth.session, {
+    type: "setChallengeSelection",
+    challengeSelection: { version: 1, modeId: "all-item-knockout" },
+  });
+
+  assert.equal(lobbyState.challengeSelection.modeId, "all-item-knockout");
+  assert.deepEqual(lobbyState.mission.quests, []);
+  assert.deepEqual(lobbyState.mission.restrictions, []);
+});
+
+test("guests cannot select the lobby challenge mode", () => {
+  const host = createLobby("Host");
+  const guest = joinLobby(host.lobbyCode, "Guest");
+  assert.ok(guest);
+  const auth = authenticate(host.lobbyCode, guest.memberId, guest.sessionToken);
+  assert.ok(auth);
+
+  assert.throws(() => handleCommand(auth.lobby, auth.session, {
+    type: "setChallengeSelection",
+    challengeSelection: { version: 1, modeId: "randomizer" },
+  }), /Only the host/);
+});
+
+test("challenge mode cannot change after briefing", () => {
+  const host = createLobby("Host");
+  const auth = authenticate(host.lobbyCode, host.memberId, host.sessionToken);
+  assert.ok(auth);
+  handleCommand(auth.lobby, auth.session, { type: "lockMissionConfig" });
+
+  assert.throws(() => handleCommand(auth.lobby, auth.session, {
+    type: "setChallengeSelection",
+    challengeSelection: { version: 1, modeId: "randomizer" },
+  }), /only be changed during mission briefing/i);
 });
 
 test("joinLobby adds a non-host member to an existing lobby", () => {

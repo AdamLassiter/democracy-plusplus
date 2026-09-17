@@ -310,6 +310,7 @@ function applyDebriefSubmission(
     kind: "mission",
     id: `mission-${Date.now()}-${mission.count}`,
     timestamp: new Date().toISOString(),
+    modeId: "budget",
     missionNumber: mission.mission,
     faction: calculateFaction(mission),
     objective: objective?.displayName ?? "Unknown Objective",

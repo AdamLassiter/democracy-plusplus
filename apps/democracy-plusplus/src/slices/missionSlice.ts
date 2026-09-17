@@ -143,9 +143,9 @@ const missionSlice = createSlice({
     setMissionState(_state, action: PayloadAction<MissionState>) {
       return normaliseMissionState(action.payload);
     },
-    resetMission(state) {
+    resetMission(state, action: PayloadAction<{ singleMission?: boolean } | undefined>) {
       const missionsRequired = getMissionsRequiredForDifficulty(state.difficulty);
-      const unlockFaction = state.mission >= missionsRequired;
+      const unlockFaction = Boolean(action.payload?.singleMission) || state.mission >= missionsRequired;
 
       return normaliseMissionState({
         ...state,

@@ -2,6 +2,12 @@ export type Faction = 'Terminids' | 'Automatons' | 'Illuminate';
 export type MissionStage = 'brief' | 'generating' | 'loadout' | 'debrief';
 export type Tier = 's' | 'a' | 'b' | 'c' | 'd';
 export type PlayerCount = 1 | 2 | 3 | 4;
+export type ChallengeModeId = 'budget' | 'randomizer' | 'all-item-knockout' | 'warbond-knockout';
+
+export interface ChallengeSelection {
+  version: 1;
+  modeId: ChallengeModeId;
+}
 
 export interface Quest {
   displayName: string;
@@ -65,6 +71,7 @@ export interface LobbyMember {
 export interface LobbyState {
   lobbyCode: LobbyCode;
   hostMemberId: LobbyMemberId;
+  challengeSelection: ChallengeSelection;
   mission: LobbyMissionState;
   members: LobbyMember[];
 }
@@ -78,6 +85,7 @@ export interface LobbySessionResponse {
 
 export type ClientCommand =
   | { type: 'setDisplayName'; displayName: string }
+  | { type: 'setChallengeSelection'; challengeSelection: ChallengeSelection }
   | { type: 'setMissionConfig'; mission: Partial<Pick<LobbyMissionState, 'faction' | 'difficulty' | 'objective' | 'state' | 'factionLocked'>> }
   | { type: 'lockMissionConfig' }
   | { type: 'setEquippedLoadout'; loadout: LobbyMemberLoadout }
