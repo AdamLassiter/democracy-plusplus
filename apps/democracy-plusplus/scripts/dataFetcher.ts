@@ -23,6 +23,7 @@ import {
   type WikiPageSource,
 } from "./wikiApi.ts";
 import { banner, createTask, detail, errorMessage, item, note, promptLabel, summary } from "./terminalUi.ts";
+import { assertDatasetCoverage, assertNonEmptyDatasets, FLAT_WIKI_DATASETS, WIKI_DATASET_NAMES } from "./dataPipeline.ts";
 
 type DataFileName =
   | "primaries"
@@ -56,6 +57,11 @@ interface StoredWarbond {
   wikiImageUrl?: string | null;
   imageUrl?: string;
   [key: string]: unknown;
+}
+
+interface ImageRecord {
+  wikiImageUrl?: string | null;
+  imageUrl?: string;
 }
 
 const FACTIONS: Faction[] = ["Terminids", "Automatons", "Illuminate"];
@@ -301,6 +307,14 @@ async function enrichWithImageUrls<T extends LinkedWikiItem>(items: T[]) {
   }));
 }
 
+function addLocalImagePath<T extends ImageRecord>(record: T, folder: string, fallback?: string): T {
+  const imageFileName = getImageFileName(record.wikiImageUrl);
+  return {
+    ...record,
+    ...(imageFileName ? { imageUrl: `${folder}/${imageFileName}` } : fallback ? { imageUrl: fallback } : {}),
+  };
+}
+
 async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arrayName: string) {
   const filePath = `./public/data/${fileName}.json`;
 
@@ -456,26 +470,15 @@ async function requirePageSource(title: string): Promise<WikiPageSource> {
   return page;
 }
 
-async function refreshWarbondImages() {
-  const sourceTask = createTask("Fetching source page", "Warbonds");
-  const warbondsPage = await requirePageSource("Warbonds");
-  sourceTask.succeed("source ready");
-
-  const parseTask = createTask("Parsing wiki page", "warbond covers");
-  const warbonds = await enrichWithImageUrls(parseWarbondsPageSource(warbondsPage.content));
-  parseTask.succeed(`${warbonds.length} covers`);
-  await mergeWarbondImages(warbonds);
-}
-
 async function main() {
   try {
     banner("Data Fetcher", "Scrape wiki data, merge records, and keep prompts readable");
     detail("cwd", process.cwd());
-    if (process.argv.includes("--warbonds-only")) {
-      await refreshWarbondImages();
-      note("Warbond image metadata refresh completed", "success");
-      return;
-    }
+    assertDatasetCoverage(
+      "fetchData",
+      [...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName), "objectives", "enemies", "structures"],
+      WIKI_DATASET_NAMES,
+    );
 
     const sourceTask = createTask("Fetching source pages", "Weapons, Stratagems, Boosters, Armor Passives, Warbonds");
     const [weaponsPage, stratagemsPage, boostersPage, passivesPage, warbondsPage] = await Promise.all([
@@ -492,12 +495,21 @@ async function main() {
     const stratagems = await enrichWithImageUrls(
       await parseStratagemsPageSource(stratagemsPage.content),
     );
-    const boosters = await enrichWithImageUrls(parseBoostersPageSource(boostersPage.content));
+    const boosters = await enrichWithImageUrls(await parseBoostersPageSource(boostersPage.content));
     const passives = await enrichWithImageUrls(
       await parseArmorPassivesPageSource(passivesPage.content),
     );
     const warbonds = await enrichWithImageUrls(parseWarbondsPageSource(warbondsPage.content));
     const [bestiary, structures] = await Promise.all([fetchBestiary(), fetchStructures()]);
+    assertNonEmptyDatasets("fetchData", [
+      ["weapons", weapons.length],
+      ["stratagems", stratagems.length],
+      ["boosters", boosters.length],
+      ["armor passives", passives.length],
+      ["warbonds", warbonds.length],
+      ["enemies", bestiary.enemies.length],
+      ["structures", structures.structures.length],
+    ]);
     parseTask.succeed("parsed");
     summary("Parsed counts", {
       weapons: weapons.length,
@@ -509,8 +521,34 @@ async function main() {
       structures: structures.structures.length,
     });
 
-    await fs.writeFile("./public/data/enemies.json", JSON.stringify(bestiary, null, 2));
-    await fs.writeFile("./public/data/structures.json", JSON.stringify(structures, null, 2));
+    const bestiarySaveTask = createTask("Saving BESTIARY", "./public/data/enemies.json");
+    const bestiaryWithImagePaths = {
+      ...bestiary,
+      enemies: bestiary.enemies.map((enemy) => addLocalImagePath({
+        ...enemy,
+        variants: enemy.variants.map((variant) => addLocalImagePath(variant, "enemies")),
+      }, "enemies")),
+    };
+    await fs.writeFile("./public/data/enemies.json", JSON.stringify(bestiaryWithImagePaths, null, 2));
+    bestiarySaveTask.succeed("written");
+    summary("BESTIARY summary", {
+      enemies: bestiary.enemies.length,
+      withAnatomy: bestiary.enemies.filter((enemy) => enemy.anatomy.length > 0).length,
+      withVariants: bestiary.enemies.filter((enemy) => enemy.variants.length > 0).length,
+    });
+
+    const structuresSaveTask = createTask("Saving STRUCTURES", "./public/data/structures.json");
+    const structuresWithImagePaths = {
+      ...structures,
+      structures: structures.structures.map((structure) => addLocalImagePath(structure, "structures", "icons/bank.svg")),
+    };
+    await fs.writeFile("./public/data/structures.json", JSON.stringify(structuresWithImagePaths, null, 2));
+    structuresSaveTask.succeed("written");
+    summary("STRUCTURES summary", {
+      structures: structures.structures.length,
+      targets: structures.structures.reduce((total, structure) => total + structure.targets.length, 0),
+      demolitionSources: structures.demolitionSources.length,
+    });
 
     await mergeData("primaries", weapons, "PRIMARIES");
     await mergeData("secondaries", weapons, "SECONDARIES");

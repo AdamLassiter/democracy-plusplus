@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   getImageFileName,
   parseArmorPassivesPageSource,
+  parseBoostersPageSource,
   parseEnemyPageSource,
   parseFactionsPageSource,
   parseDemolitionPageSource,
@@ -11,6 +12,28 @@ import {
   parseStratagemsPageSource,
   parseWarbondsPageSource,
 } from "../scripts/wikiApi.ts";
+
+test("parseBoostersPageSource expands the current HTML booster table", async () => {
+  const expanded = `
+<table><tbody>
+<tr><td><a href="/wiki/File:Hellpod_Space_Optimization_Booster_Icon.svg"><img /></a></td><td><!--LINK--></td></tr>
+<tr><td><a href="/wiki/File:UAV_Recon_Booster_Booster_Icon.svg"><img /></a></td><td><!--LINK--></td></tr>
+</tbody></table>`;
+  const items = await parseBoostersPageSource("{{Booster Table}}", async () => expanded);
+
+  assert.deepEqual(items, [
+    {
+      displayName: "Hellpod Space Optimization",
+      wikiSlug: "Hellpod_Space_Optimization",
+      imageFileTitle: "File:Hellpod_Space_Optimization_Booster_Icon.svg",
+    },
+    {
+      displayName: "UAV Recon Booster",
+      wikiSlug: "UAV_Recon_Booster",
+      imageFileTitle: "File:UAV_Recon_Booster_Booster_Icon.svg",
+    },
+  ]);
+});
 
 test("parseWarbondsPageSource reads standard, premium, and legendary cover galleries", () => {
   const source = `

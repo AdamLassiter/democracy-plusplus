@@ -92,22 +92,18 @@ Available backend environment variables:
 
 ## 🔄 Data Intelligence Updates
 
-After *Helldivers 2* receives an update from **Super Earth Command**, refresh your local intel using the **Data Enricher Protocol** found in `scripts/dataEnricher.ts`.  
-This script pulls the latest strategic data from the Helldivers 2 Wiki - ensuring your democracy remains up to date.
-
-Refresh the enemy bestiary from the wiki's Factions page and each linked enemy's Anatomy and Variants sections with:
+After *Helldivers 2* receives an update from **Super Earth Command**, refresh all
+wiki-backed data with:
 
 ```sh
-npm run fetchBestiary
-npm run fetchStructures
+npm run fetchData
+npm run enrichData
 ```
 
-The full `npm run fetchData` workflow also refreshes `public/data/enemies.json` and
-`public/data/structures.json`. The structures scraper follows the Demolition table
-to linked structure pages for descriptions and imagery, while retaining the source
-table's demolition force and BaDR requirements. It also reads the Warbonds page's
-cover galleries and attaches the matching cover image metadata to the curated
-warbond records without automatically adding wiki-only entries.
+`fetchData` is the single fetch entry point for weapons, stratagems, boosters,
+armor passives, warbonds, objectives, the enemy bestiary, and structures. The
+enrichment pass refreshes page metadata and images for every wiki-backed dataset,
+adds attack properties where applicable, and normalizes objective tags.
 
 After refreshing wiki data, cache and resize its images locally with:
 
@@ -118,8 +114,6 @@ npm run rescaleImages
 
 Warbond covers are downloaded to `public/images/warbonds`; the recursive rescaler
 then reduces them to the same 640px maximum width as the other PNG assets.
-To refresh only warbond cover metadata before those two image steps, run
-`npm run fetchWarbondImages` instead of the full data fetch.
 
 ## 🧩 Project Structure (Command Layout)
 

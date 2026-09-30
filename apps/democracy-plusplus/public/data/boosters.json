@@ -230,5 +230,29 @@
     "tags": [
       "Stealth"
     ]
+  },
+  {
+    "displayName": "Surplus EAT Allocation",
+    "warbondCode": "warbond27",
+    "internalName": "surpluseatallocation",
+    "tier": "c",
+    "wikiSlug": "Surplus_EAT_Allocation",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Surplus_EAT_Allocation_Booster_Icon.svg",
+    "imageUrl": "boosters/Surplus_EAT_Allocation_Booster_Icon.svg",
+    "type": "Equipment",
+    "category": "booster",
+    "tags": []
+  },
+  {
+    "displayName": "Integrated Extinguishers",
+    "warbondCode": "warbond27",
+    "internalName": "integratedextinguishers",
+    "tier": "b",
+    "wikiSlug": "Integrated_Extinguishers",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Integrated_Extinguishers_Booster_Icon.svg",
+    "imageUrl": "boosters/Integrated_Extinguishers_Booster_Icon.svg",
+    "type": "Equipment",
+    "category": "booster",
+    "tags": []
   }
 ]

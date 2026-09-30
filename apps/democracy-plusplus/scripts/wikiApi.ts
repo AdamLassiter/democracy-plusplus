@@ -839,8 +839,37 @@ export async function parseStratagemsPageSource(content: string, expand: Templat
   return results;
 }
 
-export function parseBoostersPageSource(content: string) {
-  return parseLinkedItemRows(content);
+export async function parseBoostersPageSource(content: string, expand: TemplateExpander = expandTemplate) {
+  const directItems = parseLinkedItemRows(content);
+  if (directItems.length) return directItems;
+
+  const template = content.match(/{{\s*Booster Table[^}]*}}/i)?.[0];
+  if (!template) return [];
+  const expanded = await expand(template, "Boosters");
+
+  return [...expanded.matchAll(/<tr\b[\s\S]*?<\/tr>/gi)]
+    .map((row): LinkedWikiItem | null => {
+      const encodedFileName = row[0].match(/\/wiki\/File:([^"#?]+)/i)?.[1];
+      if (!encodedFileName) return null;
+
+      let fileName = encodedFileName;
+      try {
+        fileName = decodeURIComponent(encodedFileName);
+      } catch {
+        // Preserve the MediaWiki title when it contains a malformed escape.
+      }
+      if (!/_Booster_Icon\.svg$/i.test(fileName)) return null;
+
+      const displayName = cleanWikiText(
+        fileName.replace(/_Booster_Icon\.svg$/i, "").replace(/_/g, " "),
+      );
+      return {
+        displayName,
+        wikiSlug: titleToSlug(displayName),
+        imageFileTitle: `File:${fileName}`,
+      };
+    })
+    .filter((booster): booster is LinkedWikiItem => booster !== null);
 }
 
 export async function parseArmorPassivesPageSource(_content: string, expand: TemplateExpander = expandTemplate) {

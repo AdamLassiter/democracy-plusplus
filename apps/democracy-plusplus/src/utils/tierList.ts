@@ -19,3 +19,14 @@ export function buildTierDraft(items: Item[], overrides: Record<string, Tier>) {
     items.map((item) => [item.displayName, getEffectiveTier(item, overrides)]),
   ) as Record<string, EditableTier>;
 }
+
+export function sortItemsByTier<T extends Item>(items: T[]) {
+  return [...items].sort((left, right) => {
+    const tierDifference = TIER_ORDER.indexOf(left.tier) - TIER_ORDER.indexOf(right.tier);
+    return tierDifference || left.displayName.localeCompare(right.displayName);
+  });
+}
+
+export function getSortedWarbondItems(items: Item[], warbondCode: string) {
+  return sortItemsByTier(items.filter((item) => item.type !== "Warbond" && item.warbondCode === warbondCode));
+}

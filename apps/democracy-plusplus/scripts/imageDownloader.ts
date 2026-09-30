@@ -6,6 +6,7 @@ import path from "path";
 import readline from "readline";
 import { banner, createTask, errorMessage, item, note, promptLabel, section, summary } from "./terminalUi.ts";
 import { getImageFileName } from "./wikiApi.ts";
+import { assertDatasetCoverage, FLAT_WIKI_DATASETS, IMAGE_DATASET_NAMES } from "./dataPipeline.ts";
 
 const USER_AGENT = "DemocracyPlusPlus/1.0";
 
@@ -13,6 +14,15 @@ interface DownloadableItem {
   wikiImageUrl?: string | null;
   imageUrl?: string;
   [key: string]: unknown;
+}
+
+interface DownloadStats {
+  records: number;
+  uniqueImages: number;
+  attempted: number;
+  updated: number;
+  missing: number;
+  failed: number;
 }
 
 function isAxiosError(error: unknown): error is AxiosError {
@@ -102,6 +112,7 @@ async function downloadRecords(records: DownloadableItem[], folder: string, name
   let attempted = 0;
   let updated = 0;
   let missing = 0;
+  let failed = 0;
 
   for (const record of records) {
     if (!record.wikiImageUrl) {
@@ -118,16 +129,21 @@ async function downloadRecords(records: DownloadableItem[], folder: string, name
     if (imagePath) {
       record.imageUrl = imagePath;
       updated++;
+    } else {
+      failed++;
     }
   }
 
-  summary(`${name} summary`, {
+  const stats: DownloadStats = {
     records: records.length,
     uniqueImages: downloadedPaths.size,
     attempted,
     updated,
     missing,
-  });
+    failed,
+  };
+  summary(`${name} summary`, stats);
+  return stats;
 }
 
 async function downloadAll(fileName: string, name: string) {
@@ -146,12 +162,13 @@ async function downloadAll(fileName: string, name: string) {
     loadTask.warn("starting with empty list");
   }
 
-  await downloadRecords(items, fileName, name);
+  const stats = await downloadRecords(items, fileName, name);
 
   const outputFile = path.join(dataDir, `${fileName}.json`);
   const saveTask = createTask(`Saving ${name}`, outputFile);
   await fs.writeFile(outputFile, JSON.stringify(items, null, 2));
   saveTask.succeed("written");
+  return stats;
 }
 
 async function downloadBestiary() {
@@ -162,11 +179,12 @@ async function downloadBestiary() {
   const records = bestiary.enemies.flatMap((enemy) => [enemy, ...(enemy.variants ?? [])]);
   loadTask.succeed(`${bestiary.enemies.length} enemies · ${records.length} image references`);
 
-  await downloadRecords(records, "enemies", "BESTIARY");
+  const stats = await downloadRecords(records, "enemies", "BESTIARY");
 
   const saveTask = createTask("Saving BESTIARY", filePath);
   await fs.writeFile(filePath, JSON.stringify(bestiary, null, 2));
   saveTask.succeed("written");
+  return stats;
 }
 
 async function downloadStructures() {
@@ -175,27 +193,34 @@ async function downloadStructures() {
   const raw = await fs.readFile(filePath, "utf-8");
   const data = JSON.parse(raw) as { structures: DownloadableItem[] };
   loadTask.succeed(`${data.structures.length} structures`);
-  await downloadRecords(data.structures, "structures", "STRUCTURES");
+  const stats = await downloadRecords(data.structures, "structures", "STRUCTURES");
   for (const structure of data.structures) {
     structure.imageUrl ??= "icons/bank.svg";
   }
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));
   note("Saved STRUCTURES image paths", "success");
+  return stats;
 }
 
 async function main() {
   banner("Image Downloader", "Cache-aware downloads with prompts and retry telemetry");
-  await downloadAll("primaries", "PRIMARIES");
-  await downloadAll("secondaries", "SECONDARIES");
-  await downloadAll("throwables", "THROWABLES");
-  await downloadAll("stratagems", "STRATAGEMS");
-  await downloadAll("boosters", "BOOSTERS");
-  await downloadAll("armor_passives", "ARMOR_PASSIVES");
-  await downloadAll("warbonds", "WARBONDS");
-  await downloadBestiary();
-  await downloadStructures();
+  const handledDatasets = [
+    ...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName),
+    "enemies",
+    "structures",
+  ];
+  assertDatasetCoverage("downloadImages", handledDatasets, IMAGE_DATASET_NAMES);
+
+  const stats: DownloadStats[] = [];
+  for (const dataset of FLAT_WIKI_DATASETS) {
+    stats.push(await downloadAll(dataset.fileName, dataset.name));
+  }
+  stats.push(await downloadBestiary());
+  stats.push(await downloadStructures());
 
   rl.close();
+  const failed = stats.reduce((total, result) => total + result.failed, 0);
+  if (failed) throw new Error(`${failed} image record(s) failed to download.`);
   note("All image downloads complete", "success");
 }
 

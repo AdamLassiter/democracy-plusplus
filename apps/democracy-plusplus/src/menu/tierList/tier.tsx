@@ -3,24 +3,7 @@ import ItemDisplay from "../../utils/itemDisplay";
 import type { DragEvent } from "react";
 import type { EditableTier, Item } from "../../types";
 import { EDITABLE_TIER_ORDER, TIER_ORDER } from "../../utils/tierList";
-
-const TIER_LABELS: Record<EditableTier, string> = {
-  s: "S",
-  a: "A",
-  b: "B",
-  c: "C",
-  d: "D",
-  uncategorized: "Uncategorized",
-};
-
-const TIER_ACCENTS: Record<EditableTier, string> = {
-  s: "#ffb300",
-  a: "#a921df",
-  b: "#3596fd",
-  c: "#08bb00",
-  d: "#bdbdbd",
-  uncategorized: "#757575",
-};
+import { TIER_ACCENTS, TIER_LABELS } from "./tierStyles";
 
 type TierBoardProps = {
   items: Item[];

@@ -21,11 +21,12 @@ import { selectMultiplayer } from "../../slices/multiplayerSlice";
 import { selectTierList, setTierList } from "../../slices/tierListSlice";
 import { applyTierOverrides, buildTierDraft } from "../../utils/tierList";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
-import type { EditableTier, Item, Tier } from "../../types";
+import type { EditableTier, Item, Tier, Warbond } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";
 import ItemDetailsDialog from "./itemDetailsDialog";
+import WarbondTierBoard from "./warbondTierBoard";
 
-const WARBOND_ITEMS: Item[] = WARBONDS.map((warbond) => ({
+const WARBOND_ITEMS: Warbond[] = WARBONDS.map((warbond) => ({
   ...warbond,
   imageUrl: warbond.imageUrl ?? "icons/medal.svg",
 }));
@@ -59,6 +60,7 @@ export default function TierLists() {
     () => TIER_LISTS.map(([label, items]) => [label, applyTierOverrides(items, overrides)] as const),
     [overrides],
   );
+  const effectiveArmoryItems = useMemo(() => applyTierOverrides(ITEMS, overrides), [overrides]);
 
   const [, items] = effectiveTierLists[value];
   const isWarbondTab = effectiveTierLists[value]?.[0] === "Warbonds";
@@ -122,14 +124,20 @@ export default function TierLists() {
         {editMode && hasUncategorized && <Typography color="warning.main" sx={{ mb: 2 }}>
           Assign all uncategorized items to S, A, B, C, or D before saving.
         </Typography>}
-        <TierBoard
-          items={filteredItems}
-          editMode={editMode}
-          draftAssignments={draftAssignments}
-          onMoveToTier={handleMoveToTier}
-          onUncategorize={(displayName) => handleMoveToTier(displayName, "uncategorized")}
-          onOpenItem={setSelectedItem}
-        />
+        {isWarbondTab && !editMode
+          ? <WarbondTierBoard
+            warbonds={filteredItems as Warbond[]}
+            items={effectiveArmoryItems}
+            onOpenItem={setSelectedItem}
+          />
+          : <TierBoard
+            items={filteredItems}
+            editMode={editMode}
+            draftAssignments={draftAssignments}
+            onMoveToTier={handleMoveToTier}
+            onUncategorize={(displayName) => handleMoveToTier(displayName, "uncategorized")}
+            onOpenItem={setSelectedItem}
+          />}
       </Box>
       <ItemDetailsDialog item={selectedItem} onClose={() => setSelectedItem(null)} />
           <Fab
