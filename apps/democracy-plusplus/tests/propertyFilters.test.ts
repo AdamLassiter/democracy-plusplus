@@ -67,3 +67,12 @@ test("unarmored includes very-light penetration without leaking into light", () 
   assert.equal(filterItemsByPropertyValues([veryLight], ["Unarmored"]).length, 1);
   assert.equal(filterItemsByPropertyValues([veryLight], ["Light"]).length, 0);
 });
+
+test("laser damage is available as a property filter", () => {
+  const laser = itemWithPenetration("Light");
+  laser.properties = {
+    Damage: { Standard: "350 Laser" },
+  };
+
+  assert.equal(filterItemsByPropertyValues([laser], ["Laser"]).length, 1);
+});

@@ -25,6 +25,11 @@ import type { EditableTier, Item, Tier, Warbond } from "../../types";
 import type { PropertyFilterName } from "../../constants/filters";
 import ItemDetailsDialog from "./itemDetailsDialog";
 import WarbondTierBoard from "./warbondTierBoard";
+import WarbondBestTierFilter from "./warbondFilters";
+import {
+  filterWarbondsBySummary,
+  type WarbondBestTierFilters,
+} from "../../utils/warbondSummary";
 
 const WARBOND_ITEMS: Warbond[] = WARBONDS.map((warbond) => ({
   ...warbond,
@@ -52,6 +57,7 @@ export default function TierLists() {
 
   const [value, setValue] = useState(0);
   const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
+  const [selectedWarbondTierFilters, setSelectedWarbondTierFilters] = useState<WarbondBestTierFilters>({});
   const [editMode, setEditMode] = useState(false);
   const [draftAssignments, setDraftAssignments] = useState<Record<string, EditableTier>>({});
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
@@ -64,7 +70,14 @@ export default function TierLists() {
 
   const [, items] = effectiveTierLists[value];
   const isWarbondTab = effectiveTierLists[value]?.[0] === "Warbonds";
-  const filteredItems = isWarbondTab ? items : filterItemsByPropertyValues(items, selectedFilters);
+  const filteredItems = isWarbondTab
+    ? filterWarbondsBySummary(
+      items as Warbond[],
+      effectiveArmoryItems,
+      selectedFilters,
+      selectedWarbondTierFilters,
+    )
+    : filterItemsByPropertyValues(items, selectedFilters);
   const uncategorizedCount = Object.values(draftAssignments).filter((tier) => tier === "uncategorized").length;
   const hasUncategorized = uncategorizedCount > 0;
 
@@ -120,7 +133,11 @@ export default function TierLists() {
         </Tabs>
       </Box>
       <Box sx={{ padding: "1em", pb: 10 }}>
-        {!isWarbondTab && <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />}
+        <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+        {isWarbondTab && <WarbondBestTierFilter
+          selectedFilters={selectedWarbondTierFilters}
+          onChange={setSelectedWarbondTierFilters}
+        />}
         {editMode && hasUncategorized && <Typography color="warning.main" sx={{ mb: 2 }}>
           Assign all uncategorized items to S, A, B, C, or D before saving.
         </Typography>}

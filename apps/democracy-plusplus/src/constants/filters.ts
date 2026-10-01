@@ -11,9 +11,19 @@ export const PROPERTY_FILTERS = [
   "Fire",
   "Gas",
   "Arc",
+  "Laser",
   "Stealth",
   "Stun",
 ] as const;
+
+export const DAMAGE_TYPE_FILTERS = [
+  "Ballistic",
+  "Explosive",
+  "Fire",
+  "Gas",
+  "Arc",
+  "Laser",
+] as const satisfies readonly PropertyFilterName[];
 
 export const DETAILED_ANTI_TANK_FILTERS = [
   "Anti-Tank 1",
@@ -48,6 +58,7 @@ const FILTER_MATCHERS: Record<PropertyFilterName, RegExp> = {
   Fire: /\bfire\b/i,
   Ballistic: /\bballistic\b/i,
   Arc: /\barc\b/i,
+  Laser: /\blaser\b/i,
   Stealth: /\bstealth\b|\bsuppressed\b/i,
   Stun: /\bstun\b/i,
 };

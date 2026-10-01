@@ -12,6 +12,7 @@ import { useMemo, useState } from "react";
 import type { Item, Tier, Warbond } from "../../types";
 import ItemDisplay, { ItemIcon } from "../../utils/itemDisplay";
 import { getSortedWarbondItems, TIER_ORDER } from "../../utils/tierList";
+import { getWarbondSummary, WARBOND_BEST_CATEGORIES } from "../../utils/warbondSummary";
 import { TIER_ACCENTS, TIER_LABELS } from "./tierStyles";
 
 type WarbondTierBoardProps = {
@@ -37,6 +38,10 @@ function WarbondAccordion({
     () => getSortedWarbondItems(items, warbond.warbondCode),
     [items, warbond.warbondCode],
   );
+  const summary = useMemo(
+    () => getWarbondSummary(items, warbond.warbondCode),
+    [items, warbond.warbondCode],
+  );
   const panelId = `warbond-${warbond.warbondCode}`;
 
   return <Accordion
@@ -60,14 +65,37 @@ function WarbondAccordion({
           objectFit="contain"
           width={{ xs: 96, sm: 160 }}
         />
-        <Box sx={{ minWidth: 0 }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
           <Typography fontWeight={700}>{warbond.displayName}</Typography>
-          <Chip
-            label={`${warbondItems.length} ${warbondItems.length === 1 ? "item" : "items"}`}
-            size="small"
-            variant="outlined"
-            sx={{ mt: 0.5 }}
-          />
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5, mt: 0.5 }}>
+            <Chip
+              label={`${summary.itemCount} ${summary.itemCount === 1 ? "item" : "items"}`}
+              size="small"
+              variant="outlined"
+            />
+            {WARBOND_BEST_CATEGORIES.flatMap(({ category, label }) => {
+              const tier = summary.bestTiers[category];
+              return tier ? [<Chip
+                key={category}
+                label={`${label} ${TIER_LABELS[tier]}`}
+                size="small"
+                variant="outlined"
+                sx={{ borderColor: TIER_ACCENTS[tier] }}
+              />] : [];
+            })}
+            {summary.armorPenetrationLabels.map((label) => <Chip
+              key={`armor-${label}`}
+              label={`AP ${label}`}
+              size="small"
+              variant="outlined"
+            />)}
+            {summary.damageTypes.map((damageType) => <Chip
+              key={`damage-${damageType}`}
+              label={damageType}
+              size="small"
+              variant="outlined"
+            />)}
+          </Box>
         </Box>
       </Box>
     </AccordionSummary>
