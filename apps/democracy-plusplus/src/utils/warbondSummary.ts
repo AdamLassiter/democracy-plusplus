@@ -96,7 +96,9 @@ export function warbondSummaryMatchesFilters(
     displayName: "Warbond summary",
     tier: "d",
     properties: {
-      armorPenetration: summary.armorPenetrationLabels,
+      summary: {
+        Penetration: { Direct: summary.armorPenetrationLabels },
+      },
       damageTypes: summary.damageTypes,
     },
   }, selectedPropertyFilters);

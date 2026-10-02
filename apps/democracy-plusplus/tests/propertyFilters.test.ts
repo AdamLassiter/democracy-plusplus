@@ -68,6 +68,30 @@ test("unarmored includes very-light penetration without leaking into light", () 
   assert.equal(filterItemsByPropertyValues([veryLight], ["Light"]).length, 0);
 });
 
+test("armor filters inspect penetration angles instead of unrelated property values", () => {
+  const noisyLightWeapon: Item = {
+    displayName: "Noisy light weapon",
+    tier: "b",
+    properties: {
+      Weapon: {
+        Base: { "Noise When Firing": "Medium" },
+        Penetration: {
+          Direct: "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Very Light",
+          "Extreme Angle": "Unarmored",
+          "Inner AP": "Heavy",
+        },
+      },
+    },
+  };
+
+  assert.equal(filterItemsByPropertyValues([noisyLightWeapon], ["Medium"]).length, 0);
+  assert.equal(filterItemsByPropertyValues([noisyLightWeapon], ["Heavy"]).length, 0);
+  assert.equal(filterItemsByPropertyValues([noisyLightWeapon], ["Light"]).length, 1);
+  assert.equal(filterItemsByPropertyValues([noisyLightWeapon], ["Unarmored"]).length, 1);
+});
+
 test("laser damage is available as a property filter", () => {
   const laser = itemWithPenetration("Light");
   laser.properties = {

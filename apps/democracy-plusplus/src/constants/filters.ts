@@ -41,6 +41,21 @@ export type PropertyFilterName =
   | (typeof PROPERTY_FILTERS)[number]
   | DetailedAntiTankFilterName;
 
+const PENETRATION_FILTERS = new Set<PropertyFilterName>([
+  "Unarmored",
+  "Light",
+  "Medium",
+  "Heavy",
+  "Anti-Tank",
+  ...DETAILED_ANTI_TANK_FILTERS,
+]);
+const PENETRATION_ANGLE_KEYS = new Set([
+  "direct",
+  "slight angle",
+  "large angle",
+  "extreme angle",
+]);
+
 const FILTER_MATCHERS: Record<PropertyFilterName, RegExp> = {
   Unarmored: /\bunarmored\b|\bvery light\b/i,
   Light: /(?<!very )\blight\b/i,
@@ -120,22 +135,53 @@ function collectPropertyValues(value: PropertyValue, output: string[] = []) {
   return output;
 }
 
+function collectPenetrationValues(value: PropertyValue, output: string[] = []) {
+  if (!value || typeof value !== "object") {
+    return output;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((nestedValue) => collectPenetrationValues(nestedValue, output));
+    return output;
+  }
+
+  Object.entries(value).forEach(([key, nestedValue]) => {
+    if (key.toLowerCase() !== "penetration") {
+      collectPenetrationValues(nestedValue, output);
+      return;
+    }
+    if (!nestedValue || typeof nestedValue !== "object" || Array.isArray(nestedValue)) {
+      return;
+    }
+
+    Object.entries(nestedValue).forEach(([penetrationKey, penetrationValue]) => {
+      if (PENETRATION_ANGLE_KEYS.has(penetrationKey.toLowerCase())) {
+        collectPropertyValues(penetrationValue, output);
+      }
+    });
+  });
+
+  return output;
+}
+
 export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilters: readonly PropertyFilterName[]) {
   if (!selectedFilters?.length) {
     return true;
   }
 
-  if (selectedFilters.some((filterName) => item?.tags?.includes(filterName))) {
-    return true;
-  }
+  const properties = item?.properties;
+  const searchableValues = properties ? collectPropertyValues(properties).join("\n") : "";
+  const penetrationValues = properties ? collectPenetrationValues(properties).join("\n") : "";
 
-  if (!item?.properties || !Object.keys(item.properties).length) {
-    return false;
-  }
-
-  const searchableValues = collectPropertyValues(item.properties).join("\n");
-
-  return selectedFilters.some((filterName) => FILTER_MATCHERS[filterName]?.test(searchableValues));
+  return selectedFilters.some((filterName) => {
+    const penetrationFilter = PENETRATION_FILTERS.has(filterName);
+    if (!penetrationFilter && item?.tags?.includes(filterName)) {
+      return true;
+    }
+    return FILTER_MATCHERS[filterName]?.test(
+      penetrationFilter ? penetrationValues : searchableValues,
+    );
+  });
 }
 
 export function filterItemsByPropertyValues(items: Item[], selectedFilters: readonly PropertyFilterName[]) {
