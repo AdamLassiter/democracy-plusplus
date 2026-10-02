@@ -87,7 +87,7 @@ function EquippedChallengeItems({
       {display(equipment.secondary, <MissingSecondary key="secondary-missing" />, "secondary")}
       {display(equipment.throwable, <MissingThrowable key="throwable-missing" />, "throwable")}
       {display(equipment.armorPassive, <MissingArmor key="armor-missing" />, "armor")}
-      <Divider orientation="vertical" variant="middle" flexItem />
+      <Divider orientation="vertical" variant="middle" flexItem sx={{ display: { xs: "none", sm: "block" } }} />
       {equipment.stratagems.map((stratagem: string | null, index: number) => display(
         stratagem,
         <MissingStratagem key={`stratagem-${index}-missing`} />,

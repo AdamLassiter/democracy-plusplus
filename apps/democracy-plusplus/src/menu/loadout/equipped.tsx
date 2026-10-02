@@ -48,7 +48,7 @@ export default function Equipped() {
         {secondary ? <ItemDisplay key="secondary" item={getItem(secondary)!} onClick={() => unequip(secondary)} /> : <MissingSecondary key="secondary-missing" />}
         {throwable ? <ItemDisplay key="throwable" item={getItem(throwable)!} onClick={() => unequip(throwable)} /> : <MissingThrowable key="throwable-missing" />}
         {armorPassive ? <ItemDisplay key="armorPassive" item={getItem(armorPassive)!} onClick={() => unequip(armorPassive)} /> : <MissingArmor key="armor-missing" />}
-        <Divider orientation="vertical" variant="middle" flexItem />
+        <Divider orientation="vertical" variant="middle" flexItem sx={{ display: { xs: "none", sm: "block" } }} />
         {stratagems.map((stratagem: string | null, index: number) => stratagem
           ? <ItemDisplay key={`stratagem-${index}-${stratagem}`} item={getItem(stratagem)!} onClick={() => unequip(stratagem)} />
           : <MissingStratagem key={`stratagem-${index}-missing`} />)}

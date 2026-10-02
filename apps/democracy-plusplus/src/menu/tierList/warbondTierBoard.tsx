@@ -54,16 +54,16 @@ function WarbondAccordion({
       aria-controls={`${panelId}-content`}
       expandIcon={<ExpandMoreIcon />}
       id={`${panelId}-header`}
-      sx={{ minWidth: 0 }}
+      sx={{ minWidth: 0, px: { xs: 1, sm: 2 } }}
     >
-      <Box sx={{ alignItems: "center", display: "flex", gap: 2, minWidth: 0, width: "100%" }}>
+      <Box sx={{ alignItems: "center", display: "flex", gap: { xs: 1, sm: 2 }, minWidth: 0, width: "100%" }}>
         <ItemIcon
           item={warbond}
           bgcolor="black"
           flexShrink={0}
-          height={{ xs: 49, sm: 80 }}
+          height={{ xs: 37, sm: 80 }}
           objectFit="contain"
-          width={{ xs: 96, sm: 160 }}
+          width={{ xs: 72, sm: 160 }}
         />
         <Box sx={{ flex: 1, minWidth: 0 }}>
           <Typography fontWeight={700}>{warbond.displayName}</Typography>
@@ -99,7 +99,7 @@ function WarbondAccordion({
         </Box>
       </Box>
     </AccordionSummary>
-    <AccordionDetails id={`${panelId}-content`}>
+    <AccordionDetails id={`${panelId}-content`} sx={{ px: { xs: 1, sm: 2 } }}>
       {warbondItems.length > 0
         ? <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {warbondItems.map((item) => <ItemDisplay key={item.displayName} item={item} onClick={onOpenItem} />)}
@@ -135,7 +135,7 @@ export default function WarbondTierBoard({ warbonds, items, onOpenItem }: Warbon
         sx={{
           display: "grid",
           gap: 1,
-          gridTemplateColumns: { xs: "56px minmax(0, 1fr)", sm: "88px minmax(0, 1fr)" },
+          gridTemplateColumns: { xs: "48px minmax(0, 1fr)", sm: "88px minmax(0, 1fr)" },
           minHeight: tierWarbonds.length ? undefined : 88,
         }}
       >

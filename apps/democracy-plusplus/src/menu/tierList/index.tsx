@@ -132,7 +132,7 @@ export default function TierLists() {
           {effectiveTierLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
         </Tabs>
       </Box>
-      <Box sx={{ padding: "1em", pb: 10 }}>
+      <Box sx={{ px: { xs: 0, sm: 2 }, py: 1, pb: 10 }}>
         <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
         {isWarbondTab && <WarbondBestTierFilter
           selectedFilters={selectedWarbondTierFilters}
@@ -159,7 +159,8 @@ export default function TierLists() {
       <ItemDetailsDialog item={selectedItem} onClose={() => setSelectedItem(null)} />
           <Fab
             color="primary"
-            sx={{ position: "fixed", bottom: 24, right: 24 }}
+            size="medium"
+            sx={{ position: "fixed", bottom: { xs: 12, sm: 24 }, right: { xs: 12, sm: 24 } }}
             onClick={editMode ? handleSave : handleEnterEditMode}
             disabled={editMode && hasUncategorized}
           >

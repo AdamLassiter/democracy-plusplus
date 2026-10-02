@@ -47,8 +47,10 @@ function TierBucket({
     sx={{
       display: "grid",
       gap: 1,
-      gridTemplateColumns: tier === "uncategorized" ? "112px minmax(0, 1fr)" : "88px minmax(0, 1fr)",
-      minHeight: 196,
+      gridTemplateColumns: tier === "uncategorized"
+        ? { xs: "64px minmax(0, 1fr)", sm: "112px minmax(0, 1fr)" }
+        : { xs: "48px minmax(0, 1fr)", sm: "88px minmax(0, 1fr)" },
+      minHeight: { xs: 170, sm: 196 },
     }}
   >
     <Card
@@ -62,8 +64,8 @@ function TierBucket({
       }}
     >
       <Typography
-        variant={tier === "uncategorized" ? "subtitle1" : "h2"}
-        sx={{ fontWeight: 700, overflowWrap: "anywhere", px: 1, textAlign: "center" }}
+        variant={tier === "uncategorized" ? "caption" : "h2"}
+        sx={{ fontSize: { xs: tier === "uncategorized" ? 11 : 40, sm: undefined }, fontWeight: 700, overflowWrap: "anywhere", px: 0.5, textAlign: "center" }}
       >
         {TIER_LABELS[tier]}
       </Typography>

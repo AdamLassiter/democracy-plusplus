@@ -33,8 +33,14 @@ export default function Warbonds() {
             color="secondary"
             startIcon={<MilitaryTechIcon />}
             onClick={handleOpen}
+            aria-label="Warbonds"
+            sx={{
+              minWidth: { xs: 44, sm: 124 },
+              px: { xs: 1, sm: 2 },
+              "& .MuiButton-startIcon": { mr: { xs: 0, sm: 1 } },
+            }}
           >
-            Warbonds
+            <span className="mobile-hidden-label">Warbonds</span>
           </Button>
         </Badge>
       </Tooltip>

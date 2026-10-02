@@ -14,10 +14,19 @@ export default function WarbondBestTierFilter({
   selectedFilters: WarbondBestTierFilters;
   onChange: (_filters: WarbondBestTierFilters) => void;
 }) {
-  return <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, mb: 2 }}>
+  return <Box sx={{
+    display: "flex",
+    flexWrap: { xs: "nowrap", sm: "wrap" },
+    gap: 1.5,
+    mb: 2,
+    mx: { xs: -1, sm: 0 },
+    overflowX: { xs: "auto", sm: "visible" },
+    px: { xs: 1, sm: 0 },
+    scrollbarWidth: "thin",
+  }}>
     {WARBOND_BEST_CATEGORIES.map(({ category, label }) => <Box
       key={category}
-      sx={{ alignItems: "center", display: "flex", gap: 0.5 }}
+      sx={{ alignItems: "center", display: "flex", flexShrink: 0, gap: 0.5 }}
     >
       <Typography variant="body2" sx={{ minWidth: 72 }}>{label}</Typography>
       <ToggleButtonGroup

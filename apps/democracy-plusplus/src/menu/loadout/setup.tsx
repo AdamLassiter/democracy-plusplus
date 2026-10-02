@@ -149,7 +149,7 @@ export default function Setup() {
   const missionReward = calculateMissionReward({ ...mission, stars: 5, playerCount: effectivePlayerCount });
   const questsReward = !briefState && mission.quests ? calculateQuestsReward(mission.quests.map((quest) => ({...quest, completed: true}))) : '??';
 
-  return <Grid direction="column" container spacing={2} sx={{width: '250px'}}>
+  return <Grid direction="column" container spacing={2} sx={{ width: { xs: "100%", md: 250 } }}>
     <Typography variant="h5">Mission Brief</Typography>
     <FormControl>
       <InputLabel>Challenge Mode</InputLabel>

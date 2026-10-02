@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectPreferences,
   setDetailedAntiTank,
+  setItemDisplaySize,
   setTitles,
   setTooltips,
 } from "../../slices/preferencesSlice";
@@ -11,7 +12,7 @@ import {
 export default function Preferences() {
   const dispatch = useDispatch();
 
-  const { detailedAntiTank, titles, tooltips } = useSelector(selectPreferences);
+  const { detailedAntiTank, itemDisplaySize = 'large', titles, tooltips } = useSelector(selectPreferences);
   function handleTitlesChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     dispatch(setTitles(newValue === 'on'));
   }
@@ -23,10 +24,27 @@ export default function Preferences() {
       dispatch(setDetailedAntiTank(newValue === 'on'));
     }
   }
+  function handleItemDisplaySizeChange(_event: MouseEvent<HTMLElement>, newValue: 'large' | 'small' | null) {
+    if (newValue !== null) {
+      dispatch(setItemDisplaySize(newValue));
+    }
+  }
 
   return (
     <Grid container direction="column" spacing={2}>
       <FormLabel component="legend">Preferences</FormLabel>
+      <ToggleButtonGroup
+        aria-label="Item card size"
+        color="primary"
+        fullWidth
+        exclusive
+        value={itemDisplaySize}
+        onChange={handleItemDisplaySizeChange}
+      >
+        <ToggleButton value="large">Large Items</ToggleButton>
+        <ToggleButton value="small">Small Items</ToggleButton>
+      </ToggleButtonGroup>
+
       <ToggleButtonGroup
         color="primary"
         fullWidth

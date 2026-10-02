@@ -195,83 +195,97 @@ export default function Menu() {
   }, [isFormsGameOpen, isStratagemGameOpen]);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ minWidth: 0, width: '100%' }}>
       <MultiplayerManager />
       <LobbyPanel />
-      {/* Flex container for Tabs and ToggleButtons */}
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: { md: 'center' },
           borderBottom: 1,
           borderColor: 'divider',
-          flexWrap: 'wrap',
+          display: { md: 'grid' },
+          gridTemplateColumns: { md: 'minmax(0, 1fr) auto' },
         }}
       >
-        {/* Tabs aligned to the left */}
-        <Tabs value={currentTab} onChange={handleTabChange} variant="scrollable" scrollButtons="auto">
-          {visibleTabs.map((tab) => <Tab key={tab.name} label={tab.label} />)}
-        </Tabs>
-
-        {/* Credits aligned to the center */}
-        <ButtonBase
-          onClick={() => setIsAchievementsOpen(true)}
-          sx={{ borderRadius: 1, display: 'flex', gap: 1, px: 1, py: 0.5 }}
-        >
-          <img src={`${import.meta.env.BASE_URL}images/icons/medal.svg`} alt="icon" style={{ width: 24, height: 24 }} />
-          <Tooltip title="Achievements">
-            <Typography>Mission {missionCount}</Typography>
-          </Tooltip>
-        </ButtonBase>
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="icon" style={{ width: 24, height: 24 }} />
-          <Typography>Democracy++</Typography>
+        <Box sx={{ borderBottom: { xs: 1, md: 0 }, borderColor: 'divider', minWidth: 0 }}>
+          <Tabs value={currentTab} onChange={handleTabChange}>
+            {visibleTabs.map((tab) => <Tab key={tab.name} label={tab.label} />)}
+          </Tabs>
         </Box>
-        {challengeDefinition.economy && <Box sx={{ display: 'flex', gap: 1 }}>
-          <img src={`${import.meta.env.BASE_URL}images/icons/dollar-circle.svg`} alt="icon" style={{ width: 24, height: 24 }} />
-          <Typography>{credits}¢</Typography>
-        </Box>}
-
-        {/* Preferences aligned to the right */}
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          {!multiplayerEnabled && (
-            <>
-              <Button disabled variant="outlined">
+        <Box
+          aria-label="Application controls"
+          sx={{
+            alignItems: 'center',
+            display: 'flex',
+            gap: { xs: 0.5, sm: 1 },
+            justifyContent: { sm: 'space-between' },
+            minHeight: 56,
+            overflowX: 'auto',
+            px: { xs: 1, sm: 2 },
+            py: 0.5,
+            scrollbarWidth: 'thin',
+          }}
+        >
+          <ButtonBase
+            onClick={() => setIsAchievementsOpen(true)}
+            sx={{ borderRadius: 1, display: 'flex', flexShrink: 0, gap: 1, minHeight: 44, px: 1 }}
+          >
+            <Box
+              component="img"
+              src={`${import.meta.env.BASE_URL}images/icons/medal.svg`}
+              alt=""
+              sx={{ display: { xs: 'none', sm: 'block' }, height: 24, width: 24 }}
+            />
+            <Tooltip title="Achievements">
+              <Typography whiteSpace="nowrap">Mission {missionCount}</Typography>
+            </Tooltip>
+          </ButtonBase>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, flexShrink: 0, gap: 1 }}>
+            <img src={`${import.meta.env.BASE_URL}images/icons/skull-and-crossbones.svg`} alt="" style={{ width: 24, height: 24 }} />
+            <Typography whiteSpace="nowrap">Democracy++</Typography>
+          </Box>
+          {challengeDefinition.economy && <Box sx={{ display: 'flex', flexShrink: 0, gap: 1 }}>
+            <img src={`${import.meta.env.BASE_URL}images/icons/dollar-circle.svg`} alt="" style={{ width: 24, height: 24 }} />
+            <Typography whiteSpace="nowrap">{credits}¢</Typography>
+          </Box>}
+          <Box sx={{ display: 'flex', flexShrink: 0, gap: { xs: 0.5, sm: 1 }, ml: { sm: 'auto' } }}>
+            {!multiplayerEnabled && (
+              <Button disabled variant="outlined" sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
                 Server Unavailable
               </Button>
-            </>
-          )}
-          {multiplayerEnabled && !lobbyConnected && (
-            <>
+            )}
+            {multiplayerEnabled && !lobbyConnected && (
+              <>
               <Button color="success" onClick={() => setIsHostDialogOpen(true)} variant="outlined">
-                Host Lobby
+                <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Host Lobby</Box>
+                <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>Host</Box>
               </Button>
               <Button color="info" onClick={() => setIsJoinDialogOpen(true)} variant="outlined">
-                Join Lobby
+                <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Join Lobby</Box>
+                <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>Join</Box>
               </Button>
-            </>
-          )}
-          {lobbyConnected && (
-            <>
+              </>
+            )}
+            {lobbyConnected && (
               <Button color="error" onClick={handleLeaveLobby} variant="outlined">
-                Leave Lobby
+                <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Leave Lobby</Box>
+                <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>Leave</Box>
               </Button>
-            </>
-          )}
-          {isStratagemGameUnlocked && <Tooltip title="Stratagem Drill">
-            <IconButton color="primary" onClick={() => setIsStratagemGameOpen(true)}>
-              <img src={`${import.meta.env.BASE_URL}images/icons/stopwatch.svg`} alt="Stratagem Drill" style={{ width: 24, height: 24 }} />
-            </IconButton>
-          </Tooltip>}
-          {isFormsGameUnlocked && <Tooltip title="Bureaucratic Forms">
-            <IconButton color="primary" onClick={() => setIsFormsGameOpen(true)}>
-              <img src={`${import.meta.env.BASE_URL}images/icons/file-check.svg`} alt="Bureaucratic Forms" style={{ width: 24, height: 24 }} />
-            </IconButton>
-          </Tooltip>}
-          <WarbondsFilter />
-          <Settings />
-          <Help />
+            )}
+            {isStratagemGameUnlocked && <Tooltip title="Stratagem Drill">
+              <IconButton color="primary" onClick={() => setIsStratagemGameOpen(true)}>
+                <img src={`${import.meta.env.BASE_URL}images/icons/stopwatch.svg`} alt="Stratagem Drill" style={{ width: 24, height: 24 }} />
+              </IconButton>
+            </Tooltip>}
+            {isFormsGameUnlocked && <Tooltip title="Bureaucratic Forms">
+              <IconButton color="primary" onClick={() => setIsFormsGameOpen(true)}>
+                <img src={`${import.meta.env.BASE_URL}images/icons/file-check.svg`} alt="Bureaucratic Forms" style={{ width: 24, height: 24 }} />
+              </IconButton>
+            </Tooltip>}
+            <WarbondsFilter />
+            <Settings />
+            <Help />
+          </Box>
         </Box>
       </Box>
       {missionFlowBanner && (
@@ -294,7 +308,7 @@ export default function Menu() {
         </Alert>
       )}
 
-      <Box sx={{ padding: '1em' }}>
+      <Box sx={{ p: { xs: 1, sm: 2 } }}>
         <CurrentTab index={currentTab} />
       </Box>
       <AchievementsDialog open={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)} />

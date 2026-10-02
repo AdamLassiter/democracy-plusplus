@@ -264,6 +264,7 @@ export interface PreferencesState {
   tooltips: boolean;
   missionFlowBanner: boolean;
   detailedAntiTank: boolean;
+  itemDisplaySize: 'large' | 'small';
 }
 
 export interface PurchasedState {

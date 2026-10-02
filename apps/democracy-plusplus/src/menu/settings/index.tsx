@@ -23,14 +23,20 @@ export default function Settings() {
     <>
       <Tooltip title="Preferences and Save Management">
         <Button
-          sx={{ width: '100px' }}
+          aria-label={`Settings and save code ${displayCode}`}
+          sx={{
+            minWidth: { xs: 44, sm: 100 },
+            px: { xs: 1, sm: 2 },
+            width: { sm: 100 },
+            "& .MuiButton-startIcon": { mr: { xs: 0, sm: 1 } },
+          }}
           variant="outlined"
           onClick={handleOpen}
             startIcon={showConnectedSpinner
             ? <LinkIcon />
             : <SettingsIcon />}
         >
-          {displayCode}
+          <span className="mobile-hidden-label">{displayCode}</span>
         </Button>
       </Tooltip>
       <SettingsDialog open={open} setOpen={setOpen} />

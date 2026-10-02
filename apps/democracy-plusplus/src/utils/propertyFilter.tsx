@@ -29,18 +29,30 @@ export default function PropertyFilter({
   }, [detailedAntiTank, onChange, selectedFilters]);
 
   return (
-    <Box sx={{ mb: 2, display: "flex", flexWrap: "wrap", gap: 1 }}>
+    <Box
+      aria-label="Property filters"
+      sx={{
+        mb: 2,
+        mx: { xs: -1, sm: 0 },
+        overflowX: { xs: "auto", sm: "visible" },
+        px: { xs: 1, sm: 0 },
+        scrollbarWidth: "thin",
+      }}
+    >
       <ToggleButtonGroup
         color="primary"
         value={selectedFilters}
         onChange={(_event, newFilters) => onChange(newFilters as PropertyFilterName[])}
-        sx={{ flexWrap: "wrap" }}
+        sx={{
+          flexWrap: { xs: "nowrap", sm: "wrap" },
+          minWidth: "max-content",
+        }}
       >
         {propertyFilters.map((filterName) => (
           <ToggleButton
             key={filterName}
             value={filterName}
-            sx={{ width: '120px' }}
+            sx={{ minWidth: { xs: 104, sm: 120 } }}
           >
             {filterName}
           </ToggleButton>

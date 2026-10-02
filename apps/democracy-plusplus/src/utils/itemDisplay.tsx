@@ -30,6 +30,7 @@ type ItemCardProps = {
   isAffordable: boolean;
   titles: boolean;
   compact: boolean;
+  small: boolean;
 };
 
 const TIER_BORDER_COLORS: Record<Tier, string> = {
@@ -41,9 +42,10 @@ const TIER_BORDER_COLORS: Record<Tier, string> = {
 };
 
 export default function ItemDisplay({ item, onClick, isAffordable = true, compact = false }: ItemDisplayProps) {
-  const { titles, tooltips } = useSelector(selectPreferences);
+  const { itemDisplaySize = "large", titles, tooltips } = useSelector(selectPreferences);
   const { overrides } = useSelector(selectTierList);
   const effectiveTier = getEffectiveTier(item, overrides);
+  const small = !compact && itemDisplaySize === "small";
 
   const inner = <ItemCard
     onClick={onClick}
@@ -52,6 +54,7 @@ export default function ItemDisplay({ item, onClick, isAffordable = true, compac
     isAffordable={isAffordable}
     titles={titles}
     compact={compact}
+    small={small}
   />;
 
   if (!tooltips) {
@@ -67,10 +70,12 @@ export function CompactItemDisplay(props: Omit<ItemDisplayProps, "compact">) {
   return <ItemDisplay {...props} compact />;
 }
 
-function ItemCard({ onClick, item, effectiveTier, isAffordable, titles, compact }: ItemCardProps) {
-  const imageWidth = compact ? 44 : 110;
-  const imageHeight = compact ? 32 : 80;
-  const cardHeight = compact ? 60 : 180;
+function ItemCard({ onClick, item, effectiveTier, isAffordable, titles, compact, small }: ItemCardProps) {
+  const imageWidth = compact ? 44 : small ? { xs: 60, sm: 68 } : { xs: 84, sm: 110 };
+  const imageHeight = compact ? 32 : small ? { xs: 44, sm: 50 } : { xs: 62, sm: 80 };
+  const cardHeight = compact ? 60 : small ? { xs: 112, sm: 124 } : { xs: 154, sm: 180 };
+  const cardWidth = compact ? 60 : small ? { xs: 76, sm: 84 } : { xs: 100, sm: 126 };
+  const contentWidth = small ? { xs: 60, sm: 68 } : { xs: 84, sm: 110 };
   const showTitles = titles && !compact;
 
   return <Card
@@ -78,8 +83,8 @@ function ItemCard({ onClick, item, effectiveTier, isAffordable, titles, compact 
     sx={{
       opacity: isAffordable ? 1 : 0.5,
       pointerEvents: isAffordable ? 'auto' : 'none',
-      height: `${cardHeight}px`,
-      width: compact ? `${imageWidth + 16}px` : undefined,
+      height: typeof cardHeight === "number" ? `${cardHeight}px` : cardHeight,
+      width: cardWidth,
       borderColor: TIER_BORDER_COLORS[effectiveTier],
     }}
     variant="outlined">
@@ -92,11 +97,11 @@ function ItemCard({ onClick, item, effectiveTier, isAffordable, titles, compact 
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
-          width: '110px',
-          fontSize: '15px',
+          width: contentWidth,
+          fontSize: small ? { xs: '11px', sm: '12px' } : { xs: '14px', sm: '15px' },
         }} margin={1}>{item.displayName}</Typography>
-        {!!item.stratagemCode?.length && <Typography component="div" marginX={1} marginBottom={1} width="110px">
-          <StratagemCodeDisplay code={item.stratagemCode} iconSize={12} />
+        {!!item.stratagemCode?.length && <Typography component="div" marginX={1} marginBottom={1} width={contentWidth}>
+          <StratagemCodeDisplay code={item.stratagemCode} iconSize={small ? 9 : 12} />
         </Typography>}
       </>}
     </CardActionArea>
@@ -128,10 +133,16 @@ export function MissingStratagem({ item = { displayName: "Stratagem", imageUrl: 
 }
 
 function Missing({ item, onClick }: { item: Item | MissingItem; onClick?: () => void }) {
-  const { tooltips } = useSelector(selectPreferences);
+  const { itemDisplaySize = "large", tooltips } = useSelector(selectPreferences);
+  const small = itemDisplaySize === "small";
 
-  const inner = <Card onClick={onClick} variant="outlined">
-    <ItemIcon item={item} margin={1} width={110} minHeight={80} />
+  const inner = <Card onClick={onClick} variant="outlined" sx={{ width: small ? { xs: 76, sm: 84 } : { xs: 100, sm: 126 } }}>
+    <ItemIcon
+      item={item}
+      margin={1}
+      width={small ? { xs: 60, sm: 68 } : { xs: 84, sm: 110 }}
+      minHeight={small ? { xs: 44, sm: 50 } : { xs: 62, sm: 80 }}
+    />
   </Card>;
 
   function isFullItem(obj: Item | MissingItem): obj is Item {

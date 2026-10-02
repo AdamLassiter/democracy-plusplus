@@ -75,7 +75,7 @@ export default function Brief() {
   }, [canGenerateLocally, challengeMode, mission.state]);
 
   return <>
-    <Grid direction="row" container spacing={2}>
+    <Grid direction={{ xs: "column", md: "row" }} container spacing={2}>
       <Setup />
       {generatingState && challengeMode === "budget" && !canGenerateLocally && (
         <Typography color="text.secondary" sx={{ alignSelf: "center", paddingLeft: 2 }}>
@@ -83,13 +83,20 @@ export default function Brief() {
         </Typography>
       )}
       {!!mission.quests.length && <>
-        <Divider orientation="vertical" variant="middle" flexItem />
+        <ResponsiveDivider />
         <Quests />
       </>}
       {!!mission.restrictions.length && <>
-        <Divider orientation="vertical" variant="middle" flexItem />
+        <ResponsiveDivider />
         <Restrictions />
       </>}
     </Grid>
+  </>;
+}
+
+function ResponsiveDivider() {
+  return <>
+    <Divider sx={{ display: { xs: "block", md: "none" } }} flexItem />
+    <Divider sx={{ display: { xs: "none", md: "block" } }} orientation="vertical" variant="middle" flexItem />
   </>;
 }

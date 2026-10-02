@@ -7,6 +7,7 @@ const initialState: PreferencesState = {
   tooltips: true,
   missionFlowBanner: true,
   detailedAntiTank: false,
+  itemDisplaySize: 'large',
 };
 
 export function selectPreferences(state: RootState) {
@@ -32,6 +33,9 @@ const preferencesSlice = createSlice({
     setDetailedAntiTank: (state, action: PayloadAction<boolean>) => {
       state.detailedAntiTank = action.payload;
     },
+    setItemDisplaySize: (state, action: PayloadAction<PreferencesState['itemDisplaySize']>) => {
+      state.itemDisplaySize = action.payload;
+    },
     setPreferencesState: (_state, action: PayloadAction<Partial<PreferencesState>>) => {
       return { ...initialState, ...action.payload };
     },
@@ -44,6 +48,7 @@ export const {
   setTooltips,
   setMissionFlowBanner,
   setDetailedAntiTank,
+  setItemDisplaySize,
   setPreferencesState,
   resetPreferences,
 } = preferencesSlice.actions;

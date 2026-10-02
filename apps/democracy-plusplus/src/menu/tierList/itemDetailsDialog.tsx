@@ -11,6 +11,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow,
   Typography,
@@ -61,7 +62,7 @@ export default function ItemDetailsDialog({ item, onClose }: { item: Item | null
         <Box sx={{ minWidth: 0 }}>
           {capabilities.length > 0 && <>
             <Typography variant="h6">Planner capabilities</Typography>
-            <Table size="small" sx={{ mb: 2 }}>
+            <TableContainer sx={{ mb: 2 }}><Table size="small">
               <TableHead><TableRow><TableCell>Attack</TableCell><TableCell>Penetration</TableCell><TableCell>Demolition</TableCell><TableCell>Explosive</TableCell></TableRow></TableHead>
               <TableBody>{capabilities.map((capability, index) => <TableRow key={`${capability.attackName}-${index}`}>
                 <TableCell>{capability.attackName}</TableCell>
@@ -69,7 +70,7 @@ export default function ItemDetailsDialog({ item, onClose }: { item: Item | null
                 <TableCell>{capability.demolitionForce ?? "—"}</TableCell>
                 <TableCell>{capability.explosive ? "Yes" : "No"}</TableCell>
               </TableRow>)}</TableBody>
-            </Table>
+            </Table></TableContainer>
             <Divider sx={{ mb: 2 }} />
           </>}
           <Typography variant="h6" sx={{ mb: 1 }}>Properties</Typography>

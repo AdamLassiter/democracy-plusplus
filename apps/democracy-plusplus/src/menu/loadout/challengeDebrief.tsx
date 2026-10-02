@@ -117,7 +117,7 @@ export default function ChallengeDebrief() {
 
   return <Dialog open={open}>
     <DialogTitle>Challenge Mission Report</DialogTitle>
-    <Box padding={2} sx={{ minWidth: 320 }}>
+    <Box padding={2} sx={{ maxWidth: "100%", width: { sm: 360 } }}>
       <Typography color="text.secondary" paddingBottom={2}>Report the mission result, then complete this challenge round.</Typography>
       <Rating value={stars} onChange={handleStars} max={5} readOnly={hasLobbyState && !isHost} />
       {hasLobbyState && <Typography color={pendingMembers ? "warning.main" : "success.main"} paddingY={2}>

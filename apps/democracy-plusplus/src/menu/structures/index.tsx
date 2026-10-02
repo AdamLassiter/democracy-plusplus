@@ -1,5 +1,5 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Accordion, AccordionDetails, AccordionSummary, Box, Chip, Link, Tab, Table, TableBody, TableCell, TableHead, TableRow, Tabs, TextField, ToggleButton, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Chip, Link, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tabs, TextField, ToggleButton, Typography } from "@mui/material";
 import { useEffect, useState, type SyntheticEvent } from "react";
 import { useSelector } from "react-redux";
 import { FACTIONS as MISSION_FACTIONS } from "../../constants/factions";
@@ -27,9 +27,9 @@ function StructureEntry({ structure, loadout, expanded, onExpanded }: { structur
     <AccordionDetails>
       <Typography sx={{ mb: 1 }}>{structure.description || "Destructible structure documented by the Helldivers Wiki."}</Typography>
       <Link href={`${WIKI_BASE_URL}/${structure.wikiSlug}`} rel="noreferrer" target="_blank">View source on Helldivers Wiki</Link>
-      <Table size="small" sx={{ mt: 2 }}><TableHead><TableRow><TableCell>Target</TableCell><TableCell>Required demolition force</TableCell><TableCell>BaDR</TableCell>{loadout.planner.mode === "planner" && <TableCell>Coverage</TableCell>}</TableRow></TableHead>
-        <TableBody>{coverage.targets.map(({ target, matchingItems, failureReason }) => <TableRow key={target.name}><TableCell>{target.name}</TableCell><TableCell>{target.demolitionForce}</TableCell><TableCell>{target.badr ? "Yes · explosive required" : "No"}</TableCell>{loadout.planner.mode === "planner" && <TableCell>{matchingItems.length ? matchingItems.join(", ") : failureReason}</TableCell>}</TableRow>)}</TableBody>
-      </Table>
+      <TableContainer sx={{ mt: 2 }}><Table size="small"><TableHead><TableRow><TableCell>Target</TableCell><TableCell>Required demolition force</TableCell><TableCell>BaDR</TableCell>{loadout.planner.mode === "planner" && <TableCell>Coverage</TableCell>}</TableRow></TableHead>
+          <TableBody>{coverage.targets.map(({ target, matchingItems, failureReason }) => <TableRow key={target.name}><TableCell>{target.name}</TableCell><TableCell>{target.demolitionForce}</TableCell><TableCell>{target.badr ? "Yes · explosive required" : "No"}</TableCell>{loadout.planner.mode === "planner" && <TableCell>{matchingItems.length ? matchingItems.join(", ") : failureReason}</TableCell>}</TableRow>)}</TableBody>
+        </Table></TableContainer>
     </AccordionDetails>
   </Accordion>;
 }
@@ -58,7 +58,7 @@ export default function Structures() {
   return <Box sx={{ width: "100%" }}>
     <Typography variant="h5">Structures</Typography><Tabs value={FACTIONS.indexOf(faction)} onChange={handleFactionChange} variant="scrollable" scrollButtons="auto">{FACTIONS.map((name) => <Tab key={name} label={name} />)}</Tabs>
     <PlannerControls coverageKind="structure" loadout={loadout} />
-    <TextField label="Search structures" onChange={(event) => setSearch(event.target.value)} size="small" sx={{ mb: 2 }} value={search} />
+    <TextField fullWidth label="Search structures" onChange={(event) => setSearch(event.target.value)} size="small" sx={{ mb: 2, maxWidth: 360 }} value={search} />
     {loadout.planner.mode === "browse" && <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75, mb: 2 }}>{DEMOLITION_VALUES.map((value) => <ToggleButton key={value} selected={selectedDemo.includes(value)} size="small" value={value} onClick={() => toggleDemo(value)}>DF {value}</ToggleButton>)}</Box>}
     <Typography color="text.secondary" sx={{ mb: 1 }}>{visibleStructures.length} {visibleStructures.length === 1 ? "structure" : "structures"}</Typography>{visibleStructures.length === 0 && <Typography color="text.secondary">No structures match the current filters.</Typography>}
     {visibleStructures.map((structure) => <StructureEntry expanded={target === structure.id} key={structure.id} loadout={loadout} onExpanded={(expanded) => setTarget(expanded ? structure.id : null)} structure={structure} />)}

@@ -47,19 +47,22 @@ export default function LobbyPanel() {
     <Box
       sx={{
         position: "fixed",
-        right: 16,
-        top: 96,
+        right: { xs: 0, sm: 16 },
+        top: { xs: 116, sm: 96 },
         zIndex: (theme) => theme.zIndex.drawer - 1,
         display: "flex",
         alignItems: "flex-start",
+        maxWidth: "100vw",
       }}
     >
       <Card
         variant="outlined"
         sx={{
-          width: open ? 700 : 0,
+          width: open ? { xs: "calc(100vw - 48px)", sm: 700 } : 0,
           opacity: open ? 1 : 0,
-          overflow: "hidden",
+          overflowX: "hidden",
+          overflowY: "auto",
+          maxHeight: { xs: "calc(100vh - 132px)", sm: "calc(100vh - 112px)" },
           transition: "width 180ms ease, opacity 180ms ease",
           pointerEvents: open ? "auto" : "none",
           backgroundColor: "rgba(18, 18, 18, 0.96)",
