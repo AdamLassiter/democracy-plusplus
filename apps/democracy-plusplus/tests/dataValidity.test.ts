@@ -199,6 +199,7 @@ test("public data files use valid schema keys and value types", async (t) => {
           item,
           [
             "displayName",
+            "description",
             "type",
             "category",
             "tags",
@@ -230,6 +231,10 @@ test("public data files use valid schema keys and value types", async (t) => {
         );
 
         expectString(item.displayName, `${context}.displayName`);
+        expectOptionalString(item.description, `${context}.description`);
+        if (config.fileName === "boosters.json") {
+          expectString(item.description, `${context}.description`);
+        }
         expectString(item.internalName, `${context}.internalName`);
         expectString(item.warbondCode, `${context}.warbondCode`);
         expectImagePath(item.imageUrl, `${context}.imageUrl`);

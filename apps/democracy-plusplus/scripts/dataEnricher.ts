@@ -7,6 +7,7 @@ import {
   fetchPageSources,
   findAttackTemplateInvocation,
   getImageFileName,
+  parseBoosterPageDescription,
   parseExpandedAttackTables,
   resolveImageUrls,
   type WikiPageSource,
@@ -18,6 +19,7 @@ interface EnrichableItem {
   wikiSlug?: string;
   wikiImageUrl?: string | null;
   imageUrl?: string;
+  description?: string;
   properties?: ItemProperties;
   hoverTexts?: unknown;
   [key: string]: unknown;
@@ -84,7 +86,12 @@ async function enrichItemProperties(record: EnrichableItem, page: WikiPageSource
 }
 
 async function processArray(dataset: FlatWikiDataset) {
-  const { fileName, name, enrichProperties: shouldEnrichProperties } = dataset;
+  const {
+    fileName,
+    name,
+    enrichProperties: shouldEnrichProperties,
+    enrichDescription: shouldEnrichDescription,
+  } = dataset;
   const filePath = `./public/data/${fileName}.json`;
   const loadTask = createTask(`Loading ${name}`, filePath);
   const raw = await fs.readFile(filePath, "utf-8");
@@ -104,6 +111,8 @@ async function processArray(dataset: FlatWikiDataset) {
   let missingPages = 0;
   let missingTemplates = 0;
   let emptyProperties = 0;
+  let descriptions = 0;
+  let missingDescriptions = 0;
   let failures = 0;
 
   for (const record of items) {
@@ -125,6 +134,17 @@ async function processArray(dataset: FlatWikiDataset) {
       record.wikiSlug = page.slug;
     }
     if (refreshLocalImagePath(record, fileName)) refreshedImages++;
+
+    if (shouldEnrichDescription) {
+      const description = parseBoosterPageDescription(page.content);
+      if (description) {
+        record.description = description;
+        descriptions++;
+      } else {
+        missingDescriptions++;
+        item(record.displayName, "no infobox description; preserving existing data", "warn");
+      }
+    }
 
     if (!shouldEnrichProperties) {
       processed++;
@@ -159,9 +179,11 @@ async function processArray(dataset: FlatWikiDataset) {
     missingPages,
     missingTemplates,
     emptyProperties,
+    descriptions,
+    missingDescriptions,
     failures,
   });
-  return failures + missingPages;
+  return failures + missingPages + missingDescriptions;
 }
 
 async function processObjectives() {

@@ -15,6 +15,10 @@ function hasProperties(item: Item | undefined) {
   return item?.properties && Object.keys(item.properties).length > 0;
 }
 
+function hasDescription(item: Item | undefined) {
+  return Boolean(item?.description?.trim());
+}
+
 function isPrimitive(value: PropertyValue): value is string | number | boolean | null {
   return value === null || typeof value !== "object";
 }
@@ -113,7 +117,7 @@ export function ItemPropertiesDisplay({ item }: { item: Item }) {
 }
 
 export default function ItemTooltip({ item, children }: { item: Item; children: ReactNode }) {
-  if (!hasProperties(item)) {
+  if (!hasDescription(item) && !hasProperties(item)) {
     return children;
   }
 
@@ -121,7 +125,10 @@ export default function ItemTooltip({ item, children }: { item: Item; children: 
     <Tooltip
       title={(
         <Box sx={{ maxHeight: 400, maxWidth: 420, overflow: "auto", p: 1 }}>
-          <ItemPropertiesDisplay item={item} />
+          {hasDescription(item) && <Typography sx={{ whiteSpace: "pre-line" }}>{item.description}</Typography>}
+          {hasProperties(item) && <Box sx={{ mt: hasDescription(item) ? 1.5 : 0 }}>
+            <ItemPropertiesDisplay item={item} />
+          </Box>}
         </Box>
       )}
       enterDelay={600}

@@ -11,7 +11,8 @@
     "tier": "c",
     "wikiSlug": "Expert_Extraction_Pilot",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Expert_Extraction_Pilot_Booster_Icon.svg",
-    "imageUrl": "boosters/Expert_Extraction_Pilot_Booster_Icon.svg"
+    "imageUrl": "boosters/Expert_Extraction_Pilot_Booster_Icon.svg",
+    "description": "Lowers the time it takes for the extraction shuttle to reach the extraction beacon."
   },
   {
     "displayName": "Dead Sprint",
@@ -23,7 +24,8 @@
     "tier": "b",
     "wikiSlug": "Dead_Sprint",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Dead_Sprint_Booster_Icon.svg",
-    "imageUrl": "boosters/Dead_Sprint_Booster_Icon.svg"
+    "imageUrl": "boosters/Dead_Sprint_Booster_Icon.svg",
+    "description": "Allows Helldivers to keep sprinting even when they are out of stamina, draining their health instead."
   },
   {
     "displayName": "Armed Resupply Pods",
@@ -35,7 +37,8 @@
     "tier": "b",
     "wikiSlug": "Armed_Resupply_Pods",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Armed_Resupply_Pods_Booster_Icon.svg",
-    "imageUrl": "boosters/Armed_Resupply_Pods_Booster_Icon.svg"
+    "imageUrl": "boosters/Armed_Resupply_Pods_Booster_Icon.svg",
+    "description": "Mounts a modified AR-23 Liberator to all resupply pods, allowing them to double as automatic turrets."
   },
   {
     "displayName": "Experimental Infusion",
@@ -47,7 +50,8 @@
     "tier": "s",
     "wikiSlug": "Experimental_Infusion",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Experimental_Infusion_Booster_Icon.svg",
-    "imageUrl": "boosters/Experimental_Infusion_Booster_Icon.svg"
+    "imageUrl": "boosters/Experimental_Infusion_Booster_Icon.svg",
+    "description": "In addition to restoring health, stims temporarily increase movement speed and damage reduction."
   },
   {
     "displayName": "Motivational Shocks",
@@ -59,7 +63,8 @@
     "tier": "c",
     "wikiSlug": "Motivational_Shocks",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Motivational_Shocks_Booster_Icon.svg",
-    "imageUrl": "boosters/Motivational_Shocks_Booster_Icon.svg"
+    "imageUrl": "boosters/Motivational_Shocks_Booster_Icon.svg",
+    "description": "Allows all Helldivers to recover faster after being slowed by an attack, such as acid. Does not mitigate “area effects,” such as EMS strikes."
   },
   {
     "displayName": "Flexible Reinforcement Budget",
@@ -71,7 +76,8 @@
     "tier": "c",
     "wikiSlug": "Flexible_Reinforcement_Budget",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Flexible_Reinforcement_Budget_Booster_Icon.svg",
-    "imageUrl": "boosters/Flexible_Reinforcement_Budget_Booster_Icon.svg"
+    "imageUrl": "boosters/Flexible_Reinforcement_Budget_Booster_Icon.svg",
+    "description": "Reduce time until new reinforcements are granted once they've been depleted."
   },
   {
     "displayName": "Hellpod Space Optimization",
@@ -83,7 +89,8 @@
     "tier": "s",
     "wikiSlug": "Hellpod_Space_Optimization",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Hellpod_Space_Optimization_Booster_Icon.svg",
-    "imageUrl": "boosters/Hellpod_Space_Optimization_Booster_Icon.svg"
+    "imageUrl": "boosters/Hellpod_Space_Optimization_Booster_Icon.svg",
+    "description": "Helldivers come out of the Hellpod fully stocked on Ammo, Grenades, and Stims."
   },
   {
     "displayName": "Increased Reinforcement Budget",
@@ -95,7 +102,8 @@
     "tier": "c",
     "wikiSlug": "Increased_Reinforcement_Budget",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Increased_Reinforcement_Budget_Booster_Icon.svg",
-    "imageUrl": "boosters/Increased_Reinforcement_Budget_Booster_Icon.svg"
+    "imageUrl": "boosters/Increased_Reinforcement_Budget_Booster_Icon.svg",
+    "description": "Increases the number of available reinforcements."
   },
   {
     "displayName": "Localization Confusion",
@@ -107,7 +115,8 @@
     "tier": "b",
     "wikiSlug": "Localization_Confusion",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Localization_Confusion_Booster_Icon.svg",
-    "imageUrl": "boosters/Localization_Confusion_Booster_Icon.svg"
+    "imageUrl": "boosters/Localization_Confusion_Booster_Icon.svg",
+    "description": "Increases the time between enemy encounters."
   },
   {
     "displayName": "Muscle Enhancement",
@@ -119,7 +128,8 @@
     "tier": "a",
     "wikiSlug": "Muscle_Enhancement",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Muscle_Enhancement_Booster_Icon.svg",
-    "imageUrl": "boosters/Muscle_Enhancement_Booster_Icon.svg"
+    "imageUrl": "boosters/Muscle_Enhancement_Booster_Icon.svg",
+    "description": "Allows Helldivers to traverse difficult terrain with ease."
   },
   {
     "displayName": "Stamina Enhancement",
@@ -131,7 +141,8 @@
     "tier": "a",
     "wikiSlug": "Stamina_Enhancement",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Stamina_Enhancement_Booster_Icon.svg",
-    "imageUrl": "boosters/Stamina_Enhancement_Booster_Icon.svg"
+    "imageUrl": "boosters/Stamina_Enhancement_Booster_Icon.svg",
+    "description": "Increases all Helldivers' stamina capacity and recovery."
   },
   {
     "displayName": "UAV Recon Booster",
@@ -145,7 +156,8 @@
     "imageUrl": "boosters/UAV_Recon_Booster_Booster_Icon.svg",
     "tier": "c",
     "wikiSlug": "UAV_Recon_Booster",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/UAV_Recon_Booster_Booster_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/UAV_Recon_Booster_Booster_Icon.svg",
+    "description": "Increases all Helldivers' effective radar range."
   },
   {
     "displayName": "Vitality Enhancement",
@@ -163,7 +175,8 @@
     "tier": "s",
     "wikiSlug": "Vitality_Enhancement",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Vitality_Enhancement_Booster_Icon.svg",
-    "imageUrl": "boosters/Vitality_Enhancement_Booster_Icon.svg"
+    "imageUrl": "boosters/Vitality_Enhancement_Booster_Icon.svg",
+    "description": "Provides minor damage reduction from all sources for all Helldivers."
   },
   {
     "displayName": "Firebomb Hellpods",
@@ -177,7 +190,8 @@
     "tier": "d",
     "wikiSlug": "Firebomb_Hellpods",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Firebomb_Hellpods_Booster_Icon.svg",
-    "imageUrl": "boosters/Firebomb_Hellpods_Booster_Icon.svg"
+    "imageUrl": "boosters/Firebomb_Hellpods_Booster_Icon.svg",
+    "description": "Lines all Hellpods with volatile incendiaries that detonate upon impact, igniting any units in vicinity of the drop site."
   },
   {
     "displayName": "Sample Extricator",
@@ -189,7 +203,8 @@
     "tier": "d",
     "wikiSlug": "Sample_Extricator",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Sample_Extricator_Booster_Icon.svg",
-    "imageUrl": "boosters/Sample_Extricator_Booster_Icon.svg"
+    "imageUrl": "boosters/Sample_Extricator_Booster_Icon.svg",
+    "description": "Large enemies now have a chance of dropping Samples on death. Capped at 10 drops per mission."
   },
   {
     "displayName": "Sample Scanner",
@@ -201,7 +216,8 @@
     "tier": "d",
     "wikiSlug": "Sample_Scanner",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Sample_Scanner_Booster_Icon.svg",
-    "imageUrl": "boosters/Sample_Scanner_Booster_Icon.svg"
+    "imageUrl": "boosters/Sample_Scanner_Booster_Icon.svg",
+    "description": "The Sample scanner gives you a 15% chance to receive twice the Samples on sample pick up."
   },
   {
     "displayName": "Stun Pods",
@@ -215,7 +231,8 @@
     "tier": "d",
     "wikiSlug": "Stun_Pods",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Stun_Pods_Booster_Icon.svg",
-    "imageUrl": "boosters/Stun_Pods_Booster_Icon.svg"
+    "imageUrl": "boosters/Stun_Pods_Booster_Icon.svg",
+    "description": "Exposes Hellpod wiring upon surface contact, stunning any units in the vicinity of the drop site."
   },
   {
     "displayName": "Concealed Insertion",
@@ -229,30 +246,33 @@
     "category": "booster",
     "tags": [
       "Stealth"
-    ]
+    ],
+    "description": "Equips Hellpods to deploy smokescreens on impact, obscuring Helldiver deployment."
   },
   {
     "displayName": "Surplus EAT Allocation",
     "warbondCode": "warbond27",
     "internalName": "surpluseatallocation",
-    "tier": "c",
+    "tier": "b",
     "wikiSlug": "Surplus_EAT_Allocation",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Surplus_EAT_Allocation_Booster_Icon.svg",
     "imageUrl": "boosters/Surplus_EAT_Allocation_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": []
+    "tags": [],
+    "description": "Grants two free uses of the Expendable Anti-Tank (EAT) Stratagem per mission; enough to grant a full squad one single-use rocket launcher each, provided squad members employ the proper equipment distribution protocol."
   },
   {
     "displayName": "Integrated Extinguishers",
     "warbondCode": "warbond27",
     "internalName": "integratedextinguishers",
-    "tier": "b",
+    "tier": "c",
     "wikiSlug": "Integrated_Extinguishers",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Integrated_Extinguishers_Booster_Icon.svg",
     "imageUrl": "boosters/Integrated_Extinguishers_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": []
+    "tags": [],
+    "description": "Equips Helldiver uniforms with form-fitting, automated, rapid-response fire suppression systems. Significantly reduces the time it takes to naturally extinguish flames without conducting ground-aided smothering manuevers."
   }
 ]

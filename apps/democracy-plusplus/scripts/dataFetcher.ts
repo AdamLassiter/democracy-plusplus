@@ -37,6 +37,7 @@ type EquipmentFileName = Exclude<DataFileName, "stratagems" | "objectives">;
 
 interface StoredItem {
   displayName: string;
+  description?: string;
   warbondCode: string;
   internalName: string;
   stratagemCode?: string[];

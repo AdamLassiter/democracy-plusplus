@@ -35,6 +35,7 @@ export default function ItemDetailsDialog({ item, onClose }: { item: Item | null
 
   const warbond = item.type !== "Warbond" && item.warbondCode ? getWarbondByCode(item.warbondCode) : undefined;
   const capabilities = extractItemCapabilities(item, demolitionSource(item));
+  const hasProperties = Boolean(item.properties && Object.keys(item.properties).length);
   const wikiUrl = item.wikiSlug
     ? `https://helldivers.wiki.gg/wiki/${item.wikiSlug.split("/").map(encodeURIComponent).join("/")}`
     : null;
@@ -60,6 +61,11 @@ export default function ItemDetailsDialog({ item, onClose }: { item: Item | null
           </Button>}
         </Box>
         <Box sx={{ minWidth: 0 }}>
+          {item.description && <>
+            <Typography variant="h6" sx={{ mb: 1 }}>Description</Typography>
+            <Typography sx={{ mb: 2, whiteSpace: "pre-line" }}>{item.description}</Typography>
+            {(capabilities.length > 0 || hasProperties) && <Divider sx={{ mb: 2 }} />}
+          </>}
           {capabilities.length > 0 && <>
             <Typography variant="h6">Planner capabilities</Typography>
             <TableContainer sx={{ mb: 2 }}><Table size="small">
@@ -73,8 +79,10 @@ export default function ItemDetailsDialog({ item, onClose }: { item: Item | null
             </Table></TableContainer>
             <Divider sx={{ mb: 2 }} />
           </>}
-          <Typography variant="h6" sx={{ mb: 1 }}>Properties</Typography>
-          <ItemPropertiesDisplay item={item} />
+          {(!item.description || hasProperties) && <>
+            <Typography variant="h6" sx={{ mb: 1 }}>Properties</Typography>
+            <ItemPropertiesDisplay item={item} />
+          </>}
         </Box>
       </Box>
     </DialogContent>

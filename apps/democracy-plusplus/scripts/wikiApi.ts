@@ -872,6 +872,14 @@ export async function parseBoostersPageSource(content: string, expand: TemplateE
     .filter((booster): booster is LinkedWikiItem => booster !== null);
 }
 
+export function parseBoosterPageDescription(content: string) {
+  const infobox = extractTemplateInvocations(content, "Infobox Booster")[0];
+  if (!infobox) return "";
+
+  const parameters = parseTemplateParameters(infobox.text);
+  return cleanEnemyValue(parameters.get("description"));
+}
+
 export async function parseArmorPassivesPageSource(_content: string, expand: TemplateExpander = expandTemplate) {
   const expanded = await expand("{{Armor Passive List}}", "Armor Passives");
   const results: LinkedWikiItem[] = [];

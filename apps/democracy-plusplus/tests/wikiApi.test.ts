@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   getImageFileName,
   parseArmorPassivesPageSource,
+  parseBoosterPageDescription,
   parseBoostersPageSource,
   parseEnemyPageSource,
   parseFactionsPageSource,
@@ -33,6 +34,21 @@ test("parseBoostersPageSource expands the current HTML booster table", async () 
       imageFileTitle: "File:UAV_Recon_Booster_Booster_Icon.svg",
     },
   ]);
+});
+
+test("parseBoosterPageDescription extracts and cleans the infobox description", () => {
+  const source = `{{Infobox Booster
+| title = Hellpod Space Optimization
+| image = Hellpod Space Optimization Booster Icon.svg
+| description = Helldivers come out of the Hellpod fully stocked on [[Ammo]], Grenades,<br />and '''Stims'''.
+| source = [[Helldivers Mobilize! Warbond]]
+}}`;
+
+  assert.equal(
+    parseBoosterPageDescription(source),
+    "Helldivers come out of the Hellpod fully stocked on Ammo, Grenades, and Stims.",
+  );
+  assert.equal(parseBoosterPageDescription("No booster infobox here."), "");
 });
 
 test("parseWarbondsPageSource reads standard, premium, and legendary cover galleries", () => {

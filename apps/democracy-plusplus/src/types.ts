@@ -64,6 +64,7 @@ export type ObjectiveTag = 'Eradicate' | 'Commando' | 'Blitz';
 
 export interface BaseItem {
   displayName: string;
+  description?: string;
   imageUrl?: string;
   warbondCode?: string;
   internalName?: string;

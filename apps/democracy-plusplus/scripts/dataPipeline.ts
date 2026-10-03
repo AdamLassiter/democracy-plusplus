@@ -1,11 +1,11 @@
 export const FLAT_WIKI_DATASETS = [
-  { fileName: "primaries", name: "PRIMARIES", enrichProperties: true },
-  { fileName: "secondaries", name: "SECONDARIES", enrichProperties: true },
-  { fileName: "throwables", name: "THROWABLES", enrichProperties: true },
-  { fileName: "stratagems", name: "STRATAGEMS", enrichProperties: true },
-  { fileName: "boosters", name: "BOOSTERS", enrichProperties: false },
-  { fileName: "armor_passives", name: "ARMOR_PASSIVES", enrichProperties: false },
-  { fileName: "warbonds", name: "WARBONDS", enrichProperties: false },
+  { fileName: "primaries", name: "PRIMARIES", enrichProperties: true, enrichDescription: false },
+  { fileName: "secondaries", name: "SECONDARIES", enrichProperties: true, enrichDescription: false },
+  { fileName: "throwables", name: "THROWABLES", enrichProperties: true, enrichDescription: false },
+  { fileName: "stratagems", name: "STRATAGEMS", enrichProperties: true, enrichDescription: false },
+  { fileName: "boosters", name: "BOOSTERS", enrichProperties: false, enrichDescription: true },
+  { fileName: "armor_passives", name: "ARMOR_PASSIVES", enrichProperties: false, enrichDescription: false },
+  { fileName: "warbonds", name: "WARBONDS", enrichProperties: false, enrichDescription: false },
 ] as const;
 
 export type FlatWikiDataset = (typeof FLAT_WIKI_DATASETS)[number];

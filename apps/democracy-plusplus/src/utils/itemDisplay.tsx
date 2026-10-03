@@ -146,10 +146,10 @@ function Missing({ item, onClick }: { item: Item | MissingItem; onClick?: () => 
   </Card>;
 
   function isFullItem(obj: Item | MissingItem): obj is Item {
-    return "properties" in obj;
+    return "tier" in obj;
   }
 
-  if (!tooltips || !isFullItem(item) || !item.properties || !Object.keys(item.properties).length) {
+  if (!tooltips || !isFullItem(item)) {
     return inner;
   }
 

@@ -6,7 +6,7 @@
     "tags": [],
     "warbondCode": "none",
     "internalName": "noneWB",
-    "tier": "b"
+    "tier": "s"
   },
   {
     "displayName": "Super Citizen Preorder",
@@ -15,7 +15,7 @@
     "tags": [],
     "warbondCode": "warbond0",
     "internalName": "superCitizenWB",
-    "tier": "c"
+    "tier": "d"
   },
   {
     "displayName": "Super Store",
@@ -24,7 +24,7 @@
     "tags": [],
     "warbondCode": "warbond1",
     "internalName": "superStoreWB",
-    "tier": "d"
+    "tier": "c"
   },
   {
     "displayName": "Helldivers Mobilize",
@@ -33,7 +33,7 @@
     "tags": [],
     "warbondCode": "warbond3",
     "internalName": "helldiversMobilizeWB",
-    "tier": "a",
+    "tier": "s",
     "wikiSlug": "Helldivers_Mobilize_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Helldivers_Mobilize_Warbond_Cover.png",
     "imageUrl": "warbonds/Helldivers_Mobilize_Warbond_Cover.png"
@@ -45,7 +45,7 @@
     "tags": [],
     "warbondCode": "warbond4",
     "internalName": "steeledVeteransWB",
-    "tier": "a",
+    "tier": "b",
     "wikiSlug": "Steeled_Veterans_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Steeled_Veterans_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Steeled_Veterans_Premium_Warbond_Cover.png"
@@ -57,7 +57,7 @@
     "tags": [],
     "warbondCode": "warbond5",
     "internalName": "cuttingEdgeWB",
-    "tier": "b",
+    "tier": "c",
     "wikiSlug": "Cutting_Edge_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Cutting_Edge_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Cutting_Edge_Premium_Warbond_Cover.png"
@@ -81,7 +81,7 @@
     "tags": [],
     "warbondCode": "warbond7",
     "internalName": "polarPatriotsWB",
-    "tier": "a",
+    "tier": "b",
     "wikiSlug": "Polar_Patriots_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Polar_Patriots_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Polar_Patriots_Premium_Warbond_Cover.png"
@@ -117,7 +117,7 @@
     "tags": [],
     "warbondCode": "warbond10",
     "internalName": "chemicalAgentsWB",
-    "tier": "b",
+    "tier": "a",
     "wikiSlug": "Chemical_Agents_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Chemical_Agents_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Chemical_Agents_Premium_Warbond_Cover.png"
@@ -189,7 +189,7 @@
     "tags": [],
     "warbondCode": "warbond16",
     "internalName": "forceOfLawWB",
-    "tier": "b",
+    "tier": "c",
     "wikiSlug": "Force_of_Law_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Force_of_Law_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Force_of_Law_Premium_Warbond_Cover.png"
@@ -285,7 +285,7 @@
     "tags": [],
     "warbondCode": "warbond24",
     "internalName": "entrencheddivisionWB",
-    "tier": "s",
+    "tier": "a",
     "wikiSlug": "Entrenched_Division_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Entrenched_Division_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Entrenched_Division_Premium_Warbond_Cover.png"
