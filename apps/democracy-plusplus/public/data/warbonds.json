@@ -214,6 +214,7 @@
     "warbondCode": "warbond18",
     "internalName": "righteousRevenantsWB",
     "tier": "c",
+    "legendary": true,
     "wikiSlug": "Righteous_Revenants_Legendary_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Righteous_Revenants_Legendary_Warbond_Cover.png",
     "imageUrl": "warbonds/Righteous_Revenants_Legendary_Warbond_Cover.png"
@@ -226,6 +227,7 @@
     "warbondCode": "warbond19",
     "internalName": "odstWB",
     "tier": "c",
+    "legendary": true,
     "wikiSlug": "Obedient_Democracy_Support_Troopers_Legendary_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Halo_ODST_Legendary_Warbond_Cover.png",
     "imageUrl": "warbonds/Halo_ODST_Legendary_Warbond_Cover.png"
@@ -310,6 +312,7 @@
     "warbondCode": "warbond26",
     "internalName": "castellanscreedWB",
     "tier": "s",
+    "legendary": true,
     "wikiSlug": "Castellan's_Creed_Legendary_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Castellan%27s_Creed_Legendary_Warbond_Cover.png",
     "imageUrl": "warbonds/Castellan's_Creed_Legendary_Warbond_Cover.png"

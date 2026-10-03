@@ -25,6 +25,7 @@ export type WarbondSummary = {
   bestTiers: Partial<Record<WarbondBestCategory, Tier>>;
   armorPenetrationValues: number[];
   armorPenetrationLabels: string[];
+  demolitionForceValues: number[];
   damageTypes: WarbondDamageType[];
 };
 
@@ -57,10 +58,12 @@ export function getWarbondSummary(items: Item[], warbondCode: string): WarbondSu
     );
     return bestTier ? [[category, bestTier]] : [];
   })) as Partial<Record<WarbondBestCategory, Tier>>;
-  const armorPenetrationValues = [...new Set(warbondItems.flatMap((item) =>
-    extractItemCapabilities(item).flatMap(({ armorPenetration }) =>
+  const capabilities = warbondItems.flatMap((item) => extractItemCapabilities(item));
+  const armorPenetrationValues = [...new Set(capabilities.flatMap(({ armorPenetration }) =>
       armorPenetration === null ? [] : [armorPenetration],
-    ),
+  ))].sort((left, right) => left - right);
+  const demolitionForceValues = [...new Set(capabilities.flatMap(({ demolitionForce }) =>
+    demolitionForce === null ? [] : [demolitionForce],
   ))].sort((left, right) => left - right);
   const damageTypes = DAMAGE_TYPE_FILTERS.filter((damageType) =>
     warbondItems.some((item) => itemMatchesPropertyFilters(item, [damageType])),
@@ -73,6 +76,7 @@ export function getWarbondSummary(items: Item[], warbondCode: string): WarbondSu
     armorPenetrationLabels: armorPenetrationValues.map(
       (value) => ARMOR_LABELS[value] ?? `AP ${value}`,
     ),
+    demolitionForceValues,
     damageTypes,
   };
 }
@@ -98,6 +102,7 @@ export function warbondSummaryMatchesFilters(
     properties: {
       summary: {
         Penetration: { Direct: summary.armorPenetrationLabels },
+        Damage: { "Demolition Force": summary.demolitionForceValues },
       },
       damageTypes: summary.damageTypes,
     },

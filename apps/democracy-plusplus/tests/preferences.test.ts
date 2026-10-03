@@ -3,6 +3,7 @@ import test from "node:test";
 
 import preferencesReducer, {
   resetPreferences,
+  setDetailedDemolitionForce,
   setItemDisplaySize,
   setPreferencesState,
 } from "../src/slices/preferencesSlice.ts";
@@ -20,4 +21,14 @@ test("imported legacy preferences receive the current item display default", () 
   const imported = preferencesReducer(undefined, setPreferencesState({ titles: false }));
   assert.equal(imported.titles, false);
   assert.equal(imported.itemDisplaySize, "large");
+  assert.equal(imported.detailedDemolitionForce, false);
+});
+
+test("demolition force filters default to grouped and persist detailed mode", () => {
+  const initial = preferencesReducer(undefined, { type: "init" });
+  assert.equal(initial.detailedDemolitionForce, false);
+  assert.equal(
+    preferencesReducer(initial, setDetailedDemolitionForce(true)).detailedDemolitionForce,
+    true,
+  );
 });

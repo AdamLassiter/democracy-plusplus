@@ -108,6 +108,7 @@ export interface Warbond extends BaseItem {
   type: 'Warbond';
   warbondCode: string;
   tier: Tier;
+  legendary?: true;
 }
 
 export interface Difficulty {
@@ -265,6 +266,7 @@ export interface PreferencesState {
   tooltips: boolean;
   missionFlowBanner: boolean;
   detailedAntiTank: boolean;
+  detailedDemolitionForce: boolean;
   itemDisplaySize: 'large' | 'small';
 }
 

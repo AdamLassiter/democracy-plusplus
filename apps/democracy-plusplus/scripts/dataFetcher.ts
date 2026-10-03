@@ -54,6 +54,7 @@ interface StoredItem {
 
 interface StoredWarbond {
   displayName: string;
+  legendary?: true;
   wikiSlug?: string;
   wikiImageUrl?: string | null;
   imageUrl?: string;
@@ -434,6 +435,7 @@ async function mergeWarbondImages(scrapedWarbonds: LinkedWikiItem[]) {
     const imageFileName = getImageFileName(scrapedWarbond.wikiImageUrl);
     return {
       ...warbond,
+      legendary: scrapedWarbond.legendary,
       wikiSlug: scrapedWarbond.wikiSlug,
       wikiImageUrl: scrapedWarbond.wikiImageUrl,
       ...(imageFileName ? { imageUrl: `warbonds/${imageFileName}` } : {}),

@@ -68,6 +68,11 @@ function WarbondAccordion({
         <Box sx={{ flex: 1, minWidth: 0 }}>
           <Typography fontWeight={700}>{warbond.displayName}</Typography>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5, mt: 0.5 }}>
+            {warbond.legendary && <Chip
+              color="error"
+              label="Legendary"
+              size="small"
+            />}
             <Chip
               label={`${summary.itemCount} ${summary.itemCount === 1 ? "item" : "items"}`}
               size="small"

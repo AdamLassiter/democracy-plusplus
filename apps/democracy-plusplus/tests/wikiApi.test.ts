@@ -83,6 +83,7 @@ Unrelated Screenshot.png|alt=Not a cover|link=Warbonds|[[Warbonds|Gallery screen
       displayName: "Castellan's Creed",
       wikiSlug: "Castellan's_Creed_Legendary_Warbond",
       imageFileTitle: "File:Castellan's_Creed_Legendary_Warbond_Cover.png",
+      legendary: true,
     },
   ]);
 });

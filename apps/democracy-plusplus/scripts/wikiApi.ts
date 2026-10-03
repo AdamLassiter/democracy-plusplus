@@ -23,6 +23,7 @@ export interface LinkedWikiItem {
   wikiSlug: string;
   imageFileTitle: string;
   wikiImageUrl?: string | null;
+  legendary?: true;
 }
 
 export interface ScrapedWeaponItem extends LinkedWikiItem {
@@ -524,9 +525,11 @@ export function parseWarbondsPageSource(content: string) {
 
       const warbond = parseGalleryItem(line);
       if (warbond) {
+        const legendary = /(?:^|_)Legendary(?:_|$)/i.test(warbond.wikiSlug);
         results.push({
           ...warbond,
           displayName: cleanWikiText(warbond.displayName),
+          ...(legendary ? { legendary: true } : {}),
         });
       }
     }

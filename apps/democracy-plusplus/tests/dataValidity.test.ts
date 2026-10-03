@@ -115,6 +115,7 @@ const warbondCodes = warbonds.map((warbond, index) => {
       "internalName",
       "imageUrl",
       "tier",
+      "legendary",
       "wikiSlug",
       "wikiImageUrl",
     ],
@@ -132,6 +133,14 @@ const warbondCodes = warbonds.map((warbond, index) => {
   expectString(item.warbondCode, `${context}.warbondCode`);
   expectString(item.internalName, `${context}.internalName`);
   expectTier(item.tier, `${context}.tier`);
+  if (item.legendary !== undefined) {
+    assert.equal(item.legendary, true, `${context}.legendary must be true when present`);
+  }
+  assert.equal(
+    item.legendary === true,
+    /_Legendary_Warbond$/i.test(String(item.wikiSlug ?? "")),
+    `${context}.legendary must match its wiki classification`,
+  );
   expectOptionalString(item.wikiSlug, `${context}.wikiSlug`);
   expectOptionalString(item.wikiImageUrl, `${context}.wikiImageUrl`);
   if (item.imageUrl !== undefined) {

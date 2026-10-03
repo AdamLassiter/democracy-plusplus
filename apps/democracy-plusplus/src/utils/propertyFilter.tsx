@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   getPropertyFilters,
-  normalizeAntiTankFilters,
+  normalizePropertyFilters,
   type PropertyFilterName,
 } from "../constants/filters";
 import { selectPreferences } from "../slices/preferencesSlice";
@@ -15,18 +15,22 @@ export default function PropertyFilter({
   selectedFilters: PropertyFilterName[];
   onChange: (_filters: PropertyFilterName[]) => void;
 }) {
-  const { detailedAntiTank = false } = useSelector(selectPreferences);
-  const propertyFilters = getPropertyFilters(detailedAntiTank);
+  const { detailedAntiTank = false, detailedDemolitionForce = false } = useSelector(selectPreferences);
+  const propertyFilters = getPropertyFilters(detailedAntiTank, detailedDemolitionForce);
 
   useEffect(() => {
-    const normalizedFilters = normalizeAntiTankFilters(selectedFilters, detailedAntiTank);
+    const normalizedFilters = normalizePropertyFilters(
+      selectedFilters,
+      detailedAntiTank,
+      detailedDemolitionForce,
+    );
     if (
       normalizedFilters.length !== selectedFilters.length
       || normalizedFilters.some((filterName, index) => filterName !== selectedFilters[index])
     ) {
       onChange(normalizedFilters);
     }
-  }, [detailedAntiTank, onChange, selectedFilters]);
+  }, [detailedAntiTank, detailedDemolitionForce, onChange, selectedFilters]);
 
   return (
     <Box

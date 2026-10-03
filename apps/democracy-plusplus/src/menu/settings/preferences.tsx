@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectPreferences,
   setDetailedAntiTank,
+  setDetailedDemolitionForce,
   setItemDisplaySize,
   setTitles,
   setTooltips,
@@ -12,7 +13,13 @@ import {
 export default function Preferences() {
   const dispatch = useDispatch();
 
-  const { detailedAntiTank, itemDisplaySize = 'large', titles, tooltips } = useSelector(selectPreferences);
+  const {
+    detailedAntiTank,
+    detailedDemolitionForce = false,
+    itemDisplaySize = 'large',
+    titles,
+    tooltips,
+  } = useSelector(selectPreferences);
   function handleTitlesChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     dispatch(setTitles(newValue === 'on'));
   }
@@ -22,6 +29,11 @@ export default function Preferences() {
   function handleDetailedAntiTankChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
     if (newValue !== null) {
       dispatch(setDetailedAntiTank(newValue === 'on'));
+    }
+  }
+  function handleDetailedDemolitionForceChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
+    if (newValue !== null) {
+      dispatch(setDetailedDemolitionForce(newValue === 'on'));
     }
   }
   function handleItemDisplaySizeChange(_event: MouseEvent<HTMLElement>, newValue: 'large' | 'small' | null) {
@@ -76,6 +88,17 @@ export default function Preferences() {
       >
         <ToggleButton value="on">Detailed Anti-Tank</ToggleButton>
         <ToggleButton value="off">Grouped Anti-Tank</ToggleButton>
+      </ToggleButtonGroup>
+
+      <ToggleButtonGroup
+        color="primary"
+        fullWidth
+        exclusive
+        value={detailedDemolitionForce ? 'on' : 'off'}
+        onChange={handleDetailedDemolitionForceChange}
+      >
+        <ToggleButton value="on">Detailed Demo Force</ToggleButton>
+        <ToggleButton value="off">Grouped Demo Force</ToggleButton>
       </ToggleButtonGroup>
     </Grid>
   );

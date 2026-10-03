@@ -19,11 +19,14 @@ function item(overrides: Partial<Item> & Pick<Item, "displayName" | "tier">): It
   };
 }
 
-function attack(penetration: string, damage: string) {
+function attack(penetration: string, damage: string, demolitionForce?: number) {
   return {
     Main: {
       Penetration: { Direct: penetration },
-      Damage: { Standard: damage },
+      Damage: {
+        Standard: damage,
+        ...(demolitionForce === undefined ? {} : { "Demolition Force": String(demolitionForce) }),
+      },
     },
   };
 }
@@ -33,7 +36,7 @@ test("warbond summaries expose best class tiers, penetration values, and damage 
     item({ displayName: "Primary A", tier: "a", properties: attack("Medium", "100 Ballistic") }),
     item({ displayName: "Primary S", tier: "s", properties: attack("Heavy", "200 Laser") }),
     item({ displayName: "Secondary", tier: "b", category: "secondary", properties: attack("Light", "50 Fire") }),
-    item({ displayName: "Grenade", tier: "c", category: "throwable", properties: attack("Anti-Tank II", "400 Explosion") }),
+    item({ displayName: "Grenade", tier: "c", category: "throwable", properties: attack("Anti-Tank II", "400 Explosion", 50) }),
     item({ displayName: "Armor", tier: "a", category: "armor" }),
     item({ displayName: "Booster", tier: "d", category: "booster" }),
     item({ displayName: "Stratagem", tier: "b", category: "Supply", type: "Stratagem", properties: attack("Heavy", "20 Gas") }),
@@ -50,6 +53,7 @@ test("warbond summaries expose best class tiers, penetration values, and damage 
   });
   assert.deepEqual(summary.armorPenetrationValues, [2, 3, 4, 6]);
   assert.deepEqual(summary.armorPenetrationLabels, ["Light", "Medium", "Heavy", "Anti-Tank 2"]);
+  assert.deepEqual(summary.demolitionForceValues, [50]);
   assert.deepEqual(summary.damageTypes, ["Ballistic", "Explosive", "Fire", "Gas", "Laser"]);
 });
 
@@ -65,6 +69,17 @@ test("warbond filters combine tier groups with aggregate capability filters", ()
   }), true, "capabilities use OR while selected class groups all have to match");
   assert.equal(warbondSummaryMatchesFilters(summary, ["Fire"], { primary: ["s"] }), false);
   assert.equal(warbondSummaryMatchesFilters(summary, [], { primary: ["a"], secondary: ["b"] }), false);
+});
+
+test("warbond filters include aggregate demolition force", () => {
+  const summary = getWarbondSummary([
+    item({ displayName: "Low demo", tier: "a", properties: attack("Medium", "100 Ballistic", 20) }),
+    item({ displayName: "High demo", tier: "b", properties: attack("Heavy", "200 Explosion", 50) }),
+  ], WARBOND_CODE);
+
+  assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 40+"], {}), true);
+  assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 50"], {}), true);
+  assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 60"], {}), false);
 });
 
 test("warbond filtering uses only items assigned to each warbond", () => {

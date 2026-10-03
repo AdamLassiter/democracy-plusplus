@@ -6,6 +6,7 @@ export const PROPERTY_FILTERS = [
   "Medium",
   "Heavy",
   "Anti-Tank",
+  "Demo Force 40+",
   "Ballistic",
   "Explosive",
   "Fire",
@@ -34,12 +35,27 @@ export const DETAILED_ANTI_TANK_FILTERS = [
   "Anti-Tank 6",
 ] as const;
 
-const NON_ANTI_TANK_FILTERS = PROPERTY_FILTERS.filter((filterName) => filterName !== "Anti-Tank");
+export const DETAILED_DEMOLITION_FORCE_FILTERS = [
+  "Demo Force 10",
+  "Demo Force 20",
+  "Demo Force 30",
+  "Demo Force 40",
+  "Demo Force 50",
+  "Demo Force 60",
+] as const;
+
 type DetailedAntiTankFilterName = (typeof DETAILED_ANTI_TANK_FILTERS)[number];
+type DetailedDemolitionForceFilterName = (typeof DETAILED_DEMOLITION_FORCE_FILTERS)[number];
+const GROUPED_DEMOLITION_FORCE_FILTERS: readonly DetailedDemolitionForceFilterName[] = [
+  "Demo Force 40",
+  "Demo Force 50",
+  "Demo Force 60",
+];
 
 export type PropertyFilterName =
   | (typeof PROPERTY_FILTERS)[number]
-  | DetailedAntiTankFilterName;
+  | DetailedAntiTankFilterName
+  | DetailedDemolitionForceFilterName;
 
 const PENETRATION_FILTERS = new Set<PropertyFilterName>([
   "Unarmored",
@@ -55,8 +71,12 @@ const PENETRATION_ANGLE_KEYS = new Set([
   "large angle",
   "extreme angle",
 ]);
+const DEMOLITION_FORCE_FILTERS = new Set<PropertyFilterName>([
+  "Demo Force 40+",
+  ...DETAILED_DEMOLITION_FORCE_FILTERS,
+]);
 
-const FILTER_MATCHERS: Record<PropertyFilterName, RegExp> = {
+const FILTER_MATCHERS: Partial<Record<PropertyFilterName, RegExp>> = {
   Unarmored: /\bunarmored\b|\bvery light\b/i,
   Light: /(?<!very )\blight\b/i,
   Medium: /\bmedium\b/i,
@@ -82,17 +102,33 @@ function isDetailedAntiTankFilter(filterName: PropertyFilterName): filterName is
   return DETAILED_ANTI_TANK_FILTERS.includes(filterName as DetailedAntiTankFilterName);
 }
 
-export function getPropertyFilters(detailedAntiTank: boolean): readonly PropertyFilterName[] {
-  if (!detailedAntiTank) {
-    return PROPERTY_FILTERS;
-  }
+function isDetailedDemolitionForceFilter(
+  filterName: PropertyFilterName,
+): filterName is DetailedDemolitionForceFilterName {
+  return DETAILED_DEMOLITION_FORCE_FILTERS.includes(filterName as DetailedDemolitionForceFilterName);
+}
 
-  const antiTankIndex = PROPERTY_FILTERS.indexOf("Anti-Tank");
-  return [
-    ...NON_ANTI_TANK_FILTERS.slice(0, antiTankIndex),
-    ...DETAILED_ANTI_TANK_FILTERS,
-    ...NON_ANTI_TANK_FILTERS.slice(antiTankIndex),
-  ];
+function replaceGroupedFilter(
+  filters: PropertyFilterName[],
+  groupedFilter: PropertyFilterName,
+  detailedFilters: readonly PropertyFilterName[],
+) {
+  const index = filters.indexOf(groupedFilter);
+  if (index !== -1) filters.splice(index, 1, ...detailedFilters);
+}
+
+export function getPropertyFilters(
+  detailedAntiTank: boolean,
+  detailedDemolitionForce = false,
+): readonly PropertyFilterName[] {
+  const filters: PropertyFilterName[] = [...PROPERTY_FILTERS];
+  if (detailedAntiTank) {
+    replaceGroupedFilter(filters, "Anti-Tank", DETAILED_ANTI_TANK_FILTERS);
+  }
+  if (detailedDemolitionForce) {
+    replaceGroupedFilter(filters, "Demo Force 40+", DETAILED_DEMOLITION_FORCE_FILTERS);
+  }
+  return filters;
 }
 
 export function normalizeAntiTankFilters(
@@ -116,6 +152,34 @@ export function normalizeAntiTankFilters(
   }
 
   return [...selectedFilters];
+}
+
+export function normalizePropertyFilters(
+  selectedFilters: readonly PropertyFilterName[],
+  detailedAntiTank: boolean,
+  detailedDemolitionForce: boolean,
+): PropertyFilterName[] {
+  const normalized = normalizeAntiTankFilters(selectedFilters, detailedAntiTank);
+  const detailedSelected = normalized.some(isDetailedDemolitionForceFilter);
+
+  if (detailedDemolitionForce && normalized.includes("Demo Force 40+")) {
+    return [...new Set<PropertyFilterName>([
+      ...normalized.filter((filterName) => filterName !== "Demo Force 40+"),
+      ...GROUPED_DEMOLITION_FORCE_FILTERS,
+    ])];
+  }
+
+  if (!detailedDemolitionForce && detailedSelected) {
+    const hasGroupedEquivalent = normalized.some((filterName) =>
+      GROUPED_DEMOLITION_FORCE_FILTERS.includes(filterName as DetailedDemolitionForceFilterName),
+    );
+    return [...new Set<PropertyFilterName>([
+      ...normalized.filter((filterName) => !isDetailedDemolitionForceFilter(filterName)),
+      ...(hasGroupedEquivalent ? ["Demo Force 40+" as const] : []),
+    ])];
+  }
+
+  return normalized;
 }
 
 function collectPropertyValues(value: PropertyValue, output: string[] = []) {
@@ -164,6 +228,30 @@ function collectPenetrationValues(value: PropertyValue, output: string[] = []) {
   return output;
 }
 
+function collectDemolitionForceValues(value: PropertyValue, output: number[] = []) {
+  if (!value || typeof value !== "object") return output;
+
+  if (Array.isArray(value)) {
+    value.forEach((nestedValue) => collectDemolitionForceValues(nestedValue, output));
+    return output;
+  }
+
+  Object.entries(value).forEach(([key, nestedValue]) => {
+    if (key.toLowerCase() === "demolition force") {
+      const values = Array.isArray(nestedValue) ? nestedValue : [nestedValue];
+      values.forEach((entry) => {
+        if (typeof entry !== "string" && typeof entry !== "number") return;
+        const match = String(entry).match(/-?\d+(?:\.\d+)?/);
+        if (match) output.push(Number.parseFloat(match[0]));
+      });
+      return;
+    }
+    collectDemolitionForceValues(nestedValue, output);
+  });
+
+  return output;
+}
+
 export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilters: readonly PropertyFilterName[]) {
   if (!selectedFilters?.length) {
     return true;
@@ -172,8 +260,16 @@ export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilte
   const properties = item?.properties;
   const searchableValues = properties ? collectPropertyValues(properties).join("\n") : "";
   const penetrationValues = properties ? collectPenetrationValues(properties).join("\n") : "";
+  const demolitionForceValues = properties ? collectDemolitionForceValues(properties) : [];
 
   return selectedFilters.some((filterName) => {
+    if (DEMOLITION_FORCE_FILTERS.has(filterName)) {
+      if (filterName === "Demo Force 40+") {
+        return demolitionForceValues.some((value) => value >= 40);
+      }
+      const requiredForce = Number.parseInt(filterName.replace("Demo Force ", ""), 10);
+      return demolitionForceValues.includes(requiredForce);
+    }
     const penetrationFilter = PENETRATION_FILTERS.has(filterName);
     if (!penetrationFilter && item?.tags?.includes(filterName)) {
       return true;
