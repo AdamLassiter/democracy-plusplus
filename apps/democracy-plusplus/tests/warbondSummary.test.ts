@@ -77,7 +77,7 @@ test("warbond filters include aggregate demolition force", () => {
     item({ displayName: "High demo", tier: "b", properties: attack("Heavy", "200 Explosion", 50) }),
   ], WARBOND_CODE);
 
-  assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 40+"], {}), true);
+  assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 30+"], {}), true);
   assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 50"], {}), true);
   assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 60"], {}), false);
 });

@@ -72,12 +72,12 @@ test("switching detail modes preserves the meaning of an active anti-tank filter
   ]);
 });
 
-test("grouped demolition force matches 40 or higher", () => {
+test("grouped demolition force matches 30 or higher", () => {
   const items = [10, 20, 30, 40, 50, 60].map(itemWithDemolitionForce);
 
   assert.deepEqual(
-    filterItemsByPropertyValues(items, ["Demo Force 40+"]).map((item) => item.displayName),
-    ["Demo Force 40", "Demo Force 50", "Demo Force 60"],
+    filterItemsByPropertyValues(items, ["Demo Force 30+"]).map((item) => item.displayName),
+    ["Demo Force 30", "Demo Force 40", "Demo Force 50", "Demo Force 60"],
   );
 });
 
@@ -90,7 +90,7 @@ test("detailed demolition force filters match exact increments", () => {
       [items[index].displayName],
     );
   });
-  assert.ok(getPropertyFilters(false, false).includes("Demo Force 40+"));
+  assert.ok(getPropertyFilters(false, false).includes("Demo Force 30+"));
   assert.deepEqual(
     getPropertyFilters(false, true).filter((filterName) => filterName.startsWith("Demo Force")),
     [...DETAILED_DEMOLITION_FORCE_FILTERS],
@@ -98,18 +98,19 @@ test("detailed demolition force filters match exact increments", () => {
 });
 
 test("switching demolition detail modes preserves only grouped-equivalent selections", () => {
-  assert.deepEqual(normalizePropertyFilters(["Fire", "Demo Force 40+"], false, true), [
+  assert.deepEqual(normalizePropertyFilters(["Fire", "Demo Force 30+"], false, true), [
     "Fire",
+    "Demo Force 30",
     "Demo Force 40",
     "Demo Force 50",
     "Demo Force 60",
   ]);
   assert.deepEqual(
     normalizePropertyFilters(["Demo Force 20", "Demo Force 50", "Gas"], false, false),
-    ["Gas", "Demo Force 40+"],
+    ["Gas", "Demo Force 30+"],
   );
   assert.deepEqual(
-    normalizePropertyFilters(["Demo Force 10", "Demo Force 30", "Arc"], false, false),
+    normalizePropertyFilters(["Demo Force 10", "Demo Force 20", "Arc"], false, false),
     ["Arc"],
   );
 });
@@ -121,7 +122,7 @@ test("demolition filters inspect only demolition-force fields", () => {
     properties: { Weapon: { Base: { Damage: "40 Ballistic", Cooldown: "60 s" } } },
   };
 
-  assert.equal(filterItemsByPropertyValues([unrelatedForty], ["Demo Force 40+"]).length, 0);
+  assert.equal(filterItemsByPropertyValues([unrelatedForty], ["Demo Force 30+"]).length, 0);
   assert.equal(filterItemsByPropertyValues([unrelatedForty], ["Demo Force 60"]).length, 0);
 });
 
