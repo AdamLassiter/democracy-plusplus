@@ -32,6 +32,14 @@ test("the unified data pipeline covers every wiki-backed dataset", () => {
     "enemies",
     "structures",
   ]);
+  assert.deepEqual(
+    FLAT_WIKI_DATASETS.flatMap(({ fileName, enrichDescription }) =>
+      enrichDescription ? [[fileName, enrichDescription]] : []),
+    [
+      ["boosters", "booster"],
+      ["armor_passives", "armor-passive"],
+    ],
+  );
 
   assert.doesNotThrow(() => assertDatasetCoverage("fetchData", WIKI_DATASET_NAMES, WIKI_DATASET_NAMES));
   assert.doesNotThrow(() => assertDatasetCoverage("enrichData", WIKI_DATASET_NAMES, WIKI_DATASET_NAMES));

@@ -4586,7 +4586,10 @@
       "Orbital Railcannon Strike": {
         "Base": {
           "Cooldown": "180 s",
-          "Uses": "∞"
+          "Uses": "∞",
+          "Duration": "2 s",
+          "Search Range": "30 m",
+          "Movement Speed": "90 m/s"
         },
         "Attacks": {
           "*RAIL CANNON ROUND P": "Projectile",

@@ -7,6 +7,7 @@ import {
   fetchPageSources,
   findAttackTemplateInvocation,
   getImageFileName,
+  parseArmorPassivePageDescription,
   parseBoosterPageDescription,
   parseExpandedAttackTables,
   resolveImageUrls,
@@ -85,6 +86,15 @@ async function enrichItemProperties(record: EnrichableItem, page: WikiPageSource
   return "processed" as const;
 }
 
+function extractDescription(
+  source: Exclude<FlatWikiDataset["enrichDescription"], false>,
+  content: string,
+) {
+  return source === "booster"
+    ? parseBoosterPageDescription(content)
+    : parseArmorPassivePageDescription(content);
+}
+
 async function processArray(dataset: FlatWikiDataset) {
   const {
     fileName,
@@ -102,7 +112,9 @@ async function processArray(dataset: FlatWikiDataset) {
   const fetchTask = createTask("Fetching sources", name);
   const pages = await fetchPageSources(linkedItems.map((record) => record.wikiSlug as string));
   fetchTask.succeed(`${pages.size} pages`);
-  await resolveInfoboxImages(linkedItems, pages);
+  // Armor-passive redirects can expose renamed icons before they have been downloaded.
+  // Their curated identity and image metadata are refreshed by fetchData/downloadImages.
+  if (fileName !== "armor_passives") await resolveInfoboxImages(linkedItems, pages);
 
   section(`Processing ${name}`, `${items.length} items`);
   let processed = 0;
@@ -129,14 +141,14 @@ async function processArray(dataset: FlatWikiDataset) {
       continue;
     }
 
-    if (fileName !== "warbonds") {
+    if (fileName !== "warbonds" && fileName !== "armor_passives") {
       record.displayName = page.title;
       record.wikiSlug = page.slug;
     }
     if (refreshLocalImagePath(record, fileName)) refreshedImages++;
 
     if (shouldEnrichDescription) {
-      const description = parseBoosterPageDescription(page.content);
+      const description = extractDescription(shouldEnrichDescription, page.content);
       if (description) {
         record.description = description;
         descriptions++;
@@ -237,6 +249,17 @@ async function processStructures() {
 async function main() {
   banner("Data Enricher", "Wiki properties, image links, and derived metadata for every fetched dataset");
   detail("cwd", process.cwd());
+  const requestedDatasets = new Set(process.argv.slice(2));
+  const unknownDatasets = [...requestedDatasets].filter((name) => !WIKI_DATASET_NAMES.includes(
+    name as (typeof WIKI_DATASET_NAMES)[number],
+  ));
+  if (unknownDatasets.length) {
+    throw new Error(`Unknown dataset(s): ${unknownDatasets.join(", ")}.`);
+  }
+  function shouldProcess(name: string) {
+    return requestedDatasets.size === 0 || requestedDatasets.has(name);
+  }
+  detail("datasets", requestedDatasets.size ? [...requestedDatasets].join(", ") : "all");
   const handledDatasets = [
     ...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName),
     "objectives",
@@ -246,10 +269,12 @@ async function main() {
   assertDatasetCoverage("enrichData", handledDatasets, WIKI_DATASET_NAMES);
 
   let failures = 0;
-  for (const dataset of FLAT_WIKI_DATASETS) failures += await processArray(dataset);
-  await processObjectives();
-  await processBestiary();
-  await processStructures();
+  for (const dataset of FLAT_WIKI_DATASETS) {
+    if (shouldProcess(dataset.fileName)) failures += await processArray(dataset);
+  }
+  if (shouldProcess("objectives")) await processObjectives();
+  if (shouldProcess("enemies")) await processBestiary();
+  if (shouldProcess("structures")) await processStructures();
 
   if (failures) throw new Error(`Data enrichment completed with ${failures} failed or missing wiki operation(s).`);
   note("All data processed successfully", "success");

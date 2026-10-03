@@ -3,8 +3,8 @@ export const FLAT_WIKI_DATASETS = [
   { fileName: "secondaries", name: "SECONDARIES", enrichProperties: true, enrichDescription: false },
   { fileName: "throwables", name: "THROWABLES", enrichProperties: true, enrichDescription: false },
   { fileName: "stratagems", name: "STRATAGEMS", enrichProperties: true, enrichDescription: false },
-  { fileName: "boosters", name: "BOOSTERS", enrichProperties: false, enrichDescription: true },
-  { fileName: "armor_passives", name: "ARMOR_PASSIVES", enrichProperties: false, enrichDescription: false },
+  { fileName: "boosters", name: "BOOSTERS", enrichProperties: false, enrichDescription: "booster" },
+  { fileName: "armor_passives", name: "ARMOR_PASSIVES", enrichProperties: false, enrichDescription: "armor-passive" },
   { fileName: "warbonds", name: "WARBONDS", enrichProperties: false, enrichDescription: false },
 ] as const;
 

@@ -241,7 +241,7 @@ test("public data files use valid schema keys and value types", async (t) => {
 
         expectString(item.displayName, `${context}.displayName`);
         expectOptionalString(item.description, `${context}.description`);
-        if (config.fileName === "boosters.json") {
+        if (config.fileName === "boosters.json" || config.fileName === "armor_passives.json") {
           expectString(item.description, `${context}.description`);
         }
         expectString(item.internalName, `${context}.internalName`);

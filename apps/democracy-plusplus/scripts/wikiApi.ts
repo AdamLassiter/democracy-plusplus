@@ -876,7 +876,15 @@ export async function parseBoostersPageSource(content: string, expand: TemplateE
 }
 
 export function parseBoosterPageDescription(content: string) {
-  const infobox = extractTemplateInvocations(content, "Infobox Booster")[0];
+  return parseInfoboxDescription(content, "Infobox Booster");
+}
+
+export function parseArmorPassivePageDescription(content: string) {
+  return parseInfoboxDescription(content, "Infobox Armor Passive");
+}
+
+function parseInfoboxDescription(content: string, infoboxName: string) {
+  const infobox = extractTemplateInvocations(content, infoboxName)[0];
   if (!infobox) return "";
 
   const parameters = parseTemplateParameters(infobox.text);

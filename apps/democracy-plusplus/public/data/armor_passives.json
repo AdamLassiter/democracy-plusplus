@@ -12,7 +12,8 @@
     "imageUrl": "armor_passives/Advanced_Filtration_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Advanced_Filtration",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Advanced_Filtration_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Advanced_Filtration_Armor_Passive_Icon.svg",
+    "description": "Provides 80% resistance to gas damage and effects."
   },
   {
     "displayName": "Acclimated",
@@ -30,7 +31,8 @@
     "tier": "d",
     "wikiSlug": "Acclimated",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Acclimated_Armor_Passive_Icon.svg",
-    "imageUrl": "armor_passives/Acclimated_Armor_Passive_Icon.svg"
+    "imageUrl": "armor_passives/Acclimated_Armor_Passive_Icon.svg",
+    "description": "Provides 50% resistance to fire, gas, acid, and electrical damage."
   },
   {
     "displayName": "Democracy Protects",
@@ -44,7 +46,8 @@
     "imageUrl": "armor_passives/Democracy_Protects_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Democracy_Protects",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Democracy_Protects_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Democracy_Protects_Armor_Passive_Icon.svg",
+    "description": "50% chance to not die when taking lethal damage. Prevents all damage from bleeding if chest hemorrhages."
   },
   {
     "displayName": "Electrical Conduit",
@@ -59,7 +62,8 @@
     "imageUrl": "armor_passives/Electrical_Conduit_Armor_Passive_Icon.svg",
     "tier": "d",
     "wikiSlug": "Electrical_Conduit",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Electrical_Conduit_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Electrical_Conduit_Armor_Passive_Icon.svg",
+    "description": "Provides 95% resistance to arc damage."
   },
   {
     "displayName": "Engineering Kit",
@@ -73,7 +77,8 @@
     "imageUrl": "armor_passives/Engineering_Kit_Armor_Passive_Icon.svg",
     "tier": "s",
     "wikiSlug": "Engineering_Kit",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Engineering_Kit_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Engineering_Kit_Armor_Passive_Icon.svg",
+    "description": "Further reduces recoil when crouching or prone by 30%. Increases initial inventory and holding capacity of throwables by +2."
   },
   {
     "displayName": "Extra Padding",
@@ -87,7 +92,8 @@
     "imageUrl": "armor_passives/Extra_Padding_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Extra_Padding",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Extra_Padding_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Extra_Padding_Armor_Passive_Icon.svg",
+    "description": "Provides a higher armor rating."
   },
   {
     "displayName": "Fortified",
@@ -102,7 +108,8 @@
     "imageUrl": "armor_passives/Fortified_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Fortified",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Fortified_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Fortified_Armor_Passive_Icon.svg",
+    "description": "Further reduces recoil when crouching or prone by 30%. Provides 50% resistance to explosive damage."
   },
   {
     "displayName": "Inflammable",
@@ -117,7 +124,8 @@
     "imageUrl": "armor_passives/Inflammable_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Inflammable",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Inflammable_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Inflammable_Armor_Passive_Icon.svg",
+    "description": "Provides 75% damage resistance to fire, allowing bearer to rest assured in their inflammability."
   },
   {
     "displayName": "Med-Kit",
@@ -131,7 +139,8 @@
     "imageUrl": "armor_passives/Med-Kit_Armor_Passive_Icon.svg",
     "tier": "s",
     "wikiSlug": "Med-Kit",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Med-Kit_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Med-Kit_Armor_Passive_Icon.svg",
+    "description": "Increases initial inventory and holding capacity of stims by +2. Increases stim effect duration by 2.0s."
   },
   {
     "displayName": "Peak Physique",
@@ -145,7 +154,8 @@
     "imageUrl": "armor_passives/Peak_Physique_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Peak_Physique",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Peak_Physique_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Peak_Physique_Armor_Passive_Icon.svg",
+    "description": "Increases melee damage by 40%. Improves weapons handling with less drag on weapon movement."
   },
   {
     "displayName": "Scout",
@@ -160,7 +170,8 @@
     "imageUrl": "armor_passives/Scout_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Scout",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Scout_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Scout_Armor_Passive_Icon.svg",
+    "description": "Markers placed on the map will generate radar scans every 2.0s. Reduces range at which enemies can detect the wearer by 30%."
   },
   {
     "displayName": "Servo-Assisted",
@@ -174,7 +185,8 @@
     "imageUrl": "armor_passives/Servo-Assisted_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Servo-Assisted",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Servo-Assisted_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Servo-Assisted_Armor_Passive_Icon.svg",
+    "description": "Increases throwing range by 30%. Provides +50% limb health."
   },
   {
     "displayName": "Unflinching",
@@ -188,7 +200,8 @@
     "imageUrl": "armor_passives/Unflinching_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Unflinching",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Unflinching_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Unflinching_Armor_Passive_Icon.svg",
+    "description": "Helps prevent Helldivers from flinching when hit. Provides a higher armor rating. Markers placed on the map will generate radar scans every 2.0s."
   },
   {
     "displayName": "Integrated Explosives",
@@ -203,7 +216,8 @@
     "imageUrl": "armor_passives/Integrated_Explosives_Armor_Passive_Icon.svg",
     "tier": "a",
     "wikiSlug": "Integrated_Explosives",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Integrated_Explosives_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Integrated_Explosives_Armor_Passive_Icon.svg",
+    "description": "Armor explodes 1.5s after the wearer dies. Increases initial inventory and holding capacity of throwables by +2."
   },
   {
     "displayName": "Gunslinger",
@@ -217,7 +231,8 @@
     "imageUrl": "armor_passives/Gunslinger_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Gunslinger",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Gunslinger_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Gunslinger_Armor_Passive_Icon.svg",
+    "description": "Increases sidearms reload speed by 40%. Sidearm draw/holster speed increased by 50%. Sidearm recoil reduced by 70%."
   },
   {
     "displayName": "Reinforced Epaulettes",
@@ -231,7 +246,8 @@
     "imageUrl": "armor_passives/Reinforced_Epaulettes_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Reinforced_Epaulettes",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reinforced_Epaulettes_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Reinforced_Epaulettes_Armor_Passive_Icon.svg",
+    "description": "Increases reload speed of primary weapons by 30%. Gives wearer a 50% chance to avoid grievous limb injury. Increases melee damage by 20%."
   },
   {
     "displayName": "Ballistic Padding",
@@ -245,7 +261,8 @@
     "imageUrl": "armor_passives/Ballistic_Padding_Armor_Passive_Icon.svg",
     "tier": "b",
     "wikiSlug": "Ballistic_Padding",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Ballistic_Padding_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Ballistic_Padding_Armor_Passive_Icon.svg",
+    "description": "Provides 25% resistance to chest damage. Provides 25% resistance to explosive damage. Prevents all damage from bleeding if chest hemorrhages."
   },
   {
     "displayName": "Adreno-Defibrillator",
@@ -259,7 +276,8 @@
     "imageUrl": "armor_passives/Adreno-Defibrillator_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Adreno-Defibrillator",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Adreno-Defibrillator_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Adreno-Defibrillator_Armor_Passive_Icon.svg",
+    "description": "Provides one-time, short-lived resuscitation upon death, given that the Helldiver's body is still intact. Increases stim effect duration by 2.0s. Provides 50% resistance to arc damage."
   },
   {
     "displayName": "Feet First",
@@ -274,7 +292,8 @@
     "imageUrl": "armor_passives/Feet_First_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Feet_First",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Feet_First_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Feet_First_Armor_Passive_Icon.svg",
+    "description": "Wearer makes 50% less noise when moving. Increases point-of-interest identification range by 30%. Provides immunity to leg injuries."
   },
   {
     "displayName": "Desert Stormer",
@@ -292,7 +311,8 @@
     "imageUrl": "armor_passives/Desert_Stormer_Armor_Passive_Icon.svg",
     "tier": "c",
     "wikiSlug": "Desert_Stormer",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Desert_Stormer_Armor_Passive_Icon.svg"
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Desert_Stormer_Armor_Passive_Icon.svg",
+    "description": "Provides 40% resistance to fire, gas, acid, and electrical damage. Increases throwing range by 20%."
   },
   {
     "displayName": "Rock Solid",
@@ -306,7 +326,8 @@
     "tier": "a",
     "wikiSlug": "Rock_Solid",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Rock_Solid_Armor_Passive_Icon.svg",
-    "imageUrl": "armor_passives/Rock_Solid_Armor_Passive_Icon.svg"
+    "imageUrl": "armor_passives/Rock_Solid_Armor_Passive_Icon.svg",
+    "description": "Increases melee damage by 40%. Bearer is more resistant to being knocked prone."
   },
   {
     "displayName": "Concussive Padding, Grenadier",
@@ -321,7 +342,8 @@
     "tags": [
       "ArmorPassive",
       "Explosive"
-    ]
+    ],
+    "description": "Provides 50% resistance to explosive damage. Increases initial inventory and holding capacity of throwables by +2."
   },
   {
     "displayName": "Concussive Padding, Hazmat",
@@ -337,7 +359,8 @@
       "ArmorPassive",
       "Explosive",
       "Gas"
-    ]
+    ],
+    "description": "Provides 50% resistance to explosive damage. Provides 25% resistance to gas damage and effects. Sidearm recoil reduced by 30%."
   },
   {
     "displayName": "Concussive Padding, Reinforced",
@@ -352,7 +375,8 @@
     "tags": [
       "ArmorPassive",
       "Explosive"
-    ]
+    ],
+    "description": "Provides 50% resistance to explosive damage. Provides a higher armor rating."
   },
   {
     "displayName": "Supplementary Adrenaline",
@@ -366,7 +390,8 @@
     "category": "armor",
     "tags": [
       "ArmorPassive"
-    ]
+    ],
+    "description": "When the wearer takes damage, they regain some stamina. Provides a higher armor rating."
   },
   {
     "displayName": "Reduced Signature",
@@ -381,7 +406,8 @@
     "tags": [
       "ArmorPassive",
       "Stealth"
-    ]
+    ],
+    "description": "Wearer makes 50% less noise when moving. Reduces range at which enemies can detect the wearer by 40%."
   },
   {
     "displayName": "Siege-Ready",
@@ -395,7 +421,8 @@
     "category": "armor",
     "tags": [
       "ArmorPassive"
-    ]
+    ],
+    "description": "Increases reload speed of primary weapons by 30%. Increases ammo capacity of all weapons by 20%. Does not affect weapon backpacks."
   },
   {
     "displayName": "Oxygenator",
@@ -409,7 +436,8 @@
     "category": "armor",
     "tags": [
       "ArmorPassive"
-    ]
+    ],
+    "description": "Increases the wearer's walking speed and running speed. Increases the speed and duration of slides."
   },
   {
     "displayName": "True Grit",
@@ -423,7 +451,8 @@
     "category": "armor",
     "tags": [
       "ArmorPassive"
-    ]
+    ],
+    "description": "Increases reload speed of support weapons by 30%. Slightly increases weapon ergonomics to reduce drag on weapon movement."
   },
   {
     "displayName": "Kinetic Displacement Mitigation",
@@ -437,7 +466,8 @@
     "category": "armor",
     "tags": [
       "ArmorPassive"
-    ]
+    ],
+    "description": "Provides 50% damage resistance to fire, allowing bearer to rest assured in their inflammability. Gives the wearer a 50% chance to avoid grievous limb injury. Reduces damage taken from impact and collisions by 30%."
   },
   {
     "displayName": "Blunt-Force Mitigation",
@@ -451,6 +481,7 @@
     "category": "armor",
     "tags": [
       "ArmorPassive"
-    ]
+    ],
+    "description": "Bearer is more resistant to being knocked prone. Reduces damage taken from impact and collisions by 30%. Provides a higher armor rating."
   }
 ]

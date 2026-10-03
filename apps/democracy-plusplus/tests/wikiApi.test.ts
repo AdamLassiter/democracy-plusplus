@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   getImageFileName,
   parseArmorPassivesPageSource,
+  parseArmorPassivePageDescription,
   parseBoosterPageDescription,
   parseBoostersPageSource,
   parseEnemyPageSource,
@@ -216,6 +217,21 @@ test("parseArmorPassivesPageSource reads div-based passive panels", async () => 
       imageFileTitle: "File:Oxygenator Armor Passive Icon.svg",
     },
   ]);
+});
+
+test("parseArmorPassivePageDescription extracts and cleans the infobox description", () => {
+  const source = `{{Infobox Armor Passive
+|title={{PAGENAME}}
+|image={{PAGENAME}} Armor Passive Icon.svg
+|description=Provides '''<span style=color:red>80%</span>''' resistance to [[Damage#Damage Types|gas damage]] and effects.
+|order=11
+}}`;
+
+  assert.equal(
+    parseArmorPassivePageDescription(source),
+    "Provides 80% resistance to gas damage and effects.",
+  );
+  assert.equal(parseArmorPassivePageDescription("No armor passive infobox here."), "");
 });
 
 test("parseFactionsPageSource assigns enemies to factions and subfactions", async () => {
