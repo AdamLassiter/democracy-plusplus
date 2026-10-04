@@ -29,9 +29,14 @@ const plannerSlice = createSlice({
     },
     retainPlannerItems(state, action: PayloadAction<string[]>) {
       const available = new Set(action.payload);
-      state.disabledItemKeys = state.disabledItemKeys.filter((key) => available.has(key));
+      state.disabledItemKeys = state.disabledItemKeys.filter((key) =>
+        available.has(key),
+      );
     },
-    setEnemyCoverageFilters(state, action: PayloadAction<EnemyCoverageState[]>) {
+    setEnemyCoverageFilters(
+      state,
+      action: PayloadAction<EnemyCoverageState[]>,
+    ) {
       state.enemyCoverageFilters = action.payload;
     },
     setStructureCoverageFilters(state, action: PayloadAction<CoverageState[]>) {

@@ -1,5 +1,14 @@
 import type { SyntheticEvent } from "react";
-import { Badge, Box, Card, Grid, Tab, Tabs, Tooltip, Typography } from "@mui/material";
+import {
+  Badge,
+  Box,
+  Card,
+  Grid,
+  Tab,
+  Tabs,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import ItemDisplay from "../../utils/itemDisplay";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,8 +18,17 @@ import SupplyCrates from "./supplyCrate";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
-import type { CrateItem, Item, ItemCategory, ShopItem, Tier } from "../../types";
-import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
+import type {
+  CrateItem,
+  Item,
+  ItemCategory,
+  ShopItem,
+  Tier,
+} from "../../types";
+import type {
+  PropertyFilterMode,
+  PropertyFilterName,
+} from "../../constants/filters";
 import SectionHeading from "../../utils/sectionHeading";
 
 function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
@@ -19,7 +37,9 @@ function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
 
 export default function Inventory() {
   const [value, setValue] = useState(0);
-  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>(
+    [],
+  );
   const [filterMode, setFilterMode] = useState<PropertyFilterMode>("or");
 
   function handleChange(_event: SyntheticEvent, newValue: number) {
@@ -32,12 +52,22 @@ export default function Inventory() {
 
   function addItemToCart(item: Item) {
     if (isPurchasableItem(item) && (item.stock ?? 1) <= 0) {
-      dispatch(setSnackbar({ message: `${item.displayName} is out of stock`, severity: 'warning' }));
+      dispatch(
+        setSnackbar({
+          message: `${item.displayName} is out of stock`,
+          severity: "warning",
+        }),
+      );
     } else if (isPurchasableItem(item) && item.cost <= credits) {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
-      dispatch(setSnackbar({ message: `Not enough credits for ${item.displayName}`, severity: 'warning' }));
+      dispatch(
+        setSnackbar({
+          message: `Not enough credits for ${item.displayName}`,
+          severity: "warning",
+        }),
+      );
     }
   }
 
@@ -51,7 +81,9 @@ export default function Inventory() {
     Eagle = [],
     Defense = [],
     Orbital = [],
-  } = Object.groupBy(inventory, (item) => item.category ?? "crate") as Partial<Record<ItemCategory, ShopItem[]>>;
+  } = Object.groupBy(inventory, (item) => item.category ?? "crate") as Partial<
+    Record<ItemCategory, ShopItem[]>
+  >;
   const stratagem = [...Supply, ...Eagle, ...Defense, ...Orbital];
 
   const shops: Array<[string, Item[]]> = [
@@ -64,72 +96,122 @@ export default function Inventory() {
     ["Boosters", booster],
   ];
   const [, list] = shops[value];
-  const filteredItems = filterItemsByPropertyValues(list, selectedFilters, filterMode);
+  const filteredItems = filterItemsByPropertyValues(
+    list,
+    selectedFilters,
+    filterMode,
+  );
 
-  return <>
-    <Tooltip title="Items available for purchase. Restocked only on operation completion.">
-      <Box><SectionHeading
-        subtitle="Requisition approved weapons and equipment for the operations ahead."
-        title="Super Earth's Finest"
-      /></Box>
-    </Tooltip>
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange}>
-          {shops.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
-        </Tabs>
+  return (
+    <>
+      <Tooltip title="Items available for purchase. Restocked only on operation completion.">
+        <Box>
+          <SectionHeading
+            subtitle="Requisition approved weapons and equipment for the operations ahead."
+            title="Super Earth's Finest"
+          />
+        </Box>
+      </Tooltip>
+      <Box sx={{ width: "100%" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs value={value} onChange={handleChange}>
+            {shops.map(([displayName]) => (
+              <Tab key={displayName} label={displayName} />
+            ))}
+          </Tabs>
+        </Box>
+        <Box sx={{ paddingTop: "1em" }}>
+          {value === 0 ? (
+            <SupplyCrates />
+          ) : (
+            <>
+              <PropertyFilter
+                selectedFilters={selectedFilters}
+                filterMode={filterMode}
+                onChange={setSelectedFilters}
+                onFilterModeChange={setFilterMode}
+              />
+              <Shop items={filteredItems} onClick={addItemToCart} />
+            </>
+          )}
+        </Box>
       </Box>
-      <Box sx={{ paddingTop: '1em' }}>
-        {value === 0
-          ? <SupplyCrates />
-          : <>
-            <PropertyFilter
-              selectedFilters={selectedFilters}
-              filterMode={filterMode}
-              onChange={setSelectedFilters}
-              onFilterModeChange={setFilterMode}
-            />
-            <Shop items={filteredItems} onClick={addItemToCart} />
-          </>}
-      </Box>
-    </Box>
-  </>;
+    </>
+  );
 }
 
-function Shop({ items, onClick }: { items: Item[]; onClick: (_item: Item) => void }) {
-  const lists = Object.groupBy(items, ({ tier }) => tier) as Partial<Record<Tier, ShopItem[]>>;
+function Shop({
+  items,
+  onClick,
+}: {
+  items: Item[];
+  onClick: (_item: Item) => void;
+}) {
+  const lists = Object.groupBy(items, ({ tier }) => tier) as Partial<
+    Record<Tier, ShopItem[]>
+  >;
   const tierOrder: Tier[] = ["s", "a", "b", "c", "d"];
 
   const sortedTiers: Array<[Tier, ShopItem[]]> = tierOrder
     .filter((tier) => lists[tier])
     .map((tier) => [tier, lists[tier]!]);
 
-  return <>
-    <Grid direction="column" container spacing={1}>
-      {sortedTiers.map(([tier, items]) => <ShopTier key={tier} tier={tier} items={items} onClick={onClick} />)}
-    </Grid>
-  </>;
+  return (
+    <>
+      <Grid direction="column" container spacing={1}>
+        {sortedTiers.map(([tier, items]) => (
+          <ShopTier key={tier} tier={tier} items={items} onClick={onClick} />
+        ))}
+      </Grid>
+    </>
+  );
 }
 
-function ShopTier({ items, tier, onClick }: { items: ShopItem[]; tier: string; onClick: (_item: Item) => void }) {
+function ShopTier({
+  items,
+  tier,
+  onClick,
+}: {
+  items: ShopItem[];
+  tier: string;
+  onClick: (_item: Item) => void;
+}) {
   const { credits } = useSelector(selectCredits);
   const list = [...items].sort((a, b) => b.cost - a.cost);
 
-  return <>
-    <Grid direction="row" container spacing={1}>
-      <Card><Typography variant="h1" style={{ padding: '16px', width: '96px' }}>{tier.toUpperCase()}</Typography></Card>
-      {list.map(item => {
-        const inStock = (item.stock ?? 0) > 0;
-        const isAffordable = credits >= item.cost;
-        const itemDisplay = <ItemDisplay item={item} onClick={onClick} isAffordable={isAffordable && inStock} />;
-        if (inStock) {
-          return <Badge key={item.displayName} badgeContent={`${item.cost}¢`} color={inStock && isAffordable ? "info" : "error"}>
-            {itemDisplay}
-          </Badge>;
-        } else {
-          return itemDisplay;
-        }
-      })}
-    </Grid>
-  </>;
+  return (
+    <>
+      <Grid direction="row" container spacing={1}>
+        <Card>
+          <Typography variant="h1" style={{ padding: "16px", width: "96px" }}>
+            {tier.toUpperCase()}
+          </Typography>
+        </Card>
+        {list.map((item) => {
+          const inStock = (item.stock ?? 0) > 0;
+          const isAffordable = credits >= item.cost;
+          const itemDisplay = (
+            <ItemDisplay
+              item={item}
+              onClick={onClick}
+              isAffordable={isAffordable && inStock}
+            />
+          );
+          if (inStock) {
+            return (
+              <Badge
+                key={item.displayName}
+                badgeContent={`${item.cost}¢`}
+                color={inStock && isAffordable ? "info" : "error"}
+              >
+                {itemDisplay}
+              </Badge>
+            );
+          } else {
+            return itemDisplay;
+          }
+        })}
+      </Grid>
+    </>
+  );
 }

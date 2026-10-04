@@ -1,6 +1,6 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { PreferencesState } from '../types';
-import type { RootState } from './index';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { PreferencesState } from "../types";
+import type { RootState } from "./index";
 
 const initialState: PreferencesState = {
   titles: true,
@@ -8,7 +8,7 @@ const initialState: PreferencesState = {
   missionFlowBanner: true,
   detailedAntiTank: false,
   detailedDemolitionForce: false,
-  itemDisplaySize: 'large',
+  itemDisplaySize: "large",
 };
 
 export function selectPreferences(state: RootState) {
@@ -16,7 +16,7 @@ export function selectPreferences(state: RootState) {
 }
 
 const preferencesSlice = createSlice({
-  name: 'preferences',
+  name: "preferences",
   initialState,
   reducers: {
     setTitles: (state, action) => {
@@ -37,10 +37,16 @@ const preferencesSlice = createSlice({
     setDetailedDemolitionForce: (state, action: PayloadAction<boolean>) => {
       state.detailedDemolitionForce = action.payload;
     },
-    setItemDisplaySize: (state, action: PayloadAction<PreferencesState['itemDisplaySize']>) => {
+    setItemDisplaySize: (
+      state,
+      action: PayloadAction<PreferencesState["itemDisplaySize"]>,
+    ) => {
       state.itemDisplaySize = action.payload;
     },
-    setPreferencesState: (_state, action: PayloadAction<Partial<PreferencesState>>) => {
+    setPreferencesState: (
+      _state,
+      action: PayloadAction<Partial<PreferencesState>>,
+    ) => {
       return { ...initialState, ...action.payload };
     },
     resetPreferences: () => initialState,

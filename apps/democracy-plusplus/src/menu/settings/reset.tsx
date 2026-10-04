@@ -3,14 +3,20 @@ import { useDispatch } from "react-redux";
 import { persistor } from "../../slices";
 import { Button } from "@mui/material";
 
-export default function ResetAppState({ onClick }: { onClick: MouseEventHandler<HTMLButtonElement> }) {
+export default function ResetAppState({
+  onClick,
+}: {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+}) {
   const dispatch = useDispatch();
 
   function handleReset(event: MouseEvent<HTMLButtonElement>) {
-    const confirmed = window.confirm('Are you sure you want to reset the app state? This will clear ALL stored data.');
+    const confirmed = window.confirm(
+      "Are you sure you want to reset the app state? This will clear ALL stored data.",
+    );
     if (confirmed) {
       persistor.purge();
-      dispatch({ type: 'RESET_APP' });
+      dispatch({ type: "RESET_APP" });
       onClick(event);
     }
   }
@@ -20,4 +26,4 @@ export default function ResetAppState({ onClick }: { onClick: MouseEventHandler<
       Reset State
     </Button>
   );
-};
+}

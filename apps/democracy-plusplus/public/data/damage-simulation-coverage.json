@@ -1,10 +1,7 @@
 [
   {
     "weapon": "AR-11 Arbitrator",
-    "profiles": [
-      "4 mm rifle",
-      "10-gauge underbarrel"
-    ],
+    "profiles": ["4 mm rifle", "10-gauge underbarrel"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -15,9 +12,7 @@
   },
   {
     "weapon": "AR-2 Coyote",
-    "profiles": [
-      "AR-2 P"
-    ],
+    "profiles": ["AR-2 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -28,9 +23,7 @@
   },
   {
     "weapon": "AR-23 Liberator",
-    "profiles": [
-      "AR-23 P"
-    ],
+    "profiles": ["AR-23 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -41,9 +34,7 @@
   },
   {
     "weapon": "AR-23A Liberator Carbine",
-    "profiles": [
-      "AR-23 P"
-    ],
+    "profiles": ["AR-23 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -54,9 +45,7 @@
   },
   {
     "weapon": "AR-23C Liberator Concussive",
-    "profiles": [
-      "AR-23C P"
-    ],
+    "profiles": ["AR-23C P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -67,9 +56,7 @@
   },
   {
     "weapon": "AR-23P Liberator Penetrator",
-    "profiles": [
-      "AR-23P P"
-    ],
+    "profiles": ["AR-23P P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -80,9 +67,7 @@
   },
   {
     "weapon": "AR-32 Pacifier",
-    "profiles": [
-      "AR-32 P"
-    ],
+    "profiles": ["AR-32 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -93,9 +78,7 @@
   },
   {
     "weapon": "AR-59 Suppressor",
-    "profiles": [
-      "AR-59 P"
-    ],
+    "profiles": ["AR-59 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -106,10 +89,7 @@
   },
   {
     "weapon": "AR-61 Tenderizer",
-    "profiles": [
-      "600 rpm",
-      "850 rpm"
-    ],
+    "profiles": ["600 rpm", "850 rpm"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -120,10 +100,7 @@
   },
   {
     "weapon": "AR/GL-21 One-Two",
-    "profiles": [
-      "8 mm rifle",
-      "40 mm grenade launcher"
-    ],
+    "profiles": ["8 mm rifle", "40 mm grenade launcher"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -134,9 +111,7 @@
   },
   {
     "weapon": "ARC-12 Blitzer",
-    "profiles": [
-      "ARC-12 BLITZER A"
-    ],
+    "profiles": ["ARC-12 BLITZER A"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -147,9 +122,7 @@
   },
   {
     "weapon": "BR-14 Adjudicator",
-    "profiles": [
-      "BR-14 P"
-    ],
+    "profiles": ["BR-14 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -160,9 +133,7 @@
   },
   {
     "weapon": "CB-9 Exploding Crossbow",
-    "profiles": [
-      "CB-9 P"
-    ],
+    "profiles": ["CB-9 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -180,15 +151,11 @@
     "timing": "unsupported",
     "targetTtk": "unsupported",
     "explosionTargeting": "not-applicable",
-    "reasons": [
-      "A positive fire rate is required."
-    ]
+    "reasons": ["A positive fire rate is required."]
   },
   {
     "weapon": "CQC-2 Saber",
-    "profiles": [
-      "CQC-2 SABER_dm"
-    ],
+    "profiles": ["CQC-2 SABER_dm"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -206,15 +173,11 @@
     "timing": "unsupported",
     "targetTtk": "unsupported",
     "explosionTargeting": "not-applicable",
-    "reasons": [
-      "A positive fire rate is required."
-    ]
+    "reasons": ["A positive fire rate is required."]
   },
   {
     "weapon": "CQC-42 Machete",
-    "profiles": [
-      "CQC-42 MACHETE_dm"
-    ],
+    "profiles": ["CQC-42 MACHETE_dm"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -225,9 +188,7 @@
   },
   {
     "weapon": "CQC-5 Combat Hatchet",
-    "profiles": [
-      "CQC-5 COMBAT HATCHET_dm"
-    ],
+    "profiles": ["CQC-5 COMBAT HATCHET_dm"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -238,9 +199,7 @@
   },
   {
     "weapon": "CQC-73 Entrenchment Tool",
-    "profiles": [
-      "CQC-72 ENTRENCHMENT TOOL_dm"
-    ],
+    "profiles": ["CQC-72 ENTRENCHMENT TOOL_dm"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -251,9 +210,7 @@
   },
   {
     "weapon": "DBS-2 Double Freedom",
-    "profiles": [
-      "DBS-2 P"
-    ],
+    "profiles": ["DBS-2 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -264,9 +221,7 @@
   },
   {
     "weapon": "FLAM-66 Torcher",
-    "profiles": [
-      "FLAM-66 TORCHER S"
-    ],
+    "profiles": ["FLAM-66 TORCHER S"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -277,9 +232,7 @@
   },
   {
     "weapon": "GL-15 Evictor",
-    "profiles": [
-      "GL-15 P"
-    ],
+    "profiles": ["GL-15 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -290,9 +243,7 @@
   },
   {
     "weapon": "GP-20 Ultimatum",
-    "profiles": [
-      "GP-20 P"
-    ],
+    "profiles": ["GP-20 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -303,9 +254,7 @@
   },
   {
     "weapon": "GP-31 Grenade Pistol",
-    "profiles": [
-      "GP-31 P"
-    ],
+    "profiles": ["GP-31 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -316,9 +265,7 @@
   },
   {
     "weapon": "JAR-5 Dominator",
-    "profiles": [
-      "JAR-5 P"
-    ],
+    "profiles": ["JAR-5 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -329,9 +276,7 @@
   },
   {
     "weapon": "LAS-12 Sai",
-    "profiles": [
-      "LAS-12 P"
-    ],
+    "profiles": ["LAS-12 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -342,9 +287,7 @@
   },
   {
     "weapon": "LAS-13 Trident",
-    "profiles": [
-      "LAS-13 TRIDENT B"
-    ],
+    "profiles": ["LAS-13 TRIDENT B"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -355,9 +298,7 @@
   },
   {
     "weapon": "LAS-16 Sickle",
-    "profiles": [
-      "LAS-16 P"
-    ],
+    "profiles": ["LAS-16 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -368,9 +309,7 @@
   },
   {
     "weapon": "LAS-17 Double-Edge Sickle",
-    "profiles": [
-      "Automatic heat progression"
-    ],
+    "profiles": ["Automatic heat progression"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -384,9 +323,7 @@
   },
   {
     "weapon": "LAS-5 Scythe",
-    "profiles": [
-      "LAS-5 SCYTHE B"
-    ],
+    "profiles": ["LAS-5 SCYTHE B"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -397,9 +334,7 @@
   },
   {
     "weapon": "LAS-58 Talon",
-    "profiles": [
-      "LAS-58 P"
-    ],
+    "profiles": ["LAS-58 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -410,9 +345,7 @@
   },
   {
     "weapon": "LAS-7 Dagger",
-    "profiles": [
-      "LAS-7 DAGGER B"
-    ],
+    "profiles": ["LAS-7 DAGGER B"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -423,9 +356,7 @@
   },
   {
     "weapon": "M6C/SOCOM Pistol",
-    "profiles": [
-      "M6C/SOCOM P"
-    ],
+    "profiles": ["M6C/SOCOM P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -436,9 +367,7 @@
   },
   {
     "weapon": "M7S SMG",
-    "profiles": [
-      "M7S P"
-    ],
+    "profiles": ["M7S P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -449,9 +378,7 @@
   },
   {
     "weapon": "M90A Shotgun",
-    "profiles": [
-      "M90A P"
-    ],
+    "profiles": ["M90A P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -462,9 +389,7 @@
   },
   {
     "weapon": "MA5C Assault Rifle",
-    "profiles": [
-      "MA5C P"
-    ],
+    "profiles": ["MA5C P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -475,9 +400,7 @@
   },
   {
     "weapon": "MP-98 Knight",
-    "profiles": [
-      "MP-98 P"
-    ],
+    "profiles": ["MP-98 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -501,9 +424,7 @@
   },
   {
     "weapon": "P-113 Verdict",
-    "profiles": [
-      "P-113 P"
-    ],
+    "profiles": ["P-113 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -514,9 +435,7 @@
   },
   {
     "weapon": "P-19 Redeemer",
-    "profiles": [
-      "P-19 P"
-    ],
+    "profiles": ["P-19 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -527,9 +446,7 @@
   },
   {
     "weapon": "P-2 Peacemaker",
-    "profiles": [
-      "P-2 P"
-    ],
+    "profiles": ["P-2 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -540,9 +457,7 @@
   },
   {
     "weapon": "P-33 Missile Pistol",
-    "profiles": [
-      "Guided / non-guided"
-    ],
+    "profiles": ["Guided / non-guided"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -553,9 +468,7 @@
   },
   {
     "weapon": "P-34 Breacher",
-    "profiles": [
-      "P-34 P"
-    ],
+    "profiles": ["P-34 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "partial",
@@ -568,9 +481,7 @@
   },
   {
     "weapon": "P-35 Re-Educator",
-    "profiles": [
-      "P-35 P"
-    ],
+    "profiles": ["P-35 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -581,9 +492,7 @@
   },
   {
     "weapon": "P-4 Senator",
-    "profiles": [
-      "P-4 P"
-    ],
+    "profiles": ["P-4 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -594,9 +503,7 @@
   },
   {
     "weapon": "P-69 Veto",
-    "profiles": [
-      "P-69 P"
-    ],
+    "profiles": ["P-69 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -607,9 +514,7 @@
   },
   {
     "weapon": "P-72 Crisper",
-    "profiles": [
-      "P-72 CRISPER S"
-    ],
+    "profiles": ["P-72 CRISPER S"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -620,9 +525,7 @@
   },
   {
     "weapon": "P-92 Warrant",
-    "profiles": [
-      "Guided / non-guided"
-    ],
+    "profiles": ["Guided / non-guided"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -633,9 +536,7 @@
   },
   {
     "weapon": "P/40-K Bolt Pistol",
-    "profiles": [
-      "P/40-K P"
-    ],
+    "profiles": ["P/40-K P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -646,9 +547,7 @@
   },
   {
     "weapon": "PLAS-1 Scorcher",
-    "profiles": [
-      "PLAS-1 P"
-    ],
+    "profiles": ["PLAS-1 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -659,10 +558,7 @@
   },
   {
     "weapon": "PLAS-101 Purifier",
-    "profiles": [
-      "0.01s charge · P",
-      "1.00s charge · PLAS-101_P"
-    ],
+    "profiles": ["0.01s charge · P", "1.00s charge · PLAS-101_P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -673,11 +569,7 @@
   },
   {
     "weapon": "PLAS-15 Loyalist",
-    "profiles": [
-      "0.01s charge · P1",
-      "0.75s charge · P2",
-      "3.00s charge · P2"
-    ],
+    "profiles": ["0.01s charge · P1", "0.75s charge · P2", "3.00s charge · P2"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -703,9 +595,7 @@
   },
   {
     "weapon": "R-2 Amendment",
-    "profiles": [
-      "R-2 P"
-    ],
+    "profiles": ["R-2 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -716,9 +606,7 @@
   },
   {
     "weapon": "R-2124 Constitution",
-    "profiles": [
-      "R-2124 P"
-    ],
+    "profiles": ["R-2124 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -729,9 +617,7 @@
   },
   {
     "weapon": "R-36 Eruptor",
-    "profiles": [
-      "R-36 P"
-    ],
+    "profiles": ["R-36 P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -742,9 +628,7 @@
   },
   {
     "weapon": "R-4 Hyena",
-    "profiles": [
-      "R-4 P"
-    ],
+    "profiles": ["R-4 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -755,9 +639,7 @@
   },
   {
     "weapon": "R-6 Deadeye",
-    "profiles": [
-      "R-6 P"
-    ],
+    "profiles": ["R-6 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -768,9 +650,7 @@
   },
   {
     "weapon": "R-63 Diligence",
-    "profiles": [
-      "R-63 P"
-    ],
+    "profiles": ["R-63 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -781,9 +661,7 @@
   },
   {
     "weapon": "R-63CS Diligence Counter Sniper",
-    "profiles": [
-      "R-63CS P"
-    ],
+    "profiles": ["R-63CS P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -794,9 +672,7 @@
   },
   {
     "weapon": "R-72 Censor",
-    "profiles": [
-      "R-72 P"
-    ],
+    "profiles": ["R-72 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -807,9 +683,7 @@
   },
   {
     "weapon": "R/40-K Hot-Shot Marksman Rifle",
-    "profiles": [
-      "R/40-K P"
-    ],
+    "profiles": ["R/40-K P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -820,10 +694,7 @@
   },
   {
     "weapon": "SG-20 Halt",
-    "profiles": [
-      "Flechette",
-      "Stun rounds"
-    ],
+    "profiles": ["Flechette", "Stun rounds"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -848,9 +719,7 @@
   },
   {
     "weapon": "SG-225 Breaker",
-    "profiles": [
-      "SG-225 P"
-    ],
+    "profiles": ["SG-225 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -861,9 +730,7 @@
   },
   {
     "weapon": "SG-225IE Breaker Incendiary",
-    "profiles": [
-      "SG-225IE P"
-    ],
+    "profiles": ["SG-225IE P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -874,9 +741,7 @@
   },
   {
     "weapon": "SG-225SP Breaker Spray&Pray",
-    "profiles": [
-      "SG-225SP P"
-    ],
+    "profiles": ["SG-225SP P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -887,9 +752,7 @@
   },
   {
     "weapon": "SG-451 Cookout",
-    "profiles": [
-      "SG-451 P"
-    ],
+    "profiles": ["SG-451 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -900,9 +763,7 @@
   },
   {
     "weapon": "SG-8 Punisher",
-    "profiles": [
-      "SG-22 P"
-    ],
+    "profiles": ["SG-22 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -913,9 +774,7 @@
   },
   {
     "weapon": "SG-8P Punisher Plasma",
-    "profiles": [
-      "SG-8P P"
-    ],
+    "profiles": ["SG-8P P"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -926,9 +785,7 @@
   },
   {
     "weapon": "SG-8S Slugger",
-    "profiles": [
-      "SG-8S P"
-    ],
+    "profiles": ["SG-8S P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -939,9 +796,7 @@
   },
   {
     "weapon": "SG-97 Sweeper",
-    "profiles": [
-      "SG-97 P"
-    ],
+    "profiles": ["SG-97 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -952,9 +807,7 @@
   },
   {
     "weapon": "SMG-203 Gallant",
-    "profiles": [
-      "SMG-203 P"
-    ],
+    "profiles": ["SMG-203 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -965,9 +818,7 @@
   },
   {
     "weapon": "SMG-32 Reprimand",
-    "profiles": [
-      "SMG-32 P"
-    ],
+    "profiles": ["SMG-32 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -978,9 +829,7 @@
   },
   {
     "weapon": "SMG-37 Defender",
-    "profiles": [
-      "SMG-37 P"
-    ],
+    "profiles": ["SMG-37 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -991,9 +840,7 @@
   },
   {
     "weapon": "SMG-72 Pummeler",
-    "profiles": [
-      "SMG-72 P"
-    ],
+    "profiles": ["SMG-72 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -1004,10 +851,7 @@
   },
   {
     "weapon": "SMG/FLAM-34 Stoker",
-    "profiles": [
-      "12 mm SMG",
-      "Flame projector"
-    ],
+    "profiles": ["12 mm SMG", "Flame projector"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -1018,9 +862,7 @@
   },
   {
     "weapon": "StA-11 SMG",
-    "profiles": [
-      "MP-98 P"
-    ],
+    "profiles": ["MP-98 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1031,9 +873,7 @@
   },
   {
     "weapon": "StA-52 Assault Rifle",
-    "profiles": [
-      "AR-23 P"
-    ],
+    "profiles": ["AR-23 P"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",

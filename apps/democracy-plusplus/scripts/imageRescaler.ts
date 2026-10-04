@@ -1,7 +1,16 @@
 import fs from "fs/promises";
 import path from "path";
 import sharp from "sharp";
-import { banner, createTask, detail, errorMessage, item, note, section, summary } from "./terminalUi.ts";
+import {
+  banner,
+  createTask,
+  detail,
+  errorMessage,
+  item,
+  note,
+  section,
+  summary,
+} from "./terminalUi.ts";
 
 const BASE_DIR = path.resolve("public/images");
 const MAX_SIZE_BYTES = 1;
@@ -15,7 +24,10 @@ interface FolderStats {
   failed: number;
 }
 
-async function processFolder(folderPath: string, totals: FolderStats): Promise<void> {
+async function processFolder(
+  folderPath: string,
+  totals: FolderStats,
+): Promise<void> {
   const entries = await fs.readdir(folderPath, { withFileTypes: true });
 
   for (const entry of entries) {
@@ -41,7 +53,10 @@ async function processFolder(folderPath: string, totals: FolderStats): Promise<v
 
           const newFilename = `${path.basename(entry.name, ".png")}.small.png`;
           const newFilePath = path.join(folderPath, newFilename);
-          const task = createTask(`Rescaling ${entry.name}`, path.relative(BASE_DIR, folderPath) || ".");
+          const task = createTask(
+            `Rescaling ${entry.name}`,
+            path.relative(BASE_DIR, folderPath) || ".",
+          );
 
           await image
             .resize({ width: RESIZE_WIDTH })
@@ -63,7 +78,11 @@ async function processFolder(folderPath: string, totals: FolderStats): Promise<v
           totals.failed++;
         }
       } else {
-        item(entry.name, `${(fileStats.size / 1024).toFixed(0)}KB already under limit`, "muted");
+        item(
+          entry.name,
+          `${(fileStats.size / 1024).toFixed(0)}KB already under limit`,
+          "muted",
+        );
         totals.skipped++;
       }
     }
@@ -72,10 +91,18 @@ async function processFolder(folderPath: string, totals: FolderStats): Promise<v
 
 async function main() {
   try {
-    banner("Image Rescaler", "Compact per-file results with visible resize savings");
+    banner(
+      "Image Rescaler",
+      "Compact per-file results with visible resize savings",
+    );
     detail("baseDir", BASE_DIR);
     detail("target", `${RESIZE_WIDTH}px`);
-    const totals: FolderStats = { scanned: 0, resized: 0, skipped: 0, failed: 0 };
+    const totals: FolderStats = {
+      scanned: 0,
+      resized: 0,
+      skipped: 0,
+      failed: 0,
+    };
     await processFolder(BASE_DIR, totals);
     summary("Image rescale summary", totals);
     note("All images processed", "success");

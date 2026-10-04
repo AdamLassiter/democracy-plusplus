@@ -7,9 +7,7 @@
       "1.00s charge · 40-K MELTAGUN B"
     ],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "partial",
@@ -24,13 +22,9 @@
   },
   {
     "stratagem": "A/AC-8 Autocannon Sentry",
-    "profiles": [
-      "SWP AUTOCANNON SENTRY"
-    ],
+    "profiles": ["SWP AUTOCANNON SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -45,13 +39,9 @@
   },
   {
     "stratagem": "A/ARC-3 Tesla Tower",
-    "profiles": [
-      "Tesla Turret Arc"
-    ],
+    "profiles": ["Tesla Turret Arc"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "partial",
@@ -69,13 +59,9 @@
   },
   {
     "stratagem": "A/FLAM-40 Flame Sentry",
-    "profiles": [
-      "SWP FLAME SENTRY"
-    ],
+    "profiles": ["SWP FLAME SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -92,13 +78,9 @@
   },
   {
     "stratagem": "A/G-16 Gatling Sentry",
-    "profiles": [
-      "SWP GATLING SENTRY"
-    ],
+    "profiles": ["SWP GATLING SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -113,13 +95,9 @@
   },
   {
     "stratagem": "A/GM-17 Gas Mortar Sentry",
-    "profiles": [
-      "SWP GAS MORTAR SENTRY"
-    ],
+    "profiles": ["SWP GAS MORTAR SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -134,13 +112,9 @@
   },
   {
     "stratagem": "A/LAS-98 Laser Sentry",
-    "profiles": [
-      "Heat Data"
-    ],
+    "profiles": ["Heat Data"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -158,13 +132,9 @@
   },
   {
     "stratagem": "A/M-12 Mortar Sentry",
-    "profiles": [
-      "SWP MORTAR SENTRY"
-    ],
+    "profiles": ["SWP MORTAR SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -179,13 +149,9 @@
   },
   {
     "stratagem": "A/M-23 EMS Mortar Sentry",
-    "profiles": [
-      "SWP EMS MORTAR SENTRY"
-    ],
+    "profiles": ["SWP EMS MORTAR SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -200,13 +166,9 @@
   },
   {
     "stratagem": "A/MG-43 Machine Gun Sentry",
-    "profiles": [
-      "SWP MACHINE GUN SENTRY"
-    ],
+    "profiles": ["SWP MACHINE GUN SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -221,13 +183,9 @@
   },
   {
     "stratagem": "A/MLS-4X Rocket Sentry",
-    "profiles": [
-      "SWP ROCKET SENTRY"
-    ],
+    "profiles": ["SWP ROCKET SENTRY"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -242,14 +200,9 @@
   },
   {
     "stratagem": "AC-8 Autocannon",
-    "profiles": [
-      "AC-8 P",
-      "AC-8 P1"
-    ],
+    "profiles": ["AC-8 P", "AC-8 P1"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -264,13 +217,9 @@
   },
   {
     "stratagem": "APW-1 Anti-Materiel Rifle",
-    "profiles": [
-      "APW-1 P"
-    ],
+    "profiles": ["APW-1 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -285,13 +234,9 @@
   },
   {
     "stratagem": "ARC-3 Arc Thrower",
-    "profiles": [
-      "ARC-3 ARC THROWER A"
-    ],
+    "profiles": ["ARC-3 ARC THROWER A"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -308,13 +253,9 @@
   },
   {
     "stratagem": "AX/AR-23 Guard Dog",
-    "profiles": [
-      "AX/AR-23 GUARD DOG"
-    ],
+    "profiles": ["AX/AR-23 GUARD DOG"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -329,13 +270,9 @@
   },
   {
     "stratagem": "AX/ARC-3 K-9",
-    "profiles": [
-      "AX/ARC-3 K-9 A"
-    ],
+    "profiles": ["AX/ARC-3 K-9 A"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -353,13 +290,9 @@
   },
   {
     "stratagem": "AX/FLAM-75 Hot Dog",
-    "profiles": [
-      "AX/FLAM-75 HOT DOG S"
-    ],
+    "profiles": ["AX/FLAM-75 HOT DOG S"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -377,13 +310,9 @@
   },
   {
     "stratagem": "AX/LAS-5 Rover",
-    "profiles": [
-      "AX/LAS-5 ROVER B"
-    ],
+    "profiles": ["AX/LAS-5 ROVER B"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -401,13 +330,9 @@
   },
   {
     "stratagem": "AX/TX-13 Dog Breath",
-    "profiles": [
-      "AX/TX-13 DOG BREATH S"
-    ],
+    "profiles": ["AX/TX-13 DOG BREATH S"],
     "classification": "damaging",
-    "delivery": [
-      "autonomous-weapon"
-    ],
+    "delivery": ["autonomous-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -444,13 +369,9 @@
   },
   {
     "stratagem": "B-100 Portable Hellbomb",
-    "profiles": [
-      "Hellbomb"
-    ],
+    "profiles": ["Hellbomb"],
     "classification": "damaging",
-    "delivery": [
-      "trap"
-    ],
+    "delivery": ["trap"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "not-applicable",
@@ -465,13 +386,9 @@
   },
   {
     "stratagem": "B/FLAM-80 Cremator",
-    "profiles": [
-      "B/FLAM-80 CREMATOR S"
-    ],
+    "profiles": ["B/FLAM-80 CREMATOR S"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -482,19 +399,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "Sustained DPS is unavailable because reload time is missing."
-    ]
+    "reasons": ["Sustained DPS is unavailable because reload time is missing."]
   },
   {
     "stratagem": "B/MD C4 Pack",
-    "profiles": [
-      "B/MD C4 PACK E"
-    ],
+    "profiles": ["B/MD C4 PACK E"],
     "classification": "damaging",
-    "delivery": [
-      "trap"
-    ],
+    "delivery": ["trap"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "not-applicable",
@@ -511,13 +422,9 @@
   },
   {
     "stratagem": "CQC-1 One True Flag",
-    "profiles": [
-      "CQC-1 ONE TRUE FLAG_dm"
-    ],
+    "profiles": ["CQC-1 ONE TRUE FLAG_dm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "partial",
@@ -535,13 +442,9 @@
   },
   {
     "stratagem": "CQC-20 Breaching Hammer",
-    "profiles": [
-      "CQC-20 BREACHING HAMMER_dm"
-    ],
+    "profiles": ["CQC-20 BREACHING HAMMER_dm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -558,13 +461,9 @@
   },
   {
     "stratagem": "CQC-9 Defoliation Tool",
-    "profiles": [
-      "CQC-9 DEFOLIATION TOOL_dm"
-    ],
+    "profiles": ["CQC-9 DEFOLIATION TOOL_dm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "partial",
@@ -582,13 +481,9 @@
   },
   {
     "stratagem": "E/AT-12 Anti-Tank Emplacement",
-    "profiles": [
-      "75 mm APHE cannon"
-    ],
+    "profiles": ["75 mm APHE cannon"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -606,13 +501,9 @@
   },
   {
     "stratagem": "E/GL-21 Grenadier Battlement",
-    "profiles": [
-      "SWP GRENADIER BATTLEMENT"
-    ],
+    "profiles": ["SWP GRENADIER BATTLEMENT"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -627,13 +518,9 @@
   },
   {
     "stratagem": "E/MG-101 HMG Emplacement",
-    "profiles": [
-      "Twin heavy machine guns"
-    ],
+    "profiles": ["Twin heavy machine guns"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -650,13 +537,9 @@
   },
   {
     "stratagem": "Eagle 110mm Rocket Pods",
-    "profiles": [
-      "110mm STANDARD ROCKET P"
-    ],
+    "profiles": ["110mm STANDARD ROCKET P"],
     "classification": "damaging",
-    "delivery": [
-      "focused-strike"
-    ],
+    "delivery": ["focused-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -671,13 +554,9 @@
   },
   {
     "stratagem": "Eagle 500kg Bomb",
-    "profiles": [
-      "500kg BOMB P"
-    ],
+    "profiles": ["500kg BOMB P"],
     "classification": "damaging",
-    "delivery": [
-      "focused-strike"
-    ],
+    "delivery": ["focused-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -692,13 +571,9 @@
   },
   {
     "stratagem": "Eagle Airstrike",
-    "profiles": [
-      "Bomb 100kg"
-    ],
+    "profiles": ["Bomb 100kg"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -709,19 +584,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload' is estimated."]
   },
   {
     "stratagem": "Eagle Cluster Bomb",
-    "profiles": [
-      "Cluster submunition"
-    ],
+    "profiles": ["Cluster submunition"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -739,14 +608,9 @@
   },
   {
     "stratagem": "Eagle Gas Airstrike",
-    "profiles": [
-      "S P6",
-      "Gas field exposure"
-    ],
+    "profiles": ["S P6", "Gas field exposure"],
     "classification": "damaging",
-    "delivery": [
-      "persistent-area"
-    ],
+    "delivery": ["persistent-area"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -765,13 +629,9 @@
   },
   {
     "stratagem": "Eagle Napalm Airstrike",
-    "profiles": [
-      "NAPALM BOMB P"
-    ],
+    "profiles": ["NAPALM BOMB P"],
     "classification": "damaging",
-    "delivery": [
-      "persistent-area"
-    ],
+    "delivery": ["persistent-area"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -789,13 +649,9 @@
   },
   {
     "stratagem": "Eagle Smoke Strike",
-    "profiles": [
-      "100KG BOMB P1"
-    ],
+    "profiles": ["100KG BOMB P1"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "partial",
     "status": "not-applicable",
@@ -813,13 +669,9 @@
   },
   {
     "stratagem": "Eagle Strafing Run",
-    "profiles": [
-      "23 mm HE rounds"
-    ],
+    "profiles": ["23 mm HE rounds"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -837,13 +689,9 @@
   },
   {
     "stratagem": "EAT-17 Expendable Anti-Tank",
-    "profiles": [
-      "EAT-17 P"
-    ],
+    "profiles": ["EAT-17 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -861,13 +709,9 @@
   },
   {
     "stratagem": "EAT-411 Leveller",
-    "profiles": [
-      "EAT-411 P"
-    ],
+    "profiles": ["EAT-411 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -885,13 +729,9 @@
   },
   {
     "stratagem": "EAT-700 Expendable Napalm",
-    "profiles": [
-      "EAT-700 P"
-    ],
+    "profiles": ["EAT-700 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -909,14 +749,9 @@
   },
   {
     "stratagem": "EXO-45 Patriot Exosuit",
-    "profiles": [
-      "PATRIOT EXOSUIT HMG",
-      "PATRIOT EXOSUIT MISSILE LAUNCHER"
-    ],
+    "profiles": ["PATRIOT EXOSUIT HMG", "PATRIOT EXOSUIT MISSILE LAUNCHER"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -936,9 +771,7 @@
       "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON"
     ],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -953,14 +786,9 @@
   },
   {
     "stratagem": "EXO-51 Lumberer Exosuit",
-    "profiles": [
-      "LUMBERER FLAMETHROWER",
-      "LUMBERER ANTI TANK CANNON"
-    ],
+    "profiles": ["LUMBERER FLAMETHROWER", "LUMBERER ANTI TANK CANNON"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -977,13 +805,9 @@
   },
   {
     "stratagem": "EXO-55 Breakthrough Exosuit",
-    "profiles": [
-      "BREAKTHROUGH SCATTERGUN"
-    ],
+    "profiles": ["BREAKTHROUGH SCATTERGUN"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "partial",
     "status": "not-applicable",
@@ -994,19 +818,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "One or more linked explosion records could not be normalized."
-    ]
+    "reasons": ["One or more linked explosion records could not be normalized."]
   },
   {
     "stratagem": "FAF-14 Spear",
-    "profiles": [
-      "FAF-14 P"
-    ],
+    "profiles": ["FAF-14 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1017,19 +835,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "Sustained DPS is unavailable because reload time is missing."
-    ]
+    "reasons": ["Sustained DPS is unavailable because reload time is missing."]
   },
   {
     "stratagem": "FLAM-40 Flamethrower",
-    "profiles": [
-      "FLAM-40 FLAMETHROWER S"
-    ],
+    "profiles": ["FLAM-40 FLAMETHROWER S"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -1063,13 +875,9 @@
   },
   {
     "stratagem": "GL-21 Grenade Launcher",
-    "profiles": [
-      "GL-21 P"
-    ],
+    "profiles": ["GL-21 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1084,15 +892,9 @@
   },
   {
     "stratagem": "GL-28 Belt-Fed Grenade Launcher",
-    "profiles": [
-      "160 rpm",
-      "240 rpm",
-      "320 rpm"
-    ],
+    "profiles": ["160 rpm", "240 rpm", "320 rpm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1103,19 +905,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "Sustained DPS is unavailable because reload time is missing."
-    ]
+    "reasons": ["Sustained DPS is unavailable because reload time is missing."]
   },
   {
     "stratagem": "GL-52 De-Escalator",
-    "profiles": [
-      "GL-52 P"
-    ],
+    "profiles": ["GL-52 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "partial",
@@ -1132,14 +928,9 @@
   },
   {
     "stratagem": "GR-8 Recoilless Rifle",
-    "profiles": [
-      "GR-8 P",
-      "GR-8 P1"
-    ],
+    "profiles": ["GR-8 P", "GR-8 P1"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1157,13 +948,9 @@
   },
   {
     "stratagem": "LAS-98 Laser Cannon",
-    "profiles": [
-      "LAS-98 LASER CANNON B"
-    ],
+    "profiles": ["LAS-98 LASER CANNON B"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -1178,13 +965,9 @@
   },
   {
     "stratagem": "LAS-99 Quasar Cannon",
-    "profiles": [
-      "LAS-99 P"
-    ],
+    "profiles": ["LAS-99 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1199,13 +982,9 @@
   },
   {
     "stratagem": "LIFT-182 Warp Pack",
-    "profiles": [
-      "Fire"
-    ],
+    "profiles": ["Fire"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "partial",
@@ -1262,13 +1041,9 @@
   },
   {
     "stratagem": "M-1000 Maxigun",
-    "profiles": [
-      "M-1000 P"
-    ],
+    "profiles": ["M-1000 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1279,19 +1054,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "Sustained DPS is unavailable because reload time is missing."
-    ]
+    "reasons": ["Sustained DPS is unavailable because reload time is missing."]
   },
   {
     "stratagem": "M-102 Gunner FRV",
-    "profiles": [
-      "SWP HEAVY MACHINE GUN"
-    ],
+    "profiles": ["SWP HEAVY MACHINE GUN"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1306,13 +1075,9 @@
   },
   {
     "stratagem": "M-103 Supply FRV",
-    "profiles": [
-      "SWP SUPPLY FRV"
-    ],
+    "profiles": ["SWP SUPPLY FRV"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1327,13 +1092,9 @@
   },
   {
     "stratagem": "M-104 Incinerator FRV",
-    "profiles": [
-      "SWP FLAMETHROWER"
-    ],
+    "profiles": ["SWP FLAMETHROWER"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -1350,15 +1111,9 @@
   },
   {
     "stratagem": "M-105 Stalwart",
-    "profiles": [
-      "700 rpm",
-      "850 rpm",
-      "1150 rpm"
-    ],
+    "profiles": ["700 rpm", "850 rpm", "1150 rpm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1373,13 +1128,9 @@
   },
   {
     "stratagem": "MD-17 Anti-Tank Mines",
-    "profiles": [
-      "Anti Tank Mine"
-    ],
+    "profiles": ["Anti Tank Mine"],
     "classification": "damaging",
-    "delivery": [
-      "trap"
-    ],
+    "delivery": ["trap"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1394,13 +1145,9 @@
   },
   {
     "stratagem": "MD-6 Anti-Personnel Minefield",
-    "profiles": [
-      "Contact Mine"
-    ],
+    "profiles": ["Contact Mine"],
     "classification": "damaging",
-    "delivery": [
-      "trap"
-    ],
+    "delivery": ["trap"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1415,13 +1162,9 @@
   },
   {
     "stratagem": "MD-8 Gas Mines",
-    "profiles": [
-      "Gas Mine"
-    ],
+    "profiles": ["Gas Mine"],
     "classification": "damaging",
-    "delivery": [
-      "trap"
-    ],
+    "delivery": ["trap"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "partial",
@@ -1438,13 +1181,9 @@
   },
   {
     "stratagem": "MD-I4 Incendiary Mines",
-    "profiles": [
-      "Incendiary Mine"
-    ],
+    "profiles": ["Incendiary Mine"],
     "classification": "damaging",
-    "delivery": [
-      "trap"
-    ],
+    "delivery": ["trap"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "partial",
@@ -1459,15 +1198,9 @@
   },
   {
     "stratagem": "MG-206 Heavy Machine Gun",
-    "profiles": [
-      "450 rpm",
-      "600 rpm",
-      "750 rpm"
-    ],
+    "profiles": ["450 rpm", "600 rpm", "750 rpm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1482,15 +1215,9 @@
   },
   {
     "stratagem": "MG-43 Machine Gun",
-    "profiles": [
-      "630 rpm",
-      "760 rpm",
-      "900 rpm"
-    ],
+    "profiles": ["630 rpm", "760 rpm", "900 rpm"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1505,13 +1232,9 @@
   },
   {
     "stratagem": "MGX-42 Bullet Storm",
-    "profiles": [
-      "MGX-42 P"
-    ],
+    "profiles": ["MGX-42 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "not-applicable",
@@ -1522,19 +1245,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "Sustained DPS is unavailable because reload time is missing."
-    ]
+    "reasons": ["Sustained DPS is unavailable because reload time is missing."]
   },
   {
     "stratagem": "MLS-4X Commando",
-    "profiles": [
-      "MLS-4X P"
-    ],
+    "profiles": ["MLS-4X P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1552,13 +1269,9 @@
   },
   {
     "stratagem": "MS-11 Solo Silo",
-    "profiles": [
-      "SOLO SILO"
-    ],
+    "profiles": ["SOLO SILO"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "not-applicable",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1576,13 +1289,9 @@
   },
   {
     "stratagem": "Orbital 120mm HE Barrage",
-    "profiles": [
-      "120mm HE CANNON ROUND P1"
-    ],
+    "profiles": ["120mm HE CANNON ROUND P1"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1593,19 +1302,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload' is estimated."]
   },
   {
     "stratagem": "Orbital 380mm HE Barrage",
-    "profiles": [
-      "380mm HE CANNON ROUND P1"
-    ],
+    "profiles": ["380mm HE CANNON ROUND P1"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1616,19 +1319,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '2 shells' is estimated."
-    ]
+    "reasons": ["Target exposure '2 shells' is estimated."]
   },
   {
     "stratagem": "Orbital Airburst Strike",
-    "profiles": [
-      "110mm AIRBURST CANNON ROUND P"
-    ],
+    "profiles": ["110mm AIRBURST CANNON ROUND P"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1639,19 +1336,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload' is estimated."]
   },
   {
     "stratagem": "Orbital EMS Strike",
-    "profiles": [
-      "110mm E.M.S. CANNON ROUND P"
-    ],
+    "profiles": ["110mm E.M.S. CANNON ROUND P"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -1662,20 +1353,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload' is estimated."]
   },
   {
     "stratagem": "Orbital Gas Strike",
-    "profiles": [
-      "110mm GAS CANNON ROUND P",
-      "Gas field exposure"
-    ],
+    "profiles": ["110mm GAS CANNON ROUND P", "Gas field exposure"],
     "classification": "damaging",
-    "delivery": [
-      "persistent-area"
-    ],
+    "delivery": ["persistent-area"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -1693,13 +1377,9 @@
   },
   {
     "stratagem": "Orbital Gatling Barrage",
-    "profiles": [
-      "23mm HE CANNON P1"
-    ],
+    "profiles": ["23mm HE CANNON P1"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1717,13 +1397,9 @@
   },
   {
     "stratagem": "Orbital Laser",
-    "profiles": [
-      "ORBITAL LASER_DPS"
-    ],
+    "profiles": ["ORBITAL LASER_DPS"],
     "classification": "damaging",
-    "delivery": [
-      "persistent-area"
-    ],
+    "delivery": ["persistent-area"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",
@@ -1738,13 +1414,9 @@
   },
   {
     "stratagem": "Orbital Napalm Barrage",
-    "profiles": [
-      "120mm HE CANNON ROUND P3"
-    ],
+    "profiles": ["120mm HE CANNON ROUND P3"],
     "classification": "damaging",
-    "delivery": [
-      "persistent-area"
-    ],
+    "delivery": ["persistent-area"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -1755,19 +1427,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload exposure' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload exposure' is estimated."]
   },
   {
     "stratagem": "Orbital Precision Strike",
-    "profiles": [
-      "380mm HE CANNON ROUND P"
-    ],
+    "profiles": ["380mm HE CANNON ROUND P"],
     "classification": "damaging",
-    "delivery": [
-      "focused-strike"
-    ],
+    "delivery": ["focused-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1782,13 +1448,9 @@
   },
   {
     "stratagem": "Orbital Railcannon Strike",
-    "profiles": [
-      "RAIL CANNON ROUND P"
-    ],
+    "profiles": ["RAIL CANNON ROUND P"],
     "classification": "damaging",
-    "delivery": [
-      "focused-strike"
-    ],
+    "delivery": ["focused-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1803,13 +1465,9 @@
   },
   {
     "stratagem": "Orbital Smoke Strike",
-    "profiles": [
-      "S P"
-    ],
+    "profiles": ["S P"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "partial",
     "status": "not-applicable",
@@ -1820,19 +1478,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload' is estimated."]
   },
   {
     "stratagem": "Orbital Walking Barrage",
-    "profiles": [
-      "380mm HE CANNON ROUND P1"
-    ],
+    "profiles": ["380mm HE CANNON ROUND P1"],
     "classification": "damaging",
-    "delivery": [
-      "distributed-strike"
-    ],
+    "delivery": ["distributed-strike"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1843,9 +1495,7 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "partial",
-    "reasons": [
-      "Target exposure '1 payload' is estimated."
-    ]
+    "reasons": ["Target exposure '1 payload' is estimated."]
   },
   {
     "stratagem": "PLAS-45 Epoch",
@@ -1855,9 +1505,7 @@
       "2.60s charge · P3"
     ],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1872,14 +1520,9 @@
   },
   {
     "stratagem": "RL-77 Airburst Rocket Launcher",
-    "profiles": [
-      "RL-77 P",
-      "RL-77 P2"
-    ],
+    "profiles": ["RL-77 P", "RL-77 P2"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -1903,9 +1546,7 @@
       "3.00s charge · RS-422 P"
     ],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "partial",
     "status": "not-applicable",
@@ -1920,13 +1561,9 @@
   },
   {
     "stratagem": "S-11 Speargun",
-    "profiles": [
-      "S-11 P"
-    ],
+    "profiles": ["S-11 P"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "complete",
@@ -1998,14 +1635,9 @@
   },
   {
     "stratagem": "StA-X3 W.A.S.P. Launcher",
-    "profiles": [
-      "StA-X3 P",
-      "StA-X3 P1"
-    ],
+    "profiles": ["StA-X3 P", "StA-X3 P1"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -2016,20 +1648,13 @@
     "totalAreaOutput": "complete",
     "deploymentTiming": "complete",
     "targetTtk": "complete",
-    "reasons": [
-      "Sustained DPS is unavailable because reload time is missing."
-    ]
+    "reasons": ["Sustained DPS is unavailable because reload time is missing."]
   },
   {
     "stratagem": "TD-110 Maelstrom",
-    "profiles": [
-      "SWP MAELSTROM",
-      "SWP MAELSTROMIII"
-    ],
+    "profiles": ["SWP MAELSTROM", "SWP MAELSTROMIII"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -2044,14 +1669,9 @@
   },
   {
     "stratagem": "TD-220 Bastion MK XVI",
-    "profiles": [
-      "SWP BASTION MK XVI",
-      "SWP BASTION MK XVIII"
-    ],
+    "profiles": ["SWP BASTION MK XVI", "SWP BASTION MK XVIII"],
     "classification": "damaging",
-    "delivery": [
-      "mounted-weapon"
-    ],
+    "delivery": ["mounted-weapon"],
     "direct": "complete",
     "explosion": "complete",
     "status": "not-applicable",
@@ -2066,13 +1686,9 @@
   },
   {
     "stratagem": "TX-41 Sterilizer",
-    "profiles": [
-      "TX-41 STERILIZER S"
-    ],
+    "profiles": ["TX-41 STERILIZER S"],
     "classification": "damaging",
-    "delivery": [
-      "support-weapon"
-    ],
+    "delivery": ["support-weapon"],
     "direct": "complete",
     "explosion": "not-applicable",
     "status": "complete",

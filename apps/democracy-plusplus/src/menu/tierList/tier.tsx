@@ -41,63 +41,78 @@ function TierBucket({
     }
   }
 
-  return <Box
-    onDragOver={(event) => editMode && event.preventDefault()}
-    onDrop={handleDrop}
-    sx={{
-      display: "grid",
-      gap: 1,
-      gridTemplateColumns: tier === "uncategorized"
-        ? { xs: "64px minmax(0, 1fr)", sm: "112px minmax(0, 1fr)" }
-        : { xs: "48px minmax(0, 1fr)", sm: "88px minmax(0, 1fr)" },
-      minHeight: { xs: 170, sm: 196 },
-    }}
-  >
-    <Card
-      variant="outlined"
-      sx={{
-        alignItems: "center",
-        borderLeft: `6px solid ${TIER_ACCENTS[tier]}`,
-        display: "flex",
-        justifyContent: "center",
-        minWidth: 0,
-      }}
-    >
-      <Typography
-        variant={tier === "uncategorized" ? "caption" : "h2"}
-        sx={{ fontSize: { xs: tier === "uncategorized" ? 11 : 40, sm: undefined }, fontWeight: 700, overflowWrap: "anywhere", px: 0.5, textAlign: "center" }}
-      >
-        {TIER_LABELS[tier]}
-      </Typography>
-    </Card>
+  return (
     <Box
+      onDragOver={(event) => editMode && event.preventDefault()}
+      onDrop={handleDrop}
       sx={{
-        alignContent: "flex-start",
-        bgcolor: "rgba(255,255,255,0.025)",
-        border: editMode ? "1px dashed rgba(255,255,255,0.3)" : "1px solid rgba(255,255,255,0.1)",
-        borderRadius: 1,
-        display: "flex",
-        flexWrap: "wrap",
+        display: "grid",
         gap: 1,
-        minWidth: 0,
-        p: 1,
+        gridTemplateColumns:
+          tier === "uncategorized"
+            ? { xs: "64px minmax(0, 1fr)", sm: "112px minmax(0, 1fr)" }
+            : { xs: "48px minmax(0, 1fr)", sm: "88px minmax(0, 1fr)" },
+        minHeight: { xs: 170, sm: 196 },
       }}
     >
-      {items.map((item) => <Box
-        key={item.displayName}
-        draggable={editMode}
-        onDragStart={(event) => {
-          event.dataTransfer.setData("text/plain", item.displayName);
-          event.dataTransfer.effectAllowed = "move";
+      <Card
+        variant="outlined"
+        sx={{
+          alignItems: "center",
+          borderLeft: `6px solid ${TIER_ACCENTS[tier]}`,
+          display: "flex",
+          justifyContent: "center",
+          minWidth: 0,
         }}
       >
-        <ItemDisplay
-          item={item}
-          onClick={editMode ? () => onUncategorize?.(item.displayName) : onOpenItem}
-        />
-      </Box>)}
+        <Typography
+          variant={tier === "uncategorized" ? "caption" : "h2"}
+          sx={{
+            fontSize: { xs: tier === "uncategorized" ? 11 : 40, sm: undefined },
+            fontWeight: 700,
+            overflowWrap: "anywhere",
+            px: 0.5,
+            textAlign: "center",
+          }}
+        >
+          {TIER_LABELS[tier]}
+        </Typography>
+      </Card>
+      <Box
+        sx={{
+          alignContent: "flex-start",
+          bgcolor: "rgba(255,255,255,0.025)",
+          border: editMode
+            ? "1px dashed rgba(255,255,255,0.3)"
+            : "1px solid rgba(255,255,255,0.1)",
+          borderRadius: 1,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 1,
+          minWidth: 0,
+          p: 1,
+        }}
+      >
+        {items.map((item) => (
+          <Box
+            key={item.displayName}
+            draggable={editMode}
+            onDragStart={(event) => {
+              event.dataTransfer.setData("text/plain", item.displayName);
+              event.dataTransfer.effectAllowed = "move";
+            }}
+          >
+            <ItemDisplay
+              item={item}
+              onClick={
+                editMode ? () => onUncategorize?.(item.displayName) : onOpenItem
+              }
+            />
+          </Box>
+        ))}
+      </Box>
     </Box>
-  </Box>;
+  );
 }
 
 export default function TierBoard({
@@ -108,21 +123,30 @@ export default function TierBoard({
   onUncategorize,
   onOpenItem,
 }: TierBoardProps) {
-  const grouped = (editMode
-    ? Object.groupBy(items, (item) => draftAssignments[item.displayName] ?? item.tier)
-    : Object.groupBy(items, (item) => item.tier)) as Partial<Record<EditableTier, Item[]>>;
+  const grouped = (
+    editMode
+      ? Object.groupBy(
+          items,
+          (item) => draftAssignments[item.displayName] ?? item.tier,
+        )
+      : Object.groupBy(items, (item) => item.tier)
+  ) as Partial<Record<EditableTier, Item[]>>;
 
   const orderedTiers = editMode ? EDITABLE_TIER_ORDER : TIER_ORDER;
 
-  return <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-    {orderedTiers.map((tier) => <TierBucket
-      key={tier}
-      tier={tier}
-      items={grouped[tier] ?? []}
-      editMode={editMode}
-      onMoveToTier={onMoveToTier}
-      onUncategorize={onUncategorize}
-      onOpenItem={onOpenItem}
-    />)}
-  </Box>;
+  return (
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+      {orderedTiers.map((tier) => (
+        <TierBucket
+          key={tier}
+          tier={tier}
+          items={grouped[tier] ?? []}
+          editMode={editMode}
+          onMoveToTier={onMoveToTier}
+          onUncategorize={onUncategorize}
+          onOpenItem={onOpenItem}
+        />
+      ))}
+    </Box>
+  );
 }

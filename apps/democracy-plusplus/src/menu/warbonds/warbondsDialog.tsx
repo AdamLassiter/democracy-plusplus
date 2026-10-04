@@ -19,21 +19,41 @@ import { WARBONDS } from "../../constants/warbonds";
 import type { Warbond } from "../../types";
 import { resetShop } from "../../slices/shopSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
-import { selectChallenges, setOwnedWarbondCodes } from "../../slices/challengesSlice";
+import {
+  selectChallenges,
+  setOwnedWarbondCodes,
+} from "../../slices/challengesSlice";
 import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
-export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOpen: (_open: boolean) => void }) {
+export default function WarbondsDialog({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (_open: boolean) => void;
+}) {
   const dispatch = useDispatch();
   const { ownedWarbondCodes } = useSelector(selectChallenges);
   const { count, playerCount: localPlayerCount } = useSelector(selectMission);
   const { overrides } = useSelector(selectTierList);
   const multiplayer = useSelector(selectMultiplayer);
-  const playerCount = getEffectivePlayerCount(localPlayerCount, multiplayer.lobbyState);
-  const [selected, setSelected] = useState<Warbond[]>(() => WARBONDS.filter((warbond) => ownedWarbondCodes.includes(warbond.warbondCode)));
+  const playerCount = getEffectivePlayerCount(
+    localPlayerCount,
+    multiplayer.lobbyState,
+  );
+  const [selected, setSelected] = useState<Warbond[]>(() =>
+    WARBONDS.filter((warbond) =>
+      ownedWarbondCodes.includes(warbond.warbondCode),
+    ),
+  );
 
   useEffect(() => {
     if (open) {
-      setSelected(WARBONDS.filter((warbond) => ownedWarbondCodes.includes(warbond.warbondCode)));
+      setSelected(
+        WARBONDS.filter((warbond) =>
+          ownedWarbondCodes.includes(warbond.warbondCode),
+        ),
+      );
     }
   }, [open, ownedWarbondCodes]);
 
@@ -50,25 +70,35 @@ export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOp
   }
 
   function handleSave() {
-    dispatch(setOwnedWarbondCodes(selected.map((warbond) => warbond.warbondCode)));
+    dispatch(
+      setOwnedWarbondCodes(selected.map((warbond) => warbond.warbondCode)),
+    );
     dispatch(setWarbonds({ value: selected }));
-    dispatch(resetShop({ missionCount: count, playerCount, tierOverrides: overrides }));
+    dispatch(
+      resetShop({ missionCount: count, playerCount, tierOverrides: overrides }),
+    );
     setOpen(false);
   }
 
   function handleCancel() {
-    setSelected(WARBONDS.filter((warbond) => ownedWarbondCodes.includes(warbond.warbondCode)));
+    setSelected(
+      WARBONDS.filter((warbond) =>
+        ownedWarbondCodes.includes(warbond.warbondCode),
+      ),
+    );
     setOpen(false);
   }
 
   return (
     <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
-      <CloseableDialogTitle onClose={handleCancel}>Warbonds</CloseableDialogTitle>
+      <CloseableDialogTitle onClose={handleCancel}>
+        Warbonds
+      </CloseableDialogTitle>
       <DialogContent dividers>
         <List>
           {WARBONDS.map((warbond) => {
             const isChecked = selected.some(
-              (w) => w.warbondCode === warbond.warbondCode
+              (w) => w.warbondCode === warbond.warbondCode,
             );
             return (
               <ListItem

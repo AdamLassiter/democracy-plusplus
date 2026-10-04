@@ -1,5 +1,10 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { LobbySessionResponse, LobbyState, MultiplayerState, ServerEvent } from "../types";
+import type {
+  LobbySessionResponse,
+  LobbyState,
+  MultiplayerState,
+  ServerEvent,
+} from "../types";
 import type { RootState } from "./index";
 
 const initialState: MultiplayerState = {

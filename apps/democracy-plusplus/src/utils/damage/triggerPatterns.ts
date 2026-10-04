@@ -35,5 +35,8 @@ export function payloadProjectiles(payload: TriggerPayload) {
 }
 
 export function payloadDuration(payload: TriggerPayload) {
-  return payload.events.reduce((maximum, event) => Math.max(maximum, event.offsetSeconds), 0);
+  return payload.events.reduce(
+    (maximum, event) => Math.max(maximum, event.offsetSeconds),
+    0,
+  );
 }

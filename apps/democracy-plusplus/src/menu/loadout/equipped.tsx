@@ -1,7 +1,14 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEquipment, unsetEquipment } from "../../slices/equipmentSlice";
-import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../utils/itemDisplay";
+import ItemDisplay, {
+  MissingArmor,
+  MissingBooster,
+  MissingPrimary,
+  MissingSecondary,
+  MissingStratagem,
+  MissingThrowable,
+} from "../../utils/itemDisplay";
 import { Divider, Grid } from "@mui/material";
 import { getItem } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";
@@ -10,14 +17,8 @@ import type { Item } from "../../types";
 import SectionHeading from "../../utils/sectionHeading";
 
 export default function Equipped() {
-  const {
-    stratagems,
-    primary,
-    secondary,
-    throwable,
-    armorPassive,
-    booster,
-  } = useSelector(selectEquipment);
+  const { stratagems, primary, secondary, throwable, armorPassive, booster } =
+    useSelector(selectEquipment);
 
   const dispatch = useDispatch();
   const equippedItems = [
@@ -26,7 +27,9 @@ export default function Equipped() {
     primary && getItem(primary),
     secondary && getItem(secondary),
     throwable && getItem(throwable),
-    ...stratagems.map((stratagem: string | null) => stratagem && getItem(stratagem)),
+    ...stratagems.map(
+      (stratagem: string | null) => stratagem && getItem(stratagem),
+    ),
   ].filter((item): item is Item => Boolean(item));
   const equippedCost = useMemo(() => {
     const pricedItems = equippedItems.map((item: Item) => itemCost(item));
@@ -38,24 +41,79 @@ export default function Equipped() {
     dispatch(addPurchased({ value: displayName }));
   }
 
-  return <>
-    <SectionHeading
-      meta={`${Math.floor(equippedCost / 2)} ~ ${equippedCost}¢`}
-      subtitle="The weapons, support gear and booster prepared for this deployment."
-      title="Equipment"
-    />
-    <Grid direction="column" container spacing={1}>
-      <Grid direction="row" container spacing={1}>
-        {primary ? <ItemDisplay key="primary" item={getItem(primary)!} onClick={() => unequip(primary)} /> : <MissingPrimary key="primary-missing" />}
-        {secondary ? <ItemDisplay key="secondary" item={getItem(secondary)!} onClick={() => unequip(secondary)} /> : <MissingSecondary key="secondary-missing" />}
-        {throwable ? <ItemDisplay key="throwable" item={getItem(throwable)!} onClick={() => unequip(throwable)} /> : <MissingThrowable key="throwable-missing" />}
-        {armorPassive ? <ItemDisplay key="armorPassive" item={getItem(armorPassive)!} onClick={() => unequip(armorPassive)} /> : <MissingArmor key="armor-missing" />}
-        <Divider orientation="vertical" variant="middle" flexItem sx={{ display: { xs: "none", sm: "block" } }} />
-        {stratagems.map((stratagem: string | null, index: number) => stratagem
-          ? <ItemDisplay key={`stratagem-${index}-${stratagem}`} item={getItem(stratagem)!} onClick={() => unequip(stratagem)} />
-          : <MissingStratagem key={`stratagem-${index}-missing`} />)}
-        {booster ? <ItemDisplay key="booster" item={getItem(booster)!} onClick={() => unequip(booster)} /> : <MissingBooster key="booster-missing" />}
+  return (
+    <>
+      <SectionHeading
+        meta={`${Math.floor(equippedCost / 2)} ~ ${equippedCost}¢`}
+        subtitle="The weapons, support gear and booster prepared for this deployment."
+        title="Equipment"
+      />
+      <Grid direction="column" container spacing={1}>
+        <Grid direction="row" container spacing={1}>
+          {primary ? (
+            <ItemDisplay
+              key="primary"
+              item={getItem(primary)!}
+              onClick={() => unequip(primary)}
+            />
+          ) : (
+            <MissingPrimary key="primary-missing" />
+          )}
+          {secondary ? (
+            <ItemDisplay
+              key="secondary"
+              item={getItem(secondary)!}
+              onClick={() => unequip(secondary)}
+            />
+          ) : (
+            <MissingSecondary key="secondary-missing" />
+          )}
+          {throwable ? (
+            <ItemDisplay
+              key="throwable"
+              item={getItem(throwable)!}
+              onClick={() => unequip(throwable)}
+            />
+          ) : (
+            <MissingThrowable key="throwable-missing" />
+          )}
+          {armorPassive ? (
+            <ItemDisplay
+              key="armorPassive"
+              item={getItem(armorPassive)!}
+              onClick={() => unequip(armorPassive)}
+            />
+          ) : (
+            <MissingArmor key="armor-missing" />
+          )}
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            flexItem
+            sx={{ display: { xs: "none", sm: "block" } }}
+          />
+          {stratagems.map((stratagem: string | null, index: number) =>
+            stratagem ? (
+              <ItemDisplay
+                key={`stratagem-${index}-${stratagem}`}
+                item={getItem(stratagem)!}
+                onClick={() => unequip(stratagem)}
+              />
+            ) : (
+              <MissingStratagem key={`stratagem-${index}-missing`} />
+            ),
+          )}
+          {booster ? (
+            <ItemDisplay
+              key="booster"
+              item={getItem(booster)!}
+              onClick={() => unequip(booster)}
+            />
+          ) : (
+            <MissingBooster key="booster-missing" />
+          )}
+        </Grid>
       </Grid>
-    </Grid>
-  </>;
+    </>
+  );
 }

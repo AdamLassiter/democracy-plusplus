@@ -4,7 +4,12 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-import type { Faction, MissionLength, ObjectiveTag, Tier } from "../src/types.ts";
+import type {
+  Faction,
+  MissionLength,
+  ObjectiveTag,
+  Tier,
+} from "../src/types.ts";
 
 type JsonObject = Record<string, any>;
 
@@ -14,10 +19,21 @@ const DATA_DIR = path.join(ROOT, "public", "data");
 const IMAGES_DIR = path.join(ROOT, "public", "images");
 
 const TIERS = ["s", "a", "b", "c", "d"] as const satisfies readonly Tier[];
-const FACTIONS = ["Terminids", "Automatons", "Illuminate"] as const satisfies readonly Faction[];
+const FACTIONS = [
+  "Terminids",
+  "Automatons",
+  "Illuminate",
+] as const satisfies readonly Faction[];
 const BESTIARY_FACTIONS = [...FACTIONS, "Super Earth"] as const;
-const OBJECTIVE_TAGS = ["Eradicate", "Commando", "Blitz"] as const satisfies readonly ObjectiveTag[];
-const MISSION_LENGTHS = ["short", "long"] as const satisfies readonly MissionLength[];
+const OBJECTIVE_TAGS = [
+  "Eradicate",
+  "Commando",
+  "Blitz",
+] as const satisfies readonly ObjectiveTag[];
+const MISSION_LENGTHS = [
+  "short",
+  "long",
+] as const satisfies readonly MissionLength[];
 const STRATAGEM_DIRECTIONS = ["Up", "Down", "Left", "Right"] as const;
 
 function readJson<T>(fileName: string): T {
@@ -25,7 +41,10 @@ function readJson<T>(fileName: string): T {
 }
 
 function asObject(value: unknown, context: string): JsonObject {
-  assert.ok(value && typeof value === "object" && !Array.isArray(value), `${context} must be an object`);
+  assert.ok(
+    value && typeof value === "object" && !Array.isArray(value),
+    `${context} must be an object`,
+  );
   return value as JsonObject;
 }
 
@@ -36,7 +55,11 @@ function assertAllowedKeys(
 ) {
   const allowed = new Set(allowedKeys);
   const unexpected = Object.keys(item).filter((key) => !allowed.has(key));
-  assert.deepEqual(unexpected, [], `${context} has unexpected key(s): ${unexpected.join(", ")}`);
+  assert.deepEqual(
+    unexpected,
+    [],
+    `${context} has unexpected key(s): ${unexpected.join(", ")}`,
+  );
 }
 
 function assertRequiredKeys(
@@ -45,7 +68,11 @@ function assertRequiredKeys(
   context: string,
 ) {
   const missing = requiredKeys.filter((key) => !(key in item));
-  assert.deepEqual(missing, [], `${context} is missing required key(s): ${missing.join(", ")}`);
+  assert.deepEqual(
+    missing,
+    [],
+    `${context} is missing required key(s): ${missing.join(", ")}`,
+  );
 }
 
 function expectString(value: unknown, context: string) {
@@ -61,21 +88,34 @@ function expectOptionalString(value: unknown, context: string) {
 
 function expectStringArray(value: unknown, context: string, minimumLength = 0) {
   assert.ok(Array.isArray(value), `${context} must be an array`);
-  assert.ok(value.length >= minimumLength, `${context} must contain at least ${minimumLength} item(s)`);
+  assert.ok(
+    value.length >= minimumLength,
+    `${context} must contain at least ${minimumLength} item(s)`,
+  );
   value.forEach((entry, index) => expectString(entry, `${context}[${index}]`));
 }
 
 function expectNumberArray(value: unknown, context: string, minimumLength = 0) {
   assert.ok(Array.isArray(value), `${context} must be an array`);
-  assert.ok(value.length >= minimumLength, `${context} must contain at least ${minimumLength} item(s)`);
+  assert.ok(
+    value.length >= minimumLength,
+    `${context} must contain at least ${minimumLength} item(s)`,
+  );
   value.forEach((entry, index) => {
-    assert.equal(typeof entry, "number", `${context}[${index}] must be a number`);
+    assert.equal(
+      typeof entry,
+      "number",
+      `${context}[${index}] must be a number`,
+    );
     assert.ok(Number.isFinite(entry), `${context}[${index}] must be finite`);
   });
 }
 
 function expectTier(value: unknown, context: string) {
-  assert.ok(TIERS.includes(value as Tier), `${context} must be one of ${TIERS.join(", ")}`);
+  assert.ok(
+    TIERS.includes(value as Tier),
+    `${context} must be one of ${TIERS.join(", ")}`,
+  );
 }
 
 function expectOptionalTier(value: unknown, context: string) {
@@ -87,12 +127,21 @@ function expectOptionalTier(value: unknown, context: string) {
 function expectImagePath(value: unknown, context: string) {
   expectString(value, context);
   const imagePath = path.join(IMAGES_DIR, value as string);
-  assert.ok(existsSync(imagePath), `${context} points to a missing file: ${value}`);
+  assert.ok(
+    existsSync(imagePath),
+    `${context} points to a missing file: ${value}`,
+  );
 }
 
 function assertUnique(values: string[], context: string) {
-  const duplicates = values.filter((value, index) => values.indexOf(value) !== index);
-  assert.deepEqual([...new Set(duplicates)], [], `${context} contains duplicate value(s): ${duplicates.join(", ")}`);
+  const duplicates = values.filter(
+    (value, index) => values.indexOf(value) !== index,
+  );
+  assert.deepEqual(
+    [...new Set(duplicates)],
+    [],
+    `${context} contains duplicate value(s): ${duplicates.join(", ")}`,
+  );
 }
 
 const warbonds = readJson<JsonObject[]>("warbonds.json");
@@ -123,18 +172,34 @@ const warbondCodes = warbonds.map((warbond, index) => {
   );
   assertRequiredKeys(
     item,
-    ["displayName", "type", "category", "tags", "warbondCode", "internalName", "tier"],
+    [
+      "displayName",
+      "type",
+      "category",
+      "tags",
+      "warbondCode",
+      "internalName",
+      "tier",
+    ],
     context,
   );
   expectString(item.displayName, `${context}.displayName`);
   assert.equal(item.type, "Warbond", `${context}.type must be Warbond`);
-  assert.equal(item.category, "", `${context}.category must be an empty string`);
+  assert.equal(
+    item.category,
+    "",
+    `${context}.category must be an empty string`,
+  );
   expectStringArray(item.tags, `${context}.tags`);
   expectString(item.warbondCode, `${context}.warbondCode`);
   expectString(item.internalName, `${context}.internalName`);
   expectTier(item.tier, `${context}.tier`);
   if (item.legendary !== undefined) {
-    assert.equal(item.legendary, true, `${context}.legendary must be true when present`);
+    assert.equal(
+      item.legendary,
+      true,
+      `${context}.legendary must be true when present`,
+    );
   }
   assert.equal(
     item.legendary === true,
@@ -150,12 +215,36 @@ const warbondCodes = warbonds.map((warbond, index) => {
 });
 
 const itemDatasetConfigs = [
-  { fileName: "armor_passives.json", expectedCategory: "armor", expectedType: "Equipment" },
-  { fileName: "boosters.json", expectedCategory: "booster", expectedType: "Equipment" },
-  { fileName: "primaries.json", expectedCategory: "primary", expectedType: "Equipment" },
-  { fileName: "secondaries.json", expectedCategory: "secondary", expectedType: "Equipment" },
-  { fileName: "throwables.json", expectedCategory: "throwable", expectedType: "Equipment" },
-  { fileName: "stratagems.json", expectedCategory: null, expectedType: "Stratagem" },
+  {
+    fileName: "armor_passives.json",
+    expectedCategory: "armor",
+    expectedType: "Equipment",
+  },
+  {
+    fileName: "boosters.json",
+    expectedCategory: "booster",
+    expectedType: "Equipment",
+  },
+  {
+    fileName: "primaries.json",
+    expectedCategory: "primary",
+    expectedType: "Equipment",
+  },
+  {
+    fileName: "secondaries.json",
+    expectedCategory: "secondary",
+    expectedType: "Equipment",
+  },
+  {
+    fileName: "throwables.json",
+    expectedCategory: "throwable",
+    expectedType: "Equipment",
+  },
+  {
+    fileName: "stratagems.json",
+    expectedCategory: null,
+    expectedType: "Stratagem",
+  },
 ] as const;
 const itemDatasets = itemDatasetConfigs.map((config) => ({
   ...config,
@@ -178,20 +267,46 @@ test("public data files use valid schema keys and value types", async (t) => {
       assertAllowedKeys(item, ["displayName", "missions", "tier"], context);
       assertRequiredKeys(item, ["displayName", "missions", "tier"], context);
       expectString(item.displayName, `${context}.displayName`);
-      assert.equal(typeof item.missions, "number", `${context}.missions must be a number`);
-      assert.ok(Number.isInteger(item.missions), `${context}.missions must be an integer`);
-      assert.ok(item.missions >= 1 && item.missions <= 3, `${context}.missions must be between 1 and 3`);
-      assert.equal(typeof item.tier, "number", `${context}.tier must be a number`);
-      assert.ok(Number.isInteger(item.tier), `${context}.tier must be an integer`);
-      assert.ok(item.tier >= 1 && item.tier <= 10, `${context}.tier must be between 1 and 10`);
+      assert.equal(
+        typeof item.missions,
+        "number",
+        `${context}.missions must be a number`,
+      );
+      assert.ok(
+        Number.isInteger(item.missions),
+        `${context}.missions must be an integer`,
+      );
+      assert.ok(
+        item.missions >= 1 && item.missions <= 3,
+        `${context}.missions must be between 1 and 3`,
+      );
+      assert.equal(
+        typeof item.tier,
+        "number",
+        `${context}.tier must be a number`,
+      );
+      assert.ok(
+        Number.isInteger(item.tier),
+        `${context}.tier must be an integer`,
+      );
+      assert.ok(
+        item.tier >= 1 && item.tier <= 10,
+        `${context}.tier must be between 1 and 10`,
+      );
     });
   });
 
-  await t.test("warbonds.json contains unique valid warbond definitions", () => {
-    assert.ok(warbonds.length > 0, "warbonds.json must not be empty");
-    assertUnique(warbondCodes, "warbondCodes");
-    assert.ok(warbondCodes.includes("none"), "warbondCodes must include none");
-  });
+  await t.test(
+    "warbonds.json contains unique valid warbond definitions",
+    () => {
+      assert.ok(warbonds.length > 0, "warbonds.json must not be empty");
+      assertUnique(warbondCodes, "warbondCodes");
+      assert.ok(
+        warbondCodes.includes("none"),
+        "warbondCodes must include none",
+      );
+    },
+  );
 
   await t.test("equipment and stratagem datasets contain valid items", () => {
     const allDisplayNames: string[] = [];
@@ -243,7 +358,10 @@ test("public data files use valid schema keys and value types", async (t) => {
 
         expectString(item.displayName, `${context}.displayName`);
         expectOptionalString(item.description, `${context}.description`);
-        if (config.fileName === "boosters.json" || config.fileName === "armor_passives.json") {
+        if (
+          config.fileName === "boosters.json" ||
+          config.fileName === "armor_passives.json"
+        ) {
           expectString(item.description, `${context}.description`);
         }
         expectString(item.internalName, `${context}.internalName`);
@@ -260,106 +378,239 @@ test("public data files use valid schema keys and value types", async (t) => {
 
         if (item.simulation !== undefined) {
           const simulation = asObject(item.simulation, `${context}.simulation`);
-          assertAllowedKeys(simulation, [
-            "reload",
-            "fireRateRpm",
-            "capacity",
-            "capacitySeconds",
-            "infiniteCapacity",
-            "listedDps",
-            "firingModes",
-            "sourceVersion",
-            "capacitiesByLabel",
-            "reloadSecondsByLabel",
-            "selectableFireRatesRpm",
-          ], `${context}.simulation`);
+          assertAllowedKeys(
+            simulation,
+            [
+              "reload",
+              "fireRateRpm",
+              "capacity",
+              "capacitySeconds",
+              "infiniteCapacity",
+              "listedDps",
+              "firingModes",
+              "sourceVersion",
+              "capacitiesByLabel",
+              "reloadSecondsByLabel",
+              "selectableFireRatesRpm",
+            ],
+            `${context}.simulation`,
+          );
           if (simulation.reload !== undefined) {
-            const reload = asObject(simulation.reload, `${context}.simulation.reload`);
+            const reload = asObject(
+              simulation.reload,
+              `${context}.simulation.reload`,
+            );
             assertAllowedKeys(
               reload,
-              ["emptySeconds", "tacticalSeconds", "perRoundSeconds", "firstRoundSeconds", "additionalRoundSeconds"],
+              [
+                "emptySeconds",
+                "tacticalSeconds",
+                "perRoundSeconds",
+                "firstRoundSeconds",
+                "additionalRoundSeconds",
+              ],
               `${context}.simulation.reload`,
             );
             Object.entries(reload).forEach(([key, value]) => {
-              assert.equal(typeof value, "number", `${context}.simulation.reload.${key} must be a number`);
-              assert.ok(Number.isFinite(value), `${context}.simulation.reload.${key} must be finite`);
-              assert.ok(value >= 0, `${context}.simulation.reload.${key} must be non-negative`);
+              assert.equal(
+                typeof value,
+                "number",
+                `${context}.simulation.reload.${key} must be a number`,
+              );
+              assert.ok(
+                Number.isFinite(value),
+                `${context}.simulation.reload.${key} must be finite`,
+              );
+              assert.ok(
+                value >= 0,
+                `${context}.simulation.reload.${key} must be non-negative`,
+              );
             });
           }
-          for (const key of ["capacitiesByLabel", "reloadSecondsByLabel"] as const) {
+          for (const key of [
+            "capacitiesByLabel",
+            "reloadSecondsByLabel",
+          ] as const) {
             if (simulation[key] === undefined) continue;
-            const labeled = asObject(simulation[key], `${context}.simulation.${key}`);
-            assert.ok(Object.keys(labeled).length > 0, `${context}.simulation.${key} must not be empty`);
+            const labeled = asObject(
+              simulation[key],
+              `${context}.simulation.${key}`,
+            );
+            assert.ok(
+              Object.keys(labeled).length > 0,
+              `${context}.simulation.${key} must not be empty`,
+            );
             for (const [label, value] of Object.entries(labeled)) {
-              assert.ok(label.length > 0, `${context}.simulation.${key} labels must not be empty`);
-              assert.equal(typeof value, "number", `${context}.simulation.${key}.${label} must be a number`);
-              assert.ok(Number.isFinite(value) && value > 0, `${context}.simulation.${key}.${label} must be positive`);
+              assert.ok(
+                label.length > 0,
+                `${context}.simulation.${key} labels must not be empty`,
+              );
+              assert.equal(
+                typeof value,
+                "number",
+                `${context}.simulation.${key}.${label} must be a number`,
+              );
+              assert.ok(
+                Number.isFinite(value) && value > 0,
+                `${context}.simulation.${key}.${label} must be positive`,
+              );
             }
           }
           if (simulation.firingModes !== undefined) {
-            expectStringArray(simulation.firingModes, `${context}.simulation.firingModes`, 1);
+            expectStringArray(
+              simulation.firingModes,
+              `${context}.simulation.firingModes`,
+              1,
+            );
           }
           if (simulation.selectableFireRatesRpm !== undefined) {
-            assert.ok(Array.isArray(simulation.selectableFireRatesRpm), `${context}.simulation.selectableFireRatesRpm must be an array`);
-            assert.ok(simulation.selectableFireRatesRpm.length > 1, `${context}.simulation.selectableFireRatesRpm must have multiple rates`);
+            assert.ok(
+              Array.isArray(simulation.selectableFireRatesRpm),
+              `${context}.simulation.selectableFireRatesRpm must be an array`,
+            );
+            assert.ok(
+              simulation.selectableFireRatesRpm.length > 1,
+              `${context}.simulation.selectableFireRatesRpm must have multiple rates`,
+            );
             for (const value of simulation.selectableFireRatesRpm) {
-              assert.equal(typeof value, "number", `${context}.simulation.selectableFireRatesRpm values must be numbers`);
-              assert.ok(Number.isFinite(value) && value > 0, `${context}.simulation.selectableFireRatesRpm values must be positive`);
+              assert.equal(
+                typeof value,
+                "number",
+                `${context}.simulation.selectableFireRatesRpm values must be numbers`,
+              );
+              assert.ok(
+                Number.isFinite(value) && value > 0,
+                `${context}.simulation.selectableFireRatesRpm values must be positive`,
+              );
             }
           }
-          for (const key of ["fireRateRpm", "capacity", "capacitySeconds", "listedDps"] as const) {
+          for (const key of [
+            "fireRateRpm",
+            "capacity",
+            "capacitySeconds",
+            "listedDps",
+          ] as const) {
             if (simulation[key] === undefined) continue;
-            assert.equal(typeof simulation[key], "number", `${context}.simulation.${key} must be a number`);
-            assert.ok(Number.isFinite(simulation[key]), `${context}.simulation.${key} must be finite`);
-            assert.ok(simulation[key] > 0, `${context}.simulation.${key} must be positive`);
+            assert.equal(
+              typeof simulation[key],
+              "number",
+              `${context}.simulation.${key} must be a number`,
+            );
+            assert.ok(
+              Number.isFinite(simulation[key]),
+              `${context}.simulation.${key} must be finite`,
+            );
+            assert.ok(
+              simulation[key] > 0,
+              `${context}.simulation.${key} must be positive`,
+            );
           }
           if (simulation.infiniteCapacity !== undefined) {
-            assert.equal(simulation.infiniteCapacity, true, `${context}.simulation.infiniteCapacity must be true when present`);
+            assert.equal(
+              simulation.infiniteCapacity,
+              true,
+              `${context}.simulation.infiniteCapacity must be true when present`,
+            );
           }
-          expectOptionalString(simulation.sourceVersion, `${context}.simulation.sourceVersion`);
+          expectOptionalString(
+            simulation.sourceVersion,
+            `${context}.simulation.sourceVersion`,
+          );
         }
 
         if (item.stratagemSimulation !== undefined) {
-          const simulation = asObject(item.stratagemSimulation, `${context}.stratagemSimulation`);
-          assertAllowedKeys(
-            simulation,
-            ["callInSeconds", "cooldownSeconds", "rearmSeconds", "uses", "sourceVersion"],
+          const simulation = asObject(
+            item.stratagemSimulation,
             `${context}.stratagemSimulation`,
           );
-          for (const key of ["callInSeconds", "cooldownSeconds", "rearmSeconds"] as const) {
+          assertAllowedKeys(
+            simulation,
+            [
+              "callInSeconds",
+              "cooldownSeconds",
+              "rearmSeconds",
+              "uses",
+              "sourceVersion",
+            ],
+            `${context}.stratagemSimulation`,
+          );
+          for (const key of [
+            "callInSeconds",
+            "cooldownSeconds",
+            "rearmSeconds",
+          ] as const) {
             if (simulation[key] === undefined) continue;
-            assert.equal(typeof simulation[key], "number", `${context}.stratagemSimulation.${key} must be a number`);
-            assert.ok(Number.isFinite(simulation[key]) && simulation[key] >= 0, `${context}.stratagemSimulation.${key} must be non-negative`);
+            assert.equal(
+              typeof simulation[key],
+              "number",
+              `${context}.stratagemSimulation.${key} must be a number`,
+            );
+            assert.ok(
+              Number.isFinite(simulation[key]) && simulation[key] >= 0,
+              `${context}.stratagemSimulation.${key} must be non-negative`,
+            );
           }
           if (simulation.uses !== undefined) {
             assert.ok(
-              simulation.uses === "unlimited"
-                || typeof simulation.uses === "number" && Number.isFinite(simulation.uses) && simulation.uses > 0,
+              simulation.uses === "unlimited" ||
+                (typeof simulation.uses === "number" &&
+                  Number.isFinite(simulation.uses) &&
+                  simulation.uses > 0),
               `${context}.stratagemSimulation.uses must be positive or unlimited`,
             );
           }
-          expectOptionalString(simulation.sourceVersion, `${context}.stratagemSimulation.sourceVersion`);
+          expectOptionalString(
+            simulation.sourceVersion,
+            `${context}.stratagemSimulation.sourceVersion`,
+          );
         }
 
         if (item.overrideCost !== undefined) {
-          assert.equal(typeof item.overrideCost, "number", `${context}.overrideCost must be a number`);
-          assert.ok(item.overrideCost > 0, `${context}.overrideCost must be positive`);
+          assert.equal(
+            typeof item.overrideCost,
+            "number",
+            `${context}.overrideCost must be a number`,
+          );
+          assert.ok(
+            item.overrideCost > 0,
+            `${context}.overrideCost must be positive`,
+          );
         }
 
         if (config.expectedCategory) {
-          assert.equal(item.type, config.expectedType, `${context}.type must be ${config.expectedType}`);
-          assert.equal(item.category, config.expectedCategory, `${context}.category must be ${config.expectedCategory}`);
+          assert.equal(
+            item.type,
+            config.expectedType,
+            `${context}.type must be ${config.expectedType}`,
+          );
+          assert.equal(
+            item.category,
+            config.expectedCategory,
+            `${context}.category must be ${config.expectedCategory}`,
+          );
         } else {
-          assert.equal(item.type, "Stratagem", `${context}.type must be Stratagem`);
+          assert.equal(
+            item.type,
+            "Stratagem",
+            `${context}.type must be Stratagem`,
+          );
           assert.ok(
-            ["Supply", "Eagle", "Defense", "Orbital"].includes(item.category as string),
+            ["Supply", "Eagle", "Defense", "Orbital"].includes(
+              item.category as string,
+            ),
             `${context}.category must be a valid stratagem category`,
           );
         }
 
         if (item.stratagemCode !== undefined) {
-          assert.ok(Array.isArray(item.stratagemCode), `${context}.stratagemCode must be an array`);
-          assert.ok(item.stratagemCode.length > 0, `${context}.stratagemCode must not be empty`);
+          assert.ok(
+            Array.isArray(item.stratagemCode),
+            `${context}.stratagemCode must be an array`,
+          );
+          assert.ok(
+            item.stratagemCode.length > 0,
+            `${context}.stratagemCode must not be empty`,
+          );
           item.stratagemCode.forEach((direction, directionIndex) => {
             assert.ok(
               STRATAGEM_DIRECTIONS.includes(direction),
@@ -367,7 +618,11 @@ test("public data files use valid schema keys and value types", async (t) => {
             );
           });
         } else {
-          assert.notEqual(config.fileName, "stratagems.json", `${context}.stratagemCode should be present on stratagems`);
+          assert.notEqual(
+            config.fileName,
+            "stratagems.json",
+            `${context}.stratagemCode should be present on stratagems`,
+          );
         }
 
         allDisplayNames.push(item.displayName as string);
@@ -387,26 +642,71 @@ test("public data files use valid schema keys and value types", async (t) => {
       const item = asObject(entry, context);
       assertAllowedKeys(
         item,
-        ["displayName", "tier", "wikiSlug", "tags", "minDifficulty", "maxDifficulty", "missionLength"],
+        [
+          "displayName",
+          "tier",
+          "wikiSlug",
+          "tags",
+          "minDifficulty",
+          "maxDifficulty",
+          "missionLength",
+        ],
         context,
       );
-      assertRequiredKeys(item, ["displayName", "tier", "minDifficulty", "maxDifficulty", "missionLength"], context);
+      assertRequiredKeys(
+        item,
+        [
+          "displayName",
+          "tier",
+          "minDifficulty",
+          "maxDifficulty",
+          "missionLength",
+        ],
+        context,
+      );
       expectString(item.displayName, `${context}.displayName`);
       expectOptionalString(item.wikiSlug, `${context}.wikiSlug`);
-      assert.equal(typeof item.minDifficulty, "number", `${context}.minDifficulty must be a number`);
-      assert.equal(typeof item.maxDifficulty, "number", `${context}.maxDifficulty must be a number`);
-      assert.ok(Number.isInteger(item.minDifficulty), `${context}.minDifficulty must be an integer`);
-      assert.ok(Number.isInteger(item.maxDifficulty), `${context}.maxDifficulty must be an integer`);
-      assert.ok(item.minDifficulty >= 1, `${context}.minDifficulty must be at least 1`);
-      assert.ok(item.maxDifficulty <= 10, `${context}.maxDifficulty must be at most 10`);
-      assert.ok(item.minDifficulty <= item.maxDifficulty, `${context}.minDifficulty must be <= maxDifficulty`);
+      assert.equal(
+        typeof item.minDifficulty,
+        "number",
+        `${context}.minDifficulty must be a number`,
+      );
+      assert.equal(
+        typeof item.maxDifficulty,
+        "number",
+        `${context}.maxDifficulty must be a number`,
+      );
+      assert.ok(
+        Number.isInteger(item.minDifficulty),
+        `${context}.minDifficulty must be an integer`,
+      );
+      assert.ok(
+        Number.isInteger(item.maxDifficulty),
+        `${context}.maxDifficulty must be an integer`,
+      );
+      assert.ok(
+        item.minDifficulty >= 1,
+        `${context}.minDifficulty must be at least 1`,
+      );
+      assert.ok(
+        item.maxDifficulty <= 10,
+        `${context}.maxDifficulty must be at most 10`,
+      );
+      assert.ok(
+        item.minDifficulty <= item.maxDifficulty,
+        `${context}.minDifficulty must be <= maxDifficulty`,
+      );
       assert.ok(
         MISSION_LENGTHS.includes(item.missionLength as MissionLength),
         `${context}.missionLength must be short or long`,
       );
 
       const tier = asObject(item.tier, `${context}.tier`);
-      assert.deepEqual(Object.keys(tier).sort(), [...FACTIONS].sort(), `${context}.tier must include every faction`);
+      assert.deepEqual(
+        Object.keys(tier).sort(),
+        [...FACTIONS].sort(),
+        `${context}.tier must include every faction`,
+      );
       for (const faction of FACTIONS) {
         expectOptionalTier(tier[faction], `${context}.tier.${faction}`);
       }
@@ -415,7 +715,9 @@ test("public data files use valid schema keys and value types", async (t) => {
         expectStringArray(item.tags, `${context}.tags`);
         (item.tags as unknown[]).forEach((tag, tagIndex) => {
           assert.ok(
-            [...FACTIONS, ...OBJECTIVE_TAGS].includes(tag as Faction | ObjectiveTag),
+            [...FACTIONS, ...OBJECTIVE_TAGS].includes(
+              tag as Faction | ObjectiveTag,
+            ),
             `${context}.tags[${tagIndex}] must be a valid faction or objective tag`,
           );
         });
@@ -427,209 +729,500 @@ test("public data files use valid schema keys and value types", async (t) => {
     assertUnique(displayNames, "objective display names");
   });
 
-  await t.test("enemies.json contains faction, variant, and anatomy data", () => {
-    assertAllowedKeys(bestiary, ["subfactions", "enemies"], "enemies.json");
-    assertRequiredKeys(bestiary, ["subfactions", "enemies"], "enemies.json");
-    const subfactions = asObject(bestiary.subfactions, "enemies.json.subfactions");
-    assert.deepEqual(Object.keys(subfactions).sort(), [...BESTIARY_FACTIONS].sort());
-    for (const faction of BESTIARY_FACTIONS) {
-      expectStringArray(subfactions[faction], `enemies.json.subfactions.${faction}`);
-    }
-    assert.ok(enemies.length > 0, "enemies.json must not be empty");
-    const displayNames: string[] = [];
-
-    enemies.forEach((entry, index) => {
-      const context = `enemies[${index}]`;
-      const enemy = asObject(entry, context);
-      assertAllowedKeys(
-        enemy,
-        ["displayName", "faction", "subfactions", "description", "enemyClass", "wikiSlug", "wikiImageUrl", "imageUrl", "variants", "anatomy", "elementalMultipliers", "statusThresholds"],
-        context,
+  await t.test(
+    "enemies.json contains faction, variant, and anatomy data",
+    () => {
+      assertAllowedKeys(bestiary, ["subfactions", "enemies"], "enemies.json");
+      assertRequiredKeys(bestiary, ["subfactions", "enemies"], "enemies.json");
+      const subfactions = asObject(
+        bestiary.subfactions,
+        "enemies.json.subfactions",
       );
-      assertRequiredKeys(
-        enemy,
-        ["displayName", "faction", "subfactions", "description", "enemyClass", "wikiSlug", "wikiImageUrl", "imageUrl", "variants", "anatomy"],
-        context,
+      assert.deepEqual(
+        Object.keys(subfactions).sort(),
+        [...BESTIARY_FACTIONS].sort(),
       );
-      expectString(enemy.displayName, `${context}.displayName`);
-      expectString(enemy.faction, `${context}.faction`);
-      assert.ok(BESTIARY_FACTIONS.includes(enemy.faction as typeof BESTIARY_FACTIONS[number]), `${context}.faction must be supported`);
-      expectStringArray(enemy.subfactions, `${context}.subfactions`);
-      expectString(enemy.description, `${context}.description`);
-      expectOptionalString(enemy.enemyClass, `${context}.enemyClass`);
-      expectString(enemy.wikiSlug, `${context}.wikiSlug`);
-      expectOptionalString(enemy.wikiImageUrl, `${context}.wikiImageUrl`);
-      expectImagePath(enemy.imageUrl, `${context}.imageUrl`);
-      assert.ok(Array.isArray(enemy.variants), `${context}.variants must be an array`);
-      assert.ok(Array.isArray(enemy.anatomy), `${context}.anatomy must be an array`);
-      assert.ok(enemy.anatomy.length > 0, `${context}.anatomy must not be empty`);
-      if (enemy.elementalMultipliers !== undefined) {
-        const multipliers = asObject(enemy.elementalMultipliers, `${context}.elementalMultipliers`);
-        assertAllowedKeys(multipliers, ["Fire", "Gas", "Arc", "Acid"], `${context}.elementalMultipliers`);
-        Object.entries(multipliers).forEach(([element, value]) => {
-          assert.equal(typeof value, "number", `${context}.elementalMultipliers.${element} must be numeric`);
-          assert.ok(Number.isFinite(value) && value >= 0, `${context}.elementalMultipliers.${element} must be non-negative`);
-        });
+      for (const faction of BESTIARY_FACTIONS) {
+        expectStringArray(
+          subfactions[faction],
+          `enemies.json.subfactions.${faction}`,
+        );
       }
-      if (enemy.statusThresholds !== undefined) {
-        const thresholds = asObject(enemy.statusThresholds, `${context}.statusThresholds`);
-        Object.entries(thresholds).forEach(([status, rawThreshold]) => {
-          const threshold = asObject(rawThreshold, `${context}.statusThresholds.${status}`);
-          assertAllowedKeys(threshold, ["minimum", "guaranteed"], `${context}.statusThresholds.${status}`);
-          assertRequiredKeys(threshold, ["minimum", "guaranteed"], `${context}.statusThresholds.${status}`);
-          assert.equal(typeof threshold.minimum, "number", `${context}.statusThresholds.${status}.minimum must be numeric`);
-          assert.equal(typeof threshold.guaranteed, "number", `${context}.statusThresholds.${status}.guaranteed must be numeric`);
-          assert.ok((threshold.minimum as number) >= 0, `${context}.statusThresholds.${status}.minimum must be non-negative`);
-          assert.ok(
-            (threshold.guaranteed as number) >= (threshold.minimum as number),
-            `${context}.statusThresholds.${status}.guaranteed must not be below minimum`,
+      assert.ok(enemies.length > 0, "enemies.json must not be empty");
+      const displayNames: string[] = [];
+
+      enemies.forEach((entry, index) => {
+        const context = `enemies[${index}]`;
+        const enemy = asObject(entry, context);
+        assertAllowedKeys(
+          enemy,
+          [
+            "displayName",
+            "faction",
+            "subfactions",
+            "description",
+            "enemyClass",
+            "wikiSlug",
+            "wikiImageUrl",
+            "imageUrl",
+            "variants",
+            "anatomy",
+            "elementalMultipliers",
+            "statusThresholds",
+          ],
+          context,
+        );
+        assertRequiredKeys(
+          enemy,
+          [
+            "displayName",
+            "faction",
+            "subfactions",
+            "description",
+            "enemyClass",
+            "wikiSlug",
+            "wikiImageUrl",
+            "imageUrl",
+            "variants",
+            "anatomy",
+          ],
+          context,
+        );
+        expectString(enemy.displayName, `${context}.displayName`);
+        expectString(enemy.faction, `${context}.faction`);
+        assert.ok(
+          BESTIARY_FACTIONS.includes(
+            enemy.faction as (typeof BESTIARY_FACTIONS)[number],
+          ),
+          `${context}.faction must be supported`,
+        );
+        expectStringArray(enemy.subfactions, `${context}.subfactions`);
+        expectString(enemy.description, `${context}.description`);
+        expectOptionalString(enemy.enemyClass, `${context}.enemyClass`);
+        expectString(enemy.wikiSlug, `${context}.wikiSlug`);
+        expectOptionalString(enemy.wikiImageUrl, `${context}.wikiImageUrl`);
+        expectImagePath(enemy.imageUrl, `${context}.imageUrl`);
+        assert.ok(
+          Array.isArray(enemy.variants),
+          `${context}.variants must be an array`,
+        );
+        assert.ok(
+          Array.isArray(enemy.anatomy),
+          `${context}.anatomy must be an array`,
+        );
+        assert.ok(
+          enemy.anatomy.length > 0,
+          `${context}.anatomy must not be empty`,
+        );
+        if (enemy.elementalMultipliers !== undefined) {
+          const multipliers = asObject(
+            enemy.elementalMultipliers,
+            `${context}.elementalMultipliers`,
+          );
+          assertAllowedKeys(
+            multipliers,
+            ["Fire", "Gas", "Arc", "Acid"],
+            `${context}.elementalMultipliers`,
+          );
+          Object.entries(multipliers).forEach(([element, value]) => {
+            assert.equal(
+              typeof value,
+              "number",
+              `${context}.elementalMultipliers.${element} must be numeric`,
+            );
+            assert.ok(
+              Number.isFinite(value) && value >= 0,
+              `${context}.elementalMultipliers.${element} must be non-negative`,
+            );
+          });
+        }
+        if (enemy.statusThresholds !== undefined) {
+          const thresholds = asObject(
+            enemy.statusThresholds,
+            `${context}.statusThresholds`,
+          );
+          Object.entries(thresholds).forEach(([status, rawThreshold]) => {
+            const threshold = asObject(
+              rawThreshold,
+              `${context}.statusThresholds.${status}`,
+            );
+            assertAllowedKeys(
+              threshold,
+              ["minimum", "guaranteed"],
+              `${context}.statusThresholds.${status}`,
+            );
+            assertRequiredKeys(
+              threshold,
+              ["minimum", "guaranteed"],
+              `${context}.statusThresholds.${status}`,
+            );
+            assert.equal(
+              typeof threshold.minimum,
+              "number",
+              `${context}.statusThresholds.${status}.minimum must be numeric`,
+            );
+            assert.equal(
+              typeof threshold.guaranteed,
+              "number",
+              `${context}.statusThresholds.${status}.guaranteed must be numeric`,
+            );
+            assert.ok(
+              (threshold.minimum as number) >= 0,
+              `${context}.statusThresholds.${status}.minimum must be non-negative`,
+            );
+            assert.ok(
+              (threshold.guaranteed as number) >= (threshold.minimum as number),
+              `${context}.statusThresholds.${status}.guaranteed must not be below minimum`,
+            );
+          });
+        }
+
+        enemy.variants.forEach((entry: unknown, variantIndex: number) => {
+          const variant = asObject(
+            entry,
+            `${context}.variants[${variantIndex}]`,
+          );
+          assertAllowedKeys(
+            variant,
+            ["displayName", "wikiSlug", "wikiImageUrl", "imageUrl"],
+            `${context}.variants[${variantIndex}]`,
+          );
+          expectString(
+            variant.displayName,
+            `${context}.variants[${variantIndex}].displayName`,
+          );
+          expectString(
+            variant.wikiSlug,
+            `${context}.variants[${variantIndex}].wikiSlug`,
+          );
+          expectOptionalString(
+            variant.wikiImageUrl,
+            `${context}.variants[${variantIndex}].wikiImageUrl`,
+          );
+          expectImagePath(
+            variant.imageUrl,
+            `${context}.variants[${variantIndex}].imageUrl`,
           );
         });
-      }
 
-      enemy.variants.forEach((entry: unknown, variantIndex: number) => {
-        const variant = asObject(entry, `${context}.variants[${variantIndex}]`);
-        assertAllowedKeys(variant, ["displayName", "wikiSlug", "wikiImageUrl", "imageUrl"], `${context}.variants[${variantIndex}]`);
-        expectString(variant.displayName, `${context}.variants[${variantIndex}].displayName`);
-        expectString(variant.wikiSlug, `${context}.variants[${variantIndex}].wikiSlug`);
-        expectOptionalString(variant.wikiImageUrl, `${context}.variants[${variantIndex}].wikiImageUrl`);
-        expectImagePath(variant.imageUrl, `${context}.variants[${variantIndex}].imageUrl`);
-      });
-
-      enemy.anatomy.forEach((entry: unknown, anatomyIndex: number) => {
-        const anatomy = asObject(entry, `${context}.anatomy[${anatomyIndex}]`);
-        assertAllowedKeys(anatomy, ["name", "parts"], `${context}.anatomy[${anatomyIndex}]`);
-        expectString(anatomy.name, `${context}.anatomy[${anatomyIndex}].name`);
-        assert.ok(Array.isArray(anatomy.parts), `${context}.anatomy[${anatomyIndex}].parts must be an array`);
-        assert.ok(anatomy.parts.length > 0, `${context}.anatomy[${anatomyIndex}].parts must not be empty`);
-        anatomy.parts.forEach((entry: unknown, partIndex: number) => {
-          const partContext = `${context}.anatomy[${anatomyIndex}].parts[${partIndex}]`;
-          const part = asObject(entry, partContext);
-          assertAllowedKeys(part, [
-            "name",
-            "armor",
-            "armorByDifficulty",
-            "health",
-            "healthByDifficulty",
-            "durability",
-            "percentToMain",
-            "damageToMainCapped",
-            "bleed",
-            "bleedDescription",
-            "fatal",
-            "explosionResistance",
-            "explosionVerificationMode",
-            "demolitionForce",
-          ], partContext);
-          expectString(part.name, `${partContext}.name`);
-          expectString(part.armor, `${partContext}.armor`);
-          expectString(part.health, `${partContext}.health`);
-          expectString(part.durability, `${partContext}.durability`);
-          if (part.healthByDifficulty !== undefined) {
-            const healthByDifficulty = asObject(part.healthByDifficulty, `${partContext}.healthByDifficulty`);
-            Object.entries(healthByDifficulty).forEach(([difficulty, health]) => {
-              assert.match(difficulty, /^\d+$/, `${partContext}.healthByDifficulty keys must be difficulties`);
-              assert.equal(typeof health, "number", `${partContext}.healthByDifficulty.${difficulty} must be a number`);
-              assert.ok(Number.isFinite(health), `${partContext}.healthByDifficulty.${difficulty} must be finite`);
-              assert.ok(health > 0, `${partContext}.healthByDifficulty.${difficulty} must be positive`);
-            });
-          }
-          for (const key of ["percentToMain", "explosionResistance", "demolitionForce"] as const) {
-            if (part[key] === undefined) continue;
-            assert.equal(typeof part[key], "number", `${partContext}.${key} must be a number`);
-            assert.ok(Number.isFinite(part[key]), `${partContext}.${key} must be finite`);
-            assert.ok(part[key] >= 0, `${partContext}.${key} must be non-negative`);
-          }
-          if (part.explosionResistance !== undefined) {
-            assert.ok(part.explosionResistance <= 1, `${partContext}.explosionResistance must not exceed 1`);
-          }
-          if (part.explosionVerificationMode !== undefined) {
-            assert.ok(
-              ["All", "Outer Radius", "None"].includes(String(part.explosionVerificationMode)),
-              `${partContext}.explosionVerificationMode must be All, Outer Radius, or None`,
+        enemy.anatomy.forEach((entry: unknown, anatomyIndex: number) => {
+          const anatomy = asObject(
+            entry,
+            `${context}.anatomy[${anatomyIndex}]`,
+          );
+          assertAllowedKeys(
+            anatomy,
+            ["name", "parts"],
+            `${context}.anatomy[${anatomyIndex}]`,
+          );
+          expectString(
+            anatomy.name,
+            `${context}.anatomy[${anatomyIndex}].name`,
+          );
+          assert.ok(
+            Array.isArray(anatomy.parts),
+            `${context}.anatomy[${anatomyIndex}].parts must be an array`,
+          );
+          assert.ok(
+            anatomy.parts.length > 0,
+            `${context}.anatomy[${anatomyIndex}].parts must not be empty`,
+          );
+          anatomy.parts.forEach((entry: unknown, partIndex: number) => {
+            const partContext = `${context}.anatomy[${anatomyIndex}].parts[${partIndex}]`;
+            const part = asObject(entry, partContext);
+            assertAllowedKeys(
+              part,
+              [
+                "name",
+                "armor",
+                "armorByDifficulty",
+                "health",
+                "healthByDifficulty",
+                "durability",
+                "percentToMain",
+                "damageToMainCapped",
+                "bleed",
+                "bleedDescription",
+                "fatal",
+                "explosionResistance",
+                "explosionVerificationMode",
+                "demolitionForce",
+              ],
+              partContext,
             );
-          }
-          for (const key of ["damageToMainCapped", "fatal"] as const) {
-            if (part[key] !== undefined) assert.equal(typeof part[key], "boolean", `${partContext}.${key} must be boolean`);
-          }
-          if (part.bleed !== undefined && part.bleed !== null) {
-            const bleed = asObject(part.bleed, `${partContext}.bleed`);
-            assertAllowedKeys(bleed, ["constitution", "decayPerSecond"], `${partContext}.bleed`);
-            for (const key of ["constitution", "decayPerSecond"] as const) {
-              assert.equal(typeof bleed[key], "number", `${partContext}.bleed.${key} must be a number`);
-              assert.ok(Number.isFinite(bleed[key]), `${partContext}.bleed.${key} must be finite`);
-              assert.ok(bleed[key] >= 0, `${partContext}.bleed.${key} must be non-negative`);
+            expectString(part.name, `${partContext}.name`);
+            expectString(part.armor, `${partContext}.armor`);
+            expectString(part.health, `${partContext}.health`);
+            expectString(part.durability, `${partContext}.durability`);
+            if (part.healthByDifficulty !== undefined) {
+              const healthByDifficulty = asObject(
+                part.healthByDifficulty,
+                `${partContext}.healthByDifficulty`,
+              );
+              Object.entries(healthByDifficulty).forEach(
+                ([difficulty, health]) => {
+                  assert.match(
+                    difficulty,
+                    /^\d+$/,
+                    `${partContext}.healthByDifficulty keys must be difficulties`,
+                  );
+                  assert.equal(
+                    typeof health,
+                    "number",
+                    `${partContext}.healthByDifficulty.${difficulty} must be a number`,
+                  );
+                  assert.ok(
+                    Number.isFinite(health),
+                    `${partContext}.healthByDifficulty.${difficulty} must be finite`,
+                  );
+                  assert.ok(
+                    health > 0,
+                    `${partContext}.healthByDifficulty.${difficulty} must be positive`,
+                  );
+                },
+              );
             }
-          }
-          expectOptionalString(part.bleedDescription, `${partContext}.bleedDescription`);
-          if (part.armorByDifficulty !== undefined) {
-            const armorByDifficulty = asObject(part.armorByDifficulty, `${partContext}.armorByDifficulty`);
-            Object.entries(armorByDifficulty).forEach(([difficulty, armor]) => {
-              assert.match(difficulty, /^\d+$/, `${partContext}.armorByDifficulty keys must be difficulties`);
-              expectString(armor, `${partContext}.armorByDifficulty.${difficulty}`);
-            });
-          }
+            for (const key of [
+              "percentToMain",
+              "explosionResistance",
+              "demolitionForce",
+            ] as const) {
+              if (part[key] === undefined) continue;
+              assert.equal(
+                typeof part[key],
+                "number",
+                `${partContext}.${key} must be a number`,
+              );
+              assert.ok(
+                Number.isFinite(part[key]),
+                `${partContext}.${key} must be finite`,
+              );
+              assert.ok(
+                part[key] >= 0,
+                `${partContext}.${key} must be non-negative`,
+              );
+            }
+            if (part.explosionResistance !== undefined) {
+              assert.ok(
+                part.explosionResistance <= 1,
+                `${partContext}.explosionResistance must not exceed 1`,
+              );
+            }
+            if (part.explosionVerificationMode !== undefined) {
+              assert.ok(
+                ["All", "Outer Radius", "None"].includes(
+                  String(part.explosionVerificationMode),
+                ),
+                `${partContext}.explosionVerificationMode must be All, Outer Radius, or None`,
+              );
+            }
+            for (const key of ["damageToMainCapped", "fatal"] as const) {
+              if (part[key] !== undefined)
+                assert.equal(
+                  typeof part[key],
+                  "boolean",
+                  `${partContext}.${key} must be boolean`,
+                );
+            }
+            if (part.bleed !== undefined && part.bleed !== null) {
+              const bleed = asObject(part.bleed, `${partContext}.bleed`);
+              assertAllowedKeys(
+                bleed,
+                ["constitution", "decayPerSecond"],
+                `${partContext}.bleed`,
+              );
+              for (const key of ["constitution", "decayPerSecond"] as const) {
+                assert.equal(
+                  typeof bleed[key],
+                  "number",
+                  `${partContext}.bleed.${key} must be a number`,
+                );
+                assert.ok(
+                  Number.isFinite(bleed[key]),
+                  `${partContext}.bleed.${key} must be finite`,
+                );
+                assert.ok(
+                  bleed[key] >= 0,
+                  `${partContext}.bleed.${key} must be non-negative`,
+                );
+              }
+            }
+            expectOptionalString(
+              part.bleedDescription,
+              `${partContext}.bleedDescription`,
+            );
+            if (part.armorByDifficulty !== undefined) {
+              const armorByDifficulty = asObject(
+                part.armorByDifficulty,
+                `${partContext}.armorByDifficulty`,
+              );
+              Object.entries(armorByDifficulty).forEach(
+                ([difficulty, armor]) => {
+                  assert.match(
+                    difficulty,
+                    /^\d+$/,
+                    `${partContext}.armorByDifficulty keys must be difficulties`,
+                  );
+                  expectString(
+                    armor,
+                    `${partContext}.armorByDifficulty.${difficulty}`,
+                  );
+                },
+              );
+            }
+          });
         });
+
+        displayNames.push(enemy.displayName as string);
       });
 
-      displayNames.push(enemy.displayName as string);
-    });
+      assertUnique(displayNames, "enemy display names");
+    },
+  );
 
-    assertUnique(displayNames, "enemy display names");
-  });
+  await t.test(
+    "structures.json contains demolition targets, attack sources, and local images",
+    () => {
+      assertAllowedKeys(
+        structuresData,
+        ["structures", "demolitionSources"],
+        "structures.json",
+      );
+      assert.ok(
+        Array.isArray(structuresData.structures),
+        "structures.json.structures must be an array",
+      );
+      assert.ok(
+        Array.isArray(structuresData.demolitionSources),
+        "structures.json.demolitionSources must be an array",
+      );
+      assert.ok(
+        structuresData.structures.length > 0,
+        "structures must not be empty",
+      );
+      assert.ok(
+        structuresData.demolitionSources.length > 0,
+        "demolitionSources must not be empty",
+      );
 
-  await t.test("structures.json contains demolition targets, attack sources, and local images", () => {
-    assertAllowedKeys(structuresData, ["structures", "demolitionSources"], "structures.json");
-    assert.ok(Array.isArray(structuresData.structures), "structures.json.structures must be an array");
-    assert.ok(Array.isArray(structuresData.demolitionSources), "structures.json.demolitionSources must be an array");
-    assert.ok(structuresData.structures.length > 0, "structures must not be empty");
-    assert.ok(structuresData.demolitionSources.length > 0, "demolitionSources must not be empty");
-
-    const structureIds: string[] = [];
-    structuresData.structures.forEach((entry: unknown, index: number) => {
-      const context = `structures[${index}]`;
-      const structure = asObject(entry, context);
-      assertAllowedKeys(structure, ["id", "displayName", "faction", "description", "wikiSlug", "wikiImageUrl", "imageUrl", "targets"], context);
-      assertRequiredKeys(structure, ["id", "displayName", "faction", "description", "wikiSlug", "wikiImageUrl", "imageUrl", "targets"], context);
-      expectString(structure.id, `${context}.id`);
-      expectString(structure.displayName, `${context}.displayName`);
-      assert.ok(["Neutral", ...BESTIARY_FACTIONS].includes(structure.faction), `${context}.faction must be supported`);
-      assert.equal(typeof structure.description, "string", `${context}.description must be a string`);
-      expectString(structure.wikiSlug, `${context}.wikiSlug`);
-      expectOptionalString(structure.wikiImageUrl, `${context}.wikiImageUrl`);
-      expectImagePath(structure.imageUrl, `${context}.imageUrl`);
-      assert.ok(Array.isArray(structure.targets) && structure.targets.length > 0, `${context}.targets must not be empty`);
-      structure.targets.forEach((entry: unknown, targetIndex: number) => {
-        const targetContext = `${context}.targets[${targetIndex}]`;
-        const target = asObject(entry, targetContext);
-        assertAllowedKeys(target, ["name", "demolitionForce", "badr"], targetContext);
-        expectString(target.name, `${targetContext}.name`);
-        assert.equal(typeof target.demolitionForce, "number", `${targetContext}.demolitionForce must be a number`);
-        assert.ok(target.demolitionForce >= 0, `${targetContext}.demolitionForce must be non-negative`);
-        assert.equal(typeof target.badr, "boolean", `${targetContext}.badr must be a boolean`);
+      const structureIds: string[] = [];
+      structuresData.structures.forEach((entry: unknown, index: number) => {
+        const context = `structures[${index}]`;
+        const structure = asObject(entry, context);
+        assertAllowedKeys(
+          structure,
+          [
+            "id",
+            "displayName",
+            "faction",
+            "description",
+            "wikiSlug",
+            "wikiImageUrl",
+            "imageUrl",
+            "targets",
+          ],
+          context,
+        );
+        assertRequiredKeys(
+          structure,
+          [
+            "id",
+            "displayName",
+            "faction",
+            "description",
+            "wikiSlug",
+            "wikiImageUrl",
+            "imageUrl",
+            "targets",
+          ],
+          context,
+        );
+        expectString(structure.id, `${context}.id`);
+        expectString(structure.displayName, `${context}.displayName`);
+        assert.ok(
+          ["Neutral", ...BESTIARY_FACTIONS].includes(structure.faction),
+          `${context}.faction must be supported`,
+        );
+        assert.equal(
+          typeof structure.description,
+          "string",
+          `${context}.description must be a string`,
+        );
+        expectString(structure.wikiSlug, `${context}.wikiSlug`);
+        expectOptionalString(structure.wikiImageUrl, `${context}.wikiImageUrl`);
+        expectImagePath(structure.imageUrl, `${context}.imageUrl`);
+        assert.ok(
+          Array.isArray(structure.targets) && structure.targets.length > 0,
+          `${context}.targets must not be empty`,
+        );
+        structure.targets.forEach((entry: unknown, targetIndex: number) => {
+          const targetContext = `${context}.targets[${targetIndex}]`;
+          const target = asObject(entry, targetContext);
+          assertAllowedKeys(
+            target,
+            ["name", "demolitionForce", "badr"],
+            targetContext,
+          );
+          expectString(target.name, `${targetContext}.name`);
+          assert.equal(
+            typeof target.demolitionForce,
+            "number",
+            `${targetContext}.demolitionForce must be a number`,
+          );
+          assert.ok(
+            target.demolitionForce >= 0,
+            `${targetContext}.demolitionForce must be non-negative`,
+          );
+          assert.equal(
+            typeof target.badr,
+            "boolean",
+            `${targetContext}.badr must be a boolean`,
+          );
+        });
+        structureIds.push(structure.id as string);
       });
-      structureIds.push(structure.id as string);
-    });
-    assertUnique(structureIds, "structure ids");
+      assertUnique(structureIds, "structure ids");
 
-    structuresData.demolitionSources.forEach((entry: unknown, index: number) => {
-      const context = `demolitionSources[${index}]`;
-      const source = asObject(entry, context);
-      assertAllowedKeys(source, ["displayName", "wikiSlug", "category", "attacks"], context);
-      expectString(source.displayName, `${context}.displayName`);
-      expectString(source.wikiSlug, `${context}.wikiSlug`);
-      expectString(source.category, `${context}.category`);
-      assert.ok(Array.isArray(source.attacks) && source.attacks.length > 0, `${context}.attacks must not be empty`);
-      source.attacks.forEach((entry: unknown, attackIndex: number) => {
-        const attackContext = `${context}.attacks[${attackIndex}]`;
-        const attack = asObject(entry, attackContext);
-        assertAllowedKeys(attack, ["name", "demolitionForce", "explosive"], attackContext);
-        expectString(attack.name, `${attackContext}.name`);
-        assert.equal(typeof attack.demolitionForce, "number", `${attackContext}.demolitionForce must be a number`);
-        assert.equal(typeof attack.explosive, "boolean", `${attackContext}.explosive must be a boolean`);
-      });
-    });
-  });
+      structuresData.demolitionSources.forEach(
+        (entry: unknown, index: number) => {
+          const context = `demolitionSources[${index}]`;
+          const source = asObject(entry, context);
+          assertAllowedKeys(
+            source,
+            ["displayName", "wikiSlug", "category", "attacks"],
+            context,
+          );
+          expectString(source.displayName, `${context}.displayName`);
+          expectString(source.wikiSlug, `${context}.wikiSlug`);
+          expectString(source.category, `${context}.category`);
+          assert.ok(
+            Array.isArray(source.attacks) && source.attacks.length > 0,
+            `${context}.attacks must not be empty`,
+          );
+          source.attacks.forEach((entry: unknown, attackIndex: number) => {
+            const attackContext = `${context}.attacks[${attackIndex}]`;
+            const attack = asObject(entry, attackContext);
+            assertAllowedKeys(
+              attack,
+              ["name", "demolitionForce", "explosive"],
+              attackContext,
+            );
+            expectString(attack.name, `${attackContext}.name`);
+            assert.equal(
+              typeof attack.demolitionForce,
+              "number",
+              `${attackContext}.demolitionForce must be a number`,
+            );
+            assert.equal(
+              typeof attack.explosive,
+              "boolean",
+              `${attackContext}.explosive must be a boolean`,
+            );
+          });
+        },
+      );
+    },
+  );
 
   await t.test("quests.json contains valid quest definitions", () => {
     const data = readJson<unknown>("quests.json");
@@ -656,13 +1249,28 @@ test("public data files use valid schema keys and value types", async (t) => {
         ],
         context,
       );
-      assertRequiredKeys(item, ["displayName", "descriptions", "type", "category", "values", "rewards"], context);
+      assertRequiredKeys(
+        item,
+        [
+          "displayName",
+          "descriptions",
+          "type",
+          "category",
+          "values",
+          "rewards",
+        ],
+        context,
+      );
       expectString(item.displayName, `${context}.displayName`);
       assert.equal(item.type, "objective", `${context}.type must be objective`);
       expectString(item.category, `${context}.category`);
       expectOptionalString(item.description, `${context}.description`);
       expectStringArray(item.descriptions, `${context}.descriptions`, 3);
-      assert.equal((item.descriptions as unknown[]).length, 3, `${context}.descriptions must contain exactly 3 entries`);
+      assert.equal(
+        (item.descriptions as unknown[]).length,
+        3,
+        `${context}.descriptions must contain exactly 3 entries`,
+      );
       expectNumberArray(item.values, `${context}.values`, 1);
       expectNumberArray(item.rewards, `${context}.rewards`, 1);
 
@@ -670,7 +1278,11 @@ test("public data files use valid schema keys and value types", async (t) => {
         expectNumberArray(item.shortValues, `${context}.shortValues`, 1);
       }
       if (item.datatype !== undefined) {
-        assert.equal(item.datatype, "float", `${context}.datatype must be float`);
+        assert.equal(
+          item.datatype,
+          "float",
+          `${context}.datatype must be float`,
+        );
       }
       if (item.tags !== undefined) {
         expectStringArray(item.tags, `${context}.tags`);
@@ -682,37 +1294,60 @@ test("public data files use valid schema keys and value types", async (t) => {
     assertUnique(displayNames, "quest display names");
   });
 
-  await t.test("restrictions.json contains valid restriction definitions", () => {
-    const data = readJson<unknown>("restrictions.json");
-    assert.ok(Array.isArray(data), "restrictions.json must be an array");
+  await t.test(
+    "restrictions.json contains valid restriction definitions",
+    () => {
+      const data = readJson<unknown>("restrictions.json");
+      assert.ok(Array.isArray(data), "restrictions.json must be an array");
 
-    const displayNames: string[] = [];
+      const displayNames: string[] = [];
 
-    data.forEach((entry, index) => {
-      const context = `restrictions[${index}]`;
-      const item = asObject(entry, context);
-      assertAllowedKeys(
-        item,
-        ["displayName", "description", "descriptions", "type", "category", "tags", "tier"],
-        context,
-      );
-      assertRequiredKeys(item, ["displayName", "descriptions", "type", "category", "tier"], context);
-      expectString(item.displayName, `${context}.displayName`);
-      assert.equal(item.type, "restriction", `${context}.type must be restriction`);
-      expectString(item.category, `${context}.category`);
-      expectOptionalString(item.description, `${context}.description`);
-      expectStringArray(item.descriptions, `${context}.descriptions`, 3);
-      assert.equal((item.descriptions as unknown[]).length, 3, `${context}.descriptions must contain exactly 3 entries`);
-      expectOptionalTier(item.tier, `${context}.tier`);
-      if (item.tags !== undefined) {
-        expectStringArray(item.tags, `${context}.tags`);
-      }
+      data.forEach((entry, index) => {
+        const context = `restrictions[${index}]`;
+        const item = asObject(entry, context);
+        assertAllowedKeys(
+          item,
+          [
+            "displayName",
+            "description",
+            "descriptions",
+            "type",
+            "category",
+            "tags",
+            "tier",
+          ],
+          context,
+        );
+        assertRequiredKeys(
+          item,
+          ["displayName", "descriptions", "type", "category", "tier"],
+          context,
+        );
+        expectString(item.displayName, `${context}.displayName`);
+        assert.equal(
+          item.type,
+          "restriction",
+          `${context}.type must be restriction`,
+        );
+        expectString(item.category, `${context}.category`);
+        expectOptionalString(item.description, `${context}.description`);
+        expectStringArray(item.descriptions, `${context}.descriptions`, 3);
+        assert.equal(
+          (item.descriptions as unknown[]).length,
+          3,
+          `${context}.descriptions must contain exactly 3 entries`,
+        );
+        expectOptionalTier(item.tier, `${context}.tier`);
+        if (item.tags !== undefined) {
+          expectStringArray(item.tags, `${context}.tags`);
+        }
 
-      displayNames.push(item.displayName as string);
-    });
+        displayNames.push(item.displayName as string);
+      });
 
-    assertUnique(displayNames, "restriction display names");
-  });
+      assertUnique(displayNames, "restriction display names");
+    },
+  );
 
   await t.test("forms.json contains valid form templates", () => {
     const data = readJson<unknown>("forms.json");
@@ -724,17 +1359,35 @@ test("public data files use valid schema keys and value types", async (t) => {
       const context = `forms[${index}]`;
       const item = asObject(entry, context);
       assertAllowedKeys(item, ["title", "subtitle", "possibleFields"], context);
-      assertRequiredKeys(item, ["title", "subtitle", "possibleFields"], context);
+      assertRequiredKeys(
+        item,
+        ["title", "subtitle", "possibleFields"],
+        context,
+      );
       expectString(item.title, `${context}.title`);
       expectString(item.subtitle, `${context}.subtitle`);
-      assert.ok(Array.isArray(item.possibleFields), `${context}.possibleFields must be an array`);
-      assert.ok(item.possibleFields.length > 0, `${context}.possibleFields must not be empty`);
+      assert.ok(
+        Array.isArray(item.possibleFields),
+        `${context}.possibleFields must be an array`,
+      );
+      assert.ok(
+        item.possibleFields.length > 0,
+        `${context}.possibleFields must not be empty`,
+      );
 
       item.possibleFields.forEach((field, fieldIndex) => {
         const fieldContext = `${context}.possibleFields[${fieldIndex}]`;
         const fieldObject = asObject(field, fieldContext);
-        assertAllowedKeys(fieldObject, ["label", "success", "warning", "error"], fieldContext);
-        assertRequiredKeys(fieldObject, ["label", "success", "warning", "error"], fieldContext);
+        assertAllowedKeys(
+          fieldObject,
+          ["label", "success", "warning", "error"],
+          fieldContext,
+        );
+        assertRequiredKeys(
+          fieldObject,
+          ["label", "success", "warning", "error"],
+          fieldContext,
+        );
         expectString(fieldObject.label, `${fieldContext}.label`);
         expectStringArray(fieldObject.success, `${fieldContext}.success`, 1);
         expectStringArray(fieldObject.warning, `${fieldContext}.warning`, 1);
@@ -768,61 +1421,79 @@ test("public data files use valid schema keys and value types", async (t) => {
   });
 
   await t.test("cross-json references stay consistent", async (crossJson) => {
-    await crossJson.test("all item warbond references exist in warbonds.json", () => {
-      allItems.forEach((entry, index) => {
-        const item = asObject(entry, `allItems[${index}]`);
-        const warbondCode = item.warbondCode;
-        assert.equal(typeof warbondCode, "string", `allItems[${index}].warbondCode must be a string`);
-        assert.ok(
-          warbondCodes.includes(warbondCode),
-          `${item.displayName as string} references missing warbondCode: ${warbondCode}`,
-        );
-      });
-    });
-
-    await crossJson.test("every non-default warbond is referenced by at least one item", () => {
-      const referencedWarbondCodes = new Set(
-        allItems
-          .map((item) => item.warbondCode)
-          .filter((warbondCode): warbondCode is string => typeof warbondCode === "string" && warbondCode !== "none"),
-      );
-
-      warbonds.forEach((entry, index) => {
-        const warbond = asObject(entry, `warbonds[${index}]`);
-        const warbondCode = warbond.warbondCode as string;
-        if (warbondCode === "none") {
-          return;
-        }
-
-        assert.ok(
-          referencedWarbondCodes.has(warbondCode),
-          `warbonds.json contains an unreferenced warbondCode: ${warbondCode}`,
-        );
-      });
-    });
-
-    await crossJson.test("objective faction tags and tier maps match factions.json", () => {
-      objectives.forEach((entry, index) => {
-        const objective = asObject(entry, `objectives[${index}]`);
-        const tierMap = asObject(objective.tier, `objectives[${index}].tier`);
-        const taggedFactions = new Set(
-          ((objective.tags as any[] | undefined) ?? []).filter((tag): tag is string => factions.includes(tag)),
-        );
-
-        assert.deepEqual(
-          Object.keys(tierMap).sort(),
-          [...factions].sort(),
-          `objectives[${index}].tier keys must match factions.json exactly`,
-        );
-
-        taggedFactions.forEach((faction) => {
-          assert.notEqual(
-            tierMap[faction],
-            null,
-            `${objective.displayName as string} tags faction ${faction} but has no tier for it`,
+    await crossJson.test(
+      "all item warbond references exist in warbonds.json",
+      () => {
+        allItems.forEach((entry, index) => {
+          const item = asObject(entry, `allItems[${index}]`);
+          const warbondCode = item.warbondCode;
+          assert.equal(
+            typeof warbondCode,
+            "string",
+            `allItems[${index}].warbondCode must be a string`,
+          );
+          assert.ok(
+            warbondCodes.includes(warbondCode),
+            `${item.displayName as string} references missing warbondCode: ${warbondCode}`,
           );
         });
-      });
-    });
+      },
+    );
+
+    await crossJson.test(
+      "every non-default warbond is referenced by at least one item",
+      () => {
+        const referencedWarbondCodes = new Set(
+          allItems
+            .map((item) => item.warbondCode)
+            .filter(
+              (warbondCode): warbondCode is string =>
+                typeof warbondCode === "string" && warbondCode !== "none",
+            ),
+        );
+
+        warbonds.forEach((entry, index) => {
+          const warbond = asObject(entry, `warbonds[${index}]`);
+          const warbondCode = warbond.warbondCode as string;
+          if (warbondCode === "none") {
+            return;
+          }
+
+          assert.ok(
+            referencedWarbondCodes.has(warbondCode),
+            `warbonds.json contains an unreferenced warbondCode: ${warbondCode}`,
+          );
+        });
+      },
+    );
+
+    await crossJson.test(
+      "objective faction tags and tier maps match factions.json",
+      () => {
+        objectives.forEach((entry, index) => {
+          const objective = asObject(entry, `objectives[${index}]`);
+          const tierMap = asObject(objective.tier, `objectives[${index}].tier`);
+          const taggedFactions = new Set(
+            ((objective.tags as any[] | undefined) ?? []).filter(
+              (tag): tag is string => factions.includes(tag),
+            ),
+          );
+
+          assert.deepEqual(
+            Object.keys(tierMap).sort(),
+            [...factions].sort(),
+            `objectives[${index}].tier keys must match factions.json exactly`,
+          );
+
+          taggedFactions.forEach((faction) => {
+            assert.notEqual(
+              tierMap[faction],
+              null,
+              `${objective.displayName as string} tags faction ${faction} but has no tier for it`,
+            );
+          });
+        });
+      },
+    );
   });
 });

@@ -11,7 +11,10 @@ export type ReviewedStratagemDelivery = {
 
 // Values here are reviewed mechanics absent from the expanded attack tables. Damage values
 // always remain sourced from the generated properties; this registry only defines delivery.
-export const REVIEWED_STRATAGEM_DELIVERY: Record<string, ReviewedStratagemDelivery> = {
+export const REVIEWED_STRATAGEM_DELIVERY: Record<
+  string,
+  ReviewedStratagemDelivery
+> = {
   eagle110mmrocketpods: { totalPayloads: 6, capacity: 6 },
   eagle500kgbomb: { totalPayloads: 1, capacity: 1 },
   b100portablehellbomb: { totalPayloads: 1, capacity: 1 },

@@ -17,8 +17,11 @@ export const WARBOND_BEST_CATEGORIES = [
   { category: "booster", label: "Booster" },
 ] as const;
 
-export type WarbondBestCategory = (typeof WARBOND_BEST_CATEGORIES)[number]["category"];
-export type WarbondBestTierFilters = Partial<Record<WarbondBestCategory, Tier[]>>;
+export type WarbondBestCategory =
+  (typeof WARBOND_BEST_CATEGORIES)[number]["category"];
+export type WarbondBestTierFilters = Partial<
+  Record<WarbondBestCategory, Tier[]>
+>;
 export type WarbondDamageType = (typeof DAMAGE_TYPE_FILTERS)[number];
 
 export type WarbondSummary = {
@@ -50,23 +53,40 @@ function getBestTier(items: Item[]): Tier | undefined {
   }, undefined);
 }
 
-export function getWarbondSummary(items: Item[], warbondCode: string): WarbondSummary {
+export function getWarbondSummary(
+  items: Item[],
+  warbondCode: string,
+): WarbondSummary {
   const warbondItems = items.filter(
     (item) => item.type !== "Warbond" && item.warbondCode === warbondCode,
   );
-  const bestTiers = Object.fromEntries(WARBOND_BEST_CATEGORIES.flatMap(({ category }) => {
-    const bestTier = getBestTier(
-      warbondItems.filter((item) => getWarbondItemCategory(item) === category),
-    );
-    return bestTier ? [[category, bestTier]] : [];
-  })) as Partial<Record<WarbondBestCategory, Tier>>;
-  const capabilities = warbondItems.flatMap((item) => extractItemCapabilities(item));
-  const armorPenetrationValues = [...new Set(capabilities.flatMap(({ armorPenetration }) =>
-      armorPenetration === null ? [] : [armorPenetration],
-  ))].sort((left, right) => left - right);
-  const demolitionForceValues = [...new Set(capabilities.flatMap(({ demolitionForce }) =>
-    demolitionForce === null ? [] : [demolitionForce],
-  ))].sort((left, right) => left - right);
+  const bestTiers = Object.fromEntries(
+    WARBOND_BEST_CATEGORIES.flatMap(({ category }) => {
+      const bestTier = getBestTier(
+        warbondItems.filter(
+          (item) => getWarbondItemCategory(item) === category,
+        ),
+      );
+      return bestTier ? [[category, bestTier]] : [];
+    }),
+  ) as Partial<Record<WarbondBestCategory, Tier>>;
+  const capabilities = warbondItems.flatMap((item) =>
+    extractItemCapabilities(item),
+  );
+  const armorPenetrationValues = [
+    ...new Set(
+      capabilities.flatMap(({ armorPenetration }) =>
+        armorPenetration === null ? [] : [armorPenetration],
+      ),
+    ),
+  ].sort((left, right) => left - right);
+  const demolitionForceValues = [
+    ...new Set(
+      capabilities.flatMap(({ demolitionForce }) =>
+        demolitionForce === null ? [] : [demolitionForce],
+      ),
+    ),
+  ].sort((left, right) => left - right);
   const destroysSpawners = warbondItems.some((item) =>
     itemMatchesPropertyFilters(item, ["Destroys Spawners"]),
   );
@@ -95,26 +115,32 @@ export function warbondSummaryMatchesFilters(
 ) {
   const matchesBestTiers = WARBOND_BEST_CATEGORIES.every(({ category }) => {
     const selectedTiers = selectedBestTierFilters[category] ?? [];
-    return selectedTiers.length === 0
-      || (summary.bestTiers[category] !== undefined
-        && selectedTiers.includes(summary.bestTiers[category]));
+    return (
+      selectedTiers.length === 0 ||
+      (summary.bestTiers[category] !== undefined &&
+        selectedTiers.includes(summary.bestTiers[category]))
+    );
   });
   if (!matchesBestTiers || selectedPropertyFilters.length === 0) {
     return matchesBestTiers;
   }
 
-  return itemMatchesPropertyFilters({
-    displayName: "Warbond summary",
-    tier: "d",
-    tags: summary.destroysSpawners ? ["Destroys Spawners"] : [],
-    properties: {
-      summary: {
-        Penetration: { Direct: summary.armorPenetrationLabels },
-        Damage: { "Demolition Force": summary.demolitionForceValues },
+  return itemMatchesPropertyFilters(
+    {
+      displayName: "Warbond summary",
+      tier: "d",
+      tags: summary.destroysSpawners ? ["Destroys Spawners"] : [],
+      properties: {
+        summary: {
+          Penetration: { Direct: summary.armorPenetrationLabels },
+          Damage: { "Demolition Force": summary.demolitionForceValues },
+        },
+        damageTypes: summary.damageTypes,
       },
-      damageTypes: summary.damageTypes,
     },
-  }, selectedPropertyFilters, filterMode);
+    selectedPropertyFilters,
+    filterMode,
+  );
 }
 
 export function filterWarbondsBySummary(
@@ -124,10 +150,12 @@ export function filterWarbondsBySummary(
   selectedBestTierFilters: WarbondBestTierFilters,
   filterMode: PropertyFilterMode = "or",
 ) {
-  return warbonds.filter((warbond) => warbondSummaryMatchesFilters(
-    getWarbondSummary(items, warbond.warbondCode),
-    selectedPropertyFilters,
-    selectedBestTierFilters,
-    filterMode,
-  ));
+  return warbonds.filter((warbond) =>
+    warbondSummaryMatchesFilters(
+      getWarbondSummary(items, warbond.warbondCode),
+      selectedPropertyFilters,
+      selectedBestTierFilters,
+      filterMode,
+    ),
+  );
 }

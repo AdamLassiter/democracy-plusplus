@@ -1,15 +1,19 @@
-import { createSelector, createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { getMissionsRequiredForDifficulty } from '../constants/difficulties';
-import { FACTIONS } from '../constants/factions';
-import { getObjectives } from '../constants/objectives';
-import { clampPlayerCount } from '../utils/playerCount';
-import type { MissionStage, MissionState } from '../types';
-import type { RootState } from './index';
+import {
+  createSelector,
+  createSlice,
+  type PayloadAction,
+} from "@reduxjs/toolkit";
+import { getMissionsRequiredForDifficulty } from "../constants/difficulties";
+import { FACTIONS } from "../constants/factions";
+import { getObjectives } from "../constants/objectives";
+import { clampPlayerCount } from "../utils/playerCount";
+import type { MissionStage, MissionState } from "../types";
+import type { RootState } from "./index";
 
 const resetState = {
   faction: 0,
-  objective: '',
-  state: 'brief' as MissionStage,
+  objective: "",
+  state: "brief" as MissionStage,
 };
 const initialState: MissionState = {
   ...resetState,
@@ -23,12 +27,10 @@ const initialState: MissionState = {
   restrictions: [],
 };
 
-const states: MissionStage[] = [
-  'brief', 'generating', 'loadout', 'debrief',
-];
+const states: MissionStage[] = ["brief", "generating", "loadout", "debrief"];
 
 function normaliseNumber(value: unknown, fallback: number) {
-  return typeof value === 'number' && Number.isFinite(value) ? value : fallback;
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
 }
 
 function normaliseSeed(value: unknown, fallback: number) {
@@ -40,30 +42,54 @@ function normaliseObjective(
   value: unknown,
   availableObjectives: ReturnType<typeof getObjectives>,
 ) {
-  if (value === '') {
-    return '';
+  if (value === "") {
+    return "";
   }
 
-  if (typeof value === 'string' && availableObjectives.some((objective) => objective.displayName === value)) {
+  if (
+    typeof value === "string" &&
+    availableObjectives.some((objective) => objective.displayName === value)
+  ) {
     return value;
   }
 
-  if (typeof value === 'number' && Number.isInteger(value)) {
-    return availableObjectives[value]?.displayName ?? availableObjectives[0]?.displayName ?? '';
+  if (typeof value === "number" && Number.isInteger(value)) {
+    return (
+      availableObjectives[value]?.displayName ??
+      availableObjectives[0]?.displayName ??
+      ""
+    );
   }
 
-  return availableObjectives[0]?.displayName ?? '';
+  return availableObjectives[0]?.displayName ?? "";
 }
 
 function normaliseMissionState(state: Partial<MissionState>): MissionState {
-  const faction = Math.max(0, Math.min(normaliseNumber(state.faction, initialState.faction), FACTIONS.length - 1));
-  const difficulty = Math.max(0, normaliseNumber(state.difficulty, initialState.difficulty));
-  const availableObjectives = getObjectives(FACTIONS[faction] ?? FACTIONS[0], difficulty);
+  const faction = Math.max(
+    0,
+    Math.min(
+      normaliseNumber(state.faction, initialState.faction),
+      FACTIONS.length - 1,
+    ),
+  );
+  const difficulty = Math.max(
+    0,
+    normaliseNumber(state.difficulty, initialState.difficulty),
+  );
+  const availableObjectives = getObjectives(
+    FACTIONS[faction] ?? FACTIONS[0],
+    difficulty,
+  );
   const objective = normaliseObjective(state.objective, availableObjectives);
   const count = Math.max(1, normaliseNumber(state.count, initialState.count));
-  const mission = Math.max(1, normaliseNumber(state.mission, initialState.mission));
+  const mission = Math.max(
+    1,
+    normaliseNumber(state.mission, initialState.mission),
+  );
   const prng = normaliseSeed(state.prng, initialState.prng);
-  const playerCount = clampPlayerCount(state.playerCount ?? initialState.playerCount);
+  const playerCount = clampPlayerCount(
+    state.playerCount ?? initialState.playerCount,
+  );
 
   return {
     ...initialState,
@@ -83,13 +109,12 @@ function selectRawMission(state: RootState) {
   return state.mission;
 }
 
-export const selectMission = createSelector(
-  [selectRawMission],
-  (mission) => normaliseMissionState(mission),
+export const selectMission = createSelector([selectRawMission], (mission) =>
+  normaliseMissionState(mission),
 );
 
 const missionSlice = createSlice({
-  name: 'mission',
+  name: "mission",
   initialState,
   reducers: {
     setPrng(state, action: PayloadAction<{ value: number }>) {
@@ -100,7 +125,7 @@ const missionSlice = createSlice({
       const { value } = action.payload;
       if (states.includes(value)) {
         state.state = value;
-        if (value === 'generating') {
+        if (value === "generating") {
           state.factionLocked = true;
         }
       }
@@ -111,7 +136,7 @@ const missionSlice = createSlice({
         return;
       }
       state.faction = value;
-      state.objective = '';
+      state.objective = "";
     },
     setObjective(state, action: PayloadAction<{ value: string }>) {
       const { value } = action.payload;
@@ -123,7 +148,7 @@ const missionSlice = createSlice({
         return;
       }
       state.difficulty = value;
-      state.objective = '';
+      state.objective = "";
     },
     setPlayerCount(state, action: PayloadAction<{ value: number }>) {
       state.playerCount = clampPlayerCount(action.payload.value);
@@ -132,25 +157,35 @@ const missionSlice = createSlice({
       const { value } = action.payload;
       state.count = value;
     },
-    setQuests(state, action: PayloadAction<{ value: MissionState['quests'] }>) {
+    setQuests(state, action: PayloadAction<{ value: MissionState["quests"] }>) {
       const { value } = action.payload;
       state.quests = value;
     },
-    setRestrictions(state, action: PayloadAction<{ value: MissionState['restrictions'] }>) {
+    setRestrictions(
+      state,
+      action: PayloadAction<{ value: MissionState["restrictions"] }>,
+    ) {
       const { value } = action.payload;
       state.restrictions = value;
     },
     setMissionState(_state, action: PayloadAction<MissionState>) {
       return normaliseMissionState(action.payload);
     },
-    resetMission(state, action: PayloadAction<{ singleMission?: boolean } | undefined>) {
-      const missionsRequired = getMissionsRequiredForDifficulty(state.difficulty);
-      const unlockFaction = Boolean(action.payload?.singleMission) || state.mission >= missionsRequired;
+    resetMission(
+      state,
+      action: PayloadAction<{ singleMission?: boolean } | undefined>,
+    ) {
+      const missionsRequired = getMissionsRequiredForDifficulty(
+        state.difficulty,
+      );
+      const unlockFaction =
+        Boolean(action.payload?.singleMission) ||
+        state.mission >= missionsRequired;
 
       return normaliseMissionState({
         ...state,
-        objective: '',
-        state: 'brief' as MissionStage,
+        objective: "",
+        state: "brief" as MissionStage,
         count: state.count + 1,
         mission: unlockFaction ? 1 : state.mission + 1,
         factionLocked: !unlockFaction,
@@ -161,5 +196,17 @@ const missionSlice = createSlice({
   },
 });
 
-export const { setPrng, setFaction, setObjective, setDifficulty, setPlayerCount, setCount, setState, setRestrictions, setQuests, setMissionState, resetMission } = missionSlice.actions;
+export const {
+  setPrng,
+  setFaction,
+  setObjective,
+  setDifficulty,
+  setPlayerCount,
+  setCount,
+  setState,
+  setRestrictions,
+  setQuests,
+  setMissionState,
+  resetMission,
+} = missionSlice.actions;
 export default missionSlice.reducer;

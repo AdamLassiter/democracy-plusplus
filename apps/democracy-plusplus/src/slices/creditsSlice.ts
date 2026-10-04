@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { CreditsState } from '../types';
-import type { RootState } from './index';
+import { createSlice } from "@reduxjs/toolkit";
+import type { CreditsState } from "../types";
+import type { RootState } from "./index";
 
 const initialState: CreditsState = {
   credits: 200,
@@ -11,7 +11,7 @@ export function selectCredits(state: RootState) {
 }
 
 const creditsSlice = createSlice({
-  name: 'credits',
+  name: "credits",
   initialState,
   reducers: {
     addCredits: (state, action) => {
@@ -29,5 +29,6 @@ const creditsSlice = createSlice({
   },
 });
 
-export const { addCredits, subtractCredits, setCreditsState, resetCredits } = creditsSlice.actions;
+export const { addCredits, subtractCredits, setCreditsState, resetCredits } =
+  creditsSlice.actions;
 export default creditsSlice.reducer;

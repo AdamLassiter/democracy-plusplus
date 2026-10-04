@@ -3,9 +3,7 @@
     "displayName": "G-12 High Explosive",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Explosive"
-    ],
+    "tags": ["Explosive"],
     "warbondCode": "none",
     "internalName": "g12highexplosive",
     "imageUrl": "throwables/G-12_High_Explosive_Throwable_Render.png",
@@ -53,10 +51,7 @@
     "displayName": "G-4 Gas",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Gas"
-    ],
+    "tags": ["Special", "Gas"],
     "warbondCode": "warbond10",
     "internalName": "g4gas",
     "imageUrl": "throwables/G-4_Gas_Throwable_Render.png",
@@ -136,10 +131,7 @@
     "displayName": "K-2 Throwing Knife",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Stealth"
-    ],
+    "tags": ["Special", "Stealth"],
     "warbondCode": "warbond8",
     "internalName": "k2throwingknife",
     "imageUrl": "throwables/K-2_Throwing_Knife_Throwable_Render.png",
@@ -180,9 +172,7 @@
     "displayName": "G-6 Frag",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Explosive"
-    ],
+    "tags": ["Explosive"],
     "warbondCode": "warbond3",
     "internalName": "g6frag",
     "imageUrl": "throwables/G-6_Frag_Throwable_Render.png",
@@ -257,10 +247,7 @@
     "displayName": "G-16 Impact",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "warbondCode": "warbond3",
     "internalName": "g16impact",
     "imageUrl": "throwables/G-16_Impact_Throwable_Render.png",
@@ -308,10 +295,7 @@
     "displayName": "G-3 Smoke",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Stealth"
-    ],
+    "tags": ["Special", "Stealth"],
     "warbondCode": "warbond3",
     "internalName": "g3smoke",
     "imageUrl": "throwables/G-3_Smoke_Throwable_Render.png",
@@ -344,9 +328,7 @@
     "displayName": "G-10 Incendiary",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Fire"
-    ],
+    "tags": ["Fire"],
     "warbondCode": "warbond4",
     "internalName": "g10incendiary",
     "imageUrl": "throwables/G-10_Incendiary_Throwable_Render.png",
@@ -418,10 +400,7 @@
     "displayName": "G-23 Stun",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Stun"
-    ],
+    "tags": ["Special", "Stun"],
     "warbondCode": "warbond5",
     "internalName": "g23stun",
     "imageUrl": "throwables/G-23_Stun_Throwable_Render.png",
@@ -475,11 +454,7 @@
     "displayName": "G-123 Thermite",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Fire",
-      "Explosive"
-    ],
+    "tags": ["Special", "Fire", "Explosive"],
     "warbondCode": "warbond6",
     "internalName": "g123thermite",
     "imageUrl": "throwables/G-123_Thermite_Throwable_Render.png",
@@ -570,10 +545,7 @@
     "displayName": "G-13 Incendiary Impact",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Fire"
-    ],
+    "tags": ["Special", "Fire"],
     "warbondCode": "warbond7",
     "internalName": "g13incendiaryimpact",
     "imageUrl": "throwables/G-13_Incendiary_Impact_Throwable_Render.png",
@@ -645,10 +617,7 @@
     "displayName": "G-50 Seeker",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "warbondCode": "warbond13",
     "internalName": "g50seeker",
     "imageUrl": "throwables/G-50_Seeker_Throwable_Render.png",
@@ -696,10 +665,7 @@
     "displayName": "TED-63 Dynamite",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Explosive",
-      "Stealth"
-    ],
+    "tags": ["Explosive", "Stealth"],
     "warbondCode": "warbond14",
     "internalName": "ted63dynamite",
     "imageUrl": "throwables/TED-63_Dynamite_Throwable_Render.png",
@@ -747,10 +713,7 @@
     "displayName": "G-142 Pyrotech",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Fire"
-    ],
+    "tags": ["Special", "Fire"],
     "warbondCode": "warbond15",
     "internalName": "g142pyrotech",
     "imageUrl": "throwables/G-142_Pyrotech_Throwable_Render.png",
@@ -855,9 +818,7 @@
     "displayName": "G-109 Urchin",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special"
-    ],
+    "tags": ["Special"],
     "warbondCode": "warbond16",
     "internalName": "g109urchin",
     "imageUrl": "throwables/G-109_Urchin_Throwable_Render.png",
@@ -911,10 +872,7 @@
     "displayName": "G-31 Arc",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Arc"
-    ],
+    "tags": ["Special", "Arc"],
     "warbondCode": "warbond17",
     "internalName": "g31arc",
     "imageUrl": "throwables/G-31_ARC_Throwable_Render.png",
@@ -996,9 +954,7 @@
     "displayName": "G-7 Pineapple",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Explosive"
-    ],
+    "tags": ["Explosive"],
     "warbondCode": "warbond20",
     "internalName": "g7pineapple",
     "imageUrl": "throwables/G-7_Pineapple_Throwable_Render.png",
@@ -1107,10 +1063,7 @@
     "imageUrl": "throwables/TM-1_Lure_Mine_Throwable_Render.png",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "properties": {
       "TM-1 LURE MINE": {
         "Base": {
@@ -1187,10 +1140,7 @@
     "imageUrl": "throwables/G-89_Smokescreen_Throwable_Render.png",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Stealth"
-    ],
+    "tags": ["Special", "Stealth"],
     "properties": {
       "G-89 SMOKESCREEN": {
         "Base": {
@@ -1222,9 +1172,7 @@
     "imageUrl": "throwables/G-SH-39_Shield_Throwable_Render.png",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special"
-    ],
+    "tags": ["Special"],
     "properties": {
       "G/SH-39 SHIELD": {
         "Base": {
@@ -1250,10 +1198,7 @@
     "imageUrl": "throwables/G-48_Giga_Grenade_Throwable_Render.png",
     "type": "Equipment",
     "category": "throwable",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "properties": {
       "G-48 GIGA GRENADE": {
         "Base": {

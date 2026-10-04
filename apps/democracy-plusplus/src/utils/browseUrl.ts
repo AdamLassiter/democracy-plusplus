@@ -4,7 +4,10 @@ export function readQuery() {
   return new URLSearchParams(window.location.search);
 }
 
-export function updateQuery(values: Record<string, string | null>, push = false) {
+export function updateQuery(
+  values: Record<string, string | null>,
+  push = false,
+) {
   const url = new URL(window.location.href);
   for (const [key, value] of Object.entries(values)) {
     if (value) url.searchParams.set(key, value);
@@ -45,6 +48,9 @@ export function useQueryVersion() {
 export function useQueryValue(key: string, fallback = "") {
   useQueryVersion();
   const value = readQuery().get(key) ?? fallback;
-  const setValue = useCallback((next: string | null, push = false) => updateQuery({ [key]: next }, push), [key]);
+  const setValue = useCallback(
+    (next: string | null, push = false) => updateQuery({ [key]: next }, push),
+    [key],
+  );
   return [value, setValue] as const;
 }

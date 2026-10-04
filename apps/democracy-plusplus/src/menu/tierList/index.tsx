@@ -22,7 +22,10 @@ import { selectTierList, setTierList } from "../../slices/tierListSlice";
 import { applyTierOverrides, buildTierDraft } from "../../utils/tierList";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import type { EditableTier, Item, Tier, Warbond } from "../../types";
-import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
+import type {
+  PropertyFilterMode,
+  PropertyFilterName,
+} from "../../constants/filters";
 import ItemDetailsDialog from "./itemDetailsDialog";
 import WarbondTierBoard from "./warbondTierBoard";
 import WarbondBestTierFilter from "./warbondFilters";
@@ -54,34 +57,51 @@ export default function TierLists() {
   const { overrides } = useSelector(selectTierList);
   const { count, playerCount: localPlayerCount } = useSelector(selectMission);
   const multiplayer = useSelector(selectMultiplayer);
-  const playerCount = getEffectivePlayerCount(localPlayerCount, multiplayer.lobbyState);
+  const playerCount = getEffectivePlayerCount(
+    localPlayerCount,
+    multiplayer.lobbyState,
+  );
 
   const [value, setValue] = useState(0);
-  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>(
+    [],
+  );
   const [filterMode, setFilterMode] = useState<PropertyFilterMode>("or");
-  const [selectedWarbondTierFilters, setSelectedWarbondTierFilters] = useState<WarbondBestTierFilters>({});
+  const [selectedWarbondTierFilters, setSelectedWarbondTierFilters] =
+    useState<WarbondBestTierFilters>({});
   const [editMode, setEditMode] = useState(false);
-  const [draftAssignments, setDraftAssignments] = useState<Record<string, EditableTier>>({});
+  const [draftAssignments, setDraftAssignments] = useState<
+    Record<string, EditableTier>
+  >({});
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
   const effectiveTierLists = useMemo(
-    () => TIER_LISTS.map(([label, items]) => [label, applyTierOverrides(items, overrides)] as const),
+    () =>
+      TIER_LISTS.map(
+        ([label, items]) =>
+          [label, applyTierOverrides(items, overrides)] as const,
+      ),
     [overrides],
   );
-  const effectiveArmoryItems = useMemo(() => applyTierOverrides(ITEMS, overrides), [overrides]);
+  const effectiveArmoryItems = useMemo(
+    () => applyTierOverrides(ITEMS, overrides),
+    [overrides],
+  );
 
   const [, items] = effectiveTierLists[value];
   const isWarbondTab = effectiveTierLists[value]?.[0] === "Warbonds";
   const filteredItems = isWarbondTab
     ? filterWarbondsBySummary(
-      items as Warbond[],
-      effectiveArmoryItems,
-      selectedFilters,
-      selectedWarbondTierFilters,
-      filterMode,
-    )
+        items as Warbond[],
+        effectiveArmoryItems,
+        selectedFilters,
+        selectedWarbondTierFilters,
+        filterMode,
+      )
     : filterItemsByPropertyValues(items, selectedFilters, filterMode);
-  const uncategorizedCount = Object.values(draftAssignments).filter((tier) => tier === "uncategorized").length;
+  const uncategorizedCount = Object.values(draftAssignments).filter(
+    (tier) => tier === "uncategorized",
+  ).length;
   const hasUncategorized = uncategorizedCount > 0;
 
   function handleChange(_event: SyntheticEvent, newValue: number) {
@@ -105,24 +125,41 @@ export default function TierLists() {
       return;
     }
 
-    const nextOverrides = TIERABLE_ITEMS.reduce<Record<string, Tier>>((acc, item) => {
-      const assignedTier = draftAssignments[item.displayName];
-      if (assignedTier && assignedTier !== "uncategorized" && assignedTier !== item.tier) {
-        acc[item.displayName] = assignedTier;
-      }
-      return acc;
-    }, {});
+    const nextOverrides = TIERABLE_ITEMS.reduce<Record<string, Tier>>(
+      (acc, item) => {
+        const assignedTier = draftAssignments[item.displayName];
+        if (
+          assignedTier &&
+          assignedTier !== "uncategorized" &&
+          assignedTier !== item.tier
+        ) {
+          acc[item.displayName] = assignedTier;
+        }
+        return acc;
+      },
+      {},
+    );
 
-    dispatch(setTierList({
-      customized: Object.keys(nextOverrides).length > 0,
-      overrides: nextOverrides,
-    }));
-    dispatch(addTierListChangeLogEntry({
-      kind: "tierListChange",
-      id: `tier-list-change-${Date.now()}`,
-      timestamp: new Date().toISOString(),
-    }));
-    dispatch(resetShop({ missionCount: count, playerCount, tierOverrides: nextOverrides }));
+    dispatch(
+      setTierList({
+        customized: Object.keys(nextOverrides).length > 0,
+        overrides: nextOverrides,
+      }),
+    );
+    dispatch(
+      addTierListChangeLogEntry({
+        kind: "tierListChange",
+        id: `tier-list-change-${Date.now()}`,
+        timestamp: new Date().toISOString(),
+      }),
+    );
+    dispatch(
+      resetShop({
+        missionCount: count,
+        playerCount,
+        tierOverrides: nextOverrides,
+      }),
+    );
     setEditMode(false);
     setDraftAssignments({});
   }
@@ -135,7 +172,9 @@ export default function TierLists() {
       />
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange}>
-          {effectiveTierLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}
+          {effectiveTierLists.map(([displayName]) => (
+            <Tab key={displayName} label={displayName} />
+          ))}
         </Tabs>
       </Box>
       <Box sx={{ px: { xs: 0, sm: 2 }, py: 1, pb: 10 }}>
@@ -145,38 +184,53 @@ export default function TierLists() {
           onChange={setSelectedFilters}
           onFilterModeChange={setFilterMode}
         />
-        {isWarbondTab && <WarbondBestTierFilter
-          selectedFilters={selectedWarbondTierFilters}
-          onChange={setSelectedWarbondTierFilters}
-        />}
-        {editMode && hasUncategorized && <Typography color="warning.main" sx={{ mb: 2 }}>
-          Assign all uncategorized items to S, A, B, C, or D before saving.
-        </Typography>}
-        {isWarbondTab && !editMode
-          ? <WarbondTierBoard
+        {isWarbondTab && (
+          <WarbondBestTierFilter
+            selectedFilters={selectedWarbondTierFilters}
+            onChange={setSelectedWarbondTierFilters}
+          />
+        )}
+        {editMode && hasUncategorized && (
+          <Typography color="warning.main" sx={{ mb: 2 }}>
+            Assign all uncategorized items to S, A, B, C, or D before saving.
+          </Typography>
+        )}
+        {isWarbondTab && !editMode ? (
+          <WarbondTierBoard
             warbonds={filteredItems as Warbond[]}
             items={effectiveArmoryItems}
             onOpenItem={setSelectedItem}
           />
-          : <TierBoard
+        ) : (
+          <TierBoard
             items={filteredItems}
             editMode={editMode}
             draftAssignments={draftAssignments}
             onMoveToTier={handleMoveToTier}
-            onUncategorize={(displayName) => handleMoveToTier(displayName, "uncategorized")}
+            onUncategorize={(displayName) =>
+              handleMoveToTier(displayName, "uncategorized")
+            }
             onOpenItem={setSelectedItem}
-          />}
+          />
+        )}
       </Box>
-      <ItemDetailsDialog item={selectedItem} onClose={() => setSelectedItem(null)} />
-          <Fab
-            color="primary"
-            size="medium"
-            sx={{ position: "fixed", bottom: { xs: 12, sm: 24 }, right: { xs: 12, sm: 24 } }}
-            onClick={editMode ? handleSave : handleEnterEditMode}
-            disabled={editMode && hasUncategorized}
-          >
-            {editMode ? <SaveIcon /> : <EditIcon />}
-          </Fab>
+      <ItemDetailsDialog
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
+      <Fab
+        color="primary"
+        size="medium"
+        sx={{
+          position: "fixed",
+          bottom: { xs: 12, sm: 24 },
+          right: { xs: 12, sm: 24 },
+        }}
+        onClick={editMode ? handleSave : handleEnterEditMode}
+        disabled={editMode && hasUncategorized}
+      >
+        {editMode ? <SaveIcon /> : <EditIcon />}
+      </Fab>
     </Box>
   );
 }

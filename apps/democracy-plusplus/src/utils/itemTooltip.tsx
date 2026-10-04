@@ -19,7 +19,9 @@ function hasDescription(item: Item | undefined) {
   return Boolean(item?.description?.trim());
 }
 
-function isPrimitive(value: PropertyValue): value is string | number | boolean | null {
+function isPrimitive(
+  value: PropertyValue,
+): value is string | number | boolean | null {
   return value === null || typeof value !== "object";
 }
 
@@ -27,7 +29,9 @@ function cleanLabel(label: string) {
   return String(label).replace(/^\*+\s*/, "");
 }
 
-function isPropertyEntry(entry: [string, PropertyValue]): entry is PropertyEntry {
+function isPropertyEntry(
+  entry: [string, PropertyValue],
+): entry is PropertyEntry {
   return isPrimitive(entry[1]);
 }
 
@@ -63,7 +67,15 @@ function PropertyTable({ rows }: { rows: PropertyEntry[] }) {
   );
 }
 
-function PropertySection({ title, value, depth = 0 }: { title?: string; value: PropertyValue; depth?: number }) {
+function PropertySection({
+  title,
+  value,
+  depth = 0,
+}: {
+  title?: string;
+  value: PropertyValue;
+  depth?: number;
+}) {
   if (isPrimitive(value)) {
     return null;
   }
@@ -106,39 +118,61 @@ function PropertySection({ title, value, depth = 0 }: { title?: string; value: P
 
 export function ItemPropertiesDisplay({ item }: { item: Item }) {
   if (!hasProperties(item)) {
-    return <Typography color="text.secondary">No detailed properties are available for this item.</Typography>;
+    return (
+      <Typography color="text.secondary">
+        No detailed properties are available for this item.
+      </Typography>
+    );
   }
 
-  return <Box>
-    {Object.entries(item.properties ?? {}).map(([sectionTitle, sectionValue]) => (
-      <PropertySection key={sectionTitle} title={sectionTitle} value={sectionValue} />
-    ))}
-  </Box>;
+  return (
+    <Box>
+      {Object.entries(item.properties ?? {}).map(
+        ([sectionTitle, sectionValue]) => (
+          <PropertySection
+            key={sectionTitle}
+            title={sectionTitle}
+            value={sectionValue}
+          />
+        ),
+      )}
+    </Box>
+  );
 }
 
-export default function ItemTooltip({ item, children }: { item: Item; children: ReactNode }) {
+export default function ItemTooltip({
+  item,
+  children,
+}: {
+  item: Item;
+  children: ReactNode;
+}) {
   if (!hasDescription(item) && !hasProperties(item)) {
     return children;
   }
 
   return (
     <Tooltip
-      title={(
+      title={
         <Box sx={{ maxHeight: 400, maxWidth: 420, overflow: "auto", p: 1 }}>
-          {hasDescription(item) && <Typography sx={{ whiteSpace: "pre-line" }}>{item.description}</Typography>}
-          {hasProperties(item) && <Box sx={{ mt: hasDescription(item) ? 1.5 : 0 }}>
-            <ItemPropertiesDisplay item={item} />
-          </Box>}
+          {hasDescription(item) && (
+            <Typography sx={{ whiteSpace: "pre-line" }}>
+              {item.description}
+            </Typography>
+          )}
+          {hasProperties(item) && (
+            <Box sx={{ mt: hasDescription(item) ? 1.5 : 0 }}>
+              <ItemPropertiesDisplay item={item} />
+            </Box>
+          )}
         </Box>
-      )}
+      }
       enterDelay={600}
       leaveDelay={150}
       disableInteractive={false}
     >
       {/* Need a component that can take a ref, so wrap in <div />*/}
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </Tooltip>
   );
 }

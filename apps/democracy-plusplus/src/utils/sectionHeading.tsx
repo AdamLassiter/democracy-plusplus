@@ -14,14 +14,24 @@ export default function SectionHeading({
   actions?: ReactNode;
   sx?: SxProps<Theme>;
 }) {
-  return <Box sx={sx}>
-    <Box sx={{ alignItems: "center", display: "flex", flexWrap: "wrap", gap: 1 }}>
-      <Typography variant="h5">{title}</Typography>
-      {actions}
-      {meta && <Typography color="text.secondary" variant="subtitle1">{meta}</Typography>}
+  return (
+    <Box sx={sx}>
+      <Box
+        sx={{ alignItems: "center", display: "flex", flexWrap: "wrap", gap: 1 }}
+      >
+        <Typography variant="h5">{title}</Typography>
+        {actions}
+        {meta && (
+          <Typography color="text.secondary" variant="subtitle1">
+            {meta}
+          </Typography>
+        )}
+      </Box>
+      {subtitle && (
+        <Typography color="text.secondary" variant="body2" sx={{ mt: 0.25 }}>
+          {subtitle}
+        </Typography>
+      )}
     </Box>
-    {subtitle && <Typography color="text.secondary" variant="body2" sx={{ mt: 0.25 }}>
-      {subtitle}
-    </Typography>}
-  </Box>;
+  );
 }

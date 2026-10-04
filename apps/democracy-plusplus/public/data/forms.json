@@ -6,7 +6,11 @@
       {
         "label": "Requesting Ministry",
         "success": ["Defense", "Defense Logistics", "Orbital Supply Corps"],
-        "warning": ["Patriotic Festivities", "Ceremonial Affairs", "Historical Reenactment Office"],
+        "warning": [
+          "Patriotic Festivities",
+          "Ceremonial Affairs",
+          "Historical Reenactment Office"
+        ],
         "error": ["Unknown", "Personal Collection", "Enemy Liaison Desk"]
       },
       {
@@ -17,21 +21,53 @@
       },
       {
         "label": "Reason",
-        "success": ["Active warzone shortage", "Frontline escalation", "Approved siege response"],
-        "warning": ["Training surplus", "Inspirational live-fire rehearsal", "Quartermaster curiosity"],
-        "error": ["Confetti cannon rehearsal", "Personal collection upgrade", "Vibes-based stockpiling"]
+        "success": [
+          "Active warzone shortage",
+          "Frontline escalation",
+          "Approved siege response"
+        ],
+        "warning": [
+          "Training surplus",
+          "Inspirational live-fire rehearsal",
+          "Quartermaster curiosity"
+        ],
+        "error": [
+          "Confetti cannon rehearsal",
+          "Personal collection upgrade",
+          "Vibes-based stockpiling"
+        ]
       },
       {
         "label": "Requested Volume",
         "success": ["Mission-standard", "Within ration", "Audited quantity"],
-        "warning": ["Above guidance", "Optimistic", "Requires supervisor initials"],
-        "error": ["Unlimited", "Everything", "As much as fits in a parade float"]
+        "warning": [
+          "Above guidance",
+          "Optimistic",
+          "Requires supervisor initials"
+        ],
+        "error": [
+          "Unlimited",
+          "Everything",
+          "As much as fits in a parade float"
+        ]
       },
       {
         "label": "Delivery Destination",
-        "success": ["Forward bunker", "Authorized destroyer", "Supply drop zone"],
-        "warning": ["Temporary platform", "Shared parade hangar", "Unlabeled crate stack"],
-        "error": ["Private residence", "Unmarked tunnel", "Suspiciously festive warehouse"]
+        "success": [
+          "Forward bunker",
+          "Authorized destroyer",
+          "Supply drop zone"
+        ],
+        "warning": [
+          "Temporary platform",
+          "Shared parade hangar",
+          "Unlabeled crate stack"
+        ],
+        "error": [
+          "Private residence",
+          "Unmarked tunnel",
+          "Suspiciously festive warehouse"
+        ]
       }
     ]
   },
@@ -41,9 +77,21 @@
     "possibleFields": [
       {
         "label": "Parade Type",
-        "success": ["Victory commemoration", "Liberation anniversary", "Medal ceremony"],
-        "warning": ["Seasonal morale event", "Civic rehearsal", "Influencer appearance"],
-        "error": ["Confetti artillery showcase", "Private gala", "Unauthorized yacht parade"]
+        "success": [
+          "Victory commemoration",
+          "Liberation anniversary",
+          "Medal ceremony"
+        ],
+        "warning": [
+          "Seasonal morale event",
+          "Civic rehearsal",
+          "Influencer appearance"
+        ],
+        "error": [
+          "Confetti artillery showcase",
+          "Private gala",
+          "Unauthorized yacht parade"
+        ]
       },
       {
         "label": "Authorization Stamp",
@@ -54,20 +102,52 @@
       {
         "label": "Munitions Category",
         "success": ["Blank rounds", "Ceremonial flares", "Sound-only charges"],
-        "warning": ["Limited explosive salute", "Prototype pyrotechnics", "Demonstration shells"],
-        "error": ["Live anti-tank payloads", "Orbital shells", "Whatever was left in storage"]
+        "warning": [
+          "Limited explosive salute",
+          "Prototype pyrotechnics",
+          "Demonstration shells"
+        ],
+        "error": [
+          "Live anti-tank payloads",
+          "Orbital shells",
+          "Whatever was left in storage"
+        ]
       },
       {
         "label": "Spectator Clearance",
-        "success": ["Military only", "Restricted seating", "Screened attendance"],
-        "warning": ["Mixed civilian seating", "Tour approved", "Some children present"],
-        "error": ["Open public access", "No barriers", "Influencer meet-and-greet"]
+        "success": [
+          "Military only",
+          "Restricted seating",
+          "Screened attendance"
+        ],
+        "warning": [
+          "Mixed civilian seating",
+          "Tour approved",
+          "Some children present"
+        ],
+        "error": [
+          "Open public access",
+          "No barriers",
+          "Influencer meet-and-greet"
+        ]
       },
       {
         "label": "Supervisor Note",
-        "success": ["Within acceptable spectacle", "Politically useful", "Approved for broadcast"],
-        "warning": ["May prompt questions", "Requires deniability", "Budget sensitivity noted"],
-        "error": ["Do not audit", "Delete after firing", "Can probably outrun it"]
+        "success": [
+          "Within acceptable spectacle",
+          "Politically useful",
+          "Approved for broadcast"
+        ],
+        "warning": [
+          "May prompt questions",
+          "Requires deniability",
+          "Budget sensitivity noted"
+        ],
+        "error": [
+          "Do not audit",
+          "Delete after firing",
+          "Can probably outrun it"
+        ]
       }
     ]
   },
@@ -77,9 +157,21 @@
     "possibleFields": [
       {
         "label": "Citizen Status",
-        "success": ["Patriotic exemplar", "Consistently obedient", "Vetted volunteer"],
-        "warning": ["Questionably enthusiastic", "Recently re-educated", "Pending morale review"],
-        "error": ["Unregistered", "Actively sarcastic", "Seen asking follow-up questions"]
+        "success": [
+          "Patriotic exemplar",
+          "Consistently obedient",
+          "Vetted volunteer"
+        ],
+        "warning": [
+          "Questionably enthusiastic",
+          "Recently re-educated",
+          "Pending morale review"
+        ],
+        "error": [
+          "Unregistered",
+          "Actively sarcastic",
+          "Seen asking follow-up questions"
+        ]
       },
       {
         "label": "Background Check",
@@ -89,20 +181,52 @@
       },
       {
         "label": "Recommendation",
-        "success": ["Filed by superior", "Filed by ministry lead", "Filed by hero of Super Earth"],
-        "warning": ["Filed by cousin", "Self-submitted", "Filed by local mascot"],
-        "error": ["Submitted anonymously", "Authored by enemy prisoner", "Signed 'trust vibes'"]
+        "success": [
+          "Filed by superior",
+          "Filed by ministry lead",
+          "Filed by hero of Super Earth"
+        ],
+        "warning": [
+          "Filed by cousin",
+          "Self-submitted",
+          "Filed by local mascot"
+        ],
+        "error": [
+          "Submitted anonymously",
+          "Authored by enemy prisoner",
+          "Signed 'trust vibes'"
+        ]
       },
       {
         "label": "Reason for Promotion",
-        "success": ["Outstanding logistics", "Heroic supply escort", "Exceptional form retention"],
-        "warning": ["Strong handshake", "Photogenic profile", "Popular with auditors"],
-        "error": ["Knows someone important", "Lost original petition", "Feels ready"]
+        "success": [
+          "Outstanding logistics",
+          "Heroic supply escort",
+          "Exceptional form retention"
+        ],
+        "warning": [
+          "Strong handshake",
+          "Photogenic profile",
+          "Popular with auditors"
+        ],
+        "error": [
+          "Knows someone important",
+          "Lost original petition",
+          "Feels ready"
+        ]
       },
       {
         "label": "Truth Compliance",
-        "success": ["Certified", "Daily recitation confirmed", "No deviations noted"],
-        "warning": ["Needs refresher", "Inconsistent volume", "Skipped one slogan"],
+        "success": [
+          "Certified",
+          "Daily recitation confirmed",
+          "No deviations noted"
+        ],
+        "warning": [
+          "Needs refresher",
+          "Inconsistent volume",
+          "Skipped one slogan"
+        ],
         "error": ["Noncompliant", "Invented own slogan", "Asked for evidence"]
       }
     ]
@@ -120,13 +244,25 @@
       {
         "label": "Clearance",
         "success": ["SCIENCE-4", "BIOHAZARD-3", "RESEARCH PRIORITY"],
-        "warning": ["Pending signature", "Cross-ministry dispute", "Expired yesterday"],
+        "warning": [
+          "Pending signature",
+          "Cross-ministry dispute",
+          "Expired yesterday"
+        ],
         "error": ["None", "Written on napkin", "Classified 'probably fine'"]
       },
       {
         "label": "Destination",
-        "success": ["Explosive Research Wing", "Approved vivarium", "Incineration annex"],
-        "warning": ["Temporary freezer", "Shared docking bay", "Overflow corridor"],
+        "success": [
+          "Explosive Research Wing",
+          "Approved vivarium",
+          "Incineration annex"
+        ],
+        "warning": [
+          "Temporary freezer",
+          "Shared docking bay",
+          "Overflow corridor"
+        ],
         "error": ["Cafeteria", "Kindergarten tour", "Public transport queue"]
       },
       {
@@ -149,13 +285,29 @@
     "possibleFields": [
       {
         "label": "Reason",
-        "success": ["Combat damage", "Biohazard contamination", "Official ceremony issue"],
-        "warning": ["Aesthetic mismatch", "Minor scuffing", "Wanted fresher fringe"],
-        "error": ["Cape felt unfashionable", "Clashed with boots", "Wanted to stand out"]
+        "success": [
+          "Combat damage",
+          "Biohazard contamination",
+          "Official ceremony issue"
+        ],
+        "warning": [
+          "Aesthetic mismatch",
+          "Minor scuffing",
+          "Wanted fresher fringe"
+        ],
+        "error": [
+          "Cape felt unfashionable",
+          "Clashed with boots",
+          "Wanted to stand out"
+        ]
       },
       {
         "label": "Signature",
-        "success": ["Quartermaster approved", "Commanding officer approved", "Uniform board approved"],
+        "success": [
+          "Quartermaster approved",
+          "Commanding officer approved",
+          "Uniform board approved"
+        ],
         "warning": ["Pending", "Unreadable", "Signed by roommate"],
         "error": ["SELF-APPROVED", "Signed 'future me'", "No signature"]
       },
@@ -181,7 +333,11 @@
         "label": "Item Status",
         "success": ["Inert", "Contained", "Properly blessed"],
         "warning": ["Whispers softly", "Warm to touch", "Moves when ignored"],
-        "error": ["Actively levitating", "Speaking in taxpayer voices", "Trying to leave"]
+        "error": [
+          "Actively levitating",
+          "Speaking in taxpayer voices",
+          "Trying to leave"
+        ]
       },
       {
         "label": "Purity Scan",
@@ -198,13 +354,25 @@
       {
         "label": "Containment Advice",
         "success": ["Archive", "Science vault", "Destroy after cataloguing"],
-        "warning": ["Escalate to psy-ops", "Observe remotely", "Do not hum near it"],
+        "warning": [
+          "Escalate to psy-ops",
+          "Observe remotely",
+          "Do not hum near it"
+        ],
         "error": ["Keep in break room", "Use as lamp", "Ask it for directions"]
       },
       {
         "label": "Recovered From",
-        "success": ["Approved battlefield site", "Quarantined vault", "Sanitized ruin"],
-        "warning": ["Personal locker", "Unmarked crate", "Suspiciously tidy altar"],
+        "success": [
+          "Approved battlefield site",
+          "Quarantined vault",
+          "Sanitized ruin"
+        ],
+        "warning": [
+          "Personal locker",
+          "Unmarked crate",
+          "Suspiciously tidy altar"
+        ],
         "error": ["Civilian backpack", "Marketplace stall", "Officer's desk"]
       }
     ]
@@ -215,26 +383,50 @@
     "possibleFields": [
       {
         "label": "Poster Slogan",
-        "success": ["WORK HARDER, DIE LATER", "VICTORY LOVES PAPERWORK", "DEMOCRACY IS NEVER OFF DUTY"],
+        "success": [
+          "WORK HARDER, DIE LATER",
+          "VICTORY LOVES PAPERWORK",
+          "DEMOCRACY IS NEVER OFF DUTY"
+        ],
         "warning": ["WORK SOMETIMES", "MAYBE LIBERTY", "TRY YOUR BEST"],
-        "error": ["QUESTION AUTHORITY", "UNIONIZE FOR PEACE", "ENEMY HAS POINTS"]
+        "error": [
+          "QUESTION AUTHORITY",
+          "UNIONIZE FOR PEACE",
+          "ENEMY HAS POINTS"
+        ]
       },
       {
         "label": "Approval Seal",
-        "success": ["MINISTRY OF TRUTH", "MORALE BUREAU", "PATRIOTIC MEDIA OFFICE"],
+        "success": [
+          "MINISTRY OF TRUTH",
+          "MORALE BUREAU",
+          "PATRIOTIC MEDIA OFFICE"
+        ],
         "warning": ["UNVERIFIED", "OUTDATED", "LOCAL PRINT SHOP"],
         "error": ["COUNTERFEIT", "HAND-DRAWN", "STAMPED 'YOLO'"]
       },
       {
         "label": "Distribution Scope",
         "success": ["Barracks only", "Briefing halls", "Approved transports"],
-        "warning": ["Public transit", "Children's classrooms", "Civilian cafes"],
+        "warning": [
+          "Public transit",
+          "Children's classrooms",
+          "Civilian cafes"
+        ],
         "error": ["Enemy territory", "Black market", "Unlicensed tattoo parlor"]
       },
       {
         "label": "Image Subject",
-        "success": ["Helldiver silhouette", "Flag raising", "Perfectly square jaw"],
-        "warning": ["Ambiguous explosion", "Artist interpretation", "Stylized accountant"],
+        "success": [
+          "Helldiver silhouette",
+          "Flag raising",
+          "Perfectly square jaw"
+        ],
+        "warning": [
+          "Ambiguous explosion",
+          "Artist interpretation",
+          "Stylized accountant"
+        ],
         "error": ["Enemy sympathizer", "Sad clown", "Unclear squid geometry"]
       }
     ]
@@ -245,8 +437,16 @@
     "possibleFields": [
       {
         "label": "Requested By",
-        "success": ["Audit office", "Treasury liaison", "Budget emergency board"],
-        "warning": ["Three separate accountants", "Acting treasurer", "Volunteer auditor"],
+        "success": [
+          "Audit office",
+          "Treasury liaison",
+          "Budget emergency board"
+        ],
+        "warning": [
+          "Three separate accountants",
+          "Acting treasurer",
+          "Volunteer auditor"
+        ],
         "error": ["Anonymous", "Concerned influencer", "Guy named Steve"]
       },
       {
@@ -289,13 +489,29 @@
         "label": "Political Sensitivity",
         "success": ["Low", "Manageable", "Narratively useful"],
         "warning": ["HIGH", "Needs review", "Likely to raise questions"],
-        "error": ["Catastrophic", "Embarrassing", "Directly contradicts a speech"]
+        "error": [
+          "Catastrophic",
+          "Embarrassing",
+          "Directly contradicts a speech"
+        ]
       },
       {
         "label": "Miracle Category",
-        "success": ["Unlikely survival", "Timely explosion", "Improbable paperwork"],
-        "warning": ["Divine coincidence", "Suspicious timing", "Too inspirational"],
-        "error": ["Physics violation", "Budget resurrection", "Talking shell casing"]
+        "success": [
+          "Unlikely survival",
+          "Timely explosion",
+          "Improbable paperwork"
+        ],
+        "warning": [
+          "Divine coincidence",
+          "Suspicious timing",
+          "Too inspirational"
+        ],
+        "error": [
+          "Physics violation",
+          "Budget resurrection",
+          "Talking shell casing"
+        ]
       },
       {
         "label": "Recommended Response",

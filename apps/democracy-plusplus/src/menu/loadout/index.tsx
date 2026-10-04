@@ -8,15 +8,26 @@ import ChallengeEquipment from "./challengeEquipment";
 
 export default function Loadout() {
   const challengeMode = useSelector(selectEffectiveChallengeMode);
-  return <Grid container spacing={2}>
-    <Grid direction="column" spacing={2} container sx={{ flex: 1, minWidth: 0 }}>
-      <Brief />
-      <Divider />
-      {challengeMode === "budget" ? <>
-        <Equipped />
+  return (
+    <Grid container spacing={2}>
+      <Grid
+        direction="column"
+        spacing={2}
+        container
+        sx={{ flex: 1, minWidth: 0 }}
+      >
+        <Brief />
         <Divider />
-        <Purchases />
-      </> : <ChallengeEquipment />}
+        {challengeMode === "budget" ? (
+          <>
+            <Equipped />
+            <Divider />
+            <Purchases />
+          </>
+        ) : (
+          <ChallengeEquipment />
+        )}
+      </Grid>
     </Grid>
-  </Grid>;
+  );
 }

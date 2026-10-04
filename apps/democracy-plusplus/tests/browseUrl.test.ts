@@ -1,10 +1,16 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { JSDOM } from "jsdom";
-import { readQuery, retainQueryKeys, updateQuery } from "../src/utils/browseUrl.ts";
+import {
+  readQuery,
+  retainQueryKeys,
+  updateQuery,
+} from "../src/utils/browseUrl.ts";
 
 test("application URLs retain only the selected top-level tab", () => {
-  const dom = new JSDOM("", { url: "https://example.test/?tab=bestiary&difficulty=7&q=charger" });
+  const dom = new JSDOM("", {
+    url: "https://example.test/?tab=bestiary&difficulty=7&q=charger",
+  });
   Object.assign(globalThis, {
     window: dom.window,
     PopStateEvent: dom.window.PopStateEvent,

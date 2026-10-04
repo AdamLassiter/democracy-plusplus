@@ -3,9 +3,7 @@
     "displayName": "TX-41 Sterilizer",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond10",
     "internalName": "tx41sterilizer",
     "imageUrl": "stratagems/Sterilizer_Stratagem_Icon_Background.svg",
@@ -82,13 +80,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Down",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Down", "Left"],
     "simulation": {
       "reload": {
         "emptySeconds": 4,
@@ -112,9 +104,7 @@
     "displayName": "FLAM-40 Flamethrower",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "flam40flamethrower",
     "imageUrl": "stratagems/Flamethrower_Stratagem_Icon_Background.svg",
@@ -198,13 +188,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Down",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Down", "Up"],
     "simulation": {
       "reload": {
         "emptySeconds": 4,
@@ -229,9 +213,7 @@
     "displayName": "S-11 Speargun",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond20",
     "internalName": "s11speargun",
     "imageUrl": "stratagems/Speargun_Stratagem_Icon_Background.svg",
@@ -347,14 +329,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Down",
-      "Left",
-      "Up",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Right", "Down", "Left", "Up", "Right"],
     "simulation": {
       "reload": {
         "emptySeconds": 2.5
@@ -378,9 +353,7 @@
     "displayName": "LAS-98 Laser Cannon",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "las98lasercannon",
     "imageUrl": "stratagems/Laser_Cannon_Stratagem_Icon_Background.svg",
@@ -459,13 +432,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Up",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Left", "Down", "Up", "Left"],
     "simulation": {
       "reload": {
         "emptySeconds": 3.65,
@@ -489,9 +456,7 @@
     "displayName": "M-105 Stalwart",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "m105stalwart",
     "imageUrl": "stratagems/Stalwart_Stratagem_Icon_Background.svg",
@@ -544,14 +509,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Up",
-      "Up",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Left", "Down", "Up", "Up", "Left"],
     "simulation": {
       "reload": {
         "emptySeconds": 5.9,
@@ -559,14 +517,8 @@
       },
       "fireRateRpm": 700,
       "capacity": 250,
-      "firingModes": [
-        "Auto"
-      ],
-      "selectableFireRatesRpm": [
-        700,
-        850,
-        1150
-      ],
+      "firingModes": ["Auto"],
+      "selectableFireRatesRpm": [700, 850, 1150],
       "sourceVersion": "1.005.000",
       "reloadSecondsByLabel": {
         "Upgraded": 5.33
@@ -583,9 +535,7 @@
     "displayName": "MG-43 Machine Gun",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "mg43machinegun",
     "imageUrl": "stratagems/Machine_Gun_Stratagem_Icon_Background.svg",
@@ -638,13 +588,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Up",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Down", "Up", "Right"],
     "simulation": {
       "reload": {
         "emptySeconds": 4.55,
@@ -652,14 +596,8 @@
       },
       "fireRateRpm": 630,
       "capacity": 175,
-      "firingModes": [
-        "Auto"
-      ],
-      "selectableFireRatesRpm": [
-        630,
-        760,
-        900
-      ],
+      "firingModes": ["Auto"],
+      "selectableFireRatesRpm": [630, 760, 900],
       "sourceVersion": "1.005.000",
       "reloadSecondsByLabel": {
         "Upgraded": 4.1
@@ -676,9 +614,7 @@
     "displayName": "MG-206 Heavy Machine Gun",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "mg206heavymachinegun",
     "imageUrl": "stratagems/Heavy_Machine_Gun_Stratagem_Icon_Background.svg",
@@ -731,13 +667,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Down",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Down", "Down"],
     "simulation": {
       "reload": {
         "emptySeconds": 5.55,
@@ -745,14 +675,8 @@
       },
       "fireRateRpm": 450,
       "capacity": 100,
-      "firingModes": [
-        "Auto"
-      ],
-      "selectableFireRatesRpm": [
-        450,
-        600,
-        750
-      ],
+      "firingModes": ["Auto"],
+      "selectableFireRatesRpm": [450, 600, 750],
       "sourceVersion": "1.005.000",
       "reloadSecondsByLabel": {
         "Upgraded": 5
@@ -769,9 +693,7 @@
     "displayName": "ARC-3 Arc Thrower",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "arc3arcthrower",
     "imageUrl": "stratagems/Arc_Thrower_Stratagem_Icon_Background.svg",
@@ -836,14 +758,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Down",
-      "Up",
-      "Left",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Right", "Down", "Up", "Left", "Left"],
     "simulation": {
       "fireRateRpm": 60,
       "infiniteCapacity": true,
@@ -860,9 +775,7 @@
     "displayName": "GL-21 Grenade Launcher",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "gl21grenadelauncher",
     "imageUrl": "stratagems/Grenade_Launcher_Stratagem_Icon_Background.svg",
@@ -943,13 +856,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Left",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Left", "Down"],
     "simulation": {
       "reload": {
         "emptySeconds": 3.55,
@@ -957,10 +864,7 @@
       },
       "fireRateRpm": 160,
       "capacity": 10,
-      "firingModes": [
-        "Semi",
-        "Auto"
-      ],
+      "firingModes": ["Semi", "Auto"],
       "sourceVersion": "1.006.100",
       "reloadSecondsByLabel": {
         "Upgraded": 3.2
@@ -977,9 +881,7 @@
     "displayName": "GL-52 De-Escalator",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond16",
     "internalName": "gl52deescalator",
     "imageUrl": "stratagems/De-Escalator_Stratagem_Icon_Background.svg",
@@ -1093,13 +995,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Up",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Right", "Up", "Left", "Right"],
     "simulation": {
       "reload": {
         "emptySeconds": 4.7,
@@ -1108,10 +1004,7 @@
       },
       "fireRateRpm": 200,
       "capacity": 6,
-      "firingModes": [
-        "Semi",
-        "Auto"
-      ],
+      "firingModes": ["Semi", "Auto"],
       "sourceVersion": "1.007.100"
     },
     "stratagemSimulation": {
@@ -1125,9 +1018,7 @@
     "displayName": "APW-1 Anti-Materiel Rifle",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "apw1antimaterielrifle",
     "imageUrl": "stratagems/Anti-Materiel_Rifle_Stratagem_Icon_Background.svg",
@@ -1180,13 +1071,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Up",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Up", "Down"],
     "simulation": {
       "reload": {
         "emptySeconds": 3.05,
@@ -1194,9 +1079,7 @@
       },
       "fireRateRpm": 400,
       "capacity": 7,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.004.100",
       "reloadSecondsByLabel": {
         "Upgraded": 2.75
@@ -1213,9 +1096,7 @@
     "displayName": "RS-422 Railgun",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "rs422railgun",
     "imageUrl": "stratagems/Railgun_Stratagem_Icon_Background.svg",
@@ -1302,24 +1183,14 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Down",
-      "Up",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Right", "Down", "Up", "Left", "Right"],
     "simulation": {
       "reload": {
         "emptySeconds": 1.2
       },
       "fireRateRpm": 34,
       "capacity": 1,
-      "firingModes": [
-        "Safe",
-        "Unsafe"
-      ],
+      "firingModes": ["Safe", "Unsafe"],
       "sourceVersion": "1.006.001",
       "reloadSecondsByLabel": {
         "Base": 1.35
@@ -1336,9 +1207,7 @@
     "displayName": "LAS-99 Quasar Cannon",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "las99quasarcannon",
     "imageUrl": "stratagems/Quasar_Cannon_Stratagem_Icon_Background.svg",
@@ -1424,13 +1293,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Up",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Down", "Up", "Left", "Right"],
     "simulation": {
       "fireRateRpm": 3.34,
       "infiniteCapacity": true,
@@ -1447,9 +1310,7 @@
     "displayName": "PLAS-45 Epoch",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond17",
     "internalName": "plas45epoch",
     "imageUrl": "stratagems/Epoch_Stratagem_Icon_Background.svg",
@@ -1618,13 +1479,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Left", "Right"],
     "simulation": {
       "reload": {
         "emptySeconds": 5.15,
@@ -1648,9 +1503,7 @@
     "displayName": "EAT-17 Expendable Anti-Tank",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "eat17expendableantitank",
     "imageUrl": "stratagems/Expendable_Anti-Tank_Stratagem_Icon_Background.svg",
@@ -1750,13 +1603,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Left",
-      "Up",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Down", "Left", "Up", "Right"],
     "simulation": {
       "capacity": 1,
       "sourceVersion": "1.001.201"
@@ -1772,9 +1619,7 @@
     "displayName": "MLS-4X Commando",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "mls4xcommando",
     "imageUrl": "stratagems/Commando_Stratagem_Icon_Background.svg",
@@ -1880,21 +1725,11 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Down", "Right"],
     "simulation": {
       "fireRateRpm": 240,
       "capacity": 4,
-      "firingModes": [
-        "Semi",
-        "Laser-guided",
-        "Dumb-Fire"
-      ],
+      "firingModes": ["Semi", "Laser-guided", "Dumb-Fire"],
       "sourceVersion": "1.006.001"
     },
     "stratagemSimulation": {
@@ -1908,9 +1743,7 @@
     "displayName": "EAT-700 Expendable Napalm",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond20",
     "internalName": "eat700expendablenapalm",
     "imageUrl": "stratagems/Expendable_Napalm_Stratagem_Icon_Background.svg",
@@ -2117,13 +1950,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Left",
-      "Up",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Down", "Left", "Up", "Left"],
     "simulation": {
       "fireRateRpm": 600,
       "capacity": 1,
@@ -2140,9 +1967,7 @@
     "displayName": "MS-11 Solo Silo",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond20",
     "internalName": "ms11solosilo",
     "imageUrl": "stratagems/Solo_Silo_Stratagem_Icon_Background.svg",
@@ -2209,13 +2034,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Down",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Down", "Down"],
     "simulation": {
       "sourceVersion": "1.004.100"
     },
@@ -2230,9 +2049,7 @@
     "displayName": "CQC-1 One True Flag",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond15",
     "internalName": "cqc1onetrueflag",
     "imageUrl": "stratagems/One_True_Flag_Stratagem_Icon_Background.svg",
@@ -2275,13 +2092,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Right",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Right", "Up"],
     "simulation": {
       "fireRateRpm": 117,
       "sourceVersion": "1.007.000"
@@ -2295,9 +2106,7 @@
     "displayName": "RL-77 Airburst Rocket Launcher",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "rl77airburstrocketlauncher",
     "imageUrl": "stratagems/Airburst_Rocket_Launcher_Stratagem_Icon_Background.svg",
@@ -2545,20 +2354,11 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Up",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Up", "Left", "Right"],
     "simulation": {
       "fireRateRpm": 16,
       "capacity": 1,
-      "firingModes": [
-        "Cluster",
-        "Flak"
-      ],
+      "firingModes": ["Cluster", "Flak"],
       "sourceVersion": "1.003.101",
       "reloadSecondsByLabel": {
         "Upgraded": 4.6,
@@ -2576,9 +2376,7 @@
     "displayName": "AC-8 Autocannon",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "ac8autocannon",
     "imageUrl": "stratagems/Autocannon_Stratagem_Icon_Background.svg",
@@ -2738,14 +2536,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Up",
-      "Up",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Down", "Up", "Up", "Right"],
     "simulation": {
       "reload": {
         "emptySeconds": 4,
@@ -2754,12 +2545,7 @@
       },
       "fireRateRpm": 190,
       "capacity": 10,
-      "firingModes": [
-        "Semi",
-        "Auto",
-        "APHET",
-        "Flak"
-      ],
+      "firingModes": ["Semi", "Auto", "APHET", "Flak"],
       "sourceVersion": "1.006.100"
     },
     "stratagemSimulation": {
@@ -2773,9 +2559,7 @@
     "displayName": "StA-X3 W.A.S.P. Launcher",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond18",
     "internalName": "stax3wasplauncher",
     "imageUrl": "stratagems/W.A.S.P._Launcher_Stratagem_Icon_Background.svg",
@@ -2909,23 +2693,14 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Up",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Down", "Up", "Down", "Right"],
     "simulation": {
       "reload": {
         "tacticalSeconds": 4.9
       },
       "fireRateRpm": 500,
       "capacity": 7,
-      "firingModes": [
-        "Burst",
-        "Artillery"
-      ],
+      "firingModes": ["Burst", "Artillery"],
       "sourceVersion": "1.006.300",
       "reloadSecondsByLabel": {
         "Upgraded": 4.4,
@@ -2943,9 +2718,7 @@
     "displayName": "GR-8 Recoilless Rifle",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "gr8recoillessrifle",
     "imageUrl": "stratagems/Recoilless_Rifle_Stratagem_Icon_Background.svg",
@@ -3100,21 +2873,11 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Right",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Right", "Left"],
     "simulation": {
       "fireRateRpm": 600,
       "capacity": 1,
-      "firingModes": [
-        "Semi",
-        "HEAT",
-        "HE"
-      ],
+      "firingModes": ["Semi", "HEAT", "HE"],
       "sourceVersion": "1.003.101",
       "reloadSecondsByLabel": {
         "Upgraded": 5.5,
@@ -3132,9 +2895,7 @@
     "displayName": "FAF-14 Spear",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "none",
     "internalName": "faf14spear",
     "imageUrl": "stratagems/Spear_Stratagem_Icon_Background.svg",
@@ -3214,19 +2975,11 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Up",
-      "Down",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Down", "Up", "Down", "Down"],
     "simulation": {
       "fireRateRpm": 240,
       "capacity": 1,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.006.202",
       "reloadSecondsByLabel": {
         "Upgraded": 4.2,
@@ -3244,9 +2997,7 @@
     "displayName": "LIFT-850 Jump Pack",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "none",
     "internalName": "lift850jumppack",
     "imageUrl": "stratagems/Jump_Pack_Stratagem_Icon_Background.svg",
@@ -3254,13 +3005,7 @@
     "wikiSlug": "LIFT-850_Jump_Pack",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Jump_Pack_Stratagem_Icon_Background.svg",
     "properties": {},
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Up",
-      "Down",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Up", "Up", "Down", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -3272,9 +3017,7 @@
     "displayName": "LIFT-860 Hover Pack",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "warbond14",
     "internalName": "lift860hoverpack",
     "imageUrl": "stratagems/Hover_Pack_Stratagem_Icon_Background.svg",
@@ -3282,14 +3025,7 @@
     "wikiSlug": "LIFT-860_Hover_Pack",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Hover_Pack_Stratagem_Icon_Background.svg",
     "properties": {},
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Up",
-      "Down",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Up", "Down", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -3301,9 +3037,7 @@
     "displayName": "LIFT-182 Warp Pack",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "warbond17",
     "internalName": "lift182warppack",
     "imageUrl": "stratagems/Warp_Pack_Stratagem_Icon_Background.svg",
@@ -3376,14 +3110,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Down",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Down", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -3395,9 +3122,7 @@
     "displayName": "B-1 Supply Pack",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "none",
     "internalName": "b1supplypack",
     "imageUrl": "stratagems/Supply_Pack_Stratagem_Icon_Background.svg",
@@ -3415,14 +3140,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Up",
-      "Up",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Left", "Down", "Up", "Up", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -3434,9 +3152,7 @@
     "displayName": "SH-51 Directional Shield",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "warbond12",
     "internalName": "sh51directionalshield",
     "imageUrl": "stratagems/Directional_Shield_Stratagem_Icon_Background.svg",
@@ -3456,14 +3172,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Right",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Right", "Up", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 300,
@@ -3475,9 +3184,7 @@
     "displayName": "SH-32 Shield Generator Pack",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "none",
     "internalName": "sh32shieldgeneratorpack",
     "imageUrl": "stratagems/Shield_Generator_Pack_Stratagem_Icon_Background.svg",
@@ -3494,14 +3201,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Right",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Right", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -3513,9 +3213,7 @@
     "displayName": "SH-20 Ballistic Shield Backpack",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "none",
     "internalName": "sh20ballisticshieldbackpack",
     "imageUrl": "stratagems/Ballistic_Shield_Backpack_Stratagem_Icon_Background.svg",
@@ -3536,14 +3234,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Down",
-      "Up",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Left", "Down", "Down", "Up", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 240,
@@ -3555,9 +3246,7 @@
     "displayName": "B-100 Portable Hellbomb",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "warbondCode": "warbond13",
     "internalName": "b100portablehellbomb",
     "imageUrl": "stratagems/Portable_Hellbomb_Stratagem_Icon_Background.svg",
@@ -3587,13 +3276,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Up",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Right", "Up", "Up", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 300,
@@ -3605,9 +3288,7 @@
     "displayName": "EXO-45 Patriot Exosuit",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
+    "tags": ["Vehicles"],
     "warbondCode": "none",
     "internalName": "exo45patriotexosuit",
     "imageUrl": "stratagems/Patriot_Exosuit_Stratagem_Icon_Background.svg",
@@ -3726,15 +3407,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Right",
-      "Up",
-      "Left",
-      "Down",
-      "Down"
-    ],
+    "stratagemCode": ["Left", "Down", "Right", "Up", "Left", "Down", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 10.5,
       "cooldownSeconds": 420,
@@ -3746,9 +3419,7 @@
     "displayName": "EXO-49 Emancipator Exosuit",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
+    "tags": ["Vehicles"],
     "warbondCode": "none",
     "internalName": "exo49emancipatorexosuit",
     "imageUrl": "stratagems/Emancipator_Exosuit_Stratagem_Icon_Background.svg",
@@ -3844,15 +3515,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Right",
-      "Up",
-      "Left",
-      "Down",
-      "Up"
-    ],
+    "stratagemCode": ["Left", "Down", "Right", "Up", "Left", "Down", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 10.5,
       "cooldownSeconds": 420,
@@ -3864,9 +3527,7 @@
     "displayName": "Eagle Strafing Run",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eaglestrafingrun",
     "imageUrl": "stratagems/Eagle_Strafing_Run_Stratagem_Icon_Background.svg",
@@ -3946,11 +3607,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Right"
-    ],
+    "stratagemCode": ["Up", "Right", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 2.4,
       "cooldownSeconds": 15,
@@ -3963,9 +3620,7 @@
     "displayName": "Eagle Airstrike",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eagleairstrike",
     "imageUrl": "stratagems/Eagle_Airstrike_Stratagem_Icon_Background.svg",
@@ -4036,12 +3691,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Up", "Right", "Down", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 4.1,
       "cooldownSeconds": 15,
@@ -4054,9 +3704,7 @@
     "displayName": "Eagle Cluster Bomb",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eagleclusterbomb",
     "imageUrl": "stratagems/Eagle_Cluster_Bomb_Stratagem_Icon_Background.svg",
@@ -4180,13 +3828,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Down",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Up", "Right", "Down", "Down", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 4.1,
       "cooldownSeconds": 15,
@@ -4199,9 +3841,7 @@
     "displayName": "Eagle Napalm Airstrike",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eaglenapalmairstrike",
     "imageUrl": "stratagems/Eagle_Napalm_Airstrike_Stratagem_Icon_Background.svg",
@@ -4318,12 +3958,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Down",
-      "Up"
-    ],
+    "stratagemCode": ["Up", "Right", "Down", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 4.1,
       "cooldownSeconds": 15,
@@ -4336,9 +3971,7 @@
     "displayName": "Eagle Smoke Strike",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eaglesmokestrike",
     "imageUrl": "stratagems/Eagle_Smoke_Strike_Stratagem_Icon_Background.svg",
@@ -4392,12 +4025,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Up",
-      "Down"
-    ],
+    "stratagemCode": ["Up", "Right", "Up", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 4.4,
       "cooldownSeconds": 15,
@@ -4410,9 +4038,7 @@
     "displayName": "Eagle 110mm Rocket Pods",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eagle110mmrocketpods",
     "imageUrl": "stratagems/Eagle_110mm_Rocket_Pods_Stratagem_Icon_Background.svg",
@@ -4482,12 +4108,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Up",
-      "Left"
-    ],
+    "stratagemCode": ["Up", "Right", "Up", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 3.4,
       "cooldownSeconds": 15,
@@ -4500,9 +4121,7 @@
     "displayName": "Eagle 500kg Bomb",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
+    "tags": ["Eagle"],
     "warbondCode": "none",
     "internalName": "eagle500kgbomb",
     "imageUrl": "stratagems/Eagle_500kg_Bomb_Stratagem_Icon_Background.svg",
@@ -4598,13 +4217,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Down",
-      "Down",
-      "Down"
-    ],
+    "stratagemCode": ["Up", "Right", "Down", "Down", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 3.45,
       "cooldownSeconds": 15,
@@ -4617,9 +4230,7 @@
     "displayName": "Orbital Precision Strike",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalprecisionstrike",
     "imageUrl": "stratagems/Orbital_Precision_Strike_Stratagem_Icon_Background.svg",
@@ -4690,11 +4301,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Up"
-    ],
+    "stratagemCode": ["Right", "Right", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 4.45,
       "cooldownSeconds": 80,
@@ -4706,9 +4313,7 @@
     "displayName": "Orbital Gas Strike",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalgasstrike",
     "imageUrl": "stratagems/Orbital_Gas_Strike_Stratagem_Icon_Background.svg",
@@ -4809,12 +4414,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Right", "Right", "Down", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 4.45,
       "cooldownSeconds": 75,
@@ -4826,9 +4426,7 @@
     "displayName": "Orbital EMS Strike",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalemsstrike",
     "imageUrl": "stratagems/Orbital_EMS_Strike_Stratagem_Icon_Background.svg",
@@ -4906,12 +4504,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Left",
-      "Down"
-    ],
+    "stratagemCode": ["Right", "Right", "Left", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 4.45,
       "cooldownSeconds": 75,
@@ -4923,9 +4516,7 @@
     "displayName": "Orbital Smoke Strike",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalsmokestrike",
     "imageUrl": "stratagems/Orbital_Smoke_Strike_Stratagem_Icon_Background.svg",
@@ -4981,12 +4572,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Down",
-      "Up"
-    ],
+    "stratagemCode": ["Right", "Right", "Down", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 4.45,
       "cooldownSeconds": 75,
@@ -4998,9 +4584,7 @@
     "displayName": "Orbital Airburst Strike",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalairburststrike",
     "imageUrl": "stratagems/Orbital_Airburst_Strike_Stratagem_Icon_Background.svg",
@@ -5126,11 +4710,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Right"
-    ],
+    "stratagemCode": ["Right", "Right", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 4.45,
       "cooldownSeconds": 100,
@@ -5142,9 +4722,7 @@
     "displayName": "Orbital Railcannon Strike",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalrailcannonstrike",
     "imageUrl": "stratagems/Orbital_Railcannon_Strike_Stratagem_Icon_Background.svg",
@@ -5215,13 +4793,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Up",
-      "Down",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Right", "Up", "Down", "Down", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 0,
       "cooldownSeconds": 180,
@@ -5233,9 +4805,7 @@
     "displayName": "Orbital Laser",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitallaser",
     "imageUrl": "stratagems/Orbital_Laser_Stratagem_Icon_Background.svg",
@@ -5297,13 +4867,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Down",
-      "Up",
-      "Right",
-      "Down"
-    ],
+    "stratagemCode": ["Right", "Down", "Up", "Right", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 2,
       "cooldownSeconds": 300,
@@ -5315,9 +4879,7 @@
     "displayName": "Orbital Gatling Barrage",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalgatlingbarrage",
     "imageUrl": "stratagems/Orbital_Gatling_Barrage_Stratagem_Icon_Background.svg",
@@ -5413,13 +4975,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Down",
-      "Left",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Right", "Down", "Left", "Up", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 3.05,
       "cooldownSeconds": 70,
@@ -5431,9 +4987,7 @@
     "displayName": "Orbital 120mm HE Barrage",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbital120mmhebarrage",
     "imageUrl": "stratagems/Orbital_120mm_HE_Barrage_Stratagem_Icon_Background.svg",
@@ -5504,14 +5058,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Down",
-      "Left",
-      "Right",
-      "Down"
-    ],
+    "stratagemCode": ["Right", "Right", "Down", "Left", "Right", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 7.45,
       "cooldownSeconds": 180,
@@ -5523,9 +5070,7 @@
     "displayName": "Orbital 380mm HE Barrage",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbital380mmhebarrage",
     "imageUrl": "stratagems/Orbital_380mm_HE_Barrage_Stratagem_Icon_Background.svg",
@@ -5596,15 +5141,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Down",
-      "Up",
-      "Up",
-      "Left",
-      "Down",
-      "Down"
-    ],
+    "stratagemCode": ["Right", "Down", "Up", "Up", "Left", "Down", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 8.45,
       "cooldownSeconds": 240,
@@ -5616,9 +5153,7 @@
     "displayName": "Orbital Walking Barrage",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalwalkingbarrage",
     "imageUrl": "stratagems/Orbital_Walking_Barrage_Stratagem_Icon_Background.svg",
@@ -5689,14 +5224,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Down",
-      "Right",
-      "Down",
-      "Right",
-      "Down"
-    ],
+    "stratagemCode": ["Right", "Down", "Right", "Down", "Right", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 5.45,
       "cooldownSeconds": 240,
@@ -5708,9 +5236,7 @@
     "displayName": "Orbital Napalm Barrage",
     "type": "Stratagem",
     "category": "Orbital",
-    "tags": [
-      "Orbital"
-    ],
+    "tags": ["Orbital"],
     "warbondCode": "none",
     "internalName": "orbitalnapalmbarrage",
     "imageUrl": "stratagems/Orbital_Napalm_Barrage_Stratagem_Icon_Background.svg",
@@ -5828,14 +5354,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Right",
-      "Right",
-      "Down",
-      "Left",
-      "Right",
-      "Up"
-    ],
+    "stratagemCode": ["Right", "Right", "Down", "Left", "Right", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 7.45,
       "cooldownSeconds": 240,
@@ -5847,9 +5366,7 @@
     "displayName": "A/ARC-3 Tesla Tower",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "aarc3teslatower",
     "imageUrl": "stratagems/Tesla_Tower_Stratagem_Icon_Background.svg",
@@ -5896,14 +5413,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Up",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Up", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 120,
@@ -5915,9 +5425,7 @@
     "displayName": "A/M-12 Mortar Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "am12mortarsentry",
     "imageUrl": "stratagems/Mortar_Sentry_Stratagem_Icon_Background.svg",
@@ -6001,13 +5509,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Right",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Right", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 180,
@@ -6019,9 +5521,7 @@
     "displayName": "A/M-23 EMS Mortar Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "am23emsmortarsentry",
     "imageUrl": "stratagems/EMS_Mortar_Sentry_Stratagem_Icon_Background.svg",
@@ -6138,13 +5638,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Down",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Down", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 180,
@@ -6156,9 +5650,7 @@
     "displayName": "A/MG-43 Machine Gun Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "amg43machinegunsentry",
     "imageUrl": "stratagems/Machine_Gun_Sentry_Stratagem_Icon_Background.svg",
@@ -6216,13 +5708,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Right",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Right", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 90,
@@ -6234,9 +5720,7 @@
     "displayName": "A/G-16 Gatling Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "ag16gatlingsentry",
     "imageUrl": "stratagems/Gatling_Sentry_Stratagem_Icon_Background.svg",
@@ -6294,12 +5778,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 150,
@@ -6311,9 +5790,7 @@
     "displayName": "A/FLAM-40 Flame Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "warbond12",
     "internalName": "aflam40flamesentry",
     "imageUrl": "stratagems/Flame_Sentry_Stratagem_Icon_Background.svg",
@@ -6402,14 +5879,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Down",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Down", "Up", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 100,
@@ -6421,9 +5891,7 @@
     "displayName": "A/LAS-98 Laser Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "warbond17",
     "internalName": "alas98lasersentry",
     "imageUrl": "stratagems/Laser_Sentry_Stratagem_Icon_Background.svg",
@@ -6507,14 +5975,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Down",
-      "Up",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Down", "Up", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 150,
@@ -6526,9 +5987,7 @@
     "displayName": "A/AC-8 Autocannon Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "aac8autocannonsentry",
     "imageUrl": "stratagems/Autocannon_Sentry_Stratagem_Icon_Background.svg",
@@ -6612,14 +6071,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Up",
-      "Left",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Up", "Left", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 150,
@@ -6631,9 +6083,7 @@
     "displayName": "A/MLS-4X Rocket Sentry",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "warbondCode": "none",
     "internalName": "amls4xrocketsentry",
     "imageUrl": "stratagems/Rocket_Sentry_Stratagem_Icon_Background.svg",
@@ -6718,13 +6168,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Right",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Right", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 150,
@@ -6736,9 +6180,7 @@
     "displayName": "FX-12 Shield Generator Relay",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "fx12shieldgeneratorrelay",
     "imageUrl": "stratagems/Shield_Generator_Relay_Stratagem_Icon_Background.svg",
@@ -6761,14 +6203,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Left",
-      "Right",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Down", "Left", "Right", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 90,
@@ -6780,9 +6215,7 @@
     "displayName": "E/MG-101 HMG Emplacement",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "emg101hmgemplacement",
     "imageUrl": "stratagems/HMG_Emplacement_Stratagem_Icon_Background.svg",
@@ -6825,14 +6258,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Right",
-      "Right",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Right", "Right", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 180,
@@ -6844,9 +6270,7 @@
     "displayName": "E/AT-12 Anti-Tank Emplacement",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "warbond12",
     "internalName": "eat12antitankemplacement",
     "imageUrl": "stratagems/Anti-Tank_Emplacement_Stratagem_Icon_Background.svg",
@@ -6915,14 +6339,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Right",
-      "Right",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Right", "Right", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 180,
@@ -6934,9 +6351,7 @@
     "displayName": "E/GL-21 Grenadier Battlement",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "egl21grenadierbattlement",
     "imageUrl": "stratagems/Grenadier_Battlement_Stratagem_Icon_Background.svg",
@@ -7015,13 +6430,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Down",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Right", "Down", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 120,
@@ -7033,9 +6442,7 @@
     "displayName": "MD-17 Anti-Tank Mines",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "md17antitankmines",
     "imageUrl": "stratagems/Anti-Tank_Mines_Stratagem_Icon_Background.svg",
@@ -7080,12 +6487,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 120,
@@ -7097,9 +6499,7 @@
     "displayName": "MD-6 Anti-Personnel Minefield",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "md6antipersonnelminefield",
     "imageUrl": "stratagems/Anti-Personnel_Minefield_Stratagem_Icon_Background.svg",
@@ -7144,12 +6544,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 120,
@@ -7161,9 +6556,7 @@
     "displayName": "MD-8 Gas Mines",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "md8gasmines",
     "imageUrl": "stratagems/Gas_Mines_Stratagem_Icon_Background.svg",
@@ -7231,12 +6624,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Left",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Left", "Left", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 3,
       "cooldownSeconds": 120,
@@ -7248,9 +6636,7 @@
     "displayName": "MD-I4 Incendiary Mines",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Emplacement"
-    ],
+    "tags": ["Emplacement"],
     "warbondCode": "none",
     "internalName": "mdi4incendiarymines",
     "imageUrl": "stratagems/Incendiary_Mines_Stratagem_Icon_Background.svg",
@@ -7296,12 +6682,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Left",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Left", "Left", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 120,
@@ -7313,9 +6694,7 @@
     "displayName": "CQC-9 Defoliation Tool",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond21",
     "internalName": "cqc9defoliationtool",
     "tier": "c",
@@ -7358,13 +6737,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Right",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Right", "Down"],
     "simulation": {
       "sourceVersion": "1.006.202"
     },
@@ -7379,9 +6752,7 @@
     "displayName": "M-1000 Maxigun",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "warbondCode": "warbond21",
     "internalName": "m1000maxigun",
     "tier": "c",
@@ -7432,20 +6803,11 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Down",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Down", "Up", "Up"],
     "simulation": {
       "fireRateRpm": 1500,
       "capacity": 1000,
-      "firingModes": [
-        "Auto"
-      ],
+      "firingModes": ["Auto"],
       "sourceVersion": "1.006.100"
     },
     "stratagemSimulation": {
@@ -7465,9 +6827,7 @@
     "imageUrl": "stratagems/Breaching_Hammer_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "properties": {
       "CQC-20 BREACHING HAMMER": {
         "Base": {
@@ -7532,13 +6892,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Right",
-      "Left",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Left", "Right", "Left", "Up"],
     "simulation": {
       "reload": {
         "emptySeconds": 1
@@ -7566,9 +6920,7 @@
     "imageUrl": "stratagems/Leveller_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "properties": {
       "EAT-411 LEVELLER": {
         "Base": {
@@ -7662,13 +7014,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Left",
-      "Up",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Down", "Left", "Up", "Down"],
     "simulation": {
       "fireRateRpm": 600,
       "capacity": 1,
@@ -7691,9 +7037,7 @@
     "imageUrl": "stratagems/Belt-Fed_Grenade_Launcher_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "properties": {
       "GL-28 BELT-FED GRENADE LAUNCHER": {
         "Base": {
@@ -7763,25 +7107,12 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Left",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Left", "Up", "Left", "Up", "Up"],
     "simulation": {
       "fireRateRpm": 160,
       "capacity": 120,
-      "firingModes": [
-        "Auto"
-      ],
-      "selectableFireRatesRpm": [
-        160,
-        240,
-        320
-      ],
+      "firingModes": ["Auto"],
+      "selectableFireRatesRpm": [160, 240, 320],
       "sourceVersion": "1.006.100",
       "capacitiesByLabel": {
         "Backpack": 120
@@ -7804,9 +7135,7 @@
     "imageUrl": "stratagems/Cremator_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "properties": {
       "B/FLAM-80 CREMATOR": {
         "Base": {
@@ -7882,20 +7211,11 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Down",
-      "Right",
-      "Down",
-      "Up",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Down", "Right", "Down", "Up", "Up"],
     "simulation": {
       "capacity": 500,
       "listedDps": 225,
-      "firingModes": [
-        "Auto"
-      ],
+      "firingModes": ["Auto"],
       "sourceVersion": "1.006.100"
     },
     "stratagemSimulation": {
@@ -7915,9 +7235,7 @@
     "imageUrl": "stratagems/C4_Pack_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
+    "tags": ["Weapons"],
     "properties": {
       "B/MD C4 PACK": {
         "Base": {
@@ -7957,23 +7275,13 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Right",
-      "Up",
-      "Up",
-      "Right",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Right", "Up", "Up", "Right", "Up"],
     "simulation": {
       "reload": {
         "emptySeconds": 1.1
       },
       "capacity": 1,
-      "firingModes": [
-        "Deploy",
-        "Detonate"
-      ],
+      "firingModes": ["Deploy", "Detonate"],
       "sourceVersion": "1.007.100",
       "reloadSecondsByLabel": {
         "Upgraded": 1
@@ -7996,9 +7304,7 @@
     "imageUrl": "stratagems/Gas_Mortar_Sentry_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Defense",
-    "tags": [
-      "Sentry"
-    ],
+    "tags": ["Sentry"],
     "properties": {
       "GAS MORTAR SENTRY": {
         "Base": {
@@ -8106,13 +7412,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Right",
-      "Down",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Up", "Right", "Down", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 7.75,
       "cooldownSeconds": 180,
@@ -8130,9 +7430,7 @@
     "imageUrl": "stratagems/Bastion_MK_XVI_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
+    "tags": ["Vehicles"],
     "properties": {
       "BASTION MK XVI": {
         "Base": {
@@ -8272,9 +7570,7 @@
     "imageUrl": "stratagems/Guard_Dog_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "properties": {
       "AX/AR-23 GUARD DOG": {
         "Base": {
@@ -8323,14 +7619,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Up",
-      "Right",
-      "Down"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Up", "Right", "Down"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -8348,9 +7637,7 @@
     "imageUrl": "stratagems/Rover_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "properties": {
       "AX/LAS-5 ROVER": {
         "Base": {
@@ -8427,14 +7714,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Up",
-      "Right",
-      "Right"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Up", "Right", "Right"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -8452,9 +7732,7 @@
     "imageUrl": "stratagems/Hot_Dog_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "properties": {
       "AX/FLAM-75 HOT DOG": {
         "Base": {
@@ -8536,14 +7814,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Up",
-      "Left",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Up", "Left", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -8561,9 +7832,7 @@
     "imageUrl": "stratagems/K-9_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "properties": {
       "AX/ARC-3 K-9": {
         "Base": {
@@ -8623,14 +7892,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Up",
-      "Right",
-      "Left"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Up", "Right", "Left"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -8648,9 +7910,7 @@
     "imageUrl": "stratagems/Dog_Breath_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Backpacks"
-    ],
+    "tags": ["Backpacks"],
     "properties": {
       "AX/TX-13 DOG BREATH": {
         "Base": {
@@ -8725,14 +7985,7 @@
         }
       }
     },
-    "stratagemCode": [
-      "Down",
-      "Up",
-      "Left",
-      "Up",
-      "Right",
-      "Up"
-    ],
+    "stratagemCode": ["Down", "Up", "Left", "Up", "Right", "Up"],
     "stratagemSimulation": {
       "callInSeconds": 9.75,
       "cooldownSeconds": 480,
@@ -8750,17 +8003,8 @@
     "imageUrl": "stratagems/Bullet_Storm_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Down",
-      "Right",
-      "Up",
-      "Left"
-    ],
+    "tags": ["Weapons"],
+    "stratagemCode": ["Down", "Left", "Down", "Right", "Up", "Left"],
     "properties": {
       "MGX-42 BULLET STORM": {
         "Base": {
@@ -8830,18 +8074,8 @@
     "imageUrl": "stratagems/Breakthrough_Exosuit_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Right",
-      "Left",
-      "Right",
-      "Down",
-      "Up"
-    ],
+    "tags": ["Vehicles"],
+    "stratagemCode": ["Left", "Down", "Right", "Left", "Right", "Down", "Up"],
     "properties": {
       "BREAKTHROUGH": {
         "Base": {
@@ -8907,18 +8141,8 @@
     "imageUrl": "stratagems/Lumberer_Exosuit_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Right",
-      "Up",
-      "Right",
-      "Left",
-      "Up"
-    ],
+    "tags": ["Vehicles"],
+    "stratagemCode": ["Left", "Down", "Right", "Up", "Right", "Left", "Up"],
     "properties": {
       "LUMBERER": {
         "Base": {
@@ -9077,17 +8301,8 @@
     "imageUrl": "stratagems/Meltagun_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Weapons"
-    ],
-    "stratagemCode": [
-      "Down",
-      "Left",
-      "Up",
-      "Left",
-      "Left",
-      "Down"
-    ],
+    "tags": ["Weapons"],
+    "stratagemCode": ["Down", "Left", "Up", "Left", "Left", "Down"],
     "properties": {
       "40-K MELTAGUN": {
         "Base": {
@@ -9184,18 +8399,8 @@
     "imageUrl": "stratagems/Supply_FRV_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Left",
-      "Left",
-      "Down",
-      "Up",
-      "Right"
-    ],
+    "tags": ["Vehicles"],
+    "stratagemCode": ["Left", "Down", "Left", "Left", "Down", "Up", "Right"],
     "properties": {
       "SUPPLY FRV": {
         "Base": {
@@ -9258,18 +8463,8 @@
     "imageUrl": "stratagems/Incinerator_FRV_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Right",
-      "Left",
-      "Down",
-      "Up",
-      "Up"
-    ],
+    "tags": ["Vehicles"],
+    "stratagemCode": ["Left", "Down", "Right", "Left", "Down", "Up", "Up"],
     "properties": {
       "INCINERATOR FRV": {
         "Base": {
@@ -9367,18 +8562,8 @@
     "imageUrl": "stratagems/Fast_Recon_Vehicle_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
-    "stratagemCode": [
-      "Left",
-      "Down",
-      "Right",
-      "Down",
-      "Right",
-      "Down",
-      "Up"
-    ],
+    "tags": ["Vehicles"],
+    "stratagemCode": ["Left", "Down", "Right", "Down", "Right", "Down", "Up"],
     "properties": {
       "GUNNER FRV": {
         "Base": {
@@ -9442,15 +8627,8 @@
     "imageUrl": "stratagems/Eagle_Gas_Airstrike_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Eagle",
-    "tags": [
-      "Eagle"
-    ],
-    "stratagemCode": [
-      "Up",
-      "Right",
-      "Left",
-      "Right"
-    ],
+    "tags": ["Eagle"],
+    "stratagemCode": ["Up", "Right", "Left", "Right"],
     "properties": {
       "Eagle Gas Airstrike": {
         "Base": {
@@ -9562,9 +8740,7 @@
     "imageUrl": "stratagems/Maelstrom_Stratagem_Icon_Background.svg",
     "type": "Stratagem",
     "category": "Supply",
-    "tags": [
-      "Vehicles"
-    ],
+    "tags": ["Vehicles"],
     "stratagemCode": [
       "Left",
       "Down",

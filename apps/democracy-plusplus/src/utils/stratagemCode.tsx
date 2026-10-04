@@ -13,11 +13,15 @@ const STRATAGEM_DIRECTION_ICONS = {
   Right: ArrowForwardIcon,
 } as const;
 
-export function isStratagemDirection(direction: string): direction is StratagemDirection {
+export function isStratagemDirection(
+  direction: string,
+): direction is StratagemDirection {
   return direction in STRATAGEM_DIRECTION_ICONS;
 }
 
-export function normalizeStratagemInput(key: string): StratagemDirection | null {
+export function normalizeStratagemInput(
+  key: string,
+): StratagemDirection | null {
   const keyMap: Record<string, StratagemDirection> = {
     ArrowUp: "Up",
     ArrowDown: "Down",
@@ -49,28 +53,42 @@ export function StratagemCodeDisplay({
   iconSize?: number;
   justifyContent?: "center" | "flex-start";
 }) {
-  return <Box sx={{
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent,
-    gap: 0.5,
-    minHeight: 28,
-    color: "text.secondary",
-  }}>
-    {code.map((direction, index) => {
-      const DirectionIcon = isStratagemDirection(direction) ? STRATAGEM_DIRECTION_ICONS[direction] : null;
-      const color = flashError
-        ? "error.main"
-        : index < progress
-          ? "success.main"
-          : "text.secondary";
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent,
+        gap: 0.5,
+        minHeight: 28,
+        color: "text.secondary",
+      }}
+    >
+      {code.map((direction, index) => {
+        const DirectionIcon = isStratagemDirection(direction)
+          ? STRATAGEM_DIRECTION_ICONS[direction]
+          : null;
+        const color = flashError
+          ? "error.main"
+          : index < progress
+            ? "success.main"
+            : "text.secondary";
 
-      return DirectionIcon
-        ? <DirectionIcon key={`${direction}-${index}`} sx={{ fontSize: iconSize, color }} />
-        : <Typography key={`${direction}-${index}`} sx={{ fontSize: Math.max(9, iconSize - 3), color }}>
-          {direction}
-        </Typography>;
-    })}
-  </Box>;
+        return DirectionIcon ? (
+          <DirectionIcon
+            key={`${direction}-${index}`}
+            sx={{ fontSize: iconSize, color }}
+          />
+        ) : (
+          <Typography
+            key={`${direction}-${index}`}
+            sx={{ fontSize: Math.max(9, iconSize - 3), color }}
+          >
+            {direction}
+          </Typography>
+        );
+      })}
+    </Box>
+  );
 }

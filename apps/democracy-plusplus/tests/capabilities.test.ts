@@ -11,10 +11,19 @@ import {
 } from "../src/utils/capabilities.ts";
 
 test("penetration labels preserve the complete unarmored through anti-tank scale", () => {
-  assert.deepEqual([
-    "Unarmored", "Very Light", "Light", "Medium", "Heavy",
-    "Anti-Tank I", "Anti-Tank 2", "Anti-Tank VI",
-  ].map(parsePenetration), [0, 1, 2, 3, 4, 5, 6, 10]);
+  assert.deepEqual(
+    [
+      "Unarmored",
+      "Very Light",
+      "Light",
+      "Medium",
+      "Heavy",
+      "Anti-Tank I",
+      "Anti-Tank 2",
+      "Anti-Tank VI",
+    ].map(parsePenetration),
+    [0, 1, 2, 3, 4, 5, 6, 10],
+  );
 });
 
 test("enemy coverage distinguishes resisted equality from strict penetration", () => {
@@ -36,24 +45,45 @@ test("enemy coverage distinguishes resisted equality from strict penetration", (
   }
 
   assert.equal(enemyAnatomyCoverageState(anatomy, [capability(1)], 1), "none");
-  assert.equal(enemyAnatomyCoverageState(anatomy, [capability(2)], 1), "partialResisted");
-  assert.equal(enemyAnatomyCoverageState(anatomy, [capability(3)], 1), "partial");
-  assert.equal(enemyAnatomyCoverageState(anatomy, [capability(4)], 1), "fullResisted");
+  assert.equal(
+    enemyAnatomyCoverageState(anatomy, [capability(2)], 1),
+    "partialResisted",
+  );
+  assert.equal(
+    enemyAnatomyCoverageState(anatomy, [capability(3)], 1),
+    "partial",
+  );
+  assert.equal(
+    enemyAnatomyCoverageState(anatomy, [capability(4)], 1),
+    "fullResisted",
+  );
   assert.equal(enemyAnatomyCoverageState(anatomy, [capability(5)], 1), "full");
-  assert.equal(bestEnemyCoverage(["partialResisted", "fullResisted", "partial"]), "fullResisted");
+  assert.equal(
+    bestEnemyCoverage(["partialResisted", "fullResisted", "partial"]),
+    "fullResisted",
+  );
 });
 
 test("enemy coverage uses per-difficulty armor and reports partial coverage", () => {
   const anatomy: EnemyAnatomy = {
     name: "Standard",
     parts: [
-      { name: "Head", armor: "3", armorByDifficulty: { "6": "5" }, health: "100", durability: "0%" },
+      {
+        name: "Head",
+        armor: "3",
+        armorByDifficulty: { "6": "5" },
+        health: "100",
+        durability: "0%",
+      },
       { name: "Body", armor: "4", health: "200", durability: "50%" },
     ],
   };
   const capability: AttackCapability = {
-    itemName: "Test rifle", attackName: "Projectile", armorPenetration: 4,
-    demolitionForce: null, explosive: false,
+    itemName: "Test rifle",
+    attackName: "Projectile",
+    armorPenetration: 4,
+    demolitionForce: null,
+    explosive: false,
   };
 
   assert.equal(anatomyCoverage(anatomy, [capability], 5).state, "full");
@@ -68,15 +98,29 @@ test("structure coverage requires sufficient demolition force and explosive BaDR
     { name: "Core", demolitionForce: 30, badr: true },
   ];
   const nonExplosive: AttackCapability = {
-    itemName: "Railgun", attackName: "Projectile", armorPenetration: 6,
-    demolitionForce: 40, explosive: false,
+    itemName: "Railgun",
+    attackName: "Projectile",
+    armorPenetration: 6,
+    demolitionForce: 40,
+    explosive: false,
   };
   const partial = structureCoverage(targets, [nonExplosive]);
   assert.equal(partial.state, "partial");
-  assert.equal(partial.targets[1].failureReason, "BaDR requires an explosive attack");
+  assert.equal(
+    partial.targets[1].failureReason,
+    "BaDR requires an explosive attack",
+  );
 
-  const explosive = { ...nonExplosive, itemName: "Rocket", attackName: "Explosion", explosive: true };
-  assert.equal(structureCoverage(targets, [nonExplosive, explosive]).state, "full");
+  const explosive = {
+    ...nonExplosive,
+    itemName: "Rocket",
+    attackName: "Explosion",
+    explosive: true,
+  };
+  assert.equal(
+    structureCoverage(targets, [nonExplosive, explosive]).state,
+    "full",
+  );
   assert.equal(structureCoverage(targets, []).state, "none");
 });
 
@@ -98,11 +142,13 @@ test("wiki demolition sources override inferred item attack values", () => {
     attacks: [{ name: "Projectile", demolitionForce: 35, explosive: true }],
   });
 
-  assert.deepEqual(capabilities, [{
-    itemName: "Test launcher",
-    attackName: "Projectile",
-    armorPenetration: 7,
-    demolitionForce: 35,
-    explosive: true,
-  }]);
+  assert.deepEqual(capabilities, [
+    {
+      itemName: "Test launcher",
+      attackName: "Projectile",
+      armorPenetration: 7,
+      demolitionForce: 35,
+      explosive: true,
+    },
+  ]);
 });

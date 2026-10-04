@@ -11,7 +11,8 @@ import { note } from "./terminalUi.ts";
 export const BASE_URL = "https://helldivers.wiki.gg";
 export const API_URL = `${BASE_URL}/api.php`;
 
-const USER_AGENT = "DemocracyPlusPlus/1.0 (https://github.com/AdamLassiter/democracy-plusplus)";
+const USER_AGENT =
+  "DemocracyPlusPlus/1.0 (https://github.com/AdamLassiter/democracy-plusplus)";
 const REQUEST_DELAY_MS = 150;
 const MAX_RETRIES = 5;
 const BASE_BACKOFF_MS = 1000;
@@ -43,7 +44,8 @@ export interface ScrapedStratagemItem extends LinkedWikiItem {
   stratagemCode: string[];
 }
 
-export type ScrapedItem = LinkedWikiItem | ScrapedWeaponItem | ScrapedStratagemItem;
+export type ScrapedItem =
+  LinkedWikiItem | ScrapedWeaponItem | ScrapedStratagemItem;
 
 export interface ScrapedObjectiveItem {
   displayName: string;
@@ -53,7 +55,8 @@ export interface ScrapedObjectiveItem {
   missionLength: MissionLength | null;
 }
 
-export type ScrapedEnemyFaction = "Terminids" | "Automatons" | "Illuminate" | "Super Earth";
+export type ScrapedEnemyFaction =
+  "Terminids" | "Automatons" | "Illuminate" | "Super Earth";
 
 export interface ScrapedEnemyListing extends LinkedWikiItem {
   faction: ScrapedEnemyFaction;
@@ -206,7 +209,9 @@ async function apiGet(params: Record<string, string | number>) {
       });
 
       if (data?.error) {
-        throw new Error(data.error.info || data.error.code || "MediaWiki API error");
+        throw new Error(
+          data.error.info || data.error.code || "MediaWiki API error",
+        );
       }
 
       return data;
@@ -218,17 +223,24 @@ async function apiGet(params: Record<string, string | number>) {
       const status = error.response?.status;
       const retryAfterHeader = error.response?.headers?.["retry-after"];
       const retryAfterSeconds = Number(retryAfterHeader);
-      const shouldRetry = status === 429 || (status !== undefined && status >= 500 && status <= 599);
+      const shouldRetry =
+        status === 429 ||
+        (status !== undefined && status >= 500 && status <= 599);
 
       if (!shouldRetry || attempt === MAX_RETRIES) {
         throw error;
       }
 
-      const exponentialDelay = BASE_BACKOFF_MS * (2 ** attempt);
-      const retryAfterDelay = Number.isFinite(retryAfterSeconds) ? retryAfterSeconds * 1000 : 0;
+      const exponentialDelay = BASE_BACKOFF_MS * 2 ** attempt;
+      const retryAfterDelay = Number.isFinite(retryAfterSeconds)
+        ? retryAfterSeconds * 1000
+        : 0;
       const delay = Math.max(exponentialDelay, retryAfterDelay);
 
-      note(`MediaWiki API ${status ?? "error"} retry in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})`, "warn");
+      note(
+        `MediaWiki API ${status ?? "error"} retry in ${Math.round(delay / 1000)}s (${attempt + 1}/${MAX_RETRIES})`,
+        "warn",
+      );
       await sleep(delay);
     }
   }
@@ -397,8 +409,13 @@ export async function fetchCategoryMembers(categoryTitle: string) {
   return (data.query?.categorymembers ?? []).map((member) => member.title);
 }
 
-function parseInfoboxDifficulty(content: string, fieldName: "min_difficulty_main" | "max_difficulty_main") {
-  const match = content.match(new RegExp(`\\|\\s*${fieldName}\\s*=\\s*([^\\n|]+)`, "i"));
+function parseInfoboxDifficulty(
+  content: string,
+  fieldName: "min_difficulty_main" | "max_difficulty_main",
+) {
+  const match = content.match(
+    new RegExp(`\\|\\s*${fieldName}\\s*=\\s*([^\\n|]+)`, "i"),
+  );
   if (!match) {
     return null;
   }
@@ -435,8 +452,12 @@ export async function fetchMainObjectives() {
     return {
       displayName: title,
       wikiSlug: titleToSlug(title),
-      minDifficulty: pageSource ? parseInfoboxDifficulty(pageSource.content, "min_difficulty_main") : null,
-      maxDifficulty: pageSource ? parseInfoboxDifficulty(pageSource.content, "max_difficulty_main") : null,
+      minDifficulty: pageSource
+        ? parseInfoboxDifficulty(pageSource.content, "min_difficulty_main")
+        : null,
+      maxDifficulty: pageSource
+        ? parseInfoboxDifficulty(pageSource.content, "max_difficulty_main")
+        : null,
       missionLength: pageSource ? parseMissionLength(pageSource.content) : null,
     };
   });
@@ -456,9 +477,13 @@ export async function expandTemplate(text: string, title: string) {
   return data.expandtemplates?.wikitext ?? "";
 }
 
-export async function resolveImageUrls(fileTitles: Array<string | null | undefined>) {
+export async function resolveImageUrls(
+  fileTitles: Array<string | null | undefined>,
+) {
   const results = new Map<string, string>();
-  const deduped = [...new Set(fileTitles.filter((title): title is string => Boolean(title)))];
+  const deduped = [
+    ...new Set(fileTitles.filter((title): title is string => Boolean(title))),
+  ];
 
   for (const fileChunk of chunk(deduped, 20)) {
     const data = (await apiGet({
@@ -476,14 +501,20 @@ export async function resolveImageUrls(fileTitles: Array<string | null | undefin
       if (url) {
         results.set(page.title, url);
         for (const requestedTitle of fileChunk) {
-          if (titleToSlug(requestedTitle).toLowerCase() === titleToSlug(page.title).toLowerCase()) {
+          if (
+            titleToSlug(requestedTitle).toLowerCase() ===
+            titleToSlug(page.title).toLowerCase()
+          ) {
             results.set(requestedTitle, url);
           }
         }
       }
     }
 
-    for (const alias of [...(data.query?.normalized ?? []), ...(data.query?.redirects ?? [])]) {
+    for (const alias of [
+      ...(data.query?.normalized ?? []),
+      ...(data.query?.redirects ?? []),
+    ]) {
       const url = results.get(alias.to);
       if (url) {
         results.set(alias.from, url);
@@ -532,7 +563,9 @@ function parseGalleryItem(line: string): LinkedWikiItem | null {
 export function parseWarbondsPageSource(content: string) {
   const results: LinkedWikiItem[] = [];
 
-  for (const galleryMatch of content.matchAll(/<gallery\b[^>]*>([\s\S]*?)<\/gallery>/gi)) {
+  for (const galleryMatch of content.matchAll(
+    /<gallery\b[^>]*>([\s\S]*?)<\/gallery>/gi,
+  )) {
     for (const rawLine of galleryMatch[1].split("\n")) {
       const line = rawLine.trim();
       const imageName = line.split("|", 1)[0];
@@ -556,7 +589,9 @@ export function parseWarbondsPageSource(content: string) {
 }
 
 function parseStratagemCodeCell(value: string) {
-  const matches = [...value.matchAll(/Stratagem Arrow (Up|Down|Left|Right)\.svg/gi)];
+  const matches = [
+    ...value.matchAll(/Stratagem Arrow (Up|Down|Left|Right)\.svg/gi),
+  ];
   return matches.map((match) => {
     const direction = match[1].toLowerCase();
     return direction.charAt(0).toUpperCase() + direction.slice(1);
@@ -681,28 +716,47 @@ function parseLinkedItemRows(wikitext: string) {
 
 function parseEnemyTableRows(wikitext: string) {
   return parseSimpleTableRows(wikitext)
-    .map((cells): Omit<LinkedWikiItem, "wikiImageUrl"> & { description: string } | null => {
-      const imageFileTitle = extractFileTitle(cells[0] ?? "");
-      const wikiLink = extractFirstWikiLink(cells[1] ?? "");
-      if (!imageFileTitle || !wikiLink) {
-        return null;
-      }
+    .map(
+      (
+        cells,
+      ):
+        | (Omit<LinkedWikiItem, "wikiImageUrl"> & { description: string })
+        | null => {
+        const imageFileTitle = extractFileTitle(cells[0] ?? "");
+        const wikiLink = extractFirstWikiLink(cells[1] ?? "");
+        if (!imageFileTitle || !wikiLink) {
+          return null;
+        }
 
-      return {
-        displayName: cleanWikiText(wikiLink.text),
-        wikiSlug: titleToSlug(wikiLink.target),
-        imageFileTitle,
-        description: cleanWikiText(cells[2] ?? ""),
-      };
-    })
-    .filter((item): item is Omit<LinkedWikiItem, "wikiImageUrl"> & { description: string } => item !== null);
+        return {
+          displayName: cleanWikiText(wikiLink.text),
+          wikiSlug: titleToSlug(wikiLink.target),
+          imageFileTitle,
+          description: cleanWikiText(cells[2] ?? ""),
+        };
+      },
+    )
+    .filter(
+      (
+        item,
+      ): item is Omit<LinkedWikiItem, "wikiImageUrl"> & {
+        description: string;
+      } => item !== null,
+    );
 }
 
 type TemplateExpander = (_text: string, _title: string) => Promise<string>;
 
-const ENEMY_FACTIONS = ["Terminids", "Automatons", "Illuminate", "Super Earth"] as const;
+const ENEMY_FACTIONS = [
+  "Terminids",
+  "Automatons",
+  "Illuminate",
+  "Super Earth",
+] as const;
 
-function isEnemyFaction(value: string): value is ScrapedEnemyListing["faction"] {
+function isEnemyFaction(
+  value: string,
+): value is ScrapedEnemyListing["faction"] {
   return ENEMY_FACTIONS.includes(value as ScrapedEnemyListing["faction"]);
 }
 
@@ -732,11 +786,15 @@ function parseFactionSubfactions(content: string) {
 }
 
 function pageHasCategory(content: string, category: string) {
-  return [...content.matchAll(/\[\[Category:([^|\]]+)/gi)]
-    .some((match) => normalizeName(match[1]) === normalizeName(category));
+  return [...content.matchAll(/\[\[Category:([^|\]]+)/gi)].some(
+    (match) => normalizeName(match[1]) === normalizeName(category),
+  );
 }
 
-export async function parseFactionsPageSource(content: string, expand: TemplateExpander = expandTemplate) {
+export async function parseFactionsPageSource(
+  content: string,
+  expand: TemplateExpander = expandTemplate,
+) {
   const listings = new Map<string, ScrapedEnemyListing>();
   let faction: ScrapedEnemyListing["faction"] | null = null;
   let subfaction: string | null = null;
@@ -745,7 +803,9 @@ export async function parseFactionsPageSource(content: string, expand: TemplateE
     const line = rawLine.trim();
     const factionHeading = line.match(/^==\s*([^=]+?)\s*==$/);
     if (factionHeading) {
-      faction = isEnemyFaction(factionHeading[1].trim()) ? factionHeading[1].trim() as ScrapedEnemyListing["faction"] : null;
+      faction = isEnemyFaction(factionHeading[1].trim())
+        ? (factionHeading[1].trim() as ScrapedEnemyListing["faction"])
+        : null;
       subfaction = null;
       continue;
     }
@@ -759,7 +819,9 @@ export async function parseFactionsPageSource(content: string, expand: TemplateE
       continue;
     }
 
-    for (const match of line.matchAll(/{{\s*Enemy Table\s*\|\s*([^}]+?)\s*}}/gi)) {
+    for (const match of line.matchAll(
+      /{{\s*Enemy Table\s*\|\s*([^}]+?)\s*}}/gi,
+    )) {
       const template = match[0];
       const expanded = await expand(template, "Factions");
       for (const parsed of parseEnemyTableRows(expanded)) {
@@ -783,10 +845,17 @@ export async function parseFactionsPageSource(content: string, expand: TemplateE
   return [...listings.values()];
 }
 
-export async function parseStratagemsPageSource(content: string, expand: TemplateExpander = expandTemplate) {
+export async function parseStratagemsPageSource(
+  content: string,
+  expand: TemplateExpander = expandTemplate,
+) {
   const currentSection = content.split("== Mission Stratagems ==")[0];
   const lines = currentSection.split("\n");
-  const templateByHeading: Array<{ heading: string; templateText: string; templateArg: string | null }> = [];
+  const templateByHeading: Array<{
+    heading: string;
+    templateText: string;
+    templateArg: string | null;
+  }> = [];
   let heading: string | null = null;
 
   for (const rawLine of lines) {
@@ -797,7 +866,9 @@ export async function parseStratagemsPageSource(content: string, expand: Templat
       continue;
     }
 
-    const templateMatch = line.match(/^{{\s*Stratagem Table(?:\s*\|\s*([^}]+?))?\s*}}$/i);
+    const templateMatch = line.match(
+      /^{{\s*Stratagem Table(?:\s*\|\s*([^}]+?))?\s*}}$/i,
+    );
     if (templateMatch) {
       templateByHeading.push({
         heading: heading ?? "",
@@ -807,16 +878,20 @@ export async function parseStratagemsPageSource(content: string, expand: Templat
     }
   }
 
-  const mapping: Record<string, { category: StratagemCategory; tag: string }> = {
-    "Support Weapons": { category: "Supply", tag: "Weapons" },
-    "Orbital Strikes": { category: "Orbital", tag: "Orbital" },
-    "Eagle Strikes": { category: "Eagle", tag: "Eagle" },
-    Emplacements: { category: "Defense", tag: "Emplacement" },
-    Sentries: { category: "Defense", tag: "Sentry" },
-    Backpacks: { category: "Supply", tag: "Backpacks" },
-    Vehicles: { category: "Supply", tag: "Vehicles" },
-  };
-  const templateArgumentMapping: Record<string, { category: StratagemCategory; tag: string }> = {
+  const mapping: Record<string, { category: StratagemCategory; tag: string }> =
+    {
+      "Support Weapons": { category: "Supply", tag: "Weapons" },
+      "Orbital Strikes": { category: "Orbital", tag: "Orbital" },
+      "Eagle Strikes": { category: "Eagle", tag: "Eagle" },
+      Emplacements: { category: "Defense", tag: "Emplacement" },
+      Sentries: { category: "Defense", tag: "Sentry" },
+      Backpacks: { category: "Supply", tag: "Backpacks" },
+      Vehicles: { category: "Supply", tag: "Vehicles" },
+    };
+  const templateArgumentMapping: Record<
+    string,
+    { category: StratagemCategory; tag: string }
+  > = {
     "": { category: "Supply", tag: "Weapons" },
     orbital: { category: "Orbital", tag: "Orbital" },
     eagle: { category: "Eagle", tag: "Eagle" },
@@ -828,7 +903,9 @@ export async function parseStratagemsPageSource(content: string, expand: Templat
 
   const results: ScrapedStratagemItem[] = [];
   for (const entry of templateByHeading) {
-    const mapped = templateArgumentMapping[(entry.templateArg ?? "").toLowerCase()] ?? mapping[entry.heading];
+    const mapped =
+      templateArgumentMapping[(entry.templateArg ?? "").toLowerCase()] ??
+      mapping[entry.heading];
     if (!mapped) {
       continue;
     }
@@ -859,7 +936,10 @@ export async function parseStratagemsPageSource(content: string, expand: Templat
   return results;
 }
 
-export async function parseBoostersPageSource(content: string, expand: TemplateExpander = expandTemplate) {
+export async function parseBoostersPageSource(
+  content: string,
+  expand: TemplateExpander = expandTemplate,
+) {
   const directItems = parseLinkedItemRows(content);
   if (directItems.length) return directItems;
 
@@ -903,8 +983,10 @@ export function parseArmorPassivePageDescription(content: string) {
 function parseSeconds(value: string | undefined) {
   if (!value) return null;
   const cleaned = cleanWikiText(value).replace(/,/g, "");
-  const match = cleaned.match(/(?:^|\s)(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)\b/i)
-    ?? cleaned.match(/^(\d+(?:\.\d+)?)/);
+  const match =
+    cleaned.match(
+      /(?:^|\s)(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)\b/i,
+    ) ?? cleaned.match(/^(\d+(?:\.\d+)?)/);
   if (!match) return null;
   const seconds = Number.parseFloat(match[1]);
   return Number.isFinite(seconds) && seconds >= 0 ? seconds : null;
@@ -923,7 +1005,9 @@ function parseInfoboxList(value: string | undefined) {
 function parseLabeledNumbers(value: string | undefined) {
   const result: Record<string, number> = {};
   const normalized = cleanEnemyValue(value);
-  for (const match of normalized.matchAll(/(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)?\s*\(([^)]+)\)/gi)) {
+  for (const match of normalized.matchAll(
+    /(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)?\s*\(([^)]+)\)/gi,
+  )) {
     const label = match[2].trim();
     if (!/[a-z]/i.test(label)) continue;
     result[label] = Number.parseFloat(match[1]);
@@ -931,7 +1015,9 @@ function parseLabeledNumbers(value: string | undefined) {
   return result;
 }
 
-export function parseWeaponSimulationMetadata(content: string): WeaponSimulationMetadata | undefined {
+export function parseWeaponSimulationMetadata(
+  content: string,
+): WeaponSimulationMetadata | undefined {
   const infobox = extractTemplateInvocations(
     content,
     "(?:Infobox[_ ]Weapon|Weapon|Infobox[_ ]Support[_ ]Weapon)",
@@ -939,52 +1025,77 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
   if (!infobox) return undefined;
 
   const parameters = parseTemplateParameters(infobox.text);
-  const reloadSecondsByLabel = parseLabeledNumbers(parameters.get("reload_time"));
-  const reloadSeconds = Object.keys(reloadSecondsByLabel).length > 1
-    ? null
-    : parseSeconds(parameters.get("reload_time"));
+  const reloadSecondsByLabel = parseLabeledNumbers(
+    parameters.get("reload_time"),
+  );
+  const reloadSeconds =
+    Object.keys(reloadSecondsByLabel).length > 1
+      ? null
+      : parseSeconds(parameters.get("reload_time"));
   const tacticalSeconds = parseSeconds(parameters.get("tac_reload_time"));
-  const roundsReloadFullSeconds = parseSeconds(parameters.get("rounds_reload_full_time"));
-  const roundsReloadFirstByLabel = parseLabeledNumbers(parameters.get("rounds_reload_first"));
-  const roundsReloadFirstSeconds = Object.entries(roundsReloadFirstByLabel)
-    .find(([label]) => label.toLowerCase() === "empty")?.[1]
-    ?? parseSeconds(parameters.get("rounds_reload_first"));
-  const roundsReloadAdditionalSeconds = parseSeconds(parameters.get("rounds_reload_rest"));
+  const roundsReloadFullSeconds = parseSeconds(
+    parameters.get("rounds_reload_full_time"),
+  );
+  const roundsReloadFirstByLabel = parseLabeledNumbers(
+    parameters.get("rounds_reload_first"),
+  );
+  const roundsReloadFirstSeconds =
+    Object.entries(roundsReloadFirstByLabel).find(
+      ([label]) => label.toLowerCase() === "empty",
+    )?.[1] ?? parseSeconds(parameters.get("rounds_reload_first"));
+  const roundsReloadAdditionalSeconds = parseSeconds(
+    parameters.get("rounds_reload_rest"),
+  );
   const traits = cleanEnemyValue(parameters.get("weapon_traits"));
-  const perRoundReload = /(?:round|shell)s?\s+reload/i.test(traits)
-    || /(?:per|\/)\s*(?:round|shell)/i.test(parameters.get("reload_time") ?? "");
+  const perRoundReload =
+    /(?:round|shell)s?\s+reload/i.test(traits) ||
+    /(?:per|\/)\s*(?:round|shell)/i.test(parameters.get("reload_time") ?? "");
   const firingModes = parseInfoboxList(parameters.get("firing_modes"));
   const fireRateRpm = parseAnatomyNumber(parameters.get("fire_rate"));
-  const selectableFireRatesRpm = [...cleanEnemyValue(parameters.get("fire_rate")).replace(/,/g, "").matchAll(/\d+(?:\.\d+)?/g)]
-    .map(([value]) => Number.parseFloat(value));
+  const selectableFireRatesRpm = [
+    ...cleanEnemyValue(parameters.get("fire_rate"))
+      .replace(/,/g, "")
+      .matchAll(/\d+(?:\.\d+)?/g),
+  ].map(([value]) => Number.parseFloat(value));
   const rawCapacity = cleanEnemyValue(parameters.get("capacity"));
   const capacitiesByLabel = Object.fromEntries(
-    Object.entries(parseLabeledNumbers(parameters.get("capacity"))).filter(([, value]) => value > 0),
+    Object.entries(parseLabeledNumbers(parameters.get("capacity"))).filter(
+      ([, value]) => value > 0,
+    ),
   );
-  const multipleConfigurations = Object.keys(capacitiesByLabel).length > 1
-    || Object.keys(reloadSecondsByLabel).length > 1;
-  const structuredRoundsReload = !multipleConfigurations && (
-    roundsReloadFullSeconds !== null
-    || roundsReloadFirstSeconds !== null
-    || roundsReloadAdditionalSeconds !== null
-  );
+  const multipleConfigurations =
+    Object.keys(capacitiesByLabel).length > 1 ||
+    Object.keys(reloadSecondsByLabel).length > 1;
+  const structuredRoundsReload =
+    !multipleConfigurations &&
+    (roundsReloadFullSeconds !== null ||
+      roundsReloadFirstSeconds !== null ||
+      roundsReloadAdditionalSeconds !== null);
   const parentheticalRounds = rawCapacity.match(/\((\d+)\s*(?:rounds?)?\)/i);
-  const capacity = Object.keys(capacitiesByLabel).length > 1
-    ? undefined
-    : parentheticalRounds
-    ? Number.parseInt(parentheticalRounds[1], 10)
-    : /^\d/.test(rawCapacity) && !/^\d+(?:\.\d+)?\s*s(?:ec(?:onds?)?)?\b/i.test(rawCapacity)
-      ? parseAnatomyNumber(rawCapacity)
-      : undefined;
+  const capacity =
+    Object.keys(capacitiesByLabel).length > 1
+      ? undefined
+      : parentheticalRounds
+        ? Number.parseInt(parentheticalRounds[1], 10)
+        : /^\d/.test(rawCapacity) &&
+            !/^\d+(?:\.\d+)?\s*s(?:ec(?:onds?)?)?\b/i.test(rawCapacity)
+          ? parseAnatomyNumber(rawCapacity)
+          : undefined;
   const infiniteCapacity = /^(?:∞|infinite)$/i.test(rawCapacity);
-  const fuelDurationMatch = content.match(/contains enough fuel for\s+(\d+(?:\.\d+)?)\s+seconds?/i);
+  const fuelDurationMatch = content.match(
+    /contains enough fuel for\s+(\d+(?:\.\d+)?)\s+seconds?/i,
+  );
   const capacitySeconds = fuelDurationMatch
     ? Number.parseFloat(fuelDurationMatch[1])
     : /^\d+(?:\.\d+)?\s*s(?:ec(?:onds?)?)?\b/i.test(rawCapacity)
       ? parseAnatomyNumber(rawCapacity)
       : undefined;
-  const listedDpsMatch = parameters.get("damage")?.match(/(\d+(?:\.\d+)?)\s*DPS\b/i);
-  const listedDps = listedDpsMatch ? Number.parseFloat(listedDpsMatch[1]) : undefined;
+  const listedDpsMatch = parameters
+    .get("damage")
+    ?.match(/(\d+(?:\.\d+)?)\s*DPS\b/i);
+  const listedDps = listedDpsMatch
+    ? Number.parseFloat(listedDpsMatch[1])
+    : undefined;
   const lastUpdated = extractTemplateInvocations(content, "Last Updated")[0];
   const sourceVersion = lastUpdated
     ? cleanWikiText(splitTopLevelTemplateParts(lastUpdated.text)[1] ?? "")
@@ -993,12 +1104,17 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
     ...(structuredRoundsReload
       ? roundsReloadFullSeconds !== null
         ? { emptySeconds: roundsReloadFullSeconds }
-        : reloadSeconds === null ? {} : { emptySeconds: reloadSeconds }
+        : reloadSeconds === null
+          ? {}
+          : { emptySeconds: reloadSeconds }
       : reloadSeconds === null || (perRoundReload && !multipleConfigurations)
         ? {}
         : { emptySeconds: reloadSeconds }),
     ...(tacticalSeconds === null ? {} : { tacticalSeconds }),
-    ...(!structuredRoundsReload && reloadSeconds !== null && perRoundReload && !multipleConfigurations
+    ...(!structuredRoundsReload &&
+    reloadSeconds !== null &&
+    perRoundReload &&
+    !multipleConfigurations
       ? { perRoundSeconds: reloadSeconds }
       : {}),
     ...(!structuredRoundsReload || roundsReloadFirstSeconds === null
@@ -1010,18 +1126,19 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
   };
 
   if (
-    !Object.keys(reload).length
-    && fireRateRpm === undefined
-    && capacity === undefined
-    && capacitySeconds === undefined
-    && !infiniteCapacity
-    && listedDps === undefined
-    && !firingModes.length
-    && selectableFireRatesRpm.length < 2
-    && !Object.keys(capacitiesByLabel).length
-    && !Object.keys(reloadSecondsByLabel).length
-    && !sourceVersion
-  ) return undefined;
+    !Object.keys(reload).length &&
+    fireRateRpm === undefined &&
+    capacity === undefined &&
+    capacitySeconds === undefined &&
+    !infiniteCapacity &&
+    listedDps === undefined &&
+    !firingModes.length &&
+    selectableFireRatesRpm.length < 2 &&
+    !Object.keys(capacitiesByLabel).length &&
+    !Object.keys(reloadSecondsByLabel).length &&
+    !sourceVersion
+  )
+    return undefined;
   return {
     ...(Object.keys(reload).length ? { reload } : {}),
     ...(fireRateRpm === undefined ? {} : { fireRateRpm }),
@@ -1033,7 +1150,9 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
     ...(selectableFireRatesRpm.length > 1 ? { selectableFireRatesRpm } : {}),
     ...(sourceVersion ? { sourceVersion } : {}),
     ...(Object.keys(capacitiesByLabel).length ? { capacitiesByLabel } : {}),
-    ...(Object.keys(reloadSecondsByLabel).length ? { reloadSecondsByLabel } : {}),
+    ...(Object.keys(reloadSecondsByLabel).length
+      ? { reloadSecondsByLabel }
+      : {}),
   };
 }
 
@@ -1041,18 +1160,26 @@ export function parseStratagemSimulationMetadata(
   content: string,
 ): StratagemSimulationMetadata | undefined {
   const stats = extractTemplateInvocations(content, "Stratagem Stats Table")[0];
-  const statsParameters = stats ? parseTemplateParameters(stats.text) : new Map<string, string>();
+  const statsParameters = stats
+    ? parseTemplateParameters(stats.text)
+    : new Map<string, string>();
   const infobox = extractTemplateInvocations(
     content,
     "(?:Infobox[_ ]Stratagem|Infobox[_ ]Support[_ ]Weapon)",
   )[0];
-  const infoboxParameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
-  const statsSection = content.match(/==\s*Stratagem Statistics\s*==([\s\S]*?)(?=\n==|$)/i)?.[1] ?? "";
+  const infoboxParameters = infobox
+    ? parseTemplateParameters(infobox.text)
+    : new Map<string, string>();
+  const statsSection =
+    content.match(/==\s*Stratagem Statistics\s*==([\s\S]*?)(?=\n==|$)/i)?.[1] ??
+    "";
   function tableStat(label: string) {
     const labelIndex = statsSection.toLowerCase().indexOf(label.toLowerCase());
     if (labelIndex < 0) return undefined;
     const afterLabel = statsSection.slice(labelIndex + label.length);
-    const nextHeader = afterLabel.search(/\n!\s*(?:rowspan|colspan|'''|[A-Za-z])/i);
+    const nextHeader = afterLabel.search(
+      /\n!\s*(?:rowspan|colspan|'''|[A-Za-z])/i,
+    );
     return afterLabel
       .slice(0, nextHeader < 0 ? 500 : nextHeader)
       .replace(/^\|\s*[^|\n=]+="[^"]*"\s*\|/gm, "|");
@@ -1060,29 +1187,37 @@ export function parseStratagemSimulationMetadata(
   function tableStatSeconds(label: string) {
     return parseSeconds(tableStat(label)?.replace(/['|]/g, " "));
   }
-  const callInSeconds = parseSeconds(statsParameters.get("call_time"))
-    ?? tableStatSeconds("Call-in Time");
-  const cooldownSeconds = parseSeconds(statsParameters.get("cooldown"))
-    ?? parseSeconds(infoboxParameters.get("base_cooldown"))
-    ?? tableStatSeconds("Cooldown");
-  const rearmSeconds = parseSeconds(statsParameters.get("rearm_time"))
-    ?? tableStatSeconds("Rearm Time");
-  const rawUses = cleanEnemyValue(statsParameters.get("uses") ?? tableStat("Uses"));
+  const callInSeconds =
+    parseSeconds(statsParameters.get("call_time")) ??
+    tableStatSeconds("Call-in Time");
+  const cooldownSeconds =
+    parseSeconds(statsParameters.get("cooldown")) ??
+    parseSeconds(infoboxParameters.get("base_cooldown")) ??
+    tableStatSeconds("Cooldown");
+  const rearmSeconds =
+    parseSeconds(statsParameters.get("rearm_time")) ??
+    tableStatSeconds("Rearm Time");
+  const rawUses = cleanEnemyValue(
+    statsParameters.get("uses") ?? tableStat("Uses"),
+  );
   const parsedUses = parseAnatomyNumber(rawUses);
   const uses = /^(?:∞|unlimited)$/i.test(rawUses)
-    ? "unlimited" as const
-    : parsedUses !== undefined && parsedUses > 0 ? parsedUses : undefined;
+    ? ("unlimited" as const)
+    : parsedUses !== undefined && parsedUses > 0
+      ? parsedUses
+      : undefined;
   const lastUpdated = extractTemplateInvocations(content, "Last Updated")[0];
   const sourceVersion = lastUpdated
     ? cleanWikiText(splitTopLevelTemplateParts(lastUpdated.text)[1] ?? "")
     : "";
   if (
-    callInSeconds === null
-    && cooldownSeconds === null
-    && rearmSeconds === null
-    && uses === undefined
-    && !sourceVersion
-  ) return undefined;
+    callInSeconds === null &&
+    cooldownSeconds === null &&
+    rearmSeconds === null &&
+    uses === undefined &&
+    !sourceVersion
+  )
+    return undefined;
   return {
     ...(callInSeconds === null ? {} : { callInSeconds }),
     ...(cooldownSeconds === null ? {} : { cooldownSeconds }),
@@ -1100,7 +1235,10 @@ function parseInfoboxDescription(content: string, infoboxName: string) {
   return cleanEnemyValue(parameters.get("description"));
 }
 
-export async function parseArmorPassivesPageSource(_content: string, expand: TemplateExpander = expandTemplate) {
+export async function parseArmorPassivesPageSource(
+  _content: string,
+  expand: TemplateExpander = expandTemplate,
+) {
   const expanded = await expand("{{Armor Passive List}}", "Armor Passives");
   const results: LinkedWikiItem[] = [];
   const headings = [...expanded.matchAll(/^===\s*([^=\n]+?)\s*===\s*$/gm)];
@@ -1130,7 +1268,10 @@ interface TemplateInvocation {
   index: number;
 }
 
-function extractTemplateInvocations(content: string, templateName: string): TemplateInvocation[] {
+function extractTemplateInvocations(
+  content: string,
+  templateName: string,
+): TemplateInvocation[] {
   const results: TemplateInvocation[] = [];
   const matcher = new RegExp(`{{\\s*${templateName}\\b`, "gi");
 
@@ -1209,7 +1350,10 @@ function parseTemplateParameters(invocation: string) {
     if (separator === -1) {
       continue;
     }
-    parameters.set(part.slice(0, separator).trim().toLowerCase(), part.slice(separator + 1).trim());
+    parameters.set(
+      part.slice(0, separator).trim().toLowerCase(),
+      part.slice(separator + 1).trim(),
+    );
   }
   return parameters;
 }
@@ -1233,7 +1377,9 @@ function cleanEnemyValue(value: string | undefined) {
 }
 
 function extractWikiSection(content: string, sectionName: string) {
-  const heading = new RegExp(`^-?==\\s*${sectionName}\\s*==\\s*$`, "im").exec(content);
+  const heading = new RegExp(`^-?==\\s*${sectionName}\\s*==\\s*$`, "im").exec(
+    content,
+  );
   if (!heading) {
     return "";
   }
@@ -1255,7 +1401,10 @@ function nearestAnatomyName(section: string, tableIndex: number) {
     candidates.push({ index: match.index ?? 0, name: cleanWikiText(match[1]) });
   }
 
-  return candidates.sort((left, right) => right.index - left.index)[0]?.name ?? "Standard";
+  return (
+    candidates.sort((left, right) => right.index - left.index)[0]?.name ??
+    "Standard"
+  );
 }
 
 function parseAnatomyNumber(value: string | undefined) {
@@ -1269,7 +1418,9 @@ function parseAnatomyNumber(value: string | undefined) {
 function parseAnatomyPercentage(value: string | undefined) {
   const normalized = cleanEnemyValue(value);
   const amount = parseAnatomyNumber(normalized);
-  return amount === undefined || !normalized.includes("%") ? undefined : amount / 100;
+  return amount === undefined || !normalized.includes("%")
+    ? undefined
+    : amount / 100;
 }
 
 function parseAnatomyBoolean(value: string | undefined) {
@@ -1287,7 +1438,9 @@ function parseAnatomyBleed(value: string | undefined) {
   }
   const normalized = description.replace(/,/g, "");
   const constitutionMatch = normalized.match(/^\s*(\d+(?:\.\d+)?)/);
-  const rateMatch = normalized.match(/\[\s*[+-]?(\d+(?:\.\d+)?)\s*\/\s*s\s*\]/i);
+  const rateMatch = normalized.match(
+    /\[\s*[+-]?(\d+(?:\.\d+)?)\s*\/\s*s\s*\]/i,
+  );
   if (!constitutionMatch || !rateMatch) {
     return { bleedDescription: description } as const;
   }
@@ -1302,7 +1455,9 @@ function parseAnatomyBleed(value: string | undefined) {
 
 export function parseEnemyHealthByDifficulty(value: string) {
   const result: Record<string, number> = {};
-  for (const match of value.replace(/,/g, "").matchAll(/(\d+(?:\.\d+)?)\s+at\s+(\d+)/gi)) {
+  for (const match of value
+    .replace(/,/g, "")
+    .matchAll(/(\d+(?:\.\d+)?)\s+at\s+(\d+)/gi)) {
     result[match[2]] = Number.parseFloat(match[1]);
   }
   return result;
@@ -1310,57 +1465,83 @@ export function parseEnemyHealthByDifficulty(value: string) {
 
 export function parseEnemyAnatomy(content: string): ScrapedEnemyAnatomy[] {
   const anatomySection = extractWikiSection(content, "Anatomy");
-  const anatomyTables = extractTemplateInvocations(anatomySection, "Anatomy Table");
+  const anatomyTables = extractTemplateInvocations(
+    anatomySection,
+    "Anatomy Table",
+  );
 
-  return anatomyTables.map((table) => ({
-    name: nearestAnatomyName(anatomySection, table.index),
-    parts: extractTemplateInvocations(table.text, "Anatomy Row").map((row) => {
-      const parameters = parseTemplateParameters(row.text);
-      const armorByDifficulty = Object.fromEntries(
-        [...parameters.entries()]
-          .filter(([key]) => /^av\d+$/.test(key))
-          .map(([key, value]) => [key.slice(2), cleanEnemyValue(value)]),
-      );
-      const percentToMain = parseAnatomyPercentage(parameters.get("percent_to_main"));
-      const damageToMainCapped = parseAnatomyBoolean(parameters.get("dmg_cap_main"));
-      const bleed = parseAnatomyBleed(parameters.get("bleed"));
-      const fatal = parseAnatomyBoolean(parameters.get("fatal"));
-      const rawExplosionResistance = cleanEnemyValue(parameters.get("exdr"));
-      const explosionResistance = /^yes\b/i.test(rawExplosionResistance)
-        ? 1
-        : /^no\b/i.test(rawExplosionResistance)
-          ? 0
-          : parseAnatomyPercentage(rawExplosionResistance);
-      const explosionVerificationMode = cleanEnemyValue(parameters.get("exvm"));
-      const demolitionForce = parseAnatomyNumber(parameters.get("df"));
-      const health = cleanEnemyValue(parameters.get("health"));
-      const healthByDifficulty = parseEnemyHealthByDifficulty(health);
-      return {
-        name: cleanEnemyValue(parameters.get("part_name")),
-        armor: cleanEnemyValue(parameters.get("av")),
-        ...(Object.keys(armorByDifficulty).length ? { armorByDifficulty } : {}),
-        health,
-        ...(Object.keys(healthByDifficulty).length ? { healthByDifficulty } : {}),
-        durability: cleanEnemyValue(parameters.get("durability")),
-        ...(percentToMain === undefined ? {} : { percentToMain }),
-        ...(damageToMainCapped === undefined ? {} : { damageToMainCapped }),
-        ...(bleed ?? {}),
-        ...(fatal === undefined ? {} : { fatal }),
-        ...(explosionResistance === undefined ? {} : { explosionResistance }),
-        ...(explosionVerificationMode ? { explosionVerificationMode } : {}),
-        ...(demolitionForce === undefined ? {} : { demolitionForce }),
-      };
-    }).filter((part) => part.name),
-  })).filter((anatomy) => anatomy.parts.length > 0);
+  return anatomyTables
+    .map((table) => ({
+      name: nearestAnatomyName(anatomySection, table.index),
+      parts: extractTemplateInvocations(table.text, "Anatomy Row")
+        .map((row) => {
+          const parameters = parseTemplateParameters(row.text);
+          const armorByDifficulty = Object.fromEntries(
+            [...parameters.entries()]
+              .filter(([key]) => /^av\d+$/.test(key))
+              .map(([key, value]) => [key.slice(2), cleanEnemyValue(value)]),
+          );
+          const percentToMain = parseAnatomyPercentage(
+            parameters.get("percent_to_main"),
+          );
+          const damageToMainCapped = parseAnatomyBoolean(
+            parameters.get("dmg_cap_main"),
+          );
+          const bleed = parseAnatomyBleed(parameters.get("bleed"));
+          const fatal = parseAnatomyBoolean(parameters.get("fatal"));
+          const rawExplosionResistance = cleanEnemyValue(
+            parameters.get("exdr"),
+          );
+          const explosionResistance = /^yes\b/i.test(rawExplosionResistance)
+            ? 1
+            : /^no\b/i.test(rawExplosionResistance)
+              ? 0
+              : parseAnatomyPercentage(rawExplosionResistance);
+          const explosionVerificationMode = cleanEnemyValue(
+            parameters.get("exvm"),
+          );
+          const demolitionForce = parseAnatomyNumber(parameters.get("df"));
+          const health = cleanEnemyValue(parameters.get("health"));
+          const healthByDifficulty = parseEnemyHealthByDifficulty(health);
+          return {
+            name: cleanEnemyValue(parameters.get("part_name")),
+            armor: cleanEnemyValue(parameters.get("av")),
+            ...(Object.keys(armorByDifficulty).length
+              ? { armorByDifficulty }
+              : {}),
+            health,
+            ...(Object.keys(healthByDifficulty).length
+              ? { healthByDifficulty }
+              : {}),
+            durability: cleanEnemyValue(parameters.get("durability")),
+            ...(percentToMain === undefined ? {} : { percentToMain }),
+            ...(damageToMainCapped === undefined ? {} : { damageToMainCapped }),
+            ...(bleed ?? {}),
+            ...(fatal === undefined ? {} : { fatal }),
+            ...(explosionResistance === undefined
+              ? {}
+              : { explosionResistance }),
+            ...(explosionVerificationMode ? { explosionVerificationMode } : {}),
+            ...(demolitionForce === undefined ? {} : { demolitionForce }),
+          };
+        })
+        .filter((part) => part.name),
+    }))
+    .filter((anatomy) => anatomy.parts.length > 0);
 }
 
 function parseEnemyVariants(content: string) {
   const variantsSection = extractWikiSection(content, "Variants");
-  const variants: Array<Omit<ScrapedEnemyVariant, "wikiImageUrl"> & { imageFileTitle: string }> = [];
+  const variants: Array<
+    Omit<ScrapedEnemyVariant, "wikiImageUrl"> & { imageFileTitle: string }
+  > = [];
 
   for (const rawLine of variantsSection.split("\n")) {
     const wikiLink = extractFirstNonFileWikiLink(rawLine);
-    const rawImageName = rawLine.split("|")[0]?.trim().replace(/^File:/i, "");
+    const rawImageName = rawLine
+      .split("|")[0]
+      ?.trim()
+      .replace(/^File:/i, "");
     if (!rawImageName || !wikiLink) {
       continue;
     }
@@ -1384,34 +1565,47 @@ const ENEMY_SIZE_CLASSES: Record<number, string> = {
 
 function parseEnemyClass(parameters: Map<string, string>) {
   const size = parseAnatomyNumber(parameters.get("size"));
-  if (size !== undefined && ENEMY_SIZE_CLASSES[size]) return ENEMY_SIZE_CLASSES[size];
+  if (size !== undefined && ENEMY_SIZE_CLASSES[size])
+    return ENEMY_SIZE_CLASSES[size];
   return cleanEnemyValue(parameters.get("class")) || "Unclassified";
 }
 
-export function parseEnemyPageSource(page: WikiPageSource, listing: ScrapedEnemyListing) {
+export function parseEnemyPageSource(
+  page: WikiPageSource,
+  listing: ScrapedEnemyListing,
+) {
   const infobox = extractTemplateInvocations(page.content, "Infobox Enemy")[0];
-  const parameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
-  const elementalMultipliers = Object.fromEntries([
-    ["Fire", "fire_mult"],
-    ["Gas", "gas_mult"],
-    ["Arc", "arc_mult"],
-    ["Acid", "acid_mult"],
-  ].flatMap(([element, parameter]) => {
-    const multiplier = parseAnatomyNumber(parameters.get(parameter));
-    return multiplier === undefined ? [] : [[element, multiplier]];
-  }));
+  const parameters = infobox
+    ? parseTemplateParameters(infobox.text)
+    : new Map<string, string>();
+  const elementalMultipliers = Object.fromEntries(
+    [
+      ["Fire", "fire_mult"],
+      ["Gas", "gas_mult"],
+      ["Arc", "arc_mult"],
+      ["Acid", "acid_mult"],
+    ].flatMap(([element, parameter]) => {
+      const multiplier = parseAnatomyNumber(parameters.get(parameter));
+      return multiplier === undefined ? [] : [[element, multiplier]];
+    }),
+  );
 
   return {
     displayName: page.title,
     faction: listing.faction,
     subfactions: listing.subfactions,
-    description: cleanEnemyValue(parameters.get("description")) || listing.description,
+    description:
+      cleanEnemyValue(parameters.get("description")) || listing.description,
     enemyClass: parseEnemyClass(parameters),
     wikiSlug: page.slug,
-    imageFileTitle: extractInfoboxImageFile(page.content, page.title) ?? listing.imageFileTitle,
+    imageFileTitle:
+      extractInfoboxImageFile(page.content, page.title) ??
+      listing.imageFileTitle,
     variants: parseEnemyVariants(page.content),
     anatomy: parseEnemyAnatomy(page.content),
-    ...(Object.keys(elementalMultipliers).length ? { elementalMultipliers } : {}),
+    ...(Object.keys(elementalMultipliers).length
+      ? { elementalMultipliers }
+      : {}),
   };
 }
 
@@ -1423,30 +1617,38 @@ export async function fetchBestiary(): Promise<ScrapedBestiary> {
 
   const listings = await parseFactionsPageSource(factionsPage.content);
   const subfactionsByFaction = parseFactionSubfactions(factionsPage.content);
-  const pages = await fetchPageSources(listings.map((listing) => listing.wikiSlug));
+  const pages = await fetchPageSources(
+    listings.map((listing) => listing.wikiSlug),
+  );
   const parsed = listings.map((listing) => {
     const page = pages.get(listing.wikiSlug);
     const categorizedSubfactions = page
       ? (subfactionsByFaction.get(listing.faction) ?? []).filter((subfaction) =>
-        pageHasCategory(page.content, subfaction),
-      )
+          pageHasCategory(page.content, subfaction),
+        )
       : [];
     const enrichedListing = {
       ...listing,
-      subfactions: [...new Set([...listing.subfactions, ...categorizedSubfactions])],
+      subfactions: [
+        ...new Set([...listing.subfactions, ...categorizedSubfactions]),
+      ],
     };
-    return page ? parseEnemyPageSource(page, enrichedListing) : {
-      ...enrichedListing,
-      enemyClass: "Unclassified",
-      imageFileTitle: listing.imageFileTitle,
-      variants: [],
-      anatomy: [],
-    };
+    return page
+      ? parseEnemyPageSource(page, enrichedListing)
+      : {
+          ...enrichedListing,
+          enemyClass: "Unclassified",
+          imageFileTitle: listing.imageFileTitle,
+          variants: [],
+          anatomy: [],
+        };
   });
-  const imageUrls = await resolveImageUrls(parsed.flatMap((enemy) => [
-    enemy.imageFileTitle,
-    ...enemy.variants.map((variant) => variant.imageFileTitle),
-  ]));
+  const imageUrls = await resolveImageUrls(
+    parsed.flatMap((enemy) => [
+      enemy.imageFileTitle,
+      ...enemy.variants.map((variant) => variant.imageFileTitle),
+    ]),
+  );
 
   const enemies = parsed.map((enemy) => ({
     displayName: enemy.displayName,
@@ -1462,12 +1664,17 @@ export async function fetchBestiary(): Promise<ScrapedBestiary> {
       wikiImageUrl: imageUrls.get(variant.imageFileTitle) ?? null,
     })),
     anatomy: enemy.anatomy,
-    ...(enemy.elementalMultipliers ? { elementalMultipliers: enemy.elementalMultipliers } : {}),
+    ...(enemy.elementalMultipliers
+      ? { elementalMultipliers: enemy.elementalMultipliers }
+      : {}),
   }));
 
   return {
     subfactions: Object.fromEntries(
-      ENEMY_FACTIONS.map((faction) => [faction, subfactionsByFaction.get(faction) ?? []]),
+      ENEMY_FACTIONS.map((faction) => [
+        faction,
+        subfactionsByFaction.get(faction) ?? [],
+      ]),
     ) as ScrapedBestiary["subfactions"],
     enemies,
   };
@@ -1485,10 +1692,17 @@ function tableRows(table: string) {
       const cells: string[] = [];
       for (const rawLine of row.split("\n")) {
         const line = rawLine.trim();
-        if (!line || line === "|}" || (!line.startsWith("|") && !line.startsWith("!"))) continue;
+        if (
+          !line ||
+          line === "|}" ||
+          (!line.startsWith("|") && !line.startsWith("!"))
+        )
+          continue;
         const separator = line.startsWith("!") ? "!!" : "||";
         for (const rawCell of line.slice(1).split(separator)) {
-          const attributeSeparator = rawCell.match(/^\s*(?:rowspan|colspan|style|class)\s*=.*?\|(.*)$/i);
+          const attributeSeparator = rawCell.match(
+            /^\s*(?:rowspan|colspan|style|class)\s*=.*?\|(.*)$/i,
+          );
           cells.push((attributeSeparator?.[1] ?? rawCell).trim());
         }
       }
@@ -1498,12 +1712,16 @@ function tableRows(table: string) {
 }
 
 function cleanDemolitionText(value: string) {
-  return cleanEnemyValue(value
-    .replace(/{{\s*Super Earth Federation\s*\|[^}]*}}/gi, "Super Earth")
-    .replace(/{{\s*(Terminids|Automatons|Illuminate)\s*\|[^}]*}}/gi, "$1"));
+  return cleanEnemyValue(
+    value
+      .replace(/{{\s*Super Earth Federation\s*\|[^}]*}}/gi, "Super Earth")
+      .replace(/{{\s*(Terminids|Automatons|Illuminate)\s*\|[^}]*}}/gi, "$1"),
+  );
 }
 
-function normalizeStructureFaction(value: string): ScrapedStructureFaction | null {
+function normalizeStructureFaction(
+  value: string,
+): ScrapedStructureFaction | null {
   const normalized = canonicalizeName(cleanDemolitionText(value));
   if (normalized === "neutral") return "Neutral";
   if (normalized.includes("superearth")) return "Super Earth";
@@ -1519,7 +1737,9 @@ function structureNameParts(value: string) {
   const fullName = cleanDemolitionText(value);
   const targetMatch = fullName.match(/\s+\(([^)]+)\)\s*$/);
   return {
-    displayName: targetMatch ? fullName.slice(0, targetMatch.index).trim() : fullName,
+    displayName: targetMatch
+      ? fullName.slice(0, targetMatch.index).trim()
+      : fullName,
     targetName: targetMatch?.[1].trim() ?? "Main",
     wikiSlug: titleToSlug(link.target),
   };
@@ -1527,7 +1747,9 @@ function structureNameParts(value: string) {
 
 export function parseDemolitionPageSource(content: string) {
   const tables = content.match(/{\|[\s\S]*?\|}/g) ?? [];
-  const structureTable = tables.find((table) => /Faction\s*!!\s*Structure\s*!!\s*BaDR/i.test(table));
+  const structureTable = tables.find((table) =>
+    /Faction\s*!!\s*Structure\s*!!\s*BaDR/i.test(table),
+  );
   const structures = new Map<string, ScrapedStructureListing>();
   let faction: ScrapedStructureFaction | null = null;
 
@@ -1541,7 +1763,10 @@ export function parseDemolitionPageSource(content: string) {
     if (!faction) continue;
     const structure = structureNameParts(cells[offset] ?? "");
     const badr = /^yes$/i.test(cleanDemolitionText(cells[offset + 1] ?? ""));
-    const demolitionForce = Number.parseInt(cleanDemolitionText(cells[offset + 2] ?? ""), 10);
+    const demolitionForce = Number.parseInt(
+      cleanDemolitionText(cells[offset + 2] ?? ""),
+      10,
+    );
     if (!structure || !Number.isFinite(demolitionForce)) continue;
     const id = `${canonicalizeName(faction)}-${canonicalizeName(structure.displayName)}`;
     const existing = structures.get(id) ?? {
@@ -1553,33 +1778,53 @@ export function parseDemolitionPageSource(content: string) {
       imageFileTitle: null,
       targets: [],
     };
-    existing.targets.push({ name: structure.targetName, demolitionForce, badr });
+    existing.targets.push({
+      name: structure.targetName,
+      demolitionForce,
+      badr,
+    });
     structures.set(id, existing);
   }
 
   const demolitionSources = new Map<string, ScrapedDemolitionSource>();
   for (const table of tables) {
     const category = tableCaption(table);
-    if (!category || !/Demo Force/i.test(table) || !/Explosive\?/i.test(table)) continue;
+    if (!category || !/Demo Force/i.test(table) || !/Explosive\?/i.test(table))
+      continue;
     let currentSource: { displayName: string; wikiSlug: string } | null = null;
     for (const cells of tableRows(table)) {
       let offset = 0;
       const link = extractFirstWikiLink(cells[0] ?? "");
       if (link) {
-        currentSource = { displayName: cleanDemolitionText(link.text), wikiSlug: titleToSlug(link.target) };
+        currentSource = {
+          displayName: cleanDemolitionText(link.text),
+          wikiSlug: titleToSlug(link.target),
+        };
         offset = 1;
       }
       if (!currentSource) continue;
       const attackName = cleanDemolitionText(cells[offset] ?? "");
-      const demolitionForce = Number.parseInt(cleanDemolitionText(cells[offset + 1] ?? ""), 10);
-      const explosive = /^yes$/i.test(cleanDemolitionText(cells[offset + 2] ?? ""));
+      const demolitionForce = Number.parseInt(
+        cleanDemolitionText(cells[offset + 1] ?? ""),
+        10,
+      );
+      const explosive = /^yes$/i.test(
+        cleanDemolitionText(cells[offset + 2] ?? ""),
+      );
       if (!attackName || !Number.isFinite(demolitionForce)) continue;
-      const source = demolitionSources.get(currentSource.wikiSlug) ?? { ...currentSource, category, attacks: [] };
+      const source = demolitionSources.get(currentSource.wikiSlug) ?? {
+        ...currentSource,
+        category,
+        attacks: [],
+      };
       source.attacks.push({ name: attackName, demolitionForce, explosive });
       demolitionSources.set(currentSource.wikiSlug, source);
     }
   }
-  return { structures: [...structures.values()], demolitionSources: [...demolitionSources.values()] };
+  return {
+    structures: [...structures.values()],
+    demolitionSources: [...demolitionSources.values()],
+  };
 }
 
 function structureLeadDescription(content: string, pageTitle: string) {
@@ -1588,31 +1833,54 @@ function structureLeadDescription(content: string, pageTitle: string) {
     .replace(/{{Breadcrumb[^}]*}}/gi, "")
     .replace(/{{\s*PAGENAME\s*}}/gi, pageTitle)
     .trim();
-  return withoutInfoboxes.split(/^==/m)[0]
-    .split(/\n\s*\n/)
-    .map((value) => cleanDemolitionText(value)
-      .replace(/^\|-\|[^=]+=/, "")
-      .split(/\|-\|[^=]+=/)[0]
-      .trim())
-    .find((value) => value.length > 20
-      && !value.startsWith("File:")
-      && !value.startsWith("Category:")
-      && /^[A-Z0-9]/.test(value)
-      && !/looking for something|must be added|add damage info/i.test(value)
-      && !/^(?:\d+\.)+\d+(?:\s+(?:\d+\.)+\d+)*$/.test(value)) ?? "";
+  return (
+    withoutInfoboxes
+      .split(/^==/m)[0]
+      .split(/\n\s*\n/)
+      .map((value) =>
+        cleanDemolitionText(value)
+          .replace(/^\|-\|[^=]+=/, "")
+          .split(/\|-\|[^=]+=/)[0]
+          .trim(),
+      )
+      .find(
+        (value) =>
+          value.length > 20 &&
+          !value.startsWith("File:") &&
+          !value.startsWith("Category:") &&
+          /^[A-Z0-9]/.test(value) &&
+          !/looking for something|must be added|add damage info/i.test(value) &&
+          !/^(?:\d+\.)+\d+(?:\s+(?:\d+\.)+\d+)*$/.test(value),
+      ) ?? ""
+  );
 }
 
 function structureTitleMatchesPage(structureName: string, pageTitle: string) {
   function words(value: string) {
-    return new Set(value.toLowerCase().match(/[a-z0-9]+/g)?.map((word) => word.replace(/s$/, "")) ?? []);
+    return new Set(
+      value
+        .toLowerCase()
+        .match(/[a-z0-9]+/g)
+        ?.map((word) => word.replace(/s$/, "")) ?? [],
+    );
   }
   const structureWords = words(structureName);
-  return [...words(pageTitle)].some((word) => word.length > 3 && structureWords.has(word));
+  return [...words(pageTitle)].some(
+    (word) => word.length > 3 && structureWords.has(word),
+  );
 }
 
-export function parseStructurePageSource(page: WikiPageSource, listing: ScrapedStructureListing) {
-  const infobox = extractTemplateInvocations(page.content, "Infobox Structure")[0];
-  const parameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
+export function parseStructurePageSource(
+  page: WikiPageSource,
+  listing: ScrapedStructureListing,
+) {
+  const infobox = extractTemplateInvocations(
+    page.content,
+    "Infobox Structure",
+  )[0];
+  const parameters = infobox
+    ? parseTemplateParameters(infobox.text)
+    : new Map<string, string>();
   const image = parameters.get("image")?.split("\n")[0]?.trim();
   const description = structureTitleMatchesPage(listing.displayName, page.title)
     ? structureLeadDescription(page.content, page.title)
@@ -1620,25 +1888,36 @@ export function parseStructurePageSource(page: WikiPageSource, listing: ScrapedS
   return {
     ...listing,
     description: description || listing.description,
-    imageFileTitle: image ? `File:${image.replace(/^File:/i, "")}` : listing.imageFileTitle,
+    imageFileTitle: image
+      ? `File:${image.replace(/^File:/i, "")}`
+      : listing.imageFileTitle,
   };
 }
 
 export async function fetchStructures(): Promise<ScrapedStructuresData> {
   const demolitionPage = await fetchPageSource("Demolition");
-  if (!demolitionPage) throw new Error("Missing wiki page source for Demolition");
+  if (!demolitionPage)
+    throw new Error("Missing wiki page source for Demolition");
   const parsed = parseDemolitionPageSource(demolitionPage.content);
-  const pageTitles = [...new Set(parsed.structures.map((structure) => structure.wikiSlug.split("#")[0]))];
+  const pageTitles = [
+    ...new Set(
+      parsed.structures.map((structure) => structure.wikiSlug.split("#")[0]),
+    ),
+  ];
   const pages = await fetchPageSources(pageTitles);
   const detailed = parsed.structures.map((structure) => {
     const page = pages.get(structure.wikiSlug.split("#")[0]);
     return page ? parseStructurePageSource(page, structure) : structure;
   });
-  const imageUrls = await resolveImageUrls(detailed.map((structure) => structure.imageFileTitle));
+  const imageUrls = await resolveImageUrls(
+    detailed.map((structure) => structure.imageFileTitle),
+  );
   return {
     structures: detailed.map(({ imageFileTitle, ...structure }) => ({
       ...structure,
-      wikiImageUrl: imageFileTitle ? imageUrls.get(imageFileTitle) ?? null : null,
+      wikiImageUrl: imageFileTitle
+        ? (imageUrls.get(imageFileTitle) ?? null)
+        : null,
     })),
     demolitionSources: parsed.demolitionSources,
   };
@@ -1676,9 +1955,11 @@ export function findBestScrapedMatch<T extends ExistingWikiItem>(
     }
 
     const canonicalScrapedName = canonicalizeName(scrapedItem.displayName);
-    return canonicalScrapedName !== ""
-      && (canonicalExistingName.includes(canonicalScrapedName)
-        || canonicalScrapedName.includes(canonicalExistingName));
+    return (
+      canonicalScrapedName !== "" &&
+      (canonicalExistingName.includes(canonicalScrapedName) ||
+        canonicalScrapedName.includes(canonicalExistingName))
+    );
   });
 
   if (similarMatches.length !== 1) {

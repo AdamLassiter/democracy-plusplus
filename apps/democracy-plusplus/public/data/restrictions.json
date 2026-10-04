@@ -108,9 +108,7 @@
     ],
     "type": "restriction",
     "category": "loadout",
-    "tags": [
-      "exclusivestratagems"
-    ],
+    "tags": ["exclusivestratagems"],
     "tier": "a"
   },
   {
@@ -177,9 +175,7 @@
     ],
     "type": "restriction",
     "category": "social",
-    "tags": [
-      "terminids"
-    ],
+    "tags": ["terminids"],
     "tier": "a"
   },
   {
@@ -191,9 +187,7 @@
     ],
     "type": "restriction",
     "category": "social",
-    "tags": [
-      "automatons"
-    ],
+    "tags": ["automatons"],
     "tier": "a"
   },
   {
@@ -205,9 +199,7 @@
     ],
     "type": "restriction",
     "category": "social",
-    "tags": [
-      "illuminate"
-    ],
+    "tags": ["illuminate"],
     "tier": "a"
   }
 ]

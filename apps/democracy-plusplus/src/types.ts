@@ -32,24 +32,21 @@ export type {
   ClientCommand,
 } from "@plusplus/shared-types";
 
-export type Tier = 's' | 'a' | 'b' | 'c' | 'd';
-export type EditableTier = Tier | 'uncategorized';
-export type MissionLength = 'short' | 'long';
+export type Tier = "s" | "a" | "b" | "c" | "d";
+export type EditableTier = Tier | "uncategorized";
+export type MissionLength = "short" | "long";
 // Catalog display names are the existing persisted key; this alias centralizes that contract for future migration.
 export type ItemId = string;
 
 export type EquipmentCategory =
-  | 'armor'
-  | 'booster'
-  | 'primary'
-  | 'secondary'
-  | 'throwable';
+  "armor" | "booster" | "primary" | "secondary" | "throwable";
 
-export type StratagemCategory = 'Supply' | 'Eagle' | 'Defense' | 'Orbital';
+export type StratagemCategory = "Supply" | "Eagle" | "Defense" | "Orbital";
 
-export type ItemCategory = EquipmentCategory | StratagemCategory | 'crate' | 'questrequired';
+export type ItemCategory =
+  EquipmentCategory | StratagemCategory | "crate" | "questrequired";
 
-export type ItemType = 'Equipment' | 'Stratagem' | 'Care Package' | 'Warbond';
+export type ItemType = "Equipment" | "Stratagem" | "Care Package" | "Warbond";
 
 export type PropertyValue =
   | string
@@ -60,13 +57,13 @@ export type PropertyValue =
   | { [key: string]: PropertyValue };
 
 export type ItemProperties = Record<string, PropertyValue>;
-export type ObjectiveTag = 'Eradicate' | 'Commando' | 'Blitz';
+export type ObjectiveTag = "Eradicate" | "Commando" | "Blitz";
 
 export interface WeaponSourceMode {
   id: string;
   label: string;
   roundsPerTrigger?: number;
-  consumes?: 'fixed' | 'remaining';
+  consumes?: "fixed" | "remaining";
   simultaneous?: boolean;
   compatibleFireRatesRpm?: number[];
 }
@@ -81,7 +78,7 @@ export interface WeaponSourceConfiguration {
   attacks: Record<string, PropertyValue>;
   capacity?: number;
   fireRatesRpm?: number[];
-  reload?: WeaponSimulationMetadata['reload'];
+  reload?: WeaponSimulationMetadata["reload"];
   firingModes?: WeaponSourceMode[];
   capacitySeconds?: number;
   listedDps?: number;
@@ -114,7 +111,7 @@ export interface StratagemSimulationMetadata {
   callInSeconds?: number;
   cooldownSeconds?: number;
   rearmSeconds?: number;
-  uses?: number | 'unlimited';
+  uses?: number | "unlimited";
   sourceVersion?: string;
 }
 
@@ -146,8 +143,8 @@ export interface ShopItem extends BaseItem {
 }
 
 export interface CrateItem extends BaseItem {
-  type: 'Care Package';
-  category: 'crate';
+  type: "Care Package";
+  category: "crate";
   contents: Item[];
   cost: number;
   tier: Tier;
@@ -155,7 +152,7 @@ export interface CrateItem extends BaseItem {
 
 export type Item = BaseItem | CrateItem;
 
-export interface Objective extends Omit<BaseItem, 'tier'> {
+export interface Objective extends Omit<BaseItem, "tier"> {
   minDifficulty?: number;
   maxDifficulty?: number;
   missionLength?: MissionLength;
@@ -163,7 +160,7 @@ export interface Objective extends Omit<BaseItem, 'tier'> {
 }
 
 export interface Warbond extends BaseItem {
-  type: 'Warbond';
+  type: "Warbond";
   warbondCode: string;
   tier: Tier;
   legendary?: true;
@@ -222,8 +219,12 @@ export interface Enemy {
   imageUrl: string;
   variants: EnemyVariant[];
   anatomy: EnemyAnatomy[];
-  elementalMultipliers?: Partial<Record<"Fire" | "Gas" | "Arc" | "Acid", number>>;
-  statusThresholds?: Partial<Record<string, { minimum: number; guaranteed: number }>>;
+  elementalMultipliers?: Partial<
+    Record<"Fire" | "Gas" | "Arc" | "Acid", number>
+  >;
+  statusThresholds?: Partial<
+    Record<string, { minimum: number; guaranteed: number }>
+  >;
 }
 
 export interface BestiaryData {
@@ -269,7 +270,8 @@ export interface StructuresData {
 }
 
 export type CoverageState = "none" | "partial" | "full";
-export type EnemyCoverageState = "none" | "partialResisted" | "partial" | "fullResisted" | "full";
+export type EnemyCoverageState =
+  "none" | "partialResisted" | "partial" | "fullResisted" | "full";
 
 export interface AttackCapability {
   itemName: string;
@@ -341,7 +343,7 @@ export interface PreferencesState {
   missionFlowBanner: boolean;
   detailedAntiTank: boolean;
   detailedDemolitionForce: boolean;
-  itemDisplaySize: 'large' | 'small';
+  itemDisplaySize: "large" | "small";
 }
 
 export interface PurchasedState {
@@ -351,7 +353,7 @@ export interface PurchasedState {
 export interface SnackbarState {
   message: string;
   open: boolean;
-  severity: 'error' | 'warning' | 'info' | 'success';
+  severity: "error" | "warning" | "info" | "success";
 }
 
 export interface CartEntry {
@@ -360,7 +362,7 @@ export interface CartEntry {
 }
 
 export interface PurchaseLogEntry {
-  kind: 'purchase';
+  kind: "purchase";
   id: string;
   timestamp: string;
   itemDisplayName: string;
@@ -368,7 +370,7 @@ export interface PurchaseLogEntry {
 }
 
 export interface TierListChangeLogEntry {
-  kind: 'tierListChange';
+  kind: "tierListChange";
   id: string;
   timestamp: string;
 }
@@ -379,7 +381,7 @@ export interface MissionOutcome {
 }
 
 export interface MissionLogEntry {
-  kind: 'mission';
+  kind: "mission";
   id: string;
   timestamp: string;
   modeId?: ChallengeModeId;
@@ -431,7 +433,8 @@ export interface ChallengesState {
   warbondKnockout: WarbondKnockoutRunState;
 }
 
-export type LogEntry = PurchaseLogEntry | MissionLogEntry | TierListChangeLogEntry;
+export type LogEntry =
+  PurchaseLogEntry | MissionLogEntry | TierListChangeLogEntry;
 
 export interface LogState {
   entries: LogEntry[];
@@ -455,7 +458,7 @@ export interface ShopState {
 export interface MultiplayerState {
   backendAvailable: boolean;
   availabilityChecked: boolean;
-  connectionStatus: 'idle' | 'connecting' | 'connected' | 'error';
+  connectionStatus: "idle" | "connecting" | "connected" | "error";
   error: string | null;
   lobbyCode: LobbyCode | null;
   memberId: LobbyMemberId | null;

@@ -1,8 +1,9 @@
-export type Faction = 'Terminids' | 'Automatons' | 'Illuminate';
-export type MissionStage = 'brief' | 'generating' | 'loadout' | 'debrief';
-export type Tier = 's' | 'a' | 'b' | 'c' | 'd';
+export type Faction = "Terminids" | "Automatons" | "Illuminate";
+export type MissionStage = "brief" | "generating" | "loadout" | "debrief";
+export type Tier = "s" | "a" | "b" | "c" | "d";
 export type PlayerCount = 1 | 2 | 3 | 4;
-export type ChallengeModeId = 'budget' | 'randomizer' | 'all-item-knockout' | 'warbond-knockout';
+export type ChallengeModeId =
+  "budget" | "randomizer" | "all-item-knockout" | "warbond-knockout";
 
 export interface ChallengeSelection {
   version: 1;
@@ -19,7 +20,7 @@ export interface Quest {
   reward?: number;
   values?: number[];
   shortValues?: number[];
-  datatype?: 'float';
+  datatype?: "float";
   completed?: boolean;
   value?: number;
 }
@@ -84,20 +85,28 @@ export interface LobbySessionResponse {
 }
 
 export type ClientCommand =
-  | { type: 'setDisplayName'; displayName: string }
-  | { type: 'setChallengeSelection'; challengeSelection: ChallengeSelection }
-  | { type: 'setMissionConfig'; mission: Partial<Pick<LobbyMissionState, 'faction' | 'difficulty' | 'objective' | 'state' | 'factionLocked'>> }
-  | { type: 'lockMissionConfig' }
-  | { type: 'setEquippedLoadout'; loadout: LobbyMemberLoadout }
-  | { type: 'setDebriefReady'; ready: boolean }
-  | { type: 'setQuests'; quests: Quest[] }
-  | { type: 'setRestrictions'; restrictions: Restriction[] }
-  | { type: 'setMissionStars'; stars: number | null }
-  | { type: 'submitDebriefReports' }
-  | { type: 'leaveLobby' };
+  | { type: "setDisplayName"; displayName: string }
+  | { type: "setChallengeSelection"; challengeSelection: ChallengeSelection }
+  | {
+      type: "setMissionConfig";
+      mission: Partial<
+        Pick<
+          LobbyMissionState,
+          "faction" | "difficulty" | "objective" | "state" | "factionLocked"
+        >
+      >;
+    }
+  | { type: "lockMissionConfig" }
+  | { type: "setEquippedLoadout"; loadout: LobbyMemberLoadout }
+  | { type: "setDebriefReady"; ready: boolean }
+  | { type: "setQuests"; quests: Quest[] }
+  | { type: "setRestrictions"; restrictions: Restriction[] }
+  | { type: "setMissionStars"; stars: number | null }
+  | { type: "submitDebriefReports" }
+  | { type: "leaveLobby" };
 
 export interface LobbySnapshotEvent {
-  type: 'lobbySnapshot';
+  type: "lobbySnapshot";
   lobbyState: LobbyState;
 }
 

@@ -9,20 +9,22 @@ export default function CloseableDialogTitle({
   children: ReactNode;
   onClose: () => void;
 }) {
-  return <DialogTitle sx={{ position: "relative", pr: 7 }}>
-    {children}
-    <IconButton
-      aria-label="Close dialog"
-      onClick={onClose}
-      sx={{
-        minHeight: 44,
-        minWidth: 44,
-        position: "absolute",
-        right: 8,
-        top: 8,
-      }}
-    >
-      <CloseIcon />
-    </IconButton>
-  </DialogTitle>;
+  return (
+    <DialogTitle sx={{ position: "relative", pr: 7 }}>
+      {children}
+      <IconButton
+        aria-label="Close dialog"
+        onClick={onClose}
+        sx={{
+          minHeight: 44,
+          minWidth: 44,
+          position: "absolute",
+          right: 8,
+          top: 8,
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
+    </DialogTitle>
+  );
 }

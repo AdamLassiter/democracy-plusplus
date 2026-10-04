@@ -3,10 +3,7 @@
     "displayName": "Advanced Filtration",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Gas"
-    ],
+    "tags": ["ArmorPassive", "Gas"],
     "warbondCode": "warbond10",
     "internalName": "advancedfiltration",
     "imageUrl": "armor_passives/Advanced_Filtration_Armor_Passive_Icon.svg",
@@ -19,13 +16,7 @@
     "displayName": "Acclimated",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Fire",
-      "Gas",
-      "Acid",
-      "Arc"
-    ],
+    "tags": ["ArmorPassive", "Fire", "Gas", "Acid", "Arc"],
     "warbondCode": "warbond18",
     "internalName": "acclimated",
     "tier": "d",
@@ -38,9 +29,7 @@
     "displayName": "Democracy Protects",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "none",
     "internalName": "democracyprotects",
     "imageUrl": "armor_passives/Democracy_Protects_Armor_Passive_Icon.svg",
@@ -53,10 +42,7 @@
     "displayName": "Electrical Conduit",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Arc"
-    ],
+    "tags": ["ArmorPassive", "Arc"],
     "warbondCode": "warbond5",
     "internalName": "electricalconduit",
     "imageUrl": "armor_passives/Electrical_Conduit_Armor_Passive_Icon.svg",
@@ -69,9 +55,7 @@
     "displayName": "Engineering Kit",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond3",
     "internalName": "engineeringkit",
     "imageUrl": "armor_passives/Engineering_Kit_Armor_Passive_Icon.svg",
@@ -84,9 +68,7 @@
     "displayName": "Extra Padding",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "none",
     "internalName": "extrapadding",
     "imageUrl": "armor_passives/Extra_Padding_Armor_Passive_Icon.svg",
@@ -99,10 +81,7 @@
     "displayName": "Fortified",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Explosive"
-    ],
+    "tags": ["ArmorPassive", "Explosive"],
     "warbondCode": "warbond6",
     "internalName": "fortified",
     "imageUrl": "armor_passives/Fortified_Armor_Passive_Icon.svg",
@@ -115,10 +94,7 @@
     "displayName": "Inflammable",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Fire"
-    ],
+    "tags": ["ArmorPassive", "Fire"],
     "warbondCode": "warbond9",
     "internalName": "inflammable",
     "imageUrl": "armor_passives/Inflammable_Armor_Passive_Icon.svg",
@@ -131,9 +107,7 @@
     "displayName": "Med-Kit",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond3",
     "internalName": "medkit",
     "imageUrl": "armor_passives/Med-Kit_Armor_Passive_Icon.svg",
@@ -146,9 +120,7 @@
     "displayName": "Peak Physique",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond8",
     "internalName": "peakphysique",
     "imageUrl": "armor_passives/Peak_Physique_Armor_Passive_Icon.svg",
@@ -161,10 +133,7 @@
     "displayName": "Scout",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Stealth"
-    ],
+    "tags": ["ArmorPassive", "Stealth"],
     "warbondCode": "warbond3",
     "internalName": "scout",
     "imageUrl": "armor_passives/Scout_Armor_Passive_Icon.svg",
@@ -177,9 +146,7 @@
     "displayName": "Servo-Assisted",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond4",
     "internalName": "servoassisted",
     "imageUrl": "armor_passives/Servo-Assisted_Armor_Passive_Icon.svg",
@@ -192,9 +159,7 @@
     "displayName": "Unflinching",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond11",
     "internalName": "unflinching",
     "imageUrl": "armor_passives/Unflinching_Armor_Passive_Icon.svg",
@@ -207,10 +172,7 @@
     "displayName": "Integrated Explosives",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Explosive"
-    ],
+    "tags": ["ArmorPassive", "Explosive"],
     "warbondCode": "warbond13",
     "internalName": "integratedexplosives",
     "imageUrl": "armor_passives/Integrated_Explosives_Armor_Passive_Icon.svg",
@@ -223,9 +185,7 @@
     "displayName": "Gunslinger",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond14",
     "internalName": "gunslinger",
     "imageUrl": "armor_passives/Gunslinger_Armor_Passive_Icon.svg",
@@ -238,9 +198,7 @@
     "displayName": "Reinforced Epaulettes",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond15",
     "internalName": "reinforcedepaulettes",
     "imageUrl": "armor_passives/Reinforced_Epaulettes_Armor_Passive_Icon.svg",
@@ -253,9 +211,7 @@
     "displayName": "Ballistic Padding",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond16",
     "internalName": "ballisticpadding",
     "imageUrl": "armor_passives/Ballistic_Padding_Armor_Passive_Icon.svg",
@@ -268,9 +224,7 @@
     "displayName": "Adreno-Defibrillator",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond17",
     "internalName": "adrenodefibrillator",
     "imageUrl": "armor_passives/Adreno-Defibrillator_Armor_Passive_Icon.svg",
@@ -283,10 +237,7 @@
     "displayName": "Feet First",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Stealth"
-    ],
+    "tags": ["ArmorPassive", "Stealth"],
     "warbondCode": "warbond19",
     "internalName": "feetfirst",
     "imageUrl": "armor_passives/Feet_First_Armor_Passive_Icon.svg",
@@ -299,13 +250,7 @@
     "displayName": "Desert Stormer",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Fire",
-      "Gas",
-      "Acid",
-      "Arc"
-    ],
+    "tags": ["ArmorPassive", "Fire", "Gas", "Acid", "Arc"],
     "warbondCode": "warbond20",
     "internalName": "desertstormer",
     "imageUrl": "armor_passives/Desert_Stormer_Armor_Passive_Icon.svg",
@@ -318,9 +263,7 @@
     "displayName": "Rock Solid",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "warbondCode": "warbond21",
     "internalName": "rocksolid",
     "tier": "a",
@@ -339,10 +282,7 @@
     "imageUrl": "armor_passives/Concussive_Padding_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Explosive"
-    ],
+    "tags": ["ArmorPassive", "Explosive"],
     "description": "Provides 50% resistance to explosive damage. Increases initial inventory and holding capacity of throwables by +2."
   },
   {
@@ -355,11 +295,7 @@
     "imageUrl": "armor_passives/Concussive_Padding_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Explosive",
-      "Gas"
-    ],
+    "tags": ["ArmorPassive", "Explosive", "Gas"],
     "description": "Provides 50% resistance to explosive damage. Provides 25% resistance to gas damage and effects. Sidearm recoil reduced by 30%."
   },
   {
@@ -372,10 +308,7 @@
     "imageUrl": "armor_passives/Concussive_Padding_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Explosive"
-    ],
+    "tags": ["ArmorPassive", "Explosive"],
     "description": "Provides 50% resistance to explosive damage. Provides a higher armor rating."
   },
   {
@@ -388,9 +321,7 @@
     "imageUrl": "armor_passives/Supplementary_Adrenaline_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "description": "When the wearer takes damage, they regain some stamina. Provides a higher armor rating."
   },
   {
@@ -403,10 +334,7 @@
     "imageUrl": "armor_passives/Reduced_Signature_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive",
-      "Stealth"
-    ],
+    "tags": ["ArmorPassive", "Stealth"],
     "description": "Wearer makes 50% less noise when moving. Reduces range at which enemies can detect the wearer by 40%."
   },
   {
@@ -419,9 +347,7 @@
     "imageUrl": "armor_passives/Siege-Ready_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "description": "Increases reload speed of primary weapons by 30%. Increases ammo capacity of all weapons by 20%. Does not affect weapon backpacks."
   },
   {
@@ -434,9 +360,7 @@
     "imageUrl": "armor_passives/Oxygenator_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "description": "Increases the wearer's walking speed and running speed. Increases the speed and duration of slides."
   },
   {
@@ -449,9 +373,7 @@
     "imageUrl": "armor_passives/True_Grit_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "description": "Increases reload speed of support weapons by 30%. Slightly increases weapon ergonomics to reduce drag on weapon movement."
   },
   {
@@ -464,9 +386,7 @@
     "imageUrl": "armor_passives/Kinetic_Displacement_Mitigation_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "description": "Provides 50% damage resistance to fire, allowing bearer to rest assured in their inflammability. Gives the wearer a 50% chance to avoid grievous limb injury. Reduces damage taken from impact and collisions by 30%."
   },
   {
@@ -479,9 +399,7 @@
     "imageUrl": "armor_passives/Blunt-Force_Mitigation_Armor_Passive_Icon.svg",
     "type": "Equipment",
     "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
+    "tags": ["ArmorPassive"],
     "description": "Bearer is more resistant to being knocked prone. Reduces damage taken from impact and collisions by 30%. Provides a higher armor rating."
   }
 ]

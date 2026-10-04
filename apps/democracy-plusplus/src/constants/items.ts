@@ -13,4 +13,4 @@ export const ITEMS: Item[] = [
   SECONDARIES,
   THROWABLES,
   STRATAGEMS,
-].flat()
+].flat();

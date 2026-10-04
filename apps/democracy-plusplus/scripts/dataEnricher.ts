@@ -5,7 +5,12 @@ import type {
   StratagemSimulationMetadata,
   WeaponSimulationMetadata,
 } from "../src/types.ts";
-import { assertDatasetCoverage, FLAT_WIKI_DATASETS, WIKI_DATASET_NAMES, type FlatWikiDataset } from "./dataPipeline.ts";
+import {
+  assertDatasetCoverage,
+  FLAT_WIKI_DATASETS,
+  WIKI_DATASET_NAMES,
+  type FlatWikiDataset,
+} from "./dataPipeline.ts";
 import {
   expandTemplate,
   extractInfoboxImageFile,
@@ -21,7 +26,16 @@ import {
   resolveImageUrls,
   type WikiPageSource,
 } from "./wikiApi.ts";
-import { banner, createTask, detail, errorMessage, item, note, section, summary } from "./terminalUi.ts";
+import {
+  banner,
+  createTask,
+  detail,
+  errorMessage,
+  item,
+  note,
+  section,
+  summary,
+} from "./terminalUi.ts";
 
 interface EnrichableItem {
   displayName: string;
@@ -37,10 +51,17 @@ interface EnrichableItem {
 }
 
 interface BestiaryData {
-  enemies: Array<EnrichableItem & {
-    variants?: EnrichableItem[];
-    anatomy?: Array<{ parts: Array<{ health: string; healthByDifficulty?: Record<string, number> }> }>;
-  }>;
+  enemies: Array<
+    EnrichableItem & {
+      variants?: EnrichableItem[];
+      anatomy?: Array<{
+        parts: Array<{
+          health: string;
+          healthByDifficulty?: Record<string, number>;
+        }>;
+      }>;
+    }
+  >;
   [key: string]: unknown;
 }
 
@@ -57,8 +78,12 @@ function getObjectiveModeTag(displayName: string): ObjectiveTag | undefined {
 }
 
 function mergeTags(existingTags: unknown, modeTag: ObjectiveTag | undefined) {
-  const tags = Array.isArray(existingTags) ? existingTags.filter((tag): tag is string => typeof tag === "string") : [];
-  const normalizedTags = tags.filter((tag) => !["Eradicate", "Commando", "Blitz"].includes(tag));
+  const tags = Array.isArray(existingTags)
+    ? existingTags.filter((tag): tag is string => typeof tag === "string")
+    : [];
+  const normalizedTags = tags.filter(
+    (tag) => !["Eradicate", "Commando", "Blitz"].includes(tag),
+  );
   if (modeTag) normalizedTags.push(modeTag);
   return normalizedTags.length ? [...new Set(normalizedTags)] : undefined;
 }
@@ -70,7 +95,10 @@ function refreshLocalImagePath(record: EnrichableItem, folder: string) {
   return true;
 }
 
-async function resolveInfoboxImages(items: EnrichableItem[], pages: Map<string, WikiPageSource>) {
+async function resolveInfoboxImages(
+  items: EnrichableItem[],
+  pages: Map<string, WikiPageSource>,
+) {
   const imageFiles = new Map<EnrichableItem, string>();
   for (const record of items) {
     if (!record.wikiSlug) continue;
@@ -82,11 +110,15 @@ async function resolveInfoboxImages(items: EnrichableItem[], pages: Map<string, 
 
   const imageUrls = await resolveImageUrls([...imageFiles.values()]);
   for (const [record, imageFile] of imageFiles) {
-    record.wikiImageUrl = imageUrls.get(imageFile) ?? record.wikiImageUrl ?? null;
+    record.wikiImageUrl =
+      imageUrls.get(imageFile) ?? record.wikiImageUrl ?? null;
   }
 }
 
-async function enrichItemProperties(record: EnrichableItem, page: WikiPageSource) {
+async function enrichItemProperties(
+  record: EnrichableItem,
+  page: WikiPageSource,
+) {
   const attackTemplate = findAttackTemplateInvocation(page.content);
   if (!attackTemplate) return "missing-template" as const;
 
@@ -123,11 +155,14 @@ async function processArray(dataset: FlatWikiDataset) {
 
   const linkedItems = items.filter((record) => Boolean(record.wikiSlug));
   const fetchTask = createTask("Fetching sources", name);
-  const pages = await fetchPageSources(linkedItems.map((record) => record.wikiSlug as string));
+  const pages = await fetchPageSources(
+    linkedItems.map((record) => record.wikiSlug as string),
+  );
   fetchTask.succeed(`${pages.size} pages`);
   // Armor-passive redirects can expose renamed icons before they have been downloaded.
   // Their curated identity and image metadata are refreshed by fetchData/downloadImages.
-  if (fileName !== "armor_passives") await resolveInfoboxImages(linkedItems, pages);
+  if (fileName !== "armor_passives")
+    await resolveInfoboxImages(linkedItems, pages);
 
   section(`Processing ${name}`, `${items.length} items`);
   let processed = 0;
@@ -144,14 +179,22 @@ async function processArray(dataset: FlatWikiDataset) {
   for (const record of items) {
     if (!record.wikiSlug) {
       unlinked++;
-      item(record.displayName, "no wiki page; preserving curated data", "muted");
+      item(
+        record.displayName,
+        "no wiki page; preserving curated data",
+        "muted",
+      );
       continue;
     }
 
     const page = pages.get(record.wikiSlug);
     if (!page) {
       missingPages++;
-      item(record.displayName || record.wikiSlug, "missing wiki source", "warn");
+      item(
+        record.displayName || record.wikiSlug,
+        "missing wiki source",
+        "warn",
+      );
       continue;
     }
 
@@ -162,17 +205,28 @@ async function processArray(dataset: FlatWikiDataset) {
     if (refreshLocalImagePath(record, fileName)) refreshedImages++;
 
     if (shouldEnrichDescription) {
-      const description = extractDescription(shouldEnrichDescription, page.content);
+      const description = extractDescription(
+        shouldEnrichDescription,
+        page.content,
+      );
       if (description) {
         record.description = description;
         descriptions++;
       } else {
         missingDescriptions++;
-        item(record.displayName, "no infobox description; preserving existing data", "warn");
+        item(
+          record.displayName,
+          "no infobox description; preserving existing data",
+          "warn",
+        );
       }
     }
 
-    if (fileName === "primaries" || fileName === "secondaries" || fileName === "stratagems") {
+    if (
+      fileName === "primaries" ||
+      fileName === "secondaries" ||
+      fileName === "stratagems"
+    ) {
       const parsedSimulation = parseWeaponSimulationMetadata(page.content);
       if (parsedSimulation) {
         // Simulation metadata is wholly derived from the current page source. Replacing it
@@ -182,8 +236,11 @@ async function processArray(dataset: FlatWikiDataset) {
       }
     }
     if (fileName === "stratagems") {
-      const parsedStratagemSimulation = parseStratagemSimulationMetadata(page.content);
-      if (parsedStratagemSimulation) record.stratagemSimulation = parsedStratagemSimulation;
+      const parsedStratagemSimulation = parseStratagemSimulationMetadata(
+        page.content,
+      );
+      if (parsedStratagemSimulation)
+        record.stratagemSimulation = parsedStratagemSimulation;
     }
 
     if (!shouldEnrichProperties) {
@@ -201,7 +258,11 @@ async function processArray(dataset: FlatWikiDataset) {
         item(record.displayName, "no structured properties", "warn");
       } else {
         processed++;
-        item(record.displayName, `${Object.keys(record.properties ?? {}).length} property groups`, "success");
+        item(
+          record.displayName,
+          `${Object.keys(record.properties ?? {}).length} property groups`,
+          "success",
+        );
       }
     } catch (error) {
       failures++;
@@ -237,7 +298,10 @@ async function processObjectives() {
   let tagged = 0;
   let cleared = 0;
   for (const record of items) {
-    const tags = mergeTags(record.tags, getObjectiveModeTag(record.displayName));
+    const tags = mergeTags(
+      record.tags,
+      getObjectiveModeTag(record.displayName),
+    );
     if (tags) {
       record.tags = tags;
       tagged++;
@@ -255,8 +319,13 @@ async function processBestiary() {
   const filePath = "./public/data/enemies.json";
   const raw = await fs.readFile(filePath, "utf-8");
   const bestiary = JSON.parse(raw) as BestiaryData;
-  const records = bestiary.enemies.flatMap((enemy) => [enemy, ...(enemy.variants ?? [])]);
-  const refreshedImages = records.filter((record) => refreshLocalImagePath(record, "enemies")).length;
+  const records = bestiary.enemies.flatMap((enemy) => [
+    enemy,
+    ...(enemy.variants ?? []),
+  ]);
+  const refreshedImages = records.filter((record) =>
+    refreshLocalImagePath(record, "enemies"),
+  ).length;
   let normalizedHealth = 0;
   for (const enemy of bestiary.enemies) {
     for (const anatomy of enemy.anatomy ?? []) {
@@ -284,26 +353,39 @@ async function processStructures() {
   const filePath = "./public/data/structures.json";
   const raw = await fs.readFile(filePath, "utf-8");
   const data = JSON.parse(raw) as StructuresData;
-  const refreshedImages = data.structures.filter((record) => refreshLocalImagePath(record, "structures")).length;
-  for (const structure of data.structures) structure.imageUrl ??= "icons/bank.svg";
+  const refreshedImages = data.structures.filter((record) =>
+    refreshLocalImagePath(record, "structures"),
+  ).length;
+  for (const structure of data.structures)
+    structure.imageUrl ??= "icons/bank.svg";
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));
-  summary("STRUCTURES summary", { structures: data.structures.length, refreshedImages });
+  summary("STRUCTURES summary", {
+    structures: data.structures.length,
+    refreshedImages,
+  });
 }
 
 async function main() {
-  banner("Data Enricher", "Wiki properties, image links, and derived metadata for every fetched dataset");
+  banner(
+    "Data Enricher",
+    "Wiki properties, image links, and derived metadata for every fetched dataset",
+  );
   detail("cwd", process.cwd());
   const requestedDatasets = new Set(process.argv.slice(2));
-  const unknownDatasets = [...requestedDatasets].filter((name) => !WIKI_DATASET_NAMES.includes(
-    name as (typeof WIKI_DATASET_NAMES)[number],
-  ));
+  const unknownDatasets = [...requestedDatasets].filter(
+    (name) =>
+      !WIKI_DATASET_NAMES.includes(name as (typeof WIKI_DATASET_NAMES)[number]),
+  );
   if (unknownDatasets.length) {
     throw new Error(`Unknown dataset(s): ${unknownDatasets.join(", ")}.`);
   }
   function shouldProcess(name: string) {
     return requestedDatasets.size === 0 || requestedDatasets.has(name);
   }
-  detail("datasets", requestedDatasets.size ? [...requestedDatasets].join(", ") : "all");
+  detail(
+    "datasets",
+    requestedDatasets.size ? [...requestedDatasets].join(", ") : "all",
+  );
   const handledDatasets = [
     ...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName),
     "objectives",
@@ -314,13 +396,17 @@ async function main() {
 
   let failures = 0;
   for (const dataset of FLAT_WIKI_DATASETS) {
-    if (shouldProcess(dataset.fileName)) failures += await processArray(dataset);
+    if (shouldProcess(dataset.fileName))
+      failures += await processArray(dataset);
   }
   if (shouldProcess("objectives")) await processObjectives();
   if (shouldProcess("enemies")) await processBestiary();
   if (shouldProcess("structures")) await processStructures();
 
-  if (failures) throw new Error(`Data enrichment completed with ${failures} failed or missing wiki operation(s).`);
+  if (failures)
+    throw new Error(
+      `Data enrichment completed with ${failures} failed or missing wiki operation(s).`,
+    );
   note("All data processed successfully", "success");
 }
 

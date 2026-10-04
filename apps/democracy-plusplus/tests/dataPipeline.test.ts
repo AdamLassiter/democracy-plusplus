@@ -20,7 +20,10 @@ const expectedFlatDatasets = [
 ];
 
 test("the unified data pipeline covers every wiki-backed dataset", () => {
-  assert.deepEqual(FLAT_WIKI_DATASETS.map(({ fileName }) => fileName), expectedFlatDatasets);
+  assert.deepEqual(
+    FLAT_WIKI_DATASETS.map(({ fileName }) => fileName),
+    expectedFlatDatasets,
+  );
   assert.deepEqual(WIKI_DATASET_NAMES, [
     ...expectedFlatDatasets,
     "objectives",
@@ -34,31 +37,53 @@ test("the unified data pipeline covers every wiki-backed dataset", () => {
   ]);
   assert.deepEqual(
     FLAT_WIKI_DATASETS.flatMap(({ fileName, enrichDescription }) =>
-      enrichDescription ? [[fileName, enrichDescription]] : []),
+      enrichDescription ? [[fileName, enrichDescription]] : [],
+    ),
     [
       ["boosters", "booster"],
       ["armor_passives", "armor-passive"],
     ],
   );
 
-  assert.doesNotThrow(() => assertDatasetCoverage("fetchData", WIKI_DATASET_NAMES, WIKI_DATASET_NAMES));
-  assert.doesNotThrow(() => assertDatasetCoverage("enrichData", WIKI_DATASET_NAMES, WIKI_DATASET_NAMES));
-  assert.doesNotThrow(() => assertDatasetCoverage("downloadImages", IMAGE_DATASET_NAMES, IMAGE_DATASET_NAMES));
+  assert.doesNotThrow(() =>
+    assertDatasetCoverage("fetchData", WIKI_DATASET_NAMES, WIKI_DATASET_NAMES),
+  );
+  assert.doesNotThrow(() =>
+    assertDatasetCoverage("enrichData", WIKI_DATASET_NAMES, WIKI_DATASET_NAMES),
+  );
+  assert.doesNotThrow(() =>
+    assertDatasetCoverage(
+      "downloadImages",
+      IMAGE_DATASET_NAMES,
+      IMAGE_DATASET_NAMES,
+    ),
+  );
 });
 
 test("pipeline coverage assertions reject missing, duplicate, and unexpected datasets", () => {
   assert.throws(
-    () => assertDatasetCoverage("test", ["primaries", "primaries", "surprise"], ["primaries", "enemies"]),
+    () =>
+      assertDatasetCoverage(
+        "test",
+        ["primaries", "primaries", "surprise"],
+        ["primaries", "enemies"],
+      ),
     /Duplicates: primaries.*Missing: enemies.*Unexpected: surprise/,
   );
   assert.throws(
-    () => assertNonEmptyDatasets("fetchData", [["weapons", 10], ["boosters", 0]]),
+    () =>
+      assertNonEmptyDatasets("fetchData", [
+        ["weapons", 10],
+        ["boosters", 0],
+      ]),
     /fetchData produced no records.*boosters/,
   );
 });
 
 test("legacy one-off fetch scripts and commands are removed", () => {
-  const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")) as {
+  const packageJson = JSON.parse(
+    readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+  ) as {
     scripts: Record<string, string>;
   };
 
@@ -66,6 +91,12 @@ test("legacy one-off fetch scripts and commands are removed", () => {
   assert.equal(packageJson.scripts.fetchStructures, undefined);
   assert.equal(packageJson.scripts.fetchWarbondImages, undefined);
   assert.equal(packageJson.scripts.enrichOffline, undefined);
-  assert.equal(existsSync(new URL("../scripts/bestiaryFetcher.ts", import.meta.url)), false);
-  assert.equal(existsSync(new URL("../scripts/structuresFetcher.ts", import.meta.url)), false);
+  assert.equal(
+    existsSync(new URL("../scripts/bestiaryFetcher.ts", import.meta.url)),
+    false,
+  );
+  assert.equal(
+    existsSync(new URL("../scripts/structuresFetcher.ts", import.meta.url)),
+    false,
+  );
 });

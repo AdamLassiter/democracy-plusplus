@@ -15,7 +15,8 @@ const tierListSlice = createSlice({
   name: "tierList",
   initialState,
   reducers: {
-    setTierList: (_state, action: PayloadAction<TierListState>) => action.payload,
+    setTierList: (_state, action: PayloadAction<TierListState>) =>
+      action.payload,
     resetTierList: () => initialState,
   },
 });

@@ -4,7 +4,10 @@ import SettingsDialog from "./settingsDialog";
 import { useSelector } from "react-redux";
 import { selectMission } from "../../slices/missionSlice";
 import { selectMultiplayer } from "../../slices/multiplayerSlice";
-import { Settings as SettingsIcon, Link as LinkIcon } from "@mui/icons-material";
+import {
+  Settings as SettingsIcon,
+  Link as LinkIcon,
+} from "@mui/icons-material";
 
 export default function Settings() {
   const [open, setOpen] = useState(false);
@@ -12,8 +15,10 @@ export default function Settings() {
   const mission = useSelector(selectMission);
   const multiplayer = useSelector(selectMultiplayer);
   const { prng } = mission;
-  const displayCode = multiplayer.lobbyCode ?? String(prng).padStart(5, '0');
-  const showConnectedSpinner = multiplayer.connectionStatus === "connected" && Boolean(multiplayer.lobbyState);
+  const displayCode = multiplayer.lobbyCode ?? String(prng).padStart(5, "0");
+  const showConnectedSpinner =
+    multiplayer.connectionStatus === "connected" &&
+    Boolean(multiplayer.lobbyState);
 
   function handleOpen() {
     return setOpen(true);
@@ -32,9 +37,7 @@ export default function Settings() {
           }}
           variant="outlined"
           onClick={handleOpen}
-            startIcon={showConnectedSpinner
-            ? <LinkIcon />
-            : <SettingsIcon />}
+          startIcon={showConnectedSpinner ? <LinkIcon /> : <SettingsIcon />}
         >
           <span className="mobile-hidden-label">{displayCode}</span>
         </Button>

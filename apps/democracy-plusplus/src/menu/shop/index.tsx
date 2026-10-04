@@ -17,22 +17,33 @@ export default function Shop() {
   const { overrides } = useSelector(selectTierList);
   const mission = useSelector(selectMission);
   const multiplayer = useSelector(selectMultiplayer);
-  const playerCount = getEffectivePlayerCount(mission.playerCount, multiplayer.lobbyState);
+  const playerCount = getEffectivePlayerCount(
+    mission.playerCount,
+    multiplayer.lobbyState,
+  );
 
   useEffect(() => {
     if (!shop.initialised || shop.playerCount !== playerCount) {
-      dispatch(resetShop({ missionCount: null, playerCount, tierOverrides: overrides }));
+      dispatch(
+        resetShop({
+          missionCount: null,
+          playerCount,
+          tierOverrides: overrides,
+        }),
+      );
     }
   }, [dispatch, overrides, playerCount, shop.initialised, shop.playerCount]);
 
-  return <Grid direction="column" spacing={2} container>
-    <SectionHeading
-      subtitle="Turn mission credits into approved firepower, field supplies and carefully discounted surplus."
-      title="Requisition Shop"
-    />
-    <OnSale />
-    <Divider />
-    <Inventory />
-    <CartManager />
-  </Grid>;
+  return (
+    <Grid direction="column" spacing={2} container>
+      <SectionHeading
+        subtitle="Turn mission credits into approved firepower, field supplies and carefully discounted surplus."
+        title="Requisition Shop"
+      />
+      <OnSale />
+      <Divider />
+      <Inventory />
+      <CartManager />
+    </Grid>
+  );
 }

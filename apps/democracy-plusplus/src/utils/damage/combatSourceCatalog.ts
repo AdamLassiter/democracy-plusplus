@@ -21,15 +21,22 @@ export type CombatSourceOption = {
 };
 
 export function isDogBackpack(option: CombatSourceOption) {
-  return option.item.tags?.includes("Backpacks")
-    && option.result.profiles.some(({ delivery }) => delivery.kind === "autonomous-weapon");
+  return (
+    option.item.tags?.includes("Backpacks") &&
+    option.result.profiles.some(
+      ({ delivery }) => delivery.kind === "autonomous-weapon",
+    )
+  );
 }
 
-export function combatSourceGroup(option: CombatSourceOption): CombatSourceGroup {
+export function combatSourceGroup(
+  option: CombatSourceOption,
+): CombatSourceGroup {
   if (option.item.category === "primary") return "Primary";
   if (option.item.category === "secondary") return "Secondary";
   if (isDogBackpack(option)) return "Dog backpack";
-  if (/mine|c4|hellbomb/i.test(option.item.displayName)) return "Mine and placed explosive";
+  if (/mine|c4|hellbomb/i.test(option.item.displayName))
+    return "Mine and placed explosive";
   if (option.item.tags?.includes("Vehicles")) return "Exosuit and vehicle";
   if (option.item.category === "Defense") return "Emplacement and sentry";
   if (option.item.category === "Eagle") return "Eagle";
@@ -42,5 +49,10 @@ export function combatSourceGroupOrder(option: CombatSourceOption) {
 }
 
 export function usesBoundedExposure(profile: CombatSourceProfile) {
-  return ["trap", "focused-strike", "distributed-strike", "persistent-area"].includes(profile.delivery.kind);
+  return [
+    "trap",
+    "focused-strike",
+    "distributed-strike",
+    "persistent-area",
+  ].includes(profile.delivery.kind);
 }

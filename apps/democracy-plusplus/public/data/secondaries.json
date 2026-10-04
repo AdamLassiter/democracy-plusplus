@@ -63,9 +63,7 @@
       },
       "fireRateRpm": 900,
       "capacity": 15,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.006.001"
     }
   },
@@ -73,9 +71,7 @@
     "displayName": "CQC-5 Combat Hatchet",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Melee"
-    ],
+    "tags": ["Melee"],
     "warbondCode": "warbond1",
     "internalName": "cqc5combathatchet",
     "tier": "d",
@@ -126,9 +122,7 @@
     "displayName": "CQC-2 Saber",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Melee"
-    ],
+    "tags": ["Melee"],
     "warbondCode": "warbond15",
     "internalName": "cqc2saber",
     "tier": "d",
@@ -178,9 +172,7 @@
     "displayName": "CQC-42 Machete",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Melee"
-    ],
+    "tags": ["Melee"],
     "warbondCode": "warbond1",
     "internalName": "cqc42machete",
     "tier": "d",
@@ -230,9 +222,7 @@
     "displayName": "CQC-19 Stun Lance",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Melee"
-    ],
+    "tags": ["Melee"],
     "warbondCode": "warbond12",
     "internalName": "cqc19stunlance",
     "tier": "d",
@@ -283,9 +273,7 @@
     "displayName": "CQC-30 Stun Baton",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Melee"
-    ],
+    "tags": ["Melee"],
     "warbondCode": "warbond1",
     "internalName": "cqc30stunbaton",
     "tier": "d",
@@ -336,10 +324,7 @@
     "displayName": "P-11 Stim Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Stealth"
-    ],
+    "tags": ["Special", "Stealth"],
     "warbondCode": "warbond10",
     "internalName": "p11stimpistol",
     "tier": "d",
@@ -385,9 +370,7 @@
       },
       "fireRateRpm": 70,
       "capacity": 6,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.007.000"
     }
   },
@@ -395,10 +378,7 @@
     "displayName": "PLAS-15 Loyalist",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "warbondCode": "warbond11",
     "internalName": "plas15loyalist",
     "tier": "b",
@@ -601,9 +581,7 @@
     "displayName": "SG-22 Bushwhacker",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special"
-    ],
+    "tags": ["Special"],
     "warbondCode": "warbond8",
     "internalName": "sg22bushwhacker",
     "tier": "b",
@@ -666,10 +644,7 @@
       },
       "fireRateRpm": 650,
       "capacity": 3,
-      "firingModes": [
-        "Semi",
-        "All Barrel"
-      ],
+      "firingModes": ["Semi", "All Barrel"],
       "sourceVersion": "1.006.001"
     }
   },
@@ -737,10 +712,7 @@
       },
       "fireRateRpm": 1100,
       "capacity": 31,
-      "firingModes": [
-        "Auto",
-        "Semi"
-      ],
+      "firingModes": ["Auto", "Semi"],
       "sourceVersion": "1.007.000"
     }
   },
@@ -748,10 +720,7 @@
     "displayName": "GP-31 Grenade Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "warbondCode": "warbond6",
     "internalName": "gp31grenadepistol",
     "tier": "a",
@@ -905,9 +874,7 @@
       },
       "fireRateRpm": 450,
       "capacity": 10,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.007.000"
     }
   },
@@ -976,9 +943,7 @@
       },
       "fireRateRpm": 200,
       "capacity": 6,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.006.001"
     }
   },
@@ -986,11 +951,7 @@
     "displayName": "LAS-7 Dagger",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Fire",
-      "Laser"
-    ],
+    "tags": ["Special", "Fire", "Laser"],
     "warbondCode": "warbond5",
     "internalName": "las7dagger",
     "tier": "c",
@@ -1083,11 +1044,7 @@
     "displayName": "LAS-58 Talon",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Fire",
-      "Laser"
-    ],
+    "tags": ["Special", "Fire", "Laser"],
     "warbondCode": "warbond14",
     "internalName": "las58talon",
     "tier": "a",
@@ -1154,9 +1111,7 @@
       },
       "fireRateRpm": 750,
       "capacity": 7,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.006.001"
     }
   },
@@ -1164,10 +1119,7 @@
     "displayName": "P-72 Crisper",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Fire"
-    ],
+    "tags": ["Special", "Fire"],
     "warbondCode": "warbond9",
     "internalName": "p72crisper",
     "tier": "b",
@@ -1266,10 +1218,7 @@
     "displayName": "GP-20 Ultimatum",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Explosive"
-    ],
+    "tags": ["Special", "Explosive"],
     "warbondCode": "warbond13",
     "internalName": "gp20ultimatum",
     "tier": "s",
@@ -1446,10 +1395,7 @@
       },
       "fireRateRpm": 450,
       "capacity": 13,
-      "firingModes": [
-        "Guided",
-        "Non-Guided"
-      ],
+      "firingModes": ["Guided", "Non-Guided"],
       "sourceVersion": "1.006.001"
     }
   },
@@ -1457,9 +1403,7 @@
     "displayName": "M6C/SOCOM Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Stealth"
-    ],
+    "tags": ["Stealth"],
     "warbondCode": "warbond19",
     "internalName": "m6csocompistol",
     "tier": "b",
@@ -1519,9 +1463,7 @@
       },
       "fireRateRpm": 900,
       "capacity": 12,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.007.000"
     }
   },
@@ -1590,9 +1532,7 @@
       },
       "fireRateRpm": 750,
       "capacity": 12,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.007.000"
     }
   },
@@ -1607,9 +1547,7 @@
     "imageUrl": "secondaries/CQC-73_Entrenchment_Tool_Secondary_Render.png",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Melee"
-    ],
+    "tags": ["Melee"],
     "properties": {
       "CQC-72 ENTRENCHMENT TOOL": {
         "Base": {
@@ -1659,10 +1597,7 @@
     "imageUrl": "secondaries/P-35_Re-Educator_Secondary_Render.png",
     "type": "Equipment",
     "category": "secondary",
-    "tags": [
-      "Special",
-      "Gas"
-    ],
+    "tags": ["Special", "Gas"],
     "properties": {
       "P-35 RE-EDUCATOR": {
         "Base": {
@@ -1749,9 +1684,7 @@
       },
       "fireRateRpm": 110,
       "capacity": 6,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.005.002"
     }
   },
@@ -1874,10 +1807,7 @@
       },
       "fireRateRpm": 60,
       "capacity": 1,
-      "firingModes": [
-        "Guided",
-        "Non-Guided"
-      ],
+      "firingModes": ["Guided", "Non-Guided"],
       "sourceVersion": "1.007.100"
     }
   },
@@ -1972,9 +1902,7 @@
       },
       "fireRateRpm": 150,
       "capacity": 6,
-      "firingModes": [
-        "Semi"
-      ],
+      "firingModes": ["Semi"],
       "sourceVersion": "1.007.000"
     }
   },

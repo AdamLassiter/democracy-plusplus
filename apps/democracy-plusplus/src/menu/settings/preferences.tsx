@@ -1,4 +1,9 @@
-import { Grid, ToggleButtonGroup, ToggleButton, FormLabel } from "@mui/material";
+import {
+  Grid,
+  ToggleButtonGroup,
+  ToggleButton,
+  FormLabel,
+} from "@mui/material";
 import type { MouseEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -16,27 +21,42 @@ export default function Preferences() {
   const {
     detailedAntiTank,
     detailedDemolitionForce = false,
-    itemDisplaySize = 'large',
+    itemDisplaySize = "large",
     titles,
     tooltips,
   } = useSelector(selectPreferences);
-  function handleTitlesChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
-    dispatch(setTitles(newValue === 'on'));
+  function handleTitlesChange(
+    _event: MouseEvent<HTMLElement>,
+    newValue: string | null,
+  ) {
+    dispatch(setTitles(newValue === "on"));
   }
-  function handleTooltipsChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
-    dispatch(setTooltips(newValue === 'on'));
+  function handleTooltipsChange(
+    _event: MouseEvent<HTMLElement>,
+    newValue: string | null,
+  ) {
+    dispatch(setTooltips(newValue === "on"));
   }
-  function handleDetailedAntiTankChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
+  function handleDetailedAntiTankChange(
+    _event: MouseEvent<HTMLElement>,
+    newValue: string | null,
+  ) {
     if (newValue !== null) {
-      dispatch(setDetailedAntiTank(newValue === 'on'));
+      dispatch(setDetailedAntiTank(newValue === "on"));
     }
   }
-  function handleDetailedDemolitionForceChange(_event: MouseEvent<HTMLElement>, newValue: string | null) {
+  function handleDetailedDemolitionForceChange(
+    _event: MouseEvent<HTMLElement>,
+    newValue: string | null,
+  ) {
     if (newValue !== null) {
-      dispatch(setDetailedDemolitionForce(newValue === 'on'));
+      dispatch(setDetailedDemolitionForce(newValue === "on"));
     }
   }
-  function handleItemDisplaySizeChange(_event: MouseEvent<HTMLElement>, newValue: 'large' | 'small' | null) {
+  function handleItemDisplaySizeChange(
+    _event: MouseEvent<HTMLElement>,
+    newValue: "large" | "small" | null,
+  ) {
     if (newValue !== null) {
       dispatch(setItemDisplaySize(newValue));
     }
@@ -61,7 +81,7 @@ export default function Preferences() {
         color="primary"
         fullWidth
         exclusive
-        value={titles ? 'on' : 'off'}
+        value={titles ? "on" : "off"}
         onChange={handleTitlesChange}
       >
         <ToggleButton value="on">Titles</ToggleButton>
@@ -72,7 +92,7 @@ export default function Preferences() {
         color="primary"
         fullWidth
         exclusive
-        value={tooltips ? 'on' : 'off'}
+        value={tooltips ? "on" : "off"}
         onChange={handleTooltipsChange}
       >
         <ToggleButton value="on">Tooltips</ToggleButton>
@@ -83,7 +103,7 @@ export default function Preferences() {
         color="primary"
         fullWidth
         exclusive
-        value={detailedAntiTank ? 'on' : 'off'}
+        value={detailedAntiTank ? "on" : "off"}
         onChange={handleDetailedAntiTankChange}
       >
         <ToggleButton value="on">Detailed Anti-Tank</ToggleButton>
@@ -94,7 +114,7 @@ export default function Preferences() {
         color="primary"
         fullWidth
         exclusive
-        value={detailedDemolitionForce ? 'on' : 'off'}
+        value={detailedDemolitionForce ? "on" : "off"}
         onChange={handleDetailedDemolitionForceChange}
       >
         <ToggleButton value="on">Detailed Demo Force</ToggleButton>

@@ -1,12 +1,23 @@
- 
-
 import axios, { type AxiosError } from "axios";
 import fs from "fs/promises";
 import path from "path";
 import readline from "readline";
-import { banner, createTask, errorMessage, item, note, promptLabel, section, summary } from "./terminalUi.ts";
+import {
+  banner,
+  createTask,
+  errorMessage,
+  item,
+  note,
+  promptLabel,
+  section,
+  summary,
+} from "./terminalUi.ts";
 import { getImageFileName } from "./wikiApi.ts";
-import { assertDatasetCoverage, FLAT_WIKI_DATASETS, IMAGE_DATASET_NAMES } from "./dataPipeline.ts";
+import {
+  assertDatasetCoverage,
+  FLAT_WIKI_DATASETS,
+  IMAGE_DATASET_NAMES,
+} from "./dataPipeline.ts";
 
 const USER_AGENT = "DemocracyPlusPlus/1.0";
 
@@ -39,10 +50,16 @@ function sleep(ms: number) {
 }
 
 function ask(q: string) {
-  return new Promise<string>((resolve) => rl.question(q, (ans: string) => resolve(ans.trim())));
+  return new Promise<string>((resolve) =>
+    rl.question(q, (ans: string) => resolve(ans.trim())),
+  );
 }
 
-async function downloadImage(imageUrl: string, folder: string, maxRetries = 6): Promise<string | undefined> {
+async function downloadImage(
+  imageUrl: string,
+  folder: string,
+  maxRetries = 6,
+): Promise<string | undefined> {
   const filename = getImageFileName(imageUrl);
   if (!filename) {
     return undefined;
@@ -79,7 +96,9 @@ async function downloadImage(imageUrl: string, folder: string, maxRetries = 6): 
       }
 
       if (error.response?.status === 429) {
-        task.update(`rate limited · retry in ${delay / 1000}s · ${attempt + 1}/${maxRetries}`);
+        task.update(
+          `rate limited · retry in ${delay / 1000}s · ${attempt + 1}/${maxRetries}`,
+        );
         await sleep(delay);
         attempt++;
         delay *= 2;
@@ -88,7 +107,9 @@ async function downloadImage(imageUrl: string, folder: string, maxRetries = 6): 
 
       if (error.response?.status === 404) {
         task.warn("404 not found");
-        const newImageUrl = await ask(promptLabel(`New imageUrl (${imageUrl})?`));
+        const newImageUrl = await ask(
+          promptLabel(`New imageUrl (${imageUrl})?`),
+        );
         if (newImageUrl) {
           return downloadImage(newImageUrl, folder, maxRetries);
         }
@@ -106,7 +127,11 @@ async function downloadImage(imageUrl: string, folder: string, maxRetries = 6): 
   return undefined;
 }
 
-async function downloadRecords(records: DownloadableItem[], folder: string, name: string) {
+async function downloadRecords(
+  records: DownloadableItem[],
+  folder: string,
+  name: string,
+) {
   section(`Downloading ${name}`, `${records.length} images`);
   const downloadedPaths = new Map<string, string | undefined>();
   let attempted = 0;
@@ -175,9 +200,16 @@ async function downloadBestiary() {
   const filePath = path.resolve("public/data/enemies.json");
   const loadTask = createTask("Loading BESTIARY", filePath);
   const raw = await fs.readFile(filePath, "utf-8");
-  const bestiary = JSON.parse(raw) as { enemies: Array<DownloadableItem & { variants?: DownloadableItem[] }> };
-  const records = bestiary.enemies.flatMap((enemy) => [enemy, ...(enemy.variants ?? [])]);
-  loadTask.succeed(`${bestiary.enemies.length} enemies · ${records.length} image references`);
+  const bestiary = JSON.parse(raw) as {
+    enemies: Array<DownloadableItem & { variants?: DownloadableItem[] }>;
+  };
+  const records = bestiary.enemies.flatMap((enemy) => [
+    enemy,
+    ...(enemy.variants ?? []),
+  ]);
+  loadTask.succeed(
+    `${bestiary.enemies.length} enemies · ${records.length} image references`,
+  );
 
   const stats = await downloadRecords(records, "enemies", "BESTIARY");
 
@@ -193,7 +225,11 @@ async function downloadStructures() {
   const raw = await fs.readFile(filePath, "utf-8");
   const data = JSON.parse(raw) as { structures: DownloadableItem[] };
   loadTask.succeed(`${data.structures.length} structures`);
-  const stats = await downloadRecords(data.structures, "structures", "STRUCTURES");
+  const stats = await downloadRecords(
+    data.structures,
+    "structures",
+    "STRUCTURES",
+  );
   for (const structure of data.structures) {
     structure.imageUrl ??= "icons/bank.svg";
   }
@@ -203,7 +239,10 @@ async function downloadStructures() {
 }
 
 async function main() {
-  banner("Image Downloader", "Cache-aware downloads with prompts and retry telemetry");
+  banner(
+    "Image Downloader",
+    "Cache-aware downloads with prompts and retry telemetry",
+  );
   const handledDatasets = [
     ...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName),
     "enemies",

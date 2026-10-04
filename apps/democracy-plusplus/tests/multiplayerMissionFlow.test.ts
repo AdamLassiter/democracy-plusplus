@@ -9,9 +9,15 @@ import {
   syncDebriefStateSnapshot,
   syncMissionState,
 } from "../src/multiplayer/missionSync.ts";
-import type { LobbyMember, LobbyMissionState, MissionState } from "../src/types.ts";
+import type {
+  LobbyMember,
+  LobbyMissionState,
+  MissionState,
+} from "../src/types.ts";
 
-function createMissionState(overrides: Partial<MissionState> = {}): MissionState {
+function createMissionState(
+  overrides: Partial<MissionState> = {},
+): MissionState {
   return {
     faction: 0,
     objective: "Emergency Evacuation",
@@ -28,7 +34,9 @@ function createMissionState(overrides: Partial<MissionState> = {}): MissionState
   };
 }
 
-function createLobbyMissionState(overrides: Partial<LobbyMissionState> = {}): LobbyMissionState {
+function createLobbyMissionState(
+  overrides: Partial<LobbyMissionState> = {},
+): LobbyMissionState {
   return {
     faction: 0,
     difficulty: 9,
@@ -76,8 +84,22 @@ test("guest mission sync adopts the host-generated lobby snapshot without losing
   const lobbyMission = createLobbyMissionState({
     state: "loadout",
     factionLocked: true,
-    quests: [{ displayName: "Quest", category: "objective", completed: false, reward: 20 }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "c", completed: true }],
+    quests: [
+      {
+        displayName: "Quest",
+        category: "objective",
+        completed: false,
+        reward: 20,
+      },
+    ],
+    restrictions: [
+      {
+        displayName: "Restriction",
+        category: "loadout",
+        tier: "c",
+        completed: true,
+      },
+    ],
   });
 
   const syncedMission = syncMissionState(localMission, lobbyMission);
@@ -92,8 +114,22 @@ test("guest mission sync keeps local debrief state until the guest processes the
   const localMission = createMissionState({
     state: "debrief",
     objective: "Emergency Evacuation",
-    quests: [{ displayName: "Quest", category: "objective", completed: true, reward: 20 }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "c", completed: false }],
+    quests: [
+      {
+        displayName: "Quest",
+        category: "objective",
+        completed: true,
+        reward: 20,
+      },
+    ],
+    restrictions: [
+      {
+        displayName: "Restriction",
+        category: "loadout",
+        tier: "c",
+        completed: false,
+      },
+    ],
   });
   const lobbyMission = createLobbyMissionState({
     state: "brief",
@@ -124,7 +160,9 @@ test("mission sync keeps a processed client in brief while the lobby still shows
     state: "debrief",
     objective: "Emergency Evacuation",
     quests: [{ displayName: "Quest", category: "objective" }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b" }],
+    restrictions: [
+      { displayName: "Restriction", category: "loadout", tier: "b" },
+    ],
     debriefSubmissionId: 2,
   });
 
@@ -139,12 +177,16 @@ test("mission sync keeps a processed client in brief while the lobby still shows
 test("debrief snapshot uses lobby stars and mission payload defaults", () => {
   const mission = createMissionState({
     quests: [{ displayName: "Quest", category: "objective" }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b" }],
+    restrictions: [
+      { displayName: "Restriction", category: "loadout", tier: "b" },
+    ],
   });
   const syncedMission = createLobbyMissionState({
     stars: 4,
     quests: [{ displayName: "Quest", category: "objective" }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b" }],
+    restrictions: [
+      { displayName: "Restriction", category: "loadout", tier: "b" },
+    ],
   });
 
   const snapshot = createDebriefStateSnapshot(mission, syncedMission);
@@ -157,14 +199,25 @@ test("debrief snapshot uses lobby stars and mission payload defaults", () => {
 test("guest debrief sync preserves local quest and restriction choices when stars update", () => {
   const mission = createMissionState({
     quests: [{ displayName: "Quest", category: "objective" }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b" }],
+    restrictions: [
+      { displayName: "Restriction", category: "loadout", tier: "b" },
+    ],
   });
   const initialSnapshot = createDebriefStateSnapshot(
     mission,
     createLobbyMissionState({
       stars: 3,
-      quests: [{ displayName: "Quest", category: "objective", completed: false }],
-      restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b", completed: true }],
+      quests: [
+        { displayName: "Quest", category: "objective", completed: false },
+      ],
+      restrictions: [
+        {
+          displayName: "Restriction",
+          category: "loadout",
+          tier: "b",
+          completed: true,
+        },
+      ],
     }),
   );
   const guestLocalSnapshot = {
@@ -178,8 +231,17 @@ test("guest debrief sync preserves local quest and restriction choices when star
     mission,
     createLobbyMissionState({
       stars: 5,
-      quests: [{ displayName: "Quest", category: "objective", completed: false }],
-      restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b", completed: true }],
+      quests: [
+        { displayName: "Quest", category: "objective", completed: false },
+      ],
+      restrictions: [
+        {
+          displayName: "Restriction",
+          category: "loadout",
+          tier: "b",
+          completed: true,
+        },
+      ],
     }),
     false,
   );
@@ -201,29 +263,59 @@ test("pending debrief count only includes non-host members who are not ready", (
 
 test("debrief submission should only apply once per new submission id while in debrief", () => {
   const mission = createMissionState({ state: "debrief" });
-  const syncedMission = createLobbyMissionState({ state: "debrief", debriefSubmissionId: 3 });
+  const syncedMission = createLobbyMissionState({
+    state: "debrief",
+    debriefSubmissionId: 3,
+  });
 
   assert.equal(shouldApplyDebriefSubmission(mission, syncedMission, 2), true);
   assert.equal(shouldApplyDebriefSubmission(mission, syncedMission, 3), false);
-  assert.equal(shouldApplyDebriefSubmission(createMissionState({ state: "brief" }), syncedMission, 2), false);
+  assert.equal(
+    shouldApplyDebriefSubmission(
+      createMissionState({ state: "brief" }),
+      syncedMission,
+      2,
+    ),
+    false,
+  );
 });
 
 test("host debrief sync preserves local quest and restriction edits while stars stay lobby-backed", () => {
   const mission = createMissionState({
     quests: [{ displayName: "Quest", category: "objective" }],
-    restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b" }],
+    restrictions: [
+      { displayName: "Restriction", category: "loadout", tier: "b" },
+    ],
   });
   const syncedSnapshot = syncDebriefStateSnapshot(
     {
       stars: 2,
-      quests: [{ displayName: "Quest", category: "objective", completed: false }],
-      restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b", completed: true }],
+      quests: [
+        { displayName: "Quest", category: "objective", completed: false },
+      ],
+      restrictions: [
+        {
+          displayName: "Restriction",
+          category: "loadout",
+          tier: "b",
+          completed: true,
+        },
+      ],
     },
     mission,
     createLobbyMissionState({
       stars: 4,
-      quests: [{ displayName: "Quest", category: "objective", completed: true }],
-      restrictions: [{ displayName: "Restriction", category: "loadout", tier: "b", completed: false }],
+      quests: [
+        { displayName: "Quest", category: "objective", completed: true },
+      ],
+      restrictions: [
+        {
+          displayName: "Restriction",
+          category: "loadout",
+          tier: "b",
+          completed: false,
+        },
+      ],
     }),
     true,
   );

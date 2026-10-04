@@ -1,4 +1,9 @@
-import type { LobbyMissionState, MissionState, Quest, Restriction } from "../types";
+import type {
+  LobbyMissionState,
+  MissionState,
+  Quest,
+  Restriction,
+} from "../types";
 
 export type DebriefStateSnapshot = {
   stars: number;
@@ -33,19 +38,23 @@ export function syncMissionState(
   lobbyMission: LobbyMissionState,
   options: MissionSyncOptions = {},
 ): MissionState {
-  const lastProcessedDebriefSubmissionId = options.lastProcessedDebriefSubmissionId ?? 0;
+  const lastProcessedDebriefSubmissionId =
+    options.lastProcessedDebriefSubmissionId ?? 0;
 
   // Hold the local debrief open until this client has processed the host's submit signal.
-  if (localMission.state === "debrief" && lobbyMission.debriefSubmissionId > lastProcessedDebriefSubmissionId) {
+  if (
+    localMission.state === "debrief" &&
+    lobbyMission.debriefSubmissionId > lastProcessedDebriefSubmissionId
+  ) {
     return localMission;
   }
 
   // After processing a submit signal locally, don't let a stale lobby debrief pull the client back in.
   if (
-    localMission.state === "brief"
-    && lobbyMission.state === "debrief"
-    && lobbyMission.debriefSubmissionId > 0
-    && lastProcessedDebriefSubmissionId >= lobbyMission.debriefSubmissionId
+    localMission.state === "brief" &&
+    lobbyMission.state === "debrief" &&
+    lobbyMission.debriefSubmissionId > 0 &&
+    lastProcessedDebriefSubmissionId >= lobbyMission.debriefSubmissionId
   ) {
     return localMission;
   }
@@ -68,8 +77,12 @@ export function createDebriefStateSnapshot(
 ): DebriefStateSnapshot {
   return {
     stars: syncedMission?.stars ?? 1,
-    quests: (syncedMission?.quests ?? mission.quests).map(normaliseQuestCompletion),
-    restrictions: (syncedMission?.restrictions ?? mission.restrictions).map(normaliseRestrictionCompletion),
+    quests: (syncedMission?.quests ?? mission.quests).map(
+      normaliseQuestCompletion,
+    ),
+    restrictions: (syncedMission?.restrictions ?? mission.restrictions).map(
+      normaliseRestrictionCompletion,
+    ),
   };
 }
 
@@ -94,12 +107,15 @@ export function syncDebriefStateSnapshot(
   };
 }
 
-export function countPendingDebriefMembers(members: Array<{ isHost: boolean; debriefReady: boolean }> | null | undefined) {
+export function countPendingDebriefMembers(
+  members: Array<{ isHost: boolean; debriefReady: boolean }> | null | undefined,
+) {
   if (!members) {
     return 0;
   }
 
-  return members.filter((member) => !member.isHost && !member.debriefReady).length;
+  return members.filter((member) => !member.isHost && !member.debriefReady)
+    .length;
 }
 
 export function shouldApplyDebriefSubmission(
@@ -111,5 +127,8 @@ export function shouldApplyDebriefSubmission(
     return false;
   }
 
-  return mission.state === "debrief" && syncedMission.debriefSubmissionId > lastProcessedDebriefSubmissionId;
+  return (
+    mission.state === "debrief" &&
+    syncedMission.debriefSubmissionId > lastProcessedDebriefSubmissionId
+  );
 }

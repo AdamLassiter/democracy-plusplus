@@ -49,7 +49,10 @@ export default defineConfig([
     },
     rules: {
       "func-style": ["error", "declaration"],
-      "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]", argsIgnorePattern: "^_" }],
+      "no-unused-vars": [
+        "error",
+        { varsIgnorePattern: "^[A-Z_]", argsIgnorePattern: "^_" },
+      ],
       "react/jsx-uses-vars": "error",
       "unused-imports/no-unused-imports": "error",
     },

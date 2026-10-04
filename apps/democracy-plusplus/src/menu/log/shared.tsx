@@ -8,7 +8,9 @@ export function formatTimestamp(timestamp: string) {
 }
 
 export function SectionTimestamp({ timestamp }: { timestamp: string }) {
-  return <Typography variant="body2" color="text.secondary">
-    {formatTimestamp(timestamp)}
-  </Typography>;
+  return (
+    <Typography variant="body2" color="text.secondary">
+      {formatTimestamp(timestamp)}
+    </Typography>
+  );
 }

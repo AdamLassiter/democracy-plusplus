@@ -1,29 +1,29 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-import Menu from './menu';
-import { persistor, store } from './slices';
-import LoadingSpinner from './utils/loadingSpinner';
-import AppSnackbar from './utils/snackbar';
+import Menu from "./menu";
+import { persistor, store } from "./slices";
+import LoadingSpinner from "./utils/loadingSpinner";
+import AppSnackbar from "./utils/snackbar";
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        'html, body, #root': {
-          maxWidth: '100%',
+        "html, body, #root": {
+          maxWidth: "100%",
           minWidth: 0,
-          overflowX: 'hidden',
+          overflowX: "hidden",
         },
-        '.mobile-hidden-label': {
-          '@media (max-width:600px)': {
-            display: 'none',
+        ".mobile-hidden-label": {
+          "@media (max-width:600px)": {
+            display: "none",
           },
         },
       },
@@ -31,12 +31,12 @@ const darkTheme = createTheme({
     MuiTabs: {
       defaultProps: {
         allowScrollButtonsMobile: true,
-        scrollButtons: 'auto',
-        variant: 'scrollable',
+        scrollButtons: "auto",
+        variant: "scrollable",
       },
       styleOverrides: {
         root: {
-          maxWidth: '100%',
+          maxWidth: "100%",
           minWidth: 0,
         },
       },
@@ -44,7 +44,7 @@ const darkTheme = createTheme({
     MuiTab: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
+          "@media (max-width:600px)": {
             minHeight: 44,
             minWidth: 92,
             paddingLeft: 12,
@@ -56,16 +56,16 @@ const darkTheme = createTheme({
     MuiDialog: {
       styleOverrides: {
         container: {
-          alignItems: 'flex-start',
+          alignItems: "flex-start",
         },
         paper: {
-          '@media (max-width:600px)': {
+          "@media (max-width:600px)": {
             borderRadius: 0,
-            height: '100%',
+            height: "100%",
             margin: 0,
-            maxHeight: '100%',
-            maxWidth: '100%',
-            width: '100%',
+            maxHeight: "100%",
+            maxWidth: "100%",
+            width: "100%",
           },
         },
       },
@@ -73,8 +73,8 @@ const darkTheme = createTheme({
     MuiDialogActions: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
-            flexWrap: 'wrap',
+          "@media (max-width:600px)": {
+            flexWrap: "wrap",
             gap: 4,
           },
         },
@@ -83,7 +83,7 @@ const darkTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
+          "@media (max-width:600px)": {
             minHeight: 44,
           },
         },
@@ -92,7 +92,7 @@ const darkTheme = createTheme({
     MuiIconButton: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
+          "@media (max-width:600px)": {
             minHeight: 44,
             minWidth: 44,
           },
@@ -102,7 +102,7 @@ const darkTheme = createTheme({
     MuiToggleButton: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
+          "@media (max-width:600px)": {
             minHeight: 44,
           },
         },
@@ -111,10 +111,10 @@ const darkTheme = createTheme({
   },
 });
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
 if (!rootElement) {
-  throw new Error('Root element not found');
+  throw new Error("Root element not found");
 }
 
 createRoot(rootElement).render(
@@ -129,4 +129,4 @@ createRoot(rootElement).render(
       </PersistGate>
     </Provider>
   </StrictMode>,
-)
+);

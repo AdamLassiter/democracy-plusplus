@@ -95,18 +95,28 @@ function formatDuration(start: number) {
 
 export function banner(title: string, subtitle?: string) {
   writeLine();
-  writeLine(colorize("╭──────────────────────────────────────────────╮", FG.cyan));
-  writeLine(`${colorize("│", FG.cyan)} ${strong(title)}${" ".repeat(Math.max(0, 44 - title.length))}${colorize("│", FG.cyan)}`);
+  writeLine(
+    colorize("╭──────────────────────────────────────────────╮", FG.cyan),
+  );
+  writeLine(
+    `${colorize("│", FG.cyan)} ${strong(title)}${" ".repeat(Math.max(0, 44 - title.length))}${colorize("│", FG.cyan)}`,
+  );
   if (subtitle) {
     const line = subtitle.slice(0, 42);
-    writeLine(`${colorize("│", FG.cyan)} ${colorize(line, FG.teal)}${" ".repeat(Math.max(0, 44 - line.length))}${colorize("│", FG.cyan)}`);
+    writeLine(
+      `${colorize("│", FG.cyan)} ${colorize(line, FG.teal)}${" ".repeat(Math.max(0, 44 - line.length))}${colorize("│", FG.cyan)}`,
+    );
   }
-  writeLine(colorize("╰──────────────────────────────────────────────╯", FG.cyan));
+  writeLine(
+    colorize("╰──────────────────────────────────────────────╯", FG.cyan),
+  );
 }
 
 export function section(title: string, meta?: string) {
   writeLine();
-  writeLine(`${colorize("◆", FG.magenta)} ${strong(title)}${meta ? ` ${subtle(meta)}` : ""}`);
+  writeLine(
+    `${colorize("◆", FG.magenta)} ${strong(title)}${meta ? ` ${subtle(meta)}` : ""}`,
+  );
 }
 
 export function detail(label: string, value: string | number) {
@@ -125,7 +135,9 @@ export function summary<T extends object>(title: string, stats: T) {
   const parts = Object.entries(stats as Record<string, string | number>).map(
     ([key, value]) => `${colorize(key, FG.teal)} ${strong(String(value))}`,
   );
-  writeLine(`${colorize("◈", FG.lime)} ${strong(title)}  ${parts.join(` ${subtle("•")} `)}`);
+  writeLine(
+    `${colorize("◈", FG.lime)} ${strong(title)}  ${parts.join(` ${subtle("•")} `)}`,
+  );
 }
 
 export function promptLabel(message: string) {
@@ -165,7 +177,9 @@ export function createTask(title: string, meta?: string) {
       clearInterval(timer);
     }
 
-    const suffix = message ? `${message} · ${formatDuration(start)}` : formatDuration(start);
+    const suffix = message
+      ? `${message} · ${formatDuration(start)}`
+      : formatDuration(start);
     render(symbol, color, suffix);
     if (interactive) {
       process.stdout.write("\n");

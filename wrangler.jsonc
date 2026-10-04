@@ -3,13 +3,11 @@
   "name": "democracy-plusplus",
   "compatibility_date": "2026-04-11",
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
   "assets": {
     "directory": "./apps/democracy-plusplus/dist",
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
   },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "compatibility_flags": ["nodejs_compat"],
 }

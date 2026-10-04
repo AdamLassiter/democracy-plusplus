@@ -20,8 +20,12 @@ export default function PropertyFilter({
   onChange: (_filters: PropertyFilterName[]) => void;
   onFilterModeChange: (_mode: PropertyFilterMode) => void;
 }) {
-  const { detailedAntiTank = false, detailedDemolitionForce = false } = useSelector(selectPreferences);
-  const propertyFilters = getPropertyFilters(detailedAntiTank, detailedDemolitionForce);
+  const { detailedAntiTank = false, detailedDemolitionForce = false } =
+    useSelector(selectPreferences);
+  const propertyFilters = getPropertyFilters(
+    detailedAntiTank,
+    detailedDemolitionForce,
+  );
 
   useEffect(() => {
     const normalizedFilters = normalizePropertyFilters(
@@ -30,15 +34,29 @@ export default function PropertyFilter({
       detailedDemolitionForce,
     );
     if (
-      normalizedFilters.length !== selectedFilters.length
-      || normalizedFilters.some((filterName, index) => filterName !== selectedFilters[index])
+      normalizedFilters.length !== selectedFilters.length ||
+      normalizedFilters.some(
+        (filterName, index) => filterName !== selectedFilters[index],
+      )
     ) {
       onChange(normalizedFilters);
     }
   }, [detailedAntiTank, detailedDemolitionForce, onChange, selectedFilters]);
 
   return (
-    <Box sx={{ alignItems: "start", display: "grid", gap: 1, gridTemplateColumns: { xs: "minmax(0, 1fr)", md: "minmax(0, 1fr) auto" }, mb: 2, minWidth: 0 }}>
+    <Box
+      sx={{
+        alignItems: "start",
+        display: "grid",
+        gap: 1,
+        gridTemplateColumns: {
+          xs: "minmax(0, 1fr)",
+          md: "minmax(0, 1fr) auto",
+        },
+        mb: 2,
+        minWidth: 0,
+      }}
+    >
       <Box
         aria-label="Property filters"
         sx={{
@@ -52,7 +70,9 @@ export default function PropertyFilter({
         <ToggleButtonGroup
           color="primary"
           value={selectedFilters}
-          onChange={(_event, newFilters) => onChange(newFilters as PropertyFilterName[])}
+          onChange={(_event, newFilters) =>
+            onChange(newFilters as PropertyFilterName[])
+          }
           sx={{
             flexWrap: { xs: "nowrap", sm: "wrap" },
             minWidth: "max-content",

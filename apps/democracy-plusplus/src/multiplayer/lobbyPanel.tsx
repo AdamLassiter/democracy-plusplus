@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { Box, Card, Chip, Divider, Grid, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  Chip,
+  Divider,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -19,7 +28,7 @@ function memberLoadoutItems(member: LobbyMember) {
     member.loadout.booster,
     ...member.loadout.stratagems,
   ]
-    .map((itemName) => itemName ? getItem(itemName) : null)
+    .map((itemName) => (itemName ? getItem(itemName) : null))
     .filter((item): item is Item => Boolean(item));
 }
 
@@ -34,7 +43,9 @@ export default function LobbyPanel() {
 
   const { lobbyState } = multiplayer;
   const missionSummary = [
-    lobbyState.mission.stars === null ? null : `${lobbyState.mission.stars} star${lobbyState.mission.stars !== 1 ? "s" : ""}`,
+    lobbyState.mission.stars === null
+      ? null
+      : `${lobbyState.mission.stars} star${lobbyState.mission.stars !== 1 ? "s" : ""}`,
   ].filter(Boolean);
 
   async function handleCopyLobbyCode() {
@@ -93,10 +104,16 @@ export default function LobbyPanel() {
             )}
           </Box>
           <Typography color="text.secondary" variant="body2">
-            Mission Outcome: {missionSummary.length ? missionSummary.join(" · ") : "No pending reports"}
+            Mission Outcome:{" "}
+            {missionSummary.length
+              ? missionSummary.join(" · ")
+              : "No pending reports"}
           </Typography>
           <Typography color="text.secondary" variant="body2">
-            Challenge: {CHALLENGE_DEFINITIONS[lobbyState.challengeSelection?.modeId ?? "budget"]?.name ?? CHALLENGE_DEFINITIONS.budget.name}
+            Challenge:{" "}
+            {CHALLENGE_DEFINITIONS[
+              lobbyState.challengeSelection?.modeId ?? "budget"
+            ]?.name ?? CHALLENGE_DEFINITIONS.budget.name}
           </Typography>
           <Divider sx={{ my: 1.5 }} />
           <Stack spacing={1.5}>
@@ -105,8 +122,17 @@ export default function LobbyPanel() {
 
               return (
                 <Box key={member.memberId}>
-                  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 0.75 }}>
-                    <Typography variant="subtitle2">{member.displayName}</Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      mb: 0.75,
+                    }}
+                  >
+                    <Typography variant="subtitle2">
+                      {member.displayName}
+                    </Typography>
                     <Chip
                       label={member.isHost ? "Democracy Officer" : "Helldiver"}
                       color={member.isHost ? "warning" : "success"}
@@ -118,10 +144,14 @@ export default function LobbyPanel() {
                     <Grid container spacing={0.75}>
                       {loadout.map((item, index) => (
                         <>
-                          <Grid key={`${member.memberId}-${item.displayName}-${index}`}>
+                          <Grid
+                            key={`${member.memberId}-${item.displayName}-${index}`}
+                          >
                             <CompactItemDisplay item={item} />
                           </Grid>
-                          {(index === 3 || index === 4) && <Divider orientation='vertical'/>}
+                          {(index === 3 || index === 4) && (
+                            <Divider orientation="vertical" />
+                          )}
                         </>
                       ))}
                     </Grid>

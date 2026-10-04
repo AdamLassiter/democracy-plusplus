@@ -10,7 +10,10 @@ export type ChallengeDefinition = {
   editableLoadout: boolean;
 };
 
-export const CHALLENGE_DEFINITIONS: Record<ChallengeModeId, ChallengeDefinition> = {
+export const CHALLENGE_DEFINITIONS: Record<
+  ChallengeModeId,
+  ChallengeDefinition
+> = {
   budget: {
     id: "budget",
     name: "Budget",
@@ -58,7 +61,9 @@ export function emptyEquipment(): EquipmentState {
 
 export function ownedItems(items: Item[], ownedWarbondCodes: string[]) {
   const allowed = new Set(["none", ...ownedWarbondCodes]);
-  return items.filter((item) => item.warbondCode && allowed.has(item.warbondCode));
+  return items.filter(
+    (item) => item.warbondCode && allowed.has(item.warbondCode),
+  );
 }
 
 function randomItem(items: Item[], prng: PRNG) {
@@ -72,7 +77,9 @@ export function randomLoadout(items: Item[], seed: number): EquipmentState {
     return items.filter((item) => item.category === category);
   }
   const stratagems = items.filter((item) => item.type === "Stratagem");
-  const shuffledStratagems = shuffle(stratagems, prng).slice(0, 4).map((item) => item.displayName);
+  const shuffledStratagems = shuffle(stratagems, prng)
+    .slice(0, 4)
+    .map((item) => item.displayName);
 
   return {
     primary: randomItem(byCategory("primary"), prng),
@@ -80,7 +87,10 @@ export function randomLoadout(items: Item[], seed: number): EquipmentState {
     throwable: randomItem(byCategory("throwable"), prng),
     armorPassive: randomItem(byCategory("armor"), prng),
     booster: randomItem(byCategory("booster"), prng),
-    stratagems: Array.from({ length: 4 }, (_unused, index) => shuffledStratagems[index] ?? null),
+    stratagems: Array.from(
+      { length: 4 },
+      (_unused, index) => shuffledStratagems[index] ?? null,
+    ),
   };
 }
 
@@ -104,27 +114,50 @@ export function equipmentItems(equipment: EquipmentState) {
   ].filter((item): item is string => Boolean(item));
 }
 
-export function removeUsedItems(remainingItemIds: string[], equipment: EquipmentState) {
+export function removeUsedItems(
+  remainingItemIds: string[],
+  equipment: EquipmentState,
+) {
   const used = new Set(equipmentItems(equipment));
   return remainingItemIds.filter((item) => !used.has(item));
 }
 
-export function prepareItemKnockoutPool(remainingItemIds: string[], eligibleItemIds: string[]) {
+export function prepareItemKnockoutPool(
+  remainingItemIds: string[],
+  eligibleItemIds: string[],
+) {
   if (remainingItemIds.length) {
     return { reset: false, cycleItemIds: null, remainingItemIds };
   }
-  return { reset: true, cycleItemIds: eligibleItemIds, remainingItemIds: eligibleItemIds };
+  return {
+    reset: true,
+    cycleItemIds: eligibleItemIds,
+    remainingItemIds: eligibleItemIds,
+  };
 }
 
-export function prepareWarbondKnockoutPool(remainingWarbondCodes: string[], ownedWarbondCodes: string[], seed: number) {
+export function prepareWarbondKnockoutPool(
+  remainingWarbondCodes: string[],
+  ownedWarbondCodes: string[],
+  seed: number,
+) {
   if (remainingWarbondCodes.length) {
     return { reset: false, cycleWarbondCodes: null, remainingWarbondCodes };
   }
-  const next = shuffle(ownedWarbondCodes.filter((code) => code !== "none"), new PRNG(seed));
+  const next = shuffle(
+    ownedWarbondCodes.filter((code) => code !== "none"),
+    new PRNG(seed),
+  );
   return { reset: true, cycleWarbondCodes: next, remainingWarbondCodes: next };
 }
 
-export function allowedWarbondItems(items: Item[], activeWarbondCode: string | null) {
+export function allowedWarbondItems(
+  items: Item[],
+  activeWarbondCode: string | null,
+) {
   if (!activeWarbondCode) return [];
-  return items.filter((item) => item.warbondCode === "none" || item.warbondCode === activeWarbondCode);
+  return items.filter(
+    (item) =>
+      item.warbondCode === "none" || item.warbondCode === activeWarbondCode,
+  );
 }

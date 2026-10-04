@@ -46,12 +46,10 @@ export const DETAILED_DEMOLITION_FORCE_FILTERS = [
 ] as const;
 
 type DetailedAntiTankFilterName = (typeof DETAILED_ANTI_TANK_FILTERS)[number];
-type DetailedDemolitionForceFilterName = (typeof DETAILED_DEMOLITION_FORCE_FILTERS)[number];
-const SPAWNER_UNCONDITIONAL_DEMOLITION_FILTERS: readonly DetailedDemolitionForceFilterName[] = [
-  "Demo Force 40",
-  "Demo Force 50",
-  "Demo Force 60",
-];
+type DetailedDemolitionForceFilterName =
+  (typeof DETAILED_DEMOLITION_FORCE_FILTERS)[number];
+const SPAWNER_UNCONDITIONAL_DEMOLITION_FILTERS: readonly DetailedDemolitionForceFilterName[] =
+  ["Demo Force 40", "Demo Force 50", "Demo Force 60"];
 
 export type PropertyFilterName =
   | (typeof PROPERTY_FILTERS)[number]
@@ -100,14 +98,20 @@ const FILTER_MATCHERS: Partial<Record<PropertyFilterName, RegExp>> = {
   Stun: /\bstun\b/i,
 };
 
-function isDetailedAntiTankFilter(filterName: PropertyFilterName): filterName is DetailedAntiTankFilterName {
-  return DETAILED_ANTI_TANK_FILTERS.includes(filterName as DetailedAntiTankFilterName);
+function isDetailedAntiTankFilter(
+  filterName: PropertyFilterName,
+): filterName is DetailedAntiTankFilterName {
+  return DETAILED_ANTI_TANK_FILTERS.includes(
+    filterName as DetailedAntiTankFilterName,
+  );
 }
 
 function isDetailedDemolitionForceFilter(
   filterName: PropertyFilterName,
 ): filterName is DetailedDemolitionForceFilterName {
-  return DETAILED_DEMOLITION_FORCE_FILTERS.includes(filterName as DetailedDemolitionForceFilterName);
+  return DETAILED_DEMOLITION_FORCE_FILTERS.includes(
+    filterName as DetailedDemolitionForceFilterName,
+  );
 }
 
 function replaceGroupedFilter(
@@ -128,7 +132,11 @@ export function getPropertyFilters(
     replaceGroupedFilter(filters, "Anti-Tank", DETAILED_ANTI_TANK_FILTERS);
   }
   if (detailedDemolitionForce) {
-    replaceGroupedFilter(filters, "Destroys Spawners", DETAILED_DEMOLITION_FORCE_FILTERS);
+    replaceGroupedFilter(
+      filters,
+      "Destroys Spawners",
+      DETAILED_DEMOLITION_FORCE_FILTERS,
+    );
   }
   return filters;
 }
@@ -140,17 +148,23 @@ export function normalizeAntiTankFilters(
   const detailedSelected = selectedFilters.some(isDetailedAntiTankFilter);
 
   if (detailedAntiTank && selectedFilters.includes("Anti-Tank")) {
-    return [...new Set<PropertyFilterName>([
-      ...selectedFilters.filter((filterName) => filterName !== "Anti-Tank"),
-      ...DETAILED_ANTI_TANK_FILTERS,
-    ])];
+    return [
+      ...new Set<PropertyFilterName>([
+        ...selectedFilters.filter((filterName) => filterName !== "Anti-Tank"),
+        ...DETAILED_ANTI_TANK_FILTERS,
+      ]),
+    ];
   }
 
   if (!detailedAntiTank && detailedSelected) {
-    return [...new Set<PropertyFilterName>([
-      ...selectedFilters.filter((filterName) => !isDetailedAntiTankFilter(filterName)),
-      "Anti-Tank",
-    ])];
+    return [
+      ...new Set<PropertyFilterName>([
+        ...selectedFilters.filter(
+          (filterName) => !isDetailedAntiTankFilter(filterName),
+        ),
+        "Anti-Tank",
+      ]),
+    ];
   }
 
   return [...selectedFilters];
@@ -161,21 +175,32 @@ export function normalizePropertyFilters(
   detailedAntiTank: boolean,
   detailedDemolitionForce: boolean,
 ): PropertyFilterName[] {
-  const normalized = normalizeAntiTankFilters(selectedFilters, detailedAntiTank);
+  const normalized = normalizeAntiTankFilters(
+    selectedFilters,
+    detailedAntiTank,
+  );
   const detailedSelected = normalized.some(isDetailedDemolitionForceFilter);
 
   if (detailedDemolitionForce && normalized.includes("Destroys Spawners")) {
-    return normalized.filter((filterName) => filterName !== "Destroys Spawners");
+    return normalized.filter(
+      (filterName) => filterName !== "Destroys Spawners",
+    );
   }
 
   if (!detailedDemolitionForce && detailedSelected) {
     const hasGroupedEquivalent = normalized.some((filterName) =>
-      SPAWNER_UNCONDITIONAL_DEMOLITION_FILTERS.includes(filterName as DetailedDemolitionForceFilterName),
+      SPAWNER_UNCONDITIONAL_DEMOLITION_FILTERS.includes(
+        filterName as DetailedDemolitionForceFilterName,
+      ),
     );
-    return [...new Set<PropertyFilterName>([
-      ...normalized.filter((filterName) => !isDetailedDemolitionForceFilter(filterName)),
-      ...(hasGroupedEquivalent ? ["Destroys Spawners" as const] : []),
-    ])];
+    return [
+      ...new Set<PropertyFilterName>([
+        ...normalized.filter(
+          (filterName) => !isDetailedDemolitionForceFilter(filterName),
+        ),
+        ...(hasGroupedEquivalent ? ["Destroys Spawners" as const] : []),
+      ]),
+    ];
   }
 
   return normalized;
@@ -204,7 +229,9 @@ function collectPenetrationValues(value: PropertyValue, output: string[] = []) {
   }
 
   if (Array.isArray(value)) {
-    value.forEach((nestedValue) => collectPenetrationValues(nestedValue, output));
+    value.forEach((nestedValue) =>
+      collectPenetrationValues(nestedValue, output),
+    );
     return output;
   }
 
@@ -213,25 +240,36 @@ function collectPenetrationValues(value: PropertyValue, output: string[] = []) {
       collectPenetrationValues(nestedValue, output);
       return;
     }
-    if (!nestedValue || typeof nestedValue !== "object" || Array.isArray(nestedValue)) {
+    if (
+      !nestedValue ||
+      typeof nestedValue !== "object" ||
+      Array.isArray(nestedValue)
+    ) {
       return;
     }
 
-    Object.entries(nestedValue).forEach(([penetrationKey, penetrationValue]) => {
-      if (PENETRATION_ANGLE_KEYS.has(penetrationKey.toLowerCase())) {
-        collectPropertyValues(penetrationValue, output);
-      }
-    });
+    Object.entries(nestedValue).forEach(
+      ([penetrationKey, penetrationValue]) => {
+        if (PENETRATION_ANGLE_KEYS.has(penetrationKey.toLowerCase())) {
+          collectPropertyValues(penetrationValue, output);
+        }
+      },
+    );
   });
 
   return output;
 }
 
-function collectDemolitionForceValues(value: PropertyValue, output: number[] = []) {
+function collectDemolitionForceValues(
+  value: PropertyValue,
+  output: number[] = [],
+) {
   if (!value || typeof value !== "object") return output;
 
   if (Array.isArray(value)) {
-    value.forEach((nestedValue) => collectDemolitionForceValues(nestedValue, output));
+    value.forEach((nestedValue) =>
+      collectDemolitionForceValues(nestedValue, output),
+    );
     return output;
   }
 
@@ -261,31 +299,47 @@ export function itemMatchesPropertyFilters(
   }
 
   const properties = item?.properties;
-  const searchableValues = properties ? collectPropertyValues(properties).join("\n") : "";
-  const penetrationValues = properties ? collectPenetrationValues(properties).join("\n") : "";
-  const demolitionForceValues = properties ? collectDemolitionForceValues(properties) : [];
-  const capabilities = selectedFilters.includes("Destroys Spawners") && item
-    ? extractItemCapabilities(item)
+  const searchableValues = properties
+    ? collectPropertyValues(properties).join("\n")
+    : "";
+  const penetrationValues = properties
+    ? collectPenetrationValues(properties).join("\n")
+    : "";
+  const demolitionForceValues = properties
+    ? collectDemolitionForceValues(properties)
     : [];
+  const capabilities =
+    selectedFilters.includes("Destroys Spawners") && item
+      ? extractItemCapabilities(item)
+      : [];
 
   function matchesFilter(filterName: PropertyFilterName) {
     if (filterName === "Destroys Spawners") {
-      return item?.tags?.includes(filterName) || capabilities.some(({ demolitionForce, explosive }) =>
-        demolitionForce !== null
-        && (demolitionForce >= 40 || (demolitionForce >= 20 && explosive)),
+      return (
+        item?.tags?.includes(filterName) ||
+        capabilities.some(
+          ({ demolitionForce, explosive }) =>
+            demolitionForce !== null &&
+            (demolitionForce >= 40 || (demolitionForce >= 20 && explosive)),
+        )
       );
     }
     if (DEMOLITION_FORCE_FILTERS.has(filterName)) {
-      const requiredForce = Number.parseInt(filterName.replace("Demo Force ", ""), 10);
+      const requiredForce = Number.parseInt(
+        filterName.replace("Demo Force ", ""),
+        10,
+      );
       return demolitionForceValues.includes(requiredForce);
     }
     const penetrationFilter = PENETRATION_FILTERS.has(filterName);
     if (!penetrationFilter && item?.tags?.includes(filterName)) {
       return true;
     }
-    return FILTER_MATCHERS[filterName]?.test(
-      penetrationFilter ? penetrationValues : searchableValues,
-    ) ?? false;
+    return (
+      FILTER_MATCHERS[filterName]?.test(
+        penetrationFilter ? penetrationValues : searchableValues,
+      ) ?? false
+    );
   }
 
   return mode === "and"
@@ -298,5 +352,7 @@ export function filterItemsByPropertyValues(
   selectedFilters: readonly PropertyFilterName[],
   mode: PropertyFilterMode = "or",
 ) {
-  return items.filter((item) => itemMatchesPropertyFilters(item, selectedFilters, mode));
+  return items.filter((item) =>
+    itemMatchesPropertyFilters(item, selectedFilters, mode),
+  );
 }

@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  Badge,
-  Button,
-  Tooltip,
-} from "@mui/material";
+import { Badge, Button, Tooltip } from "@mui/material";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { useSelector } from "react-redux";
 import { selectChallenges } from "../../slices/challengesSlice";

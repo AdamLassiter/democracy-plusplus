@@ -3,15 +3,15 @@ import type { SnackbarState } from "../types";
 import type { RootState } from "./index";
 
 const initialState: SnackbarState = {
-  message: '',
+  message: "",
   open: false,
-  severity: 'info',
+  severity: "info",
 };
 
 const defaultState: SnackbarState = {
-  message: '',
+  message: "",
   open: true,
-  severity: 'success',
+  severity: "success",
 };
 
 export function selectSnackbar(state: RootState) {
@@ -20,14 +20,14 @@ export function selectSnackbar(state: RootState) {
 
 const snackbarSlice = createSlice({
   initialState,
-  name: 'shop',
+  name: "shop",
   reducers: {
     setSnackbar: (state, action) => ({
       ...state,
       ...defaultState,
       ...action.payload,
-    })
-  }
+    }),
+  },
 });
 
 export const { setSnackbar } = snackbarSlice.actions;

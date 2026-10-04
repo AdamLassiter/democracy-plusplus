@@ -44,7 +44,15 @@ export type WeaponProfile = {
   id: string;
   itemDisplayName: string;
   label: string;
-  kind: "projectile" | "shotgun" | "beam" | "heat-projectile" | "arc" | "spray" | "melee" | "charge";
+  kind:
+    | "projectile"
+    | "shotgun"
+    | "beam"
+    | "heat-projectile"
+    | "arc"
+    | "spray"
+    | "melee"
+    | "charge";
   roundsPerMinute: number;
   capacity: number;
   infiniteCapacity?: boolean;
@@ -117,7 +125,8 @@ export type CombatSourceKind =
   | "distributed-strike"
   | "persistent-area";
 
-export type CombatSourceControl = "player" | "autonomous" | "proximity" | "scripted-pattern";
+export type CombatSourceControl =
+  "player" | "autonomous" | "proximity" | "scripted-pattern";
 
 export type TargetExposureScenario = {
   id: string;
@@ -137,7 +146,8 @@ export type CombatSourceDelivery = {
   rearmSeconds?: number;
   uses?: number | "unlimited";
   exposureScenarios: TargetExposureScenario[];
-  replenishment: "reload" | "resupply" | "cooldown" | "rearm" | "disposable" | "persistent";
+  replenishment:
+    "reload" | "resupply" | "cooldown" | "rearm" | "disposable" | "persistent";
   assumptions: string[];
 };
 
@@ -216,8 +226,12 @@ export type EnemyTarget = {
   partConstitution: { health: number; decayPerSecond: number } | null;
   parts: EnemyTargetPart[];
   explosionScenarios: EnemyExplosionScenario[];
-  elementalMultipliers: Partial<Record<"Fire" | "Gas" | "Arc" | "Acid", number>>;
-  statusThresholds: Partial<Record<string, { minimum: number; guaranteed: number }>>;
+  elementalMultipliers: Partial<
+    Record<"Fire" | "Gas" | "Arc" | "Acid", number>
+  >;
+  statusThresholds: Partial<
+    Record<string, { minimum: number; guaranteed: number }>
+  >;
 };
 
 export type EnemyTargetPart = {

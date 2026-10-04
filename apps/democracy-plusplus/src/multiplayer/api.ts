@@ -6,7 +6,9 @@ import type {
   ServerEvent,
 } from "../types";
 
-const BACKEND_URL = import.meta.env.DEV ?  "http://localhost:8080" : "https://bureaucracy-plusplus.lassiter.uk";
+const BACKEND_URL = import.meta.env.DEV
+  ? "http://localhost:8080"
+  : "https://bureaucracy-plusplus.lassiter.uk";
 
 function endpoint(path: string) {
   return `${BACKEND_URL}${path}`;
@@ -35,12 +37,19 @@ export async function checkBackendHealth() {
   return response.ok;
 }
 
-export async function createLobby(displayName: string): Promise<LobbySessionResponse> {
+export async function createLobby(
+  displayName: string,
+): Promise<LobbySessionResponse> {
   return postJson("/api/lobbies", { displayName });
 }
 
-export async function joinLobby(lobbyCode: string, displayName: string): Promise<LobbySessionResponse> {
-  return postJson(`/api/lobbies/${encodeURIComponent(lobbyCode)}/join`, { displayName });
+export async function joinLobby(
+  lobbyCode: string,
+  displayName: string,
+): Promise<LobbySessionResponse> {
+  return postJson(`/api/lobbies/${encodeURIComponent(lobbyCode)}/join`, {
+    displayName,
+  });
 }
 
 export async function sendLobbyCommand(
@@ -78,7 +87,9 @@ export function connectLobbyEvents(
   onEvent: (_event: ServerEvent) => void,
   onError: () => void,
 ) {
-  const url = new URL(endpoint(`/api/lobbies/${encodeURIComponent(lobbyCode)}/events`));
+  const url = new URL(
+    endpoint(`/api/lobbies/${encodeURIComponent(lobbyCode)}/events`),
+  );
   url.searchParams.set("memberId", memberId);
   url.searchParams.set("sessionToken", sessionToken);
 

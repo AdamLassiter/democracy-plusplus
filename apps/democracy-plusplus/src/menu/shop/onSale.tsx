@@ -21,7 +21,12 @@ export default function OnSale() {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
-      dispatch(setSnackbar({ message: `Not enough credits for ${item.displayName}`, severity: 'warning' }));
+      dispatch(
+        setSnackbar({
+          message: `Not enough credits for ${item.displayName}`,
+          severity: "warning",
+        }),
+      );
     }
   }
 
@@ -30,10 +35,12 @@ export default function OnSale() {
   return (
     <>
       <Tooltip title="Items on sale for 50% off this mission. Randomly restocked each mission, and unique per player.">
-        <Box><SectionHeading
-          subtitle="Mission-only bargains, freshly liberated from the quartermaster's surplus cage."
-          title="Discount Surplus"
-        /></Box>
+        <Box>
+          <SectionHeading
+            subtitle="Mission-only bargains, freshly liberated from the quartermaster's surplus cage."
+            title="Discount Surplus"
+          />
+        </Box>
       </Tooltip>
       <Grid container spacing={1}>
         {list.map((item) => {
@@ -47,7 +54,11 @@ export default function OnSale() {
           );
           if (!item.purchased) {
             return (
-              <Badge key={item.displayName} badgeContent={item.cost} color={isAffordable ? "success" : "error"}>
+              <Badge
+                key={item.displayName}
+                badgeContent={item.cost}
+                color={isAffordable ? "success" : "error"}
+              >
                 {inner}
               </Badge>
             );

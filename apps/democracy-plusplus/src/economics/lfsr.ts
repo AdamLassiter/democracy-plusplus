@@ -2,7 +2,7 @@ export class PRNG {
   private state: number;
 
   constructor(seed: number) {
-    this.state = (Math.trunc(seed) >>> 0) || 0;
+    this.state = Math.trunc(seed) >>> 0 || 0;
   }
 
   private nextUint32() {

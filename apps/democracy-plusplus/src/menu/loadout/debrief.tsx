@@ -1,10 +1,33 @@
 import type { ChangeEvent, SyntheticEvent } from "react";
-import { Box, Button, Checkbox, Dialog, Divider, FormControlLabel, FormGroup, FormLabel, Rating, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Dialog,
+  Divider,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+  Rating,
+  Typography,
+} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { resetMission, selectMission, setQuests as setMissionQuests, setRestrictions as setMissionRestrictions, setState } from "../../slices/missionSlice";
+import {
+  resetMission,
+  selectMission,
+  setQuests as setMissionQuests,
+  setRestrictions as setMissionRestrictions,
+  setState,
+} from "../../slices/missionSlice";
 import { useEffect, useState } from "react";
 import { unlockedAchievementsForItems } from "../../constants/achievements";
-import { calculateFaction, calculateMissionReward, calculateMissionTier, calculateQuestsReward, calculateRestrictionsReward } from "../../economics/mission";
+import {
+  calculateFaction,
+  calculateMissionReward,
+  calculateMissionTier,
+  calculateQuestsReward,
+  calculateRestrictionsReward,
+} from "../../economics/mission";
 import { itemCost } from "../../economics/shop";
 import { getEffectiveTier } from "../../utils/tierList";
 import { unlockAchievements } from "../../slices/achievementsSlice";
@@ -24,9 +47,21 @@ import {
   syncDebriefStateSnapshot,
 } from "../../multiplayer/missionSync";
 import { selectMultiplayer } from "../../slices/multiplayerSlice";
-import { setConnectionError, setLastProcessedDebriefSubmissionId } from "../../slices/multiplayerSlice";
+import {
+  setConnectionError,
+  setLastProcessedDebriefSubmissionId,
+} from "../../slices/multiplayerSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
-import type { EquipmentState, Item, LobbyMember, MissionState, PlayerCount, Quest, Restriction, Tier } from "../../types";
+import type {
+  EquipmentState,
+  Item,
+  LobbyMember,
+  MissionState,
+  PlayerCount,
+  Quest,
+  Restriction,
+  Tier,
+} from "../../types";
 import type { AppDispatch } from "../../slices";
 import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
@@ -36,30 +71,46 @@ export default function Debrief() {
   const equipment = useSelector(selectEquipment);
   const multiplayer = useSelector(selectMultiplayer);
   const { overrides } = useSelector(selectTierList);
-  const currentMember = multiplayer.lobbyState?.members.find(
-    (member: LobbyMember) => member.memberId === multiplayer.memberId,
-  ) ?? null;
+  const currentMember =
+    multiplayer.lobbyState?.members.find(
+      (member: LobbyMember) => member.memberId === multiplayer.memberId,
+    ) ?? null;
   const isHost = currentMember?.isHost ?? true;
-  const playerCount = getEffectivePlayerCount(mission.playerCount, multiplayer.lobbyState);
+  const playerCount = getEffectivePlayerCount(
+    mission.playerCount,
+    multiplayer.lobbyState,
+  );
   const syncedMission = multiplayer.lobbyState?.mission ?? null;
-  const initialDebriefState = createDebriefStateSnapshot(mission, syncedMission);
+  const initialDebriefState = createDebriefStateSnapshot(
+    mission,
+    syncedMission,
+  );
 
   // Hosts keep the shared lobby debrief state in sync; guests keep their own local completion choices.
   const [debriefState, setDebriefState] = useState(initialDebriefState);
   const { stars, quests, restrictions } = debriefState;
-  const [isFinalised, setIsFinalised] = useState(currentMember?.debriefReady ?? false);
+  const [isFinalised, setIsFinalised] = useState(
+    currentMember?.debriefReady ?? false,
+  );
   const [open, setOpen] = useState(true);
-  const pendingDebriefMembers = countPendingDebriefMembers(multiplayer.lobbyState?.members);
+  const pendingDebriefMembers = countPendingDebriefMembers(
+    multiplayer.lobbyState?.members,
+  );
   const hasLobbyState = Boolean(multiplayer.lobbyState);
   const waitingForHost = hasLobbyState && !isHost && isFinalised;
   const hostSubmitDisabled = hasLobbyState && pendingDebriefMembers > 0;
 
   useEffect(() => {
     setDebriefState((current) => {
-      const next = syncDebriefStateSnapshot(current, mission, syncedMission, isHost);
-      return current.stars === next.stars
-        && areMissionEntriesEqual(current.quests, next.quests)
-        && areMissionEntriesEqual(current.restrictions, next.restrictions)
+      const next = syncDebriefStateSnapshot(
+        current,
+        mission,
+        syncedMission,
+        isHost,
+      );
+      return current.stars === next.stars &&
+        areMissionEntriesEqual(current.quests, next.quests) &&
+        areMissionEntriesEqual(current.restrictions, next.restrictions)
         ? current
         : next;
     });
@@ -72,7 +123,13 @@ export default function Debrief() {
   }, [currentMember?.debriefReady, isHost]);
 
   useEffect(() => {
-    if (!shouldApplyDebriefSubmission(mission, syncedMission, multiplayer.lastProcessedDebriefSubmissionId)) {
+    if (
+      !shouldApplyDebriefSubmission(
+        mission,
+        syncedMission,
+        multiplayer.lastProcessedDebriefSubmissionId,
+      )
+    ) {
       return;
     }
 
@@ -84,14 +141,39 @@ export default function Debrief() {
     dispatch(setLastProcessedDebriefSubmissionId(submissionId));
     setOpen(false);
     setIsFinalised(false);
-    applyDebriefSubmission(dispatch, mission, equipment, overrides, playerCount, stars, quests, restrictions);
+    applyDebriefSubmission(
+      dispatch,
+      mission,
+      equipment,
+      overrides,
+      playerCount,
+      stars,
+      quests,
+      restrictions,
+    );
 
-    if (isHost && multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken) {
-      void sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
-        type: "setMissionStars",
-        stars: null,
-      }).catch((error: unknown) => {
-        dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to reset mission stars"));
+    if (
+      isHost &&
+      multiplayer.lobbyCode &&
+      multiplayer.memberId &&
+      multiplayer.sessionToken
+    ) {
+      void sendLobbyCommand(
+        multiplayer.lobbyCode,
+        multiplayer.memberId,
+        multiplayer.sessionToken,
+        {
+          type: "setMissionStars",
+          stars: null,
+        },
+      ).catch((error: unknown) => {
+        dispatch(
+          setConnectionError(
+            error instanceof Error
+              ? error.message
+              : "Failed to reset mission stars",
+          ),
+        );
       });
     }
   }, [
@@ -111,34 +193,73 @@ export default function Debrief() {
     syncedMission,
   ]);
 
-  const missionReward = calculateMissionReward({ ...mission, stars, playerCount });
+  const missionReward = calculateMissionReward({
+    ...mission,
+    stars,
+    playerCount,
+  });
   const questsReward = calculateQuestsReward(quests);
-  const restrictionsReward = calculateRestrictionsReward(restrictions, missionReward, questsReward);
+  const restrictionsReward = calculateRestrictionsReward(
+    restrictions,
+    missionReward,
+    questsReward,
+  );
   const totalReward = missionReward + questsReward + restrictionsReward;
 
   function finaliseDebriefSubmission() {
     setOpen(false);
     setIsFinalised(false);
-    applyDebriefSubmission(dispatch, mission, equipment, overrides, playerCount, stars, quests, restrictions);
+    applyDebriefSubmission(
+      dispatch,
+      mission,
+      equipment,
+      overrides,
+      playerCount,
+      stars,
+      quests,
+      restrictions,
+    );
   }
 
   function handleStars(_event: SyntheticEvent, newValue: number | null) {
     if (newValue !== null && 1 <= newValue && newValue <= 5) {
       setDebriefState((current) => ({ ...current, stars: newValue }));
-      if (multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken && isHost) {
-        void sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
-          type: "setMissionStars",
-          stars: newValue,
-        }).catch((error: unknown) => {
-          dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to sync mission stars"));
+      if (
+        multiplayer.lobbyCode &&
+        multiplayer.memberId &&
+        multiplayer.sessionToken &&
+        isHost
+      ) {
+        void sendLobbyCommand(
+          multiplayer.lobbyCode,
+          multiplayer.memberId,
+          multiplayer.sessionToken,
+          {
+            type: "setMissionStars",
+            stars: newValue,
+          },
+        ).catch((error: unknown) => {
+          dispatch(
+            setConnectionError(
+              error instanceof Error
+                ? error.message
+                : "Failed to sync mission stars",
+            ),
+          );
         });
       }
     }
   }
   function handleRestrictions(event: ChangeEvent<HTMLInputElement>, i: number) {
     const newRestrictions = [...restrictions];
-    newRestrictions[i] = { ...newRestrictions[i], completed: event.target.checked };
-    setDebriefState((current) => ({ ...current, restrictions: newRestrictions }));
+    newRestrictions[i] = {
+      ...newRestrictions[i],
+      completed: event.target.checked,
+    };
+    setDebriefState((current) => ({
+      ...current,
+      restrictions: newRestrictions,
+    }));
     if (isHost) {
       dispatch(setMissionRestrictions({ value: newRestrictions }));
     }
@@ -159,31 +280,63 @@ export default function Debrief() {
       return;
     }
 
-    if (multiplayer.lobbyCode && multiplayer.memberId && multiplayer.sessionToken && isHost) {
+    if (
+      multiplayer.lobbyCode &&
+      multiplayer.memberId &&
+      multiplayer.sessionToken &&
+      isHost
+    ) {
       try {
-        await sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
-          type: "submitDebriefReports",
-        });
+        await sendLobbyCommand(
+          multiplayer.lobbyCode,
+          multiplayer.memberId,
+          multiplayer.sessionToken,
+          {
+            type: "submitDebriefReports",
+          },
+        );
       } catch (error: unknown) {
-        dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to submit mission reports"));
+        dispatch(
+          setConnectionError(
+            error instanceof Error
+              ? error.message
+              : "Failed to submit mission reports",
+          ),
+        );
       }
     }
   }
 
   async function handleFinaliseToggle(nextReady: boolean) {
-    if (!multiplayer.lobbyCode || !multiplayer.memberId || !multiplayer.sessionToken || isHost) {
+    if (
+      !multiplayer.lobbyCode ||
+      !multiplayer.memberId ||
+      !multiplayer.sessionToken ||
+      isHost
+    ) {
       return;
     }
 
     setIsFinalised(nextReady);
     try {
-      await sendLobbyCommand(multiplayer.lobbyCode, multiplayer.memberId, multiplayer.sessionToken, {
-        type: "setDebriefReady",
-        ready: nextReady,
-      });
+      await sendLobbyCommand(
+        multiplayer.lobbyCode,
+        multiplayer.memberId,
+        multiplayer.sessionToken,
+        {
+          type: "setDebriefReady",
+          ready: nextReady,
+        },
+      );
     } catch (error: unknown) {
       setIsFinalised(!nextReady);
-      dispatch(setConnectionError(error instanceof Error ? error.message : "Failed to update debrief readiness"));
+      dispatch(
+        setConnectionError(
+          error instanceof Error
+            ? error.message
+            : "Failed to update debrief readiness",
+        ),
+      );
     }
   }
 
@@ -191,97 +344,139 @@ export default function Debrief() {
     setOpen(false);
   }
 
-  if (!open) return <Button variant="outlined" onClick={() => setOpen(true)}>Open Mission Report</Button>;
+  if (!open)
+    return (
+      <Button variant="outlined" onClick={() => setOpen(true)}>
+        Open Mission Report
+      </Button>
+    );
 
-  return <Dialog open={open} onClose={handleClose}>
-    <CloseableDialogTitle onClose={handleClose}>
-      Mission Report
-    </CloseableDialogTitle>
-    <Box padding={2}>
-      <Typography color="text.secondary" paddingBottom={2} variant="body2">
-        Complete this report after finishing the mission in-game. Record your final star rating, completed assignments,
-        and any failed rules of engagement before submitting.
-      </Typography>
-      <FormLabel component="legend">Mission Performance</FormLabel>
-      <Rating
-        value={stars}
-        onChange={handleStars}
-        max={5}
-        precision={1}
-        readOnly={!isHost && hasLobbyState}
-      />
-      <FormLabel component="legend">Rules of Engagement</FormLabel>
-      <FormGroup>
-        {restrictions.map((restriction: Restriction, i) =>
-          <FormControlLabel
-            key={`restriction-${restriction.displayName}-${i}`}
-            control={<Checkbox
-              checked={Boolean(restriction.completed)}
-              disabled={waitingForHost}
-              onChange={(event) => handleRestrictions(event, i)}
-            />}
-            label={restriction.displayName} />
-        )}
-        {!restrictions.length && <Typography color="gray" padding={1}>None</Typography>}
-      </FormGroup>
-      <FormLabel component="legend">Discretionary Assignments</FormLabel>
-      <FormGroup>
-        {quests.map((quest: Quest, i) =>
-          <FormControlLabel
-            key={`quest-${quest.displayName}-${i}`}
-            control={<Checkbox
-              checked={Boolean(quest.completed)}
-              disabled={waitingForHost}
-              onChange={(event) => handleQuests(event, i)}
-            />}
-            label={quest.displayName} />
-        )}
-        {!quests.length && <Typography color="gray" padding={1}>None</Typography>}
-      </FormGroup>
-      {waitingForHost && (
-        <Typography color="text.secondary" paddingTop={1}>
-          Report finalised. Waiting for the Democracy Officer to submit the lobby reports.
+  return (
+    <Dialog open={open} onClose={handleClose}>
+      <CloseableDialogTitle onClose={handleClose}>
+        Mission Report
+      </CloseableDialogTitle>
+      <Box padding={2}>
+        <Typography color="text.secondary" paddingBottom={2} variant="body2">
+          Complete this report after finishing the mission in-game. Record your
+          final star rating, completed assignments, and any failed rules of
+          engagement before submitting.
         </Typography>
-      )}
-      <FormLabel component="legend">Breakdown</FormLabel>
-      <Box padding={1}>
-        <Typography color={missionReward > 0 ? "success" : "warning"}>
-          {missionReward}¢ - {calculateMissionTier(mission).toUpperCase()}-Tier Mission Reward
-        </Typography>
-        <Typography color={questsReward > 0 ? "success" : "warning"}>
-          {questsReward}¢ - { } Discretionary Bonus
-        </Typography>
-        <Typography color={restrictionsReward < 0 ? "error" : "success"}>
-          {restrictionsReward}¢ Disciplinary Fines
-        </Typography>
-      </Box>
-      <Divider />
-      <Box padding={1}>
-        <Typography color={totalReward > 0 ? "success" : "warning"}>
-          {totalReward}¢ Final Reward
-        </Typography>
-      </Box>
-      <Box sx={{ alignItems: "center", display: "flex", gap: 2, justifyContent: "space-between" }}>
-        {hasLobbyState && (
-          <Typography color={pendingDebriefMembers > 0 ? "warning.main" : "success.main"}>
-            {pendingDebriefMembers > 0
-              ? `${pendingDebriefMembers} non-host ${pendingDebriefMembers === 1 ? "report" : "reports"} not ready`
-              : "All lobby reports ready"}
+        <FormLabel component="legend">Mission Performance</FormLabel>
+        <Rating
+          value={stars}
+          onChange={handleStars}
+          max={5}
+          precision={1}
+          readOnly={!isHost && hasLobbyState}
+        />
+        <FormLabel component="legend">Rules of Engagement</FormLabel>
+        <FormGroup>
+          {restrictions.map((restriction: Restriction, i) => (
+            <FormControlLabel
+              key={`restriction-${restriction.displayName}-${i}`}
+              control={
+                <Checkbox
+                  checked={Boolean(restriction.completed)}
+                  disabled={waitingForHost}
+                  onChange={(event) => handleRestrictions(event, i)}
+                />
+              }
+              label={restriction.displayName}
+            />
+          ))}
+          {!restrictions.length && (
+            <Typography color="gray" padding={1}>
+              None
+            </Typography>
+          )}
+        </FormGroup>
+        <FormLabel component="legend">Discretionary Assignments</FormLabel>
+        <FormGroup>
+          {quests.map((quest: Quest, i) => (
+            <FormControlLabel
+              key={`quest-${quest.displayName}-${i}`}
+              control={
+                <Checkbox
+                  checked={Boolean(quest.completed)}
+                  disabled={waitingForHost}
+                  onChange={(event) => handleQuests(event, i)}
+                />
+              }
+              label={quest.displayName}
+            />
+          ))}
+          {!quests.length && (
+            <Typography color="gray" padding={1}>
+              None
+            </Typography>
+          )}
+        </FormGroup>
+        {waitingForHost && (
+          <Typography color="text.secondary" paddingTop={1}>
+            Report finalised. Waiting for the Democracy Officer to submit the
+            lobby reports.
           </Typography>
         )}
-        {hasLobbyState && !isHost && (
-          <Button variant="outlined" onClick={() => void handleFinaliseToggle(!isFinalised)}>
-            {isFinalised ? "Edit Report" : "Finalise Report"}
-          </Button>
-        )}
-        {(!hasLobbyState || isHost) && (
-          <Button variant="outlined" onClick={() => void handleSubmit()} disabled={hostSubmitDisabled}>
-            Submit Mission Report
-          </Button>
-        )}
+        <FormLabel component="legend">Breakdown</FormLabel>
+        <Box padding={1}>
+          <Typography color={missionReward > 0 ? "success" : "warning"}>
+            {missionReward}¢ - {calculateMissionTier(mission).toUpperCase()}
+            -Tier Mission Reward
+          </Typography>
+          <Typography color={questsReward > 0 ? "success" : "warning"}>
+            {questsReward}¢ - {} Discretionary Bonus
+          </Typography>
+          <Typography color={restrictionsReward < 0 ? "error" : "success"}>
+            {restrictionsReward}¢ Disciplinary Fines
+          </Typography>
+        </Box>
+        <Divider />
+        <Box padding={1}>
+          <Typography color={totalReward > 0 ? "success" : "warning"}>
+            {totalReward}¢ Final Reward
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            alignItems: "center",
+            display: "flex",
+            gap: 2,
+            justifyContent: "space-between",
+          }}
+        >
+          {hasLobbyState && (
+            <Typography
+              color={
+                pendingDebriefMembers > 0 ? "warning.main" : "success.main"
+              }
+            >
+              {pendingDebriefMembers > 0
+                ? `${pendingDebriefMembers} non-host ${pendingDebriefMembers === 1 ? "report" : "reports"} not ready`
+                : "All lobby reports ready"}
+            </Typography>
+          )}
+          {hasLobbyState && !isHost && (
+            <Button
+              variant="outlined"
+              onClick={() => void handleFinaliseToggle(!isFinalised)}
+            >
+              {isFinalised ? "Edit Report" : "Finalise Report"}
+            </Button>
+          )}
+          {(!hasLobbyState || isHost) && (
+            <Button
+              variant="outlined"
+              onClick={() => void handleSubmit()}
+              disabled={hostSubmitDisabled}
+            >
+              Submit Mission Report
+            </Button>
+          )}
+        </Box>
       </Box>
-    </Box>
-  </Dialog>;
+    </Dialog>
+  );
 }
 
 function applyDebriefSubmission(
@@ -294,11 +489,23 @@ function applyDebriefSubmission(
   quests: Quest[],
   restrictions: Restriction[],
 ) {
-  const missionReward = calculateMissionReward({ ...mission, stars, playerCount });
+  const missionReward = calculateMissionReward({
+    ...mission,
+    stars,
+    playerCount,
+  });
   const questsReward = calculateQuestsReward(quests);
-  const restrictionsReward = calculateRestrictionsReward(restrictions, missionReward, questsReward);
+  const restrictionsReward = calculateRestrictionsReward(
+    restrictions,
+    missionReward,
+    questsReward,
+  );
   const totalReward = missionReward + questsReward + restrictionsReward;
-  const objective = getObjective(FACTIONS[mission.faction], mission.objective, mission.difficulty);
+  const objective = getObjective(
+    FACTIONS[mission.faction],
+    mission.objective,
+    mission.difficulty,
+  );
   const usedItems = [
     equipment.primary,
     equipment.secondary,
@@ -310,38 +517,52 @@ function applyDebriefSubmission(
   const resolvedUsedItems = usedItems
     .map((itemName) => getItem(itemName))
     .filter((item): item is Item => Boolean(item));
-  const unlockedAchievementIds = unlockedAchievementsForItems(resolvedUsedItems);
-  const pricedUsedItems = resolvedUsedItems.map((item) => itemCost({ ...item, tier: getEffectiveTier(item, overrides) }));
+  const unlockedAchievementIds =
+    unlockedAchievementsForItems(resolvedUsedItems);
+  const pricedUsedItems = resolvedUsedItems.map((item) =>
+    itemCost({ ...item, tier: getEffectiveTier(item, overrides) }),
+  );
   const usedItemsCost = pricedUsedItems.reduce((sum, item) => sum + item, 0);
-  dispatch(addMissionLogEntry({
-    kind: "mission",
-    id: `mission-${Date.now()}-${mission.count}`,
-    timestamp: new Date().toISOString(),
-    modeId: "budget",
-    missionNumber: mission.mission,
-    faction: calculateFaction(mission),
-    objective: objective?.displayName ?? "Unknown Objective",
-    stars,
-    usedItems,
-    usedItemsCost,
-    quests: quests.map((quest) => ({
-      name: quest.displayName,
-      completed: Boolean(quest.completed),
-    })),
-    restrictions: restrictions.map((restriction) => ({
-      name: restriction.displayName,
-      completed: Boolean(restriction.completed),
-    })),
-    totalReward,
-  }));
+  dispatch(
+    addMissionLogEntry({
+      kind: "mission",
+      id: `mission-${Date.now()}-${mission.count}`,
+      timestamp: new Date().toISOString(),
+      modeId: "budget",
+      missionNumber: mission.mission,
+      faction: calculateFaction(mission),
+      objective: objective?.displayName ?? "Unknown Objective",
+      stars,
+      usedItems,
+      usedItemsCost,
+      quests: quests.map((quest) => ({
+        name: quest.displayName,
+        completed: Boolean(quest.completed),
+      })),
+      restrictions: restrictions.map((restriction) => ({
+        name: restriction.displayName,
+        completed: Boolean(restriction.completed),
+      })),
+      totalReward,
+    }),
+  );
   dispatch(addCredits({ amount: totalReward }));
   dispatch(unlockAchievements({ value: unlockedAchievementIds }));
   dispatch(resetEquipment());
-  dispatch(resetShop({ missionCount: mission.count, playerCount, tierOverrides: overrides }));
+  dispatch(
+    resetShop({
+      missionCount: mission.count,
+      playerCount,
+      tierOverrides: overrides,
+    }),
+  );
   dispatch(resetMission());
   dispatch(setState({ value: "brief" }));
 }
 
-function areMissionEntriesEqual<T extends Quest | Restriction>(current: T[], next: T[]) {
+function areMissionEntriesEqual<T extends Quest | Restriction>(
+  current: T[],
+  next: T[],
+) {
   return JSON.stringify(current) === JSON.stringify(next);
 }

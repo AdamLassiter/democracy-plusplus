@@ -4,7 +4,7 @@
 
 > “For liberty! For Managed Democracy! For Super Earth!”
 
-**Democracy++** is a *Helldivers 2* companion web app that dares to push the frontiers of freedom itself.  
+**Democracy++** is a _Helldivers 2_ companion web app that dares to push the frontiers of freedom itself.  
 Choose a structured loadout challenge, survive the ever-rising tide of galactic oppression, and rotate through your arsenal one mission at a time.
 
 👉 [**Helldivers to Hellpods**](https://adamlassiter.github.io/democracy-plusplus/) and do your part, soldier.
@@ -21,7 +21,7 @@ It supports several metagames built around a shared mission flow:
 
 Owned content and progress are stored locally. In multiplayer, the host chooses the challenge mode and mission while each player keeps an independent randomizer or knockout run.
 
-While lesser recruits may settle for [helldivers2challenges.com](https://helldivers2challenges.com/), *true patriots* know that balance and challenge are the twin engines of liberty.  
+While lesser recruits may settle for [helldivers2challenges.com](https://helldivers2challenges.com/), _true patriots_ know that balance and challenge are the twin engines of liberty.  
 Democracy++ refines that formula - more depth, more math, and more ways to prove your devotion to Super Earth.
 
 ## ⚙️ Super-Tech Specs
@@ -92,7 +92,7 @@ Available backend environment variables:
 
 ## 🔄 Data Intelligence Updates
 
-After *Helldivers 2* receives an update from **Super Earth Command**, refresh all
+After _Helldivers 2_ receives an update from **Super Earth Command**, refresh all
 wiki-backed data with:
 
 ```sh
@@ -132,9 +132,9 @@ Manual testing by loyal citizens is the current standard of excellence.
 
 ## 🪖 Credits
 
-- Inspired by **Helldivers 2**, property of *Arrowhead Game Studios*  
-- Developed by [Adam Lassiter](https://github.com/adamlassiter)  
-- Supervised by **Super Earth Command**, in spirit  
+- Inspired by **Helldivers 2**, property of _Arrowhead Game Studios_
+- Developed by [Adam Lassiter](https://github.com/adamlassiter)
+- Supervised by **Super Earth Command**, in spirit
 
 ## 📜 License
 

@@ -20,25 +20,44 @@ export default function SupplyCrates() {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
-      dispatch(setSnackbar({ message: `Not enough credits for ${item.displayName}`, severity: 'warning' }));
+      dispatch(
+        setSnackbar({
+          message: `Not enough credits for ${item.displayName}`,
+          severity: "warning",
+        }),
+      );
     }
   }
 
   const list = [...supplyCrates].sort((a, b) => b.cost - a.cost);
 
-  return <>
-    <Grid direction="row" container spacing={1}>
-      {list.map(item => {
-        const isAffordable = credits >= item.cost;
-        const inner = <ItemDisplay item={item} onClick={addItemToCart} isAffordable={isAffordable && !item.purchased} />
-        if (!item.purchased) {
-          return <Badge key={item.displayName} badgeContent={item.cost} color={isAffordable ? "success" : "error"}>
-            {inner}
-          </Badge>;
-        } else {
-          return <span key={item.displayName}>{inner}</span>;
-        }
-      })}
-    </Grid>
-  </>;
+  return (
+    <>
+      <Grid direction="row" container spacing={1}>
+        {list.map((item) => {
+          const isAffordable = credits >= item.cost;
+          const inner = (
+            <ItemDisplay
+              item={item}
+              onClick={addItemToCart}
+              isAffordable={isAffordable && !item.purchased}
+            />
+          );
+          if (!item.purchased) {
+            return (
+              <Badge
+                key={item.displayName}
+                badgeContent={item.cost}
+                color={isAffordable ? "success" : "error"}
+              >
+                {inner}
+              </Badge>
+            );
+          } else {
+            return <span key={item.displayName}>{inner}</span>;
+          }
+        })}
+      </Grid>
+    </>
+  );
 }

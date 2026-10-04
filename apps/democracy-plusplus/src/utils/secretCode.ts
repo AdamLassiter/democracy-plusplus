@@ -4,7 +4,9 @@ export function shouldIgnoreSecretTarget(target: EventTarget | null) {
   }
 
   const tagName = target.tagName;
-  return target.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA";
+  return (
+    target.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA"
+  );
 }
 
 export function normalizeArrowKey(key: string) {

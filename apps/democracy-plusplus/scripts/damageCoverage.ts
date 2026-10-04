@@ -8,12 +8,14 @@ import {
 } from "../src/utils/damage/coverage.ts";
 
 async function readItems(fileName: string) {
-  return JSON.parse(await fs.readFile(`./public/data/${fileName}.json`, "utf8")) as Item[];
+  return JSON.parse(
+    await fs.readFile(`./public/data/${fileName}.json`, "utf8"),
+  ) as Item[];
 }
 
 const weapons = [
-  ...await readItems("primaries"),
-  ...await readItems("secondaries"),
+  ...(await readItems("primaries")),
+  ...(await readItems("secondaries")),
 ];
 const report = buildWeaponCoverageReport(weapons);
 await fs.writeFile(

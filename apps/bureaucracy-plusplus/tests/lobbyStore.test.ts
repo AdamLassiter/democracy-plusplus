@@ -31,7 +31,10 @@ test("createLobby returns a host member with an initial snapshot", () => {
   assert.equal(session.lobbyState.members[0]?.isHost, true);
   assert.equal(session.lobbyState.members[0]?.debriefReady, false);
   assert.equal(session.lobbyState.mission.debriefSubmissionId, 0);
-  assert.deepEqual(session.lobbyState.challengeSelection, { version: 1, modeId: "budget" });
+  assert.deepEqual(session.lobbyState.challengeSelection, {
+    version: 1,
+    modeId: "budget",
+  });
 });
 
 test("host can select a challenge mode during briefing", () => {
@@ -56,10 +59,14 @@ test("guests cannot select the lobby challenge mode", () => {
   const auth = authenticate(host.lobbyCode, guest.memberId, guest.sessionToken);
   assert.ok(auth);
 
-  assert.throws(() => handleCommand(auth.lobby, auth.session, {
-    type: "setChallengeSelection",
-    challengeSelection: { version: 1, modeId: "randomizer" },
-  }), /Only the host/);
+  assert.throws(
+    () =>
+      handleCommand(auth.lobby, auth.session, {
+        type: "setChallengeSelection",
+        challengeSelection: { version: 1, modeId: "randomizer" },
+      }),
+    /Only the host/,
+  );
 });
 
 test("challenge mode cannot change after briefing", () => {
@@ -68,10 +75,14 @@ test("challenge mode cannot change after briefing", () => {
   assert.ok(auth);
   handleCommand(auth.lobby, auth.session, { type: "lockMissionConfig" });
 
-  assert.throws(() => handleCommand(auth.lobby, auth.session, {
-    type: "setChallengeSelection",
-    challengeSelection: { version: 1, modeId: "randomizer" },
-  }), /only be changed during mission briefing/i);
+  assert.throws(
+    () =>
+      handleCommand(auth.lobby, auth.session, {
+        type: "setChallengeSelection",
+        challengeSelection: { version: 1, modeId: "randomizer" },
+      }),
+    /only be changed during mission briefing/i,
+  );
 });
 
 test("joinLobby adds a non-host member to an existing lobby", () => {
@@ -81,7 +92,9 @@ test("joinLobby adds a non-host member to an existing lobby", () => {
   assert.ok(guest);
   assert.equal(guest.lobbyState.members.length, 2);
   assert.equal(guest.lobbyState.hostMemberId, host.memberId);
-  const joinedGuest = guest.lobbyState.members.find((member) => member.memberId === guest.memberId);
+  const joinedGuest = guest.lobbyState.members.find(
+    (member) => member.memberId === guest.memberId,
+  );
   assert.equal(joinedGuest?.displayName, "Guest");
   assert.equal(joinedGuest?.isHost, false);
   assert.equal(joinedGuest?.debriefReady, false);
@@ -116,10 +129,11 @@ test("non-host members cannot update mission config", () => {
 
   assert.ok(auth);
   assert.throws(
-    () => handleCommand(auth.lobby, auth.session, {
-      type: "setMissionConfig",
-      mission: { difficulty: 4 },
-    }),
+    () =>
+      handleCommand(auth.lobby, auth.session, {
+        type: "setMissionConfig",
+        mission: { difficulty: 4 },
+      }),
     /Only the host can perform this action/,
   );
 });
@@ -137,7 +151,9 @@ test("guest members can toggle their own debrief readiness", () => {
     ready: true,
   });
 
-  const updatedGuest = lobbyState.members.find((member) => member.memberId === guest.memberId);
+  const updatedGuest = lobbyState.members.find(
+    (member) => member.memberId === guest.memberId,
+  );
   assert.equal(updatedGuest?.debriefReady, true);
 });
 
@@ -150,9 +166,10 @@ test("non-host members cannot submit the debrief for the lobby", () => {
 
   assert.ok(auth);
   assert.throws(
-    () => handleCommand(auth.lobby, auth.session, {
-      type: "submitDebriefReports",
-    }),
+    () =>
+      handleCommand(auth.lobby, auth.session, {
+        type: "submitDebriefReports",
+      }),
     /Only the host can perform this action/,
   );
 });
@@ -164,9 +181,10 @@ test("host cannot submit debrief reports until all guests are ready", () => {
 
   assert.ok(auth);
   assert.throws(
-    () => handleCommand(auth.lobby, auth.session, {
-      type: "submitDebriefReports",
-    }),
+    () =>
+      handleCommand(auth.lobby, auth.session, {
+        type: "submitDebriefReports",
+      }),
     /All non-host lobby members must finalise their reports first/,
   );
 });
@@ -176,8 +194,16 @@ test("host submit increments debrief submission id and clears readiness flags", 
   const guest = joinLobby(host.lobbyCode, "Guest");
 
   assert.ok(guest);
-  const guestAuth = authenticate(host.lobbyCode, guest.memberId, guest.sessionToken);
-  const hostAuth = authenticate(host.lobbyCode, host.memberId, host.sessionToken);
+  const guestAuth = authenticate(
+    host.lobbyCode,
+    guest.memberId,
+    guest.sessionToken,
+  );
+  const hostAuth = authenticate(
+    host.lobbyCode,
+    host.memberId,
+    host.sessionToken,
+  );
 
   assert.ok(guestAuth);
   assert.ok(hostAuth);
@@ -192,7 +218,9 @@ test("host submit increments debrief submission id and clears readiness flags", 
   });
 
   assert.equal(lobbyState.mission.debriefSubmissionId, 1);
-  assert.ok(lobbyState.members.every((member) => member.debriefReady === false));
+  assert.ok(
+    lobbyState.members.every((member) => member.debriefReady === false),
+  );
 });
 
 test("leaveLobby promotes another member to host", () => {
@@ -200,10 +228,16 @@ test("leaveLobby promotes another member to host", () => {
   const guest = joinLobby(host.lobbyCode, "Guest");
 
   assert.ok(guest);
-  const hostAuth = authenticate(host.lobbyCode, host.memberId, host.sessionToken);
+  const hostAuth = authenticate(
+    host.lobbyCode,
+    host.memberId,
+    host.sessionToken,
+  );
 
   assert.ok(hostAuth);
-  const lobbyState = handleCommand(hostAuth.lobby, hostAuth.session, { type: "leaveLobby" });
+  const lobbyState = handleCommand(hostAuth.lobby, hostAuth.session, {
+    type: "leaveLobby",
+  });
 
   assert.equal(lobbyState.members.length, 1);
   assert.equal(lobbyState.hostMemberId, guest.memberId);
@@ -218,8 +252,16 @@ test("cleanupExpiredLobbies removes inactive members and promotes the next host"
   const guest = joinLobby(host.lobbyCode, "Guest");
 
   assert.ok(guest);
-  const hostAuth = authenticate(host.lobbyCode, host.memberId, host.sessionToken);
-  const guestAuth = authenticate(host.lobbyCode, guest.memberId, guest.sessionToken);
+  const hostAuth = authenticate(
+    host.lobbyCode,
+    host.memberId,
+    host.sessionToken,
+  );
+  const guestAuth = authenticate(
+    host.lobbyCode,
+    guest.memberId,
+    guest.sessionToken,
+  );
 
   assert.ok(hostAuth);
   assert.ok(guestAuth);
@@ -229,10 +271,16 @@ test("cleanupExpiredLobbies removes inactive members and promotes the next host"
 
   cleanupExpiredLobbies();
 
-  const updatedGuestAuth = authenticate(host.lobbyCode, guest.memberId, guest.sessionToken);
+  const updatedGuestAuth = authenticate(
+    host.lobbyCode,
+    guest.memberId,
+    guest.sessionToken,
+  );
 
   assert.ok(updatedGuestAuth);
-  const lobbyState = updatedGuestAuth.lobby ? pollLobbyPresence(updatedGuestAuth.lobby, updatedGuestAuth.session) : null;
+  const lobbyState = updatedGuestAuth.lobby
+    ? pollLobbyPresence(updatedGuestAuth.lobby, updatedGuestAuth.session)
+    : null;
   assert.ok(lobbyState);
   assert.equal(lobbyState.members.length, 1);
   assert.equal(lobbyState.hostMemberId, guest.memberId);

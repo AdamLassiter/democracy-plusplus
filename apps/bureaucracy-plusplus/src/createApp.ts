@@ -59,7 +59,11 @@ export function createApp() {
   });
 
   app.get("/api/lobbies/:code/events", (request, response) => {
-    const auth = authenticate(request.params.code, request.query.memberId, request.query.sessionToken);
+    const auth = authenticate(
+      request.params.code,
+      request.query.memberId,
+      request.query.sessionToken,
+    );
     if (!auth) {
       logEvent("lobby.events.rejected", {
         lobbyCode: request.params.code,

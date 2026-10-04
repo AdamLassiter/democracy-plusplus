@@ -14,12 +14,22 @@ import type {
   Restriction,
   ServerEvent,
 } from "@plusplus/shared-types";
-import { EMPTY_LOBBY_TTL_MS, LOBBY_CLEANUP_INTERVAL_MS, PRESENCE_TTL_MS, SESSION_TTL_MS } from "./config.ts";
+import {
+  EMPTY_LOBBY_TTL_MS,
+  LOBBY_CLEANUP_INTERVAL_MS,
+  PRESENCE_TTL_MS,
+  SESSION_TTL_MS,
+} from "./config.ts";
 import { logEvent } from "./logger.ts";
 import type { LobbyRecord, LobbySession } from "./types.ts";
 
 const lobbies = new Map<LobbyCode, LobbyRecord>();
-const CHALLENGE_MODES: ChallengeModeId[] = ["budget", "randomizer", "all-item-knockout", "warbond-knockout"];
+const CHALLENGE_MODES: ChallengeModeId[] = [
+  "budget",
+  "randomizer",
+  "all-item-knockout",
+  "warbond-knockout",
+];
 
 export function startLobbyCleanupTimer() {
   setInterval(cleanupExpiredLobbies, LOBBY_CLEANUP_INTERVAL_MS).unref();
@@ -96,7 +106,17 @@ export function createLobby(displayName: string) {
     challengeSelection: { version: 1, modeId: "budget" },
     mission: initialMissionState(),
     members: new Map([[memberId, hostMember]]),
-    sessions: new Map([[memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS, lastSeenAt: now }]]),
+    sessions: new Map([
+      [
+        memberId,
+        {
+          memberId,
+          sessionToken,
+          expiresAt: now + SESSION_TTL_MS,
+          lastSeenAt: now,
+        },
+      ],
+    ]),
     streams: new Map(),
   };
 
@@ -127,7 +147,12 @@ export function joinLobby(code: string, displayName: string) {
   };
 
   lobby.members.set(memberId, member);
-  lobby.sessions.set(memberId, { memberId, sessionToken, expiresAt: now + SESSION_TTL_MS, lastSeenAt: now });
+  lobby.sessions.set(memberId, {
+    memberId,
+    sessionToken,
+    expiresAt: now + SESSION_TTL_MS,
+    lastSeenAt: now,
+  });
   lobby.updatedAt = now;
 
   const payload = sessionResponse(lobby, memberId, sessionToken);
@@ -141,23 +166,37 @@ export function joinLobby(code: string, displayName: string) {
   return payload;
 }
 
-export function authenticate(code: string, memberIdValue: unknown, sessionTokenValue: unknown) {
+export function authenticate(
+  code: string,
+  memberIdValue: unknown,
+  sessionTokenValue: unknown,
+) {
   const lobby = lobbies.get(normaliseLobbyCode(code));
   const memberId = typeof memberIdValue === "string" ? memberIdValue : "";
-  const sessionToken = typeof sessionTokenValue === "string" ? sessionTokenValue : "";
+  const sessionToken =
+    typeof sessionTokenValue === "string" ? sessionTokenValue : "";
   if (!lobby || !memberId || !sessionToken) {
     return null;
   }
 
   const session = lobby.sessions.get(memberId);
-  if (!session || session.sessionToken !== sessionToken || session.expiresAt < Date.now()) {
+  if (
+    !session ||
+    session.sessionToken !== sessionToken ||
+    session.expiresAt < Date.now()
+  ) {
     return null;
   }
 
   return { lobby, session };
 }
 
-export function attachEventStream(lobby: LobbyRecord, session: LobbySession, request: Request, response: Response) {
+export function attachEventStream(
+  lobby: LobbyRecord,
+  session: LobbySession,
+  request: Request,
+  response: Response,
+) {
   markSessionActive(session);
 
   response.setHeader("Content-Type", "text/event-stream");
@@ -171,7 +210,10 @@ export function attachEventStream(lobby: LobbyRecord, session: LobbySession, req
     memberId: session.memberId,
     streamCount: lobby.streams.size,
   });
-  sendEvent(response, { type: "lobbySnapshot", lobbyState: toLobbyState(lobby) });
+  sendEvent(response, {
+    type: "lobbySnapshot",
+    lobbyState: toLobbyState(lobby),
+  });
 
   request.on("close", () => {
     lobby.streams.delete(session.memberId);
@@ -183,7 +225,11 @@ export function attachEventStream(lobby: LobbyRecord, session: LobbySession, req
   });
 }
 
-export function handleCommand(lobby: LobbyRecord, session: LobbySession, command: ClientCommand) {
+export function handleCommand(
+  lobby: LobbyRecord,
+  session: LobbySession,
+  command: ClientCommand,
+) {
   const actor = lobby.members.get(session.memberId);
   if (!actor) {
     throw new Error("Member not found");
@@ -207,7 +253,11 @@ export function pollLobbyPresence(lobby: LobbyRecord, session: LobbySession) {
   return toLobbyState(lobby);
 }
 
-export function sessionResponse(lobby: LobbyRecord, memberId: LobbyMemberId, sessionToken: string): LobbySessionResponse {
+export function sessionResponse(
+  lobby: LobbyRecord,
+  memberId: LobbyMemberId,
+  sessionToken: string,
+): LobbySessionResponse {
   return {
     lobbyCode: lobby.lobbyCode,
     memberId,
@@ -222,7 +272,9 @@ export function toLobbyState(lobby: LobbyRecord): LobbyState {
     hostMemberId: lobby.hostMemberId,
     challengeSelection: structuredClone(lobby.challengeSelection),
     mission: structuredClone(lobby.mission),
-    members: [...lobby.members.values()].map((member) => structuredClone(member)),
+    members: [...lobby.members.values()].map((member) =>
+      structuredClone(member),
+    ),
   };
 }
 
@@ -231,7 +283,10 @@ export function sendEvent(response: Response, event: ServerEvent) {
 }
 
 export function broadcastLobby(lobby: LobbyRecord) {
-  const event: ServerEvent = { type: "lobbySnapshot", lobbyState: toLobbyState(lobby) };
+  const event: ServerEvent = {
+    type: "lobbySnapshot",
+    lobbyState: toLobbyState(lobby),
+  };
   logEvent("lobby.broadcast", {
     lobbyCode: lobby.lobbyCode,
     memberCount: lobby.members.size,
@@ -263,7 +318,11 @@ function resetDebriefReadiness(lobby: LobbyRecord) {
   }
 }
 
-function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCommand) {
+function applyCommand(
+  lobby: LobbyRecord,
+  actor: LobbyMember,
+  command: ClientCommand,
+) {
   switch (command.type) {
     case "setDisplayName": {
       const displayName = normaliseDisplayName(command.displayName);
@@ -280,11 +339,16 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
     }
     case "setChallengeSelection": {
       assertHost(lobby, actor);
-      if (command.challengeSelection.version !== 1 || !CHALLENGE_MODES.includes(command.challengeSelection.modeId)) {
+      if (
+        command.challengeSelection.version !== 1 ||
+        !CHALLENGE_MODES.includes(command.challengeSelection.modeId)
+      ) {
         throw new Error("Unsupported challenge mode");
       }
       if (lobby.mission.state !== "brief") {
-        throw new Error("Challenge mode can only be changed during mission briefing");
+        throw new Error(
+          "Challenge mode can only be changed during mission briefing",
+        );
       }
       lobby.challengeSelection = structuredClone(command.challengeSelection);
       lobby.mission.quests = [];
@@ -354,7 +418,9 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
     }
     case "setRestrictions": {
       assertHost(lobby, actor);
-      lobby.mission.restrictions = structuredClone(command.restrictions as Restriction[]);
+      lobby.mission.restrictions = structuredClone(
+        command.restrictions as Restriction[],
+      );
       logEvent("lobby.restrictions.updated", {
         lobbyCode: lobby.lobbyCode,
         memberId: actor.memberId,
@@ -374,9 +440,13 @@ function applyCommand(lobby: LobbyRecord, actor: LobbyMember, command: ClientCom
     }
     case "submitDebriefReports": {
       assertHost(lobby, actor);
-      const pendingGuests = [...lobby.members.values()].filter((member) => !member.isHost && !member.debriefReady);
+      const pendingGuests = [...lobby.members.values()].filter(
+        (member) => !member.isHost && !member.debriefReady,
+      );
       if (pendingGuests.length) {
-        throw new Error("All non-host lobby members must finalise their reports first");
+        throw new Error(
+          "All non-host lobby members must finalise their reports first",
+        );
       }
       lobby.mission.debriefSubmissionId += 1;
       resetDebriefReadiness(lobby);
@@ -422,7 +492,10 @@ export function cleanupExpiredLobbies() {
       broadcastLobby(lobby);
     }
 
-    if (lobby.members.size === 0 && now - lobby.updatedAt > EMPTY_LOBBY_TTL_MS) {
+    if (
+      lobby.members.size === 0 &&
+      now - lobby.updatedAt > EMPTY_LOBBY_TTL_MS
+    ) {
       logEvent("lobby.expired", {
         lobbyCode: code,
       });
@@ -450,7 +523,8 @@ function reconcileLobbyHost(lobby: LobbyRecord) {
   const previousHostMemberId = lobby.hostMemberId;
   const previousHost = lobby.members.get(previousHostMemberId);
   if (!previousHost) {
-    const nextHost = lobby.members.values().next().value as LobbyMember | undefined;
+    const nextHost = lobby.members.values().next().value as
+      LobbyMember | undefined;
     lobby.hostMemberId = nextHost?.memberId ?? "";
     if (nextHost && nextHost.memberId !== previousHostMemberId) {
       logEvent("lobby.host.promoted", {

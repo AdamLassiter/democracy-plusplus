@@ -19,10 +19,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Conduct_Geological_Survey",
-    "tags": [
-      "Terminids",
-      "Automatons"
-    ],
+    "tags": ["Terminids", "Automatons"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -58,11 +55,7 @@
       "Automatons": "c",
       "Illuminate": null
     },
-    "tags": [
-      "Terminids",
-      "Automatons",
-      "Blitz"
-    ],
+    "tags": ["Terminids", "Automatons", "Blitz"],
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -75,10 +68,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Eradicate_Terminid_Swarm",
-    "tags": [
-      "Terminids",
-      "Eradicate"
-    ],
+    "tags": ["Terminids", "Eradicate"],
     "minDifficulty": 2,
     "maxDifficulty": 10,
     "missionLength": "short"
@@ -91,10 +81,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Eradicate_Automaton_Forces",
-    "tags": [
-      "Automatons",
-      "Eradicate"
-    ],
+    "tags": ["Automatons", "Eradicate"],
     "minDifficulty": 2,
     "maxDifficulty": 10,
     "missionLength": "short"
@@ -119,9 +106,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Purge_Hatcheries",
-    "tags": [
-      "Terminids"
-    ],
+    "tags": ["Terminids"],
     "minDifficulty": 2,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -134,9 +119,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Enable_Oil_Extraction",
-    "tags": [
-      "Terminids"
-    ],
+    "tags": ["Terminids"],
     "minDifficulty": 4,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -149,9 +132,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Nuke_Nursery",
-    "tags": [
-      "Terminids"
-    ],
+    "tags": ["Terminids"],
     "minDifficulty": 4,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -164,9 +145,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Sabotage_Air_Base",
-    "tags": [
-      "Automatons"
-    ],
+    "tags": ["Automatons"],
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -179,9 +158,7 @@
       "Illuminate": null
     },
     "wikiSlug": "Destroy_Command_Bunkers",
-    "tags": [
-      "Automatons"
-    ],
+    "tags": ["Automatons"],
     "minDifficulty": 5,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -194,9 +171,7 @@
       "Illuminate": "a"
     },
     "wikiSlug": "Take_Down_Overship",
-    "tags": [
-      "Illuminate"
-    ],
+    "tags": ["Illuminate"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -209,9 +184,7 @@
       "Illuminate": "s"
     },
     "wikiSlug": "Repel_Invasion_Fleet",
-    "tags": [
-      "Illuminate"
-    ],
+    "tags": ["Illuminate"],
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "short"
@@ -284,10 +257,7 @@
       "Automatons": "c",
       "Illuminate": null
     },
-    "tags": [
-      "Automatons",
-      "Blitz"
-    ],
+    "tags": ["Automatons", "Blitz"],
     "minDifficulty": 5,
     "maxDifficulty": 10,
     "missionLength": "short"
@@ -300,10 +270,7 @@
       "Automatons": null,
       "Illuminate": "c"
     },
-    "tags": [
-      "Illuminate",
-      "Blitz"
-    ],
+    "tags": ["Illuminate", "Blitz"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "short"
@@ -316,10 +283,7 @@
       "Automatons": null,
       "Illuminate": null
     },
-    "tags": [
-      "Terminids",
-      "Blitz"
-    ],
+    "tags": ["Terminids", "Blitz"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "short"
@@ -335,9 +299,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Cleanse Infested District",
@@ -350,9 +312,7 @@
     "minDifficulty": 4,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Collect Gloom Spore Readings",
@@ -365,9 +325,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Collect Gloom-Infused Oil",
@@ -380,9 +338,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Collect Meteorological Data",
@@ -395,9 +351,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Commando: Acquire Evidence",
@@ -407,10 +361,7 @@
       "Automatons": "a",
       "Illuminate": null
     },
-    "tags": [
-      "Automatons",
-      "Commando"
-    ],
+    "tags": ["Automatons", "Commando"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -423,10 +374,7 @@
       "Automatons": "a",
       "Illuminate": null
     },
-    "tags": [
-      "Automatons",
-      "Commando"
-    ],
+    "tags": ["Automatons", "Commando"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -439,10 +387,7 @@
       "Automatons": "s",
       "Illuminate": null
     },
-    "tags": [
-      "Automatons",
-      "Commando"
-    ],
+    "tags": ["Automatons", "Commando"],
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long"
@@ -458,9 +403,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Confiscate Assets",
@@ -473,9 +416,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Deactivate Terminid Control System",
@@ -488,9 +429,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 9,
     "missionLength": "short",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Deploy Dark Fluid",
@@ -503,9 +442,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 9,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Destroy Exospire",
@@ -518,9 +455,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Destroy Harvesters",
@@ -533,9 +468,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 3,
     "missionLength": "long",
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Destroy Spore Lung",
@@ -548,9 +481,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Earn Your Helldiver Cape",
@@ -575,9 +506,7 @@
     "minDifficulty": 4,
     "maxDifficulty": 6,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Eliminate Automaton Hulks",
@@ -590,9 +519,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 3,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Eliminate Bile Titans",
@@ -605,9 +532,7 @@
     "minDifficulty": 4,
     "maxDifficulty": 5,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Eliminate Brood Commanders",
@@ -620,9 +545,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 2,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Eliminate Chargers",
@@ -635,9 +558,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 3,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Eliminate Devastators",
@@ -650,9 +571,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 2,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Eliminate Impaler",
@@ -665,9 +584,7 @@
     "minDifficulty": 5,
     "maxDifficulty": 5,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Evacuate Colonists",
@@ -680,9 +597,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Evacuate High-Value Assets",
@@ -707,9 +622,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Extract Research Probe Data",
@@ -722,9 +635,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Free Colony",
@@ -737,9 +648,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Halt Cyborg Production",
@@ -752,9 +661,7 @@
     "minDifficulty": 4,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Neutralize Ground-to-Orbit Defenses",
@@ -767,9 +674,7 @@
     "minDifficulty": 4,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Rapid Acquisition",
@@ -782,9 +687,7 @@
     "minDifficulty": 3,
     "maxDifficulty": 10,
     "missionLength": "short",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Restart Pumps",
@@ -797,9 +700,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Terminids"
-    ]
+    "tags": ["Terminids"]
   },
   {
     "displayName": "Restore Air Quality",
@@ -812,9 +713,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Retrieve Essential Personnel",
@@ -839,9 +738,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Sabotage Orgo-Plasma Synthesis",
@@ -854,9 +751,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Sabotage Supply Bases",
@@ -869,9 +764,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Seize Industrial Complex",
@@ -884,9 +777,7 @@
     "minDifficulty": 1,
     "maxDifficulty": 10,
     "missionLength": "long",
-    "tags": [
-      "Automatons"
-    ]
+    "tags": ["Automatons"]
   },
   {
     "displayName": "Start Fuel Pumps",
@@ -935,10 +826,7 @@
       "Automatons": null,
       "Illuminate": "d"
     },
-    "tags": [
-      "Illuminate",
-      "Blitz"
-    ]
+    "tags": ["Illuminate", "Blitz"]
   },
   {
     "displayName": "Blitz: Suppress Toxic Pollination",
@@ -951,10 +839,7 @@
       "Automatons": null,
       "Illuminate": "c"
     },
-    "tags": [
-      "Illuminate",
-      "Blitz"
-    ]
+    "tags": ["Illuminate", "Blitz"]
   },
   {
     "displayName": "Democratize the Void",
@@ -967,9 +852,7 @@
       "Automatons": null,
       "Illuminate": "b"
     },
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Destroy Gazer Spire",
@@ -982,9 +865,7 @@
       "Automatons": null,
       "Illuminate": "b"
     },
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Eradicate Illuminate Forces",
@@ -997,10 +878,7 @@
       "Automatons": null,
       "Illuminate": "d"
     },
-    "tags": [
-      "Illuminate",
-      "Eradicate"
-    ]
+    "tags": ["Illuminate", "Eradicate"]
   },
   {
     "displayName": "Extract Anomalous Material",
@@ -1013,9 +891,7 @@
       "Automatons": null,
       "Illuminate": "b"
     },
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   },
   {
     "displayName": "Infiltrate Illuminate Lair",
@@ -1028,8 +904,6 @@
       "Automatons": null,
       "Illuminate": "b"
     },
-    "tags": [
-      "Illuminate"
-    ]
+    "tags": ["Illuminate"]
   }
 ]

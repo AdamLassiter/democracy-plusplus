@@ -35,7 +35,10 @@ declare module "fs/promises" {
 
   const fs: {
     readFile(path: string, encoding: string): Promise<string>;
-    writeFile(path: string, data: string | ArrayBuffer | Uint8Array): Promise<void>;
+    writeFile(
+      path: string,
+      data: string | ArrayBuffer | Uint8Array,
+    ): Promise<void>;
     mkdir(path: string, options?: { recursive?: boolean }): Promise<void>;
     access(path: string): Promise<void>;
     stat(path: string): Promise<Stats>;

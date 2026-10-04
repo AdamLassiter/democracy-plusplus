@@ -21,21 +21,31 @@ export default function Log() {
 
   const CurrentTab = LOG_TABS[value].Component;
 
-  return <>
-    <SectionHeading
-      subtitle="Review completed operations, requisitions and the running cost of spreading Managed Democracy."
-      title="Run Log"
-    />
-    {!entries.length && <Typography color="gray" paddingTop={2}>No logged activity yet.</Typography>}
-    {!!entries.length && <>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={value} onChange={handleChange}>
-          {LOG_TABS.map((tab) => <Tab key={tab.key} label={tab.label} />)}
-        </Tabs>
-      </Box>
-      <Box sx={{ pt: 2 }}>
-        <CurrentTab entries={entries} />
-      </Box>
-    </>}
-  </>;
+  return (
+    <>
+      <SectionHeading
+        subtitle="Review completed operations, requisitions and the running cost of spreading Managed Democracy."
+        title="Run Log"
+      />
+      {!entries.length && (
+        <Typography color="gray" paddingTop={2}>
+          No logged activity yet.
+        </Typography>
+      )}
+      {!!entries.length && (
+        <>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs value={value} onChange={handleChange}>
+              {LOG_TABS.map((tab) => (
+                <Tab key={tab.key} label={tab.label} />
+              ))}
+            </Tabs>
+          </Box>
+          <Box sx={{ pt: 2 }}>
+            <CurrentTab entries={entries} />
+          </Box>
+        </>
+      )}
+    </>
+  );
 }

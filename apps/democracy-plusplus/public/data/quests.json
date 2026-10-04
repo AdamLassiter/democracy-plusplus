@@ -8,27 +8,9 @@
     ],
     "type": "objective",
     "category": "mobility",
-    "values": [
-      25,
-      37,
-      50,
-      62,
-      75
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      9,
-      13,
-      17,
-      21,
-      26
-    ]
+    "values": [25, 37, 50, 62, 75],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [9, 13, 17, 21, 26]
   },
   {
     "displayName": "Cover at least X km",
@@ -40,30 +22,10 @@
     "type": "objective",
     "category": "mobility",
     "datatype": "float",
-    "tags": [
-      "exclusivetravel"
-    ],
-    "values": [
-      4,
-      5.5,
-      7,
-      8.5,
-      10
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      1.6,
-      2,
-      2.6,
-      3.1,
-      3.8
-    ]
+    "tags": ["exclusivetravel"],
+    "values": [4, 5.5, 7, 8.5, 10],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [1.6, 2, 2.6, 3.1, 3.8]
   },
   {
     "displayName": "Extract with at least X% time remaining",
@@ -74,27 +36,9 @@
     ],
     "type": "objective",
     "category": "mobility",
-    "values": [
-      15,
-      24,
-      32,
-      41,
-      50
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      0,
-      14,
-      22,
-      31,
-      40
-    ]
+    "values": [15, 24, 32, 41, 50],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [0, 14, 22, 31, 40]
   },
   {
     "displayName": "Cover at most X km",
@@ -106,30 +50,10 @@
     "type": "objective",
     "category": "mobility",
     "datatype": "float",
-    "tags": [
-      "exclusivetravel"
-    ],
-    "values": [
-      7,
-      6.25,
-      5.5,
-      4.75,
-      4
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      3,
-      2.75,
-      2.5,
-      2.25,
-      2
-    ]
+    "tags": ["exclusivetravel"],
+    "values": [7, 6.25, 5.5, 4.75, 4],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [3, 2.75, 2.5, 2.25, 2]
   },
   {
     "displayName": "Secure at least X kills",
@@ -140,30 +64,10 @@
     ],
     "type": "objective",
     "category": "lethality",
-    "tags": [
-      "exclusivekills"
-    ],
-    "values": [
-      250,
-      362,
-      475,
-      587,
-      700
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      100,
-      150,
-      200,
-      250,
-      300
-    ]
+    "tags": ["exclusivekills"],
+    "values": [250, 362, 475, 587, 700],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [100, 150, 200, 250, 300]
   },
   {
     "displayName": "Secure at least X melee kills",
@@ -174,30 +78,10 @@
     ],
     "type": "objective",
     "category": "lethality",
-    "tags": [
-      "exclusivekills"
-    ],
-    "values": [
-      10,
-      32,
-      55,
-      77,
-      100
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      5,
-      13,
-      20,
-      27,
-      35
-    ]
+    "tags": ["exclusivekills"],
+    "values": [10, 32, 55, 77, 100],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [5, 13, 20, 27, 35]
   },
   {
     "displayName": "Achieve at least X% weapon accuracy",
@@ -208,27 +92,9 @@
     ],
     "type": "objective",
     "category": "lethality",
-    "values": [
-      50,
-      61,
-      73,
-      84,
-      95
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      50,
-      61,
-      73,
-      84,
-      95
-    ]
+    "values": [50, 61, 73, 84, 95],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [50, 61, 73, 84, 95]
   },
   {
     "displayName": "Call in at least X stratagems",
@@ -239,30 +105,10 @@
     ],
     "type": "objective",
     "category": "lethality",
-    "tags": [
-      "exclusivestratagems"
-    ],
-    "values": [
-      25,
-      29,
-      32,
-      36,
-      40
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      12,
-      14,
-      16,
-      18,
-      20
-    ]
+    "tags": ["exclusivestratagems"],
+    "values": [25, 29, 32, 36, 40],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [12, 14, 16, 18, 20]
   },
   {
     "displayName": "Fire at least X rounds",
@@ -273,30 +119,10 @@
     ],
     "type": "objective",
     "category": "lethality",
-    "tags": [
-      "exclusiveammunition"
-    ],
-    "values": [
-      500,
-      1000,
-      1500,
-      2000,
-      2500
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      250,
-      500,
-      750,
-      1000,
-      1250
-    ]
+    "tags": ["exclusiveammunition"],
+    "values": [500, 1000, 1500, 2000, 2500],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [250, 500, 750, 1000, 1250]
   },
   {
     "displayName": "Die at most X times",
@@ -307,27 +133,9 @@
     ],
     "type": "objective",
     "category": "survivability",
-    "values": [
-      8,
-      6,
-      5,
-      3,
-      1
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      8,
-      6,
-      5,
-      3,
-      1
-    ]
+    "values": [8, 6, 5, 3, 1],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [8, 6, 5, 3, 1]
   },
   {
     "displayName": "Maintain a K:D of X:1",
@@ -338,27 +146,9 @@
     ],
     "type": "objective",
     "category": "survivability",
-    "values": [
-      60,
-      107,
-      155,
-      202,
-      250
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      50,
-      75,
-      100,
-      125,
-      150
-    ]
+    "values": [60, 107, 155, 202, 250],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [50, 75, 100, 125, 150]
   },
   {
     "displayName": "Stim at most X times",
@@ -369,27 +159,9 @@
     ],
     "type": "objective",
     "category": "survivability",
-    "values": [
-      25,
-      20,
-      15,
-      10,
-      5
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      12,
-      10,
-      8,
-      6,
-      4
-    ]
+    "values": [25, 20, 15, 10, 5],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [12, 10, 8, 6, 4]
   },
   {
     "displayName": "Be responsible for at most X accidentals",
@@ -400,27 +172,9 @@
     ],
     "type": "objective",
     "category": "survivability",
-    "values": [
-      2,
-      2,
-      1,
-      1,
-      0
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      2,
-      2,
-      1,
-      1,
-      0
-    ]
+    "values": [2, 2, 1, 1, 0],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [2, 2, 1, 1, 0]
   },
   {
     "displayName": "Secure at most X kills",
@@ -431,30 +185,10 @@
     ],
     "type": "objective",
     "category": "stealth",
-    "tags": [
-      "exclusivekills"
-    ],
-    "values": [
-      200,
-      163,
-      125,
-      88,
-      50
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      150,
-      125,
-      100,
-      75,
-      50
-    ]
+    "tags": ["exclusivekills"],
+    "values": [200, 163, 125, 88, 50],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [150, 125, 100, 75, 50]
   },
   {
     "displayName": "Call in at most X stratagems",
@@ -465,30 +199,10 @@
     ],
     "type": "objective",
     "category": "stealth",
-    "tags": [
-      "exclusivestratagems"
-    ],
-    "values": [
-      30,
-      25,
-      20,
-      15,
-      10
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      17,
-      14,
-      11,
-      8,
-      5
-    ]
+    "tags": ["exclusivestratagems"],
+    "values": [30, 25, 20, 15, 10],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [17, 14, 11, 8, 5]
   },
   {
     "displayName": "Fire at most X rounds",
@@ -499,30 +213,10 @@
     ],
     "type": "objective",
     "category": "stealth",
-    "tags": [
-      "exclusiveammunition"
-    ],
-    "values": [
-      300,
-      244,
-      187,
-      131,
-      75
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      150,
-      122,
-      93,
-      65,
-      37
-    ]
+    "tags": ["exclusiveammunition"],
+    "values": [300, 244, 187, 131, 75],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [150, 122, 93, 65, 37]
   },
   {
     "displayName": "Allow enemy reinforcements at most X times",
@@ -533,29 +227,9 @@
     ],
     "type": "objective",
     "category": "stealth",
-    "tags": [
-      "exclusivekills"
-    ],
-    "values": [
-      25,
-      20,
-      15,
-      10,
-      5
-    ],
-    "rewards": [
-      30,
-      35,
-      40,
-      45,
-      50
-    ],
-    "shortValues": [
-      13,
-      11,
-      9,
-      7,
-      5
-    ]
+    "tags": ["exclusivekills"],
+    "values": [25, 20, 15, 10, 5],
+    "rewards": [30, 35, 40, 45, 50],
+    "shortValues": [13, 11, 9, 7, 5]
   }
 ]

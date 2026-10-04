@@ -14,15 +14,15 @@ import type { RootState } from "../../slices";
 import styled from "@emotion/styled";
 import { Button, FormLabel, Grid } from "@mui/material";
 
-const VisuallyHiddenInput = styled('input')({
-  clip: 'rect(0 0 0 0)',
-  clipPath: 'inset(50%)',
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
   height: 1,
-  overflow: 'hidden',
-  position: 'absolute',
+  overflow: "hidden",
+  position: "absolute",
   bottom: 0,
   left: 0,
-  whiteSpace: 'nowrap',
+  whiteSpace: "nowrap",
   width: 1,
 });
 
@@ -33,7 +33,9 @@ export default function ImportExport() {
 
   async function handleExportMissionToClipboard() {
     try {
-      await navigator.clipboard.writeText(JSON.stringify(missionState, null, 2));
+      await navigator.clipboard.writeText(
+        JSON.stringify(missionState, null, 2),
+      );
     } catch (err) {
       alert(`Failed to copy mission state: ${err}`);
     }
@@ -69,28 +71,41 @@ export default function ImportExport() {
     reader.onload = (e) => {
       try {
         const text = e.target?.result;
-        if (typeof text !== 'string') {
-          throw new Error('Imported file could not be read as text');
+        if (typeof text !== "string") {
+          throw new Error("Imported file could not be read as text");
         }
         const importedState = JSON.parse(text);
-        if (importedState.achievements) dispatch(setAchievementsState(importedState.achievements));
+        if (importedState.achievements)
+          dispatch(setAchievementsState(importedState.achievements));
         if (importedState.challenges) {
           dispatch(setChallengesState(importedState.challenges));
         } else if (Array.isArray(importedState.shop?.warbonds)) {
-          dispatch(setChallengesState({
-            preferredModeId: "budget",
-            ownedWarbondCodes: importedState.shop.warbonds
-              .map((warbond: { warbondCode?: unknown }) => warbond.warbondCode)
-              .filter((code: unknown): code is string => typeof code === "string"),
-          }));
+          dispatch(
+            setChallengesState({
+              preferredModeId: "budget",
+              ownedWarbondCodes: importedState.shop.warbonds
+                .map(
+                  (warbond: { warbondCode?: unknown }) => warbond.warbondCode,
+                )
+                .filter(
+                  (code: unknown): code is string => typeof code === "string",
+                ),
+            }),
+          );
         }
-        if (importedState.mission) dispatch(setMissionState(importedState.mission));
-        if (importedState.credits) dispatch(setCreditsState(importedState.credits));
-        if (importedState.equipment) dispatch(setEquipmentState(importedState.equipment));
-        if (importedState.preferences) dispatch(setPreferencesState(importedState.preferences));
-        if (importedState.purchased) dispatch(setPurchasedState(importedState.purchased));
+        if (importedState.mission)
+          dispatch(setMissionState(importedState.mission));
+        if (importedState.credits)
+          dispatch(setCreditsState(importedState.credits));
+        if (importedState.equipment)
+          dispatch(setEquipmentState(importedState.equipment));
+        if (importedState.preferences)
+          dispatch(setPreferencesState(importedState.preferences));
+        if (importedState.purchased)
+          dispatch(setPurchasedState(importedState.purchased));
         if (importedState.shop) dispatch(setShopState(importedState.shop));
-        if (importedState.minigames) dispatch(setMinigamesState(importedState.minigames));
+        if (importedState.minigames)
+          dispatch(setMinigamesState(importedState.minigames));
         if (importedState.log) dispatch(setLogState(importedState.log));
       } catch (err) {
         alert(`Failed to import state: ${err}`);
@@ -99,28 +114,39 @@ export default function ImportExport() {
     reader.readAsText(file);
   }
 
-  return <Grid container direction="column" spacing={2}>
-    <FormLabel component="legend">Import/Export</FormLabel>
-    <Button onClick={handleExportMissionToClipboard} variant="contained" color="primary">
-      Export Mission to Clipboard
-    </Button>
-    <Button onClick={handleImportMissionFromClipboard} variant="outlined" color="primary">
-      Import Mission from Clipboard
-    </Button>
+  return (
+    <Grid container direction="column" spacing={2}>
+      <FormLabel component="legend">Import/Export</FormLabel>
+      <Button
+        onClick={handleExportMissionToClipboard}
+        variant="contained"
+        color="primary"
+      >
+        Export Mission to Clipboard
+      </Button>
+      <Button
+        onClick={handleImportMissionFromClipboard}
+        variant="outlined"
+        color="primary"
+      >
+        Import Mission from Clipboard
+      </Button>
 
-    <Button onClick={handleExportAllToFile} variant="contained" color="secondary">
-      Export All to File
-    </Button>
-    <Button
-      component="label"
-      variant="outlined"
-      color="secondary"
-    >
-      Import All from File
-      <VisuallyHiddenInput
-        type="file"
-        accept=".json"
-        onChange={handleImportAllFromFile} />
-    </Button>
-  </Grid>;
+      <Button
+        onClick={handleExportAllToFile}
+        variant="contained"
+        color="secondary"
+      >
+        Export All to File
+      </Button>
+      <Button component="label" variant="outlined" color="secondary">
+        Import All from File
+        <VisuallyHiddenInput
+          type="file"
+          accept=".json"
+          onChange={handleImportAllFromFile}
+        />
+      </Button>
+    </Grid>
+  );
 }

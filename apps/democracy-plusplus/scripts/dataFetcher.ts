@@ -1,6 +1,14 @@
 import fs from "fs/promises";
 import readline from "readline";
-import type { EquipmentCategory, Faction, ItemType, Objective, ObjectiveTag, StratagemCategory, Tier } from "../src/types.ts";
+import type {
+  EquipmentCategory,
+  Faction,
+  ItemType,
+  Objective,
+  ObjectiveTag,
+  StratagemCategory,
+  Tier,
+} from "../src/types.ts";
 import {
   fetchMainObjectives,
   fetchBestiary,
@@ -22,8 +30,22 @@ import {
   type ScrapedWeaponItem,
   type WikiPageSource,
 } from "./wikiApi.ts";
-import { banner, createTask, detail, errorMessage, item, note, promptLabel, summary } from "./terminalUi.ts";
-import { assertDatasetCoverage, assertNonEmptyDatasets, FLAT_WIKI_DATASETS, WIKI_DATASET_NAMES } from "./dataPipeline.ts";
+import {
+  banner,
+  createTask,
+  detail,
+  errorMessage,
+  item,
+  note,
+  promptLabel,
+  summary,
+} from "./terminalUi.ts";
+import {
+  assertDatasetCoverage,
+  assertNonEmptyDatasets,
+  FLAT_WIKI_DATASETS,
+  WIKI_DATASET_NAMES,
+} from "./dataPipeline.ts";
 
 type DataFileName =
   | "primaries"
@@ -82,12 +104,16 @@ const rl = readline.createInterface({
 });
 
 function ask(question: string) {
-  return new Promise<string>((resolve) => rl.question(question, (answer: string) => resolve(answer.trim())));
+  return new Promise<string>((resolve) =>
+    rl.question(question, (answer: string) => resolve(answer.trim())),
+  );
 }
 
 async function confirmAddItem(fileName: string, itemName: string) {
   while (true) {
-    const response = (await ask(promptLabel(`Add new ${fileName} item "${itemName}"? [Y/n]`))).toLowerCase();
+    const response = (
+      await ask(promptLabel(`Add new ${fileName} item "${itemName}"? [Y/n]`))
+    ).toLowerCase();
     if (response === "y" || response === "yes") {
       return true;
     }
@@ -108,7 +134,10 @@ function isWeaponItem(item: ScrapedItem): item is ScrapedWeaponItem {
   return "weaponCategory" in item;
 }
 
-function createDefaultItem(fileName: DataFileName, scrapedItem: ScrapedItem): StoredItem {
+function createDefaultItem(
+  fileName: DataFileName,
+  scrapedItem: ScrapedItem,
+): StoredItem {
   const defaultTags =
     fileName === "armor_passives"
       ? ["ArmorPassive"]
@@ -138,9 +167,13 @@ function createDefaultItem(fileName: DataFileName, scrapedItem: ScrapedItem): St
     return {
       ...shared,
       type: "Stratagem",
-      category: isStratagemItem(scrapedItem) ? scrapedItem.stratagemCategory : "Supply",
+      category: isStratagemItem(scrapedItem)
+        ? scrapedItem.stratagemCategory
+        : "Supply",
       tags: defaultTags,
-      stratagemCode: isStratagemItem(scrapedItem) ? scrapedItem.stratagemCode : undefined,
+      stratagemCode: isStratagemItem(scrapedItem)
+        ? scrapedItem.stratagemCode
+        : undefined,
     };
   }
 
@@ -154,9 +187,13 @@ function createDefaultItem(fileName: DataFileName, scrapedItem: ScrapedItem): St
 
 function buildObjectiveTags(objective: Objective) {
   const existingTags = objective.tags ?? [];
-  const normalizedTags = existingTags.filter((tag): tag is string => !["Eradicate", "Commando", "Blitz"].includes(tag));
+  const normalizedTags = existingTags.filter(
+    (tag): tag is string => !["Eradicate", "Commando", "Blitz"].includes(tag),
+  );
   const modeTag = getObjectiveModeTag(objective.displayName);
-  const availableFactions = FACTIONS.filter((faction) => objective.tier[faction] !== null);
+  const availableFactions = FACTIONS.filter(
+    (faction) => objective.tier[faction] !== null,
+  );
   if (modeTag) {
     normalizedTags.push(modeTag);
   }
@@ -182,17 +219,29 @@ function getObjectiveModeTag(displayName: string): ObjectiveTag | undefined {
   return undefined;
 }
 
-function getScrapedItemsForFile(fileName: DataFileName, scrapedData: ScrapedItem[]) {
+function getScrapedItemsForFile(
+  fileName: DataFileName,
+  scrapedData: ScrapedItem[],
+) {
   if (fileName === "primaries") {
-    return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "primary");
+    return scrapedData.filter(
+      (item): item is ScrapedWeaponItem =>
+        isWeaponItem(item) && item.weaponCategory === "primary",
+    );
   }
 
   if (fileName === "secondaries") {
-    return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "secondary");
+    return scrapedData.filter(
+      (item): item is ScrapedWeaponItem =>
+        isWeaponItem(item) && item.weaponCategory === "secondary",
+    );
   }
 
   if (fileName === "throwables") {
-    return scrapedData.filter((item): item is ScrapedWeaponItem => isWeaponItem(item) && item.weaponCategory === "throwable");
+    return scrapedData.filter(
+      (item): item is ScrapedWeaponItem =>
+        isWeaponItem(item) && item.weaponCategory === "throwable",
+    );
   }
 
   return scrapedData;
@@ -220,7 +269,11 @@ async function mergeObjectives(arrayName: string) {
   let renamedObjectives = 0;
 
   const mergedObjectives = existingObjectives.map((objective) => {
-    const match = findBestScrapedMatch(objective, scrapedObjectives, usedIndexes);
+    const match = findBestScrapedMatch(
+      objective,
+      scrapedObjectives,
+      usedIndexes,
+    );
     if (!match) {
       removedObjectives.push(objective.displayName);
       return objective;
@@ -274,15 +327,17 @@ async function mergeObjectives(arrayName: string) {
     }
   }
 
-  const output = [...mergedObjectives, ...insertedObjectives].map((objective) => {
-    const tags = buildObjectiveTags(objective);
-    if (tags?.length) {
-      return { ...objective, tags };
-    }
+  const output = [...mergedObjectives, ...insertedObjectives].map(
+    (objective) => {
+      const tags = buildObjectiveTags(objective);
+      if (tags?.length) {
+        return { ...objective, tags };
+      }
 
-    const { tags: _tags, ...rest } = objective;
-    return rest;
-  });
+      const { tags: _tags, ...rest } = objective;
+      return rest;
+    },
+  );
 
   const saveTask = createTask(`Saving ${arrayName}`, filePath);
   await fs.writeFile(filePath, JSON.stringify(output, null, 2));
@@ -296,28 +351,46 @@ async function mergeObjectives(arrayName: string) {
   });
 
   if (removedObjectives.length) {
-    note(`Potentially removed ${arrayName}: ${removedObjectives.join(", ")}`, "warn");
+    note(
+      `Potentially removed ${arrayName}: ${removedObjectives.join(", ")}`,
+      "warn",
+    );
   }
 }
 
 async function enrichWithImageUrls<T extends LinkedWikiItem>(items: T[]) {
-  const imageUrls = await resolveImageUrls(items.map((item) => item.imageFileTitle));
+  const imageUrls = await resolveImageUrls(
+    items.map((item) => item.imageFileTitle),
+  );
 
   return items.map((item) => ({
     ...item,
-    wikiImageUrl: imageUrls.get(item.imageFileTitle) ?? item.wikiImageUrl ?? null,
+    wikiImageUrl:
+      imageUrls.get(item.imageFileTitle) ?? item.wikiImageUrl ?? null,
   }));
 }
 
-function addLocalImagePath<T extends ImageRecord>(record: T, folder: string, fallback?: string): T {
+function addLocalImagePath<T extends ImageRecord>(
+  record: T,
+  folder: string,
+  fallback?: string,
+): T {
   const imageFileName = getImageFileName(record.wikiImageUrl);
   return {
     ...record,
-    ...(imageFileName ? { imageUrl: `${folder}/${imageFileName}` } : fallback ? { imageUrl: fallback } : {}),
+    ...(imageFileName
+      ? { imageUrl: `${folder}/${imageFileName}` }
+      : fallback
+        ? { imageUrl: fallback }
+        : {}),
   };
 }
 
-async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arrayName: string) {
+async function mergeData(
+  fileName: DataFileName,
+  scrapedData: ScrapedItem[],
+  arrayName: string,
+) {
   const filePath = `./public/data/${fileName}.json`;
 
   const loadTask = createTask(`Loading ${arrayName}`, filePath);
@@ -336,7 +409,11 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
   let renamedItems = 0;
 
   const merged = existingArray.map((item): StoredItem => {
-    const match = findBestScrapedMatch(item, relevantScrapedData, usedScrapedIndexes);
+    const match = findBestScrapedMatch(
+      item,
+      relevantScrapedData,
+      usedScrapedIndexes,
+    );
     if (!match) {
       removedItems.push(item.displayName);
       return item;
@@ -406,7 +483,10 @@ async function mergeData(fileName: DataFileName, scrapedData: ScrapedItem[], arr
   });
 
   if (removedItems.length) {
-    note(`Potentially removed ${arrayName}: ${removedItems.join(", ")}`, "warn");
+    note(
+      `Potentially removed ${arrayName}: ${removedItems.join(", ")}`,
+      "warn",
+    );
   }
 }
 
@@ -418,7 +498,10 @@ async function mergeWarbondImages(scrapedWarbonds: LinkedWikiItem[]) {
   loadTask.succeed(`${existingWarbonds.length} records`);
 
   const scrapedByName = new Map(
-    scrapedWarbonds.map((warbond) => [canonicalizeName(warbond.displayName), warbond]),
+    scrapedWarbonds.map((warbond) => [
+      canonicalizeName(warbond.displayName),
+      warbond,
+    ]),
   );
   const matchedNames = new Set<string>();
   const missingImages: string[] = [];
@@ -443,7 +526,9 @@ async function mergeWarbondImages(scrapedWarbonds: LinkedWikiItem[]) {
   });
 
   const wikiOnlyWarbonds = scrapedWarbonds
-    .filter((warbond) => !matchedNames.has(canonicalizeName(warbond.displayName)))
+    .filter(
+      (warbond) => !matchedNames.has(canonicalizeName(warbond.displayName)),
+    )
     .map((warbond) => warbond.displayName);
 
   const saveTask = createTask("Saving WARBONDS", filePath);
@@ -461,7 +546,10 @@ async function mergeWarbondImages(scrapedWarbonds: LinkedWikiItem[]) {
     note(`No wiki cover for: ${missingImages.join(", ")}`, "warn");
   }
   if (wikiOnlyWarbonds.length) {
-    note(`Wiki-only warbonds were not added: ${wikiOnlyWarbonds.join(", ")}`, "warn");
+    note(
+      `Wiki-only warbonds were not added: ${wikiOnlyWarbonds.join(", ")}`,
+      "warn",
+    );
   }
 }
 
@@ -475,16 +563,33 @@ async function requirePageSource(title: string): Promise<WikiPageSource> {
 
 async function main() {
   try {
-    banner("Data Fetcher", "Scrape wiki data, merge records, and keep prompts readable");
+    banner(
+      "Data Fetcher",
+      "Scrape wiki data, merge records, and keep prompts readable",
+    );
     detail("cwd", process.cwd());
     assertDatasetCoverage(
       "fetchData",
-      [...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName), "objectives", "enemies", "structures"],
+      [
+        ...FLAT_WIKI_DATASETS.map(({ fileName }) => fileName),
+        "objectives",
+        "enemies",
+        "structures",
+      ],
       WIKI_DATASET_NAMES,
     );
 
-    const sourceTask = createTask("Fetching source pages", "Weapons, Stratagems, Boosters, Armor Passives, Warbonds");
-    const [weaponsPage, stratagemsPage, boostersPage, passivesPage, warbondsPage] = await Promise.all([
+    const sourceTask = createTask(
+      "Fetching source pages",
+      "Weapons, Stratagems, Boosters, Armor Passives, Warbonds",
+    );
+    const [
+      weaponsPage,
+      stratagemsPage,
+      boostersPage,
+      passivesPage,
+      warbondsPage,
+    ] = await Promise.all([
       requirePageSource("Weapons"),
       requirePageSource("Stratagems"),
       requirePageSource("Boosters"),
@@ -493,17 +598,29 @@ async function main() {
     ]);
     sourceTask.succeed("all sources ready");
 
-    const parseTask = createTask("Parsing wiki pages", "equipment and support data");
-    const weapons = await enrichWithImageUrls(parseWeaponsPageSource(weaponsPage.content));
+    const parseTask = createTask(
+      "Parsing wiki pages",
+      "equipment and support data",
+    );
+    const weapons = await enrichWithImageUrls(
+      parseWeaponsPageSource(weaponsPage.content),
+    );
     const stratagems = await enrichWithImageUrls(
       await parseStratagemsPageSource(stratagemsPage.content),
     );
-    const boosters = await enrichWithImageUrls(await parseBoostersPageSource(boostersPage.content));
+    const boosters = await enrichWithImageUrls(
+      await parseBoostersPageSource(boostersPage.content),
+    );
     const passives = await enrichWithImageUrls(
       await parseArmorPassivesPageSource(passivesPage.content),
     );
-    const warbonds = await enrichWithImageUrls(parseWarbondsPageSource(warbondsPage.content));
-    const [bestiary, structures] = await Promise.all([fetchBestiary(), fetchStructures()]);
+    const warbonds = await enrichWithImageUrls(
+      parseWarbondsPageSource(warbondsPage.content),
+    );
+    const [bestiary, structures] = await Promise.all([
+      fetchBestiary(),
+      fetchStructures(),
+    ]);
     assertNonEmptyDatasets("fetchData", [
       ["weapons", weapons.length],
       ["stratagems", stratagems.length],
@@ -524,32 +641,59 @@ async function main() {
       structures: structures.structures.length,
     });
 
-    const bestiarySaveTask = createTask("Saving BESTIARY", "./public/data/enemies.json");
+    const bestiarySaveTask = createTask(
+      "Saving BESTIARY",
+      "./public/data/enemies.json",
+    );
     const bestiaryWithImagePaths = {
       ...bestiary,
-      enemies: bestiary.enemies.map((enemy) => addLocalImagePath({
-        ...enemy,
-        variants: enemy.variants.map((variant) => addLocalImagePath(variant, "enemies")),
-      }, "enemies")),
+      enemies: bestiary.enemies.map((enemy) =>
+        addLocalImagePath(
+          {
+            ...enemy,
+            variants: enemy.variants.map((variant) =>
+              addLocalImagePath(variant, "enemies"),
+            ),
+          },
+          "enemies",
+        ),
+      ),
     };
-    await fs.writeFile("./public/data/enemies.json", JSON.stringify(bestiaryWithImagePaths, null, 2));
+    await fs.writeFile(
+      "./public/data/enemies.json",
+      JSON.stringify(bestiaryWithImagePaths, null, 2),
+    );
     bestiarySaveTask.succeed("written");
     summary("BESTIARY summary", {
       enemies: bestiary.enemies.length,
-      withAnatomy: bestiary.enemies.filter((enemy) => enemy.anatomy.length > 0).length,
-      withVariants: bestiary.enemies.filter((enemy) => enemy.variants.length > 0).length,
+      withAnatomy: bestiary.enemies.filter((enemy) => enemy.anatomy.length > 0)
+        .length,
+      withVariants: bestiary.enemies.filter(
+        (enemy) => enemy.variants.length > 0,
+      ).length,
     });
 
-    const structuresSaveTask = createTask("Saving STRUCTURES", "./public/data/structures.json");
+    const structuresSaveTask = createTask(
+      "Saving STRUCTURES",
+      "./public/data/structures.json",
+    );
     const structuresWithImagePaths = {
       ...structures,
-      structures: structures.structures.map((structure) => addLocalImagePath(structure, "structures", "icons/bank.svg")),
+      structures: structures.structures.map((structure) =>
+        addLocalImagePath(structure, "structures", "icons/bank.svg"),
+      ),
     };
-    await fs.writeFile("./public/data/structures.json", JSON.stringify(structuresWithImagePaths, null, 2));
+    await fs.writeFile(
+      "./public/data/structures.json",
+      JSON.stringify(structuresWithImagePaths, null, 2),
+    );
     structuresSaveTask.succeed("written");
     summary("STRUCTURES summary", {
       structures: structures.structures.length,
-      targets: structures.structures.reduce((total, structure) => total + structure.targets.length, 0),
+      targets: structures.structures.reduce(
+        (total, structure) => total + structure.targets.length,
+        0,
+      ),
       demolitionSources: structures.demolitionSources.length,
     });
 

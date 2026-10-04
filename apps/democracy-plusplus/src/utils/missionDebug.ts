@@ -7,12 +7,16 @@ function isMissionDebugEnabled() {
     return false;
   }
 
-  const globalDebugFlag = (window as Window & { __MISSION_DEBUG__?: boolean }).__MISSION_DEBUG__;
+  const globalDebugFlag = (window as Window & { __MISSION_DEBUG__?: boolean })
+    .__MISSION_DEBUG__;
   if (typeof globalDebugFlag === "boolean") {
     return globalDebugFlag;
   }
 
-  return window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+  return (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+  );
 }
 
 function serialise(value: unknown) {
@@ -44,12 +48,20 @@ export function useMissionDebugRender(name: string, snapshot: unknown) {
     return;
   }
 
-  console.debug(`[mission-debug] render ${name} #${renderCountRef.current}`, snapshot);
+  console.debug(
+    `[mission-debug] render ${name} #${renderCountRef.current}`,
+    snapshot,
+  );
 }
 
-export function useMissionDebugEffect(name: string, trackedValues: Record<string, unknown>) {
+export function useMissionDebugEffect(
+  name: string,
+  trackedValues: Record<string, unknown>,
+) {
   const previousRef = useRef<Record<string, string> | null>(null);
-  const serialisedEntries = Object.entries(trackedValues).map(([key, value]) => [key, serialise(value)] as const);
+  const serialisedEntries = Object.entries(trackedValues).map(
+    ([key, value]) => [key, serialise(value)] as const,
+  );
 
   useEffect(() => {
     if (!isMissionDebugEnabled()) {
@@ -76,7 +88,9 @@ export function useMissionDebugEffect(name: string, trackedValues: Record<string
     if (changedEntries.length) {
       console.debug(`[mission-debug] effect ${name} changed`, changedEntries);
     } else {
-      console.debug(`[mission-debug] effect ${name} re-ran without tracked changes`);
+      console.debug(
+        `[mission-debug] effect ${name} re-ran without tracked changes`,
+      );
     }
 
     previousRef.current = current;

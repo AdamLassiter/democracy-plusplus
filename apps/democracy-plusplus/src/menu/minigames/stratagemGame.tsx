@@ -14,9 +14,17 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { STRATAGEMS } from "../../constants/stratagems";
 import { ItemIcon } from "../../utils/itemDisplay";
-import { StratagemCodeDisplay, isStratagemDirection, normalizeStratagemInput, type StratagemDirection } from "../../utils/stratagemCode";
+import {
+  StratagemCodeDisplay,
+  isStratagemDirection,
+  normalizeStratagemInput,
+  type StratagemDirection,
+} from "../../utils/stratagemCode";
 import { unlockAchievements } from "../../slices/achievementsSlice";
-import { recordStratagemDrillScore, selectMinigames } from "../../slices/minigamesSlice";
+import {
+  recordStratagemDrillScore,
+  selectMinigames,
+} from "../../slices/minigamesSlice";
 import type { Item } from "../../types";
 import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
@@ -29,13 +37,21 @@ const TIME_REDUCTION_MS = 200;
 const MIN_TIME_MS = 1000;
 const ERROR_FLASH_MS = 100;
 
-const PLAYABLE_STRATAGEMS = STRATAGEMS.filter((item): item is PlayableStratagem => {
-  const { stratagemCode } = item;
-  return Array.isArray(stratagemCode) && stratagemCode.length > 0 && stratagemCode.every(isStratagemDirection);
-});
+const PLAYABLE_STRATAGEMS = STRATAGEMS.filter(
+  (item): item is PlayableStratagem => {
+    const { stratagemCode } = item;
+    return (
+      Array.isArray(stratagemCode) &&
+      stratagemCode.length > 0 &&
+      stratagemCode.every(isStratagemDirection)
+    );
+  },
+);
 
 function pickRandomStratagem(excludedNames: string[] = []) {
-  const available = PLAYABLE_STRATAGEMS.filter((item) => !excludedNames.includes(item.displayName));
+  const available = PLAYABLE_STRATAGEMS.filter(
+    (item) => !excludedNames.includes(item.displayName),
+  );
   const pool = available.length ? available : PLAYABLE_STRATAGEMS;
   return pool[Math.floor(Math.random() * pool.length)];
 }
@@ -55,7 +71,10 @@ function buildInitialQueue() {
 }
 
 function nextAllowedTimeMs(completedCount: number) {
-  return Math.max(MIN_TIME_MS, START_TIME_MS - Math.floor(completedCount / 4) * TIME_REDUCTION_MS);
+  return Math.max(
+    MIN_TIME_MS,
+    START_TIME_MS - Math.floor(completedCount / 4) * TIME_REDUCTION_MS,
+  );
 }
 
 function shouldIgnoreInputTarget(target: EventTarget | null) {
@@ -64,14 +83,24 @@ function shouldIgnoreInputTarget(target: EventTarget | null) {
   }
 
   const tagName = target.tagName;
-  return target.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA";
+  return (
+    target.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA"
+  );
 }
 
-export default function StratagemGame({ open, onClose }: { open: boolean; onClose: () => void }) {
+export default function StratagemGame({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
   const dispatch = useDispatch();
   const { stratagemDrillBestScore } = useSelector(selectMinigames);
   const [phase, setPhase] = useState<GamePhase>("idle");
-  const [visibleStratagems, setVisibleStratagems] = useState<PlayableStratagem[]>([]);
+  const [visibleStratagems, setVisibleStratagems] = useState<
+    PlayableStratagem[]
+  >([]);
   const [progress, setProgress] = useState(0);
   const [errors, setErrors] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
@@ -82,17 +111,22 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
   const errorTimeoutRef = useRef<number | null>(null);
   const gameOverHandledRef = useRef(false);
 
-  const remainingTimeMs = phase === "playing" && deadlineMs !== null
-    ? Math.max(0, deadlineMs - nowMs)
-    : allowedTimeMs;
+  const remainingTimeMs =
+    phase === "playing" && deadlineMs !== null
+      ? Math.max(0, deadlineMs - nowMs)
+      : allowedTimeMs;
   const isFlashingError = flashErrorUntil !== null && flashErrorUntil > nowMs;
-  const progressPercent = allowedTimeMs > 0 ? (remainingTimeMs / allowedTimeMs) * 100 : 0;
+  const progressPercent =
+    allowedTimeMs > 0 ? (remainingTimeMs / allowedTimeMs) * 100 : 0;
 
-  const activeInstructions = useMemo(() => [
-    "Enter codes with arrow keys or WASD.",
-    "Only the first stratagem in the list accepts input.",
-    "Mistakes reset that stratagem's progress but do not reset the timer.",
-  ], []);
+  const activeInstructions = useMemo(
+    () => [
+      "Enter codes with arrow keys or WASD.",
+      "Only the first stratagem in the list accepts input.",
+      "Mistakes reset that stratagem's progress but do not reset the timer.",
+    ],
+    [],
+  );
 
   function clearErrorTimeout() {
     if (errorTimeoutRef.current !== null) {
@@ -138,7 +172,9 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
 
   function advanceQueue(currentQueue: PlayableStratagem[]) {
     const remaining = currentQueue.slice(1);
-    const replacement = pickRandomStratagem(remaining.map((item) => item.displayName));
+    const replacement = pickRandomStratagem(
+      remaining.map((item) => item.displayName),
+    );
 
     return replacement ? [...remaining, replacement] : remaining;
   }
@@ -244,109 +280,176 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open, phase, visibleStratagems, progress, completedCount]);
 
-  return <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
-    <CloseableDialogTitle onClose={handleClose}>Stratagem Drill</CloseableDialogTitle>
-    <DialogContent dividers>
-      {phase === "idle" && <Stack spacing={2}>
-        <Typography variant="h6">Rapid-response stratagem practice</Typography>
-        <Typography color="text.secondary">
-          Enter each stratagem code before the timer runs out. Every four successful stratagems makes the next ones faster.
-        </Typography>
-        <Box component="ul" sx={{ pl: 3, m: 0 }}>
-          {activeInstructions.map((instruction) => <Typography key={instruction} component="li">
-            {instruction}
-          </Typography>)}
-        </Box>
-      </Stack>}
+  return (
+    <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
+      <CloseableDialogTitle onClose={handleClose}>
+        Stratagem Drill
+      </CloseableDialogTitle>
+      <DialogContent dividers>
+        {phase === "idle" && (
+          <Stack spacing={2}>
+            <Typography variant="h6">
+              Rapid-response stratagem practice
+            </Typography>
+            <Typography color="text.secondary">
+              Enter each stratagem code before the timer runs out. Every four
+              successful stratagems makes the next ones faster.
+            </Typography>
+            <Box component="ul" sx={{ pl: 3, m: 0 }}>
+              {activeInstructions.map((instruction) => (
+                <Typography key={instruction} component="li">
+                  {instruction}
+                </Typography>
+              ))}
+            </Box>
+          </Stack>
+        )}
 
-      {phase === "playing" && <Stack spacing={3}>
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Card variant="outlined" sx={{ p: 2 }}>
-              <Typography variant="overline" color="text.secondary">Completed</Typography>
-              <Typography variant="h4">{completedCount}</Typography>
-            </Card>
-          </Grid>
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Card variant="outlined" sx={{ p: 2 }}>
-              <Typography variant="overline" color="text.secondary">Errors</Typography>
-              <Typography variant="h4">{errors}</Typography>
-            </Card>
-          </Grid>
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Card variant="outlined" sx={{ p: 2 }}>
-              <Typography variant="overline" color="text.secondary">Time Per Stratagem</Typography>
-              <Typography variant="h4">{(allowedTimeMs / 1000).toFixed(1)}s</Typography>
-            </Card>
-          </Grid>
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Card variant="outlined" sx={{ p: 2 }}>
-              <Typography variant="overline" color="text.secondary">Time Remaining</Typography>
-              <Typography variant="h4">{(remainingTimeMs / 1000).toFixed(1)}s</Typography>
-            </Card>
-          </Grid>
-        </Grid>
-
-        <Box>
-          <LinearProgress color={remainingTimeMs < 1500 ? "error" : "primary"} variant="determinate" value={progressPercent} />
-        </Box>
-
-        <Stack spacing={2}>
-          {visibleStratagems.map((stratagem, index) => {
-            const isActive = index === 0;
-            const showError = isActive && isFlashingError;
-
-            return <Card
-              key={`${stratagem.displayName}-${index}`}
-              variant="outlined"
-              sx={{
-                p: 2,
-                borderWidth: 2,
-                borderColor: showError
-                  ? "error.main"
-                  : isActive
-                    ? "primary.main"
-                    : "divider",
-              }}
-            >
-              <Grid container spacing={2} alignItems="center">
-                <Grid>
-                  <ItemIcon item={stratagem} width={72} minHeight={56} margin={0} bgcolor="black" />
-                </Grid>
-                <Grid size="grow">
-                  <Stack spacing={1}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, alignItems: "center", flexWrap: "wrap" }}>
-                      <Typography variant="h6">{stratagem.displayName}</Typography>
-                      <Typography color={showError ? "error.main" : isActive ? "primary.main" : "text.secondary"}>
-                        {isActive ? "Active" : "Queued"}
-                      </Typography>
-                    </Box>
-                    <StratagemCodeDisplay
-                      code={stratagem.stratagemCode}
-                      progress={isActive ? progress : 0}
-                      flashError={showError}
-                      iconSize={20}
-                      justifyContent="flex-start"
-                    />
-                  </Stack>
-                </Grid>
+        {phase === "playing" && (
+          <Stack spacing={3}>
+            <Grid container spacing={2}>
+              <Grid size={{ xs: 12, md: 3 }}>
+                <Card variant="outlined" sx={{ p: 2 }}>
+                  <Typography variant="overline" color="text.secondary">
+                    Completed
+                  </Typography>
+                  <Typography variant="h4">{completedCount}</Typography>
+                </Card>
               </Grid>
-            </Card>;
-          })}
-        </Stack>
-      </Stack>}
+              <Grid size={{ xs: 12, md: 3 }}>
+                <Card variant="outlined" sx={{ p: 2 }}>
+                  <Typography variant="overline" color="text.secondary">
+                    Errors
+                  </Typography>
+                  <Typography variant="h4">{errors}</Typography>
+                </Card>
+              </Grid>
+              <Grid size={{ xs: 12, md: 3 }}>
+                <Card variant="outlined" sx={{ p: 2 }}>
+                  <Typography variant="overline" color="text.secondary">
+                    Time Per Stratagem
+                  </Typography>
+                  <Typography variant="h4">
+                    {(allowedTimeMs / 1000).toFixed(1)}s
+                  </Typography>
+                </Card>
+              </Grid>
+              <Grid size={{ xs: 12, md: 3 }}>
+                <Card variant="outlined" sx={{ p: 2 }}>
+                  <Typography variant="overline" color="text.secondary">
+                    Time Remaining
+                  </Typography>
+                  <Typography variant="h4">
+                    {(remainingTimeMs / 1000).toFixed(1)}s
+                  </Typography>
+                </Card>
+              </Grid>
+            </Grid>
 
-      {phase === "gameOver" && <Stack spacing={2} alignItems="center" textAlign="center" py={2}>
-        <Typography variant="h4">Time&apos;s up</Typography>
-        <Typography variant="h6">Score: {completedCount}</Typography>
-        <Typography color="text.secondary">Errors: {errors}</Typography>
-        <Typography color="text.secondary">Best Score: {Math.max(stratagemDrillBestScore, completedCount)}</Typography>
-        {completedCount > stratagemDrillBestScore && <Typography color="success.main">New record</Typography>}
-      </Stack>}
-    </DialogContent>
-    <DialogActions>
-      {phase === "idle" && <Button onClick={startGame} variant="contained">Start</Button>}
-      <Button onClick={handleClose}>{phase === "gameOver" ? "Close" : "Cancel"}</Button>
-    </DialogActions>
-  </Dialog>;
+            <Box>
+              <LinearProgress
+                color={remainingTimeMs < 1500 ? "error" : "primary"}
+                variant="determinate"
+                value={progressPercent}
+              />
+            </Box>
+
+            <Stack spacing={2}>
+              {visibleStratagems.map((stratagem, index) => {
+                const isActive = index === 0;
+                const showError = isActive && isFlashingError;
+
+                return (
+                  <Card
+                    key={`${stratagem.displayName}-${index}`}
+                    variant="outlined"
+                    sx={{
+                      p: 2,
+                      borderWidth: 2,
+                      borderColor: showError
+                        ? "error.main"
+                        : isActive
+                          ? "primary.main"
+                          : "divider",
+                    }}
+                  >
+                    <Grid container spacing={2} alignItems="center">
+                      <Grid>
+                        <ItemIcon
+                          item={stratagem}
+                          width={72}
+                          minHeight={56}
+                          margin={0}
+                          bgcolor="black"
+                        />
+                      </Grid>
+                      <Grid size="grow">
+                        <Stack spacing={1}>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              gap: 2,
+                              alignItems: "center",
+                              flexWrap: "wrap",
+                            }}
+                          >
+                            <Typography variant="h6">
+                              {stratagem.displayName}
+                            </Typography>
+                            <Typography
+                              color={
+                                showError
+                                  ? "error.main"
+                                  : isActive
+                                    ? "primary.main"
+                                    : "text.secondary"
+                              }
+                            >
+                              {isActive ? "Active" : "Queued"}
+                            </Typography>
+                          </Box>
+                          <StratagemCodeDisplay
+                            code={stratagem.stratagemCode}
+                            progress={isActive ? progress : 0}
+                            flashError={showError}
+                            iconSize={20}
+                            justifyContent="flex-start"
+                          />
+                        </Stack>
+                      </Grid>
+                    </Grid>
+                  </Card>
+                );
+              })}
+            </Stack>
+          </Stack>
+        )}
+
+        {phase === "gameOver" && (
+          <Stack spacing={2} alignItems="center" textAlign="center" py={2}>
+            <Typography variant="h4">Time&apos;s up</Typography>
+            <Typography variant="h6">Score: {completedCount}</Typography>
+            <Typography color="text.secondary">Errors: {errors}</Typography>
+            <Typography color="text.secondary">
+              Best Score: {Math.max(stratagemDrillBestScore, completedCount)}
+            </Typography>
+            {completedCount > stratagemDrillBestScore && (
+              <Typography color="success.main">New record</Typography>
+            )}
+          </Stack>
+        )}
+      </DialogContent>
+      <DialogActions>
+        {phase === "idle" && (
+          <Button onClick={startGame} variant="contained">
+            Start
+          </Button>
+        )}
+        <Button onClick={handleClose}>
+          {phase === "gameOver" ? "Close" : "Cancel"}
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
 }

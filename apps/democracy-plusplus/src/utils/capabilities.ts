@@ -59,9 +59,11 @@ export function parsePenetration(value: unknown) {
   return numeric ? Number.parseInt(numeric[0], 10) : null;
 }
 
-function asRecord(value: PropertyValue | undefined): Record<string, PropertyValue> | null {
+function asRecord(
+  value: PropertyValue | undefined,
+): Record<string, PropertyValue> | null {
   return value && typeof value === "object" && !Array.isArray(value)
-    ? value as Record<string, PropertyValue>
+    ? (value as Record<string, PropertyValue>)
     : null;
 }
 
@@ -78,9 +80,15 @@ function containsExplosion(value: PropertyValue): boolean {
   return Object.values(value).some(containsExplosion);
 }
 
-export function extractItemCapabilities(item: Item, demolitionSource?: DemolitionSource): AttackCapability[] {
+export function extractItemCapabilities(
+  item: Item,
+  demolitionSource?: DemolitionSource,
+): AttackCapability[] {
   const sourceByAttack = new Map(
-    (demolitionSource?.attacks ?? []).map((attack) => [attack.name.toLowerCase(), attack]),
+    (demolitionSource?.attacks ?? []).map((attack) => [
+      attack.name.toLowerCase(),
+      attack,
+    ]),
   );
   const capabilities: AttackCapability[] = [];
 
@@ -93,28 +101,42 @@ export function extractItemCapabilities(item: Item, demolitionSource?: Demolitio
     for (const rawSection of Object.values(attack)) {
       const section = asRecord(rawSection);
       if (section && "Demolition Force" in section) {
-        demolitionForce = Math.max(demolitionForce ?? 0, parseNumber(section["Demolition Force"]) ?? 0);
+        demolitionForce = Math.max(
+          demolitionForce ?? 0,
+          parseNumber(section["Demolition Force"]) ?? 0,
+        );
       }
     }
 
-    const authoritative = sourceByAttack.get(attackName.toLowerCase())
-      ?? [...sourceByAttack.values()].find((source) =>
-        attackName.toLowerCase().includes(source.name.toLowerCase())
-        || source.name.toLowerCase().includes(attackName.toLowerCase()),
+    const authoritative =
+      sourceByAttack.get(attackName.toLowerCase()) ??
+      [...sourceByAttack.values()].find(
+        (source) =>
+          attackName.toLowerCase().includes(source.name.toLowerCase()) ||
+          source.name.toLowerCase().includes(attackName.toLowerCase()),
       );
-    if (armorPenetration === null && demolitionForce === null && !authoritative) continue;
+    if (armorPenetration === null && demolitionForce === null && !authoritative)
+      continue;
 
     capabilities.push({
       itemName: item.displayName,
       attackName,
       armorPenetration,
       demolitionForce: authoritative?.demolitionForce ?? demolitionForce,
-      explosive: authoritative?.explosive ?? (containsExplosion(rawAttack) || /\bie\b/i.test(attackName)),
+      explosive:
+        authoritative?.explosive ??
+        (containsExplosion(rawAttack) || /\bie\b/i.test(attackName)),
     });
   }
 
   for (const source of demolitionSource?.attacks ?? []) {
-    if (capabilities.some((capability) => capability.attackName.toLowerCase() === source.name.toLowerCase())) continue;
+    if (
+      capabilities.some(
+        (capability) =>
+          capability.attackName.toLowerCase() === source.name.toLowerCase(),
+      )
+    )
+      continue;
     capabilities.push({
       itemName: item.displayName,
       attackName: source.name,
@@ -128,9 +150,11 @@ export function extractItemCapabilities(item: Item, demolitionSource?: Demolitio
 
 export function effectiveArmor(part: EnemyAnatomyPart, difficulty: number) {
   let armor = parsePenetration(part.armor) ?? 0;
-  for (const [minimumDifficulty, value] of Object.entries(part.armorByDifficulty ?? {})
-    .sort(([left], [right]) => Number(left) - Number(right))) {
-    if (difficulty >= Number(minimumDifficulty)) armor = parsePenetration(value) ?? armor;
+  for (const [minimumDifficulty, value] of Object.entries(
+    part.armorByDifficulty ?? {},
+  ).sort(([left], [right]) => Number(left) - Number(right))) {
+    if (difficulty >= Number(minimumDifficulty))
+      armor = parsePenetration(value) ?? armor;
   }
   return armor;
 }
@@ -140,15 +164,33 @@ export function coverageState(covered: number, total: number): CoverageState {
   return covered >= total ? "full" : "partial";
 }
 
-export function anatomyCoverage(anatomy: EnemyAnatomy, capabilities: AttackCapability[], difficulty: number) {
+export function anatomyCoverage(
+  anatomy: EnemyAnatomy,
+  capabilities: AttackCapability[],
+  difficulty: number,
+) {
   const parts = anatomy.parts.map((part) => {
     const armor = effectiveArmor(part, difficulty);
-    const matchingItems = [...new Set(capabilities
-      .filter((capability) => capability.armorPenetration !== null && capability.armorPenetration >= armor)
-      .map((capability) => capability.itemName))];
+    const matchingItems = [
+      ...new Set(
+        capabilities
+          .filter(
+            (capability) =>
+              capability.armorPenetration !== null &&
+              capability.armorPenetration >= armor,
+          )
+          .map((capability) => capability.itemName),
+      ),
+    ];
     return { part, armor, matchingItems, covered: matchingItems.length > 0 };
   });
-  return { parts, state: coverageState(parts.filter((part) => part.covered).length, parts.length) };
+  return {
+    parts,
+    state: coverageState(
+      parts.filter((part) => part.covered).length,
+      parts.length,
+    ),
+  };
 }
 
 export function enemyAnatomyCoverageState(
@@ -157,10 +199,14 @@ export function enemyAnatomyCoverageState(
   difficulty: number,
 ): EnemyCoverageState {
   const maximumPenetration = Math.max(
-    ...capabilities.flatMap((capability) => capability.armorPenetration === null ? [] : [capability.armorPenetration]),
+    ...capabilities.flatMap((capability) =>
+      capability.armorPenetration === null ? [] : [capability.armorPenetration],
+    ),
     -1,
   );
-  const comparisons = anatomy.parts.map((part) => maximumPenetration - effectiveArmor(part, difficulty));
+  const comparisons = anatomy.parts.map(
+    (part) => maximumPenetration - effectiveArmor(part, difficulty),
+  );
   const beaten = comparisons.filter((comparison) => comparison > 0).length;
   const resisted = comparisons.filter((comparison) => comparison === 0).length;
   const total = comparisons.length;
@@ -172,7 +218,9 @@ export function enemyAnatomyCoverageState(
   return "partial";
 }
 
-export function bestEnemyCoverage(states: EnemyCoverageState[]): EnemyCoverageState {
+export function bestEnemyCoverage(
+  states: EnemyCoverageState[],
+): EnemyCoverageState {
   const rank: Record<EnemyCoverageState, number> = {
     none: 0,
     partialResisted: 1,
@@ -181,23 +229,36 @@ export function bestEnemyCoverage(states: EnemyCoverageState[]): EnemyCoverageSt
     full: 4,
   };
   return states.reduce<EnemyCoverageState>(
-    (best, state) => rank[state] > rank[best] ? state : best,
+    (best, state) => (rank[state] > rank[best] ? state : best),
     "none",
   );
 }
 
-export function structureCoverage(targets: StructureTarget[], capabilities: AttackCapability[]) {
+export function structureCoverage(
+  targets: StructureTarget[],
+  capabilities: AttackCapability[],
+) {
   const evaluatedTargets = targets.map((target) => {
-    const matchingItems = [...new Set(capabilities.filter((capability) =>
-      capability.demolitionForce !== null
-      && capability.demolitionForce >= target.demolitionForce
-      && (!target.badr || capability.explosive),
-    ).map((capability) => capability.itemName))];
-    const sufficientNonExplosive = target.badr && capabilities.some((capability) =>
-      capability.demolitionForce !== null
-      && capability.demolitionForce >= target.demolitionForce
-      && !capability.explosive,
-    );
+    const matchingItems = [
+      ...new Set(
+        capabilities
+          .filter(
+            (capability) =>
+              capability.demolitionForce !== null &&
+              capability.demolitionForce >= target.demolitionForce &&
+              (!target.badr || capability.explosive),
+          )
+          .map((capability) => capability.itemName),
+      ),
+    ];
+    const sufficientNonExplosive =
+      target.badr &&
+      capabilities.some(
+        (capability) =>
+          capability.demolitionForce !== null &&
+          capability.demolitionForce >= target.demolitionForce &&
+          !capability.explosive,
+      );
     return {
       target,
       matchingItems,
@@ -211,7 +272,10 @@ export function structureCoverage(targets: StructureTarget[], capabilities: Atta
   });
   return {
     targets: evaluatedTargets,
-    state: coverageState(evaluatedTargets.filter((target) => target.covered).length, evaluatedTargets.length),
+    state: coverageState(
+      evaluatedTargets.filter((target) => target.covered).length,
+      evaluatedTargets.length,
+    ),
   };
 }
 

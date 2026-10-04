@@ -207,7 +207,10 @@ test("parseBoostersPageSource expands the current HTML booster table", async () 
 <tr><td><a href="/wiki/File:Hellpod_Space_Optimization_Booster_Icon.svg"><img /></a></td><td><!--LINK--></td></tr>
 <tr><td><a href="/wiki/File:UAV_Recon_Booster_Booster_Icon.svg"><img /></a></td><td><!--LINK--></td></tr>
 </tbody></table>`;
-  const items = await parseBoostersPageSource("{{Booster Table}}", async () => expanded);
+  const items = await parseBoostersPageSource(
+    "{{Booster Table}}",
+    async () => expanded,
+  );
 
   assert.deepEqual(items, [
     {
@@ -277,7 +280,9 @@ Unrelated Screenshot.png|alt=Not a cover|link=Warbonds|[[Warbonds|Gallery screen
 
 test("getImageFileName decodes wiki URL filenames", () => {
   assert.equal(
-    getImageFileName("https://helldivers.wiki.gg/images/Castellan%27s_Creed_Cover.png?661a59"),
+    getImageFileName(
+      "https://helldivers.wiki.gg/images/Castellan%27s_Creed_Cover.png?661a59",
+    ),
     "Castellan's_Creed_Cover.png",
   );
 });
@@ -308,15 +313,18 @@ test("parseStratagemsPageSource uses current template arguments for categories",
     return table(argument || "Machine Gun");
   });
 
-  assert.deepEqual(items.map((item) => item.stratagemTag), [
-    "Orbital",
-    "Eagle",
-    "Weapons",
-    "Backpacks",
-    "Vehicles",
-    "Sentry",
-    "Emplacement",
-  ]);
+  assert.deepEqual(
+    items.map((item) => item.stratagemTag),
+    [
+      "Orbital",
+      "Eagle",
+      "Weapons",
+      "Backpacks",
+      "Vehicles",
+      "Sentry",
+      "Emplacement",
+    ],
+  );
 });
 
 test("parseDemolitionPageSource reads structure targets, rowspans, and attack sources", () => {
@@ -340,43 +348,50 @@ test("parseDemolitionPageSource reads structure targets, rowspans, and attack so
 |}`;
 
   const parsed = parseDemolitionPageSource(source);
-  assert.deepEqual(parsed.structures, [{
-    id: "automatons-fabricator",
-    displayName: "Fabricator",
-    faction: "Automatons",
-    description: "",
-    wikiSlug: "Fabricator",
-    imageFileTitle: null,
-    targets: [
-      { name: "Main", demolitionForce: 40, badr: true },
-      { name: "Vent", demolitionForce: 20, badr: false },
-    ],
-  }]);
-  assert.deepEqual(parsed.demolitionSources, [{
-    displayName: "GR-8 Recoilless Rifle",
-    wikiSlug: "GR-8_Recoilless_Rifle",
-    category: "Support Weapons",
-    attacks: [
-      { name: "Projectile", demolitionForce: 30, explosive: false },
-      { name: "Explosion", demolitionForce: 40, explosive: true },
-    ],
-  }]);
+  assert.deepEqual(parsed.structures, [
+    {
+      id: "automatons-fabricator",
+      displayName: "Fabricator",
+      faction: "Automatons",
+      description: "",
+      wikiSlug: "Fabricator",
+      imageFileTitle: null,
+      targets: [
+        { name: "Main", demolitionForce: 40, badr: true },
+        { name: "Vent", demolitionForce: 20, badr: false },
+      ],
+    },
+  ]);
+  assert.deepEqual(parsed.demolitionSources, [
+    {
+      displayName: "GR-8 Recoilless Rifle",
+      wikiSlug: "GR-8_Recoilless_Rifle",
+      category: "Support Weapons",
+      attacks: [
+        { name: "Projectile", demolitionForce: 30, explosive: false },
+        { name: "Explosion", demolitionForce: 40, explosive: true },
+      ],
+    },
+  ]);
 });
 
 test("parseStructurePageSource adds infobox imagery and a lead description", () => {
-  const parsed = parseStructurePageSource({
-    title: "Fabricator",
-    slug: "Fabricator",
-    content: `{{Infobox Structure\n| image = Fabricator.png\n}}\nA factory that produces Automaton troops.\n\n== Anatomy ==`,
-  }, {
-    id: "automatons-fabricator",
-    displayName: "Fabricator",
-    faction: "Automatons",
-    description: "",
-    wikiSlug: "Fabricator",
-    imageFileTitle: null,
-    targets: [{ name: "Main", demolitionForce: 40, badr: true }],
-  });
+  const parsed = parseStructurePageSource(
+    {
+      title: "Fabricator",
+      slug: "Fabricator",
+      content: `{{Infobox Structure\n| image = Fabricator.png\n}}\nA factory that produces Automaton troops.\n\n== Anatomy ==`,
+    },
+    {
+      id: "automatons-fabricator",
+      displayName: "Fabricator",
+      faction: "Automatons",
+      description: "",
+      wikiSlug: "Fabricator",
+      imageFileTitle: null,
+      targets: [{ name: "Main", demolitionForce: 40, badr: true }],
+    },
+  );
 
   assert.equal(parsed.imageFileTitle, "File:Fabricator.png");
   assert.equal(parsed.description, "A factory that produces Automaton troops.");
@@ -417,7 +432,10 @@ test("parseArmorPassivePageDescription extracts and cleans the infobox descripti
     parseArmorPassivePageDescription(source),
     "Provides 80% resistance to gas damage and effects.",
   );
-  assert.equal(parseArmorPassivePageDescription("No armor passive infobox here."), "");
+  assert.equal(
+    parseArmorPassivePageDescription("No armor passive infobox here."),
+    "",
+  );
 });
 
 test("parseFactionsPageSource assigns enemies to factions and subfactions", async () => {
@@ -535,33 +553,39 @@ Test Variant Enemy Icon.png|[[Test Variant]]
   assert.deepEqual(enemy.anatomy, [
     {
       name: "Intact",
-      parts: [{
-        name: "Head Plate",
-        armor: "4",
-        armorByDifficulty: { "6": "5" },
-        health: "500 [Default] 650 at 6",
-        healthByDifficulty: { "6": 650 },
-        durability: "75%",
-        percentToMain: 1.5,
-        damageToMainCapped: true,
-        bleed: { constitution: 1000, decayPerSecond: 100 },
-        bleedDescription: "1,000 [-100/s]",
-        fatal: true,
-        explosionResistance: 0.25,
-        explosionVerificationMode: "Outer Radius",
-        demolitionForce: 30,
-      }],
+      parts: [
+        {
+          name: "Head Plate",
+          armor: "4",
+          armorByDifficulty: { "6": "5" },
+          health: "500 [Default] 650 at 6",
+          healthByDifficulty: { "6": 650 },
+          durability: "75%",
+          percentToMain: 1.5,
+          damageToMainCapped: true,
+          bleed: { constitution: 1000, decayPerSecond: 100 },
+          bleedDescription: "1,000 [-100/s]",
+          fatal: true,
+          explosionResistance: 0.25,
+          explosionVerificationMode: "Outer Radius",
+          demolitionForce: 30,
+        },
+      ],
     },
     {
       name: "Broken",
-      parts: [{ name: "Exposed Head", armor: "1", health: "Main", durability: "20%" }],
+      parts: [
+        { name: "Exposed Head", armor: "1", health: "Main", durability: "20%" },
+      ],
     },
   ]);
-  assert.deepEqual(enemy.variants, [{
-    displayName: "Test Variant",
-    wikiSlug: "Test_Variant",
-    imageFileTitle: "File:Test Variant Enemy Icon.png",
-  }]);
+  assert.deepEqual(enemy.variants, [
+    {
+      displayName: "Test Variant",
+      wikiSlug: "Test_Variant",
+      imageFileTitle: "File:Test Variant Enemy Icon.png",
+    },
+  ]);
 });
 
 test("parseEnemyPageSource maps current numeric enemy sizes to classes", () => {
@@ -583,14 +607,22 @@ test("parseEnemyPageSource maps current numeric enemy sizes to classes", () => {
 
   for (const [size, expectedClass] of sizes) {
     const enemy = parseEnemyPageSource(
-      { title: "Test Enemy", slug: "Test_Enemy", content: `{{Infobox Enemy|size = ${size}}}` },
+      {
+        title: "Test Enemy",
+        slug: "Test_Enemy",
+        content: `{{Infobox Enemy|size = ${size}}}`,
+      },
       listing,
     );
     assert.equal(enemy.enemyClass, expectedClass);
   }
 
   const legacy = parseEnemyPageSource(
-    { title: "Test Enemy", slug: "Test_Enemy", content: "{{Infobox Enemy|class = Heavy}}" },
+    {
+      title: "Test Enemy",
+      slug: "Test_Enemy",
+      content: "{{Infobox Enemy|class = Heavy}}",
+    },
     listing,
   );
   assert.equal(legacy.enemyClass, "Heavy");

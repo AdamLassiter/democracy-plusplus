@@ -13,6 +13,7 @@
     "check:backend": "npm run check -w bureaucracy-plusplus",
     "lint:frontend": "npm run lint -w democracy-plusplus",
     "lint:backend": "npm run lint -w bureaucracy-plusplus",
+    "pretty": "npx prettier --write .",
     "build": "npm run build:cloudflare",
     "build:shared": "npm run build -w @plusplus/shared-types",
     "build:frontend": "npm run build:shared && npm run build -w democracy-plusplus",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.59.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260421.2"
+    "@typescript/native-preview": "^7.0.0-dev.20260421.2",
+    "prettier": "^3.9.9"
   }
 }

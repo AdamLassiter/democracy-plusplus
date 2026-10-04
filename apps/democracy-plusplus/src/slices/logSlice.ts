@@ -1,6 +1,11 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { LogState, MissionLogEntry, PurchaseLogEntry, TierListChangeLogEntry } from '../types';
-import type { RootState } from './index';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type {
+  LogState,
+  MissionLogEntry,
+  PurchaseLogEntry,
+  TierListChangeLogEntry,
+} from "../types";
+import type { RootState } from "./index";
 
 const initialState: LogState = {
   entries: [],
@@ -11,7 +16,7 @@ export function selectLog(state: RootState) {
 }
 
 const logSlice = createSlice({
-  name: 'log',
+  name: "log",
   initialState,
   reducers: {
     addPurchaseLogEntry: (state, action: PayloadAction<PurchaseLogEntry>) => {
@@ -20,7 +25,10 @@ const logSlice = createSlice({
     addMissionLogEntry: (state, action: PayloadAction<MissionLogEntry>) => {
       state.entries.unshift(action.payload);
     },
-    addTierListChangeLogEntry: (state, action: PayloadAction<TierListChangeLogEntry>) => {
+    addTierListChangeLogEntry: (
+      state,
+      action: PayloadAction<TierListChangeLogEntry>,
+    ) => {
       state.entries.unshift(action.payload);
     },
     setLogState: (_state, action: PayloadAction<LogState>) => action.payload,
@@ -28,5 +36,11 @@ const logSlice = createSlice({
   },
 });
 
-export const { addPurchaseLogEntry, addMissionLogEntry, addTierListChangeLogEntry, setLogState, clearLog } = logSlice.actions;
+export const {
+  addPurchaseLogEntry,
+  addMissionLogEntry,
+  addTierListChangeLogEntry,
+  setLogState,
+  clearLog,
+} = logSlice.actions;
 export default logSlice.reducer;

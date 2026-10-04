@@ -1,15 +1,7 @@
 {
   "subfactions": {
-    "Terminids": [
-      "Predator Strain",
-      "Spore Burst Strain",
-      "Rupture Strain"
-    ],
-    "Automatons": [
-      "Jet Brigade",
-      "Incineration Corps",
-      "Cyborg Legion"
-    ],
+    "Terminids": ["Predator Strain", "Spore Burst Strain", "Rupture Strain"],
+    "Automatons": ["Jet Brigade", "Incineration Corps", "Cyborg Legion"],
     "Illuminate": [
       "Appropriators",
       "Vote Snatchers",
@@ -2546,9 +2538,7 @@
     {
       "displayName": "Predator Hunter",
       "faction": "Terminids",
-      "subfactions": [
-        "Predator Strain"
-      ],
+      "subfactions": ["Predator Strain"],
       "description": "A mutated variant of the Hunter that is significantly more aggressive, capable of cloaking, and can spew bile.",
       "enemyClass": "Small",
       "wikiSlug": "Predator_Hunter",
@@ -2640,9 +2630,7 @@
     {
       "displayName": "Predator Stalker",
       "faction": "Terminids",
-      "subfactions": [
-        "Predator Strain"
-      ],
+      "subfactions": ["Predator Strain"],
       "description": "A mutated, more aggressive variant of the Stalker that is unable to cloak but spawns as a regular part of patrols.",
       "enemyClass": "Large",
       "wikiSlug": "Predator_Stalker",
@@ -2757,9 +2745,7 @@
     {
       "displayName": "Spore Burst Scavenger",
       "faction": "Terminids",
-      "subfactions": [
-        "Spore Burst Strain"
-      ],
+      "subfactions": ["Spore Burst Strain"],
       "description": "A mutated variant of the Scavenger that explodes into a deadly spore cloud upon death.",
       "enemyClass": "Small",
       "wikiSlug": "Spore_Burst_Scavenger",
@@ -2821,9 +2807,7 @@
     {
       "displayName": "Spore Burst Hunter",
       "faction": "Terminids",
-      "subfactions": [
-        "Spore Burst Strain"
-      ],
+      "subfactions": ["Spore Burst Strain"],
       "description": "A mutated variant of the Hunter that explodes into a deadly spore cloud upon death.",
       "enemyClass": "Small",
       "wikiSlug": "Spore_Burst_Hunter",
@@ -2915,9 +2899,7 @@
     {
       "displayName": "Spore Burst Warrior",
       "faction": "Terminids",
-      "subfactions": [
-        "Spore Burst Strain"
-      ],
+      "subfactions": ["Spore Burst Strain"],
       "description": "A mutated variant of the Warrior that explodes into a deadly spore cloud upon death.",
       "enemyClass": "Medium",
       "wikiSlug": "Spore_Burst_Warrior",
@@ -3012,9 +2994,7 @@
     {
       "displayName": "Spore Burst Bile Titan",
       "faction": "Terminids",
-      "subfactions": [
-        "Spore Burst Strain"
-      ],
+      "subfactions": ["Spore Burst Strain"],
       "description": "A mutated variant of the Bile Titan with a potent bile spew capable of buffing nearby enemies.",
       "enemyClass": "Massive",
       "wikiSlug": "Spore_Burst_Bile_Titan",
@@ -3191,9 +3171,7 @@
     {
       "displayName": "Rupture Warrior",
       "faction": "Terminids",
-      "subfactions": [
-        "Rupture Strain"
-      ],
+      "subfactions": ["Rupture Strain"],
       "description": "A burrowing variant of the Warrior.",
       "enemyClass": "Medium",
       "wikiSlug": "Rupture_Warrior",
@@ -3288,9 +3266,7 @@
     {
       "displayName": "Rupture Spewer",
       "faction": "Terminids",
-      "subfactions": [
-        "Rupture Strain"
-      ],
+      "subfactions": ["Rupture Strain"],
       "description": "A burrowing variant of the Bile Spewer.",
       "enemyClass": "Medium",
       "wikiSlug": "Rupture_Spewer",
@@ -3403,9 +3379,7 @@
     {
       "displayName": "Rupture Charger",
       "faction": "Terminids",
-      "subfactions": [
-        "Rupture Strain"
-      ],
+      "subfactions": ["Rupture Strain"],
       "description": "A burrowing variant of the Charger.",
       "enemyClass": "Large",
       "wikiSlug": "Rupture_Charger",
@@ -3944,9 +3918,7 @@
     {
       "displayName": "Assault Raider",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "Light Automaton unit armed with a fusion pistol, a blade, and a jetpack.",
       "enemyClass": "Small",
       "wikiSlug": "Assault_Raider",
@@ -6363,9 +6335,7 @@
     {
       "displayName": "Jet Brigade Commissar",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "Commissar variant equipped with a jetpack for leaping large distances.",
       "enemyClass": "Small",
       "wikiSlug": "Jet_Brigade_Commissar",
@@ -6466,9 +6436,7 @@
     {
       "displayName": "Jet Brigade Trooper",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "Trooper variant equipped with a jetpack for leaping large distances.",
       "enemyClass": "Small",
       "wikiSlug": "Jet_Brigade_Trooper",
@@ -6575,9 +6543,7 @@
     {
       "displayName": "Jet Brigade MG Raider",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "MG Raider variant equipped with a jetpack for leaping large distances.",
       "enemyClass": "Small",
       "wikiSlug": "Jet_Brigade_MG_Raider",
@@ -6678,9 +6644,7 @@
     {
       "displayName": "Jet Brigade Devastator",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "Devastator variant equipped with a jetpack for leaping large distances.",
       "enemyClass": "Medium",
       "wikiSlug": "Jet_Brigade_Devastator",
@@ -6836,9 +6800,7 @@
     {
       "displayName": "Jet Brigade Hulk Scorcher",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "A variant of the Hulk Scorcher equipped with a large jetpack, allowing them to leap great distances.",
       "enemyClass": "Large",
       "wikiSlug": "Jet_Brigade_Hulk_Scorcher",
@@ -6949,9 +6911,7 @@
     {
       "displayName": "Jet Brigade Hulk Bruiser",
       "faction": "Automatons",
-      "subfactions": [
-        "Jet Brigade"
-      ],
+      "subfactions": ["Jet Brigade"],
       "description": "A variant of the Hulk Bruiser equipped with a large jetpack, allowing them to leap great distances.",
       "enemyClass": "Large",
       "wikiSlug": "Jet_Brigade_Hulk_Bruiser",
@@ -7062,9 +7022,7 @@
     {
       "displayName": "Pyro Trooper",
       "faction": "Automatons",
-      "subfactions": [
-        "Incineration Corps"
-      ],
+      "subfactions": ["Incineration Corps"],
       "description": "Reinforced Automaton unit equipped with a flamethrower and a backpack-mounted fuel tank.",
       "enemyClass": "Small",
       "wikiSlug": "Pyro_Trooper",
@@ -7171,9 +7129,7 @@
     {
       "displayName": "Incendiary Rocket Raider",
       "faction": "Automatons",
-      "subfactions": [
-        "Incineration Corps"
-      ],
+      "subfactions": ["Incineration Corps"],
       "description": "Light Automaton unit armed with a specialized rocket launcher.",
       "enemyClass": "Small",
       "wikiSlug": "Incendiary_Rocket_Raider",
@@ -7259,9 +7215,7 @@
     {
       "displayName": "Incendiary MG Devastator",
       "faction": "Automatons",
-      "subfactions": [
-        "Incineration Corps"
-      ],
+      "subfactions": ["Incineration Corps"],
       "description": "Heavy Devastator variant with a slower-firing incendiary fusion machine gun.",
       "enemyClass": "Medium",
       "wikiSlug": "Incendiary_MG_Devastator",
@@ -7411,9 +7365,7 @@
     {
       "displayName": "Conflagration Devastator",
       "faction": "Automatons",
-      "subfactions": [
-        "Incineration Corps"
-      ],
+      "subfactions": ["Incineration Corps"],
       "description": "Devastator variant armed with an incendiary fusion shotgun and a large shield, capable of suppressing Helldivers and blocking incoming fire.",
       "enemyClass": "Medium",
       "wikiSlug": "Conflagration_Devastator",
@@ -7562,9 +7514,7 @@
     {
       "displayName": "Hulk Firebomber",
       "faction": "Automatons",
-      "subfactions": [
-        "Incineration Corps"
-      ],
+      "subfactions": ["Incineration Corps"],
       "description": "Hulk variant equipped with a large flamethrower and incendiary grenade launcher.",
       "enemyClass": "Large",
       "wikiSlug": "Hulk_Firebomber",
@@ -7676,9 +7626,7 @@
     {
       "displayName": "Radical",
       "faction": "Automatons",
-      "subfactions": [
-        "Cyborg Legion"
-      ],
+      "subfactions": ["Cyborg Legion"],
       "description": "Cybernetically enhanced human soldiers equipped with a heavy shotgun and \"techno-martial arts.\"",
       "enemyClass": "Medium",
       "wikiSlug": "Radical",
@@ -7793,9 +7741,7 @@
     {
       "displayName": "Agitator",
       "faction": "Automatons",
-      "subfactions": [
-        "Cyborg Legion"
-      ],
+      "subfactions": ["Cyborg Legion"],
       "description": "Cyborg field commanders, able to take direct command of their Automaton underlings.",
       "enemyClass": "Medium",
       "wikiSlug": "Agitator",
@@ -7934,9 +7880,7 @@
     {
       "displayName": "Vox Engine",
       "faction": "Automatons",
-      "subfactions": [
-        "Cyborg Legion"
-      ],
+      "subfactions": ["Cyborg Legion"],
       "description": "Massive Cyborg Mech equipped with heavy fusion cannons, a missile array, and gatling guns.",
       "enemyClass": "Massive",
       "wikiSlug": "Vox_Engine",
@@ -8119,9 +8063,7 @@
     {
       "displayName": "Voteless",
       "faction": "Illuminate",
-      "subfactions": [
-        "Mindless Masses"
-      ],
+      "subfactions": ["Mindless Masses"],
       "description": "An Agile skirmisher unit that attacks in hordes.",
       "enemyClass": "Small",
       "wikiSlug": "Voteless",
@@ -8866,9 +8808,7 @@
     {
       "displayName": "Fleshmob",
       "faction": "Illuminate",
-      "subfactions": [
-        "Mindless Masses"
-      ],
+      "subfactions": ["Mindless Masses"],
       "description": "An amalgamation of Voteless corpses, this large Illuminate unit specializes in close-quarters combat and charges at Helldivers to attack.",
       "enemyClass": "Large",
       "wikiSlug": "Fleshmob",
@@ -9613,9 +9553,7 @@
     {
       "displayName": "Veracitor",
       "faction": "Illuminate",
-      "subfactions": [
-        "Appropriators"
-      ],
+      "subfactions": ["Appropriators"],
       "description": "A piloted Illuminate war machine, with arm-like appendages.",
       "enemyClass": "Unclassified",
       "wikiSlug": "Veracitor",
@@ -9850,9 +9788,7 @@
     {
       "displayName": "Gatekeeper",
       "faction": "Illuminate",
-      "subfactions": [
-        "Appropriators"
-      ],
+      "subfactions": ["Appropriators"],
       "description": "A piloted Illuminate war machine, with plasma guns and increased armor.",
       "enemyClass": "Unclassified",
       "wikiSlug": "Gatekeeper",
@@ -10116,9 +10052,7 @@
     {
       "displayName": "Obtruder",
       "faction": "Illuminate",
-      "subfactions": [
-        "Appropriators"
-      ],
+      "subfactions": ["Appropriators"],
       "description": "Swarming drones that fire plasma projectiles and travel in groups. A variation of the watcher.",
       "enemyClass": "Unclassified",
       "wikiSlug": "Obtruder",
@@ -10194,9 +10128,7 @@
     {
       "displayName": "Wretch",
       "faction": "Illuminate",
-      "subfactions": [
-        "Vote Snatchers"
-      ],
+      "subfactions": ["Vote Snatchers"],
       "description": "Former Super Earth citizens twisted beyond recognition into ravenous predators as violent as they are nimble.",
       "enemyClass": "Medium",
       "wikiSlug": "Wretch",
@@ -10275,9 +10207,7 @@
     {
       "displayName": "Crusher",
       "faction": "Illuminate",
-      "subfactions": [
-        "Vote Snatchers"
-      ],
+      "subfactions": ["Vote Snatchers"],
       "description": "Ungainly flesh amalgamations that wield massive metallic clubs and are capable of regenerating tissue damage.",
       "enemyClass": "Large",
       "wikiSlug": "Crusher",

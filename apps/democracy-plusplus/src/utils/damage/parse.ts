@@ -2,7 +2,7 @@ import type { PropertyValue } from "../../types";
 
 export function asPropertyRecord(value: PropertyValue | undefined) {
   return value && typeof value === "object" && !Array.isArray(value)
-    ? value as Record<string, PropertyValue>
+    ? (value as Record<string, PropertyValue>)
     : null;
 }
 
@@ -20,7 +20,9 @@ export function parseDamageValue(value: PropertyValue | undefined) {
     return { amount: value, damageType: "Damage" };
   }
   if (typeof value !== "string") return null;
-  const match = value.replace(/,/g, "").match(/(-?\d+(?:\.\d+)?)\s*([^\d-].*)?$/);
+  const match = value
+    .replace(/,/g, "")
+    .match(/(-?\d+(?:\.\d+)?)\s*([^\d-].*)?$/);
   if (!match) return null;
   const amount = Number.parseFloat(match[1]);
   if (!Number.isFinite(amount)) return null;
@@ -32,5 +34,7 @@ export function parseDamageValue(value: PropertyValue | undefined) {
 
 export function parseCount(value: PropertyValue | undefined) {
   const parsed = parseFirstNumber(value);
-  return parsed !== null && Number.isInteger(parsed) && parsed > 0 ? parsed : null;
+  return parsed !== null && Number.isInteger(parsed) && parsed > 0
+    ? parsed
+    : null;
 }
