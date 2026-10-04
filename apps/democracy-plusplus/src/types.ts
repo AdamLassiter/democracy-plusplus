@@ -62,11 +62,41 @@ export type PropertyValue =
 export type ItemProperties = Record<string, PropertyValue>;
 export type ObjectiveTag = 'Eradicate' | 'Commando' | 'Blitz';
 
+export interface WeaponSourceMode {
+  id: string;
+  label: string;
+  roundsPerTrigger?: number;
+  consumes?: 'fixed' | 'remaining';
+  simultaneous?: boolean;
+  compatibleFireRatesRpm?: number[];
+}
+
+export interface WeaponSourceConfiguration {
+  id: string;
+  label: string;
+  default?: true;
+  sourcePath: string[];
+  attackNames: string[];
+  base: Record<string, PropertyValue>;
+  attacks: Record<string, PropertyValue>;
+  capacity?: number;
+  fireRatesRpm?: number[];
+  reload?: WeaponSimulationMetadata['reload'];
+  firingModes?: WeaponSourceMode[];
+  capacitySeconds?: number;
+  listedDps?: number;
+  sourceUrl?: string;
+  sourceVersion?: string;
+  note?: string;
+}
+
 export interface WeaponSimulationMetadata {
   reload?: {
     emptySeconds?: number;
     tacticalSeconds?: number;
     perRoundSeconds?: number;
+    firstRoundSeconds?: number;
+    additionalRoundSeconds?: number;
   };
   fireRateRpm?: number;
   capacity?: number;
@@ -75,6 +105,9 @@ export interface WeaponSimulationMetadata {
   listedDps?: number;
   firingModes?: string[];
   sourceVersion?: string;
+  capacitiesByLabel?: Record<string, number>;
+  reloadSecondsByLabel?: Record<string, number>;
+  selectableFireRatesRpm?: number[];
 }
 
 export interface BaseItem {
@@ -141,7 +174,9 @@ export interface EnemyVariant {
 }
 
 export interface EnemyAnatomyPart {
+  id?: string;
   name: string;
+  count?: number;
   armor: string;
   armorByDifficulty?: Record<string, string>;
   health: string;
@@ -156,6 +191,7 @@ export interface EnemyAnatomyPart {
   bleedDescription?: string;
   fatal?: boolean;
   explosionResistance?: number;
+  explosionVerificationMode?: string;
   demolitionForce?: number;
 }
 
@@ -177,6 +213,8 @@ export interface Enemy {
   imageUrl: string;
   variants: EnemyVariant[];
   anatomy: EnemyAnatomy[];
+  elementalMultipliers?: Partial<Record<"Fire" | "Gas" | "Arc" | "Acid", number>>;
+  statusThresholds?: Partial<Record<string, { minimum: number; guaranteed: number }>>;
 }
 
 export interface BestiaryData {

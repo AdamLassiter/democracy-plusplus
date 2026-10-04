@@ -268,12 +268,15 @@ test("public data files use valid schema keys and value types", async (t) => {
             "listedDps",
             "firingModes",
             "sourceVersion",
+            "capacitiesByLabel",
+            "reloadSecondsByLabel",
+            "selectableFireRatesRpm",
           ], `${context}.simulation`);
           if (simulation.reload !== undefined) {
             const reload = asObject(simulation.reload, `${context}.simulation.reload`);
             assertAllowedKeys(
               reload,
-              ["emptySeconds", "tacticalSeconds", "perRoundSeconds"],
+              ["emptySeconds", "tacticalSeconds", "perRoundSeconds", "firstRoundSeconds", "additionalRoundSeconds"],
               `${context}.simulation.reload`,
             );
             Object.entries(reload).forEach(([key, value]) => {
@@ -282,8 +285,26 @@ test("public data files use valid schema keys and value types", async (t) => {
               assert.ok(value >= 0, `${context}.simulation.reload.${key} must be non-negative`);
             });
           }
+          for (const key of ["capacitiesByLabel", "reloadSecondsByLabel"] as const) {
+            if (simulation[key] === undefined) continue;
+            const labeled = asObject(simulation[key], `${context}.simulation.${key}`);
+            assert.ok(Object.keys(labeled).length > 0, `${context}.simulation.${key} must not be empty`);
+            for (const [label, value] of Object.entries(labeled)) {
+              assert.ok(label.length > 0, `${context}.simulation.${key} labels must not be empty`);
+              assert.equal(typeof value, "number", `${context}.simulation.${key}.${label} must be a number`);
+              assert.ok(Number.isFinite(value) && value > 0, `${context}.simulation.${key}.${label} must be positive`);
+            }
+          }
           if (simulation.firingModes !== undefined) {
             expectStringArray(simulation.firingModes, `${context}.simulation.firingModes`, 1);
+          }
+          if (simulation.selectableFireRatesRpm !== undefined) {
+            assert.ok(Array.isArray(simulation.selectableFireRatesRpm), `${context}.simulation.selectableFireRatesRpm must be an array`);
+            assert.ok(simulation.selectableFireRatesRpm.length > 1, `${context}.simulation.selectableFireRatesRpm must have multiple rates`);
+            for (const value of simulation.selectableFireRatesRpm) {
+              assert.equal(typeof value, "number", `${context}.simulation.selectableFireRatesRpm values must be numbers`);
+              assert.ok(Number.isFinite(value) && value > 0, `${context}.simulation.selectableFireRatesRpm values must be positive`);
+            }
           }
           for (const key of ["fireRateRpm", "capacity", "capacitySeconds", "listedDps"] as const) {
             if (simulation[key] === undefined) continue;
@@ -399,7 +420,7 @@ test("public data files use valid schema keys and value types", async (t) => {
       const enemy = asObject(entry, context);
       assertAllowedKeys(
         enemy,
-        ["displayName", "faction", "subfactions", "description", "enemyClass", "wikiSlug", "wikiImageUrl", "imageUrl", "variants", "anatomy"],
+        ["displayName", "faction", "subfactions", "description", "enemyClass", "wikiSlug", "wikiImageUrl", "imageUrl", "variants", "anatomy", "elementalMultipliers", "statusThresholds"],
         context,
       );
       assertRequiredKeys(
@@ -419,6 +440,29 @@ test("public data files use valid schema keys and value types", async (t) => {
       assert.ok(Array.isArray(enemy.variants), `${context}.variants must be an array`);
       assert.ok(Array.isArray(enemy.anatomy), `${context}.anatomy must be an array`);
       assert.ok(enemy.anatomy.length > 0, `${context}.anatomy must not be empty`);
+      if (enemy.elementalMultipliers !== undefined) {
+        const multipliers = asObject(enemy.elementalMultipliers, `${context}.elementalMultipliers`);
+        assertAllowedKeys(multipliers, ["Fire", "Gas", "Arc", "Acid"], `${context}.elementalMultipliers`);
+        Object.entries(multipliers).forEach(([element, value]) => {
+          assert.equal(typeof value, "number", `${context}.elementalMultipliers.${element} must be numeric`);
+          assert.ok(Number.isFinite(value) && value >= 0, `${context}.elementalMultipliers.${element} must be non-negative`);
+        });
+      }
+      if (enemy.statusThresholds !== undefined) {
+        const thresholds = asObject(enemy.statusThresholds, `${context}.statusThresholds`);
+        Object.entries(thresholds).forEach(([status, rawThreshold]) => {
+          const threshold = asObject(rawThreshold, `${context}.statusThresholds.${status}`);
+          assertAllowedKeys(threshold, ["minimum", "guaranteed"], `${context}.statusThresholds.${status}`);
+          assertRequiredKeys(threshold, ["minimum", "guaranteed"], `${context}.statusThresholds.${status}`);
+          assert.equal(typeof threshold.minimum, "number", `${context}.statusThresholds.${status}.minimum must be numeric`);
+          assert.equal(typeof threshold.guaranteed, "number", `${context}.statusThresholds.${status}.guaranteed must be numeric`);
+          assert.ok((threshold.minimum as number) >= 0, `${context}.statusThresholds.${status}.minimum must be non-negative`);
+          assert.ok(
+            (threshold.guaranteed as number) >= (threshold.minimum as number),
+            `${context}.statusThresholds.${status}.guaranteed must not be below minimum`,
+          );
+        });
+      }
 
       enemy.variants.forEach((entry: unknown, variantIndex: number) => {
         const variant = asObject(entry, `${context}.variants[${variantIndex}]`);
@@ -451,6 +495,7 @@ test("public data files use valid schema keys and value types", async (t) => {
             "bleedDescription",
             "fatal",
             "explosionResistance",
+            "explosionVerificationMode",
             "demolitionForce",
           ], partContext);
           expectString(part.name, `${partContext}.name`);
@@ -474,6 +519,12 @@ test("public data files use valid schema keys and value types", async (t) => {
           }
           if (part.explosionResistance !== undefined) {
             assert.ok(part.explosionResistance <= 1, `${partContext}.explosionResistance must not exceed 1`);
+          }
+          if (part.explosionVerificationMode !== undefined) {
+            assert.ok(
+              ["All", "Outer Radius", "None"].includes(String(part.explosionVerificationMode)),
+              `${partContext}.explosionVerificationMode must be All, Outer Radius, or None`,
+            );
           }
           for (const key of ["damageToMainCapped", "fatal"] as const) {
             if (part[key] !== undefined) assert.equal(typeof part[key], "boolean", `${partContext}.${key} must be boolean`);

@@ -62,14 +62,14 @@
       "reload": {
         "emptySeconds": 3
       },
+      "fireRateRpm": 640,
+      "capacity": 45,
       "firingModes": [
         "Auto",
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 640,
-      "capacity": 45
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -135,14 +135,14 @@
       "reload": {
         "emptySeconds": 3
       },
+      "fireRateRpm": 640,
+      "capacity": 45,
       "firingModes": [
         "Semi",
         "Burst",
         "Full"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 640,
-      "capacity": 45
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -209,13 +209,13 @@
       "reload": {
         "emptySeconds": 3.5
       },
+      "fireRateRpm": 400,
+      "capacity": 60,
       "firingModes": [
         "Auto",
         "Semi"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 400,
-      "capacity": 60
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -281,14 +281,14 @@
       "reload": {
         "emptySeconds": 2.5
       },
+      "fireRateRpm": 920,
+      "capacity": 45,
       "firingModes": [
         "Auto",
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 920,
-      "capacity": 45
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -355,13 +355,13 @@
         "emptySeconds": 3,
         "tacticalSeconds": 1.85
       },
+      "fireRateRpm": 550,
+      "capacity": 30,
       "firingModes": [
         "Semi",
         "Auto"
       ],
-      "sourceVersion": "1.005.000",
-      "fireRateRpm": 550,
-      "capacity": 30
+      "sourceVersion": "1.005.000"
     }
   },
   {
@@ -428,13 +428,13 @@
         "emptySeconds": 4.2,
         "tacticalSeconds": 2.5
       },
+      "fireRateRpm": 790,
+      "capacity": 56,
       "firingModes": [
         "Auto",
         "Semi"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 790,
-      "capacity": 56
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -504,6 +504,20 @@
           "Status Duration": "3 sec"
         }
       }
+    },
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3,
+        "tacticalSeconds": 1.85
+      },
+      "fireRateRpm": 700,
+      "capacity": 40,
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -570,14 +584,18 @@
         "emptySeconds": 3.33,
         "tacticalSeconds": 2.18
       },
+      "fireRateRpm": 600,
+      "capacity": 35,
       "firingModes": [
         "Semi",
         "Burst",
         "Auto"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 600,
-      "capacity": 35
+      "selectableFireRatesRpm": [
+        600,
+        850
+      ],
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -644,14 +662,14 @@
         "emptySeconds": 3.15,
         "tacticalSeconds": 2
       },
+      "fireRateRpm": 640,
+      "capacity": 32,
       "firingModes": [
         "Semi",
         "Burst",
         "Full"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 640,
-      "capacity": 32
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -737,6 +755,19 @@
           "Push Force": "0"
         }
       }
+    },
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3,
+        "tacticalSeconds": 2
+      },
+      "fireRateRpm": 600,
+      "capacity": 45,
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
+      "sourceVersion": "1.004.000"
     }
   },
   {
@@ -804,14 +835,19 @@
         "emptySeconds": 3.58,
         "tacticalSeconds": 3.58
       },
+      "fireRateRpm": 300,
+      "capacity": 49,
       "firingModes": [
         "Total",
         "Volley",
         "Auto"
       ],
-      "sourceVersion": "1.005.000",
-      "fireRateRpm": 300,
-      "capacity": 49
+      "selectableFireRatesRpm": [
+        300,
+        550,
+        750
+      ],
+      "sourceVersion": "1.005.000"
     }
   },
   {
@@ -877,14 +913,14 @@
       "reload": {
         "emptySeconds": 2.8
       },
+      "fireRateRpm": 520,
+      "capacity": 45,
       "firingModes": [
         "Full",
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 520,
-      "capacity": 45
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -959,14 +995,14 @@
       "reload": {
         "emptySeconds": 2.8
       },
+      "fireRateRpm": 475,
+      "capacity": 45,
       "firingModes": [
         "Auto",
         "Burst",
         "Semi"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 475,
-      "capacity": 45
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -1033,14 +1069,14 @@
         "emptySeconds": 3.55,
         "tacticalSeconds": 2.1
       },
+      "fireRateRpm": 490,
+      "capacity": 25,
       "firingModes": [
         "Auto",
         "Burst",
         "Semi"
       ],
-      "sourceVersion": "1.005.000",
-      "fireRateRpm": 490,
-      "capacity": 25
+      "sourceVersion": "1.005.000"
     }
   },
   {
@@ -1107,12 +1143,12 @@
         "emptySeconds": 2.6,
         "tacticalSeconds": 1.7
       },
+      "fireRateRpm": 1050,
+      "capacity": 48,
       "firingModes": [
         "Auto"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 1050,
-      "capacity": 48
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -1178,14 +1214,14 @@
       "reload": {
         "emptySeconds": 2.5
       },
+      "fireRateRpm": 1380,
+      "capacity": 50,
       "firingModes": [
         "Auto",
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.006.001",
-      "fireRateRpm": 1380,
-      "capacity": 50
+      "sourceVersion": "1.006.001"
     }
   },
   {
@@ -1253,14 +1289,14 @@
         "emptySeconds": 3,
         "tacticalSeconds": 2
       },
+      "fireRateRpm": 872,
+      "capacity": 48,
       "firingModes": [
         "Full",
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.006.300",
-      "fireRateRpm": 872,
-      "capacity": 48
+      "sourceVersion": "1.006.300"
     }
   },
   {
@@ -1324,12 +1360,17 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 6.45,
+        "firstRoundSeconds": 1.25,
+        "additionalRoundSeconds": 0.33
+      },
+      "fireRateRpm": 80,
+      "capacity": 16,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.002.003",
-      "fireRateRpm": 80,
-      "capacity": 16
+      "sourceVersion": "1.002.003"
     }
   },
   {
@@ -1418,12 +1459,17 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 6.45,
+        "firstRoundSeconds": 1.25,
+        "additionalRoundSeconds": 0.33
+      },
+      "fireRateRpm": 80,
+      "capacity": 16,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.003.000",
-      "fireRateRpm": 80,
-      "capacity": 16
+      "sourceVersion": "1.003.000"
     }
   },
   {
@@ -1486,12 +1532,17 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 6.45,
+        "firstRoundSeconds": 1.25,
+        "additionalRoundSeconds": 0.33
+      },
+      "fireRateRpm": 80,
+      "capacity": 16,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 80,
-      "capacity": 16
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -1558,13 +1609,13 @@
       "reload": {
         "emptySeconds": 2.5
       },
+      "fireRateRpm": 300,
+      "capacity": 16,
       "firingModes": [
         "Auto",
         "Semi"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 300,
-      "capacity": 16
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -1656,14 +1707,14 @@
       "reload": {
         "emptySeconds": 3
       },
+      "fireRateRpm": 300,
+      "capacity": 26,
+      "listedDps": 100,
       "firingModes": [
         "Burst",
         "Semi"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 300,
-      "capacity": 26,
-      "listedDps": 100
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -1730,13 +1781,13 @@
       "reload": {
         "emptySeconds": 3
       },
+      "fireRateRpm": 330,
+      "capacity": 26,
       "firingModes": [
         "Auto",
         "Semi"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 330,
-      "capacity": 26
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -1835,12 +1886,20 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 3.7,
+        "firstRoundSeconds": 1.25,
+        "additionalRoundSeconds": 0.2
+      },
+      "fireRateRpm": 80,
+      "capacity": 8,
       "firingModes": [
         "Semi"
       ],
       "sourceVersion": "1.006.001",
-      "fireRateRpm": 80,
-      "capacity": 8
+      "capacitiesByLabel": {
+        "x2": 8
+      }
     }
   },
   {
@@ -1904,12 +1963,17 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 3.6,
+        "firstRoundSeconds": 1.5,
+        "additionalRoundSeconds": 0.4
+      },
+      "fireRateRpm": 80,
+      "capacity": 6,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.005.000",
-      "fireRateRpm": 80,
-      "capacity": 6
+      "sourceVersion": "1.005.000"
     }
   },
   {
@@ -1976,12 +2040,12 @@
         "emptySeconds": 2.83,
         "tacticalSeconds": 2.35
       },
+      "fireRateRpm": 350,
+      "capacity": 25,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.002.200",
-      "fireRateRpm": 350,
-      "capacity": 25
+      "sourceVersion": "1.002.200"
     }
   },
   {
@@ -2048,12 +2112,12 @@
         "emptySeconds": 3,
         "tacticalSeconds": 1.9
       },
+      "fireRateRpm": 350,
+      "capacity": 15,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.003.000",
-      "fireRateRpm": 350,
-      "capacity": 15
+      "sourceVersion": "1.003.000"
     }
   },
   {
@@ -2116,12 +2180,17 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 6.4,
+        "firstRoundSeconds": 2.3,
+        "additionalRoundSeconds": 0.6
+      },
+      "fireRateRpm": 100,
+      "capacity": 8,
       "firingModes": [
         "Lever-Action"
       ],
-      "sourceVersion": "1.002.200",
-      "fireRateRpm": 100,
-      "capacity": 8
+      "sourceVersion": "1.002.200"
     }
   },
   {
@@ -2188,13 +2257,13 @@
         "emptySeconds": 3.5,
         "tacticalSeconds": 2.8
       },
+      "fireRateRpm": 480,
+      "capacity": 20,
       "firingModes": [
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.006.300",
-      "fireRateRpm": 480,
-      "capacity": 20
+      "sourceVersion": "1.006.300"
     }
   },
   {
@@ -2259,14 +2328,16 @@
     },
     "simulation": {
       "reload": {
-        "perRoundSeconds": 1.3
+        "emptySeconds": 1.3,
+        "firstRoundSeconds": 0.95,
+        "additionalRoundSeconds": 0.3
       },
+      "fireRateRpm": 60,
+      "capacity": 5,
       "firingModes": [
         "Bolt-Action"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 60,
-      "capacity": 5
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -2360,9 +2431,9 @@
       "reload": {
         "emptySeconds": 3
       },
-      "sourceVersion": "1.003.000",
-      "capacity": 8,
-      "listedDps": 350
+      "capacitySeconds": 8,
+      "listedDps": 350,
+      "sourceVersion": "1.003.000"
     }
   },
   {
@@ -2438,12 +2509,13 @@
         "emptySeconds": 2.25,
         "tacticalSeconds": 2.83
       },
+      "fireRateRpm": 750,
+      "capacity": 87,
+      "capacitySeconds": 7,
       "firingModes": [
         "Automatic"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 750,
-      "capacity": 7
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -2537,13 +2609,13 @@
         "emptySeconds": 2.5,
         "tacticalSeconds": 2.5
       },
+      "fireRateRpm": 350,
+      "capacity": 20,
       "firingModes": [
         "Semi",
         "Auto"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 350,
-      "capacity": 20
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -2695,9 +2767,9 @@
         "emptySeconds": 2.5,
         "tacticalSeconds": 2.5
       },
-      "sourceVersion": "1.001.201",
       "fireRateRpm": 1000,
-      "capacity": 15
+      "capacity": 15,
+      "sourceVersion": "1.001.201"
     }
   },
   {
@@ -2793,12 +2865,12 @@
         "emptySeconds": 2.5,
         "tacticalSeconds": 2.5
       },
+      "fireRateRpm": 80,
+      "capacity": 10,
       "firingModes": [
         "Semi-automatic"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 80,
-      "capacity": 10
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -2867,12 +2939,12 @@
       }
     },
     "simulation": {
+      "fireRateRpm": 45,
+      "infiniteCapacity": true,
       "firingModes": [
         "None"
       ],
-      "sourceVersion": "1.003.200",
-      "fireRateRpm": 45,
-      "infiniteCapacity": true
+      "sourceVersion": "1.003.200"
     }
   },
   {
@@ -3025,12 +3097,13 @@
       "reload": {
         "tacticalSeconds": 2.83
       },
+      "fireRateRpm": 700,
+      "capacity": 175,
+      "capacitySeconds": 15,
       "firingModes": [
         "Automatic"
       ],
-      "sourceVersion": "1.006.202",
-      "fireRateRpm": 700,
-      "capacity": 15
+      "sourceVersion": "1.006.202"
     }
   },
   {
@@ -3132,12 +3205,12 @@
         "emptySeconds": 3.4,
         "tacticalSeconds": 3.4
       },
+      "fireRateRpm": 550,
+      "capacity": 9,
       "firingModes": [
         "Burst Fire"
       ],
-      "sourceVersion": "1.004.100",
-      "fireRateRpm": 550,
-      "capacity": 9
+      "sourceVersion": "1.004.100"
     }
   },
   {
@@ -3260,12 +3333,12 @@
         "emptySeconds": 4.67,
         "tacticalSeconds": 2.75
       },
+      "fireRateRpm": 32,
+      "capacity": 5,
       "firingModes": [
         "Bolt-Action"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 32,
-      "capacity": 5
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -3359,9 +3432,9 @@
         "emptySeconds": 3.33,
         "tacticalSeconds": 3.33
       },
-      "sourceVersion": "1.002.200",
       "fireRateRpm": 50,
-      "capacity": 5
+      "capacity": 5,
+      "sourceVersion": "1.002.200"
     }
   },
   {
@@ -3428,13 +3501,13 @@
         "emptySeconds": 3.8,
         "tacticalSeconds": 2.65
       },
+      "fireRateRpm": 250,
+      "capacity": 15,
       "firingModes": [
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.003.000",
-      "fireRateRpm": 250,
-      "capacity": 15
+      "sourceVersion": "1.003.000"
     }
   },
   {
@@ -3533,13 +3606,13 @@
         "emptySeconds": 3.25,
         "tacticalSeconds": 3.25
       },
+      "capacity": 100,
+      "capacitySeconds": 12.4,
+      "listedDps": 150,
       "firingModes": [
         "None"
       ],
-      "sourceVersion": "1.006.100",
-      "capacity": 100,
-      "capacitySeconds": 12.4,
-      "listedDps": 150
+      "sourceVersion": "1.006.100"
     }
   },
   {
@@ -3667,6 +3740,24 @@
           "Push Force": "30"
         }
       }
+    },
+    "simulation": {
+      "reload": {
+        "tacticalSeconds": 1.95
+      },
+      "fireRateRpm": 650,
+      "capacity": 40,
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst",
+        "40mm"
+      ],
+      "sourceVersion": "1.007.100",
+      "reloadSecondsByLabel": {
+        "8mm": 3.33,
+        "40mm": 2.5
+      }
     }
   },
   {
@@ -3735,12 +3826,12 @@
         "tacticalSeconds": 1.9,
         "perRoundSeconds": 1.9
       },
+      "fireRateRpm": 650,
+      "capacity": 2,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.006.001",
-      "fireRateRpm": 650,
-      "capacity": 2
+      "sourceVersion": "1.006.001"
     }
   },
   {
@@ -3807,13 +3898,13 @@
       "reload": {
         "emptySeconds": 3
       },
+      "fireRateRpm": 850,
+      "capacity": 45,
       "firingModes": [
         "Semi",
         "Auto"
       ],
-      "sourceVersion": "1.007.100",
-      "fireRateRpm": 850,
-      "capacity": 45
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -3880,12 +3971,12 @@
       "reload": {
         "emptySeconds": 2.5
       },
+      "fireRateRpm": 400,
+      "capacity": 20,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.006.100",
-      "fireRateRpm": 400,
-      "capacity": 20
+      "sourceVersion": "1.006.100"
     }
   },
   {
@@ -4015,14 +4106,17 @@
     },
     "simulation": {
       "reload": {
-        "emptySeconds": 2.8,
         "tacticalSeconds": 1.73
       },
-      "sourceVersion": "1.007.000",
       "fireRateRpm": 420,
       "capacity": 45,
       "capacitySeconds": 6.1,
-      "listedDps": 150
+      "listedDps": 150,
+      "sourceVersion": "1.007.000",
+      "reloadSecondsByLabel": {
+        "12mm": 2.8,
+        "Flamethrower": 2.3
+      }
     }
   },
   {
@@ -4086,12 +4180,17 @@
       }
     },
     "simulation": {
+      "reload": {
+        "emptySeconds": 4,
+        "firstRoundSeconds": 1.5,
+        "additionalRoundSeconds": 0.43
+      },
+      "fireRateRpm": 150,
+      "capacity": 7,
       "firingModes": [
         "Auto"
       ],
-      "sourceVersion": "1.006.300",
-      "fireRateRpm": 150,
-      "capacity": 7
+      "sourceVersion": "1.006.300"
     }
   },
   {
@@ -4164,12 +4263,13 @@
         "emptySeconds": 2.9,
         "tacticalSeconds": 3.67
       },
+      "fireRateRpm": 300,
+      "capacity": 10,
+      "capacitySeconds": 2,
       "firingModes": [
         "Auto"
       ],
-      "sourceVersion": "1.007.100",
-      "fireRateRpm": 300,
-      "capacity": 2
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -4235,14 +4335,14 @@
       "reload": {
         "emptySeconds": 2.5
       },
+      "fireRateRpm": 1380,
+      "capacity": 50,
       "firingModes": [
         "Auto",
         "Semi",
         "Burst"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 1380,
-      "capacity": 50
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -4330,13 +4430,13 @@
       "reload": {
         "emptySeconds": 2.5
       },
+      "fireRateRpm": 190,
+      "capacity": 15,
+      "listedDps": 100,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.006.300",
-      "fireRateRpm": 190,
-      "capacity": 15,
-      "listedDps": 100
+      "sourceVersion": "1.006.300"
     }
   },
   {
@@ -4402,12 +4502,12 @@
         "emptySeconds": 2.9,
         "tacticalSeconds": 2.9
       },
+      "fireRateRpm": 210,
+      "capacity": 12,
       "firingModes": [
         "Semi"
       ],
-      "sourceVersion": "1.007.000",
-      "fireRateRpm": 210,
-      "capacity": 12
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -4511,14 +4611,17 @@
         "emptySeconds": 3.75,
         "tacticalSeconds": 2.35
       },
+      "fireRateRpm": 1200,
       "firingModes": [
         "Auto",
         "Burst",
         "10g"
       ],
       "sourceVersion": "1.007.100",
-      "fireRateRpm": 1200,
-      "capacity": 45
+      "capacitiesByLabel": {
+        "4mm": 45,
+        "10g": 4
+      }
     }
   },
   {
@@ -4608,14 +4711,16 @@
     },
     "simulation": {
       "reload": {
-        "perRoundSeconds": 2.67
+        "emptySeconds": 2.75,
+        "firstRoundSeconds": 1.45,
+        "additionalRoundSeconds": 0.45
       },
+      "fireRateRpm": 60,
+      "capacity": 4,
       "firingModes": [
         "Pump-Action"
       ],
-      "sourceVersion": "1.007.100",
-      "fireRateRpm": 60,
-      "capacity": 4
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -4687,9 +4792,10 @@
         "emptySeconds": 2,
         "tacticalSeconds": 2
       },
-      "sourceVersion": "1.007.100",
       "fireRateRpm": 800,
-      "capacity": 4
+      "capacity": 53,
+      "capacitySeconds": 4,
+      "sourceVersion": "1.007.100"
     }
   }
 ]

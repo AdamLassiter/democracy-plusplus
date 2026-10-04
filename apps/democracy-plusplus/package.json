@@ -16,6 +16,7 @@
     "enrichData": "node --experimental-strip-types scripts/dataEnricher.ts",
     "downloadImages": "node --experimental-strip-types scripts/imageDownloader.ts",
     "rescaleImages": "node --experimental-strip-types scripts/imageRescaler.ts",
+    "damageCoverage": "node --experimental-strip-types scripts/damageCoverage.ts",
     "deploy": "npm run build:cloudflare && wrangler deploy"
   },
   "dependencies": {

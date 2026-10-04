@@ -32,6 +32,23 @@ test("parseWeaponSimulationMetadata reads magazine reloads and firing modes", ()
   });
 });
 
+test("parseWeaponSimulationMetadata reads the current Weapon template and comma-formatted rates", () => {
+  const source = `{{Weapon
+| reload_time = 3s
+| tac_reload_time = 2s
+| fire_rate = 1,380 rpm
+| capacity = 45
+| firing_modes = Auto {{*}} Semi
+}}`;
+
+  assert.deepEqual(parseWeaponSimulationMetadata(source), {
+    reload: { emptySeconds: 3, tacticalSeconds: 2 },
+    fireRateRpm: 1380,
+    capacity: 45,
+    firingModes: ["Auto", "Semi"],
+  });
+});
+
 test("parseWeaponSimulationMetadata distinguishes per-round reloads", () => {
   const source = `{{Infobox Weapon
 | reload_time = 0.6s per round
@@ -44,6 +61,59 @@ test("parseWeaponSimulationMetadata distinguishes per-round reloads", () => {
     firingModes: ["Semi"],
   });
   assert.equal(parseWeaponSimulationMetadata("No weapon infobox."), undefined);
+});
+
+test("parseWeaponSimulationMetadata reads current rounds-reload timing fields", () => {
+  const source = `{{Last Updated|1.006.300}}
+{{Infobox Weapon
+| rounds_reload_full_time = 4s
+| rounds_reload_first = 1.5s (Empty)<br>0.43s (Partial)
+| rounds_reload_rest = 0.43s
+| firing_modes = Auto
+| weapon_traits = Medium Armor Penetrating {{*}} Rounds Reload
+}}`;
+
+  assert.deepEqual(parseWeaponSimulationMetadata(source), {
+    reload: {
+      emptySeconds: 4,
+      firstRoundSeconds: 1.5,
+      additionalRoundSeconds: 0.43,
+    },
+    firingModes: ["Auto"],
+    sourceVersion: "1.006.300",
+  });
+});
+
+test("parseWeaponSimulationMetadata keeps compound-weapon round reloads out of the base profile", () => {
+  const source = `{{Infobox Weapon
+| capacity = 45 (4mm)<hr>4 (10g)
+| reload_time = 3.75s
+| tac_reload_time = 2.35s
+| rounds_reload_full_time = 2.5s
+| rounds_reload_first = 1.5s
+| rounds_reload_rest = 0.33s
+| weapon_traits = Rounds Reload
+}}`;
+
+  assert.deepEqual(parseWeaponSimulationMetadata(source), {
+    reload: { emptySeconds: 3.75, tacticalSeconds: 2.35 },
+    capacitiesByLabel: { "4mm": 45, "10g": 4 },
+  });
+});
+
+test("parseWeaponSimulationMetadata preserves separately labelled subweapon values", () => {
+  const source = `{{Infobox Weapon
+| capacity = 40 (Rifle)<br>1 (Grenade launcher)
+| reload_time = 3.33s (Rifle)<br>2.5s (Grenade launcher)
+| fire_rate = 300 / 550 / 750 rpm
+}}`;
+
+  assert.deepEqual(parseWeaponSimulationMetadata(source), {
+    fireRateRpm: 300,
+    capacitiesByLabel: { Rifle: 40, "Grenade launcher": 1 },
+    reloadSecondsByLabel: { Rifle: 3.33, "Grenade launcher": 2.5 },
+    selectableFireRatesRpm: [300, 550, 750],
+  });
 });
 
 test("parseWeaponSimulationMetadata reads source fallbacks for unusual weapon cycles", () => {
@@ -69,6 +139,16 @@ Each canister contains enough fuel for 12.4 seconds of sustained fire.`;
     capacity: 100,
     capacitySeconds: 12.4,
     listedDps: 150,
+  });
+
+  const heatProjectile = `{{Infobox Weapon
+| capacity = 15s (175)
+| fire_rate = 700 rpm
+}}`;
+  assert.deepEqual(parseWeaponSimulationMetadata(heatProjectile), {
+    fireRateRpm: 700,
+    capacity: 175,
+    capacitySeconds: 15,
   });
 });
 
@@ -348,6 +428,8 @@ test("parseEnemyPageSource reads anatomy tabs, armor values, and variants", () =
 | image = Test Enemy Icon.png
 | class = Heavy
 | description = A test enemy.
+| fire_mult = 1.5
+| gas_mult = 0.8
 }}
 == Anatomy ==
 <tabber>
@@ -364,6 +446,7 @@ test("parseEnemyPageSource reads anatomy tabs, armor values, and variants", () =
     | bleed = 1,000 [-100/s]
     | fatal = Yes<br>(Downs)
     | exdr = 25%
+    | exvm = Outer Radius
     | df = 30
   }}
 }}
@@ -399,6 +482,7 @@ Test Variant Enemy Icon.png|[[Test Variant]]
   assert.equal(enemy.enemyClass, "Heavy");
   assert.equal(enemy.description, "A test enemy.");
   assert.equal(enemy.imageFileTitle, "File:Test Enemy Icon.png");
+  assert.deepEqual(enemy.elementalMultipliers, { Fire: 1.5, Gas: 0.8 });
   assert.deepEqual(enemy.anatomy, [
     {
       name: "Intact",
@@ -415,6 +499,7 @@ Test Variant Enemy Icon.png|[[Test Variant]]
         bleedDescription: "1,000 [-100/s]",
         fatal: true,
         explosionResistance: 0.25,
+        explosionVerificationMode: "Outer Radius",
         demolitionForce: 30,
       }],
     },

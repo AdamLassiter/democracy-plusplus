@@ -76,6 +76,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Scavenger_Enemy_Icon.png"
     },
     {
@@ -128,6 +131,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Bile_Spitter_Enemy_Icon.png"
     },
     {
@@ -180,6 +186,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Pouncer_Enemy_Icon.png"
     },
     {
@@ -212,14 +221,14 @@
               "name": "Main",
               "armor": "0",
               "health": "130 [Default] 160 at 4",
+              "healthByDifficulty": {
+                "4": 160
+              },
               "durability": "0%",
               "bleed": null,
               "bleedDescription": "None",
               "fatal": true,
-              "explosionResistance": 0,
-              "healthByDifficulty": {
-                "4": 160
-              }
+              "explosionResistance": 0
             },
             {
               "name": "Head",
@@ -237,31 +246,31 @@
               "name": "Claws (2)",
               "armor": "0",
               "health": "45 [Default] 60 at 4",
+              "healthByDifficulty": {
+                "4": 60
+              },
               "durability": "0%",
               "percentToMain": 0.4,
               "damageToMainCapped": false,
               "bleed": null,
               "bleedDescription": "None",
               "fatal": false,
-              "explosionResistance": 1,
-              "healthByDifficulty": {
-                "4": 60
-              }
+              "explosionResistance": 1
             },
             {
               "name": "Legs (4)",
               "armor": "0",
               "health": "45 [Default] 60 at 4",
+              "healthByDifficulty": {
+                "4": 60
+              },
               "durability": "0%",
               "percentToMain": 0.5,
               "damageToMainCapped": false,
               "bleed": null,
               "bleedDescription": "None",
               "fatal": false,
-              "explosionResistance": 1,
-              "healthByDifficulty": {
-                "4": 60
-              }
+              "explosionResistance": 1
             },
             {
               "name": "Wings (2)",
@@ -278,6 +287,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.7
+      },
       "imageUrl": "enemies/Hunter_Enemy_Icon.png"
     },
     {
@@ -342,6 +354,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Shrieker_Enemy_Icon.png"
     },
     {
@@ -386,19 +401,22 @@
               "name": "Main",
               "armor": "1",
               "health": "250 [Default] 325 at 4",
+              "healthByDifficulty": {
+                "4": 325
+              },
               "durability": "20%",
               "bleed": null,
               "bleedDescription": "None",
               "fatal": true,
-              "explosionResistance": 0,
-              "healthByDifficulty": {
-                "4": 325
-              }
+              "explosionResistance": 0
             },
             {
               "name": "Head",
               "armor": "1",
               "health": "110 [Default] 150 at 4",
+              "healthByDifficulty": {
+                "4": 150
+              },
               "durability": "20%",
               "percentToMain": 1,
               "damageToMainCapped": false,
@@ -408,44 +426,44 @@
               },
               "bleedDescription": "200 [-70/s]",
               "fatal": true,
-              "explosionResistance": 1,
-              "healthByDifficulty": {
-                "4": 150
-              }
+              "explosionResistance": 1
             },
             {
               "name": "Claws (2)",
               "armor": "1",
               "health": "75 [Default] 100 at 4",
+              "healthByDifficulty": {
+                "4": 100
+              },
               "durability": "0%",
               "percentToMain": 0.4,
               "damageToMainCapped": false,
               "bleed": null,
               "bleedDescription": "None",
               "fatal": false,
-              "explosionResistance": 1,
-              "healthByDifficulty": {
-                "4": 100
-              }
+              "explosionResistance": 1
             },
             {
               "name": "Legs (4)",
               "armor": "1",
               "health": "75 [Default] 100 at 4",
+              "healthByDifficulty": {
+                "4": 100
+              },
               "durability": "0%",
               "percentToMain": 0.4,
               "damageToMainCapped": false,
               "bleed": null,
               "bleedDescription": "None",
               "fatal": false,
-              "explosionResistance": 1,
-              "healthByDifficulty": {
-                "4": 100
-              }
+              "explosionResistance": 1
             }
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.8
+      },
       "imageUrl": "enemies/Warrior_Enemy_Icon.png"
     },
     {
@@ -538,6 +556,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.8
+      },
       "imageUrl": "enemies/Bile_Warrior_Enemy_Icon.png"
     },
     {
@@ -630,6 +651,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.8
+      },
       "imageUrl": "enemies/Alpha_Warrior_Enemy_Icon.png"
     },
     {
@@ -721,6 +745,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.8
+      },
       "imageUrl": "enemies/Hive_Guard_Enemy_Icon.png"
     },
     {
@@ -834,6 +861,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Nursing_Spewer_Enemy_Icon.png"
     },
     {
@@ -946,6 +976,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Bile_Spewer_Enemy_Icon.png"
     },
     {
@@ -1020,6 +1053,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Brood_Commander_Enemy_Icon.png"
     },
     {
@@ -1087,6 +1123,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Alpha_Commander_Enemy_Icon.png"
     },
     {
@@ -1194,6 +1233,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Stalker_Enemy_Icon.png"
     },
     {
@@ -1364,6 +1406,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Charger_Enemy_Icon.png"
     },
     {
@@ -1546,6 +1591,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Spore_Charger_Enemy_Icon.png"
     },
     {
@@ -1716,6 +1764,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Charger_Behemoth_Enemy_Icon.png"
     },
     {
@@ -1876,6 +1927,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.7
+      },
       "imageUrl": "enemies/Impaler_Enemy_Icon.png"
     },
     {
@@ -2050,6 +2104,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.7
+      },
       "imageUrl": "enemies/Bile_Titan_Enemy_Icon.png"
     },
     {
@@ -2201,6 +2258,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.7
+      },
       "imageUrl": "enemies/Dragonroach_Enemy_Icon.png"
     },
     {
@@ -2478,6 +2538,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Hive_Lord_Enemy_Icon.png"
     },
     {
@@ -2569,6 +2632,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.7
+      },
       "imageUrl": "enemies/Predator_Hunter_Enemy_Icon.png"
     },
     {
@@ -2683,6 +2749,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Predator_Stalker_Enemy_Icon.png"
     },
     {
@@ -2744,6 +2813,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Spore_Burst_Scavenger_Enemy_Icon.png"
     },
     {
@@ -2835,6 +2907,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.7
+      },
       "imageUrl": "enemies/Spore_Burst_Hunter_Enemy_Icon.png"
     },
     {
@@ -2929,6 +3004,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.8
+      },
       "imageUrl": "enemies/Spore_Burst_Warrior_Enemy_Icon.png"
     },
     {
@@ -3105,6 +3183,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.7
+      },
       "imageUrl": "enemies/Spore_Burst_Bile_Titan_Enemy_Icon.png"
     },
     {
@@ -3199,6 +3280,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.8
+      },
       "imageUrl": "enemies/Rupture_Warrior_Enemy_Icon.png"
     },
     {
@@ -3497,6 +3581,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Rupture_Charger_Enemy_Icon.png"
     },
     {
@@ -3586,6 +3673,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Trooper_Enemy_Icon.png"
     },
     {
@@ -3674,6 +3764,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Brawler_Enemy_Icon.png"
     },
     {
@@ -3757,6 +3850,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Commissar_Enemy_Icon.png"
     },
     {
@@ -3840,6 +3936,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Rocket_Raider_Enemy_Icon.png"
     },
     {
@@ -3933,6 +4032,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Assault_Raider_Enemy_Icon.png"
     },
     {
@@ -4009,6 +4111,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Marauder_Enemy_Icon.png"
     },
     {
@@ -4120,6 +4225,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/MG_Raider_Enemy_Icon.png"
     },
     {
@@ -4232,6 +4340,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Berserker_Enemy_Icon.png"
     },
     {
@@ -4376,6 +4487,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Devastator_Enemy_Icon.png"
     },
     {
@@ -4543,6 +4657,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Rocket_Devastator_Enemy_Icon.png"
     },
     {
@@ -4708,6 +4825,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Heavy_Devastator_Enemy_Icon.png"
     },
     {
@@ -4865,6 +4985,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Scout_Strider_Enemy_Icon.png"
     },
     {
@@ -4969,6 +5092,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Reinforced_Scout_Strider_Enemy_Icon.png"
     },
     {
@@ -5082,6 +5208,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Hulk_Obliterator_Enemy_Icon.png"
     },
     {
@@ -5195,6 +5324,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Hulk_Scorcher_Enemy_Icon.png"
     },
     {
@@ -5308,6 +5440,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Hulk_Bruiser_Enemy_Icon.png"
     },
     {
@@ -5442,6 +5577,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/War_Strider_Enemy_Icon.png"
     },
     {
@@ -5552,6 +5690,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Annihilator_Tank_Enemy_Icon.png"
     },
     {
@@ -5662,6 +5803,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Shredder_Tank_Enemy_Icon.png"
     },
     {
@@ -5760,6 +5904,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Barrager_Tank_Enemy_Icon.png"
     },
     {
@@ -6208,6 +6355,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Factory_Strider_Enemy_Icon.png"
     },
     {
@@ -6308,6 +6458,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Jet_Brigade_Commissar_Enemy_Icon.png"
     },
     {
@@ -6414,6 +6567,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Jet_Brigade_Trooper_Enemy_Icon.png"
     },
     {
@@ -6514,6 +6670,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Jet_Brigade_MG_Raider_Enemy_Icon.png"
     },
     {
@@ -6669,6 +6828,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Jet_Brigade_Devastator_Enemy_Icon.png"
     },
     {
@@ -6779,6 +6941,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Jet_Brigade_Hulk_Scorcher_Enemy_Icon.png"
     },
     {
@@ -6889,6 +7054,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Jet_Brigade_Hulk_Bruiser_Enemy_Icon.png"
     },
     {
@@ -6995,6 +7163,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Pyro_Trooper_Enemy_Icon.png"
     },
     {
@@ -7080,6 +7251,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Incendiary_Rocket_Raider_Enemy_Icon.png"
     },
     {
@@ -7229,6 +7403,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Incendiary_MG_Devastator_Enemy_Icon.png"
     },
     {
@@ -7377,6 +7554,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.25
+      },
       "imageUrl": "enemies/Conflagration_Devastator_Enemy_Icon.png"
     },
     {
@@ -7488,6 +7668,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Hulk_Firebomber_Enemy_Icon.png"
     },
     {
@@ -7602,6 +7785,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Radical_Enemy_Icon.png"
     },
     {
@@ -7740,6 +7926,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5
+      },
       "imageUrl": "enemies/Agitator_Enemy_Icon.png"
     },
     {
@@ -7922,6 +8111,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Vox_Engine_Enemy_Icon.png"
     },
     {
@@ -8141,6 +8333,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.75
+      },
       "imageUrl": "enemies/Voteless_Enemy_Icon.png"
     },
     {
@@ -8663,6 +8858,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Crescent_Overseer_Enemy_Icon.png"
     },
     {
@@ -8741,6 +8939,10 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.8,
+        "Arc": 1.8
+      },
       "imageUrl": "enemies/Fleshmob_Enemy_Icon.png"
     },
     {
@@ -9012,6 +9214,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Harvester_Enemy_Icon.png"
     },
     {
@@ -9637,6 +9842,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Veracitor_Enemy_Icon.png"
     },
     {
@@ -9900,6 +10108,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1
+      },
       "imageUrl": "enemies/Gatekeeper_Enemy_Icon.png"
     },
     {
@@ -10056,6 +10267,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Wretch_Enemy_Icon.png"
     },
     {
@@ -10158,6 +10372,9 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 1.5
+      },
       "imageUrl": "enemies/Crusher_Enemy_Icon.png"
     },
     {
@@ -10384,6 +10601,10 @@
           ]
         }
       ],
+      "elementalMultipliers": {
+        "Fire": 0.5,
+        "Gas": 1.3
+      },
       "imageUrl": "enemies/Helldiver_Enemy_Icon.png"
     }
   ]

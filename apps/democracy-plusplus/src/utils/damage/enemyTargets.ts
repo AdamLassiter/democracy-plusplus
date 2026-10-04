@@ -1,6 +1,22 @@
 import type { Enemy, EnemyAnatomy, EnemyAnatomyPart } from "../../types";
 import { effectiveArmor } from "../capabilities.ts";
-import type { EnemyTargetResult } from "./types.ts";
+import { explosionScenariosFor } from "./explosionScenarios.ts";
+import type { EnemyTargetPart, EnemyTargetResult } from "./types.ts";
+
+export function simulationId(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\s*\(\d+\)\s*$/, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function enemyPartCount(part: EnemyAnatomyPart) {
+  if (part.count !== undefined) return part.count;
+  const match = part.name.match(/\((\d+)\)\s*$/);
+  return match ? Number(match[1]) : 1;
+}
 
 function parseNumber(value: string) {
   const match = value.replace(/,/g, "").match(/-?\d+(?:\.\d+)?/);
@@ -90,16 +106,48 @@ export function normalizeEnemyTarget(
     return { target: null, unsupportedReasons };
   }
 
+  const normalizedParts = anatomy.parts.flatMap<EnemyTargetPart>((candidate) => {
+    const candidateDurability = parsePercentage(candidate.durability);
+    const candidateIsMain = candidate === mainPart;
+    const candidateHitsMain = candidateIsMain || /^main$/i.test(candidate.health.trim());
+    const candidateHealth = candidateHitsMain ? null : effectiveEnemyHealth(candidate, difficulty);
+    if (candidateDurability === null || candidate.explosionResistance === undefined) return [];
+    if (!candidateHitsMain && (candidateHealth === null || candidateHealth <= 0)) return [];
+    return [{
+      id: candidate.id ?? simulationId(candidate.name),
+      name: candidate.name,
+      count: enemyPartCount(candidate),
+      armorValue: effectiveArmor(candidate, difficulty),
+      durability: candidateDurability,
+      explosionResistance: candidate.explosionResistance,
+      partHealth: candidateHealth,
+      damageToMain: candidateIsMain ? 1 : candidate.percentToMain ?? 0,
+      damageToMainCapped: candidate.damageToMainCapped ?? false,
+      fatal: candidate.fatal ?? false,
+      constitution: !candidateIsMain && candidate.bleed
+        ? { health: candidate.bleed.constitution, decayPerSecond: candidate.bleed.decayPerSecond }
+        : null,
+      explosionVerificationMode: candidate.explosionVerificationMode,
+    }];
+  });
+  const enemyId = simulationId(enemy.wikiSlug || enemy.displayName);
+  const anatomyId = simulationId(anatomy.name);
+  const aimedPartId = part.id ?? simulationId(part.name);
+
   return {
     target: {
+      enemyId,
       enemyName: enemy.displayName,
+      anatomyId,
       anatomyName: anatomy.name,
+      aimedPartId,
       partName: part.name,
       difficulty,
       armorValue: effectiveArmor(part, difficulty),
       durability,
       explosionResistance: part.explosionResistance ?? 0,
       mainHealth,
+      mainArmorValue: effectiveArmor(mainPart, difficulty),
       partHealth,
       damageToMain: isMainRow ? 1 : part.percentToMain ?? 0,
       damageToMainCapped: part.damageToMainCapped ?? false,
@@ -110,6 +158,10 @@ export function normalizeEnemyTarget(
       partConstitution: part !== mainPart && part.bleed
         ? { health: part.bleed.constitution, decayPerSecond: part.bleed.decayPerSecond }
         : null,
+      parts: normalizedParts,
+      explosionScenarios: explosionScenariosFor(enemyId, anatomyId),
+      elementalMultipliers: enemy.elementalMultipliers ?? {},
+      statusThresholds: enemy.statusThresholds ?? {},
     },
     unsupportedReasons: [],
   };

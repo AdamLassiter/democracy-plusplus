@@ -919,23 +919,64 @@ function parseInfoboxList(value: string | undefined) {
     .filter(Boolean);
 }
 
+function parseLabeledNumbers(value: string | undefined) {
+  const result: Record<string, number> = {};
+  const normalized = cleanEnemyValue(value);
+  for (const match of normalized.matchAll(/(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)?\s*\(([^)]+)\)/gi)) {
+    const label = match[2].trim();
+    if (!/[a-z]/i.test(label)) continue;
+    result[label] = Number.parseFloat(match[1]);
+  }
+  return result;
+}
+
 export function parseWeaponSimulationMetadata(content: string): WeaponSimulationMetadata | undefined {
-  const infobox = extractTemplateInvocations(content, "Infobox[_ ]Weapon")[0];
+  const infobox = extractTemplateInvocations(content, "(?:Infobox[_ ]Weapon|Weapon)")[0];
   if (!infobox) return undefined;
 
   const parameters = parseTemplateParameters(infobox.text);
-  const reloadSeconds = parseSeconds(parameters.get("reload_time"));
+  const reloadSecondsByLabel = parseLabeledNumbers(parameters.get("reload_time"));
+  const reloadSeconds = Object.keys(reloadSecondsByLabel).length > 1
+    ? null
+    : parseSeconds(parameters.get("reload_time"));
   const tacticalSeconds = parseSeconds(parameters.get("tac_reload_time"));
+  const roundsReloadFullSeconds = parseSeconds(parameters.get("rounds_reload_full_time"));
+  const roundsReloadFirstByLabel = parseLabeledNumbers(parameters.get("rounds_reload_first"));
+  const roundsReloadFirstSeconds = Object.entries(roundsReloadFirstByLabel)
+    .find(([label]) => label.toLowerCase() === "empty")?.[1]
+    ?? parseSeconds(parameters.get("rounds_reload_first"));
+  const roundsReloadAdditionalSeconds = parseSeconds(parameters.get("rounds_reload_rest"));
   const traits = cleanEnemyValue(parameters.get("weapon_traits"));
   const perRoundReload = /(?:round|shell)s?\s+reload/i.test(traits)
     || /(?:per|\/)\s*(?:round|shell)/i.test(parameters.get("reload_time") ?? "");
   const firingModes = parseInfoboxList(parameters.get("firing_modes"));
   const fireRateRpm = parseAnatomyNumber(parameters.get("fire_rate"));
+  const selectableFireRatesRpm = [...cleanEnemyValue(parameters.get("fire_rate")).replace(/,/g, "").matchAll(/\d+(?:\.\d+)?/g)]
+    .map(([value]) => Number.parseFloat(value));
   const rawCapacity = cleanEnemyValue(parameters.get("capacity"));
-  const capacity = /^\d/.test(rawCapacity) ? parseAnatomyNumber(rawCapacity) : undefined;
+  const capacitiesByLabel = parseLabeledNumbers(parameters.get("capacity"));
+  const multipleConfigurations = Object.keys(capacitiesByLabel).length > 1
+    || Object.keys(reloadSecondsByLabel).length > 1;
+  const structuredRoundsReload = !multipleConfigurations && (
+    roundsReloadFullSeconds !== null
+    || roundsReloadFirstSeconds !== null
+    || roundsReloadAdditionalSeconds !== null
+  );
+  const parentheticalRounds = rawCapacity.match(/\((\d+)\s*(?:rounds?)?\)/i);
+  const capacity = Object.keys(capacitiesByLabel).length > 1
+    ? undefined
+    : parentheticalRounds
+    ? Number.parseInt(parentheticalRounds[1], 10)
+    : /^\d/.test(rawCapacity) && !/^\d+(?:\.\d+)?\s*s(?:ec(?:onds?)?)?\b/i.test(rawCapacity)
+      ? parseAnatomyNumber(rawCapacity)
+      : undefined;
   const infiniteCapacity = /^(?:∞|infinite)$/i.test(rawCapacity);
   const fuelDurationMatch = content.match(/contains enough fuel for\s+(\d+(?:\.\d+)?)\s+seconds?/i);
-  const capacitySeconds = fuelDurationMatch ? Number.parseFloat(fuelDurationMatch[1]) : undefined;
+  const capacitySeconds = fuelDurationMatch
+    ? Number.parseFloat(fuelDurationMatch[1])
+    : /^\d+(?:\.\d+)?\s*s(?:ec(?:onds?)?)?\b/i.test(rawCapacity)
+      ? parseAnatomyNumber(rawCapacity)
+      : undefined;
   const listedDpsMatch = parameters.get("damage")?.match(/(\d+(?:\.\d+)?)\s*DPS\b/i);
   const listedDps = listedDpsMatch ? Number.parseFloat(listedDpsMatch[1]) : undefined;
   const lastUpdated = extractTemplateInvocations(content, "Last Updated")[0];
@@ -943,9 +984,23 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
     ? cleanWikiText(splitTopLevelTemplateParts(lastUpdated.text)[1] ?? "")
     : "";
   const reload = {
-    ...(reloadSeconds === null || perRoundReload ? {} : { emptySeconds: reloadSeconds }),
+    ...(structuredRoundsReload
+      ? roundsReloadFullSeconds !== null
+        ? { emptySeconds: roundsReloadFullSeconds }
+        : reloadSeconds === null ? {} : { emptySeconds: reloadSeconds }
+      : reloadSeconds === null || (perRoundReload && !multipleConfigurations)
+        ? {}
+        : { emptySeconds: reloadSeconds }),
     ...(tacticalSeconds === null ? {} : { tacticalSeconds }),
-    ...(reloadSeconds !== null && perRoundReload ? { perRoundSeconds: reloadSeconds } : {}),
+    ...(!structuredRoundsReload && reloadSeconds !== null && perRoundReload && !multipleConfigurations
+      ? { perRoundSeconds: reloadSeconds }
+      : {}),
+    ...(!structuredRoundsReload || roundsReloadFirstSeconds === null
+      ? {}
+      : { firstRoundSeconds: roundsReloadFirstSeconds }),
+    ...(!structuredRoundsReload || roundsReloadAdditionalSeconds === null
+      ? {}
+      : { additionalRoundSeconds: roundsReloadAdditionalSeconds }),
   };
 
   if (
@@ -956,6 +1011,9 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
     && !infiniteCapacity
     && listedDps === undefined
     && !firingModes.length
+    && selectableFireRatesRpm.length < 2
+    && !Object.keys(capacitiesByLabel).length
+    && !Object.keys(reloadSecondsByLabel).length
     && !sourceVersion
   ) return undefined;
   return {
@@ -966,7 +1024,10 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
     ...(infiniteCapacity ? { infiniteCapacity: true as const } : {}),
     ...(listedDps === undefined ? {} : { listedDps }),
     ...(firingModes.length ? { firingModes } : {}),
+    ...(selectableFireRatesRpm.length > 1 ? { selectableFireRatesRpm } : {}),
     ...(sourceVersion ? { sourceVersion } : {}),
+    ...(Object.keys(capacitiesByLabel).length ? { capacitiesByLabel } : {}),
+    ...(Object.keys(reloadSecondsByLabel).length ? { reloadSecondsByLabel } : {}),
   };
 }
 
@@ -1209,6 +1270,7 @@ export function parseEnemyAnatomy(content: string): ScrapedEnemyAnatomy[] {
         : /^no\b/i.test(rawExplosionResistance)
           ? 0
           : parseAnatomyPercentage(rawExplosionResistance);
+      const explosionVerificationMode = cleanEnemyValue(parameters.get("exvm"));
       const demolitionForce = parseAnatomyNumber(parameters.get("df"));
       const health = cleanEnemyValue(parameters.get("health"));
       const healthByDifficulty = parseEnemyHealthByDifficulty(health);
@@ -1224,6 +1286,7 @@ export function parseEnemyAnatomy(content: string): ScrapedEnemyAnatomy[] {
         ...(bleed ?? {}),
         ...(fatal === undefined ? {} : { fatal }),
         ...(explosionResistance === undefined ? {} : { explosionResistance }),
+        ...(explosionVerificationMode ? { explosionVerificationMode } : {}),
         ...(demolitionForce === undefined ? {} : { demolitionForce }),
       };
     }).filter((part) => part.name),
@@ -1254,6 +1317,15 @@ function parseEnemyVariants(content: string) {
 export function parseEnemyPageSource(page: WikiPageSource, listing: ScrapedEnemyListing) {
   const infobox = extractTemplateInvocations(page.content, "Infobox Enemy")[0];
   const parameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
+  const elementalMultipliers = Object.fromEntries([
+    ["Fire", "fire_mult"],
+    ["Gas", "gas_mult"],
+    ["Arc", "arc_mult"],
+    ["Acid", "acid_mult"],
+  ].flatMap(([element, parameter]) => {
+    const multiplier = parseAnatomyNumber(parameters.get(parameter));
+    return multiplier === undefined ? [] : [[element, multiplier]];
+  }));
 
   return {
     displayName: page.title,
@@ -1265,6 +1337,7 @@ export function parseEnemyPageSource(page: WikiPageSource, listing: ScrapedEnemy
     imageFileTitle: extractInfoboxImageFile(page.content, page.title) ?? listing.imageFileTitle,
     variants: parseEnemyVariants(page.content),
     anatomy: parseEnemyAnatomy(page.content),
+    ...(Object.keys(elementalMultipliers).length ? { elementalMultipliers } : {}),
   };
 }
 
@@ -1315,6 +1388,7 @@ export async function fetchBestiary(): Promise<ScrapedBestiary> {
       wikiImageUrl: imageUrls.get(variant.imageFileTitle) ?? null,
     })),
     anatomy: enemy.anatomy,
+    ...(enemy.elementalMultipliers ? { elementalMultipliers: enemy.elementalMultipliers } : {}),
   }));
 
   return {

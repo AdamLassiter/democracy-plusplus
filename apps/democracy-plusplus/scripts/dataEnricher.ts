@@ -168,15 +168,9 @@ async function processArray(dataset: FlatWikiDataset) {
     if (fileName === "primaries" || fileName === "secondaries") {
       const parsedSimulation = parseWeaponSimulationMetadata(page.content);
       if (parsedSimulation) {
-        const reload = {
-          ...record.simulation?.reload,
-          ...parsedSimulation.reload,
-        };
-        record.simulation = {
-          ...record.simulation,
-          ...parsedSimulation,
-          ...(Object.keys(reload).length ? { reload } : {}),
-        };
+        // Simulation metadata is wholly derived from the current page source. Replacing it
+        // prevents removed or reinterpreted fields from surviving later enrichment runs.
+        record.simulation = parsedSimulation;
         simulationMetadata++;
       }
     }
