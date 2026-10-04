@@ -1,5 +1,10 @@
 import axios, { type AxiosError } from "axios";
-import type { ItemProperties, MissionLength, StratagemCategory } from "../src/types.ts";
+import type {
+  ItemProperties,
+  MissionLength,
+  StratagemCategory,
+  WeaponSimulationMetadata,
+} from "../src/types.ts";
 import { note } from "./terminalUi.ts";
 
 export const BASE_URL = "https://helldivers.wiki.gg";
@@ -66,7 +71,18 @@ export interface ScrapedEnemyAnatomyPart {
   armor: string;
   armorByDifficulty?: Record<string, string>;
   health: string;
+  healthByDifficulty?: Record<string, number>;
   durability: string;
+  percentToMain?: number;
+  damageToMainCapped?: boolean;
+  bleed?: {
+    constitution: number;
+    decayPerSecond: number;
+  } | null;
+  bleedDescription?: string;
+  fatal?: boolean;
+  explosionResistance?: number;
+  demolitionForce?: number;
 }
 
 export interface ScrapedEnemyAnatomy {
@@ -883,6 +899,77 @@ export function parseArmorPassivePageDescription(content: string) {
   return parseInfoboxDescription(content, "Infobox Armor Passive");
 }
 
+function parseSeconds(value: string | undefined) {
+  if (!value) return null;
+  const cleaned = cleanWikiText(value).replace(/,/g, "");
+  const match = cleaned.match(/(?:^|\s)(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)\b/i)
+    ?? cleaned.match(/^(\d+(?:\.\d+)?)/);
+  if (!match) return null;
+  const seconds = Number.parseFloat(match[1]);
+  return Number.isFinite(seconds) && seconds >= 0 ? seconds : null;
+}
+
+function parseInfoboxList(value: string | undefined) {
+  if (!value) return [];
+  return value
+    .replace(/{{\s*\*\s*}}/g, "\n")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .split(/\n|•/)
+    .map(cleanEnemyValue)
+    .filter(Boolean);
+}
+
+export function parseWeaponSimulationMetadata(content: string): WeaponSimulationMetadata | undefined {
+  const infobox = extractTemplateInvocations(content, "Infobox[_ ]Weapon")[0];
+  if (!infobox) return undefined;
+
+  const parameters = parseTemplateParameters(infobox.text);
+  const reloadSeconds = parseSeconds(parameters.get("reload_time"));
+  const tacticalSeconds = parseSeconds(parameters.get("tac_reload_time"));
+  const traits = cleanEnemyValue(parameters.get("weapon_traits"));
+  const perRoundReload = /(?:round|shell)s?\s+reload/i.test(traits)
+    || /(?:per|\/)\s*(?:round|shell)/i.test(parameters.get("reload_time") ?? "");
+  const firingModes = parseInfoboxList(parameters.get("firing_modes"));
+  const fireRateRpm = parseAnatomyNumber(parameters.get("fire_rate"));
+  const rawCapacity = cleanEnemyValue(parameters.get("capacity"));
+  const capacity = /^\d/.test(rawCapacity) ? parseAnatomyNumber(rawCapacity) : undefined;
+  const infiniteCapacity = /^(?:∞|infinite)$/i.test(rawCapacity);
+  const fuelDurationMatch = content.match(/contains enough fuel for\s+(\d+(?:\.\d+)?)\s+seconds?/i);
+  const capacitySeconds = fuelDurationMatch ? Number.parseFloat(fuelDurationMatch[1]) : undefined;
+  const listedDpsMatch = parameters.get("damage")?.match(/(\d+(?:\.\d+)?)\s*DPS\b/i);
+  const listedDps = listedDpsMatch ? Number.parseFloat(listedDpsMatch[1]) : undefined;
+  const lastUpdated = extractTemplateInvocations(content, "Last Updated")[0];
+  const sourceVersion = lastUpdated
+    ? cleanWikiText(splitTopLevelTemplateParts(lastUpdated.text)[1] ?? "")
+    : "";
+  const reload = {
+    ...(reloadSeconds === null || perRoundReload ? {} : { emptySeconds: reloadSeconds }),
+    ...(tacticalSeconds === null ? {} : { tacticalSeconds }),
+    ...(reloadSeconds !== null && perRoundReload ? { perRoundSeconds: reloadSeconds } : {}),
+  };
+
+  if (
+    !Object.keys(reload).length
+    && fireRateRpm === undefined
+    && capacity === undefined
+    && capacitySeconds === undefined
+    && !infiniteCapacity
+    && listedDps === undefined
+    && !firingModes.length
+    && !sourceVersion
+  ) return undefined;
+  return {
+    ...(Object.keys(reload).length ? { reload } : {}),
+    ...(fireRateRpm === undefined ? {} : { fireRateRpm }),
+    ...(capacity === undefined ? {} : { capacity }),
+    ...(capacitySeconds === undefined ? {} : { capacitySeconds }),
+    ...(infiniteCapacity ? { infiniteCapacity: true as const } : {}),
+    ...(listedDps === undefined ? {} : { listedDps }),
+    ...(firingModes.length ? { firingModes } : {}),
+    ...(sourceVersion ? { sourceVersion } : {}),
+  };
+}
+
 function parseInfoboxDescription(content: string, infoboxName: string) {
   const infobox = extractTemplateInvocations(content, infoboxName)[0];
   if (!infobox) return "";
@@ -1049,6 +1136,56 @@ function nearestAnatomyName(section: string, tableIndex: number) {
   return candidates.sort((left, right) => right.index - left.index)[0]?.name ?? "Standard";
 }
 
+function parseAnatomyNumber(value: string | undefined) {
+  const normalized = cleanEnemyValue(value).replace(/,/g, "");
+  const match = normalized.match(/-?\d+(?:\.\d+)?/);
+  if (!match) return undefined;
+  const parsed = Number.parseFloat(match[0]);
+  return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+function parseAnatomyPercentage(value: string | undefined) {
+  const normalized = cleanEnemyValue(value);
+  const amount = parseAnatomyNumber(normalized);
+  return amount === undefined || !normalized.includes("%") ? undefined : amount / 100;
+}
+
+function parseAnatomyBoolean(value: string | undefined) {
+  const normalized = cleanEnemyValue(value);
+  if (/^yes\b/i.test(normalized)) return true;
+  if (/^no\b/i.test(normalized)) return false;
+  return undefined;
+}
+
+function parseAnatomyBleed(value: string | undefined) {
+  if (value === undefined) return undefined;
+  const description = cleanEnemyValue(value);
+  if (!description || /^(?:-|none|no)$/i.test(description)) {
+    return { bleed: null, bleedDescription: description || "None" } as const;
+  }
+  const normalized = description.replace(/,/g, "");
+  const constitutionMatch = normalized.match(/^\s*(\d+(?:\.\d+)?)/);
+  const rateMatch = normalized.match(/\[\s*[+-]?(\d+(?:\.\d+)?)\s*\/\s*s\s*\]/i);
+  if (!constitutionMatch || !rateMatch) {
+    return { bleedDescription: description } as const;
+  }
+  return {
+    bleed: {
+      constitution: Number.parseFloat(constitutionMatch[1]),
+      decayPerSecond: Number.parseFloat(rateMatch[1]),
+    },
+    bleedDescription: description,
+  } as const;
+}
+
+export function parseEnemyHealthByDifficulty(value: string) {
+  const result: Record<string, number> = {};
+  for (const match of value.replace(/,/g, "").matchAll(/(\d+(?:\.\d+)?)\s+at\s+(\d+)/gi)) {
+    result[match[2]] = Number.parseFloat(match[1]);
+  }
+  return result;
+}
+
 export function parseEnemyAnatomy(content: string): ScrapedEnemyAnatomy[] {
   const anatomySection = extractWikiSection(content, "Anatomy");
   const anatomyTables = extractTemplateInvocations(anatomySection, "Anatomy Table");
@@ -1062,12 +1199,32 @@ export function parseEnemyAnatomy(content: string): ScrapedEnemyAnatomy[] {
           .filter(([key]) => /^av\d+$/.test(key))
           .map(([key, value]) => [key.slice(2), cleanEnemyValue(value)]),
       );
+      const percentToMain = parseAnatomyPercentage(parameters.get("percent_to_main"));
+      const damageToMainCapped = parseAnatomyBoolean(parameters.get("dmg_cap_main"));
+      const bleed = parseAnatomyBleed(parameters.get("bleed"));
+      const fatal = parseAnatomyBoolean(parameters.get("fatal"));
+      const rawExplosionResistance = cleanEnemyValue(parameters.get("exdr"));
+      const explosionResistance = /^yes\b/i.test(rawExplosionResistance)
+        ? 1
+        : /^no\b/i.test(rawExplosionResistance)
+          ? 0
+          : parseAnatomyPercentage(rawExplosionResistance);
+      const demolitionForce = parseAnatomyNumber(parameters.get("df"));
+      const health = cleanEnemyValue(parameters.get("health"));
+      const healthByDifficulty = parseEnemyHealthByDifficulty(health);
       return {
         name: cleanEnemyValue(parameters.get("part_name")),
         armor: cleanEnemyValue(parameters.get("av")),
         ...(Object.keys(armorByDifficulty).length ? { armorByDifficulty } : {}),
-        health: cleanEnemyValue(parameters.get("health")),
+        health,
+        ...(Object.keys(healthByDifficulty).length ? { healthByDifficulty } : {}),
         durability: cleanEnemyValue(parameters.get("durability")),
+        ...(percentToMain === undefined ? {} : { percentToMain }),
+        ...(damageToMainCapped === undefined ? {} : { damageToMainCapped }),
+        ...(bleed ?? {}),
+        ...(fatal === undefined ? {} : { fatal }),
+        ...(explosionResistance === undefined ? {} : { explosionResistance }),
+        ...(demolitionForce === undefined ? {} : { demolitionForce }),
       };
     }).filter((part) => part.name),
   })).filter((anatomy) => anatomy.parts.length > 0);

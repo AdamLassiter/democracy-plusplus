@@ -62,6 +62,21 @@ export type PropertyValue =
 export type ItemProperties = Record<string, PropertyValue>;
 export type ObjectiveTag = 'Eradicate' | 'Commando' | 'Blitz';
 
+export interface WeaponSimulationMetadata {
+  reload?: {
+    emptySeconds?: number;
+    tacticalSeconds?: number;
+    perRoundSeconds?: number;
+  };
+  fireRateRpm?: number;
+  capacity?: number;
+  capacitySeconds?: number;
+  infiniteCapacity?: true;
+  listedDps?: number;
+  firingModes?: string[];
+  sourceVersion?: string;
+}
+
 export interface BaseItem {
   displayName: string;
   description?: string;
@@ -77,6 +92,7 @@ export interface BaseItem {
   category?: string;
   tags?: string[];
   properties?: ItemProperties;
+  simulation?: WeaponSimulationMetadata;
   cost?: number;
   onSale?: boolean;
   purchased?: boolean;
@@ -129,7 +145,18 @@ export interface EnemyAnatomyPart {
   armor: string;
   armorByDifficulty?: Record<string, string>;
   health: string;
+  healthByDifficulty?: Record<string, number>;
   durability: string;
+  percentToMain?: number;
+  damageToMainCapped?: boolean;
+  bleed?: {
+    constitution: number;
+    decayPerSecond: number;
+  } | null;
+  bleedDescription?: string;
+  fatal?: boolean;
+  explosionResistance?: number;
+  demolitionForce?: number;
 }
 
 export interface EnemyAnatomy {

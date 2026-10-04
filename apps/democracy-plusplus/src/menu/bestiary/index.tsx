@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { BESTIARY } from "../../constants/enemies";
 import { FACTIONS as MISSION_FACTIONS } from "../../constants/factions";
 import { selectMission } from "../../slices/missionSlice";
-import type { Enemy, EnemyAnatomy, EnemyCoverageState, EnemyFaction } from "../../types";
+import type { Enemy, EnemyAnatomy, EnemyAnatomyPart, EnemyCoverageState, EnemyFaction } from "../../types";
 import { anatomyCoverage, ARMOR_LABELS, bestEnemyCoverage, effectiveArmor, enemyAnatomyCoverageState } from "../../utils/capabilities";
 import { PlannerControls } from "../planner/controls";
 import { usePlannerLoadout } from "../planner/usePlannerLoadout";
@@ -32,6 +32,20 @@ function armorDisplay(armor: number) {
   return `${armor} · ${ARMOR_LABELS[armor] ?? "Unknown"}`;
 }
 
+function DamageRules({ part }: { part: EnemyAnatomyPart }) {
+  const values = [
+    part.percentToMain === undefined ? null : `${part.percentToMain * 100}% to Main`,
+    part.damageToMainCapped === undefined ? null : part.damageToMainCapped ? "Overflow capped" : "Overkill transfers",
+    part.fatal === undefined ? null : part.fatal ? "Fatal" : "Non-fatal",
+    part.explosionResistance === undefined ? null : `${part.explosionResistance * 100}% ExDR`,
+    part.bleedDescription && part.bleedDescription !== "None" ? `Constitution ${part.bleedDescription}` : null,
+    part.demolitionForce === undefined ? null : `DF ${part.demolitionForce}`,
+  ].filter((value): value is string => value !== null);
+  return values.length
+    ? values.map((value) => <Typography color="text.secondary" display="block" key={value} variant="caption">{value}</Typography>)
+    : "—";
+}
+
 function AnatomyTable({ anatomy, difficulty, plannerMode, capabilities }: {
   anatomy: EnemyAnatomy;
   difficulty: number;
@@ -46,10 +60,10 @@ function AnatomyTable({ anatomy, difficulty, plannerMode, capabilities }: {
       {plannerMode && <Chip color={COVERAGE_COLORS[coverageState]} label={COVERAGE_LABELS[coverageState]} size="small" />}
     </Box>
     <TableContainer><Table size="small" aria-label={`${anatomy.name} anatomy`}>
-      <TableHead><TableRow><TableCell>Body part</TableCell><TableCell>Armor value</TableCell><TableCell>Health</TableCell><TableCell>Durability</TableCell>{plannerMode && <TableCell>Coverage</TableCell>}</TableRow></TableHead>
+      <TableHead><TableRow><TableCell>Body part</TableCell><TableCell>Armor value</TableCell><TableCell>Health</TableCell><TableCell>Durability</TableCell><TableCell>Damage rules</TableCell>{plannerMode && <TableCell>Coverage</TableCell>}</TableRow></TableHead>
       <TableBody>{coverage.parts.map(({ part, armor, matchingItems }, index) => <TableRow key={`${part.name}-${index}`}>
         <TableCell>{part.name}</TableCell><TableCell><Typography variant="body2">{armorDisplay(armor)}</Typography>{Object.entries(part.armorByDifficulty ?? {}).map(([minimum, value]) => <Typography color="text.secondary" key={minimum} variant="caption" display="block">Difficulty {minimum}+: {armorDisplay(Number(value))}</Typography>)}</TableCell>
-        <TableCell>{part.health || "—"}</TableCell><TableCell>{part.durability || "—"}</TableCell>{plannerMode && <TableCell>{matchingItems.length ? matchingItems.join(", ") : "No enabled item"}</TableCell>}
+        <TableCell>{part.health || "—"}</TableCell><TableCell>{part.durability || "—"}</TableCell><TableCell><DamageRules part={part} /></TableCell>{plannerMode && <TableCell>{matchingItems.length ? matchingItems.join(", ") : "No enabled item"}</TableCell>}
       </TableRow>)}</TableBody>
     </Table></TableContainer>
   </Box>;

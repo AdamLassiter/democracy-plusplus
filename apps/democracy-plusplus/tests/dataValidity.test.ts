@@ -219,6 +219,7 @@ test("public data files use valid schema keys and value types", async (t) => {
             "wikiSlug",
             "wikiImageUrl",
             "properties",
+            "simulation",
             "overrideCost",
             "stratagemCode",
           ],
@@ -254,6 +255,46 @@ test("public data files use valid schema keys and value types", async (t) => {
 
         if (item.properties !== undefined) {
           asObject(item.properties, `${context}.properties`);
+        }
+
+        if (item.simulation !== undefined) {
+          const simulation = asObject(item.simulation, `${context}.simulation`);
+          assertAllowedKeys(simulation, [
+            "reload",
+            "fireRateRpm",
+            "capacity",
+            "capacitySeconds",
+            "infiniteCapacity",
+            "listedDps",
+            "firingModes",
+            "sourceVersion",
+          ], `${context}.simulation`);
+          if (simulation.reload !== undefined) {
+            const reload = asObject(simulation.reload, `${context}.simulation.reload`);
+            assertAllowedKeys(
+              reload,
+              ["emptySeconds", "tacticalSeconds", "perRoundSeconds"],
+              `${context}.simulation.reload`,
+            );
+            Object.entries(reload).forEach(([key, value]) => {
+              assert.equal(typeof value, "number", `${context}.simulation.reload.${key} must be a number`);
+              assert.ok(Number.isFinite(value), `${context}.simulation.reload.${key} must be finite`);
+              assert.ok(value >= 0, `${context}.simulation.reload.${key} must be non-negative`);
+            });
+          }
+          if (simulation.firingModes !== undefined) {
+            expectStringArray(simulation.firingModes, `${context}.simulation.firingModes`, 1);
+          }
+          for (const key of ["fireRateRpm", "capacity", "capacitySeconds", "listedDps"] as const) {
+            if (simulation[key] === undefined) continue;
+            assert.equal(typeof simulation[key], "number", `${context}.simulation.${key} must be a number`);
+            assert.ok(Number.isFinite(simulation[key]), `${context}.simulation.${key} must be finite`);
+            assert.ok(simulation[key] > 0, `${context}.simulation.${key} must be positive`);
+          }
+          if (simulation.infiniteCapacity !== undefined) {
+            assert.equal(simulation.infiniteCapacity, true, `${context}.simulation.infiniteCapacity must be true when present`);
+          }
+          expectOptionalString(simulation.sourceVersion, `${context}.simulation.sourceVersion`);
         }
 
         if (item.overrideCost !== undefined) {
@@ -397,11 +438,56 @@ test("public data files use valid schema keys and value types", async (t) => {
         anatomy.parts.forEach((entry: unknown, partIndex: number) => {
           const partContext = `${context}.anatomy[${anatomyIndex}].parts[${partIndex}]`;
           const part = asObject(entry, partContext);
-          assertAllowedKeys(part, ["name", "armor", "armorByDifficulty", "health", "durability"], partContext);
+          assertAllowedKeys(part, [
+            "name",
+            "armor",
+            "armorByDifficulty",
+            "health",
+            "healthByDifficulty",
+            "durability",
+            "percentToMain",
+            "damageToMainCapped",
+            "bleed",
+            "bleedDescription",
+            "fatal",
+            "explosionResistance",
+            "demolitionForce",
+          ], partContext);
           expectString(part.name, `${partContext}.name`);
           expectString(part.armor, `${partContext}.armor`);
           expectString(part.health, `${partContext}.health`);
           expectString(part.durability, `${partContext}.durability`);
+          if (part.healthByDifficulty !== undefined) {
+            const healthByDifficulty = asObject(part.healthByDifficulty, `${partContext}.healthByDifficulty`);
+            Object.entries(healthByDifficulty).forEach(([difficulty, health]) => {
+              assert.match(difficulty, /^\d+$/, `${partContext}.healthByDifficulty keys must be difficulties`);
+              assert.equal(typeof health, "number", `${partContext}.healthByDifficulty.${difficulty} must be a number`);
+              assert.ok(Number.isFinite(health), `${partContext}.healthByDifficulty.${difficulty} must be finite`);
+              assert.ok(health > 0, `${partContext}.healthByDifficulty.${difficulty} must be positive`);
+            });
+          }
+          for (const key of ["percentToMain", "explosionResistance", "demolitionForce"] as const) {
+            if (part[key] === undefined) continue;
+            assert.equal(typeof part[key], "number", `${partContext}.${key} must be a number`);
+            assert.ok(Number.isFinite(part[key]), `${partContext}.${key} must be finite`);
+            assert.ok(part[key] >= 0, `${partContext}.${key} must be non-negative`);
+          }
+          if (part.explosionResistance !== undefined) {
+            assert.ok(part.explosionResistance <= 1, `${partContext}.explosionResistance must not exceed 1`);
+          }
+          for (const key of ["damageToMainCapped", "fatal"] as const) {
+            if (part[key] !== undefined) assert.equal(typeof part[key], "boolean", `${partContext}.${key} must be boolean`);
+          }
+          if (part.bleed !== undefined && part.bleed !== null) {
+            const bleed = asObject(part.bleed, `${partContext}.bleed`);
+            assertAllowedKeys(bleed, ["constitution", "decayPerSecond"], `${partContext}.bleed`);
+            for (const key of ["constitution", "decayPerSecond"] as const) {
+              assert.equal(typeof bleed[key], "number", `${partContext}.bleed.${key} must be a number`);
+              assert.ok(Number.isFinite(bleed[key]), `${partContext}.bleed.${key} must be finite`);
+              assert.ok(bleed[key] >= 0, `${partContext}.bleed.${key} must be non-negative`);
+            }
+          }
+          expectOptionalString(part.bleedDescription, `${partContext}.bleedDescription`);
           if (part.armorByDifficulty !== undefined) {
             const armorByDifficulty = asObject(part.armorByDifficulty, `${partContext}.armorByDifficulty`);
             Object.entries(armorByDifficulty).forEach(([difficulty, armor]) => {

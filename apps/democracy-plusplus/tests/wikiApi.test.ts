@@ -13,7 +13,64 @@ import {
   parseStructurePageSource,
   parseStratagemsPageSource,
   parseWarbondsPageSource,
+  parseWeaponSimulationMetadata,
 } from "../scripts/wikiApi.ts";
+
+test("parseWeaponSimulationMetadata reads magazine reloads and firing modes", () => {
+  const source = `{{Last Updated|1.007.000}}
+{{Infobox_Weapon
+| reload_time = 3s
+| tac_reload_time = 2.1 sec
+| firing_modes = Auto{{*}}Semi{{*}}Burst
+| weapon_traits = Light Armor Penetrating
+}}`;
+
+  assert.deepEqual(parseWeaponSimulationMetadata(source), {
+    reload: { emptySeconds: 3, tacticalSeconds: 2.1 },
+    firingModes: ["Auto", "Semi", "Burst"],
+    sourceVersion: "1.007.000",
+  });
+});
+
+test("parseWeaponSimulationMetadata distinguishes per-round reloads", () => {
+  const source = `{{Infobox Weapon
+| reload_time = 0.6s per round
+| firing_modes = Semi
+| weapon_traits = Medium Armor Penetrating{{*}}Rounds Reload
+}}`;
+
+  assert.deepEqual(parseWeaponSimulationMetadata(source), {
+    reload: { perRoundSeconds: 0.6 },
+    firingModes: ["Semi"],
+  });
+  assert.equal(parseWeaponSimulationMetadata("No weapon infobox."), undefined);
+});
+
+test("parseWeaponSimulationMetadata reads source fallbacks for unusual weapon cycles", () => {
+  const arc = `{{Infobox Weapon
+| damage = {{Damage|Arc|250}}
+| capacity = ∞
+| fire_rate = 45 rpm
+}}`;
+  assert.deepEqual(parseWeaponSimulationMetadata(arc), {
+    fireRateRpm: 45,
+    infiniteCapacity: true,
+  });
+
+  const spray = `{{Infobox Weapon
+| damage = {{Damage|Fire|150 DPS}}
+| capacity = 100
+| fire_rate =
+| reload_time = 3.25s
+}}
+Each canister contains enough fuel for 12.4 seconds of sustained fire.`;
+  assert.deepEqual(parseWeaponSimulationMetadata(spray), {
+    reload: { emptySeconds: 3.25 },
+    capacity: 100,
+    capacitySeconds: 12.4,
+    listedDps: 150,
+  });
+});
 
 test("parseBoostersPageSource expands the current HTML booster table", async () => {
   const expanded = `
@@ -298,10 +355,16 @@ test("parseEnemyPageSource reads anatomy tabs, armor values, and variants", () =
 {{Anatomy Table|
   {{Anatomy Row
     | part_name = Head<br>Plate
-    | health = 500
+    | health = 500 [Default] 650 at 6
     | av = 4
     | av6 = 5
     | durability = 75%
+    | percent_to_main = 150%
+    | dmg_cap_main = Yes
+    | bleed = 1,000 [-100/s]
+    | fatal = Yes<br>(Downs)
+    | exdr = 25%
+    | df = 30
   }}
 }}
 |-| Broken =
@@ -343,8 +406,16 @@ Test Variant Enemy Icon.png|[[Test Variant]]
         name: "Head Plate",
         armor: "4",
         armorByDifficulty: { "6": "5" },
-        health: "500",
+        health: "500 [Default] 650 at 6",
+        healthByDifficulty: { "6": 650 },
         durability: "75%",
+        percentToMain: 1.5,
+        damageToMainCapped: true,
+        bleed: { constitution: 1000, decayPerSecond: 100 },
+        bleedDescription: "1,000 [-100/s]",
+        fatal: true,
+        explosionResistance: 0.25,
+        demolitionForce: 30,
       }],
     },
     {

@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import type { ItemProperties, ObjectiveTag } from "../src/types.ts";
+import type { ItemProperties, ObjectiveTag, WeaponSimulationMetadata } from "../src/types.ts";
 import { assertDatasetCoverage, FLAT_WIKI_DATASETS, WIKI_DATASET_NAMES, type FlatWikiDataset } from "./dataPipeline.ts";
 import {
   expandTemplate,
@@ -10,6 +10,8 @@ import {
   parseArmorPassivePageDescription,
   parseBoosterPageDescription,
   parseExpandedAttackTables,
+  parseEnemyHealthByDifficulty,
+  parseWeaponSimulationMetadata,
   resolveImageUrls,
   type WikiPageSource,
 } from "./wikiApi.ts";
@@ -22,12 +24,16 @@ interface EnrichableItem {
   imageUrl?: string;
   description?: string;
   properties?: ItemProperties;
+  simulation?: WeaponSimulationMetadata;
   hoverTexts?: unknown;
   [key: string]: unknown;
 }
 
 interface BestiaryData {
-  enemies: Array<EnrichableItem & { variants?: EnrichableItem[] }>;
+  enemies: Array<EnrichableItem & {
+    variants?: EnrichableItem[];
+    anatomy?: Array<{ parts: Array<{ health: string; healthByDifficulty?: Record<string, number> }> }>;
+  }>;
   [key: string]: unknown;
 }
 
@@ -125,6 +131,7 @@ async function processArray(dataset: FlatWikiDataset) {
   let emptyProperties = 0;
   let descriptions = 0;
   let missingDescriptions = 0;
+  let simulationMetadata = 0;
   let failures = 0;
 
   for (const record of items) {
@@ -155,6 +162,22 @@ async function processArray(dataset: FlatWikiDataset) {
       } else {
         missingDescriptions++;
         item(record.displayName, "no infobox description; preserving existing data", "warn");
+      }
+    }
+
+    if (fileName === "primaries" || fileName === "secondaries") {
+      const parsedSimulation = parseWeaponSimulationMetadata(page.content);
+      if (parsedSimulation) {
+        const reload = {
+          ...record.simulation?.reload,
+          ...parsedSimulation.reload,
+        };
+        record.simulation = {
+          ...record.simulation,
+          ...parsedSimulation,
+          ...(Object.keys(reload).length ? { reload } : {}),
+        };
+        simulationMetadata++;
       }
     }
 
@@ -193,6 +216,7 @@ async function processArray(dataset: FlatWikiDataset) {
     emptyProperties,
     descriptions,
     missingDescriptions,
+    simulationMetadata,
     failures,
   });
   return failures + missingPages + missingDescriptions;
@@ -228,11 +252,26 @@ async function processBestiary() {
   const bestiary = JSON.parse(raw) as BestiaryData;
   const records = bestiary.enemies.flatMap((enemy) => [enemy, ...(enemy.variants ?? [])]);
   const refreshedImages = records.filter((record) => refreshLocalImagePath(record, "enemies")).length;
+  let normalizedHealth = 0;
+  for (const enemy of bestiary.enemies) {
+    for (const anatomy of enemy.anatomy ?? []) {
+      for (const part of anatomy.parts) {
+        const healthByDifficulty = parseEnemyHealthByDifficulty(part.health);
+        if (Object.keys(healthByDifficulty).length) {
+          part.healthByDifficulty = healthByDifficulty;
+          normalizedHealth++;
+        } else {
+          delete part.healthByDifficulty;
+        }
+      }
+    }
+  }
   await fs.writeFile(filePath, JSON.stringify(bestiary, null, 2));
   summary("BESTIARY summary", {
     enemies: bestiary.enemies.length,
     variants: records.length - bestiary.enemies.length,
     refreshedImages,
+    normalizedHealth,
   });
 }
 
