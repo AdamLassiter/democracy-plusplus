@@ -28,6 +28,7 @@ import { useSelector } from "react-redux";
 import { BESTIARY } from "../../constants/enemies";
 import { PRIMARIES } from "../../constants/primaries";
 import { SECONDARIES } from "../../constants/secondaries";
+import { STRATAGEMS } from "../../constants/stratagems";
 import { selectMission } from "../../slices/missionSlice";
 import type { Enemy, EnemyAnatomy, EnemyAnatomyPart, Item } from "../../types";
 import { effectiveArmor } from "../../utils/capabilities";
@@ -37,28 +38,28 @@ import {
   normalizeEnemyTarget,
 } from "../../utils/damage/enemyTargets";
 import { calculateWeaponDps, simulateTargetTtk } from "../../utils/damage/simulator";
-import type { WeaponProfile, WeaponProfileResult } from "../../utils/damage/types";
-import { extractWeaponProfiles } from "../../utils/damage/weaponProfiles";
+import { extractCombatSourceProfiles } from "../../utils/damage/combatProfiles";
+import { profileForExposure } from "../../utils/damage/stratagemProfiles";
+import type { CombatSourceProfile, CombatSourceProfileResult } from "../../utils/damage/types";
 import { ItemIcon } from "../../utils/itemDisplay";
 import { ImpactScenarioSelector } from "./impactScenarioSelector";
 import { humanizeProfileKind } from "./labels";
 import { ProfileSelector } from "./profileSelector";
 
-type WeaponOption = {
+type CombatSourceOption = {
   item: Item;
-  result: WeaponProfileResult;
+  result: CombatSourceProfileResult;
 };
 
-const WEAPONS: WeaponOption[] = [...PRIMARIES, ...SECONDARIES]
-  .map((item) => ({ item, result: extractWeaponProfiles(item) }))
+const COMBAT_SOURCES: CombatSourceOption[] = [...PRIMARIES, ...SECONDARIES, ...STRATAGEMS]
+  .map((item) => ({ item, result: extractCombatSourceProfiles(item) }))
   .sort((left, right) => {
-    const categoryDifference = Number(left.item.category === "secondary")
-      - Number(right.item.category === "secondary");
-    return categoryDifference || left.item.displayName.localeCompare(right.item.displayName);
+    const groupDifference = combatSourceGroupOrder(left) - combatSourceGroupOrder(right);
+    return groupDifference || left.item.displayName.localeCompare(right.item.displayName);
   });
-const DEFAULT_WEAPON = WEAPONS.find(({ item }) => item.displayName === "AR-23 Liberator")
-  ?? WEAPONS.find(({ result }) => result.profiles.length > 0)
-  ?? WEAPONS[0];
+const DEFAULT_WEAPON = COMBAT_SOURCES.find(({ item }) => item.displayName === "AR-23 Liberator")
+  ?? COMBAT_SOURCES.find(({ result }) => result.profiles.length > 0)
+  ?? COMBAT_SOURCES[0];
 const ENEMY_FACTION_ORDER = ["Terminids", "Automatons", "Illuminate", "Super Earth"] as const;
 const ENEMIES = [...BESTIARY.enemies].sort((left, right) => {
   const factionDifference = ENEMY_FACTION_ORDER.indexOf(left.faction)
@@ -72,18 +73,62 @@ function formatNumber(value: number | null | undefined, suffix = "") {
   return value === null || value === undefined ? "—" : `${numberFormatter.format(value)}${suffix}`;
 }
 
-function weaponGroup(option: WeaponOption) {
-  return option.item.category === "primary" ? "Primary" : "Secondary";
+function combatSourceGroupOrder(option: CombatSourceOption) {
+  return [
+    "Primary",
+    "Secondary",
+    "Support weapon",
+    "Exosuit and vehicle",
+    "Emplacement and sentry",
+    "Mine and placed explosive",
+    "Eagle",
+    "Orbital",
+  ].indexOf(combatSourceGroup(option));
 }
 
-function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
-  option: WeaponOption;
-  onChange: (_option: WeaponOption) => void;
+function combatSourceGroup(option: CombatSourceOption) {
+  if (option.item.category === "primary") return "Primary";
+  if (option.item.category === "secondary") return "Secondary";
+  if (/mine|c4|hellbomb/i.test(option.item.displayName)) return "Mine and placed explosive";
+  if (option.item.tags?.includes("Vehicles")) return "Exosuit and vehicle";
+  if (option.item.category === "Defense") return "Emplacement and sentry";
+  if (option.item.category === "Eagle") return "Eagle";
+  if (option.item.category === "Orbital") return "Orbital";
+  return "Support weapon";
+}
+
+function usesBoundedExposure(profile: CombatSourceProfile) {
+  return ["trap", "focused-strike", "distributed-strike", "persistent-area"].includes(profile.delivery.kind);
+}
+
+function WeaponPanel({ option, onChange, profileIndex, onProfileChange, exposureIndex, onExposureChange }: {
+  option: CombatSourceOption;
+  onChange: (_option: CombatSourceOption) => void;
   profileIndex: number;
   onProfileChange: (_index: number) => void;
+  exposureIndex: number;
+  onExposureChange: (_index: number) => void;
 }) {
   const profile = option.result.profiles[profileIndex] ?? option.result.profiles[0];
   const calculation = profile ? calculateWeaponDps(profile) : null;
+  const exposure = profile?.delivery.exposureScenarios[exposureIndex]
+    ?? profile?.delivery.exposureScenarios[0];
+  const exposedProfile = profile && exposure && usesBoundedExposure(profile)
+    ? profileForExposure(profile, exposure)
+    : profile;
+  const exposedCalculation = exposedProfile ? calculateWeaponDps(exposedProfile) : null;
+  const perPayloadCalculation = profile && profile.sourceKind === "stratagem" && usesBoundedExposure(profile)
+    ? calculateWeaponDps(profileForExposure(profile, {
+        id: "per-payload",
+        label: "1 payload",
+        payloadHits: 1,
+        confidence: "sourced",
+      }))
+    : null;
+  const activeStatusDps = perPayloadCalculation?.statuses.reduce(
+    (total, status) => total + status.damagePerSecond.standard,
+    0,
+  ) ?? 0;
   const chargeComparisons = option.result.profiles.length > 1
     && option.result.profiles.every(({ kind }) => kind === "charge")
     ? option.result.profiles.map((candidate) => ({
@@ -118,15 +163,15 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
 
   return <Card variant="outlined" sx={{ minWidth: 0 }}>
     <CardContent>
-      <Typography variant="h6" gutterBottom>Weapon</Typography>
+      <Typography variant="h6" gutterBottom>Combat source</Typography>
       <Autocomplete
         disableClearable
         getOptionLabel={({ item }) => item.displayName}
-        groupBy={weaponGroup}
+        groupBy={combatSourceGroup}
         isOptionEqualToValue={(candidate, value) => candidate.item.displayName === value.item.displayName}
         onChange={(_event, value) => onChange(value)}
-        options={WEAPONS}
-        renderInput={(params) => <TextField {...params} label="Weapon" />}
+        options={COMBAT_SOURCES}
+        renderInput={(params) => <TextField {...params} label="Combat source" />}
         renderOption={(props, candidate) => <li {...props} key={candidate.item.displayName}>
           <Box sx={{ alignItems: "center", display: "flex", gap: 1, justifyContent: "space-between", width: "100%" }}>
             <span>{candidate.item.displayName}</span>
@@ -136,10 +181,30 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
         value={option}
       />
       <ProfileSelector
+        label={option.item.tags?.includes("Vehicles")
+          || option.item.tags?.includes("Sentry")
+          || option.item.tags?.includes("Emplacement")
+          ? "Weapon"
+          : "Firing profile"}
         onChange={onProfileChange}
         profiles={option.result.profiles}
         selectedIndex={profileIndex}
       />
+      {profile?.sourceKind === "stratagem" && exposure && usesBoundedExposure(profile)
+        && (profile.delivery.exposureScenarios.length > 1 || exposure.payloadHits !== profile.delivery.totalPayloads)
+        && <FormControl fullWidth sx={{ mt: 2 }}>
+        <InputLabel id="damage-sim-exposure-label">Target exposure</InputLabel>
+        <Select
+          label="Target exposure"
+          labelId="damage-sim-exposure-label"
+          onChange={(event) => onExposureChange(Number(event.target.value))}
+          value={String(Math.min(exposureIndex, profile.delivery.exposureScenarios.length - 1))}
+        >
+          {profile.delivery.exposureScenarios.map((scenario, index) => <MenuItem key={scenario.id} value={String(index)}>
+            {scenario.label} · {scenario.confidence}
+          </MenuItem>)}
+        </Select>
+      </FormControl>}
 
       <Box sx={{ alignItems: "center", display: "grid", gap: 2, gridTemplateColumns: "96px minmax(0, 1fr)", my: 2 }}>
         <ItemIcon
@@ -152,8 +217,10 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
         <Box sx={{ minWidth: 0 }}>
           <Typography fontWeight={700}>{option.item.displayName}</Typography>
           <Stack direction="row" flexWrap="wrap" gap={0.5} sx={{ mt: 0.5 }}>
-            <Chip label={weaponGroup(option)} size="small" />
+            <Chip label={combatSourceGroup(option)} size="small" />
             {profile && <Chip color="success" label={humanizeProfileKind(profile.kind)} size="small" />}
+            {profile?.sourceKind === "stratagem" && <Chip label={profile.delivery.kind.replaceAll("-", " ")} size="small" variant="outlined" />}
+            {profile?.sourceKind === "stratagem" && <Chip label={profile.delivery.control.replaceAll("-", " ")} size="small" variant="outlined" />}
             {profile?.sourceVersion && <Chip label={`Wiki ${profile.sourceVersion}`} size="small" variant="outlined" />}
           </Stack>
           {wikiUrl && <Link href={wikiUrl} rel="noreferrer" target="_blank" variant="body2">View source on Helldivers Wiki</Link>}
@@ -161,38 +228,95 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
       </Box>
 
       {!profile && <Alert severity="info">
-        <Typography fontWeight={700}>Not simulated by the first weapon class</Typography>
+        <Typography fontWeight={700}>{option.result.intentionallyNonDamaging ? "No enemy-damage payload" : "Unsupported"}</Typography>
         {option.result.unsupportedReasons.map((reason) => <Typography key={reason} variant="body2">{reason}</Typography>)}
       </Alert>}
 
       {profile && calculation && <>
         <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mb: 2 }}>
-          <Chip label={`${formatNumber(profile.roundsPerMinute)} rpm`} />
-          <Chip label={profile.infiniteCapacity
-            ? "Infinite cycle"
-            : profile.firingDurationSeconds === undefined
-              ? `${formatNumber(profile.capacity)} rounds`
-              : `${formatNumber(profile.firingDurationSeconds)}s ${profile.kind === "spray" ? "fuel cycle" : "to overheat"}`}
-          />
+          {profile.sourceKind === "stratagem" && <Chip label={`${profile.delivery.totalPayloads} total payload${profile.delivery.totalPayloads === 1 ? "" : "s"}`} />}
+          {profile.sourceKind === "stratagem" && exposure && <Chip color="primary" label={`Target: ${exposure.payloadHits} of ${profile.delivery.totalPayloads} · ${exposure.confidence}`} />}
+          {profile.delivery.activationDelaySeconds !== undefined && <Chip label={`${formatNumber(profile.delivery.activationDelaySeconds)}s call-in`} />}
+          {profile.delivery.activeDurationSeconds !== undefined && <Chip label={`${formatNumber(profile.delivery.activeDurationSeconds)}s active`} />}
+          {profile.delivery.cooldownSeconds !== undefined && <Chip label={`${formatNumber(profile.delivery.cooldownSeconds)}s cooldown`} />}
+          {profile.delivery.rearmSeconds !== undefined && <Chip label={`${formatNumber(profile.delivery.rearmSeconds)}s rearm`} />}
           <Chip label={`AP ${component?.armorPenetration ?? "—"}`} />
-          <Chip label={profile.reload?.emptySeconds !== undefined
-            ? `${formatNumber(profile.reload.emptySeconds)}s reload`
-            : profile.reload?.firstRoundSeconds !== undefined
-              ? `${formatNumber(profile.reload.firstRoundSeconds)}s first round`
-            : profile.reload?.perRoundSeconds !== undefined
-              ? `${formatNumber(profile.reload.perRoundSeconds)}s per round`
-              : "Reload unknown"}
-          />
-          <Chip label={profile.trigger.ammoPerTrigger === "remaining"
-            ? "Consumes remaining resource / trigger"
-            : `${profile.trigger.ammoPerTrigger} ${profile.resource.unit}${profile.trigger.ammoPerTrigger === 1 ? "" : "s"} / trigger`}
-          />
-          <Chip label={`${profile.trigger.ammoPerTrigger === "remaining" ? "Up to " : ""}${configuredProjectilesPerTrigger} projectile${configuredProjectilesPerTrigger === 1 ? "" : "s"} / trigger`} />
-          <Chip label={triggerWindowSeconds > 0
-            ? `${formatNumber(triggerWindowSeconds, "s")} trigger window`
-            : "Simultaneous trigger events"}
-          />
+          {!usesBoundedExposure(profile) && <>
+            <Chip label={`${formatNumber(profile.roundsPerMinute)} rpm`} />
+            <Chip label={profile.infiniteCapacity
+              ? "Infinite cycle"
+              : profile.firingDurationSeconds === undefined
+                ? `${formatNumber(profile.capacity)} ${profile.resource.unit}s`
+                : `${formatNumber(profile.firingDurationSeconds)}s ${profile.kind === "spray" ? "fuel cycle" : "to overheat"}`}
+            />
+            <Chip label={profile.reload?.emptySeconds !== undefined
+              ? `${formatNumber(profile.reload.emptySeconds)}s reload`
+              : profile.reload?.firstRoundSeconds !== undefined
+                ? `${formatNumber(profile.reload.firstRoundSeconds)}s first round`
+              : profile.reload?.perRoundSeconds !== undefined
+                ? `${formatNumber(profile.reload.perRoundSeconds)}s per round`
+                : profile.sourceKind === "stratagem" ? "No in-field reload" : "Reload unknown"}
+            />
+            <Chip label={profile.trigger.ammoPerTrigger === "remaining"
+              ? "Consumes remaining resource / trigger"
+              : `${profile.trigger.ammoPerTrigger} ${profile.resource.unit}${profile.trigger.ammoPerTrigger === 1 ? "" : "s"} / trigger`}
+            />
+            <Chip label={`${profile.trigger.ammoPerTrigger === "remaining" ? "Up to " : ""}${configuredProjectilesPerTrigger} projectile${configuredProjectilesPerTrigger === 1 ? "" : "s"} / trigger`} />
+            <Chip label={triggerWindowSeconds > 0
+              ? `${formatNumber(triggerWindowSeconds, "s")} trigger window`
+              : "Simultaneous trigger events"}
+            />
+          </>}
         </Stack>
+        {profile.sourceKind === "stratagem" && usesBoundedExposure(profile) && perPayloadCalculation && exposedCalculation && <TableContainer sx={{ mb: 2 }}><Table size="small" aria-label="Stratagem payload output">
+          <TableHead><TableRow>
+            <TableCell>Damage basis</TableCell>
+            <TableCell align="right">Per payload</TableCell>
+            <TableCell align="right">Selected target</TableCell>
+            <TableCell align="right">Total area output</TableCell>
+          </TableRow></TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>Standard</TableCell>
+              <TableCell align="right">{formatNumber(perPayloadCalculation.damagePerTrigger.standard)}</TableCell>
+              <TableCell align="right">{formatNumber(exposedCalculation.damagePerTrigger.standard)}</TableCell>
+              <TableCell align="right">{formatNumber(perPayloadCalculation.damagePerTrigger.standard * profile.delivery.totalPayloads)}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>100% durable</TableCell>
+              <TableCell align="right">{formatNumber(perPayloadCalculation.damagePerTrigger.durable)}</TableCell>
+              <TableCell align="right">{formatNumber(exposedCalculation.damagePerTrigger.durable)}</TableCell>
+              <TableCell align="right">{formatNumber(perPayloadCalculation.damagePerTrigger.durable * profile.delivery.totalPayloads)}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table></TableContainer>}
+        {profile.sourceKind === "stratagem" && usesBoundedExposure(profile) && perPayloadCalculation && <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mb: 2 }}>
+          {profile.delivery.activeDurationSeconds !== undefined && <Chip
+            label={`Active window: ${formatNumber(profile.delivery.activeDurationSeconds, "s")} · ${formatNumber(perPayloadCalculation.damagePerTrigger.standard * profile.delivery.totalPayloads / profile.delivery.activeDurationSeconds + activeStatusDps)} standard DPS`}
+            size="small"
+            variant="outlined"
+          />}
+          {profile.delivery.cooldownSeconds !== undefined && <Chip
+            label={`Cooldown amortized raw payload: ${formatNumber(perPayloadCalculation.damagePerTrigger.standard * profile.delivery.totalPayloads / profile.delivery.cooldownSeconds)} standard/s`}
+            size="small"
+            variant="outlined"
+          />}
+          {profile.delivery.rearmSeconds !== undefined && <Chip
+            label={`Rearm stock-cycle raw payload: ${formatNumber(
+              perPayloadCalculation.damagePerTrigger.standard
+              * profile.delivery.totalPayloads
+              * (typeof profile.delivery.uses === "number" ? profile.delivery.uses : 1)
+              / (
+                profile.delivery.rearmSeconds
+                + Math.max(0, (typeof profile.delivery.uses === "number" ? profile.delivery.uses : 1) - 1)
+                * (profile.delivery.cooldownSeconds ?? 0)
+              ),
+            )} standard/s`}
+            size="small"
+            variant="outlined"
+          />}
+          {profile.delivery.activeDurationSeconds === undefined && <Chip label="Active-window DPS unsupported: payload timing incomplete" size="small" variant="outlined" />}
+        </Stack>}
         {(profile.components.length > 1 || profile.components.some(({ packetsPerProjectile }) => packetsPerProjectile > 1)) && <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mb: 2 }}>
           {profile.components.map((damageComponent) => <Chip
             key={damageComponent.id}
@@ -216,7 +340,7 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
             variant="outlined"
           />}
         </Stack>}
-        <TableContainer><Table size="small" aria-label="Weapon damage output">
+        {!usesBoundedExposure(profile) && <TableContainer><Table size="small" aria-label="Weapon damage output">
           <TableHead><TableRow>
             <TableCell>Damage basis</TableCell>
             <TableCell align="right">Per trigger</TableCell>
@@ -240,7 +364,7 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
               <TableCell align="right">{formatNumber(calculation.sustainedDps?.durable)}</TableCell>
             </TableRow>
           </TableBody>
-        </Table></TableContainer>
+        </Table></TableContainer>}
         {calculation.statuses.length > 0 && <>
           <Typography sx={{ mt: 2 }} variant="subtitle2">Status damage while active</Typography>
           <TableContainer><Table size="small" aria-label="Weapon status damage output">
@@ -291,12 +415,13 @@ function WeaponPanel({ option, onChange, profileIndex, onProfileChange }: {
         <Divider sx={{ my: 2 }} />
         <Typography variant="subtitle2">Assumptions</Typography>
         {profile.assumptions.map((assumption) => <Typography color="text.secondary" key={assumption} variant="body2">• {assumption}</Typography>)}
+        {exposure?.note && <Typography color="text.secondary" variant="body2">• {exposure.note}</Typography>}
       </>}
     </CardContent>
   </Card>;
 }
 
-function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
+function EnemyPanel({ profile }: { profile: CombatSourceProfile | null }) {
   const mission = useSelector(selectMission);
   const [enemy, setEnemy] = useState<Enemy | null>(null);
   const [anatomy, setAnatomy] = useState<EnemyAnatomy | null>(null);
@@ -342,7 +467,8 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
   const ttk = profile && targetResult?.target
     ? simulateTargetTtk(profile, targetResult.target, simulationOptions)
     : null;
-  const practicalTtk = hitRate < 100 && profile && targetResult?.target
+  const allowsHitRate = profile && !usesBoundedExposure(profile);
+  const practicalTtk = hitRate < 100 && allowsHitRate && profile && targetResult?.target
     ? simulateTargetTtk(profile, targetResult.target, {
       ...simulationOptions,
       hitRate: hitRate / 100,
@@ -466,7 +592,7 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
         {part.bleedDescription && part.bleedDescription !== "None" && <Alert severity="info" sx={{ mb: 1 }}>
           Constitution: {part.bleedDescription}
         </Alert>}
-        <Box sx={{ px: 1, py: 0.5 }}>
+        {allowsHitRate && <Box sx={{ px: 1, py: 0.5 }}>
           <Typography id="damage-sim-hit-rate" variant="subtitle2">Practical hit rate: {hitRate}%</Typography>
           <Slider
             aria-labelledby="damage-sim-hit-rate"
@@ -477,12 +603,12 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
             step={5}
             value={hitRate}
           />
-        </Box>
+        </Box>}
         {targetResult && targetResult.unsupportedReasons.length > 0 && <Alert severity="warning">
           <Typography fontWeight={700}>This target cannot be simulated yet</Typography>
           {targetResult.unsupportedReasons.map((reason) => <Typography key={reason} variant="body2">{reason}</Typography>)}
         </Alert>}
-        {!profile && <Alert severity="info">Choose a supported weapon to calculate target TTK.</Alert>}
+        {!profile && <Alert severity="info">Choose a supported combat source to calculate target TTK.</Alert>}
         {ttk && <>
           <Alert severity={ttk.status === "killed" ? "success" : ttk.status === "no-damage" ? "error" : "warning"}>
             <Typography fontWeight={700}>
@@ -492,9 +618,17 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
                   ? "Part destroyed; enemy survives"
                   : ttk.status === "no-damage"
                     ? "No damage"
+                    : profile?.sourceKind === "stratagem" && usesBoundedExposure(profile)
+                      ? "Does not kill in one deployment"
                     : "TTK unavailable"}
             </Typography>
             <Typography variant="body2">Profile: {profile?.label}</Typography>
+            {profile?.sourceKind === "stratagem" && ttk.timeToKillSeconds !== null && <Typography variant="body2">
+              On target: {formatNumber(ttk.timeToKillSeconds, "s")}
+              {profile.delivery.activationDelaySeconds !== undefined
+                ? ` · From activation: ${formatNumber(ttk.timeToKillSeconds + profile.delivery.activationDelaySeconds, "s")}`
+                : " · From activation: unsupported"}
+            </Typography>}
             {ttk.killCondition && <Typography variant="body2">Kill condition: {ttk.killCondition.replaceAll("-", " ")}</Typography>}
           </Alert>
           {practicalTtk && <Alert severity={practicalTtk.status === "killed" ? "info" : "warning"} sx={{ mt: 1 }}>
@@ -553,8 +687,9 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
 export default function DamageSimulator() {
   const [weapon, setWeapon] = useState(DEFAULT_WEAPON);
   const [profileIndex, setProfileIndex] = useState(0);
-  const supported = WEAPONS.filter(({ result }) => result.profiles.length > 0).length;
-  const sustained = WEAPONS.filter(({ result }) => {
+  const [exposureIndex, setExposureIndex] = useState(0);
+  const supported = COMBAT_SOURCES.filter(({ result }) => result.profiles.length > 0).length;
+  const sustained = COMBAT_SOURCES.filter(({ result }) => {
     const reload = result.profiles[0]?.reload;
     return result.profiles[0]?.infiniteCapacity === true
       || reload?.emptySeconds !== undefined
@@ -562,27 +697,40 @@ export default function DamageSimulator() {
       || reload?.firstRoundSeconds !== undefined;
   }).length;
 
-  if (!weapon) return <Alert severity="error">No weapons are available to simulate.</Alert>;
+  if (!weapon) return <Alert severity="error">No combat sources are available to simulate.</Alert>;
   const profile = weapon.result.profiles[profileIndex] ?? weapon.result.profiles[0] ?? null;
+  const exposure = profile?.delivery.exposureScenarios[exposureIndex]
+    ?? profile?.delivery.exposureScenarios[0];
+  const targetProfile = profile?.sourceKind === "stratagem" && !exposure
+    ? null
+    : profile && exposure && usesBoundedExposure(profile)
+      ? profileForExposure(profile, exposure)
+      : profile;
 
-  function chooseWeapon(option: WeaponOption) {
+  function chooseWeapon(option: CombatSourceOption) {
     setWeapon(option);
     setProfileIndex(0);
+    setExposureIndex(0);
   }
 
   return <Box sx={{ minWidth: 0, width: "100%" }}>
     <Typography variant="h5">Damage Simulator</Typography>
     <Typography color="text.secondary" sx={{ mb: 2 }}>
-      Theoretical output using detailed wiki attack data, with engagement distance where arming matters. {supported} of {WEAPONS.length} weapons currently have a damage profile; {sustained} include reload-aware or continuous sustained DPS.
+      Theoretical output using detailed wiki attack data, with explicit deployment and target-exposure assumptions. {supported} of {COMBAT_SOURCES.length} weapons and stratagems currently have a damage profile; {sustained} include reload-aware or continuous sustained DPS.
     </Typography>
     <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) minmax(0, 1fr)" } }}>
       <WeaponPanel
         onChange={chooseWeapon}
-        onProfileChange={setProfileIndex}
+        onProfileChange={(index) => {
+          setProfileIndex(index);
+          setExposureIndex(0);
+        }}
+        exposureIndex={exposureIndex}
+        onExposureChange={setExposureIndex}
         option={weapon}
         profileIndex={profileIndex}
       />
-      <EnemyPanel profile={profile} />
+      <EnemyPanel profile={targetProfile} />
     </Box>
   </Box>;
 }

@@ -220,6 +220,7 @@ test("public data files use valid schema keys and value types", async (t) => {
             "wikiImageUrl",
             "properties",
             "simulation",
+            "stratagemSimulation",
             "overrideCost",
             "stratagemCode",
           ],
@@ -316,6 +317,28 @@ test("public data files use valid schema keys and value types", async (t) => {
             assert.equal(simulation.infiniteCapacity, true, `${context}.simulation.infiniteCapacity must be true when present`);
           }
           expectOptionalString(simulation.sourceVersion, `${context}.simulation.sourceVersion`);
+        }
+
+        if (item.stratagemSimulation !== undefined) {
+          const simulation = asObject(item.stratagemSimulation, `${context}.stratagemSimulation`);
+          assertAllowedKeys(
+            simulation,
+            ["callInSeconds", "cooldownSeconds", "rearmSeconds", "uses", "sourceVersion"],
+            `${context}.stratagemSimulation`,
+          );
+          for (const key of ["callInSeconds", "cooldownSeconds", "rearmSeconds"] as const) {
+            if (simulation[key] === undefined) continue;
+            assert.equal(typeof simulation[key], "number", `${context}.stratagemSimulation.${key} must be a number`);
+            assert.ok(Number.isFinite(simulation[key]) && simulation[key] >= 0, `${context}.stratagemSimulation.${key} must be non-negative`);
+          }
+          if (simulation.uses !== undefined) {
+            assert.ok(
+              simulation.uses === "unlimited"
+                || typeof simulation.uses === "number" && Number.isFinite(simulation.uses) && simulation.uses > 0,
+              `${context}.stratagemSimulation.uses must be positive or unlimited`,
+            );
+          }
+          expectOptionalString(simulation.sourceVersion, `${context}.stratagemSimulation.sourceVersion`);
         }
 
         if (item.overrideCost !== undefined) {

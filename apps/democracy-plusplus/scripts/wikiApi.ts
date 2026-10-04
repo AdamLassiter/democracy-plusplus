@@ -3,6 +3,7 @@ import type {
   ItemProperties,
   MissionLength,
   StratagemCategory,
+  StratagemSimulationMetadata,
   WeaponSimulationMetadata,
 } from "../src/types.ts";
 import { note } from "./terminalUi.ts";
@@ -931,7 +932,10 @@ function parseLabeledNumbers(value: string | undefined) {
 }
 
 export function parseWeaponSimulationMetadata(content: string): WeaponSimulationMetadata | undefined {
-  const infobox = extractTemplateInvocations(content, "(?:Infobox[_ ]Weapon|Weapon)")[0];
+  const infobox = extractTemplateInvocations(
+    content,
+    "(?:Infobox[_ ]Weapon|Weapon|Infobox[_ ]Support[_ ]Weapon)",
+  )[0];
   if (!infobox) return undefined;
 
   const parameters = parseTemplateParameters(infobox.text);
@@ -954,7 +958,9 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
   const selectableFireRatesRpm = [...cleanEnemyValue(parameters.get("fire_rate")).replace(/,/g, "").matchAll(/\d+(?:\.\d+)?/g)]
     .map(([value]) => Number.parseFloat(value));
   const rawCapacity = cleanEnemyValue(parameters.get("capacity"));
-  const capacitiesByLabel = parseLabeledNumbers(parameters.get("capacity"));
+  const capacitiesByLabel = Object.fromEntries(
+    Object.entries(parseLabeledNumbers(parameters.get("capacity"))).filter(([, value]) => value > 0),
+  );
   const multipleConfigurations = Object.keys(capacitiesByLabel).length > 1
     || Object.keys(reloadSecondsByLabel).length > 1;
   const structuredRoundsReload = !multipleConfigurations && (
@@ -1028,6 +1034,61 @@ export function parseWeaponSimulationMetadata(content: string): WeaponSimulation
     ...(sourceVersion ? { sourceVersion } : {}),
     ...(Object.keys(capacitiesByLabel).length ? { capacitiesByLabel } : {}),
     ...(Object.keys(reloadSecondsByLabel).length ? { reloadSecondsByLabel } : {}),
+  };
+}
+
+export function parseStratagemSimulationMetadata(
+  content: string,
+): StratagemSimulationMetadata | undefined {
+  const stats = extractTemplateInvocations(content, "Stratagem Stats Table")[0];
+  const statsParameters = stats ? parseTemplateParameters(stats.text) : new Map<string, string>();
+  const infobox = extractTemplateInvocations(
+    content,
+    "(?:Infobox[_ ]Stratagem|Infobox[_ ]Support[_ ]Weapon)",
+  )[0];
+  const infoboxParameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
+  const statsSection = content.match(/==\s*Stratagem Statistics\s*==([\s\S]*?)(?=\n==|$)/i)?.[1] ?? "";
+  function tableStat(label: string) {
+    const labelIndex = statsSection.toLowerCase().indexOf(label.toLowerCase());
+    if (labelIndex < 0) return undefined;
+    const afterLabel = statsSection.slice(labelIndex + label.length);
+    const nextHeader = afterLabel.search(/\n!\s*(?:rowspan|colspan|'''|[A-Za-z])/i);
+    return afterLabel
+      .slice(0, nextHeader < 0 ? 500 : nextHeader)
+      .replace(/^\|\s*[^|\n=]+="[^"]*"\s*\|/gm, "|");
+  }
+  function tableStatSeconds(label: string) {
+    return parseSeconds(tableStat(label)?.replace(/['|]/g, " "));
+  }
+  const callInSeconds = parseSeconds(statsParameters.get("call_time"))
+    ?? tableStatSeconds("Call-in Time");
+  const cooldownSeconds = parseSeconds(statsParameters.get("cooldown"))
+    ?? parseSeconds(infoboxParameters.get("base_cooldown"))
+    ?? tableStatSeconds("Cooldown");
+  const rearmSeconds = parseSeconds(statsParameters.get("rearm_time"))
+    ?? tableStatSeconds("Rearm Time");
+  const rawUses = cleanEnemyValue(statsParameters.get("uses") ?? tableStat("Uses"));
+  const parsedUses = parseAnatomyNumber(rawUses);
+  const uses = /^(?:∞|unlimited)$/i.test(rawUses)
+    ? "unlimited" as const
+    : parsedUses !== undefined && parsedUses > 0 ? parsedUses : undefined;
+  const lastUpdated = extractTemplateInvocations(content, "Last Updated")[0];
+  const sourceVersion = lastUpdated
+    ? cleanWikiText(splitTopLevelTemplateParts(lastUpdated.text)[1] ?? "")
+    : "";
+  if (
+    callInSeconds === null
+    && cooldownSeconds === null
+    && rearmSeconds === null
+    && uses === undefined
+    && !sourceVersion
+  ) return undefined;
+  return {
+    ...(callInSeconds === null ? {} : { callInSeconds }),
+    ...(cooldownSeconds === null ? {} : { cooldownSeconds }),
+    ...(rearmSeconds === null ? {} : { rearmSeconds }),
+    ...(uses === undefined ? {} : { uses }),
+    ...(sourceVersion ? { sourceVersion } : {}),
   };
 }
 

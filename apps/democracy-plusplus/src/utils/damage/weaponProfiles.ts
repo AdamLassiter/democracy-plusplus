@@ -14,27 +14,27 @@ function unsupported(...reasons: string[]): WeaponProfileResult {
   return { profiles: [], unsupportedReasons: reasons };
 }
 
-function normalizedAttackName(value: string) {
+export function normalizedAttackName(value: string) {
   return value.replace(/^\*+/, "").trim();
 }
 
-function canonicalAttackName(value: string) {
+export function canonicalAttackName(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-function directAttackNames(attacks: Record<string, PropertyValue>) {
+export function directAttackNames(attacks: Record<string, PropertyValue>) {
   return Object.keys(attacks)
     .filter((name) => /^\*(?!\*)/.test(name))
     .map(normalizedAttackName);
 }
 
-function childAttackNames(attacks: Record<string, PropertyValue>, type?: string) {
+export function childAttackNames(attacks: Record<string, PropertyValue>, type?: string) {
   return Object.entries(attacks)
     .filter(([name, value]) => /^\*\*/.test(name) && (!type || String(value).toLowerCase() === type.toLowerCase()))
     .map(([name]) => normalizedAttackName(name));
 }
 
-function findPropertyGroup(item: Item, name: string) {
+export function findPropertyGroup(item: Item, name: string) {
   const direct = item.properties?.[name];
   if (direct) return asPropertyRecord(direct);
   const normalized = name.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -44,7 +44,7 @@ function findPropertyGroup(item: Item, name: string) {
   return asPropertyRecord(match?.[1]);
 }
 
-function findLinkedPropertyGroup(item: Item, name: PropertyValue | undefined) {
+export function findLinkedPropertyGroup(item: Item, name: PropertyValue | undefined) {
   if (typeof name !== "string") return null;
   const canonical = canonicalAttackName(name);
   const match = Object.entries(item.properties ?? {}).find(([candidate]) =>
@@ -53,7 +53,7 @@ function findLinkedPropertyGroup(item: Item, name: PropertyValue | undefined) {
   return match ? { name: match[0], group: asPropertyRecord(match[1]) } : null;
 }
 
-function extractDirectComponent(attackName: string, attack: Record<string, PropertyValue>) {
+export function extractDirectComponent(attackName: string, attack: Record<string, PropertyValue>) {
   const damage = asPropertyRecord(attack.Damage);
   const penetration = asPropertyRecord(attack.Penetration);
   const standard = parseDamageValue(damage?.Standard);
@@ -72,7 +72,7 @@ function extractDirectComponent(attackName: string, attack: Record<string, Prope
   } satisfies DamageComponent;
 }
 
-function extractExplosionComponent(attackName: string, attack: Record<string, PropertyValue>) {
+export function extractExplosionComponent(attackName: string, attack: Record<string, PropertyValue>) {
   const damage = asPropertyRecord(attack.Damage);
   const penetration = asPropertyRecord(attack.Penetration);
   const standard = parseDamageValue(damage?.["Inner Radius"]);
@@ -101,7 +101,7 @@ function extractExplosionComponent(attackName: string, attack: Record<string, Pr
   } satisfies DamageComponent;
 }
 
-function configureProjectileExplosion(
+export function configureProjectileExplosion(
   item: Item,
   projectile: Record<string, PropertyValue> | null,
   component: DamageComponent | null,
@@ -120,7 +120,7 @@ function configureProjectileExplosion(
   };
 }
 
-function extractStatusApplication(
+export function extractStatusApplication(
   item: Item,
   attack: Record<string, PropertyValue>,
   packetsPerProjectile: number,
@@ -165,7 +165,7 @@ function extractStatusApplication(
   } satisfies WeaponStatusApplication;
 }
 
-function extractNonDamageEffects(
+export function extractNonDamageEffects(
   item: Item,
   attack: Record<string, PropertyValue>,
   packetsPerProjectile: number,

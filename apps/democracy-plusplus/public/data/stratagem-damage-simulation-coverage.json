@@ -1,0 +1,2080 @@
+[
+  {
+    "stratagem": "40-K Meltagun",
+    "profiles": [
+      "0.40s charge · 40-K MELTAGUN B",
+      "0.50s charge · 40-K MELTAGUN B",
+      "1.00s charge · 40-K MELTAGUN B"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/AC-8 Autocannon Sentry",
+    "profiles": [
+      "SWP AUTOCANNON SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/ARC-3 Tesla Tower",
+    "profiles": [
+      "Tesla Turret Arc"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "A/FLAM-40 Flame Sentry",
+    "profiles": [
+      "SWP FLAME SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial."
+    ]
+  },
+  {
+    "stratagem": "A/G-16 Gatling Sentry",
+    "profiles": [
+      "SWP GATLING SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/GM-17 Gas Mortar Sentry",
+    "profiles": [
+      "SWP GAS MORTAR SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/LAS-98 Laser Sentry",
+    "profiles": [
+      "Heat Data"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "A/M-12 Mortar Sentry",
+    "profiles": [
+      "SWP MORTAR SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/M-23 EMS Mortar Sentry",
+    "profiles": [
+      "SWP EMS MORTAR SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/MG-43 Machine Gun Sentry",
+    "profiles": [
+      "SWP MACHINE GUN SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "A/MLS-4X Rocket Sentry",
+    "profiles": [
+      "SWP ROCKET SENTRY"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "AC-8 Autocannon",
+    "profiles": [
+      "AC-8 P",
+      "AC-8 P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "APW-1 Anti-Materiel Rifle",
+    "profiles": [
+      "APW-1 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "ARC-3 Arc Thrower",
+    "profiles": [
+      "ARC-3 ARC THROWER A"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "AX/AR-23 Guard Dog",
+    "profiles": [
+      "AX/AR-23 GUARD DOG"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "AX/ARC-3 K-9",
+    "profiles": [
+      "AX/ARC-3 K-9 A"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "AX/FLAM-75 Hot Dog",
+    "profiles": [
+      "AX/FLAM-75 HOT DOG S"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "AX/LAS-5 Rover",
+    "profiles": [
+      "AX/LAS-5 ROVER B"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "AX/TX-13 Dog Breath",
+    "profiles": [
+      "AX/TX-13 DOG BREATH S"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "autonomous-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "B-1 Supply Pack",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "B-100 Portable Hellbomb",
+    "profiles": [
+      "Hellbomb"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "trap"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "B/FLAM-80 Cremator",
+    "profiles": [
+      "B/FLAM-80 CREMATOR S"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "B/MD C4 Pack",
+    "profiles": [
+      "B/MD C4 PACK E"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "trap"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "One charge is held by the detonator and six are stored in the backpack; deployed charges can detonate simultaneously."
+    ]
+  },
+  {
+    "stratagem": "CQC-1 One True Flag",
+    "profiles": [
+      "CQC-1 ONE TRUE FLAG_dm"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "partial",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "partial",
+    "targetTtk": "complete",
+    "reasons": [
+      "The Stun Large status is present but its damage definition is incomplete.",
+      "Base call-in plus cooldown/rearm timing is incomplete."
+    ]
+  },
+  {
+    "stratagem": "CQC-20 Breaching Hammer",
+    "profiles": [
+      "CQC-20 BREACHING HAMMER_dm"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial."
+    ]
+  },
+  {
+    "stratagem": "CQC-9 Defoliation Tool",
+    "profiles": [
+      "CQC-9 DEFOLIATION TOOL_dm"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial."
+    ]
+  },
+  {
+    "stratagem": "E/AT-12 Anti-Tank Emplacement",
+    "profiles": [
+      "75 mm APHE cannon"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "The source documents a 30-shell reserve but does not expose a machine-readable firing cadence."
+    ]
+  },
+  {
+    "stratagem": "E/GL-21 Grenadier Battlement",
+    "profiles": [
+      "SWP GRENADIER BATTLEMENT"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "E/MG-101 HMG Emplacement",
+    "profiles": [
+      "Twin heavy machine guns"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Two 300-round guns fire simultaneously at a sourced combined rate of 11 rounds per second."
+    ]
+  },
+  {
+    "stratagem": "Eagle 110mm Rocket Pods",
+    "profiles": [
+      "110mm STANDARD ROCKET P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "focused-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "Eagle 500kg Bomb",
+    "profiles": [
+      "500kg BOMB P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "focused-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "Eagle Airstrike",
+    "profiles": [
+      "Bomb 100kg"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Eagle Cluster Bomb",
+    "profiles": [
+      "Cluster submunition"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Eight carrier bombs release eight independently resolved submunitions each; carrier impact is excluded because the bombs airburst.",
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Eagle Gas Airstrike",
+    "profiles": [
+      "S P6",
+      "Gas field exposure"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "persistent-area"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "partial",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Deployment payload count is unavailable; one payload is shown as a per-payload placeholder and total area output is partial.",
+      "Target exposure '1 payload exposure' is estimated.",
+      "Target exposure 'Full 15s in field' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Eagle Napalm Airstrike",
+    "profiles": [
+      "NAPALM BOMB P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "persistent-area"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "partial",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Deployment payload count is unavailable; one payload is shown as a per-payload placeholder and total area output is partial.",
+      "Target exposure '1 payload exposure' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Eagle Smoke Strike",
+    "profiles": [
+      "100KG BOMB P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "partial",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "partial",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Deployment payload count is unavailable; one payload is shown as a per-payload placeholder and total area output is partial.",
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Eagle Strafing Run",
+    "profiles": [
+      "23 mm HE rounds"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Models the 25 HE rounds in the sourced 100-round pass; the other 75 direct-only rounds remain outside area output.",
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "EAT-17 Expendable Anti-Tank",
+    "profiles": [
+      "EAT-17 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "The primary attack has no complete direct-damage record; healing and other non-damaging projectiles are excluded.",
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "EAT-411 Leveller",
+    "profiles": [
+      "EAT-411 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "The primary attack has no complete direct-damage record; healing and other non-damaging projectiles are excluded.",
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "EAT-700 Expendable Napalm",
+    "profiles": [
+      "EAT-700 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "The primary attack has no complete direct-damage record; healing and other non-damaging projectiles are excluded.",
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "EXO-45 Patriot Exosuit",
+    "profiles": [
+      "PATRIOT EXOSUIT HMG",
+      "PATRIOT EXOSUIT MISSILE LAUNCHER"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "EXO-49 Emancipator Exosuit",
+    "profiles": [
+      "EMANCIPATOR EXOSUIT LEFT AUTOCANNON",
+      "EMANCIPATOR EXOSUIT RIGHT AUTOCANNON"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "EXO-51 Lumberer Exosuit",
+    "profiles": [
+      "LUMBERER FLAMETHROWER",
+      "LUMBERER ANTI TANK CANNON"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial."
+    ]
+  },
+  {
+    "stratagem": "EXO-55 Breakthrough Exosuit",
+    "profiles": [
+      "BREAKTHROUGH SCATTERGUN"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "partial",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "partial",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "One or more linked explosion records could not be normalized."
+    ]
+  },
+  {
+    "stratagem": "FAF-14 Spear",
+    "profiles": [
+      "FAF-14 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "FLAM-40 Flamethrower",
+    "profiles": [
+      "FLAM-40 FLAMETHROWER S"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "FX-12 Shield Generator Relay",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "GL-21 Grenade Launcher",
+    "profiles": [
+      "GL-21 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "GL-28 Belt-Fed Grenade Launcher",
+    "profiles": [
+      "GL-28 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "GL-52 De-Escalator",
+    "profiles": [
+      "GL-52 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Stun Small are subordinate status payloads, but the source does not expose application strength; combined status damage is excluded."
+    ]
+  },
+  {
+    "stratagem": "GR-8 Recoilless Rifle",
+    "profiles": [
+      "GR-8 P",
+      "GR-8 P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "The primary attack has no complete direct-damage record; healing and other non-damaging projectiles are excluded.",
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "LAS-98 Laser Cannon",
+    "profiles": [
+      "LAS-98 LASER CANNON B"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "LAS-99 Quasar Cannon",
+    "profiles": [
+      "LAS-99 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "LIFT-182 Warp Pack",
+    "profiles": [
+      "Fire"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "Deployment capacity is unavailable; full-deployment output is partial.",
+      "The offensive activation payload is parsed, but its trigger and target interaction are not sourced well enough for target TTK."
+    ]
+  },
+  {
+    "stratagem": "LIFT-850 Jump Pack",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "LIFT-860 Hover Pack",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "M-1000 Maxigun",
+    "profiles": [
+      "M-1000 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "M-102 Gunner FRV",
+    "profiles": [
+      "SWP HEAVY MACHINE GUN"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "M-103 Supply FRV",
+    "profiles": [
+      "SWP SUPPLY FRV"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "M-104 Incinerator FRV",
+    "profiles": [
+      "SWP FLAMETHROWER"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial."
+    ]
+  },
+  {
+    "stratagem": "M-105 Stalwart",
+    "profiles": [
+      "AR-23 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "MD-17 Anti-Tank Mines",
+    "profiles": [
+      "Anti Tank Mine"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "trap"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "MD-6 Anti-Personnel Minefield",
+    "profiles": [
+      "Contact Mine"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "trap"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "MD-8 Gas Mines",
+    "profiles": [
+      "Gas Mine"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "trap"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "partial",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Only the first independently damage-bearing payload in this source configuration is modeled."
+    ]
+  },
+  {
+    "stratagem": "MD-I4 Incendiary Mines",
+    "profiles": [
+      "Incendiary Mine"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "trap"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "partial",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "MG-206 Heavy Machine Gun",
+    "profiles": [
+      "MG-206 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "MG-43 Machine Gun",
+    "profiles": [
+      "MG-43 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "MGX-42 Bullet Storm",
+    "profiles": [
+      "MGX-42 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "MLS-4X Commando",
+    "profiles": [
+      "MLS-4X P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "The primary attack has no complete direct-damage record; healing and other non-damaging projectiles are excluded.",
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "MS-11 Solo Silo",
+    "profiles": [
+      "SOLO SILO"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "not-applicable",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "partial",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Fire rate is unavailable; 60 rpm is a sequencing placeholder, so DPS and TTK timing are partial.",
+      "The one guided missile applies its sourced impact and main explosions once each."
+    ]
+  },
+  {
+    "stratagem": "Orbital 120mm HE Barrage",
+    "profiles": [
+      "120mm HE CANNON ROUND P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital 380mm HE Barrage",
+    "profiles": [
+      "380mm HE CANNON ROUND P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '2 shells' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital Airburst Strike",
+    "profiles": [
+      "110mm AIRBURST CANNON ROUND P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital EMS Strike",
+    "profiles": [
+      "110mm E.M.S. CANNON ROUND P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital Gas Strike",
+    "profiles": [
+      "110mm GAS CANNON ROUND P",
+      "Gas field exposure"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "persistent-area"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload exposure' is estimated.",
+      "Target exposure 'Full 15s in field' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital Gatling Barrage",
+    "profiles": [
+      "23mm HE CANNON P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "partial",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Only the first independently damage-bearing payload in this source configuration is modeled.",
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital Laser",
+    "profiles": [
+      "ORBITAL LASER_DPS"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "persistent-area"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "Orbital Napalm Barrage",
+    "profiles": [
+      "120mm HE CANNON ROUND P3"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "persistent-area"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload exposure' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital Precision Strike",
+    "profiles": [
+      "380mm HE CANNON ROUND P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "focused-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "Orbital Railcannon Strike",
+    "profiles": [
+      "RAIL CANNON ROUND P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "focused-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "Orbital Smoke Strike",
+    "profiles": [
+      "S P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "partial",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "Orbital Walking Barrage",
+    "profiles": [
+      "380mm HE CANNON ROUND P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "distributed-strike"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "partial",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "partial",
+    "reasons": [
+      "Target exposure '1 payload' is estimated."
+    ]
+  },
+  {
+    "stratagem": "PLAS-45 Epoch",
+    "profiles": [
+      "1.00s charge · PLAS-45_P",
+      "2.50s charge · P3",
+      "2.60s charge · P3"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "RL-77 Airburst Rocket Launcher",
+    "profiles": [
+      "RL-77 P",
+      "RL-77 P2"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "The primary attack has no complete direct-damage record; healing and other non-damaging projectiles are excluded.",
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "RS-422 Railgun",
+    "profiles": [
+      "0.45s charge · RS-422 P",
+      "0.50s charge · RS-422 P",
+      "3.00s charge · RS-422 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "partial",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "S-11 Speargun",
+    "profiles": [
+      "S-11 P"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "SH-20 Ballistic Shield Backpack",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "SH-32 Shield Generator Pack",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "SH-51 Directional Shield",
+    "profiles": [],
+    "classification": "utility",
+    "delivery": [],
+    "direct": "not-applicable",
+    "explosion": "not-applicable",
+    "status": "not-applicable",
+    "effect": "not-applicable",
+    "triggerResourceTiming": "not-applicable",
+    "payloadDamage": "not-applicable",
+    "targetExposure": "not-applicable",
+    "totalAreaOutput": "not-applicable",
+    "deploymentTiming": "complete",
+    "targetTtk": "not-applicable",
+    "reasons": [
+      "No enemy-damage payload is defined for this utility stratagem."
+    ]
+  },
+  {
+    "stratagem": "StA-X3 W.A.S.P. Launcher",
+    "profiles": [
+      "StA-X3 P",
+      "StA-X3 P1"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": [
+      "Sustained DPS is unavailable because reload time is missing."
+    ]
+  },
+  {
+    "stratagem": "TD-110 Maelstrom",
+    "profiles": [
+      "SWP MAELSTROM",
+      "SWP MAELSTROMIII"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "TD-220 Bastion MK XVI",
+    "profiles": [
+      "SWP BASTION MK XVI",
+      "SWP BASTION MK XVIII"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "mounted-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "complete",
+    "status": "not-applicable",
+    "effect": "partial",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  },
+  {
+    "stratagem": "TX-41 Sterilizer",
+    "profiles": [
+      "TX-41 STERILIZER S"
+    ],
+    "classification": "damaging",
+    "delivery": [
+      "support-weapon"
+    ],
+    "direct": "complete",
+    "explosion": "not-applicable",
+    "status": "complete",
+    "effect": "complete",
+    "triggerResourceTiming": "complete",
+    "payloadDamage": "complete",
+    "targetExposure": "complete",
+    "totalAreaOutput": "complete",
+    "deploymentTiming": "complete",
+    "targetTtk": "complete",
+    "reasons": []
+  }
+]

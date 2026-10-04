@@ -11,10 +11,59 @@ import {
   parseFactionsPageSource,
   parseDemolitionPageSource,
   parseStructurePageSource,
+  parseStratagemSimulationMetadata,
   parseStratagemsPageSource,
   parseWarbondsPageSource,
   parseWeaponSimulationMetadata,
 } from "../scripts/wikiApi.ts";
+
+test("parseStratagemSimulationMetadata reads base deployment timing without upgrades", () => {
+  const source = `{{Last Updated|1.006.300}}
+{{Infobox Stratagem|base_cooldown=240s}}
+{{Stratagem Stats Table
+| call_time = 8.45
+| call_time_upgraded = 7.45
+| uses = Unlimited
+| cooldown = 240
+| cooldown_upgraded = 216
+| rearm_time = 150
+}}`;
+
+  assert.deepEqual(parseStratagemSimulationMetadata(source), {
+    callInSeconds: 8.45,
+    cooldownSeconds: 240,
+    rearmSeconds: 150,
+    uses: "unlimited",
+    sourceVersion: "1.006.300",
+  });
+});
+
+test("parseStratagemSimulationMetadata reads current wikitable deployment timing", () => {
+  const source = `
+{{Last Updated|1.007.100}}
+{{Infobox Stratagem|base_cooldown = 420s}}
+== Stratagem Statistics ==
+{| class="wikitable"
+!'''Call-in Time'''
+| colspan="2" |'''10.50 seconds'''
+|-
+!'''Uses'''
+| colspan="2" |'''3'''
+|-
+! rowspan="2" |'''Cooldown'''
+|Standard
+|'''420 seconds'''
+|-
+|Upgraded
+|'''399 seconds'''
+|}`;
+  assert.deepEqual(parseStratagemSimulationMetadata(source), {
+    callInSeconds: 10.5,
+    cooldownSeconds: 420,
+    uses: 3,
+    sourceVersion: "1.007.100",
+  });
+});
 
 test("parseWeaponSimulationMetadata reads magazine reloads and firing modes", () => {
   const source = `{{Last Updated|1.007.000}}

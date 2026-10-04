@@ -1,0 +1,74 @@
+[
+  {
+    "family": "autonomous-weapon",
+    "total": 15,
+    "damaging": 15,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 15,
+    "partialTargetExposure": 0
+  },
+  {
+    "family": "distributed-strike",
+    "total": 11,
+    "damaging": 11,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 0,
+    "partialTargetExposure": 11
+  },
+  {
+    "family": "focused-strike",
+    "total": 4,
+    "damaging": 4,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 4,
+    "partialTargetExposure": 0
+  },
+  {
+    "family": "mounted-weapon",
+    "total": 12,
+    "damaging": 12,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 12,
+    "partialTargetExposure": 0
+  },
+  {
+    "family": "persistent-area",
+    "total": 5,
+    "damaging": 5,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 1,
+    "partialTargetExposure": 4
+  },
+  {
+    "family": "support-weapon",
+    "total": 33,
+    "damaging": 33,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 32,
+    "partialTargetExposure": 1
+  },
+  {
+    "family": "trap",
+    "total": 6,
+    "damaging": 6,
+    "utility": 0,
+    "unsupported": 0,
+    "completeTargetExposure": 6,
+    "partialTargetExposure": 0
+  },
+  {
+    "family": "utility",
+    "total": 7,
+    "damaging": 0,
+    "utility": 7,
+    "unsupported": 0,
+    "completeTargetExposure": 0,
+    "partialTargetExposure": 0
+  }
+]

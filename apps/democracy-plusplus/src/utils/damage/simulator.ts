@@ -607,7 +607,9 @@ export function simulateTargetTtk(
       if (!payload) break;
     }
 
-    const componentOffsets = [...new Set(profile.components.map(({ offsetSeconds }) => offsetSeconds ?? 0))];
+    const componentOffsets = profile.components.length
+      ? [...new Set(profile.components.map(({ offsetSeconds }) => offsetSeconds ?? 0))]
+      : [0];
     const events = payload.events.flatMap((event) => componentOffsets.map((componentOffsetSeconds) => ({
       offsetSeconds: event.offsetSeconds + componentOffsetSeconds,
       projectileOffsetSeconds: event.offsetSeconds,

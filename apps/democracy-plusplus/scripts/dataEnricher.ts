@@ -1,5 +1,10 @@
 import fs from "fs/promises";
-import type { ItemProperties, ObjectiveTag, WeaponSimulationMetadata } from "../src/types.ts";
+import type {
+  ItemProperties,
+  ObjectiveTag,
+  StratagemSimulationMetadata,
+  WeaponSimulationMetadata,
+} from "../src/types.ts";
 import { assertDatasetCoverage, FLAT_WIKI_DATASETS, WIKI_DATASET_NAMES, type FlatWikiDataset } from "./dataPipeline.ts";
 import {
   expandTemplate,
@@ -11,6 +16,7 @@ import {
   parseBoosterPageDescription,
   parseExpandedAttackTables,
   parseEnemyHealthByDifficulty,
+  parseStratagemSimulationMetadata,
   parseWeaponSimulationMetadata,
   resolveImageUrls,
   type WikiPageSource,
@@ -25,6 +31,7 @@ interface EnrichableItem {
   description?: string;
   properties?: ItemProperties;
   simulation?: WeaponSimulationMetadata;
+  stratagemSimulation?: StratagemSimulationMetadata;
   hoverTexts?: unknown;
   [key: string]: unknown;
 }
@@ -165,7 +172,7 @@ async function processArray(dataset: FlatWikiDataset) {
       }
     }
 
-    if (fileName === "primaries" || fileName === "secondaries") {
+    if (fileName === "primaries" || fileName === "secondaries" || fileName === "stratagems") {
       const parsedSimulation = parseWeaponSimulationMetadata(page.content);
       if (parsedSimulation) {
         // Simulation metadata is wholly derived from the current page source. Replacing it
@@ -173,6 +180,10 @@ async function processArray(dataset: FlatWikiDataset) {
         record.simulation = parsedSimulation;
         simulationMetadata++;
       }
+    }
+    if (fileName === "stratagems") {
+      const parsedStratagemSimulation = parseStratagemSimulationMetadata(page.content);
+      if (parsedStratagemSimulation) record.stratagemSimulation = parsedStratagemSimulation;
     }
 
     if (!shouldEnrichProperties) {

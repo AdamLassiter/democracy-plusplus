@@ -8,9 +8,19 @@ import {
   enemyDifficultyRanges,
   normalizeEnemyTarget,
 } from "../src/utils/damage/enemyTargets.ts";
-import { buildWeaponCoverageReport } from "../src/utils/damage/coverage.ts";
+import {
+  buildStratagemCoverageReport,
+  buildStratagemCoverageTotals,
+  buildWeaponCoverageReport,
+} from "../src/utils/damage/coverage.ts";
+import { simulateStratagemDeployment } from "../src/utils/damage/combatSimulator.ts";
 import { validateExplosionScenarios } from "../src/utils/damage/explosionScenarios.ts";
 import { calculateWeaponDps, simulateTargetTtk } from "../src/utils/damage/simulator.ts";
+import {
+  extractStratagemProfiles,
+  profileForExposure,
+  validateStratagemProfiles,
+} from "../src/utils/damage/stratagemProfiles.ts";
 import {
   buildWeaponSourceConfigurations,
   validateWeaponSourceConfigurations,
@@ -66,6 +76,9 @@ const liveWeapons = [
   ...JSON.parse(readFileSync(new URL("../public/data/primaries.json", import.meta.url), "utf8")) as Item[],
   ...JSON.parse(readFileSync(new URL("../public/data/secondaries.json", import.meta.url), "utf8")) as Item[],
 ];
+const liveStratagems = JSON.parse(
+  readFileSync(new URL("../public/data/stratagems.json", import.meta.url), "utf8"),
+) as Item[];
 
 function liveWeapon(displayName: string) {
   const weapon = liveWeapons.find((candidate) => candidate.displayName === displayName);
@@ -1256,4 +1269,147 @@ test("the primary and secondary damage-simulation coverage report is determinist
     report.filter(({ status }) => status === "partial").map(({ weapon }) => weapon),
     ["P-34 Breacher"],
   );
+});
+
+function liveStratagem(displayName: string) {
+  const stratagem = liveStratagems.find((candidate) => candidate.displayName === displayName);
+  assert.ok(stratagem, `${displayName} must exist in the generated stratagem data`);
+  return stratagem;
+}
+
+test("stratagem profiles distinguish total deployment payloads from target exposure", () => {
+  const barrage = extractStratagemProfiles(liveStratagem("Orbital 380mm HE Barrage")).profiles[0];
+  assert.equal(barrage.delivery.kind, "distributed-strike");
+  assert.equal(barrage.delivery.totalPayloads, 15);
+  assert.deepEqual(barrage.delivery.exposureScenarios.map(({ payloadHits }) => payloadHits), [1, 2]);
+  const oneShell = calculateWeaponDps(profileForExposure(barrage, barrage.delivery.exposureScenarios[0]));
+  const twoShells = calculateWeaponDps(profileForExposure(barrage, barrage.delivery.exposureScenarios[1]));
+  assert.equal(twoShells.damagePerTrigger.standard, oneShell.damagePerTrigger.standard * 2);
+
+  const minefield = extractStratagemProfiles(liveStratagem("MD-6 Anti-Personnel Minefield")).profiles[0];
+  assert.equal(minefield.delivery.totalPayloads, 48);
+  assert.equal(minefield.delivery.exposureScenarios[0].payloadHits, 1);
+});
+
+test("focused and persistent stratagems preserve their reviewed delivery behavior", () => {
+  const rockets = extractStratagemProfiles(liveStratagem("Eagle 110mm Rocket Pods")).profiles[0];
+  assert.equal(rockets.delivery.kind, "focused-strike");
+  assert.equal(rockets.delivery.exposureScenarios[0].payloadHits, 6);
+
+  const bomb = extractStratagemProfiles(liveStratagem("Eagle 500kg Bomb")).profiles[0];
+  assert.equal(bomb.components.length, 3);
+  assert.equal(bomb.components.find(({ id }) => id === "500kg BOMB P E")?.offsetSeconds, 0.8);
+
+  const laser = extractStratagemProfiles(liveStratagem("Orbital Laser")).profiles[0];
+  assert.equal(laser.delivery.activeDurationSeconds, 25);
+  assert.equal(laser.delivery.exposureScenarios[0].payloadHits, 25);
+});
+
+test("distributed Eagle profiles use deployment payloads rather than internal weapon capacity", () => {
+  const strafe = extractStratagemProfiles(liveStratagem("Eagle Strafing Run")).profiles[0];
+  assert.equal(strafe.delivery.totalPayloads, 25);
+  assert.equal(strafe.resource.capacity, 25);
+  assert.match(strafe.warnings.join(" "), /25 HE rounds.*100-round pass/i);
+
+  const cluster = extractStratagemProfiles(liveStratagem("Eagle Cluster Bomb")).profiles[0];
+  assert.equal(cluster.label, "Cluster submunition");
+  assert.equal(cluster.delivery.totalPayloads, 64);
+  assert.deepEqual(cluster.components.map(({ kind }) => kind), ["direct", "explosion"]);
+
+  const airstrike = extractStratagemProfiles(liveStratagem("Eagle Airstrike")).profiles[0];
+  assert.equal(airstrike.delivery.totalPayloads, 6);
+  assert.deepEqual(airstrike.components.map(({ kind }) => kind), ["direct", "explosion"]);
+});
+
+test("vehicles expose independent mounted weapons without collapsing their ammunition into one hit", () => {
+  const patriot = extractStratagemProfiles(liveStratagem("EXO-45 Patriot Exosuit"));
+  assert.deepEqual(patriot.profiles.map(({ label }) => label), [
+    "PATRIOT EXOSUIT HMG",
+    "PATRIOT EXOSUIT MISSILE LAUNCHER",
+  ]);
+  assert.deepEqual(patriot.profiles.map(({ delivery }) => delivery.exposureScenarios[0].payloadHits), [1, 1]);
+  assert.deepEqual(patriot.profiles.map(({ resource }) => resource.capacity), [1350, 14]);
+});
+
+test("reviewed emplacements and placed explosives preserve finite deployment resources", () => {
+  const hmg = extractStratagemProfiles(liveStratagem("E/MG-101 HMG Emplacement")).profiles[0];
+  assert.equal(hmg.resource.capacity, 600);
+  assert.equal(hmg.roundsPerMinute, 660);
+  assert.equal(hmg.reload, undefined);
+
+  const antiTank = extractStratagemProfiles(liveStratagem("E/AT-12 Anti-Tank Emplacement")).profiles[0];
+  assert.equal(antiTank.resource.capacity, 30);
+  assert.deepEqual(antiTank.components.map(({ kind }) => kind), ["direct", "explosion"]);
+  assert.match(antiTank.warnings.join(" "), /sequencing placeholder/i);
+
+  const c4 = extractStratagemProfiles(liveStratagem("B/MD C4 Pack")).profiles[0];
+  assert.equal(c4.delivery.totalPayloads, 7);
+  assert.deepEqual(c4.delivery.exposureScenarios.map(({ payloadHits }) => payloadHits), [1, 7]);
+
+  const hellbomb = extractStratagemProfiles(liveStratagem("B-100 Portable Hellbomb")).profiles[0];
+  assert.equal(hellbomb.components[0].offsetSeconds, 10);
+
+  const silo = extractStratagemProfiles(liveStratagem("MS-11 Solo Silo")).profiles[0];
+  assert.deepEqual(silo.components.map(({ standardDamage }) => standardDamage), [2500, 1500]);
+});
+
+test("sourced gas duration creates separate impact and sequential field-exposure profiles", () => {
+  const profiles = extractStratagemProfiles(liveStratagem("Orbital Gas Strike")).profiles;
+  assert.equal(profiles.length, 2);
+  assert.ok(profiles[0].components.length > 0);
+  assert.equal(profiles[1].components.length, 0);
+  assert.equal(profiles[1].statuses[0].label, "Gas");
+  assert.deepEqual(profiles[1].delivery.exposureScenarios.map(({ payloadHits }) => payloadHits), [1, 15]);
+  const fullExposure = profileForExposure(profiles[1], profiles[1].delivery.exposureScenarios[1]);
+  assert.equal(fullExposure.trigger.ammoPerTrigger, 1);
+  assert.equal(fullExposure.resource.capacity, 15);
+  assert.equal(calculateWeaponDps(fullExposure).timeToEmptySeconds, 15);
+});
+
+test("the stratagem coverage report is deterministic, exhaustive, and published", () => {
+  const report = buildStratagemCoverageReport(liveStratagems);
+  assert.equal(report.length, liveStratagems.length);
+  assert.equal(new Set(report.map(({ stratagem }) => stratagem)).size, liveStratagems.length);
+  assert.deepEqual(
+    Object.fromEntries(["damaging", "utility", "unsupported"].map((classification) => [
+      classification,
+      report.filter((row) => row.classification === classification).length,
+    ])),
+    { damaging: 86, utility: 7, unsupported: 0 },
+  );
+  const published = JSON.parse(readFileSync(
+    new URL("../public/data/stratagem-damage-simulation-coverage.json", import.meta.url),
+    "utf8",
+  ));
+  assert.deepEqual(published, report);
+  const totals = buildStratagemCoverageTotals(report);
+  const publishedTotals = JSON.parse(readFileSync(
+    new URL("../public/data/stratagem-damage-simulation-family-totals.json", import.meta.url),
+    "utf8",
+  ));
+  assert.deepEqual(publishedTotals, totals);
+  assert.equal(totals.reduce((sum, family) => sum + family.total, 0), liveStratagems.length);
+});
+
+test("every generated stratagem profile has valid resources and bounded exposure scenarios", () => {
+  assert.deepEqual(
+    liveStratagems.flatMap((item) => validateStratagemProfiles(item).map((problem) => `${item.displayName}: ${problem}`)),
+    [],
+  );
+});
+
+test("deployment results keep on-target, activation, active-window, and cooldown timing separate", () => {
+  const laser = extractStratagemProfiles(liveStratagem("Orbital Laser")).profiles[0];
+  const result = simulateStratagemDeployment(laser, laser.delivery.exposureScenarios[0]);
+  assert.equal(result.timing.activationToFirstPayloadSeconds, 2);
+  assert.equal(result.deployment.activeWindowSeconds, 25);
+  assert.ok(result.deployment.activeWindowDps);
+  assert.equal(result.timing.cooldownSeconds, 300);
+  assert.ok(result.timing.cooldownAmortizedThroughput);
+
+  const barrage = extractStratagemProfiles(liveStratagem("Orbital 380mm HE Barrage")).profiles[0];
+  const incompleteTiming = simulateStratagemDeployment(barrage, barrage.delivery.exposureScenarios[0]);
+  assert.equal(incompleteTiming.deployment.activeWindowSeconds, null);
+  assert.equal(incompleteTiming.deployment.activeWindowDps, null);
+  assert.match(incompleteTiming.warnings.join(" "), /payload timing is incomplete/i);
 });

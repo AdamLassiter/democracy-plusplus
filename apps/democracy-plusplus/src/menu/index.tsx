@@ -33,7 +33,7 @@ const TAB_DEFINITIONS: Array<{ name: string; label: string; component: (_props: 
   { name: "loadout", label: "Loadout", component: Loadout },
   { name: "shop", label: "Shop", component: Shop },
   { name: "armory", label: "Armory", component: TierLists },
-  { name: "damage-sim", label: "Damage Sim", component: DamageSimulator },
+  { name: "damage-sim", label: "Simulator", component: DamageSimulator },
   { name: "bestiary", label: "Bestiary", component: Bestiary },
   { name: "structures", label: "Structures", component: Structures },
   { name: "log", label: "Log", component: Log },

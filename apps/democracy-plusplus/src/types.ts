@@ -110,6 +110,14 @@ export interface WeaponSimulationMetadata {
   selectableFireRatesRpm?: number[];
 }
 
+export interface StratagemSimulationMetadata {
+  callInSeconds?: number;
+  cooldownSeconds?: number;
+  rearmSeconds?: number;
+  uses?: number | 'unlimited';
+  sourceVersion?: string;
+}
+
 export interface BaseItem {
   displayName: string;
   description?: string;
@@ -126,6 +134,7 @@ export interface BaseItem {
   tags?: string[];
   properties?: ItemProperties;
   simulation?: WeaponSimulationMetadata;
+  stratagemSimulation?: StratagemSimulationMetadata;
   cost?: number;
   onSale?: boolean;
   purchased?: boolean;

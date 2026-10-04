@@ -107,6 +107,78 @@ export type WeaponProfileResult = {
   unsupportedReasons: string[];
 };
 
+export type CombatSourceKind =
+  | "carried-weapon"
+  | "support-weapon"
+  | "mounted-weapon"
+  | "autonomous-weapon"
+  | "trap"
+  | "focused-strike"
+  | "distributed-strike"
+  | "persistent-area";
+
+export type CombatSourceControl = "player" | "autonomous" | "proximity" | "scripted-pattern";
+
+export type TargetExposureScenario = {
+  id: string;
+  label: string;
+  payloadHits: number;
+  confidence: "sourced" | "verified" | "estimated";
+  note?: string;
+};
+
+export type CombatSourceDelivery = {
+  kind: CombatSourceKind;
+  control: CombatSourceControl;
+  totalPayloads: number;
+  activationDelaySeconds?: number;
+  activeDurationSeconds?: number;
+  cooldownSeconds?: number;
+  rearmSeconds?: number;
+  uses?: number | "unlimited";
+  exposureScenarios: TargetExposureScenario[];
+  replenishment: "reload" | "resupply" | "cooldown" | "rearm" | "disposable" | "persistent";
+  assumptions: string[];
+};
+
+export type CombatSourceProfile = WeaponProfile & {
+  sourceKind: "weapon" | "stratagem";
+  delivery: CombatSourceDelivery;
+};
+
+export type CombatSourceProfileResult = {
+  profiles: CombatSourceProfile[];
+  unsupportedReasons: string[];
+  intentionallyNonDamaging?: true;
+};
+
+export type StratagemSimulationResult = {
+  perPayload: DpsValue;
+  selectedTarget: {
+    exposure: TargetExposureScenario;
+    damage: DpsValue;
+    ttk: TargetTtkResult | null;
+    kills: boolean | null;
+  };
+  deployment: {
+    payloadCount: number;
+    areaOutput: DpsValue;
+    activeWindowSeconds: number | null;
+    activeWindowDps: DpsValue | null;
+  };
+  timing: {
+    activationToFirstPayloadSeconds: number | null;
+    onTargetKillSeconds: number | null;
+    requestToKillSeconds: number | null;
+    cooldownSeconds: number | null;
+    rearmSeconds: number | null;
+    cooldownAmortizedThroughput: DpsValue | null;
+    rearmAmortizedThroughput: DpsValue | null;
+  };
+  assumptions: string[];
+  warnings: string[];
+};
+
 export type DpsValue = {
   standard: number;
   durable: number;

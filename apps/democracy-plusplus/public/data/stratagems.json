@@ -88,7 +88,25 @@
       "Up",
       "Down",
       "Left"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 4,
+        "tacticalSeconds": 4
+      },
+      "capacity": 100,
+      "listedDps": 30,
+      "sourceVersion": "1.006.300",
+      "reloadSecondsByLabel": {
+        "Upgraded": 3.6
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "FLAM-40 Flamethrower",
@@ -186,7 +204,26 @@
       "Up",
       "Down",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 4,
+        "tacticalSeconds": 4
+      },
+      "capacity": 150,
+      "capacitySeconds": 18.6,
+      "listedDps": 150,
+      "sourceVersion": "1.006.100",
+      "reloadSecondsByLabel": {
+        "Upgraded": 3.6
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "S-11 Speargun",
@@ -317,7 +354,25 @@
       "Left",
       "Up",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 2.5
+      },
+      "fireRateRpm": 60,
+      "capacity": 1,
+      "listedDps": 25,
+      "sourceVersion": "1.006.300",
+      "reloadSecondsByLabel": {
+        "Upgraded": 2.25
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "LAS-98 Laser Cannon",
@@ -410,7 +465,25 @@
       "Down",
       "Up",
       "Left"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3.65,
+        "tacticalSeconds": 5.1
+      },
+      "capacitySeconds": 12.5,
+      "listedDps": 350,
+      "sourceVersion": "1.006.100",
+      "reloadSecondsByLabel": {
+        "Upgraded": 3.3
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "M-105 Stalwart",
@@ -478,7 +551,33 @@
       "Up",
       "Up",
       "Left"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 5.9,
+        "tacticalSeconds": 4.4
+      },
+      "fireRateRpm": 700,
+      "capacity": 250,
+      "firingModes": [
+        "Auto"
+      ],
+      "selectableFireRatesRpm": [
+        700,
+        850,
+        1150
+      ],
+      "sourceVersion": "1.005.000",
+      "reloadSecondsByLabel": {
+        "Upgraded": 5.33
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.005.000"
+    }
   },
   {
     "displayName": "MG-43 Machine Gun",
@@ -545,7 +644,33 @@
       "Down",
       "Up",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 4.55,
+        "tacticalSeconds": 3.83
+      },
+      "fireRateRpm": 630,
+      "capacity": 175,
+      "firingModes": [
+        "Auto"
+      ],
+      "selectableFireRatesRpm": [
+        630,
+        760,
+        900
+      ],
+      "sourceVersion": "1.005.000",
+      "reloadSecondsByLabel": {
+        "Upgraded": 4.1
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.005.000"
+    }
   },
   {
     "displayName": "MG-206 Heavy Machine Gun",
@@ -612,7 +737,33 @@
       "Up",
       "Down",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 5.55,
+        "tacticalSeconds": 3.9
+      },
+      "fireRateRpm": 450,
+      "capacity": 100,
+      "firingModes": [
+        "Auto"
+      ],
+      "selectableFireRatesRpm": [
+        450,
+        600,
+        750
+      ],
+      "sourceVersion": "1.005.000",
+      "reloadSecondsByLabel": {
+        "Upgraded": 5
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.005.000"
+    }
   },
   {
     "displayName": "ARC-3 Arc Thrower",
@@ -692,7 +843,18 @@
       "Up",
       "Left",
       "Left"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 60,
+      "infiniteCapacity": true,
+      "sourceVersion": "1.001.100"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.001.100"
+    }
   },
   {
     "displayName": "GL-21 Grenade Launcher",
@@ -787,7 +949,29 @@
       "Up",
       "Left",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3.55,
+        "tacticalSeconds": 3
+      },
+      "fireRateRpm": 160,
+      "capacity": 10,
+      "firingModes": [
+        "Semi",
+        "Auto"
+      ],
+      "sourceVersion": "1.006.100",
+      "reloadSecondsByLabel": {
+        "Upgraded": 3.2
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "GL-52 De-Escalator",
@@ -915,7 +1099,27 @@
       "Up",
       "Left",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 4.7,
+        "firstRoundSeconds": 1.9,
+        "additionalRoundSeconds": 0.6
+      },
+      "fireRateRpm": 200,
+      "capacity": 6,
+      "firingModes": [
+        "Semi",
+        "Auto"
+      ],
+      "sourceVersion": "1.007.100"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
+    }
   },
   {
     "displayName": "APW-1 Anti-Materiel Rifle",
@@ -982,7 +1186,28 @@
       "Right",
       "Up",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3.05,
+        "tacticalSeconds": 2.05
+      },
+      "fireRateRpm": 400,
+      "capacity": 7,
+      "firingModes": [
+        "Semi"
+      ],
+      "sourceVersion": "1.004.100",
+      "reloadSecondsByLabel": {
+        "Upgraded": 2.75
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.100"
+    }
   },
   {
     "displayName": "RS-422 Railgun",
@@ -1084,7 +1309,28 @@
       "Up",
       "Left",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 1.2
+      },
+      "fireRateRpm": 34,
+      "capacity": 1,
+      "firingModes": [
+        "Safe",
+        "Unsafe"
+      ],
+      "sourceVersion": "1.006.001",
+      "reloadSecondsByLabel": {
+        "Base": 1.35
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.001"
+    }
   },
   {
     "displayName": "LAS-99 Quasar Cannon",
@@ -1184,7 +1430,18 @@
       "Up",
       "Left",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 3.34,
+      "infiniteCapacity": true,
+      "sourceVersion": "1.001.201"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.001.201"
+    }
   },
   {
     "displayName": "PLAS-45 Epoch",
@@ -1367,7 +1624,25 @@
       "Up",
       "Left",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 5.15,
+        "tacticalSeconds": 5.15
+      },
+      "fireRateRpm": 600,
+      "capacity": 3,
+      "sourceVersion": "1.005.000",
+      "reloadSecondsByLabel": {
+        "Upgraded": 4.65
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.005.000"
+    }
   },
   {
     "displayName": "EAT-17 Expendable Anti-Tank",
@@ -1481,7 +1756,17 @@
       "Left",
       "Up",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "capacity": 1,
+      "sourceVersion": "1.001.201"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 6.75,
+      "cooldownSeconds": 70,
+      "uses": "unlimited",
+      "sourceVersion": "1.001.201"
+    }
   },
   {
     "displayName": "MLS-4X Commando",
@@ -1601,7 +1886,23 @@
       "Up",
       "Down",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 240,
+      "capacity": 4,
+      "firingModes": [
+        "Semi",
+        "Laser-guided",
+        "Dumb-Fire"
+      ],
+      "sourceVersion": "1.006.001"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.001"
+    }
   },
   {
     "displayName": "EAT-700 Expendable Napalm",
@@ -1822,7 +2123,18 @@
       "Left",
       "Up",
       "Left"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 600,
+      "capacity": 1,
+      "sourceVersion": "1.004.000"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 140,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.000"
+    }
   },
   {
     "displayName": "MS-11 Solo Silo",
@@ -1903,7 +2215,16 @@
       "Right",
       "Down",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "sourceVersion": "1.004.100"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.100"
+    }
   },
   {
     "displayName": "CQC-1 One True Flag",
@@ -1960,7 +2281,15 @@
       "Right",
       "Right",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 117,
+      "sourceVersion": "1.007.000"
+    },
+    "stratagemSimulation": {
+      "cooldownSeconds": 480,
+      "sourceVersion": "1.007.000"
+    }
   },
   {
     "displayName": "RL-77 Airburst Rocket Launcher",
@@ -2222,7 +2551,26 @@
       "Up",
       "Left",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 16,
+      "capacity": 1,
+      "firingModes": [
+        "Cluster",
+        "Flak"
+      ],
+      "sourceVersion": "1.003.101",
+      "reloadSecondsByLabel": {
+        "Upgraded": 4.6,
+        "Assisted": 1.8
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.003.101"
+    }
   },
   {
     "displayName": "AC-8 Autocannon",
@@ -2397,7 +2745,29 @@
       "Up",
       "Up",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 4,
+        "firstRoundSeconds": 2.6,
+        "additionalRoundSeconds": 1.25
+      },
+      "fireRateRpm": 190,
+      "capacity": 10,
+      "firingModes": [
+        "Semi",
+        "Auto",
+        "APHET",
+        "Flak"
+      ],
+      "sourceVersion": "1.006.100"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "StA-X3 W.A.S.P. Launcher",
@@ -2545,7 +2915,29 @@
       "Up",
       "Down",
       "Right"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "tacticalSeconds": 4.9
+      },
+      "fireRateRpm": 500,
+      "capacity": 7,
+      "firingModes": [
+        "Burst",
+        "Artillery"
+      ],
+      "sourceVersion": "1.006.300",
+      "reloadSecondsByLabel": {
+        "Upgraded": 4.4,
+        "Assisted": 3.33
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "GR-8 Recoilless Rifle",
@@ -2714,7 +3106,27 @@
       "Right",
       "Right",
       "Left"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 600,
+      "capacity": 1,
+      "firingModes": [
+        "Semi",
+        "HEAT",
+        "HE"
+      ],
+      "sourceVersion": "1.003.101",
+      "reloadSecondsByLabel": {
+        "Upgraded": 5.5,
+        "Assisted": 1.7
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.003.101"
+    }
   },
   {
     "displayName": "FAF-14 Spear",
@@ -2808,7 +3220,25 @@
       "Up",
       "Down",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 240,
+      "capacity": 1,
+      "firingModes": [
+        "Semi"
+      ],
+      "sourceVersion": "1.006.202",
+      "reloadSecondsByLabel": {
+        "Upgraded": 4.2,
+        "Assisted": 2.1
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.202"
+    }
   },
   {
     "displayName": "LIFT-850 Jump Pack",
@@ -2830,7 +3260,13 @@
       "Up",
       "Down",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "LIFT-860 Hover Pack",
@@ -2853,7 +3289,13 @@
       "Down",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.100"
+    }
   },
   {
     "displayName": "LIFT-182 Warp Pack",
@@ -2941,7 +3383,13 @@
       "Down",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.100"
+    }
   },
   {
     "displayName": "B-1 Supply Pack",
@@ -2974,7 +3422,13 @@
       "Up",
       "Up",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "SH-51 Directional Shield",
@@ -3009,7 +3463,13 @@
       "Right",
       "Up",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 300,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.003"
+    }
   },
   {
     "displayName": "SH-32 Shield Generator Pack",
@@ -3041,7 +3501,13 @@
       "Right",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.102"
+    }
   },
   {
     "displayName": "SH-20 Ballistic Shield Backpack",
@@ -3077,7 +3543,13 @@
       "Down",
       "Up",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 240,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "B-100 Portable Hellbomb",
@@ -3121,7 +3593,13 @@
       "Up",
       "Up",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 300,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.202"
+    }
   },
   {
     "displayName": "EXO-45 Patriot Exosuit",
@@ -3256,7 +3734,13 @@
       "Left",
       "Down",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 420,
+      "uses": 3,
+      "sourceVersion": "1.007.100"
+    }
   },
   {
     "displayName": "EXO-49 Emancipator Exosuit",
@@ -3368,7 +3852,13 @@
       "Left",
       "Down",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 420,
+      "uses": 3,
+      "sourceVersion": "1.007.100"
+    }
   },
   {
     "displayName": "Eagle Strafing Run",
@@ -3460,7 +3950,14 @@
       "Up",
       "Right",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 2.4,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 4,
+      "sourceVersion": "1.001.104"
+    }
   },
   {
     "displayName": "Eagle Airstrike",
@@ -3544,7 +4041,14 @@
       "Right",
       "Down",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.1,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 2,
+      "sourceVersion": "1.001.100"
+    }
   },
   {
     "displayName": "Eagle Cluster Bomb",
@@ -3682,7 +4186,14 @@
       "Down",
       "Down",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.1,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 4,
+      "sourceVersion": "1.001.100"
+    }
   },
   {
     "displayName": "Eagle Napalm Airstrike",
@@ -3812,7 +4323,14 @@
       "Right",
       "Down",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.1,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 2,
+      "sourceVersion": "1.007.000"
+    }
   },
   {
     "displayName": "Eagle Smoke Strike",
@@ -3879,7 +4397,14 @@
       "Right",
       "Up",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.4,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 2,
+      "sourceVersion": "1.007.000"
+    }
   },
   {
     "displayName": "Eagle 110mm Rocket Pods",
@@ -3962,7 +4487,14 @@
       "Right",
       "Up",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 3.4,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 3,
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "Eagle 500kg Bomb",
@@ -4072,7 +4604,14 @@
       "Down",
       "Down",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 3.45,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 1,
+      "sourceVersion": "1.001.100"
+    }
   },
   {
     "displayName": "Orbital Precision Strike",
@@ -4155,7 +4694,13 @@
       "Right",
       "Right",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.45,
+      "cooldownSeconds": 80,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
+    }
   },
   {
     "displayName": "Orbital Gas Strike",
@@ -4269,7 +4814,13 @@
       "Right",
       "Down",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.45,
+      "cooldownSeconds": 75,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.202"
+    }
   },
   {
     "displayName": "Orbital EMS Strike",
@@ -4360,7 +4911,13 @@
       "Right",
       "Left",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.45,
+      "cooldownSeconds": 75,
+      "uses": "unlimited",
+      "sourceVersion": "1.003.200"
+    }
   },
   {
     "displayName": "Orbital Smoke Strike",
@@ -4429,7 +4986,13 @@
       "Right",
       "Down",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.45,
+      "cooldownSeconds": 75,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.001"
+    }
   },
   {
     "displayName": "Orbital Airburst Strike",
@@ -4567,7 +5130,13 @@
       "Right",
       "Right",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 4.45,
+      "cooldownSeconds": 100,
+      "uses": "unlimited",
+      "sourceVersion": "1.001.104"
+    }
   },
   {
     "displayName": "Orbital Railcannon Strike",
@@ -4652,7 +5221,13 @@
       "Down",
       "Down",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 0,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "Orbital Laser",
@@ -4728,7 +5303,13 @@
       "Up",
       "Right",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 2,
+      "cooldownSeconds": 300,
+      "uses": 3,
+      "sourceVersion": "1.007.000"
+    }
   },
   {
     "displayName": "Orbital Gatling Barrage",
@@ -4838,7 +5419,13 @@
       "Left",
       "Up",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 3.05,
+      "cooldownSeconds": 70,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "Orbital 120mm HE Barrage",
@@ -4924,7 +5511,13 @@
       "Left",
       "Right",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.45,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "Orbital 380mm HE Barrage",
@@ -5011,7 +5604,13 @@
       "Left",
       "Down",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 8.45,
+      "cooldownSeconds": 240,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "Orbital Walking Barrage",
@@ -5097,7 +5696,13 @@
       "Down",
       "Right",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 5.45,
+      "cooldownSeconds": 240,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "Orbital Napalm Barrage",
@@ -5230,7 +5835,13 @@
       "Left",
       "Right",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.45,
+      "cooldownSeconds": 240,
+      "uses": "unlimited",
+      "sourceVersion": "1.003.000"
+    }
   },
   {
     "displayName": "A/ARC-3 Tesla Tower",
@@ -5292,7 +5903,13 @@
       "Up",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.001.104"
+    }
   },
   {
     "displayName": "A/M-12 Mortar Sentry",
@@ -5390,7 +6007,13 @@
       "Right",
       "Right",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/M-23 EMS Mortar Sentry",
@@ -5521,7 +6144,13 @@
       "Right",
       "Down",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/MG-43 Machine Gun Sentry",
@@ -5593,7 +6222,13 @@
       "Right",
       "Right",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 90,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/G-16 Gatling Sentry",
@@ -5664,7 +6299,13 @@
       "Up",
       "Right",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 150,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/FLAM-40 Flame Sentry",
@@ -5768,7 +6409,13 @@
       "Down",
       "Up",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 100,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/LAS-98 Laser Sentry",
@@ -5867,7 +6514,13 @@
       "Down",
       "Up",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 150,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/AC-8 Autocannon Sentry",
@@ -5966,7 +6619,13 @@
       "Up",
       "Left",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 150,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "A/MLS-4X Rocket Sentry",
@@ -6065,7 +6724,13 @@
       "Right",
       "Right",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 150,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "FX-12 Shield Generator Relay",
@@ -6103,7 +6768,13 @@
       "Right",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 90,
+      "uses": "unlimited",
+      "sourceVersion": "1.004.102"
+    }
   },
   {
     "displayName": "E/MG-101 HMG Emplacement",
@@ -6161,7 +6832,13 @@
       "Right",
       "Right",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.001.102"
+    }
   },
   {
     "displayName": "E/AT-12 Anti-Tank Emplacement",
@@ -6245,7 +6922,13 @@
       "Right",
       "Right",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.002.101"
+    }
   },
   {
     "displayName": "E/GL-21 Grenadier Battlement",
@@ -6338,7 +7021,13 @@
       "Down",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "MD-17 Anti-Tank Mines",
@@ -6396,7 +7085,13 @@
       "Left",
       "Up",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.000"
+    }
   },
   {
     "displayName": "MD-6 Anti-Personnel Minefield",
@@ -6454,7 +7149,13 @@
       "Left",
       "Up",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.002.101"
+    }
   },
   {
     "displayName": "MD-8 Gas Mines",
@@ -6535,7 +7236,13 @@
       "Left",
       "Left",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 3,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.002.106"
+    }
   },
   {
     "displayName": "MD-I4 Incendiary Mines",
@@ -6594,7 +7301,13 @@
       "Left",
       "Left",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 120,
+      "uses": "unlimited",
+      "sourceVersion": "1.003.000"
+    }
   },
   {
     "displayName": "CQC-9 Defoliation Tool",
@@ -6651,7 +7364,16 @@
       "Right",
       "Right",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "sourceVersion": "1.006.202"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.202"
+    }
   },
   {
     "displayName": "M-1000 Maxigun",
@@ -6717,7 +7439,21 @@
       "Down",
       "Up",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 1500,
+      "capacity": 1000,
+      "firingModes": [
+        "Auto"
+      ],
+      "sourceVersion": "1.006.100"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "CQC-20 Breaching Hammer",
@@ -6802,7 +7538,23 @@
       "Right",
       "Left",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 1
+      },
+      "capacity": 1,
+      "sourceVersion": "1.006.100",
+      "reloadSecondsByLabel": {
+        "Upgraded": 0.9
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "EAT-411 Leveller",
@@ -6916,7 +7668,18 @@
       "Left",
       "Up",
       "Down"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 600,
+      "capacity": 1,
+      "sourceVersion": "1.006.001"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 140,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.001"
+    }
   },
   {
     "displayName": "GL-28 Belt-Fed Grenade Launcher",
@@ -7007,7 +7770,29 @@
       "Left",
       "Up",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "fireRateRpm": 160,
+      "capacity": 120,
+      "firingModes": [
+        "Auto"
+      ],
+      "selectableFireRatesRpm": [
+        160,
+        240,
+        320
+      ],
+      "sourceVersion": "1.006.100",
+      "capacitiesByLabel": {
+        "Backpack": 120
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "B/FLAM-80 Cremator",
@@ -7104,7 +7889,21 @@
       "Down",
       "Up",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "capacity": 500,
+      "listedDps": 225,
+      "firingModes": [
+        "Auto"
+      ],
+      "sourceVersion": "1.006.100"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "B/MD C4 Pack",
@@ -7165,7 +7964,27 @@
       "Up",
       "Right",
       "Up"
-    ]
+    ],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 1.1
+      },
+      "capacity": 1,
+      "firingModes": [
+        "Deploy",
+        "Detonate"
+      ],
+      "sourceVersion": "1.007.100",
+      "reloadSecondsByLabel": {
+        "Upgraded": 1
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
+    }
   },
   {
     "displayName": "A/GM-17 Gas Mortar Sentry",
@@ -7293,7 +8112,13 @@
       "Right",
       "Down",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 180,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.300"
+    }
   },
   {
     "displayName": "TD-220 Bastion MK XVI",
@@ -7429,7 +8254,13 @@
       "Up",
       "Down",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 780,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
+    }
   },
   {
     "displayName": "AX/AR-23 Guard Dog",
@@ -7499,7 +8330,13 @@
       "Up",
       "Right",
       "Down"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "AX/LAS-5 Rover",
@@ -7597,7 +8434,13 @@
       "Up",
       "Right",
       "Right"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "AX/FLAM-75 Hot Dog",
@@ -7700,7 +8543,13 @@
       "Up",
       "Left",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "AX/ARC-3 K-9",
@@ -7781,7 +8630,13 @@
       "Up",
       "Right",
       "Left"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.100"
+    }
   },
   {
     "displayName": "AX/TX-13 Dog Breath",
@@ -7877,7 +8732,13 @@
       "Up",
       "Right",
       "Up"
-    ]
+    ],
+    "stratagemSimulation": {
+      "callInSeconds": 9.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.202"
+    }
   },
   {
     "displayName": "MGX-42 Bullet Storm",
@@ -7946,6 +8807,17 @@
           "Push Force": "10"
         }
       }
+    },
+    "simulation": {
+      "fireRateRpm": 1300,
+      "capacity": 300,
+      "sourceVersion": "1.006.202"
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 6.75,
+      "cooldownSeconds": 70,
+      "uses": "unlimited",
+      "sourceVersion": "1.006.202"
     }
   },
   {
@@ -8017,6 +8889,12 @@
           "Push Force": "10"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 420,
+      "uses": 3,
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -8181,6 +9059,12 @@
           "Push Force": "40"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 420,
+      "uses": 3,
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -8269,6 +9153,25 @@
           "Status Duration": "0.5 sec"
         }
       }
+    },
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3.75,
+        "tacticalSeconds": 3.75
+      },
+      "fireRateRpm": 50,
+      "capacity": 3,
+      "listedDps": 600,
+      "sourceVersion": "1.007.000",
+      "reloadSecondsByLabel": {
+        "Upgraded": 3.35
+      }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 7.75,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.000"
     }
   },
   {
@@ -8337,6 +9240,12 @@
           "Push Force": "10"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -8440,6 +9349,12 @@
           "Status Duration": "0.5 sec"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -8509,6 +9424,12 @@
           "Push Force": "20"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 480,
+      "uses": "unlimited",
+      "sourceVersion": "1.007.100"
     }
   },
   {
@@ -8622,6 +9543,13 @@
           "Status Duration": "5 sec"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 4.1,
+      "cooldownSeconds": 15,
+      "rearmSeconds": 150,
+      "uses": 2,
+      "sourceVersion": "1.007.002"
     }
   },
   {
@@ -8738,6 +9666,11 @@
           "Push Force": "70"
         }
       }
+    },
+    "stratagemSimulation": {
+      "callInSeconds": 10.5,
+      "cooldownSeconds": 780,
+      "uses": "unlimited"
     }
   }
 ]
