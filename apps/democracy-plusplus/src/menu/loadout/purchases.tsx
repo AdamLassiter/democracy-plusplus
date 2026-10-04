@@ -11,7 +11,7 @@ import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import type { Item, ItemCategory } from "../../types";
-import type { PropertyFilterName } from "../../constants/filters";
+import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
 
 function isCrateItem(item: Item): item is Extract<Item, { category: "crate" }> {
   return item.category === "crate" && "contents" in item;
@@ -25,6 +25,7 @@ export default function Purchases() {
 
   const [value, setValue] = useState(0);
   const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
+  const [filterMode, setFilterMode] = useState<PropertyFilterMode>("or");
 
   function handleChange(_event: SyntheticEvent, newValue: number) {
     setValue(newValue);
@@ -59,7 +60,7 @@ export default function Purchases() {
     ["Supply Crates", crate],
   ];
   const [, items] = purchasedLists[value];
-  const filteredItems = filterItemsByPropertyValues(items, selectedFilters);
+  const filteredItems = filterItemsByPropertyValues(items, selectedFilters, filterMode);
 
   function equip(displayName: string) {
     const item = getItem(displayName);
@@ -103,7 +104,12 @@ export default function Purchases() {
         </Tabs>
       </Box>
       <Box paddingTop={1} key={purchasedLists[value]?.[0] ?? "inventory"}>
-        <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+        <PropertyFilter
+          selectedFilters={selectedFilters}
+          filterMode={filterMode}
+          onChange={setSelectedFilters}
+          onFilterModeChange={setFilterMode}
+        />
         <PurchasedList items={filteredItems} equip={equip} />
       </Box>
     </Box>

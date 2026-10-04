@@ -22,7 +22,7 @@ import { selectTierList, setTierList } from "../../slices/tierListSlice";
 import { applyTierOverrides, buildTierDraft } from "../../utils/tierList";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import type { EditableTier, Item, Tier, Warbond } from "../../types";
-import type { PropertyFilterName } from "../../constants/filters";
+import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
 import ItemDetailsDialog from "./itemDetailsDialog";
 import WarbondTierBoard from "./warbondTierBoard";
 import WarbondBestTierFilter from "./warbondFilters";
@@ -57,6 +57,7 @@ export default function TierLists() {
 
   const [value, setValue] = useState(0);
   const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
+  const [filterMode, setFilterMode] = useState<PropertyFilterMode>("or");
   const [selectedWarbondTierFilters, setSelectedWarbondTierFilters] = useState<WarbondBestTierFilters>({});
   const [editMode, setEditMode] = useState(false);
   const [draftAssignments, setDraftAssignments] = useState<Record<string, EditableTier>>({});
@@ -76,8 +77,9 @@ export default function TierLists() {
       effectiveArmoryItems,
       selectedFilters,
       selectedWarbondTierFilters,
+      filterMode,
     )
-    : filterItemsByPropertyValues(items, selectedFilters);
+    : filterItemsByPropertyValues(items, selectedFilters, filterMode);
   const uncategorizedCount = Object.values(draftAssignments).filter((tier) => tier === "uncategorized").length;
   const hasUncategorized = uncategorizedCount > 0;
 
@@ -133,7 +135,12 @@ export default function TierLists() {
         </Tabs>
       </Box>
       <Box sx={{ px: { xs: 0, sm: 2 }, py: 1, pb: 10 }}>
-        <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+        <PropertyFilter
+          selectedFilters={selectedFilters}
+          filterMode={filterMode}
+          onChange={setSelectedFilters}
+          onFilterModeChange={setFilterMode}
+        />
         {isWarbondTab && <WarbondBestTierFilter
           selectedFilters={selectedWarbondTierFilters}
           onChange={setSelectedWarbondTierFilters}

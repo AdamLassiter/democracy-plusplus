@@ -1,6 +1,7 @@
 import {
   DAMAGE_TYPE_FILTERS,
   itemMatchesPropertyFilters,
+  type PropertyFilterMode,
   type PropertyFilterName,
 } from "../constants/filters.ts";
 import type { Item, Tier, Warbond } from "../types";
@@ -26,6 +27,7 @@ export type WarbondSummary = {
   armorPenetrationValues: number[];
   armorPenetrationLabels: string[];
   demolitionForceValues: number[];
+  destroysSpawners: boolean;
   damageTypes: WarbondDamageType[];
 };
 
@@ -65,6 +67,9 @@ export function getWarbondSummary(items: Item[], warbondCode: string): WarbondSu
   const demolitionForceValues = [...new Set(capabilities.flatMap(({ demolitionForce }) =>
     demolitionForce === null ? [] : [demolitionForce],
   ))].sort((left, right) => left - right);
+  const destroysSpawners = warbondItems.some((item) =>
+    itemMatchesPropertyFilters(item, ["Destroys Spawners"]),
+  );
   const damageTypes = DAMAGE_TYPE_FILTERS.filter((damageType) =>
     warbondItems.some((item) => itemMatchesPropertyFilters(item, [damageType])),
   );
@@ -77,6 +82,7 @@ export function getWarbondSummary(items: Item[], warbondCode: string): WarbondSu
       (value) => ARMOR_LABELS[value] ?? `AP ${value}`,
     ),
     demolitionForceValues,
+    destroysSpawners,
     damageTypes,
   };
 }
@@ -85,6 +91,7 @@ export function warbondSummaryMatchesFilters(
   summary: WarbondSummary,
   selectedPropertyFilters: readonly PropertyFilterName[],
   selectedBestTierFilters: WarbondBestTierFilters,
+  filterMode: PropertyFilterMode = "or",
 ) {
   const matchesBestTiers = WARBOND_BEST_CATEGORIES.every(({ category }) => {
     const selectedTiers = selectedBestTierFilters[category] ?? [];
@@ -99,6 +106,7 @@ export function warbondSummaryMatchesFilters(
   return itemMatchesPropertyFilters({
     displayName: "Warbond summary",
     tier: "d",
+    tags: summary.destroysSpawners ? ["Destroys Spawners"] : [],
     properties: {
       summary: {
         Penetration: { Direct: summary.armorPenetrationLabels },
@@ -106,7 +114,7 @@ export function warbondSummaryMatchesFilters(
       },
       damageTypes: summary.damageTypes,
     },
-  }, selectedPropertyFilters);
+  }, selectedPropertyFilters, filterMode);
 }
 
 export function filterWarbondsBySummary(
@@ -114,10 +122,12 @@ export function filterWarbondsBySummary(
   items: Item[],
   selectedPropertyFilters: readonly PropertyFilterName[],
   selectedBestTierFilters: WarbondBestTierFilters,
+  filterMode: PropertyFilterMode = "or",
 ) {
   return warbonds.filter((warbond) => warbondSummaryMatchesFilters(
     getWarbondSummary(items, warbond.warbondCode),
     selectedPropertyFilters,
     selectedBestTierFilters,
+    filterMode,
   ));
 }

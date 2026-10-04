@@ -31,7 +31,9 @@
     "displayName": "Armed Resupply Pods",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Ballistic"
+    ],
     "warbondCode": "warbond12",
     "internalName": "armedresupplypods",
     "tier": "b",
@@ -259,7 +261,9 @@
     "imageUrl": "boosters/Surplus_EAT_Allocation_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Explosive"
+    ],
     "description": "Grants two free uses of the Expendable Anti-Tank (EAT) Stratagem per mission; enough to grant a full squad one single-use rocket launcher each, provided squad members employ the proper equipment distribution protocol."
   },
   {
@@ -272,7 +276,9 @@
     "imageUrl": "boosters/Integrated_Extinguishers_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": [],
+    "tags": [
+      "Fire"
+    ],
     "description": "Equips Helldiver uniforms with form-fitting, automated, rapid-response fire suppression systems. Significantly reduces the time it takes to naturally extinguish flames without conducting ground-aided smothering manuevers."
   }
 ]

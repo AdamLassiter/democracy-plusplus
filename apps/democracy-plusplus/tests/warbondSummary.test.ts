@@ -54,6 +54,7 @@ test("warbond summaries expose best class tiers, penetration values, and damage 
   assert.deepEqual(summary.armorPenetrationValues, [2, 3, 4, 6]);
   assert.deepEqual(summary.armorPenetrationLabels, ["Light", "Medium", "Heavy", "Anti-Tank 2"]);
   assert.deepEqual(summary.demolitionForceValues, [50]);
+  assert.equal(summary.destroysSpawners, true);
   assert.deepEqual(summary.damageTypes, ["Ballistic", "Explosive", "Fire", "Gas", "Laser"]);
 });
 
@@ -67,6 +68,10 @@ test("warbond filters combine tier groups with aggregate capability filters", ()
     primary: ["s", "a"],
     secondary: ["b"],
   }), true, "capabilities use OR while selected class groups all have to match");
+  assert.equal(warbondSummaryMatchesFilters(summary, ["Anti-Tank", "Fire"], {
+    primary: ["s", "a"],
+    secondary: ["b"],
+  }, "and"), false, "AND requires every selected capability");
   assert.equal(warbondSummaryMatchesFilters(summary, ["Fire"], { primary: ["s"] }), false);
   assert.equal(warbondSummaryMatchesFilters(summary, [], { primary: ["a"], secondary: ["b"] }), false);
 });
@@ -77,9 +82,29 @@ test("warbond filters include aggregate demolition force", () => {
     item({ displayName: "High demo", tier: "b", properties: attack("Heavy", "200 Explosion", 50) }),
   ], WARBOND_CODE);
 
-  assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 30+"], {}), true);
+  assert.equal(warbondSummaryMatchesFilters(summary, ["Destroys Spawners"], {}), true);
   assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 50"], {}), true);
   assert.equal(warbondSummaryMatchesFilters(summary, ["Demo Force 60"], {}), false);
+});
+
+test("warbond summaries apply the explosive exception to the same attack", () => {
+  const explosiveTwenty = getWarbondSummary([
+    item({
+      displayName: "Explosive 20",
+      tier: "a",
+      properties: attack("Medium", "100 Explosion", 20),
+    }),
+  ], WARBOND_CODE);
+  const ballisticTwenty = getWarbondSummary([
+    item({
+      displayName: "Ballistic 20",
+      tier: "a",
+      properties: attack("Medium", "100 Ballistic", 20),
+    }),
+  ], WARBOND_CODE);
+
+  assert.equal(explosiveTwenty.destroysSpawners, true);
+  assert.equal(ballisticTwenty.destroysSpawners, false);
 });
 
 test("warbond filtering uses only items assigned to each warbond", () => {

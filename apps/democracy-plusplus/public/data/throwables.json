@@ -9,7 +9,7 @@
     "warbondCode": "none",
     "internalName": "g12highexplosive",
     "imageUrl": "throwables/G-12_High_Explosive_Throwable_Render.png",
-    "tier": "a",
+    "tier": "b",
     "wikiSlug": "G-12_High_Explosive",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-12_High_Explosive_Throwable_Render.png",
     "properties": {
@@ -186,7 +186,7 @@
     "warbondCode": "warbond3",
     "internalName": "g6frag",
     "imageUrl": "throwables/G-6_Frag_Throwable_Render.png",
-    "tier": "a",
+    "tier": "b",
     "wikiSlug": "G-6_Frag",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-6_Frag_Throwable_Render.png",
     "properties": {
@@ -264,7 +264,7 @@
     "warbondCode": "warbond3",
     "internalName": "g16impact",
     "imageUrl": "throwables/G-16_Impact_Throwable_Render.png",
-    "tier": "a",
+    "tier": "b",
     "wikiSlug": "G-16_Impact",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-16_Impact_Throwable_Render.png",
     "properties": {
@@ -1002,7 +1002,7 @@
     "warbondCode": "warbond20",
     "internalName": "g7pineapple",
     "imageUrl": "throwables/G-7_Pineapple_Throwable_Render.png",
-    "tier": "c",
+    "tier": "b",
     "wikiSlug": "G-7_Pineapple",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-7_Pineapple_Throwable_Render.png",
     "properties": {

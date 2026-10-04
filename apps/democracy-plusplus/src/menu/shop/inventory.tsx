@@ -10,7 +10,7 @@ import { setSnackbar } from "../../slices/snackbarSlice";
 import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import type { CrateItem, Item, ItemCategory, ShopItem, Tier } from "../../types";
-import type { PropertyFilterName } from "../../constants/filters";
+import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
 
 function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
   return typeof item.cost === "number";
@@ -19,6 +19,7 @@ function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
 export default function Inventory() {
   const [value, setValue] = useState(0);
   const [selectedFilters, setSelectedFilters] = useState<PropertyFilterName[]>([]);
+  const [filterMode, setFilterMode] = useState<PropertyFilterMode>("or");
 
   function handleChange(_event: SyntheticEvent, newValue: number) {
     setValue(newValue);
@@ -62,7 +63,7 @@ export default function Inventory() {
     ["Boosters", booster],
   ];
   const [, list] = shops[value];
-  const filteredItems = filterItemsByPropertyValues(list, selectedFilters);
+  const filteredItems = filterItemsByPropertyValues(list, selectedFilters, filterMode);
 
   return <>
     <Tooltip title="Items available for purchase. Restocked only on operation completion.">
@@ -78,7 +79,12 @@ export default function Inventory() {
         {value === 0
           ? <SupplyCrates />
           : <>
-            <PropertyFilter selectedFilters={selectedFilters} onChange={setSelectedFilters} />
+            <PropertyFilter
+              selectedFilters={selectedFilters}
+              filterMode={filterMode}
+              onChange={setSelectedFilters}
+              onFilterModeChange={setFilterMode}
+            />
             <Shop items={filteredItems} onClick={addItemToCart} />
           </>}
       </Box>

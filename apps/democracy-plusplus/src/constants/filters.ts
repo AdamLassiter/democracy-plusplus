@@ -1,4 +1,5 @@
 import type { Item, PropertyValue } from "../types";
+import { extractItemCapabilities } from "../utils/capabilities.ts";
 
 export const PROPERTY_FILTERS = [
   "Unarmored",
@@ -6,7 +7,7 @@ export const PROPERTY_FILTERS = [
   "Medium",
   "Heavy",
   "Anti-Tank",
-  "Demo Force 30+",
+  "Destroys Spawners",
   "Ballistic",
   "Explosive",
   "Fire",
@@ -46,8 +47,7 @@ export const DETAILED_DEMOLITION_FORCE_FILTERS = [
 
 type DetailedAntiTankFilterName = (typeof DETAILED_ANTI_TANK_FILTERS)[number];
 type DetailedDemolitionForceFilterName = (typeof DETAILED_DEMOLITION_FORCE_FILTERS)[number];
-const GROUPED_DEMOLITION_FORCE_FILTERS: readonly DetailedDemolitionForceFilterName[] = [
-  "Demo Force 30",
+const SPAWNER_UNCONDITIONAL_DEMOLITION_FILTERS: readonly DetailedDemolitionForceFilterName[] = [
   "Demo Force 40",
   "Demo Force 50",
   "Demo Force 60",
@@ -57,6 +57,8 @@ export type PropertyFilterName =
   | (typeof PROPERTY_FILTERS)[number]
   | DetailedAntiTankFilterName
   | DetailedDemolitionForceFilterName;
+
+export type PropertyFilterMode = "or" | "and";
 
 const PENETRATION_FILTERS = new Set<PropertyFilterName>([
   "Unarmored",
@@ -73,7 +75,6 @@ const PENETRATION_ANGLE_KEYS = new Set([
   "extreme angle",
 ]);
 const DEMOLITION_FORCE_FILTERS = new Set<PropertyFilterName>([
-  "Demo Force 30+",
   ...DETAILED_DEMOLITION_FORCE_FILTERS,
 ]);
 
@@ -127,7 +128,7 @@ export function getPropertyFilters(
     replaceGroupedFilter(filters, "Anti-Tank", DETAILED_ANTI_TANK_FILTERS);
   }
   if (detailedDemolitionForce) {
-    replaceGroupedFilter(filters, "Demo Force 30+", DETAILED_DEMOLITION_FORCE_FILTERS);
+    replaceGroupedFilter(filters, "Destroys Spawners", DETAILED_DEMOLITION_FORCE_FILTERS);
   }
   return filters;
 }
@@ -163,20 +164,17 @@ export function normalizePropertyFilters(
   const normalized = normalizeAntiTankFilters(selectedFilters, detailedAntiTank);
   const detailedSelected = normalized.some(isDetailedDemolitionForceFilter);
 
-  if (detailedDemolitionForce && normalized.includes("Demo Force 30+")) {
-    return [...new Set<PropertyFilterName>([
-      ...normalized.filter((filterName) => filterName !== "Demo Force 30+"),
-      ...GROUPED_DEMOLITION_FORCE_FILTERS,
-    ])];
+  if (detailedDemolitionForce && normalized.includes("Destroys Spawners")) {
+    return normalized.filter((filterName) => filterName !== "Destroys Spawners");
   }
 
   if (!detailedDemolitionForce && detailedSelected) {
     const hasGroupedEquivalent = normalized.some((filterName) =>
-      GROUPED_DEMOLITION_FORCE_FILTERS.includes(filterName as DetailedDemolitionForceFilterName),
+      SPAWNER_UNCONDITIONAL_DEMOLITION_FILTERS.includes(filterName as DetailedDemolitionForceFilterName),
     );
     return [...new Set<PropertyFilterName>([
       ...normalized.filter((filterName) => !isDetailedDemolitionForceFilter(filterName)),
-      ...(hasGroupedEquivalent ? ["Demo Force 30+" as const] : []),
+      ...(hasGroupedEquivalent ? ["Destroys Spawners" as const] : []),
     ])];
   }
 
@@ -253,7 +251,11 @@ function collectDemolitionForceValues(value: PropertyValue, output: number[] = [
   return output;
 }
 
-export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilters: readonly PropertyFilterName[]) {
+export function itemMatchesPropertyFilters(
+  item: Item | undefined,
+  selectedFilters: readonly PropertyFilterName[],
+  mode: PropertyFilterMode = "or",
+) {
   if (!selectedFilters?.length) {
     return true;
   }
@@ -262,12 +264,18 @@ export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilte
   const searchableValues = properties ? collectPropertyValues(properties).join("\n") : "";
   const penetrationValues = properties ? collectPenetrationValues(properties).join("\n") : "";
   const demolitionForceValues = properties ? collectDemolitionForceValues(properties) : [];
+  const capabilities = selectedFilters.includes("Destroys Spawners") && item
+    ? extractItemCapabilities(item)
+    : [];
 
-  return selectedFilters.some((filterName) => {
+  function matchesFilter(filterName: PropertyFilterName) {
+    if (filterName === "Destroys Spawners") {
+      return item?.tags?.includes(filterName) || capabilities.some(({ demolitionForce, explosive }) =>
+        demolitionForce !== null
+        && (demolitionForce >= 40 || (demolitionForce >= 20 && explosive)),
+      );
+    }
     if (DEMOLITION_FORCE_FILTERS.has(filterName)) {
-      if (filterName === "Demo Force 30+") {
-        return demolitionForceValues.some((value) => value >= 30);
-      }
       const requiredForce = Number.parseInt(filterName.replace("Demo Force ", ""), 10);
       return demolitionForceValues.includes(requiredForce);
     }
@@ -277,10 +285,18 @@ export function itemMatchesPropertyFilters(item: Item | undefined, selectedFilte
     }
     return FILTER_MATCHERS[filterName]?.test(
       penetrationFilter ? penetrationValues : searchableValues,
-    );
-  });
+    ) ?? false;
+  }
+
+  return mode === "and"
+    ? selectedFilters.every(matchesFilter)
+    : selectedFilters.some(matchesFilter);
 }
 
-export function filterItemsByPropertyValues(items: Item[], selectedFilters: readonly PropertyFilterName[]) {
-  return items.filter((item) => itemMatchesPropertyFilters(item, selectedFilters));
+export function filterItemsByPropertyValues(
+  items: Item[],
+  selectedFilters: readonly PropertyFilterName[],
+  mode: PropertyFilterMode = "or",
+) {
+  return items.filter((item) => itemMatchesPropertyFilters(item, selectedFilters, mode));
 }

@@ -19,11 +19,18 @@ function itemWithPenetration(penetration: string): Item {
   };
 }
 
-function itemWithDemolitionForce(demolitionForce: number): Item {
+function itemWithDemolitionForce(demolitionForce: number, explosive = false): Item {
   return {
-    displayName: `Demo Force ${demolitionForce}`,
+    displayName: `Demo Force ${demolitionForce}${explosive ? " Explosive" : ""}`,
     tier: "a",
-    properties: { Main: { Damage: { "Demolition Force": String(demolitionForce) } } },
+    properties: {
+      Main: {
+        Damage: {
+          Standard: explosive ? "100 Explosion" : "100 Ballistic",
+          "Demolition Force": String(demolitionForce),
+        },
+      },
+    },
   };
 }
 
@@ -72,12 +79,47 @@ test("switching detail modes preserves the meaning of an active anti-tank filter
   ]);
 });
 
-test("grouped demolition force matches 30 or higher", () => {
-  const items = [10, 20, 30, 40, 50, 60].map(itemWithDemolitionForce);
+test("destroys spawners requires demo force 40 or demo force 20 with explosive damage", () => {
+  const items = [
+    itemWithDemolitionForce(10, true),
+    itemWithDemolitionForce(20),
+    itemWithDemolitionForce(20, true),
+    itemWithDemolitionForce(30),
+    itemWithDemolitionForce(30, true),
+    itemWithDemolitionForce(40),
+    itemWithDemolitionForce(50),
+    itemWithDemolitionForce(60),
+  ];
 
   assert.deepEqual(
-    filterItemsByPropertyValues(items, ["Demo Force 30+"]).map((item) => item.displayName),
-    ["Demo Force 30", "Demo Force 40", "Demo Force 50", "Demo Force 60"],
+    filterItemsByPropertyValues(items, ["Destroys Spawners"]).map((item) => item.displayName),
+    [
+      "Demo Force 20 Explosive",
+      "Demo Force 30 Explosive",
+      "Demo Force 40",
+      "Demo Force 50",
+      "Demo Force 60",
+    ],
+  );
+});
+
+test("destroys spawners correlates explosive damage and demolition force per attack", () => {
+  const splitCapabilities: Item = {
+    displayName: "Split capabilities",
+    tier: "a",
+    properties: {
+      HighDemo: {
+        Damage: { Standard: "100 Ballistic", "Demolition Force": "20" },
+      },
+      Explosive: {
+        Damage: { Standard: "100 Explosion", "Demolition Force": "10" },
+      },
+    },
+  };
+
+  assert.equal(
+    filterItemsByPropertyValues([splitCapabilities], ["Destroys Spawners"]).length,
+    0,
   );
 });
 
@@ -90,24 +132,20 @@ test("detailed demolition force filters match exact increments", () => {
       [items[index].displayName],
     );
   });
-  assert.ok(getPropertyFilters(false, false).includes("Demo Force 30+"));
+  assert.ok(getPropertyFilters(false, false).includes("Destroys Spawners"));
   assert.deepEqual(
     getPropertyFilters(false, true).filter((filterName) => filterName.startsWith("Demo Force")),
     [...DETAILED_DEMOLITION_FORCE_FILTERS],
   );
 });
 
-test("switching demolition detail modes preserves only grouped-equivalent selections", () => {
-  assert.deepEqual(normalizePropertyFilters(["Fire", "Demo Force 30+"], false, true), [
+test("switching demolition detail modes preserves only unambiguous selections", () => {
+  assert.deepEqual(normalizePropertyFilters(["Fire", "Destroys Spawners"], false, true), [
     "Fire",
-    "Demo Force 30",
-    "Demo Force 40",
-    "Demo Force 50",
-    "Demo Force 60",
   ]);
   assert.deepEqual(
     normalizePropertyFilters(["Demo Force 20", "Demo Force 50", "Gas"], false, false),
-    ["Gas", "Demo Force 30+"],
+    ["Gas", "Destroys Spawners"],
   );
   assert.deepEqual(
     normalizePropertyFilters(["Demo Force 10", "Demo Force 20", "Arc"], false, false),
@@ -122,8 +160,37 @@ test("demolition filters inspect only demolition-force fields", () => {
     properties: { Weapon: { Base: { Damage: "40 Ballistic", Cooldown: "60 s" } } },
   };
 
-  assert.equal(filterItemsByPropertyValues([unrelatedForty], ["Demo Force 30+"]).length, 0);
+  assert.equal(filterItemsByPropertyValues([unrelatedForty], ["Destroys Spawners"]).length, 0);
   assert.equal(filterItemsByPropertyValues([unrelatedForty], ["Demo Force 60"]).length, 0);
+});
+
+test("property filters can combine selections with OR or AND", () => {
+  const fireOnly: Item = {
+    displayName: "Fire only",
+    tier: "a",
+    properties: { Main: { Damage: { Standard: "100 Fire" } } },
+  };
+  const gasOnly: Item = {
+    displayName: "Gas only",
+    tier: "a",
+    properties: { Main: { Damage: { Standard: "100 Gas" } } },
+  };
+  const fireAndGas: Item = {
+    displayName: "Fire and gas",
+    tier: "a",
+    properties: { Main: { Damage: { Standard: "100 Fire and Gas" } } },
+  };
+  const items = [fireOnly, gasOnly, fireAndGas];
+
+  assert.deepEqual(
+    filterItemsByPropertyValues(items, ["Fire", "Gas"], "or").map((item) => item.displayName),
+    ["Fire only", "Gas only", "Fire and gas"],
+  );
+  assert.deepEqual(
+    filterItemsByPropertyValues(items, ["Fire", "Gas"], "and").map((item) => item.displayName),
+    ["Fire and gas"],
+  );
+  assert.deepEqual(filterItemsByPropertyValues(items, [], "and"), items);
 });
 
 test("unarmored includes very-light penetration without leaking into light", () => {

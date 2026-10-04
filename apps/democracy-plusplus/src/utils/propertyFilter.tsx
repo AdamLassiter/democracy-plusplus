@@ -4,16 +4,21 @@ import { useSelector } from "react-redux";
 import {
   getPropertyFilters,
   normalizePropertyFilters,
+  type PropertyFilterMode,
   type PropertyFilterName,
 } from "../constants/filters";
 import { selectPreferences } from "../slices/preferencesSlice";
 
 export default function PropertyFilter({
   selectedFilters,
+  filterMode,
   onChange,
+  onFilterModeChange,
 }: {
   selectedFilters: PropertyFilterName[];
+  filterMode: PropertyFilterMode;
   onChange: (_filters: PropertyFilterName[]) => void;
+  onFilterModeChange: (_mode: PropertyFilterMode) => void;
 }) {
   const { detailedAntiTank = false, detailedDemolitionForce = false } = useSelector(selectPreferences);
   const propertyFilters = getPropertyFilters(detailedAntiTank, detailedDemolitionForce);
@@ -33,34 +38,51 @@ export default function PropertyFilter({
   }, [detailedAntiTank, detailedDemolitionForce, onChange, selectedFilters]);
 
   return (
-    <Box
-      aria-label="Property filters"
-      sx={{
-        mb: 2,
-        mx: { xs: -1, sm: 0 },
-        overflowX: { xs: "auto", sm: "visible" },
-        px: { xs: 1, sm: 0 },
-        scrollbarWidth: "thin",
-      }}
-    >
-      <ToggleButtonGroup
-        color="primary"
-        value={selectedFilters}
-        onChange={(_event, newFilters) => onChange(newFilters as PropertyFilterName[])}
+    <Box sx={{ alignItems: "flex-start", display: "flex", gap: 1, mb: 2, minWidth: 0 }}>
+      <Box
+        aria-label="Property filters"
         sx={{
-          flexWrap: { xs: "nowrap", sm: "wrap" },
-          minWidth: "max-content",
+          flex: 1,
+          minWidth: 0,
+          ml: { xs: -1, sm: 0 },
+          overflowX: { xs: "auto", sm: "visible" },
+          pl: { xs: 1, sm: 0 },
+          scrollbarWidth: "thin",
         }}
       >
-        {propertyFilters.map((filterName) => (
-          <ToggleButton
-            key={filterName}
-            value={filterName}
-            sx={{ minWidth: { xs: 104, sm: 120 } }}
-          >
-            {filterName}
-          </ToggleButton>
-        ))}
+        <ToggleButtonGroup
+          color="primary"
+          value={selectedFilters}
+          onChange={(_event, newFilters) => onChange(newFilters as PropertyFilterName[])}
+          sx={{
+            flexWrap: { xs: "nowrap", sm: "wrap" },
+            minWidth: "max-content",
+          }}
+        >
+          {propertyFilters.map((filterName) => (
+            <ToggleButton
+              key={filterName}
+              value={filterName}
+              sx={{ minWidth: { xs: 104, sm: 120 } }}
+            >
+              {filterName}
+            </ToggleButton>
+          ))}
+        </ToggleButtonGroup>
+      </Box>
+      <ToggleButtonGroup
+        aria-label="Filter combination"
+        color="primary"
+        exclusive
+        size="small"
+        value={filterMode}
+        onChange={(_event, mode: PropertyFilterMode | null) => {
+          if (mode) onFilterModeChange(mode);
+        }}
+        sx={{ flexShrink: 0, ml: "auto" }}
+      >
+        <ToggleButton value="or">OR</ToggleButton>
+        <ToggleButton value="and">AND</ToggleButton>
       </ToggleButtonGroup>
     </Box>
   );
