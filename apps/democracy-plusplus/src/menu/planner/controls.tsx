@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import {
   retainPlannerItems,
   setEnemyCoverageFilters,
-  setPlannerMode,
   setPlannerScope,
   setStructureCoverageFilters,
   togglePlannerItem,
@@ -27,6 +26,22 @@ const ENEMY_COVERAGE_OPTIONS: Array<{ value: EnemyCoverageState; label: string }
 ];
 
 type CoverageKind = "enemy" | "structure";
+
+export function BrowsePlannerToggle({ value, onChange }: {
+  value: "browse" | "planner";
+  onChange: (_value: "browse" | "planner") => void;
+}) {
+  return <ToggleButtonGroup
+    aria-label="View mode"
+    exclusive
+    size="small"
+    value={value}
+    onChange={(_event, nextValue: "browse" | "planner" | null) => nextValue && onChange(nextValue)}
+  >
+    <ToggleButton value="browse">Browse</ToggleButton>
+    <ToggleButton value="planner">Planner</ToggleButton>
+  </ToggleButtonGroup>;
+}
 
 function coverageTooltip(state: CoverageState | EnemyCoverageState, kind: CoverageKind) {
   if (kind === "structure") {
@@ -56,16 +71,7 @@ export function PlannerControls({ loadout, coverageKind }: {
     dispatch(retainPlannerItems(keys));
   }, [dispatch, keys]);
 
-  return <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, my: 2 }}>
-    <ToggleButtonGroup
-      exclusive
-      size="small"
-      value={planner.mode}
-      onChange={(_event, value) => value && dispatch(setPlannerMode(value))}
-    >
-      <ToggleButton value="browse">Browse</ToggleButton>
-      <ToggleButton value="planner">Planner</ToggleButton>
-    </ToggleButtonGroup>
+  return <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, my: planner.mode === "planner" ? 2 : 0 }}>
     {planner.mode === "planner" && <>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
         <FormControl size="small" sx={{ minWidth: 180 }}>

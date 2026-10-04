@@ -2,6 +2,13 @@ import type { EditableTier, Item, Tier } from "../types";
 
 export const TIER_ORDER: Tier[] = ["s", "a", "b", "c", "d"];
 export const EDITABLE_TIER_ORDER: EditableTier[] = ["s", "a", "b", "c", "d", "uncategorized"];
+export const TIER_COLORS: Record<Tier, string> = {
+  s: "#ffb300",
+  a: "#a921df",
+  b: "#3596fd",
+  c: "#08fb00",
+  d: "#ffffff",
+};
 
 export function getEffectiveTier(item: Item, overrides: Record<string, Tier>) {
   return overrides[item.displayName] ?? item.tier;

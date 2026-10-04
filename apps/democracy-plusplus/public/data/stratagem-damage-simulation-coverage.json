@@ -1085,7 +1085,9 @@
   {
     "stratagem": "GL-28 Belt-Fed Grenade Launcher",
     "profiles": [
-      "GL-28 P"
+      "160 rpm",
+      "240 rpm",
+      "320 rpm"
     ],
     "classification": "damaging",
     "delivery": [
@@ -1349,7 +1351,9 @@
   {
     "stratagem": "M-105 Stalwart",
     "profiles": [
-      "AR-23 P"
+      "700 rpm",
+      "850 rpm",
+      "1150 rpm"
     ],
     "classification": "damaging",
     "delivery": [
@@ -1456,7 +1460,9 @@
   {
     "stratagem": "MG-206 Heavy Machine Gun",
     "profiles": [
-      "MG-206 P"
+      "450 rpm",
+      "600 rpm",
+      "750 rpm"
     ],
     "classification": "damaging",
     "delivery": [
@@ -1477,7 +1483,9 @@
   {
     "stratagem": "MG-43 Machine Gun",
     "profiles": [
-      "MG-43 P"
+      "630 rpm",
+      "760 rpm",
+      "900 rpm"
     ],
     "classification": "damaging",
     "delivery": [

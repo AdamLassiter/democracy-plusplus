@@ -9,6 +9,7 @@ import { selectMission } from "../../slices/missionSlice";
 import { selectMultiplayer } from "../../slices/multiplayerSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import CartManager from "./cart";
+import SectionHeading from "../../utils/sectionHeading";
 
 export default function Shop() {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ export default function Shop() {
   }, [dispatch, overrides, playerCount, shop.initialised, shop.playerCount]);
 
   return <Grid direction="column" spacing={2} container>
+    <SectionHeading
+      subtitle="Turn mission credits into approved firepower, field supplies and carefully discounted surplus."
+      title="Requisition Shop"
+    />
     <OnSale />
     <Divider />
     <Inventory />

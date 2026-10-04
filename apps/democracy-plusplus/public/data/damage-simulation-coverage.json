@@ -107,7 +107,8 @@
   {
     "weapon": "AR-61 Tenderizer",
     "profiles": [
-      "AR-61 P"
+      "600 rpm",
+      "850 rpm"
     ],
     "direct": "complete",
     "explosion": "not-applicable",

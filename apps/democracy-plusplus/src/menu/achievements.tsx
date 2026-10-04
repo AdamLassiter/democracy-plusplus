@@ -1,13 +1,14 @@
-import { Dialog, DialogContent, DialogTitle, Grid, List, ListItem, ListItemText, Chip, Typography, DialogActions, Button } from "@mui/material";
+import { Dialog, DialogContent, Grid, List, ListItem, ListItemText, Chip, Typography, DialogActions, Button } from "@mui/material";
 import { ACHIEVEMENTS } from "../constants/achievements";
 import { useSelector } from "react-redux";
 import { selectAchievements } from "../slices/achievementsSlice";
+import CloseableDialogTitle from "../utils/closeableDialogTitle";
 
 export default function AchievementsDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { unlocked } = useSelector(selectAchievements);
 
   return <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
-    <DialogTitle>Achievements</DialogTitle>
+    <CloseableDialogTitle onClose={onClose}>Achievements</CloseableDialogTitle>
     <DialogContent>
       <Grid container direction="column" spacing={1}>
         <Typography color="text.secondary">

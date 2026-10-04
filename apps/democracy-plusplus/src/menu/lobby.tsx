@@ -1,9 +1,10 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
+import CloseableDialogTitle from '../utils/closeableDialogTitle';
 
 export function HostLobby({ isHostDialogOpen, setIsHostDialogOpen, setDisplayNameInput, displayNameInput, handleCreateLobby }: { isHostDialogOpen: boolean; setIsHostDialogOpen: Dispatch<SetStateAction<boolean>>; setDisplayNameInput: Dispatch<SetStateAction<string>>; displayNameInput: string; handleCreateLobby: () => Promise<void> }) {
   return <Dialog open={isHostDialogOpen} onClose={() => setIsHostDialogOpen(false)}>
-    <DialogTitle>Host Lobby</DialogTitle>
+    <CloseableDialogTitle onClose={() => setIsHostDialogOpen(false)}>Host Lobby</CloseableDialogTitle>
     <DialogContent>
       <TextField
         autoFocus
@@ -22,7 +23,7 @@ export function HostLobby({ isHostDialogOpen, setIsHostDialogOpen, setDisplayNam
 
 export function JoinLobby({ isJoinDialogOpen, setIsJoinDialogOpen, setDisplayNameInput, displayNameInput, setJoinCodeInput, joinCodeInput, handleJoinLobby }: { isJoinDialogOpen: boolean; setIsJoinDialogOpen: Dispatch<SetStateAction<boolean>>; setDisplayNameInput: Dispatch<SetStateAction<string>>; displayNameInput: string; setJoinCodeInput: Dispatch<SetStateAction<string>>; joinCodeInput: string; handleJoinLobby: () => Promise<void> }) {
   return <Dialog open={isJoinDialogOpen} onClose={() => setIsJoinDialogOpen(false)}>
-    <DialogTitle>Join Lobby</DialogTitle>
+    <CloseableDialogTitle onClose={() => setIsJoinDialogOpen(false)}>Join Lobby</CloseableDialogTitle>
     <DialogContent>
       <TextField
         autoFocus
@@ -44,4 +45,3 @@ export function JoinLobby({ isJoinDialogOpen, setIsJoinDialogOpen, setDisplayNam
     </DialogActions>
   </Dialog>;
 }
-

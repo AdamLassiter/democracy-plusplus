@@ -1,5 +1,5 @@
 import type { SyntheticEvent } from "react";
-import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Grid, Tab, Tabs } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addPurchased, selectPurchased, subtractPurchased } from "../../slices/purchasedSlice";
 import { getItem } from "../../constants";
@@ -12,6 +12,7 @@ import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import type { Item, ItemCategory } from "../../types";
 import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
+import SectionHeading from "../../utils/sectionHeading";
 
 function isCrateItem(item: Item): item is Extract<Item, { category: "crate" }> {
   return item.category === "crate" && "contents" in item;
@@ -93,10 +94,11 @@ export default function Purchases() {
   }
 
   return <>
-    <Box sx={{ alignItems: "baseline", display: "flex", gap: 1 }}>
-      <Typography variant="h5">Inventory</Typography>
-      <Typography color="text.secondary" variant="subtitle1">{Math.floor(purchasedCost / 2)} ~ {purchasedCost}¢</Typography>
-    </Box>
+    <SectionHeading
+      meta={`${Math.floor(purchasedCost / 2)} ~ ${purchasedCost}¢`}
+      subtitle="Previously requisitioned equipment ready to join the active loadout."
+      title="Inventory"
+    />
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>

@@ -1,8 +1,9 @@
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List } from "@mui/material";
+import { Button, Dialog, DialogContent, DialogActions, List } from "@mui/material";
 import type { Dispatch, SetStateAction } from "react";
 import Preferences from "./preferences";
 import ResetAppState from "./reset";
 import ImportExport from "./importExport";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 export default function SettingsDialog({ open, setOpen }: { open: boolean; setOpen: Dispatch<SetStateAction<boolean>> }) {
   function handleClose() {
@@ -11,7 +12,7 @@ export default function SettingsDialog({ open, setOpen }: { open: boolean; setOp
 
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-      <DialogTitle>Settings</DialogTitle>
+      <CloseableDialogTitle onClose={handleClose}>Settings</CloseableDialogTitle>
       <DialogContent dividers>
         <List>
           <ImportExport />

@@ -26,11 +26,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { BESTIARY } from "../../constants/enemies";
-import { PRIMARIES } from "../../constants/primaries";
-import { SECONDARIES } from "../../constants/secondaries";
-import { STRATAGEMS } from "../../constants/stratagems";
 import { selectMission } from "../../slices/missionSlice";
-import type { Enemy, EnemyAnatomy, EnemyAnatomyPart, Item } from "../../types";
+import type { Enemy, EnemyAnatomy, EnemyAnatomyPart } from "../../types";
 import { effectiveArmor } from "../../utils/capabilities";
 import {
   effectiveEnemyHealth,
@@ -38,25 +35,21 @@ import {
   normalizeEnemyTarget,
 } from "../../utils/damage/enemyTargets";
 import { calculateWeaponDps, simulateTargetTtk } from "../../utils/damage/simulator";
-import { extractCombatSourceProfiles } from "../../utils/damage/combatProfiles";
 import { profileForExposure } from "../../utils/damage/stratagemProfiles";
-import type { CombatSourceProfile, CombatSourceProfileResult } from "../../utils/damage/types";
+import type { CombatSourceProfile } from "../../utils/damage/types";
+import {
+  combatSourceGroup,
+  type CombatSourceOption,
+  usesBoundedExposure,
+} from "../../utils/damage/combatSourceCatalog";
 import { ItemIcon } from "../../utils/itemDisplay";
+import SectionHeading from "../../utils/sectionHeading";
+import { BrowsePlannerToggle } from "../planner/controls";
+import DamageSimulatorBrowse from "./browse";
+import { COMBAT_SOURCES } from "./catalog";
 import { ImpactScenarioSelector } from "./impactScenarioSelector";
 import { humanizeProfileKind } from "./labels";
 import { ProfileSelector } from "./profileSelector";
-
-type CombatSourceOption = {
-  item: Item;
-  result: CombatSourceProfileResult;
-};
-
-const COMBAT_SOURCES: CombatSourceOption[] = [...PRIMARIES, ...SECONDARIES, ...STRATAGEMS]
-  .map((item) => ({ item, result: extractCombatSourceProfiles(item) }))
-  .sort((left, right) => {
-    const groupDifference = combatSourceGroupOrder(left) - combatSourceGroupOrder(right);
-    return groupDifference || left.item.displayName.localeCompare(right.item.displayName);
-  });
 const DEFAULT_WEAPON = COMBAT_SOURCES.find(({ item }) => item.displayName === "AR-23 Liberator")
   ?? COMBAT_SOURCES.find(({ result }) => result.profiles.length > 0)
   ?? COMBAT_SOURCES[0];
@@ -71,34 +64,6 @@ const numberFormatter = new Intl.NumberFormat(undefined, { maximumFractionDigits
 
 function formatNumber(value: number | null | undefined, suffix = "") {
   return value === null || value === undefined ? "—" : `${numberFormatter.format(value)}${suffix}`;
-}
-
-function combatSourceGroupOrder(option: CombatSourceOption) {
-  return [
-    "Primary",
-    "Secondary",
-    "Support weapon",
-    "Exosuit and vehicle",
-    "Emplacement and sentry",
-    "Mine and placed explosive",
-    "Eagle",
-    "Orbital",
-  ].indexOf(combatSourceGroup(option));
-}
-
-function combatSourceGroup(option: CombatSourceOption) {
-  if (option.item.category === "primary") return "Primary";
-  if (option.item.category === "secondary") return "Secondary";
-  if (/mine|c4|hellbomb/i.test(option.item.displayName)) return "Mine and placed explosive";
-  if (option.item.tags?.includes("Vehicles")) return "Exosuit and vehicle";
-  if (option.item.category === "Defense") return "Emplacement and sentry";
-  if (option.item.category === "Eagle") return "Eagle";
-  if (option.item.category === "Orbital") return "Orbital";
-  return "Support weapon";
-}
-
-function usesBoundedExposure(profile: CombatSourceProfile) {
-  return ["trap", "focused-strike", "distributed-strike", "persistent-area"].includes(profile.delivery.kind);
 }
 
 function WeaponPanel({ option, onChange, profileIndex, onProfileChange, exposureIndex, onExposureChange }: {
@@ -685,18 +650,11 @@ function EnemyPanel({ profile }: { profile: CombatSourceProfile | null }) {
 }
 
 export default function DamageSimulator() {
+  const [mode, setMode] = useState<"browse" | "planner">("browse");
   const [weapon, setWeapon] = useState(DEFAULT_WEAPON);
   const [profileIndex, setProfileIndex] = useState(0);
   const [exposureIndex, setExposureIndex] = useState(0);
   const supported = COMBAT_SOURCES.filter(({ result }) => result.profiles.length > 0).length;
-  const sustained = COMBAT_SOURCES.filter(({ result }) => {
-    const reload = result.profiles[0]?.reload;
-    return result.profiles[0]?.infiniteCapacity === true
-      || reload?.emptySeconds !== undefined
-      || reload?.perRoundSeconds !== undefined
-      || reload?.firstRoundSeconds !== undefined;
-  }).length;
-
   if (!weapon) return <Alert severity="error">No combat sources are available to simulate.</Alert>;
   const profile = weapon.result.profiles[profileIndex] ?? weapon.result.profiles[0] ?? null;
   const exposure = profile?.delivery.exposureScenarios[exposureIndex]
@@ -713,12 +671,24 @@ export default function DamageSimulator() {
     setExposureIndex(0);
   }
 
+  function planSource(option: CombatSourceOption, nextProfileIndex: number) {
+    setWeapon(option);
+    setProfileIndex(nextProfileIndex);
+    setExposureIndex(0);
+    setMode("planner");
+  }
+
   return <Box sx={{ minWidth: 0, width: "100%" }}>
-    <Typography variant="h5">Damage Simulator</Typography>
-    <Typography color="text.secondary" sx={{ mb: 2 }}>
-      Theoretical output using detailed wiki attack data, with explicit deployment and target-exposure assumptions. {supported} of {COMBAT_SOURCES.length} weapons and stratagems currently have a damage profile; {sustained} include reload-aware or continuous sustained DPS.
-    </Typography>
-    <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) minmax(0, 1fr)" } }}>
+    <SectionHeading
+      actions={<BrowsePlannerToggle onChange={setMode} value={mode} />}
+      meta={`${supported} / ${COMBAT_SOURCES.length} supported`}
+      subtitle="Compare the tools of Managed Democracy, then test each one against the enemies of Super Earth."
+      title="Damage Simulator"
+      sx={{ mb: 2 }}
+    />
+    {mode === "browse"
+      ? <DamageSimulatorBrowse onPlan={planSource} sources={COMBAT_SOURCES} />
+      : <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) minmax(0, 1fr)" } }}>
       <WeaponPanel
         onChange={chooseWeapon}
         onProfileChange={(index) => {
@@ -731,6 +701,6 @@ export default function DamageSimulator() {
         profileIndex={profileIndex}
       />
       <EnemyPanel profile={targetProfile} />
-    </Box>
+    </Box>}
   </Box>;
 }

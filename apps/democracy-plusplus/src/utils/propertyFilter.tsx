@@ -38,14 +38,13 @@ export default function PropertyFilter({
   }, [detailedAntiTank, detailedDemolitionForce, onChange, selectedFilters]);
 
   return (
-    <Box sx={{ alignItems: "flex-start", display: "flex", gap: 1, mb: 2, minWidth: 0 }}>
+    <Box sx={{ alignItems: "start", display: "grid", gap: 1, gridTemplateColumns: { xs: "minmax(0, 1fr)", md: "minmax(0, 1fr) auto" }, mb: 2, minWidth: 0 }}>
       <Box
         aria-label="Property filters"
         sx={{
-          flex: 1,
           minWidth: 0,
           ml: { xs: -1, sm: 0 },
-          overflowX: { xs: "auto", sm: "visible" },
+          overflowX: "auto",
           pl: { xs: 1, sm: 0 },
           scrollbarWidth: "thin",
         }}
@@ -74,12 +73,11 @@ export default function PropertyFilter({
         aria-label="Filter combination"
         color="primary"
         exclusive
-        size="small"
         value={filterMode}
         onChange={(_event, mode: PropertyFilterMode | null) => {
           if (mode) onFilterModeChange(mode);
         }}
-        sx={{ flexShrink: 0, ml: "auto" }}
+        sx={{ flexShrink: 0, justifySelf: "end" }}
       >
         <ToggleButton value="or">OR</ToggleButton>
         <ToggleButton value="and">AND</ToggleButton>

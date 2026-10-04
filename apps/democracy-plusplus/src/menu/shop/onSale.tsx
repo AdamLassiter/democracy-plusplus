@@ -1,10 +1,11 @@
-import { Badge, Grid, Tooltip, Typography } from "@mui/material";
+import { Badge, Box, Grid, Tooltip } from "@mui/material";
 import ItemDisplay from "../../utils/itemDisplay";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, selectShop } from "../../slices/shopSlice";
 import { selectCredits } from "../../slices/creditsSlice";
 import { setSnackbar } from "../../slices/snackbarSlice";
 import type { CrateItem, Item, ShopItem } from "../../types";
+import SectionHeading from "../../utils/sectionHeading";
 
 function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
   return typeof item.cost === "number";
@@ -29,7 +30,10 @@ export default function OnSale() {
   return (
     <>
       <Tooltip title="Items on sale for 50% off this mission. Randomly restocked each mission, and unique per player.">
-        <Typography variant="h5">Discount Surplus</Typography>
+        <Box><SectionHeading
+          subtitle="Mission-only bargains, freshly liberated from the quartermaster's surplus cage."
+          title="Discount Surplus"
+        /></Box>
       </Tooltip>
       <Grid container spacing={1}>
         {list.map((item) => {

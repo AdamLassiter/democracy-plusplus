@@ -55,6 +55,9 @@ const darkTheme = createTheme({
     },
     MuiDialog: {
       styleOverrides: {
+        container: {
+          alignItems: 'flex-start',
+        },
         paper: {
           '@media (max-width:600px)': {
             borderRadius: 0,

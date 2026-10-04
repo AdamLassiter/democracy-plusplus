@@ -563,3 +563,35 @@ Test Variant Enemy Icon.png|[[Test Variant]]
     imageFileTitle: "File:Test Variant Enemy Icon.png",
   }]);
 });
+
+test("parseEnemyPageSource maps current numeric enemy sizes to classes", () => {
+  const listing = {
+    displayName: "Test Enemy",
+    wikiSlug: "Test_Enemy",
+    imageFileTitle: "File:Fallback.png",
+    faction: "Terminids" as const,
+    subfactions: [],
+    description: "Fallback description",
+  };
+
+  const sizes = new Map([
+    [0, "Small"],
+    [1, "Medium"],
+    [2, "Large"],
+    [3, "Massive"],
+  ]);
+
+  for (const [size, expectedClass] of sizes) {
+    const enemy = parseEnemyPageSource(
+      { title: "Test Enemy", slug: "Test_Enemy", content: `{{Infobox Enemy|size = ${size}}}` },
+      listing,
+    );
+    assert.equal(enemy.enemyClass, expectedClass);
+  }
+
+  const legacy = parseEnemyPageSource(
+    { title: "Test Enemy", slug: "Test_Enemy", content: "{{Infobox Enemy|class = Heavy}}" },
+    listing,
+  );
+  assert.equal(legacy.enemyClass, "Heavy");
+});

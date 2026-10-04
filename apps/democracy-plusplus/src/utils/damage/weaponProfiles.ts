@@ -780,9 +780,28 @@ function withTriggerMode(
   };
 }
 
+function withSelectableFireRate(profile: WeaponProfile, roundsPerMinute: number): WeaponProfile {
+  return {
+    ...profile,
+    id: `${profile.id}:${roundsPerMinute}-rpm`,
+    label: `${roundsPerMinute} rpm`,
+    roundsPerMinute,
+    trigger: {
+      ...profile.trigger,
+      triggerIntervalSeconds: 60 / roundsPerMinute,
+    },
+    assumptions: [
+      ...profile.assumptions.filter((assumption) => assumption !== "Maximum listed fire rate"),
+      `Selectable fire rate: ${roundsPerMinute} rpm`,
+    ],
+  };
+}
+
 function extractModeProfiles(item: Item): WeaponProfileResult | null {
   const configuration = buildWeaponSourceConfigurations(item)[0];
-  if (!configuration?.firingModes?.length) return null;
+  const hasReviewedTriggerModes = Boolean(configuration?.firingModes?.length);
+  const hasSelectableFireRates = (configuration?.fireRatesRpm?.length ?? 0) > 1;
+  if (!configuration || (!hasReviewedTriggerModes && !hasSelectableFireRates)) return null;
   const configuredResult = extractConfiguredProfiles(item, {
     id: configuration.id,
     label: configuration.label,
@@ -795,8 +814,14 @@ function extractModeProfiles(item: Item): WeaponProfileResult | null {
   const baseResult = configuredResult;
   const profile = baseResult.profiles[0];
   if (!profile) return baseResult;
+  if (!hasReviewedTriggerModes) {
+    return {
+      profiles: configuration.fireRatesRpm!.map((rate) => withSelectableFireRate(profile, rate)),
+      unsupportedReasons: baseResult.unsupportedReasons,
+    };
+  }
   return {
-    profiles: configuration.firingModes.flatMap((mode) => {
+    profiles: configuration.firingModes!.flatMap((mode) => {
       const rates = mode.compatibleFireRatesRpm?.length
         ? mode.compatibleFireRatesRpm
         : [profile.roundsPerMinute];

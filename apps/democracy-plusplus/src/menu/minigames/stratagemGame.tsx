@@ -6,7 +6,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
   Grid,
   LinearProgress,
   Stack,
@@ -19,6 +18,7 @@ import { StratagemCodeDisplay, isStratagemDirection, normalizeStratagemInput, ty
 import { unlockAchievements } from "../../slices/achievementsSlice";
 import { recordStratagemDrillScore, selectMinigames } from "../../slices/minigamesSlice";
 import type { Item } from "../../types";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 type GamePhase = "idle" | "playing" | "gameOver";
 type PlayableStratagem = Item & { stratagemCode: StratagemDirection[] };
@@ -245,7 +245,7 @@ export default function StratagemGame({ open, onClose }: { open: boolean; onClos
   }, [open, phase, visibleStratagems, progress, completedCount]);
 
   return <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
-    <DialogTitle>Stratagem Drill</DialogTitle>
+    <CloseableDialogTitle onClose={handleClose}>Stratagem Drill</CloseableDialogTitle>
     <DialogContent dividers>
       {phase === "idle" && <Stack spacing={2}>
         <Typography variant="h6">Rapid-response stratagem practice</Typography>

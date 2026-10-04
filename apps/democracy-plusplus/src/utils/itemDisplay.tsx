@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { selectPreferences } from "../slices/preferencesSlice";
 import { selectTierList } from "../slices/tierListSlice";
 import { StratagemCodeDisplay } from "./stratagemCode";
-import { getEffectiveTier } from "./tierList";
+import { getEffectiveTier, TIER_COLORS } from "./tierList";
 import ItemTooltip from "./itemTooltip";
 
 type ItemDisplayProps = {
@@ -31,14 +31,6 @@ type ItemCardProps = {
   titles: boolean;
   compact: boolean;
   small: boolean;
-};
-
-const TIER_BORDER_COLORS: Record<Tier, string> = {
-  s: "#ffb300",
-  a: "#a921df",
-  b: "#3596fd",
-  c: "#08fb00",
-  d: "#ffffff",
 };
 
 export default function ItemDisplay({ item, onClick, isAffordable = true, compact = false }: ItemDisplayProps) {
@@ -85,7 +77,7 @@ function ItemCard({ onClick, item, effectiveTier, isAffordable, titles, compact,
       pointerEvents: isAffordable ? 'auto' : 'none',
       height: typeof cardHeight === "number" ? `${cardHeight}px` : cardHeight,
       width: cardWidth,
-      borderColor: TIER_BORDER_COLORS[effectiveTier],
+      borderColor: TIER_COLORS[effectiveTier],
     }}
     variant="outlined">
     <CardActionArea>

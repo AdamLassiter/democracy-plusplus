@@ -30,6 +30,7 @@ import {
   filterWarbondsBySummary,
   type WarbondBestTierFilters,
 } from "../../utils/warbondSummary";
+import SectionHeading from "../../utils/sectionHeading";
 
 const WARBOND_ITEMS: Warbond[] = WARBONDS.map((warbond) => ({
   ...warbond,
@@ -128,7 +129,10 @@ export default function TierLists() {
 
   return (
     <Box sx={{ width: "100%", position: "relative" }}>
-      <Typography variant="h5">Armory</Typography>
+      <SectionHeading
+        subtitle="Compare Super Earth's approved arsenal, review its capabilities and set your own field ratings."
+        title="Armory"
+      />
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange}>
           {effectiveTierLists.map(([displayName]) => <Tab key={displayName} label={displayName} />)}

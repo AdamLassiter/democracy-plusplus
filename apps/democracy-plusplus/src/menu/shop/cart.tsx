@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   Fab,
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
   List,
@@ -23,6 +22,7 @@ import { setSnackbar } from "../../slices/snackbarSlice";
 import { addPurchaseLogEntry } from "../../slices/logSlice";
 import { ItemIcon } from "../../utils/itemDisplay";
 import type { ItemCategory, ShopItem } from "../../types";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 export default function CartManager() {
   const dispatch = useDispatch();
@@ -106,7 +106,7 @@ export default function CartManager() {
       </Fab>
 
       <Dialog open={open} onClose={() => setOpen(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>Cart</DialogTitle>
+        <CloseableDialogTitle onClose={() => setOpen(false)}>Cart</CloseableDialogTitle>
         <DialogContent>
           {cart.length === 0 ? (
             <Typography variant="body1">Your cart is empty.</Typography>

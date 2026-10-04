@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   Button,
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
   List,
@@ -21,6 +20,7 @@ import type { Warbond } from "../../types";
 import { resetShop } from "../../slices/shopSlice";
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import { selectChallenges, setOwnedWarbondCodes } from "../../slices/challengesSlice";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOpen: (_open: boolean) => void }) {
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ export default function WarbondsDialog({ open, setOpen }: { open: boolean; setOp
 
   return (
     <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
-      <DialogTitle>Warbonds</DialogTitle>
+      <CloseableDialogTitle onClose={handleCancel}>Warbonds</CloseableDialogTitle>
       <DialogContent dividers>
         <List>
           {WARBONDS.map((warbond) => {

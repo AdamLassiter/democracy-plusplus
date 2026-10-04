@@ -1,4 +1,4 @@
-import { Box, Button, Dialog, DialogTitle, Rating, Typography } from "@mui/material";
+import { Box, Button, Dialog, Rating, Typography } from "@mui/material";
 import type { SyntheticEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,6 +24,7 @@ import {
   setLastProcessedDebriefSubmissionId,
 } from "../../slices/multiplayerSlice";
 import type { Item, LobbyMember } from "../../types";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 export default function ChallengeDebrief() {
   const dispatch = useDispatch<AppDispatch>();
@@ -115,8 +116,14 @@ export default function ChallengeDebrief() {
     }
   }
 
-  return <Dialog open={open}>
-    <DialogTitle>Challenge Mission Report</DialogTitle>
+  function handleClose() {
+    setOpen(false);
+  }
+
+  if (!open) return <Button variant="outlined" onClick={() => setOpen(true)}>Open Mission Report</Button>;
+
+  return <Dialog open={open} onClose={handleClose}>
+    <CloseableDialogTitle onClose={handleClose}>Challenge Mission Report</CloseableDialogTitle>
     <Box padding={2} sx={{ maxWidth: "100%", width: { sm: 360 } }}>
       <Typography color="text.secondary" paddingBottom={2}>Report the mission result, then complete this challenge round.</Typography>
       <Rating value={stars} onChange={handleStars} max={5} readOnly={hasLobbyState && !isHost} />

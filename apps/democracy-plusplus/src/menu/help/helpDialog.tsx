@@ -1,6 +1,5 @@
 import {
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
   Button,
@@ -10,12 +9,13 @@ import {
 import { StratagemCodeDisplay } from "../../utils/stratagemCode";
 import { useSelector } from "react-redux";
 import { selectChallengeDefinition } from "../../slices/challengesSlice";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 export default function HelpDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const challenge = useSelector(selectChallengeDefinition);
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle>Help</DialogTitle>
+      <CloseableDialogTitle onClose={onClose}>Help</CloseableDialogTitle>
       <DialogContent dividers>
         <Typography variant="body1" gutterBottom>
           Democracy++ is a metagame built for Helldivers who crave <u>order</u>, <u>structure</u>, and <u>painful fairness</u>.

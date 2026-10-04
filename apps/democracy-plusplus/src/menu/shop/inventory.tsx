@@ -11,6 +11,7 @@ import PropertyFilter from "../../utils/propertyFilter";
 import { filterItemsByPropertyValues } from "../../constants/filters";
 import type { CrateItem, Item, ItemCategory, ShopItem, Tier } from "../../types";
 import type { PropertyFilterMode, PropertyFilterName } from "../../constants/filters";
+import SectionHeading from "../../utils/sectionHeading";
 
 function isPurchasableItem(item: Item): item is ShopItem | CrateItem {
   return typeof item.cost === "number";
@@ -67,7 +68,10 @@ export default function Inventory() {
 
   return <>
     <Tooltip title="Items available for purchase. Restocked only on operation completion.">
-      <Typography variant="h5">Super Earth's Finest</Typography>
+      <Box><SectionHeading
+        subtitle="Requisition approved weapons and equipment for the operations ahead."
+        title="Super Earth's Finest"
+      /></Box>
     </Tooltip>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

@@ -1,13 +1,15 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Chip, Link, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tabs, TextField, ToggleButton, Typography } from "@mui/material";
 import { useEffect, useState, type SyntheticEvent } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FACTIONS as MISSION_FACTIONS } from "../../constants/factions";
 import { STRUCTURES } from "../../constants/structures";
 import { selectMission } from "../../slices/missionSlice";
+import { setPlannerMode } from "../../slices/plannerSlice";
 import type { CoverageState, Structure, StructureFaction } from "../../types";
 import { structureCoverage } from "../../utils/capabilities";
-import { PlannerControls } from "../planner/controls";
+import SectionHeading from "../../utils/sectionHeading";
+import { BrowsePlannerToggle, PlannerControls } from "../planner/controls";
 import { usePlannerLoadout } from "../planner/usePlannerLoadout";
 
 const FACTIONS: StructureFaction[] = ["Neutral", "Terminids", "Automatons", "Illuminate", "Super Earth"];
@@ -35,6 +37,7 @@ function StructureEntry({ structure, loadout, expanded, onExpanded }: { structur
 }
 
 export default function Structures() {
+  const dispatch = useDispatch();
   const mission = useSelector(selectMission);
   const loadout = usePlannerLoadout();
   const [selectedFaction, setSelectedFaction] = useState<StructureFaction | null>(null);
@@ -56,7 +59,12 @@ export default function Structures() {
   function toggleDemo(value: number) { setSelectedDemo((current) => current.includes(value) ? current.filter((item) => item !== value) : [...current, value].sort((a, b) => a - b)); }
 
   return <Box sx={{ width: "100%" }}>
-    <Typography variant="h5">Structures</Typography><Tabs value={FACTIONS.indexOf(faction)} onChange={handleFactionChange} variant="scrollable" scrollButtons="auto">{FACTIONS.map((name) => <Tab key={name} label={name} />)}</Tabs>
+    <SectionHeading
+      actions={<BrowsePlannerToggle value={loadout.planner.mode} onChange={(mode) => dispatch(setPlannerMode(mode))} />}
+      subtitle="Review hardened objectives and confirm which tools can crack them before deployment."
+      title="Structures"
+    />
+    <Tabs value={FACTIONS.indexOf(faction)} onChange={handleFactionChange} variant="scrollable" scrollButtons="auto">{FACTIONS.map((name) => <Tab key={name} label={name} />)}</Tabs>
     <PlannerControls coverageKind="structure" loadout={loadout} />
     <TextField fullWidth label="Search structures" onChange={(event) => setSearch(event.target.value)} size="small" sx={{ mb: 2, maxWidth: 360 }} value={search} />
     {loadout.planner.mode === "browse" && <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75, mb: 2 }}>{DEMOLITION_VALUES.map((value) => <ToggleButton key={value} selected={selectedDemo.includes(value)} size="small" value={value} onClick={() => toggleDemo(value)}>DF {value}</ToggleButton>)}</Box>}

@@ -1375,6 +1375,19 @@ function parseEnemyVariants(content: string) {
   return variants;
 }
 
+const ENEMY_SIZE_CLASSES: Record<number, string> = {
+  0: "Small",
+  1: "Medium",
+  2: "Large",
+  3: "Massive",
+};
+
+function parseEnemyClass(parameters: Map<string, string>) {
+  const size = parseAnatomyNumber(parameters.get("size"));
+  if (size !== undefined && ENEMY_SIZE_CLASSES[size]) return ENEMY_SIZE_CLASSES[size];
+  return cleanEnemyValue(parameters.get("class")) || "Unclassified";
+}
+
 export function parseEnemyPageSource(page: WikiPageSource, listing: ScrapedEnemyListing) {
   const infobox = extractTemplateInvocations(page.content, "Infobox Enemy")[0];
   const parameters = infobox ? parseTemplateParameters(infobox.text) : new Map<string, string>();
@@ -1393,7 +1406,7 @@ export function parseEnemyPageSource(page: WikiPageSource, listing: ScrapedEnemy
     faction: listing.faction,
     subfactions: listing.subfactions,
     description: cleanEnemyValue(parameters.get("description")) || listing.description,
-    enemyClass: cleanEnemyValue(parameters.get("class")) || "Unclassified",
+    enemyClass: parseEnemyClass(parameters),
     wikiSlug: page.slug,
     imageFileTitle: extractInfoboxImageFile(page.content, page.title) ?? listing.imageFileTitle,
     variants: parseEnemyVariants(page.content),

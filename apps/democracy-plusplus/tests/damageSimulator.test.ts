@@ -14,8 +14,11 @@ import {
   buildWeaponCoverageReport,
 } from "../src/utils/damage/coverage.ts";
 import { simulateStratagemDeployment } from "../src/utils/damage/combatSimulator.ts";
+import { combatSourceGroup } from "../src/utils/damage/combatSourceCatalog.ts";
+import { extractCombatSourceProfiles } from "../src/utils/damage/combatProfiles.ts";
 import { validateExplosionScenarios } from "../src/utils/damage/explosionScenarios.ts";
 import { calculateWeaponDps, simulateTargetTtk } from "../src/utils/damage/simulator.ts";
+import { summarizeCombatSource } from "../src/utils/damage/profileSummary.ts";
 import {
   extractStratagemProfiles,
   profileForExposure,
@@ -436,6 +439,27 @@ test("VG-70 profiles distinguish auto, seven-round volley, and total magazine tr
   assert.equal(calculateWeaponDps(volley).damagePerTrigger.standard, 595);
   assert.equal(calculateWeaponDps(total).damagePerTrigger.standard, 4165);
   assert.equal(calculateWeaponDps(total).magazineDamage.standard, 4165);
+});
+
+test("all sourced selectable fire rates become distinct damage profiles", () => {
+  const expectedRates = new Map<Item, number[]>([
+    [liveWeapon("AR-61 Tenderizer"), [600, 850]],
+    [liveStratagem("M-105 Stalwart"), [700, 850, 1150]],
+    [liveStratagem("MG-43 Machine Gun"), [630, 760, 900]],
+    [liveStratagem("MG-206 Heavy Machine Gun"), [450, 600, 750]],
+    [liveStratagem("GL-28 Belt-Fed Grenade Launcher"), [160, 240, 320]],
+  ]);
+
+  for (const [item, rates] of expectedRates) {
+    const profiles = extractWeaponProfiles(item).profiles;
+    assert.deepEqual(profiles.map(({ roundsPerMinute }) => roundsPerMinute), rates, item.displayName);
+    assert.deepEqual(profiles.map(({ label }) => label), rates.map((rate) => `${rate} rpm`), item.displayName);
+    assert.deepEqual(
+      profiles.map(({ trigger }) => trigger.triggerIntervalSeconds),
+      rates.map((rate) => 60 / rate),
+      item.displayName,
+    );
+  }
 });
 
 test("Total mode derives its projectile count and committed ammunition from the loaded magazine", () => {
@@ -1412,4 +1436,43 @@ test("deployment results keep on-target, activation, active-window, and cooldown
   assert.equal(incompleteTiming.deployment.activeWindowSeconds, null);
   assert.equal(incompleteTiming.deployment.activeWindowDps, null);
   assert.match(incompleteTiming.warnings.join(" "), /payload timing is incomplete/i);
+});
+
+test("combat-source browsing separates Dog backpacks from sentries and ordinary support gear", () => {
+  for (const name of [
+    "AX/AR-23 Guard Dog",
+    "AX/LAS-5 Rover",
+    "AX/FLAM-75 Hot Dog",
+    "AX/ARC-3 K-9",
+    "AX/TX-13 Dog Breath",
+  ]) {
+    const item = liveStratagem(name);
+    assert.equal(combatSourceGroup({ item, result: extractCombatSourceProfiles(item) }), "Dog backpack");
+  }
+
+  const sentry = liveStratagem("A/AC-8 Autocannon Sentry");
+  assert.equal(combatSourceGroup({ item: sentry, result: extractCombatSourceProfiles(sentry) }), "Emplacement and sentry");
+  const jumpPack = liveStratagem("LIFT-850 Jump Pack");
+  assert.equal(combatSourceGroup({ item: jumpPack, result: extractCombatSourceProfiles(jumpPack) }), "Support weapon");
+});
+
+test("browse summaries use full magazines for weapons and full deployments for bounded stratagems", () => {
+  const weapon = liberator();
+  const weaponRows = summarizeCombatSource({ item: weapon, result: extractCombatSourceProfiles(weapon) });
+  assert.equal(weaponRows.length, 1);
+  assert.deepEqual(weaponRows[0].totalDamage, { standard: 4050, durable: 990 });
+  assert.ok(weaponRows[0].sustainedDps);
+
+  const blitzer = liveWeapon("ARC-12 Blitzer");
+  const blitzerRows = summarizeCombatSource({ item: blitzer, result: extractCombatSourceProfiles(blitzer) });
+  assert.equal(blitzerRows[0].totalDamage, null, "an infinite source must not invent a finite total");
+
+  const barrageItem = liveStratagem("Orbital 380mm HE Barrage");
+  const barrageResult = extractCombatSourceProfiles(barrageItem);
+  const barrageRows = summarizeCombatSource({ item: barrageItem, result: barrageResult });
+  const barrageProfile = barrageResult.profiles[0];
+  const deployment = simulateStratagemDeployment(barrageProfile, barrageProfile.delivery.exposureScenarios[0]);
+  assert.deepEqual(barrageRows[0].totalDamage, deployment.deployment.areaOutput);
+  assert.notDeepEqual(barrageRows[0].totalDamage, deployment.selectedTarget.damage);
+  assert.ok(barrageRows[0].sustainedDps, "cooldown throughput should be the bounded source's sustained value");
 });

@@ -1,13 +1,17 @@
-import { Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Grid, List, ListItem, ListItemText } from "@mui/material";
 import { selectMission } from "../../slices/missionSlice";
 import { useSelector } from "react-redux";
 import type { Quest } from "../../types";
+import SectionHeading from "../../utils/sectionHeading";
 
 export default function Quests() {
   const mission = useSelector(selectMission);
 
   return <Grid direction="column">
-    <Typography variant="h5">Discretionary Assignments</Typography>
+    <SectionHeading
+      subtitle="Optional objectives authorised to increase the operation payout."
+      title="Discretionary Assignments"
+    />
     <List>
       {mission.quests.map((quest: Quest) => <ListItem key={quest.displayName}>
         <ListItemText

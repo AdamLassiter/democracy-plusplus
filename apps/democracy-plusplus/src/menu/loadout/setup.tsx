@@ -20,6 +20,7 @@ import {
   setPreferredChallengeMode,
 } from "../../slices/challengesSlice";
 import ChallengeDebrief from "./challengeDebrief";
+import SectionHeading from "../../utils/sectionHeading";
 
 export default function Setup() {
   const dispatch = useDispatch();
@@ -150,7 +151,10 @@ export default function Setup() {
   const questsReward = !briefState && mission.quests ? calculateQuestsReward(mission.quests.map((quest) => ({...quest, completed: true}))) : '??';
 
   return <Grid direction="column" container spacing={2} sx={{ width: { xs: "100%", md: 250 } }}>
-    <Typography variant="h5">Mission Brief</Typography>
+    <SectionHeading
+      subtitle="Set the operation, challenge and deployment conditions before requisitioning your loadout."
+      title="Mission Brief"
+    />
     <FormControl>
       <InputLabel>Challenge Mode</InputLabel>
       <Select

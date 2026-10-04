@@ -1,5 +1,5 @@
 import type { ChangeEvent, SyntheticEvent } from "react";
-import { Box, Button, Checkbox, Dialog, DialogTitle, Divider, FormControlLabel, FormGroup, FormLabel, Rating, Typography } from "@mui/material";
+import { Box, Button, Checkbox, Dialog, Divider, FormControlLabel, FormGroup, FormLabel, Rating, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { resetMission, selectMission, setQuests as setMissionQuests, setRestrictions as setMissionRestrictions, setState } from "../../slices/missionSlice";
 import { useEffect, useState } from "react";
@@ -28,6 +28,7 @@ import { setConnectionError, setLastProcessedDebriefSubmissionId } from "../../s
 import { getEffectivePlayerCount } from "../../utils/playerCount";
 import type { EquipmentState, Item, LobbyMember, MissionState, PlayerCount, Quest, Restriction, Tier } from "../../types";
 import type { AppDispatch } from "../../slices";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 export default function Debrief() {
   const dispatch = useDispatch<AppDispatch>();
@@ -186,10 +187,16 @@ export default function Debrief() {
     }
   }
 
-  return <Dialog open={open}>
-    <DialogTitle>
+  function handleClose() {
+    setOpen(false);
+  }
+
+  if (!open) return <Button variant="outlined" onClick={() => setOpen(true)}>Open Mission Report</Button>;
+
+  return <Dialog open={open} onClose={handleClose}>
+    <CloseableDialogTitle onClose={handleClose}>
       Mission Report
-    </DialogTitle>
+    </CloseableDialogTitle>
     <Box padding={2}>
       <Typography color="text.secondary" paddingBottom={2} variant="body2">
         Complete this report after finishing the mission in-game. Record your final star rating, completed assignments,

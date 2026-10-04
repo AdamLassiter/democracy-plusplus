@@ -7,7 +7,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
   Grid,
   LinearProgress,
   Stack,
@@ -18,6 +17,7 @@ import { FORMS } from "../../constants/forms";
 import { unlockAchievements } from "../../slices/achievementsSlice";
 import { recordBureaucraticFormsScore, selectMinigames } from "../../slices/minigamesSlice";
 import type { FormFieldPool } from "../../types";
+import CloseableDialogTitle from "../../utils/closeableDialogTitle";
 
 type GamePhase = "idle" | "playing" | "gameOver";
 type FormAction = "Approve" | "Reject" | "Escalate";
@@ -294,7 +294,7 @@ export default function FormsGame({ open, onClose }: { open: boolean; onClose: (
   }, [isReviewingAnswer, open, phase, reviewEndsGame, score]);
 
   return <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
-    <DialogTitle>Bureaucratic Forms Review</DialogTitle>
+    <CloseableDialogTitle onClose={handleClose}>Bureaucratic Forms Review</CloseableDialogTitle>
     <DialogContent dividers>
       {phase === "idle" && <Stack spacing={2}>
         <Typography variant="h6">Mandatory administrative excellence</Typography>

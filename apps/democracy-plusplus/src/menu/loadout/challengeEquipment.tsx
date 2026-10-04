@@ -22,6 +22,7 @@ import ItemDisplay, {
   MissingStratagem,
   MissingThrowable,
 } from "../../utils/itemDisplay";
+import SectionHeading from "../../utils/sectionHeading";
 
 export default function ChallengeEquipment() {
   const dispatch = useDispatch();
@@ -81,7 +82,12 @@ function EquippedChallengeItems({
   }
 
   return <Box>
-    <Typography variant="h5">{editable ? "Equipment" : "Assigned Loadout"}</Typography>
+    <SectionHeading
+      subtitle={editable
+        ? "The weapons, support gear and booster prepared for this deployment."
+        : "High Command has selected these tools for the next deployment."}
+      title={editable ? "Equipment" : "Assigned Loadout"}
+    />
     <Grid direction="row" container spacing={1} paddingTop={1}>
       {display(equipment.primary, <MissingPrimary key="primary-missing" />, "primary")}
       {display(equipment.secondary, <MissingSecondary key="secondary-missing" />, "secondary")}
@@ -121,7 +127,10 @@ function AvailableChallengeItems({
   const selected = lists[tab]?.[1] ?? [];
 
   return <Box>
-    <Typography variant="h5">Available Equipment</Typography>
+    <SectionHeading
+      subtitle="Eligible equipment remaining under the active challenge rules."
+      title="Available Equipment"
+    />
     <Tabs value={tab} onChange={(_event: SyntheticEvent, value: number) => setTab(value)} variant="scrollable" scrollButtons="auto">
       {lists.map(([label, entries]) => <Tab key={label} label={`${label} (${entries.length})`} />)}
     </Tabs>

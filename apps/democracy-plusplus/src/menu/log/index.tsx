@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectLog } from "../../slices/logSlice";
 import MissionsLog from "./missionsLog";
 import PurchasesLog from "./purchasesLog";
+import SectionHeading from "../../utils/sectionHeading";
 
 const LOG_TABS = [
   { key: "missions", label: "Missions", Component: MissionsLog },
@@ -21,7 +22,10 @@ export default function Log() {
   const CurrentTab = LOG_TABS[value].Component;
 
   return <>
-    <Typography variant="h5">Run Log</Typography>
+    <SectionHeading
+      subtitle="Review completed operations, requisitions and the running cost of spreading Managed Democracy."
+      title="Run Log"
+    />
     {!entries.length && <Typography color="gray" paddingTop={2}>No logged activity yet.</Typography>}
     {!!entries.length && <>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

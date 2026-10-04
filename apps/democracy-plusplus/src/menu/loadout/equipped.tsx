@@ -2,11 +2,12 @@ import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEquipment, unsetEquipment } from "../../slices/equipmentSlice";
 import ItemDisplay, { MissingArmor, MissingBooster, MissingPrimary, MissingSecondary, MissingStratagem, MissingThrowable } from "../../utils/itemDisplay";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import { getItem } from "../../constants";
 import { addPurchased } from "../../slices/purchasedSlice";
 import { itemCost } from "../../economics/shop";
 import type { Item } from "../../types";
+import SectionHeading from "../../utils/sectionHeading";
 
 export default function Equipped() {
   const {
@@ -38,10 +39,11 @@ export default function Equipped() {
   }
 
   return <>
-    <Box sx={{ alignItems: "baseline", display: "flex", gap: 1 }}>
-      <Typography variant="h5">Equipment</Typography>
-      <Typography color="text.secondary" variant="subtitle1">{Math.floor(equippedCost / 2)} ~ {equippedCost}¢</Typography>
-    </Box>
+    <SectionHeading
+      meta={`${Math.floor(equippedCost / 2)} ~ ${equippedCost}¢`}
+      subtitle="The weapons, support gear and booster prepared for this deployment."
+      title="Equipment"
+    />
     <Grid direction="column" container spacing={1}>
       <Grid direction="row" container spacing={1}>
         {primary ? <ItemDisplay key="primary" item={getItem(primary)!} onClick={() => unequip(primary)} /> : <MissingPrimary key="primary-missing" />}
