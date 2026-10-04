@@ -3,7 +3,11 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import type { BestiaryData, Enemy, EnemyAnatomy, EnemyFaction, Item } from "../src/types.ts";
-import { normalizeEnemyTarget } from "../src/utils/damage/enemyTargets.ts";
+import {
+  effectiveEnemyHealth,
+  enemyDifficultyRanges,
+  normalizeEnemyTarget,
+} from "../src/utils/damage/enemyTargets.ts";
 import { calculateWeaponDps, simulateTargetTtk } from "../src/utils/damage/simulator.ts";
 import type { WeaponProfile } from "../src/utils/damage/types.ts";
 import { extractWeaponProfiles } from "../src/utils/damage/weaponProfiles.ts";
@@ -345,6 +349,35 @@ test("normalizeEnemyTarget resolves Main health and difficulty armor", () => {
     mainConstitution: null,
     partConstitution: null,
   });
+});
+
+test("enemy difficulty ranges collapse unchanged difficulties around stat breakpoints", () => {
+  const enemy = targetFixture({ name: "Standard", parts: [
+    {
+      name: "Main",
+      armor: "2",
+      armorByDifficulty: { "6": "3" },
+      health: "1,200",
+      healthByDifficulty: { "4": 1600 },
+      durability: "50%",
+    },
+  ] });
+
+  assert.deepEqual(enemyDifficultyRanges(enemy), [
+    { minimum: 1, maximum: 3 },
+    { minimum: 4, maximum: 5 },
+    { minimum: 6, maximum: 10 },
+  ]);
+  assert.equal(effectiveEnemyHealth(enemy.anatomy[0].parts[0], 3), 1200);
+  assert.equal(effectiveEnemyHealth(enemy.anatomy[0].parts[0], 4), 1600);
+});
+
+test("enemies without difficulty-dependent stats have one invariant range", () => {
+  const enemy = targetFixture({ name: "Standard", parts: [
+    { name: "Main", armor: "2", health: "1,200", durability: "50%" },
+  ] });
+
+  assert.deepEqual(enemyDifficultyRanges(enemy), [{ minimum: 1, maximum: 10 }]);
 });
 
 test("target TTK applies equal-armor resistance, cadence, and reload timing", () => {

@@ -31,7 +31,11 @@ import { SECONDARIES } from "../../constants/secondaries";
 import { selectMission } from "../../slices/missionSlice";
 import type { Enemy, EnemyAnatomy, EnemyAnatomyPart, Item } from "../../types";
 import { effectiveArmor } from "../../utils/capabilities";
-import { normalizeEnemyTarget } from "../../utils/damage/enemyTargets";
+import {
+  effectiveEnemyHealth,
+  enemyDifficultyRanges,
+  normalizeEnemyTarget,
+} from "../../utils/damage/enemyTargets";
 import { calculateWeaponDps, simulateTargetTtk } from "../../utils/damage/simulator";
 import type { WeaponProfile, WeaponProfileResult } from "../../utils/damage/types";
 import { extractWeaponProfiles } from "../../utils/damage/weaponProfiles";
@@ -214,10 +218,10 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
   const [part, setPart] = useState<EnemyAnatomyPart | null>(null);
   const [difficulty, setDifficulty] = useState(mission.difficulty + 1);
   const [hitRate, setHitRate] = useState(100);
-  const hasDifficultyScaling = enemy?.anatomy.some((candidate) => candidate.parts.some((candidatePart) =>
-    Object.keys(candidatePart.armorByDifficulty ?? {}).length > 0
-    || Object.keys(candidatePart.healthByDifficulty ?? {}).length > 0,
-  )) ?? false;
+  const difficultyRanges = enemy ? enemyDifficultyRanges(enemy) : [];
+  const selectedDifficultyRange = difficultyRanges.find(({ minimum, maximum }) =>
+    difficulty >= minimum && difficulty <= maximum,
+  );
   const targetResult = enemy && anatomy && part
     ? normalizeEnemyTarget(enemy, anatomy, part, difficulty)
     : null;
@@ -276,15 +280,17 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
             {(anatomy?.parts ?? []).map((candidate, index) => <MenuItem key={`${candidate.name}-${index}`} value={candidate.name}>{candidate.name}</MenuItem>)}
           </Select>
         </FormControl>
-        {hasDifficultyScaling && <FormControl fullWidth>
+        {difficultyRanges.length > 1 && <FormControl fullWidth>
           <InputLabel id="damage-sim-difficulty-label">Difficulty</InputLabel>
           <Select
             label="Difficulty"
             labelId="damage-sim-difficulty-label"
             onChange={(event) => setDifficulty(Number(event.target.value))}
-            value={String(difficulty)}
+            value={String(selectedDifficultyRange?.minimum ?? difficultyRanges[0]?.minimum ?? difficulty)}
           >
-            {Array.from({ length: 10 }, (_, index) => <MenuItem key={index + 1} value={String(index + 1)}>{index + 1}</MenuItem>)}
+            {difficultyRanges.map(({ minimum, maximum }) => <MenuItem key={minimum} value={String(minimum)}>
+              {minimum === maximum ? minimum : `${minimum}-${maximum}`}
+            </MenuItem>)}
           </Select>
         </FormControl>}
       </Box>
@@ -305,7 +311,7 @@ function EnemyPanel({ profile }: { profile: WeaponProfile | null }) {
       {part && <>
         <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mb: 2 }}>
           <Chip label={`AV ${effectiveArmor(part, difficulty)}`} />
-          <Chip label={`Health ${part.health || "—"}`} />
+          <Chip label={`Health ${effectiveEnemyHealth(part, difficulty) ?? (part.health || "—")}`} />
           <Chip label={`Durability ${part.durability || "—"}`} />
           {part.percentToMain !== undefined && <Chip label={`${formatNumber(part.percentToMain * 100)}% to Main`} />}
           {part.damageToMainCapped !== undefined && <Chip label={part.damageToMainCapped ? "Overflow capped" : "Overkill transfers"} />}

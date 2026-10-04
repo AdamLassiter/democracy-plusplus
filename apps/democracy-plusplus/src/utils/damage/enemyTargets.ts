@@ -14,13 +14,35 @@ function parsePercentage(value: string) {
   return amount === null || !value.includes("%") ? null : amount / 100;
 }
 
-function effectiveHealth(part: EnemyAnatomyPart, difficulty: number) {
+export function effectiveEnemyHealth(part: EnemyAnatomyPart, difficulty: number) {
   let health = parseNumber(part.health);
   for (const [minimumDifficulty, value] of Object.entries(part.healthByDifficulty ?? {})
     .sort(([left], [right]) => Number(left) - Number(right))) {
     if (difficulty >= Number(minimumDifficulty)) health = value;
   }
   return health;
+}
+
+export type EnemyDifficultyRange = {
+  minimum: number;
+  maximum: number;
+};
+
+export function enemyDifficultyRanges(enemy: Enemy, minimum = 1, maximum = 10): EnemyDifficultyRange[] {
+  const breakpoints = enemy.anatomy
+    .flatMap((anatomy) => anatomy.parts)
+    .flatMap((part) => [
+      ...Object.keys(part.armorByDifficulty ?? {}),
+      ...Object.keys(part.healthByDifficulty ?? {}),
+    ])
+    .map(Number)
+    .filter((difficulty) => Number.isInteger(difficulty) && difficulty > minimum && difficulty <= maximum);
+  const starts = [minimum, ...new Set(breakpoints)].sort((left, right) => left - right);
+
+  return starts.map((rangeMinimum, index) => ({
+    minimum: rangeMinimum,
+    maximum: (starts[index + 1] ?? maximum + 1) - 1,
+  }));
 }
 
 export function normalizeEnemyTarget(
@@ -39,7 +61,7 @@ export function normalizeEnemyTarget(
   if (!mainPart) {
     unsupportedReasons.push(`The target must resolve exactly one Main row; found ${mainParts.length}.`);
   }
-  const mainHealth = mainPart ? effectiveHealth(mainPart, difficulty) : null;
+  const mainHealth = mainPart ? effectiveEnemyHealth(mainPart, difficulty) : null;
   if (mainPart && (mainHealth === null || mainHealth <= 0)) {
     unsupportedReasons.push("Main health is not a positive numeric value.");
   }
@@ -50,7 +72,7 @@ export function normalizeEnemyTarget(
   }
   const isMainRow = part === mainPart;
   const hitsMainDirectly = isMainRow || /^main$/i.test(part.health.trim());
-  const partHealth = hitsMainDirectly ? null : effectiveHealth(part, difficulty);
+  const partHealth = hitsMainDirectly ? null : effectiveEnemyHealth(part, difficulty);
   if (!hitsMainDirectly && (partHealth === null || partHealth <= 0)) {
     unsupportedReasons.push("The selected part has no positive numeric health value.");
   }
