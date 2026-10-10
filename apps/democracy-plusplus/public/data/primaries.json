@@ -3534,7 +3534,7 @@
     "type": "Equipment",
     "category": "primary",
     "tags": ["Shotgun"],
-    "warbondCode": "warbond21",
+    "warbondCode": "warbond1",
     "internalName": "dbs2doublefreedom",
     "tier": "b",
     "wikiSlug": "DBS-2_Double_Freedom",
@@ -4082,7 +4082,7 @@
   },
   {
     "displayName": "R-4 Hyena",
-    "warbondCode": "none",
+    "warbondCode": "warbond28",
     "internalName": "r4hyena",
     "tier": "b",
     "wikiSlug": "R-4_Hyena",
@@ -4450,7 +4450,7 @@
   },
   {
     "displayName": "LAS-12 Sai",
-    "warbondCode": "none",
+    "warbondCode": "warbond1",
     "internalName": "las12sai",
     "tier": "a",
     "wikiSlug": "LAS-12_Sai",

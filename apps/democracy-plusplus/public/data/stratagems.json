@@ -8391,7 +8391,7 @@
   },
   {
     "displayName": "M-103 Supply FRV",
-    "warbondCode": "none",
+    "warbondCode": "warbond28",
     "internalName": "m103supplyfrv",
     "tier": "a",
     "wikiSlug": "M-103_Supply_FRV",
@@ -8619,7 +8619,7 @@
   },
   {
     "displayName": "Eagle Gas Airstrike",
-    "warbondCode": "none",
+    "warbondCode": "warbond28",
     "internalName": "eaglegasairstrike",
     "tier": "s",
     "wikiSlug": "Eagle_Gas_Airstrike",
@@ -8732,7 +8732,7 @@
   },
   {
     "displayName": "TD-110 Maelstrom",
-    "warbondCode": "none",
+    "warbondCode": "warbond28",
     "internalName": "td110maelstrom",
     "tier": "c",
     "wikiSlug": "TD-110_Maelstrom",

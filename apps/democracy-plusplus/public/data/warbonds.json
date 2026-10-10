@@ -328,5 +328,17 @@
     "wikiSlug": "Ironclad_Democracy_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Ironclad_Democracy_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Ironclad_Democracy_Premium_Warbond_Cover.png"
+  },
+  {
+    "displayName": "Helldrivers",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond28",
+    "internalName": "helldriversWB",
+    "tier": "b",
+    "wikiSlug": "Helldrivers_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Helldrivers_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Helldrivers_Premium_Warbond_Cover.png"
   }
 ]
