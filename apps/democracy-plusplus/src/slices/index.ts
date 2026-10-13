@@ -21,7 +21,7 @@ import preferencesReducer from "./preferencesSlice";
 import plannerReducer from "./plannerSlice";
 import purchasedReducer from "./purchasedSlice";
 import snackbarReducer from "./snackbarSlice";
-import shopReducer from "./shopSlice";
+import shopReducer, { normaliseShopState } from "./shopSlice";
 import tierListReducer from "./tierListSlice";
 
 const persistConfig = {
@@ -66,6 +66,9 @@ export function migratePersistedState(
 
   return {
     ...state,
+    ...(state.shop
+      ? { shop: normaliseShopState(state.shop as RootState["shop"]) }
+      : {}),
     challenges: normaliseChallengesState(
       state.challenges
         ? (state.challenges as Parameters<typeof normaliseChallengesState>[0])

@@ -81,7 +81,7 @@ function hydrateCartItem(item: CartEntry): ShopItem | null {
   };
 }
 
-function normaliseShopState(state: ShopState): ShopState {
+export function normaliseShopState(state: ShopState): ShopState {
   const playerCount = clampPlayerCount(
     state.playerCount ?? initialState.playerCount,
   );
@@ -93,6 +93,7 @@ function normaliseShopState(state: ShopState): ShopState {
       ...item,
       stock: normaliseStock(item.displayName, item.stock, playerCount),
     })),
+    supplyCrates: supplyCrates(),
     cart: (state.cart || [])
       .map(normaliseCartEntry)
       .filter((item): item is CartEntry => item !== null),

@@ -1,5 +1,6 @@
 import type { Item } from "../types";
-import { supplyCrates } from "../economics/shop";
+import { findSupplyCrate } from "../economics/supplyCrates";
+import { ITEMS } from "./items";
 import { getArmorPassive } from "./armor_passives";
 import { getBooster } from "./boosters";
 import { getPrimary } from "./primaries";
@@ -8,8 +9,7 @@ import { getStratagem } from "./stratagems";
 import { getThrowable } from "./throwables";
 
 function getSupplyCrate(displayName: string) {
-  const crates = supplyCrates();
-  return crates.find((crate) => crate.displayName === displayName);
+  return findSupplyCrate(ITEMS, displayName);
 }
 
 export function getItem(displayName: string): Item | undefined {
