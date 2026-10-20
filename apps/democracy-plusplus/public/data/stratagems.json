@@ -9801,9 +9801,9 @@
   },
   {
     "displayName": "AMW-20 Apex",
-    "warbondCode": "none",
+    "warbondCode": "warbond29",
     "internalName": "amw20apex",
-    "tier": "d",
+    "tier": "b",
     "wikiSlug": "AMW-20_Apex",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Apex_Stratagem_Icon_Background.svg",
     "imageUrl": "stratagems/Apex_Stratagem_Icon_Background.svg",
@@ -9889,9 +9889,9 @@
   },
   {
     "displayName": "LAS-44 Nova",
-    "warbondCode": "none",
+    "warbondCode": "warbond29",
     "internalName": "las44nova",
-    "tier": "d",
+    "tier": "a",
     "wikiSlug": "LAS-44_Nova",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Nova_Stratagem_Icon_Background.svg",
     "imageUrl": "stratagems/Nova_Stratagem_Icon_Background.svg",

@@ -1482,9 +1482,9 @@
   },
   {
     "displayName": "G-11 Caltrops",
-    "warbondCode": "none",
+    "warbondCode": "warbond29",
     "internalName": "g11caltrops",
-    "tier": "d",
+    "tier": "c",
     "wikiSlug": "G-11_Caltrops",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/G-11_Caltrops_Throwable_Render.png",
     "imageUrl": "throwables/G-11_Caltrops_Throwable_Render.png",

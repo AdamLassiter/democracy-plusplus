@@ -379,21 +379,6 @@
     "description": "Provides 50% resistance to explosive damage. Provides a higher armor rating."
   },
   {
-    "displayName": "Supplementary Adrenaline",
-    "warbondCode": "warbond23",
-    "internalName": "supplementaryadrenaline",
-    "tier": "b",
-    "wikiSlug": "Supplementary_Adrenaline",
-    "wikiImageUrl": "https://helldivers.wiki.gg/images/Supplementary_Adrenaline_Armor_Passive_Icon.svg",
-    "imageUrl": "armor_passives/Supplementary_Adrenaline_Armor_Passive_Icon.svg",
-    "type": "Equipment",
-    "category": "armor",
-    "tags": [
-      "ArmorPassive"
-    ],
-    "description": "When the wearer takes damage, they regain some stamina. Provides a higher armor rating."
-  },
-  {
     "displayName": "Reduced Signature",
     "warbondCode": "warbond22",
     "internalName": "reducedsignature",
@@ -486,7 +471,7 @@
   },
   {
     "displayName": "Stationary Shroud",
-    "warbondCode": "none",
+    "warbondCode": "warbond29",
     "internalName": "stationaryshroud",
     "tier": "d",
     "wikiSlug": "Stationary_Shroud",
@@ -501,9 +486,9 @@
   },
   {
     "displayName": "Supplemental Adrenaline",
-    "warbondCode": "none",
+    "warbondCode": "warbond23",
     "internalName": "supplementaladrenaline",
-    "tier": "d",
+    "tier": "b",
     "wikiSlug": "Supplemental_Adrenaline",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Supplemental_Adrenaline_Armor_Passive_Icon.svg",
     "imageUrl": "armor_passives/Supplemental_Adrenaline_Armor_Passive_Icon.svg",
