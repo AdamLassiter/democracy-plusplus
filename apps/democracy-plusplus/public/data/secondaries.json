@@ -41,7 +41,7 @@
         },
         "Damage": {
           "Standard": "100 Ballistic",
-          "vs. Durable": "32 Ballistic"
+          "vs. Durable": "20 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -63,7 +63,9 @@
       },
       "fireRateRpm": 900,
       "capacity": 15,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.006.001"
     }
   },
@@ -71,7 +73,9 @@
     "displayName": "CQC-5 Combat Hatchet",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Melee"],
+    "tags": [
+      "Melee"
+    ],
     "warbondCode": "warbond1",
     "internalName": "cqc5combathatchet",
     "tier": "d",
@@ -122,7 +126,9 @@
     "displayName": "CQC-2 Saber",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Melee"],
+    "tags": [
+      "Melee"
+    ],
     "warbondCode": "warbond15",
     "internalName": "cqc2saber",
     "tier": "d",
@@ -172,7 +178,9 @@
     "displayName": "CQC-42 Machete",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Melee"],
+    "tags": [
+      "Melee"
+    ],
     "warbondCode": "warbond1",
     "internalName": "cqc42machete",
     "tier": "d",
@@ -222,7 +230,9 @@
     "displayName": "CQC-19 Stun Lance",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Melee"],
+    "tags": [
+      "Melee"
+    ],
     "warbondCode": "warbond12",
     "internalName": "cqc19stunlance",
     "tier": "d",
@@ -273,7 +283,9 @@
     "displayName": "CQC-30 Stun Baton",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Melee"],
+    "tags": [
+      "Melee"
+    ],
     "warbondCode": "warbond1",
     "internalName": "cqc30stunbaton",
     "tier": "d",
@@ -324,7 +336,10 @@
     "displayName": "P-11 Stim Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Stealth"],
+    "tags": [
+      "Special",
+      "Stealth"
+    ],
     "warbondCode": "warbond10",
     "internalName": "p11stimpistol",
     "tier": "d",
@@ -370,7 +385,9 @@
       },
       "fireRateRpm": 70,
       "capacity": 6,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -378,7 +395,10 @@
     "displayName": "PLAS-15 Loyalist",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Explosive"],
+    "tags": [
+      "Special",
+      "Explosive"
+    ],
     "warbondCode": "warbond11",
     "internalName": "plas15loyalist",
     "tier": "b",
@@ -581,7 +601,9 @@
     "displayName": "SG-22 Bushwhacker",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special"],
+    "tags": [
+      "Special"
+    ],
     "warbondCode": "warbond8",
     "internalName": "sg22bushwhacker",
     "tier": "b",
@@ -620,8 +642,8 @@
           "Penetration Slowdown": "25%"
         },
         "Damage": {
-          "Standard": "45 Ballistic",
-          "vs. Durable": "12 Ballistic"
+          "Standard": "54 Ballistic",
+          "vs. Durable": "15 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -644,8 +666,11 @@
       },
       "fireRateRpm": 650,
       "capacity": 3,
-      "firingModes": ["Semi", "All Barrel"],
-      "sourceVersion": "1.006.001"
+      "firingModes": [
+        "Semi",
+        "All Barrel"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
@@ -712,7 +737,10 @@
       },
       "fireRateRpm": 1100,
       "capacity": 31,
-      "firingModes": ["Auto", "Semi"],
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -720,7 +748,10 @@
     "displayName": "GP-31 Grenade Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Explosive"],
+    "tags": [
+      "Special",
+      "Explosive"
+    ],
     "warbondCode": "warbond6",
     "internalName": "gp31grenadepistol",
     "tier": "a",
@@ -874,7 +905,9 @@
       },
       "fireRateRpm": 450,
       "capacity": 10,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -943,7 +976,9 @@
       },
       "fireRateRpm": 200,
       "capacity": 6,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.006.001"
     }
   },
@@ -951,7 +986,11 @@
     "displayName": "LAS-7 Dagger",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Fire", "Laser"],
+    "tags": [
+      "Special",
+      "Fire",
+      "Laser"
+    ],
     "warbondCode": "warbond5",
     "internalName": "las7dagger",
     "tier": "c",
@@ -1032,8 +1071,8 @@
     },
     "simulation": {
       "reload": {
-        "emptySeconds": 2,
-        "tacticalSeconds": 2.45
+        "emptySeconds": 1.85,
+        "tacticalSeconds": 2.8
       },
       "capacitySeconds": 6.67,
       "listedDps": 250,
@@ -1044,7 +1083,11 @@
     "displayName": "LAS-58 Talon",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Fire", "Laser"],
+    "tags": [
+      "Special",
+      "Fire",
+      "Laser"
+    ],
     "warbondCode": "warbond14",
     "internalName": "las58talon",
     "tier": "a",
@@ -1111,7 +1154,9 @@
       },
       "fireRateRpm": 750,
       "capacity": 7,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.006.001"
     }
   },
@@ -1119,7 +1164,10 @@
     "displayName": "P-72 Crisper",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Fire"],
+    "tags": [
+      "Special",
+      "Fire"
+    ],
     "warbondCode": "warbond9",
     "internalName": "p72crisper",
     "tier": "b",
@@ -1218,7 +1266,10 @@
     "displayName": "GP-20 Ultimatum",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Explosive"],
+    "tags": [
+      "Special",
+      "Explosive"
+    ],
     "warbondCode": "warbond13",
     "internalName": "gp20ultimatum",
     "tier": "s",
@@ -1395,7 +1446,10 @@
       },
       "fireRateRpm": 450,
       "capacity": 13,
-      "firingModes": ["Guided", "Non-Guided"],
+      "firingModes": [
+        "Guided",
+        "Non-Guided"
+      ],
       "sourceVersion": "1.006.001"
     }
   },
@@ -1403,7 +1457,9 @@
     "displayName": "M6C/SOCOM Pistol",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Stealth"],
+    "tags": [
+      "Stealth"
+    ],
     "warbondCode": "warbond19",
     "internalName": "m6csocompistol",
     "tier": "b",
@@ -1463,7 +1519,9 @@
       },
       "fireRateRpm": 900,
       "capacity": 12,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -1532,7 +1590,9 @@
       },
       "fireRateRpm": 750,
       "capacity": 12,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -1547,7 +1607,9 @@
     "imageUrl": "secondaries/CQC-73_Entrenchment_Tool_Secondary_Render.png",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Melee"],
+    "tags": [
+      "Melee"
+    ],
     "properties": {
       "CQC-72 ENTRENCHMENT TOOL": {
         "Base": {
@@ -1597,7 +1659,10 @@
     "imageUrl": "secondaries/P-35_Re-Educator_Secondary_Render.png",
     "type": "Equipment",
     "category": "secondary",
-    "tags": ["Special", "Gas"],
+    "tags": [
+      "Special",
+      "Gas"
+    ],
     "properties": {
       "P-35 RE-EDUCATOR": {
         "Base": {
@@ -1684,7 +1749,9 @@
       },
       "fireRateRpm": 110,
       "capacity": 6,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.005.002"
     }
   },
@@ -1807,7 +1874,10 @@
       },
       "fireRateRpm": 60,
       "capacity": 1,
-      "firingModes": ["Guided", "Non-Guided"],
+      "firingModes": [
+        "Guided",
+        "Non-Guided"
+      ],
       "sourceVersion": "1.007.100"
     }
   },
@@ -1902,7 +1972,9 @@
       },
       "fireRateRpm": 150,
       "capacity": 6,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -2041,6 +2113,73 @@
       "fireRateRpm": 20,
       "capacity": 1,
       "sourceVersion": "1.007.100"
+    }
+  },
+  {
+    "displayName": "P-44 Mist",
+    "warbondCode": "none",
+    "internalName": "p44mist",
+    "tier": "d",
+    "wikiSlug": "P-44_Mist",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/P-44_Mist_Secondary_Render.png",
+    "imageUrl": "secondaries/P-44_Mist_Secondary_Render.png",
+    "type": "Equipment",
+    "category": "secondary",
+    "tags": [],
+    "simulation": {
+      "fireRateRpm": 400,
+      "capacity": 25,
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
+    },
+    "properties": {
+      "P-44 MIST": {
+        "Base": {
+          "Fire Rate": "400 rpm",
+          "Recoil": "16.5",
+          "Horizontal Recoil": "9",
+          "Vertical Recoil": "24",
+          "Spread": "↔[6.00] ↕[10.00]",
+          "Sway": "1",
+          "Ergonomics": "90",
+          "Noise When Firing": "Small (~33m)",
+          "Capacity": "25",
+          "Spare Magazines": "5",
+          "Starting Magazines": "4",
+          "Mags from Supply": "6",
+          "Mags from Ammo Box": "3"
+        },
+        "Attacks": {
+          "*P-44 P": "Projectile"
+        }
+      },
+      "P-44 P": {
+        "Projectile": {
+          "Mass": "7 g",
+          "Initial Velocity": "375 m/s",
+          "Drag Factor": "120%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "110 Ballistic",
+          "vs. Durable": "18 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Light",
+          "Slight Angle": "Light",
+          "Large Angle": "Light",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "10",
+          "Push Force": "4"
+        }
+      }
     }
   }
 ]

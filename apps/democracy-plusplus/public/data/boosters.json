@@ -3,7 +3,9 @@
     "displayName": "Expert Extraction Pilot",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Stealth"],
+    "tags": [
+      "Stealth"
+    ],
     "warbondCode": "warbond6",
     "internalName": "expertextractionpilot",
     "tier": "c",
@@ -29,7 +31,9 @@
     "displayName": "Armed Resupply Pods",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Ballistic"],
+    "tags": [
+      "Ballistic"
+    ],
     "warbondCode": "warbond12",
     "internalName": "armedresupplypods",
     "tier": "b",
@@ -146,7 +150,9 @@
     "displayName": "UAV Recon Booster",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Stealth"],
+    "tags": [
+      "Stealth"
+    ],
     "warbondCode": "warbond3",
     "internalName": "uavreconbooster",
     "imageUrl": "boosters/UAV_Recon_Booster_Booster_Icon.svg",
@@ -159,7 +165,13 @@
     "displayName": "Vitality Enhancement",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Fire", "Gas", "Arc", "Explosive", "Acid"],
+    "tags": [
+      "Fire",
+      "Gas",
+      "Arc",
+      "Explosive",
+      "Acid"
+    ],
     "warbondCode": "warbond3",
     "internalName": "vitalityenhancement",
     "tier": "s",
@@ -172,7 +184,9 @@
     "displayName": "Firebomb Hellpods",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Fire"],
+    "tags": [
+      "Fire"
+    ],
     "warbondCode": "warbond9",
     "internalName": "firebombhellpods",
     "tier": "d",
@@ -211,7 +225,9 @@
     "displayName": "Stun Pods",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Stun"],
+    "tags": [
+      "Stun"
+    ],
     "warbondCode": "warbond16",
     "internalName": "stunpods",
     "tier": "d",
@@ -230,7 +246,9 @@
     "imageUrl": "boosters/Concealed_Insertion_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Stealth"],
+    "tags": [
+      "Stealth"
+    ],
     "description": "Equips Hellpods to deploy smokescreens on impact, obscuring Helldiver deployment."
   },
   {
@@ -243,7 +261,9 @@
     "imageUrl": "boosters/Surplus_EAT_Allocation_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Explosive"],
+    "tags": [
+      "Explosive"
+    ],
     "description": "Grants two free uses of the Expendable Anti-Tank (EAT) Stratagem per mission; enough to grant a full squad one single-use rocket launcher each, provided squad members employ the proper equipment distribution protocol."
   },
   {
@@ -256,7 +276,9 @@
     "imageUrl": "boosters/Integrated_Extinguishers_Booster_Icon.svg",
     "type": "Equipment",
     "category": "booster",
-    "tags": ["Fire"],
+    "tags": [
+      "Fire"
+    ],
     "description": "Equips Helldiver uniforms with form-fitting, automated, rapid-response fire suppression systems. Significantly reduces the time it takes to naturally extinguish flames without conducting ground-aided smothering manuevers."
   }
 ]

@@ -340,5 +340,17 @@
     "wikiSlug": "Helldrivers_Premium_Warbond",
     "wikiImageUrl": "https://helldivers.wiki.gg/images/Helldrivers_Premium_Warbond_Cover.png",
     "imageUrl": "warbonds/Helldrivers_Premium_Warbond_Cover.png"
+  },
+  {
+    "displayName": "Scope of Authority",
+    "type": "Warbond",
+    "category": "",
+    "tags": [],
+    "warbondCode": "warbond29",
+    "internalName": "scopeofauthorityWB",
+    "tier": "b",
+    "wikiSlug": "Scope_of_Authority_Premium_Warbond",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/Scope_of_Authority_Premium_Warbond_Cover.png",
+    "imageUrl": "warbonds/Scope_of_Authority_Premium_Warbond_Cover.png"
   }
 ]

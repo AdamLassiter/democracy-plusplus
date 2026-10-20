@@ -3,7 +3,9 @@
     "displayName": "AR-23 Liberator",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "none",
     "internalName": "ar23liberator",
     "tier": "b",
@@ -62,7 +64,11 @@
       },
       "fireRateRpm": 640,
       "capacity": 45,
-      "firingModes": ["Auto", "Semi", "Burst"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -70,7 +76,9 @@
     "displayName": "AR-23P Liberator Penetrator",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "warbond3",
     "internalName": "ar23pliberatorpenetrator",
     "tier": "a",
@@ -129,7 +137,11 @@
       },
       "fireRateRpm": 640,
       "capacity": 45,
-      "firingModes": ["Semi", "Burst", "Full"],
+      "firingModes": [
+        "Semi",
+        "Burst",
+        "Full"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -137,7 +149,10 @@
     "displayName": "AR-23C Liberator Concussive",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle", "Stun"],
+    "tags": [
+      "AssaultRifle",
+      "Stun"
+    ],
     "warbondCode": "warbond4",
     "internalName": "ar23cliberatorconcussive",
     "tier": "d",
@@ -196,7 +211,10 @@
       },
       "fireRateRpm": 400,
       "capacity": 60,
-      "firingModes": ["Auto", "Semi"],
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -204,7 +222,9 @@
     "displayName": "AR-23A Liberator Carbine",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "warbond8",
     "internalName": "ar23aliberatorcarbine",
     "tier": "c",
@@ -263,7 +283,11 @@
       },
       "fireRateRpm": 920,
       "capacity": 45,
-      "firingModes": ["Auto", "Semi", "Burst"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -271,7 +295,9 @@
     "displayName": "BR-14 Adjudicator",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "warbond6",
     "internalName": "br14adjudicator",
     "tier": "a",
@@ -331,7 +357,10 @@
       },
       "fireRateRpm": 550,
       "capacity": 30,
-      "firingModes": ["Semi", "Auto"],
+      "firingModes": [
+        "Semi",
+        "Auto"
+      ],
       "sourceVersion": "1.005.000"
     }
   },
@@ -339,7 +368,9 @@
     "displayName": "StA-52 Assault Rifle",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "warbond18",
     "internalName": "sta52assaultrifle",
     "tier": "c",
@@ -350,15 +381,15 @@
       "STA-52 ASSAULT RIFLE": {
         "Base": {
           "Fire Rate": "790 rpm",
-          "Recoil": "14",
-          "Horizontal Recoil": "8",
-          "Vertical Recoil": "20",
+          "Recoil": "7.25",
+          "Horizontal Recoil": "4.5",
+          "Vertical Recoil": "10",
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "55",
           "Noise When Firing": "Medium (~48m)",
           "Capacity": "56",
-          "Spare Magazines": "6",
+          "Spare Magazines": "7",
           "Starting Magazines": "4",
           "Mags from Supply": "6",
           "Mags from Ammo Box": "3"
@@ -399,15 +430,21 @@
       },
       "fireRateRpm": 790,
       "capacity": 56,
-      "firingModes": ["Auto", "Semi"],
-      "sourceVersion": "1.004.100"
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "AR-32 Pacifier",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle", "Stun"],
+    "tags": [
+      "AssaultRifle",
+      "Stun"
+    ],
     "warbondCode": "warbond16",
     "internalName": "ar32pacifier",
     "tier": "c",
@@ -475,7 +512,11 @@
       },
       "fireRateRpm": 700,
       "capacity": 40,
-      "firingModes": ["Auto", "Semi", "Burst"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.004.100"
     }
   },
@@ -483,7 +524,9 @@
     "displayName": "AR-61 Tenderizer",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "warbond7",
     "internalName": "ar61tenderizer",
     "tier": "c",
@@ -543,8 +586,15 @@
       },
       "fireRateRpm": 600,
       "capacity": 35,
-      "firingModes": ["Semi", "Burst", "Auto"],
-      "selectableFireRatesRpm": [600, 850],
+      "firingModes": [
+        "Semi",
+        "Burst",
+        "Auto"
+      ],
+      "selectableFireRatesRpm": [
+        600,
+        850
+      ],
       "sourceVersion": "1.004.100"
     }
   },
@@ -552,7 +602,9 @@
     "displayName": "MA5C Assault Rifle",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle"],
+    "tags": [
+      "AssaultRifle"
+    ],
     "warbondCode": "warbond19",
     "internalName": "ma5cassaultrifle",
     "tier": "b",
@@ -563,9 +615,9 @@
       "MA5C ASSAULT RIFLE": {
         "Base": {
           "Fire Rate": "640 rpm",
-          "Recoil": "18.5",
-          "Horizontal Recoil": "12",
-          "Vertical Recoil": "25",
+          "Recoil": "14.5",
+          "Horizontal Recoil": "9",
+          "Vertical Recoil": "20",
           "Spread": "↔[2.00] ↕[2.00]",
           "Sway": "1",
           "Ergonomics": "60",
@@ -590,7 +642,7 @@
         },
         "Damage": {
           "Standard": "90 Ballistic",
-          "vs. Durable": "16 Ballistic"
+          "vs. Durable": "20 Ballistic"
         },
         "Penetration": {
           "Direct": "Medium",
@@ -612,7 +664,11 @@
       },
       "fireRateRpm": 640,
       "capacity": 32,
-      "firingModes": ["Semi", "Burst", "Full"],
+      "firingModes": [
+        "Semi",
+        "Burst",
+        "Full"
+      ],
       "sourceVersion": "1.004.100"
     }
   },
@@ -620,7 +676,10 @@
     "displayName": "AR-2 Coyote",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle", "Fire"],
+    "tags": [
+      "AssaultRifle",
+      "Fire"
+    ],
     "warbondCode": "warbond20",
     "internalName": "ar2coyote",
     "tier": "a",
@@ -704,7 +763,10 @@
       },
       "fireRateRpm": 600,
       "capacity": 45,
-      "firingModes": ["Auto", "Semi"],
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
       "sourceVersion": "1.004.000"
     }
   },
@@ -712,7 +774,9 @@
     "displayName": "VG-70 Variable",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Special"],
+    "tags": [
+      "Special"
+    ],
     "warbondCode": "warbond17",
     "internalName": "vg70variable",
     "tier": "a",
@@ -773,8 +837,16 @@
       },
       "fireRateRpm": 300,
       "capacity": 49,
-      "firingModes": ["Total", "Volley", "Auto"],
-      "selectableFireRatesRpm": [300, 550, 750],
+      "firingModes": [
+        "Total",
+        "Volley",
+        "Auto"
+      ],
+      "selectableFireRatesRpm": [
+        300,
+        550,
+        750
+      ],
       "sourceVersion": "1.005.000"
     }
   },
@@ -782,7 +854,9 @@
     "displayName": "SMG-37 Defender",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun"],
+    "tags": [
+      "SubmachineGun"
+    ],
     "warbondCode": "warbond3",
     "internalName": "smg37defender",
     "tier": "c",
@@ -841,7 +915,11 @@
       },
       "fireRateRpm": 520,
       "capacity": 45,
-      "firingModes": ["Full", "Semi", "Burst"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -849,7 +927,10 @@
     "displayName": "SMG-72 Pummeler",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun", "Stun"],
+    "tags": [
+      "SubmachineGun",
+      "Stun"
+    ],
     "warbondCode": "warbond7",
     "internalName": "smg72pummeler",
     "tier": "c",
@@ -916,7 +997,11 @@
       },
       "fireRateRpm": 475,
       "capacity": 45,
-      "firingModes": ["Auto", "Burst", "Semi"],
+      "firingModes": [
+        "Auto",
+        "Burst",
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -924,7 +1009,9 @@
     "displayName": "SMG-32 Reprimand",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun"],
+    "tags": [
+      "SubmachineGun"
+    ],
     "warbondCode": "warbond11",
     "internalName": "smg32reprimand",
     "tier": "a",
@@ -984,7 +1071,11 @@
       },
       "fireRateRpm": 490,
       "capacity": 25,
-      "firingModes": ["Auto", "Burst", "Semi"],
+      "firingModes": [
+        "Auto",
+        "Burst",
+        "Semi"
+      ],
       "sourceVersion": "1.005.000"
     }
   },
@@ -992,7 +1083,9 @@
     "displayName": "StA-11 SMG",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun"],
+    "tags": [
+      "SubmachineGun"
+    ],
     "warbondCode": "warbond18",
     "internalName": "sta11smg",
     "tier": "b",
@@ -1003,12 +1096,12 @@
       "STA-11 SMG": {
         "Base": {
           "Fire Rate": "1050 rpm",
-          "Recoil": "11.25",
+          "Recoil": "8.75",
           "Horizontal Recoil": "7.5",
-          "Vertical Recoil": "15",
+          "Vertical Recoil": "10",
           "Spread": "↔[5.00] ↕[5.00]",
           "Sway": "0.7",
-          "Ergonomics": "80",
+          "Ergonomics": "90",
           "Noise When Firing": "Small (~33m)",
           "Capacity": "48",
           "Spare Magazines": "7",
@@ -1017,20 +1110,20 @@
           "Mags from Ammo Box": "3"
         },
         "Attacks": {
-          "*MP-98 P": "Projectile"
+          "*P-2 P": "Projectile"
         }
       },
-      "MP-98 P": {
+      "P-2 P": {
         "Projectile": {
           "Mass": "7 g",
-          "Initial Velocity": "375 m/s",
+          "Initial Velocity": "320 m/s",
           "Drag Factor": "120%",
           "Gravity Factor": "100%",
           "Penetration Slowdown": "25%"
         },
         "Damage": {
-          "Standard": "90 Ballistic",
-          "vs. Durable": "18 Ballistic"
+          "Standard": "100 Ballistic",
+          "vs. Durable": "20 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -1041,7 +1134,7 @@
         "Special Effects": {
           "Demolition Force": "10",
           "Stagger Force": "10",
-          "Push Force": "5"
+          "Push Force": "4"
         }
       }
     },
@@ -1052,15 +1145,19 @@
       },
       "fireRateRpm": 1050,
       "capacity": 48,
-      "firingModes": ["Auto"],
-      "sourceVersion": "1.004.100"
+      "firingModes": [
+        "Auto"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "MP-98 Knight",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun"],
+    "tags": [
+      "SubmachineGun"
+    ],
     "warbondCode": "warbond0",
     "internalName": "mp98knight",
     "tier": "b",
@@ -1119,7 +1216,11 @@
       },
       "fireRateRpm": 1380,
       "capacity": 50,
-      "firingModes": ["Auto", "Semi", "Burst"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.006.001"
     }
   },
@@ -1127,7 +1228,10 @@
     "displayName": "M7S SMG",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun", "Stealth"],
+    "tags": [
+      "SubmachineGun",
+      "Stealth"
+    ],
     "warbondCode": "warbond19",
     "internalName": "m7ssmg",
     "tier": "c",
@@ -1187,7 +1291,11 @@
       },
       "fireRateRpm": 872,
       "capacity": 48,
-      "firingModes": ["Full", "Semi", "Burst"],
+      "firingModes": [
+        "Full",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.006.300"
     }
   },
@@ -1195,7 +1303,9 @@
     "displayName": "SG-8 Punisher",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "warbondCode": "warbond3",
     "internalName": "sg8punisher",
     "tier": "c",
@@ -1233,8 +1343,8 @@
           "Penetration Slowdown": "25%"
         },
         "Damage": {
-          "Standard": "45 Ballistic",
-          "vs. Durable": "12 Ballistic"
+          "Standard": "54 Ballistic",
+          "vs. Durable": "15 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -1257,15 +1367,20 @@
       },
       "fireRateRpm": 80,
       "capacity": 16,
-      "firingModes": ["Semi"],
-      "sourceVersion": "1.002.003"
+      "firingModes": [
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "SG-451 Cookout",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun", "Fire"],
+    "tags": [
+      "Shotgun",
+      "Fire"
+    ],
     "warbondCode": "warbond9",
     "internalName": "sg451cookout",
     "tier": "a",
@@ -1351,7 +1466,9 @@
       },
       "fireRateRpm": 80,
       "capacity": 16,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.003.000"
     }
   },
@@ -1359,7 +1476,9 @@
     "displayName": "SG-8S Slugger",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "warbondCode": "warbond3",
     "internalName": "sg8sslugger",
     "tier": "b",
@@ -1420,7 +1539,9 @@
       },
       "fireRateRpm": 80,
       "capacity": 16,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.004.100"
     }
   },
@@ -1428,7 +1549,9 @@
     "displayName": "SG-225 Breaker",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "warbondCode": "warbond3",
     "internalName": "sg225breaker",
     "tier": "c",
@@ -1466,8 +1589,8 @@
           "Penetration Slowdown": "80%"
         },
         "Damage": {
-          "Standard": "30 Ballistic",
-          "vs. Durable": "6 Ballistic"
+          "Standard": "36 Ballistic",
+          "vs. Durable": "8 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -1488,15 +1611,21 @@
       },
       "fireRateRpm": 300,
       "capacity": 16,
-      "firingModes": ["Auto", "Semi"],
-      "sourceVersion": "1.007.000"
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "SG-225IE Breaker Incendiary",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun", "Fire"],
+    "tags": [
+      "Shotgun",
+      "Fire"
+    ],
     "warbondCode": "warbond4",
     "internalName": "sg225iebreakerincendiary",
     "tier": "b",
@@ -1581,7 +1710,10 @@
       "fireRateRpm": 300,
       "capacity": 26,
       "listedDps": 100,
-      "firingModes": ["Burst", "Semi"],
+      "firingModes": [
+        "Burst",
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -1589,7 +1721,9 @@
     "displayName": "SG-225SP Breaker Spray&Pray",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "warbondCode": "warbond3",
     "internalName": "sg225spbreakerspraypray",
     "tier": "a",
@@ -1627,8 +1761,8 @@
           "Penetration Slowdown": "80%"
         },
         "Damage": {
-          "Standard": "15 Ballistic",
-          "vs. Durable": "4 Ballistic"
+          "Standard": "18 Ballistic",
+          "vs. Durable": "5 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -1649,15 +1783,21 @@
       },
       "fireRateRpm": 330,
       "capacity": 26,
-      "firingModes": ["Auto", "Semi"],
-      "sourceVersion": "1.007.000"
+      "firingModes": [
+        "Auto",
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "SG-20 Halt",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun", "Stun"],
+    "tags": [
+      "Shotgun",
+      "Stun"
+    ],
     "warbondCode": "warbond11",
     "internalName": "sg20halt",
     "tier": "b",
@@ -1753,7 +1893,9 @@
       },
       "fireRateRpm": 80,
       "capacity": 8,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.006.001",
       "capacitiesByLabel": {
         "x2": 8
@@ -1764,7 +1906,9 @@
     "displayName": "M90A Shotgun",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "warbondCode": "warbond19",
     "internalName": "m90ashotgun",
     "tier": "c",
@@ -1802,8 +1946,8 @@
           "Penetration Slowdown": "25%"
         },
         "Damage": {
-          "Standard": "55 Ballistic",
-          "vs. Durable": "20 Ballistic"
+          "Standard": "66 Ballistic",
+          "vs. Durable": "24 Ballistic"
         },
         "Penetration": {
           "Direct": "Light",
@@ -1826,15 +1970,19 @@
       },
       "fireRateRpm": 80,
       "capacity": 6,
-      "firingModes": ["Semi"],
-      "sourceVersion": "1.005.000"
+      "firingModes": [
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "R-63 Diligence",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["MarksmanRifle"],
+    "tags": [
+      "MarksmanRifle"
+    ],
     "warbondCode": "warbond3",
     "internalName": "r63diligence",
     "tier": "b",
@@ -1894,7 +2042,9 @@
       },
       "fireRateRpm": 350,
       "capacity": 25,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.002.200"
     }
   },
@@ -1902,7 +2052,9 @@
     "displayName": "R-63CS Diligence Counter Sniper",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["MarksmanRifle"],
+    "tags": [
+      "MarksmanRifle"
+    ],
     "warbondCode": "warbond3",
     "internalName": "r63csdiligencecountersniper",
     "tier": "s",
@@ -1962,7 +2114,9 @@
       },
       "fireRateRpm": 350,
       "capacity": 15,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.003.000"
     }
   },
@@ -1970,7 +2124,9 @@
     "displayName": "R-6 Deadeye",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["MarksmanRifle"],
+    "tags": [
+      "MarksmanRifle"
+    ],
     "warbondCode": "warbond14",
     "internalName": "r6deadeye",
     "tier": "b",
@@ -2031,7 +2187,9 @@
       },
       "fireRateRpm": 100,
       "capacity": 8,
-      "firingModes": ["Lever-Action"],
+      "firingModes": [
+        "Lever-Action"
+      ],
       "sourceVersion": "1.002.200"
     }
   },
@@ -2039,7 +2197,9 @@
     "displayName": "R-2 Amendment",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["MarksmanRifle"],
+    "tags": [
+      "MarksmanRifle"
+    ],
     "warbondCode": "warbond15",
     "internalName": "r2amendment",
     "tier": "c",
@@ -2099,7 +2259,10 @@
       },
       "fireRateRpm": 480,
       "capacity": 20,
-      "firingModes": ["Semi", "Burst"],
+      "firingModes": [
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.006.300"
     }
   },
@@ -2107,7 +2270,9 @@
     "displayName": "R-2124 Constitution",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["MarksmanRifle"],
+    "tags": [
+      "MarksmanRifle"
+    ],
     "warbondCode": "none",
     "internalName": "r2124constitution",
     "tier": "d",
@@ -2169,7 +2334,9 @@
       },
       "fireRateRpm": 60,
       "capacity": 5,
-      "firingModes": ["Bolt-Action"],
+      "firingModes": [
+        "Bolt-Action"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -2177,7 +2344,11 @@
     "displayName": "LAS-5 Scythe",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Fire", "Laser"],
+    "tags": [
+      "EnergyWeapon",
+      "Fire",
+      "Laser"
+    ],
     "warbondCode": "warbond3",
     "internalName": "las5scythe",
     "tier": "c",
@@ -2269,7 +2440,11 @@
     "displayName": "LAS-16 Sickle",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Fire", "Laser"],
+    "tags": [
+      "EnergyWeapon",
+      "Fire",
+      "Laser"
+    ],
     "warbondCode": "warbond5",
     "internalName": "las16sickle",
     "tier": "b",
@@ -2294,8 +2469,8 @@
         },
         "Heat Data": {
           "Overheats at": "100 °C",
-          "Warmup": "0.5 sec",
-          "Heat Per Shot": "1.14999998 °C",
+          "Warmup": "0.3 sec",
+          "Heat Per Shot": "0.949999988 °C",
           "Cool Per Sec": "12 - 8 - 6",
           "Cooldown After Overheat": "RELOAD NEEDED"
         },
@@ -2337,15 +2512,20 @@
       "fireRateRpm": 750,
       "capacity": 87,
       "capacitySeconds": 7,
-      "firingModes": ["Automatic"],
-      "sourceVersion": "1.004.100"
+      "firingModes": [
+        "Automatic"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "PLAS-1 Scorcher",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Explosive"],
+    "tags": [
+      "EnergyWeapon",
+      "Explosive"
+    ],
     "warbondCode": "warbond3",
     "internalName": "plas1scorcher",
     "tier": "b",
@@ -2431,7 +2611,10 @@
       },
       "fireRateRpm": 350,
       "capacity": 20,
-      "firingModes": ["Semi", "Auto"],
+      "firingModes": [
+        "Semi",
+        "Auto"
+      ],
       "sourceVersion": "1.004.100"
     }
   },
@@ -2439,7 +2622,10 @@
     "displayName": "PLAS-101 Purifier",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Explosive"],
+    "tags": [
+      "EnergyWeapon",
+      "Explosive"
+    ],
     "warbondCode": "warbond7",
     "internalName": "plas101purifier",
     "tier": "a",
@@ -2590,7 +2776,10 @@
     "displayName": "SG-8P Punisher Plasma",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Explosive"],
+    "tags": [
+      "EnergyWeapon",
+      "Explosive"
+    ],
     "warbondCode": "warbond5",
     "internalName": "sg8ppunisherplasma",
     "tier": "b",
@@ -2678,7 +2867,9 @@
       },
       "fireRateRpm": 80,
       "capacity": 10,
-      "firingModes": ["Semi-automatic"],
+      "firingModes": [
+        "Semi-automatic"
+      ],
       "sourceVersion": "1.004.100"
     }
   },
@@ -2686,7 +2877,10 @@
     "displayName": "ARC-12 Blitzer",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Arc"],
+    "tags": [
+      "EnergyWeapon",
+      "Arc"
+    ],
     "warbondCode": "warbond5",
     "internalName": "arc12blitzer",
     "tier": "c",
@@ -2747,7 +2941,9 @@
     "simulation": {
       "fireRateRpm": 45,
       "infiniteCapacity": true,
-      "firingModes": ["None"],
+      "firingModes": [
+        "None"
+      ],
       "sourceVersion": "1.003.200"
     }
   },
@@ -2755,7 +2951,11 @@
     "displayName": "LAS-17 Double-Edge Sickle",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Fire", "Laser"],
+    "tags": [
+      "EnergyWeapon",
+      "Fire",
+      "Laser"
+    ],
     "warbondCode": "warbond13",
     "internalName": "las17doubleedgesickle",
     "tier": "a",
@@ -2780,7 +2980,7 @@
         },
         "Heat Data": {
           "Overheats at": "200 °C",
-          "Warmup": "0.5 sec",
+          "Warmup": "0.3 sec",
           "Heat Per Shot": "1.14999998 °C",
           "Cool Per Sec": "12 - 8 - 6",
           "Cooldown After Overheat": "RELOAD NEEDED"
@@ -2900,15 +3100,20 @@
       "fireRateRpm": 700,
       "capacity": 175,
       "capacitySeconds": 15,
-      "firingModes": ["Automatic"],
-      "sourceVersion": "1.006.202"
+      "firingModes": [
+        "Automatic"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "PLAS-39 Accelerator Rifle",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Explosive"],
+    "tags": [
+      "EnergyWeapon",
+      "Explosive"
+    ],
     "warbondCode": "warbond18",
     "internalName": "plas39acceleratorrifle",
     "tier": "c",
@@ -2934,11 +3139,11 @@
         },
         "Charge": {
           "at (0.45)s": "1.00 dmg × DEFAULT",
-          "at (0.50)s": "1.17 dmg × DEFAULT",
-          "at (0.90)s": "2.50 dmg × DEFAULT",
+          "at (0.50)s": "1.00 dmg × DEFAULT",
+          "at (0.90)s": "1.00 dmg × DEFAULT",
           "Speed Mult Range": "(0.70) (1.00)",
           "Distance Mult Range": "(0.70) (1.40)",
-          "Damage Mult Range": "(1.00) (2.50)"
+          "Damage Mult Range": "(1.00) (1.00)"
         },
         "Attacks": {
           "*PLAS-39 P": "Projectile",
@@ -2966,7 +3171,7 @@
         },
         "Special Effects": {
           "Demolition Force": "10",
-          "Stagger Force": "20",
+          "Stagger Force": "15",
           "Push Force": "10"
         }
       },
@@ -3002,15 +3207,19 @@
       },
       "fireRateRpm": 550,
       "capacity": 9,
-      "firingModes": ["Burst Fire"],
-      "sourceVersion": "1.004.100"
+      "firingModes": [
+        "Burst Fire"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
     "displayName": "R-36 Eruptor",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Explosive"],
+    "tags": [
+      "Explosive"
+    ],
     "warbondCode": "warbond6",
     "internalName": "r36eruptor",
     "tier": "s",
@@ -3126,7 +3335,9 @@
       },
       "fireRateRpm": 32,
       "capacity": 5,
-      "firingModes": ["Bolt-Action"],
+      "firingModes": [
+        "Bolt-Action"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -3134,7 +3345,9 @@
     "displayName": "CB-9 Exploding Crossbow",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Explosive"],
+    "tags": [
+      "Explosive"
+    ],
     "warbondCode": "warbond6",
     "internalName": "cb9explodingcrossbow",
     "tier": "s",
@@ -3228,7 +3441,9 @@
     "displayName": "JAR-5 Dominator",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Special"],
+    "tags": [
+      "Special"
+    ],
     "warbondCode": "warbond4",
     "internalName": "jar5dominator",
     "tier": "b",
@@ -3288,7 +3503,10 @@
       },
       "fireRateRpm": 250,
       "capacity": 15,
-      "firingModes": ["Semi", "Burst"],
+      "firingModes": [
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.003.000"
     }
   },
@@ -3296,7 +3514,10 @@
     "displayName": "FLAM-66 Torcher",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Special", "Fire"],
+    "tags": [
+      "Special",
+      "Fire"
+    ],
     "warbondCode": "warbond9",
     "internalName": "flam66torcher",
     "tier": "c",
@@ -3388,7 +3609,9 @@
       "capacity": 100,
       "capacitySeconds": 12.4,
       "listedDps": 150,
-      "firingModes": ["None"],
+      "firingModes": [
+        "None"
+      ],
       "sourceVersion": "1.006.100"
     }
   },
@@ -3396,7 +3619,10 @@
     "displayName": "AR/GL-21 One-Two",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle", "Explosive"],
+    "tags": [
+      "AssaultRifle",
+      "Explosive"
+    ],
     "warbondCode": "warbond21",
     "internalName": "argl21onetwo",
     "tier": "b",
@@ -3521,7 +3747,12 @@
       },
       "fireRateRpm": 650,
       "capacity": 40,
-      "firingModes": ["Auto", "Semi", "Burst", "40mm"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst",
+        "40mm"
+      ],
       "sourceVersion": "1.007.100",
       "reloadSecondsByLabel": {
         "8mm": 3.33,
@@ -3533,7 +3764,9 @@
     "displayName": "DBS-2 Double Freedom",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "warbondCode": "warbond1",
     "internalName": "dbs2doublefreedom",
     "tier": "b",
@@ -3595,7 +3828,9 @@
       },
       "fireRateRpm": 650,
       "capacity": 2,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.006.001"
     }
   },
@@ -3609,7 +3844,10 @@
     "imageUrl": "primaries/AR-59_Suppressor_Primary_Render.png",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["AssaultRifle", "Stealth"],
+    "tags": [
+      "AssaultRifle",
+      "Stealth"
+    ],
     "properties": {
       "AR-59 SUPPRESSOR": {
         "Base": {
@@ -3662,7 +3900,10 @@
       },
       "fireRateRpm": 850,
       "capacity": 45,
-      "firingModes": ["Semi", "Auto"],
+      "firingModes": [
+        "Semi",
+        "Auto"
+      ],
       "sourceVersion": "1.007.100"
     }
   },
@@ -3676,7 +3917,10 @@
     "imageUrl": "primaries/R-72_Censor_Primary_Render.png",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["MarksmanRifle", "Stealth"],
+    "tags": [
+      "MarksmanRifle",
+      "Stealth"
+    ],
     "properties": {
       "R-72 CENSOR": {
         "Base": {
@@ -3729,7 +3973,9 @@
       },
       "fireRateRpm": 400,
       "capacity": 20,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.006.100"
     }
   },
@@ -3743,7 +3989,10 @@
     "imageUrl": "primaries/SMGFLAM-34_Stoker_Primary_Icon.png",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun", "Fire"],
+    "tags": [
+      "SubmachineGun",
+      "Fire"
+    ],
     "properties": {
       "SMG/FLAM-34 STOKER": {
         "Base": {
@@ -3880,7 +4129,9 @@
     "imageUrl": "primaries/SG-97_Shotgun_Primary_Render.png",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["Shotgun"],
+    "tags": [
+      "Shotgun"
+    ],
     "properties": {
       "SG-97 SWEEPER": {
         "Base": {
@@ -3936,7 +4187,9 @@
       },
       "fireRateRpm": 150,
       "capacity": 7,
-      "firingModes": ["Auto"],
+      "firingModes": [
+        "Auto"
+      ],
       "sourceVersion": "1.006.300"
     }
   },
@@ -3950,7 +4203,11 @@
     "imageUrl": "primaries/LAS-13_Trident_Primary_Render.png",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["EnergyWeapon", "Fire", "Laser"],
+    "tags": [
+      "EnergyWeapon",
+      "Fire",
+      "Laser"
+    ],
     "properties": {
       "LAS-13 TRIDENT": {
         "Base": {
@@ -4009,7 +4266,9 @@
       "fireRateRpm": 300,
       "capacity": 10,
       "capacitySeconds": 2,
-      "firingModes": ["Auto"],
+      "firingModes": [
+        "Auto"
+      ],
       "sourceVersion": "1.007.100"
     }
   },
@@ -4021,7 +4280,9 @@
     "wikiSlug": "SMG-203_Gallant",
     "type": "Equipment",
     "category": "primary",
-    "tags": ["SubmachineGun"],
+    "tags": [
+      "SubmachineGun"
+    ],
     "properties": {
       "SMG-203 GALLANT": {
         "Base": {
@@ -4076,7 +4337,11 @@
       },
       "fireRateRpm": 1380,
       "capacity": 50,
-      "firingModes": ["Auto", "Semi", "Burst"],
+      "firingModes": [
+        "Auto",
+        "Semi",
+        "Burst"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -4168,8 +4433,10 @@
       "fireRateRpm": 190,
       "capacity": 15,
       "listedDps": 100,
-      "firingModes": ["Semi"],
-      "sourceVersion": "1.006.300"
+      "firingModes": [
+        "Semi"
+      ],
+      "sourceVersion": "1.007.200"
     }
   },
   {
@@ -4237,7 +4504,9 @@
       },
       "fireRateRpm": 210,
       "capacity": 12,
-      "firingModes": ["Semi"],
+      "firingModes": [
+        "Semi"
+      ],
       "sourceVersion": "1.007.000"
     }
   },
@@ -4343,7 +4612,11 @@
         "tacticalSeconds": 2.35
       },
       "fireRateRpm": 1200,
-      "firingModes": ["Auto", "Burst", "10g"],
+      "firingModes": [
+        "Auto",
+        "Burst",
+        "10g"
+      ],
       "sourceVersion": "1.007.100",
       "capacitiesByLabel": {
         "4mm": 45,
@@ -4444,7 +4717,9 @@
       },
       "fireRateRpm": 60,
       "capacity": 4,
-      "firingModes": ["Pump-Action"],
+      "firingModes": [
+        "Pump-Action"
+      ],
       "sourceVersion": "1.007.100"
     }
   },
@@ -4521,6 +4796,76 @@
       "capacity": 53,
       "capacitySeconds": 4,
       "sourceVersion": "1.007.100"
+    }
+  },
+  {
+    "displayName": "R-40 Sightliner",
+    "warbondCode": "none",
+    "internalName": "r40sightliner",
+    "tier": "d",
+    "wikiSlug": "R-40_Sightliner",
+    "wikiImageUrl": "https://helldivers.wiki.gg/images/R-40_Sightliner_Primary_Render.png",
+    "imageUrl": "primaries/R-40_Sightliner_Primary_Render.png",
+    "type": "Equipment",
+    "category": "primary",
+    "tags": [],
+    "simulation": {
+      "reload": {
+        "emptySeconds": 3,
+        "tacticalSeconds": 2
+      },
+      "fireRateRpm": 40,
+      "capacity": 10,
+      "firingModes": [
+        "Bolt-Action"
+      ],
+      "sourceVersion": "1.007.200"
+    },
+    "properties": {
+      "R-40 SIGHTLINER": {
+        "Base": {
+          "Fire Rate": "40 rpm",
+          "Recoil": "87.5",
+          "Horizontal Recoil": "45",
+          "Vertical Recoil": "130",
+          "Spread": "↔[0.10] ↕[0.10]",
+          "Sway": "0.7",
+          "Ergonomics": "40",
+          "Noise When Firing": "Medium (~48m)",
+          "Capacity": "10",
+          "Spare Magazines": "8",
+          "Starting Magazines": "6",
+          "Mags from Supply": "8",
+          "Mags from Ammo Box": "4"
+        },
+        "Attacks": {
+          "*R-40 P": "Projectile"
+        }
+      },
+      "R-40 P": {
+        "Projectile": {
+          "Mass": "11 g",
+          "Initial Velocity": "950 m/s",
+          "Drag Factor": "20%",
+          "Gravity Factor": "100%",
+          "Penetration Slowdown": "25%"
+        },
+        "Damage": {
+          "Standard": "350 Ballistic",
+          "vs. Durable": "205 Ballistic"
+        },
+        "Penetration": {
+          "Direct": "Heavy",
+          "Slight Angle": "Heavy",
+          "Large Angle": "Heavy",
+          "Extreme Angle": "Unarmored"
+        },
+        "Special Effects": {
+          "Demolition Force": "10",
+          "Stagger Force": "20",
+          "Push Force": "25"
+        }
+      }
     }
   }
 ]

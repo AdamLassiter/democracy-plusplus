@@ -1782,6 +1782,18 @@
       ]
     },
     {
+      "displayName": "TD-110 Maelstrom",
+      "wikiSlug": "TD-110_Maelstrom",
+      "category": "Other Stratagems",
+      "attacks": [
+        {
+          "name": "Missile Explosion",
+          "demolitionForce": 40,
+          "explosive": true
+        }
+      ]
+    },
+    {
       "displayName": "TD-220 Bastion MK XVI",
       "wikiSlug": "TD-220_Bastion_MK_XVI",
       "category": "Other Stratagems",
