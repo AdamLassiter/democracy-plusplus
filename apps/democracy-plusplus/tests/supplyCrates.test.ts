@@ -7,6 +7,9 @@ import {
   chooseSupplyCrateContents,
   findSupplyCrate,
   getSupplyCrateTierOdds,
+  normaliseSupplyCrateStock,
+  returnSupplyCrateToStock,
+  takeSupplyCrateFromStock,
 } from "../src/economics/supplyCrates.ts";
 import { itemCost } from "../src/economics/pricing.ts";
 import type {
@@ -47,14 +50,16 @@ function readItems(fileName: string): Item[] {
   ) as Item[];
 }
 
-test("builds tiered crates for every equipment and stratagem category", () => {
+test("builds equipment, combined stratagem, and separate supply crates", () => {
   const crates = buildSupplyCrates(items);
 
-  assert.equal(crates.length, categories.length * 3);
-  assert.equal(new Set(crates.map((crate) => crate.displayName)).size, 27);
-  assert.equal(new Set(crates.map((crate) => crate.internalName)).size, 27);
+  assert.equal(crates.length, 21);
+  assert.equal(new Set(crates.map((crate) => crate.displayName)).size, 21);
+  assert.equal(new Set(crates.map((crate) => crate.internalName)).size, 21);
 
-  for (const category of categories) {
+  for (const category of categories.filter(
+    (value): value is EquipmentCategory => /^[a-z]/.test(value),
+  )) {
     const label =
       category.charAt(0).toUpperCase() + category.substring(1).toLowerCase();
     const categoryCrates = crates.filter((crate) =>
@@ -72,6 +77,33 @@ test("builds tiered crates for every equipment and stratagem category", () => {
       ),
     );
   }
+
+  const stratagemCrates = crates.filter((crate) =>
+    crate.displayName.endsWith("Stratagem Crate"),
+  );
+  assert.deepEqual(
+    stratagemCrates.map((crate) => crate.tier),
+    ["a", "b", "c"],
+  );
+  assert.ok(stratagemCrates.every((crate) => crate.stock === 3));
+  assert.deepEqual(
+    new Set(
+      stratagemCrates.flatMap((crate) =>
+        crate.contents.map((item) => item.category),
+      ),
+    ),
+    new Set(["Orbital", "Eagle", "Defense"]),
+  );
+
+  const supplyCrates = crates.filter((crate) =>
+    crate.displayName.endsWith("Supply Crate"),
+  );
+  assert.ok(supplyCrates.every((crate) => crate.stock === 1));
+  assert.ok(
+    supplyCrates.every((crate) =>
+      crate.contents.every((item) => item.category === "Supply"),
+    ),
+  );
 });
 
 test("every crate generated from the production catalog can be opened", () => {
@@ -85,7 +117,7 @@ test("every crate generated from the production catalog can be opened", () => {
   ].flatMap(readItems);
   const crates = buildSupplyCrates(catalog);
 
-  assert.equal(crates.length, 27);
+  assert.equal(crates.length, 21);
   assert.deepEqual(
     crates.filter((crate) => crate.contents.length === 0),
     [],
@@ -109,7 +141,7 @@ test("crate grades set the minimum item tier and calibrated cost", () => {
     (crate) => crate.displayName === "C-Tier Primary Crate",
   );
   const orbitalB = crates.find(
-    (crate) => crate.displayName === "B-Tier Orbital Crate",
+    (crate) => crate.displayName === "B-Tier Stratagem Crate",
   );
 
   assert.deepEqual(
@@ -121,7 +153,7 @@ test("crate grades set the minimum item tier and calibrated cost", () => {
     ["s", "a", "b", "c"],
   );
   assert.equal(primaryA?.cost, 21);
-  assert.equal(orbitalB?.cost, 18);
+  assert.equal(orbitalB?.cost, 19);
 });
 
 test("rolls item tier with decreasing odds for each upgrade tier", () => {
@@ -140,17 +172,77 @@ test("rolls item tier with decreasing odds for each upgrade tier", () => {
   );
 });
 
-test("legacy generic stratagem crates remain resolvable for saved purchases", () => {
-  const crate = findSupplyCrate(items, "B-Tier Stratagem Crate");
+test("legacy category-specific stratagem crates remain resolvable", () => {
+  const crate = findSupplyCrate(items, "B-Tier Orbital Crate");
 
   assert.ok(crate);
-  assert.deepEqual(
-    new Set(crate.contents.map((item) => item.category)),
-    new Set(["Orbital", "Eagle", "Defense", "Supply"]),
-  );
-  assert.ok(crate.contents.every((item) => item.type === "Stratagem"));
+  assert.ok(crate.contents.every((item) => item.category === "Orbital"));
   assert.ok(
     crate.contents.every((item) => item.tier !== "c" && item.tier !== "d"),
+  );
+});
+
+test("stratagem crate stock allows three purchases while supply allows one", () => {
+  const crates = buildSupplyCrates(items);
+  const stratagemName = "B-Tier Stratagem Crate";
+  const supplyName = "B-Tier Supply Crate";
+
+  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
+  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
+  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
+  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), false);
+  assert.equal(
+    crates.find((crate) => crate.displayName === stratagemName)?.purchased,
+    true,
+  );
+  assert.equal(returnSupplyCrateToStock(crates, stratagemName), true);
+  assert.equal(
+    crates.find((crate) => crate.displayName === stratagemName)?.stock,
+    1,
+  );
+
+  assert.equal(takeSupplyCrateFromStock(crates, supplyName), true);
+  assert.equal(takeSupplyCrateFromStock(crates, supplyName), false);
+});
+
+test("saved crate stock is migrated to the new catalog without refilling", () => {
+  const currentCrates = buildSupplyCrates(items);
+  const savedStratagem = {
+    ...findSupplyCrate(items, "B-Tier Stratagem Crate")!,
+    stock: 1,
+  };
+  const legacyPurchasedStratagem = {
+    ...findSupplyCrate(items, "A-Tier Stratagem Crate")!,
+    stock: undefined,
+    purchased: true,
+  };
+  const legacyPurchasedSupply = {
+    ...findSupplyCrate(items, "B-Tier Supply Crate")!,
+    stock: undefined,
+    purchased: true,
+  };
+  const crates = normaliseSupplyCrateStock(currentCrates, [
+    savedStratagem,
+    legacyPurchasedStratagem,
+    legacyPurchasedSupply,
+  ]);
+
+  assert.equal(
+    crates.find((crate) => crate.displayName === savedStratagem.displayName)
+      ?.stock,
+    1,
+  );
+  assert.equal(
+    crates.find(
+      (crate) => crate.displayName === legacyPurchasedStratagem.displayName,
+    )?.stock,
+    2,
+  );
+  assert.equal(
+    crates.find(
+      (crate) => crate.displayName === legacyPurchasedSupply.displayName,
+    )?.stock,
+    0,
   );
 });
 

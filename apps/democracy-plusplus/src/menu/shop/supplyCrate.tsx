@@ -16,7 +16,14 @@ export default function SupplyCrates() {
   const dispatch = useDispatch();
 
   function addItemToCart(item: Item) {
-    if (isPurchasableItem(item) && credits >= item.cost) {
+    if (isPurchasableItem(item) && (item.stock ?? 1) <= 0) {
+      dispatch(
+        setSnackbar({
+          message: `${item.displayName} is out of stock`,
+          severity: "warning",
+        }),
+      );
+    } else if (isPurchasableItem(item) && credits >= item.cost) {
       dispatch(addToCart({ value: item }));
       dispatch(setSnackbar({ message: `${item.displayName} added to cart` }));
     } else {
@@ -36,18 +43,19 @@ export default function SupplyCrates() {
       <Grid direction="row" container spacing={1}>
         {list.map((item) => {
           const isAffordable = credits >= item.cost;
+          const isAvailable = (item.stock ?? 1) > 0;
           const inner = (
             <ItemDisplay
               item={item}
               onClick={addItemToCart}
-              isAffordable={isAffordable && !item.purchased}
+              isAffordable={isAffordable && isAvailable}
             />
           );
-          if (!item.purchased) {
+          if (isAvailable) {
             return (
               <Badge
                 key={item.displayName}
-                badgeContent={item.cost}
+                badgeContent={`${item.cost}¢ ×${item.stock ?? 1}`}
                 color={isAffordable ? "success" : "error"}
               >
                 {inner}

@@ -6,8 +6,8 @@ import type {
   Tier,
 } from "../types";
 
-type SupplyCrateCategory = EquipmentCategory | StratagemCategory;
 type CrateTier = Extract<Tier, "a" | "b" | "c">;
+type CombinedStratagemCategory = Exclude<StratagemCategory, "Supply">;
 
 interface SupplyCrateFamily {
   key: string;
@@ -15,6 +15,7 @@ interface SupplyCrateFamily {
   imageUrl: string;
   matches: (_item: Item) => boolean;
   costs: Record<CrateTier, number>;
+  stock: number;
 }
 
 export interface SupplyCrateTierOdds {
@@ -31,25 +32,27 @@ const SUPPLY_CRATE_COSTS = {
   throwable: { a: 18, b: 12, c: 7 },
   armor: { a: 9, b: 7, c: 5 },
   booster: { a: 13, b: 9, c: 5 },
-  Orbital: { a: 22, b: 18, c: 11 },
-  Eagle: { a: 23, b: 19, c: 19 },
-  Defense: { a: 22, b: 17, c: 12 },
+  Stratagem: { a: 24, b: 19, c: 12 },
   Supply: { a: 24, b: 18, c: 12 },
-} satisfies Record<SupplyCrateCategory, Record<CrateTier, number>>;
+} satisfies Record<
+  EquipmentCategory | "Stratagem" | "Supply",
+  Record<CrateTier, number>
+>;
 
 function tierValue(tier: Tier) {
   return { s: 4, a: 3, b: 2, c: 1, d: 0 }[tier];
 }
 
-const CATEGORY_IMAGES: Record<SupplyCrateCategory, string> = {
+const CATEGORY_IMAGES: Record<
+  EquipmentCategory | "Stratagem" | "Supply",
+  string
+> = {
   primary: "icons/gun.svg",
   secondary: "icons/gun.svg",
   throwable: "icons/gun.svg",
   armor: "icons/shieldPlus.svg",
   booster: "icons/shieldPlus.svg",
-  Orbital: "icons/missile.svg",
-  Eagle: "icons/missile.svg",
-  Defense: "icons/missile.svg",
+  Stratagem: "icons/missile.svg",
   Supply: "icons/missile.svg",
 };
 
@@ -60,12 +63,11 @@ const EQUIPMENT_CATEGORIES: EquipmentCategory[] = [
   "armor",
   "booster",
 ];
-const STRATAGEM_CATEGORIES: StratagemCategory[] = [
+const COMBINED_STRATAGEM_CATEGORIES = new Set<CombinedStratagemCategory>([
   "Orbital",
   "Eagle",
   "Defense",
-  "Supply",
-];
+]);
 
 function toTitleCase(value: string) {
   return value.replace(
@@ -74,28 +76,63 @@ function toTitleCase(value: string) {
   );
 }
 
-function categoryFamily(category: SupplyCrateCategory): SupplyCrateFamily {
+function categoryFamily(category: EquipmentCategory): SupplyCrateFamily {
   return {
     key: category.toLowerCase(),
     label: toTitleCase(category),
     imageUrl: CATEGORY_IMAGES[category],
     matches: (item) => item.category === category,
     costs: SUPPLY_CRATE_COSTS[category],
+    stock: 1,
   };
 }
 
-const SUPPLY_CRATE_FAMILIES: SupplyCrateFamily[] = [
-  ...EQUIPMENT_CATEGORIES.map(categoryFamily),
-  ...STRATAGEM_CATEGORIES.map(categoryFamily),
-];
-
-const LEGACY_STRATAGEM_FAMILY: SupplyCrateFamily = {
+const STRATAGEM_FAMILY: SupplyCrateFamily = {
   key: "stratagem",
   label: "Stratagem",
-  imageUrl: "icons/missile.svg",
-  matches: (item) => item.type === "Stratagem",
-  costs: { a: 24, b: 18, c: 12 },
+  imageUrl: CATEGORY_IMAGES.Stratagem,
+  matches: (item) =>
+    COMBINED_STRATAGEM_CATEGORIES.has(
+      item.category as CombinedStratagemCategory,
+    ),
+  costs: SUPPLY_CRATE_COSTS.Stratagem,
+  stock: 3,
 };
+
+const SUPPLY_FAMILY: SupplyCrateFamily = {
+  key: "supply",
+  label: "Supply",
+  imageUrl: CATEGORY_IMAGES.Supply,
+  matches: (item) => item.category === "Supply",
+  costs: SUPPLY_CRATE_COSTS.Supply,
+  stock: 1,
+};
+
+const SUPPLY_CRATE_FAMILIES: SupplyCrateFamily[] = [
+  ...EQUIPMENT_CATEGORIES.map(categoryFamily),
+  STRATAGEM_FAMILY,
+  SUPPLY_FAMILY,
+];
+
+const LEGACY_STRATAGEM_COSTS: Record<
+  CombinedStratagemCategory,
+  Record<CrateTier, number>
+> = {
+  Orbital: { a: 22, b: 18, c: 11 },
+  Eagle: { a: 23, b: 19, c: 19 },
+  Defense: { a: 22, b: 17, c: 12 },
+};
+
+const LEGACY_STRATAGEM_FAMILIES: SupplyCrateFamily[] = (
+  ["Orbital", "Eagle", "Defense"] as CombinedStratagemCategory[]
+).map((category) => ({
+  key: category.toLowerCase(),
+  label: category,
+  imageUrl: "icons/missile.svg",
+  matches: (item) => item.category === category,
+  costs: LEGACY_STRATAGEM_COSTS[category],
+  stock: 1,
+}));
 
 function tieredCrate(
   items: Item[],
@@ -115,6 +152,7 @@ function tieredCrate(
     internalName: `${grade}-${family.key}-supplycrate`,
     imageUrl: family.imageUrl,
     cost: family.costs[grade],
+    stock: family.stock,
     tier: grade,
   };
 }
@@ -129,6 +167,26 @@ export function buildSupplyCrates(items: Item[]): CrateItem[] {
   );
 }
 
+export function normaliseSupplyCrateStock(
+  currentCrates: CrateItem[],
+  savedCrates: CrateItem[],
+) {
+  return currentCrates.map((crate) => {
+    const saved = savedCrates.find(
+      (item) => item.displayName === crate.displayName,
+    );
+    const defaultStock = crate.stock ?? 1;
+    const stock =
+      typeof saved?.stock === "number" && Number.isFinite(saved.stock)
+        ? Math.min(defaultStock, Math.max(0, saved.stock))
+        : saved?.purchased
+          ? Math.max(0, defaultStock - 1)
+          : defaultStock;
+
+    return { ...crate, stock, purchased: stock <= 0 };
+  });
+}
+
 export function findSupplyCrate(
   items: Item[],
   displayName: string,
@@ -137,10 +195,38 @@ export function findSupplyCrate(
     buildSupplyCrates(items).find(
       (crate) => crate.displayName === displayName,
     ) ??
-    cratesForFamily(items, LEGACY_STRATAGEM_FAMILY).find(
-      (crate) => crate.displayName === displayName,
-    )
+    LEGACY_STRATAGEM_FAMILIES.flatMap((family) =>
+      cratesForFamily(items, family),
+    ).find((crate) => crate.displayName === displayName)
   );
+}
+
+export function takeSupplyCrateFromStock(
+  crates: CrateItem[],
+  displayName: string,
+) {
+  const crate = crates.find((item) => item.displayName === displayName);
+  if (!crate || (crate.stock ?? 0) <= 0) {
+    return false;
+  }
+
+  crate.stock = Math.max(0, (crate.stock ?? 0) - 1);
+  crate.purchased = crate.stock <= 0;
+  return true;
+}
+
+export function returnSupplyCrateToStock(
+  crates: CrateItem[],
+  displayName: string,
+) {
+  const crate = crates.find((item) => item.displayName === displayName);
+  if (!crate) {
+    return false;
+  }
+
+  crate.stock = (crate.stock ?? 0) + 1;
+  crate.purchased = false;
+  return true;
 }
 
 export function chooseSupplyCrateContents(

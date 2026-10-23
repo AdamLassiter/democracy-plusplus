@@ -4,6 +4,11 @@ import {
   calculateShopItems,
   supplyCrates,
 } from "../economics/shop";
+import {
+  normaliseSupplyCrateStock,
+  returnSupplyCrateToStock,
+  takeSupplyCrateFromStock,
+} from "../economics/supplyCrates";
 import { clampPlayerCount } from "../utils/playerCount";
 import { applyTierOverrides } from "../utils/tierList";
 import { ITEMS } from "../constants/items";
@@ -86,6 +91,11 @@ export function normaliseShopState(state: ShopState): ShopState {
     state.playerCount ?? initialState.playerCount,
   );
 
+  const currentSupplyCrates = normaliseSupplyCrateStock(
+    supplyCrates(),
+    state.supplyCrates || [],
+  );
+
   return {
     ...state,
     playerCount,
@@ -93,7 +103,7 @@ export function normaliseShopState(state: ShopState): ShopState {
       ...item,
       stock: normaliseStock(item.displayName, item.stock, playerCount),
     })),
-    supplyCrates: supplyCrates(),
+    supplyCrates: currentSupplyCrates,
     cart: (state.cart || [])
       .map(normaliseCartEntry)
       .filter((item): item is CartEntry => item !== null),
@@ -123,15 +133,23 @@ const shopSlice = createSlice({
         return;
       }
       if ("stock" in value) {
-        const inventoryItem = state.inventory.find(
-          (item) => item.displayName === value.displayName,
-        );
-        if (inventoryItem && (inventoryItem.stock ?? 0) <= 0) {
+        if (
+          value.category === "crate" &&
+          !takeSupplyCrateFromStock(state.supplyCrates, value.displayName)
+        ) {
           return;
         }
-        if (inventoryItem) {
-          inventoryItem.stock = Math.max(0, (inventoryItem.stock ?? 0) - 1);
+        const stockedItem = state.inventory.find(
+          (item) => item.displayName === value.displayName,
+        );
+        if (value.category === "crate") {
+          state.cart.push(cartEntry);
+          return;
         }
+        if (!stockedItem || (stockedItem.stock ?? 0) <= 0) {
+          return;
+        }
+        stockedItem.stock = Math.max(0, (stockedItem.stock ?? 0) - 1);
       }
       state.cart.push(cartEntry);
       // Mark onSale / supply crates as purchased
@@ -141,12 +159,6 @@ const shopSlice = createSlice({
       );
       if (onSaleItem) {
         onSaleItem.purchased = true;
-      }
-      const crate = state.supplyCrates.find(
-        (item) => item.displayName === value.displayName,
-      );
-      if (crate) {
-        crate.purchased = true;
       }
     },
     removeFromCart: (state, action: PayloadAction<{ value: CartEntry }>) => {
@@ -164,6 +176,7 @@ const shopSlice = createSlice({
           value.displayName,
           state.playerCount,
         );
+        returnSupplyCrateToStock(state.supplyCrates, value.displayName);
       }
       // Mark onSale / supply crates as not purchased
       const onSaleItem = state.onSale.find(
@@ -172,13 +185,6 @@ const shopSlice = createSlice({
       );
       if (onSaleItem) {
         onSaleItem.purchased = false;
-      }
-      const crateItem = state.supplyCrates.find(
-        (item) =>
-          item.cost === value.cost && item.displayName === value.displayName,
-      );
-      if (crateItem) {
-        crateItem.purchased = false;
       }
     },
     buyCart: (state) => {
@@ -192,17 +198,12 @@ const shopSlice = createSlice({
           value.displayName,
           state.playerCount,
         );
+        returnSupplyCrateToStock(state.supplyCrates, value.displayName);
         const onSaleItem = state.onSale.find(
           (item) => item.displayName === value.displayName,
         );
         if (onSaleItem) {
           onSaleItem.purchased = false;
-        }
-        const crate = state.supplyCrates.find(
-          (item) => item.displayName === value.displayName,
-        );
-        if (crate) {
-          crate.purchased = false;
         }
       });
       state.cart = [];
