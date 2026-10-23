@@ -85,7 +85,7 @@ test("builds equipment, combined stratagem, and separate supply crates", () => {
     stratagemCrates.map((crate) => crate.tier),
     ["a", "b", "c"],
   );
-  assert.ok(stratagemCrates.every((crate) => crate.stock === 3));
+  assert.ok(stratagemCrates.every((crate) => crate.stock === Infinity));
   assert.deepEqual(
     new Set(
       stratagemCrates.flatMap((crate) =>
@@ -98,7 +98,7 @@ test("builds equipment, combined stratagem, and separate supply crates", () => {
   const supplyCrates = crates.filter((crate) =>
     crate.displayName.endsWith("Supply Crate"),
   );
-  assert.ok(supplyCrates.every((crate) => crate.stock === 1));
+  assert.ok(supplyCrates.every((crate) => crate.stock === Infinity));
   assert.ok(
     supplyCrates.every((crate) =>
       crate.contents.every((item) => item.category === "Supply"),
@@ -182,30 +182,28 @@ test("legacy category-specific stratagem crates remain resolvable", () => {
   );
 });
 
-test("stratagem crate stock allows three purchases while supply allows one", () => {
+test("all supply crates have infinite stock", () => {
   const crates = buildSupplyCrates(items);
   const stratagemName = "B-Tier Stratagem Crate";
   const supplyName = "B-Tier Supply Crate";
 
-  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
-  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
-  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
-  assert.equal(takeSupplyCrateFromStock(crates, stratagemName), false);
-  assert.equal(
-    crates.find((crate) => crate.displayName === stratagemName)?.purchased,
-    true,
-  );
-  assert.equal(returnSupplyCrateToStock(crates, stratagemName), true);
+  for (let index = 0; index < 10; index += 1) {
+    assert.equal(takeSupplyCrateFromStock(crates, stratagemName), true);
+    assert.equal(takeSupplyCrateFromStock(crates, supplyName), true);
+  }
   assert.equal(
     crates.find((crate) => crate.displayName === stratagemName)?.stock,
-    1,
+    Infinity,
   );
-
-  assert.equal(takeSupplyCrateFromStock(crates, supplyName), true);
-  assert.equal(takeSupplyCrateFromStock(crates, supplyName), false);
+  assert.equal(
+    crates.find((crate) => crate.displayName === supplyName)?.stock,
+    Infinity,
+  );
+  assert.equal(returnSupplyCrateToStock(crates, stratagemName), true);
+  assert.equal(returnSupplyCrateToStock(crates, supplyName), true);
 });
 
-test("saved crate stock is migrated to the new catalog without refilling", () => {
+test("saved finite crate stock is migrated to infinite stock", () => {
   const currentCrates = buildSupplyCrates(items);
   const savedStratagem = {
     ...findSupplyCrate(items, "B-Tier Stratagem Crate")!,
@@ -227,23 +225,10 @@ test("saved crate stock is migrated to the new catalog without refilling", () =>
     legacyPurchasedSupply,
   ]);
 
-  assert.equal(
-    crates.find((crate) => crate.displayName === savedStratagem.displayName)
-      ?.stock,
-    1,
-  );
-  assert.equal(
-    crates.find(
-      (crate) => crate.displayName === legacyPurchasedStratagem.displayName,
-    )?.stock,
-    2,
-  );
-  assert.equal(
-    crates.find(
-      (crate) => crate.displayName === legacyPurchasedSupply.displayName,
-    )?.stock,
-    0,
-  );
+  for (const crate of crates) {
+    assert.equal(crate.stock, Infinity);
+    assert.equal(crate.purchased, false);
+  }
 });
 
 test("rolls the tier before choosing an item within that tier", () => {
@@ -260,14 +245,39 @@ test("rolls the tier before choosing an item within that tier", () => {
   const rolls = [0, 0.999];
 
   assert.equal(
-    chooseSupplyCrateContents(crate, () => rolls.shift() ?? 0),
+    chooseSupplyCrateContents(crate, undefined, () => rolls.shift() ?? 0),
     secondBaseTierItem,
   );
   assert.equal(
-    chooseSupplyCrateContents(crate, () => 0.999),
+    chooseSupplyCrateContents(crate, undefined, () => 0.999),
     crate.contents.find((item) => item.tier === "s"),
   );
   assert.deepEqual(crate.contents, before);
+});
+
+test("crate openings only roll items from selected warbonds", () => {
+  const crate = findSupplyCrate(items, "C-Tier Primary Crate");
+  assert.ok(crate);
+  const selected = {
+    ...crate.contents.find((item) => item.tier === "c")!,
+    displayName: "Selected C-tier item",
+    warbondCode: "selected",
+  };
+  const unselected = {
+    ...crate.contents.find((item) => item.tier === "s")!,
+    displayName: "Unselected S-tier item",
+    warbondCode: "unselected",
+  };
+  crate.contents = [selected, unselected];
+
+  assert.equal(
+    chooseSupplyCrateContents(crate, ["selected"], () => 0.999),
+    selected,
+  );
+  assert.throws(
+    () => chooseSupplyCrateContents(crate, ["missing"]),
+    /Supply crate has no contents/,
+  );
 });
 
 test("rejects an empty crate instead of losing a purchased crate", () => {

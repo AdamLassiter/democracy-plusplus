@@ -26,6 +26,7 @@ import type {
   PropertyFilterName,
 } from "../../constants/filters";
 import SectionHeading from "../../utils/sectionHeading";
+import { selectChallenges } from "../../slices/challengesSlice";
 
 function isCrateItem(item: Item): item is Extract<Item, { category: "crate" }> {
   return item.category === "crate" && "contents" in item;
@@ -33,6 +34,7 @@ function isCrateItem(item: Item): item is Extract<Item, { category: "crate" }> {
 
 export default function Purchases() {
   const equipment = useSelector(selectEquipment);
+  const { ownedWarbondCodes } = useSelector(selectChallenges);
   const dispatch = useDispatch();
   const { purchased: purchased_ } = useSelector(selectPurchased);
   const purchased = purchased_.map(getItem).filter(Boolean) as Item[];
@@ -96,7 +98,18 @@ export default function Purchases() {
       if (!isCrateItem(item)) {
         return;
       }
-      const contents = chooseSupplyCrateContents(item);
+      let contents: Item;
+      try {
+        contents = chooseSupplyCrateContents(item, ownedWarbondCodes);
+      } catch {
+        dispatch(
+          setSnackbar({
+            message: `No ${item.displayName} contents match your selected warbonds`,
+            severity: "warning",
+          }),
+        );
+        return;
+      }
       dispatch(subtractPurchased({ value: displayName }));
       dispatch(addPurchased({ value: contents.displayName }));
       dispatch(setSnackbar({ message: `Unwrapped ${contents.displayName}!` }));

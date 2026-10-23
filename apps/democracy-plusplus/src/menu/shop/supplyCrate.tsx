@@ -43,7 +43,7 @@ export default function SupplyCrates() {
       <Grid direction="row" container spacing={1}>
         {list.map((item) => {
           const isAffordable = credits >= item.cost;
-          const isAvailable = (item.stock ?? 1) > 0;
+          const isAvailable = (item.stock ?? Infinity) > 0;
           const inner = (
             <ItemDisplay
               item={item}
@@ -55,7 +55,7 @@ export default function SupplyCrates() {
             return (
               <Badge
                 key={item.displayName}
-                badgeContent={`${item.cost}¢ ×${item.stock ?? 1}`}
+                badgeContent={`${item.cost}¢`}
                 color={isAffordable ? "success" : "error"}
               >
                 {inner}

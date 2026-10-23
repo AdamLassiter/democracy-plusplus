@@ -83,7 +83,7 @@ function categoryFamily(category: EquipmentCategory): SupplyCrateFamily {
     imageUrl: CATEGORY_IMAGES[category],
     matches: (item) => item.category === category,
     costs: SUPPLY_CRATE_COSTS[category],
-    stock: 1,
+    stock: Infinity,
   };
 }
 
@@ -96,7 +96,7 @@ const STRATAGEM_FAMILY: SupplyCrateFamily = {
       item.category as CombinedStratagemCategory,
     ),
   costs: SUPPLY_CRATE_COSTS.Stratagem,
-  stock: 3,
+  stock: Infinity,
 };
 
 const SUPPLY_FAMILY: SupplyCrateFamily = {
@@ -105,7 +105,7 @@ const SUPPLY_FAMILY: SupplyCrateFamily = {
   imageUrl: CATEGORY_IMAGES.Supply,
   matches: (item) => item.category === "Supply",
   costs: SUPPLY_CRATE_COSTS.Supply,
-  stock: 1,
+  stock: Infinity,
 };
 
 const SUPPLY_CRATE_FAMILIES: SupplyCrateFamily[] = [
@@ -131,7 +131,7 @@ const LEGACY_STRATAGEM_FAMILIES: SupplyCrateFamily[] = (
   imageUrl: "icons/missile.svg",
   matches: (item) => item.category === category,
   costs: LEGACY_STRATAGEM_COSTS[category],
-  stock: 1,
+  stock: Infinity,
 }));
 
 function tieredCrate(
@@ -176,6 +176,9 @@ export function normaliseSupplyCrateStock(
       (item) => item.displayName === crate.displayName,
     );
     const defaultStock = crate.stock ?? 1;
+    if (defaultStock === Infinity) {
+      return { ...crate, stock: Infinity, purchased: false };
+    }
     const stock =
       typeof saved?.stock === "number" && Number.isFinite(saved.stock)
         ? Math.min(defaultStock, Math.max(0, saved.stock))
@@ -231,9 +234,21 @@ export function returnSupplyCrateToStock(
 
 export function chooseSupplyCrateContents(
   crate: CrateItem,
+  allowedWarbondCodes?: readonly string[],
   random: () => number = Math.random,
 ): Item {
-  const tierOdds = getSupplyCrateTierOdds(crate);
+  const allowedWarbonds = allowedWarbondCodes
+    ? new Set(allowedWarbondCodes)
+    : null;
+  const eligibleCrate = allowedWarbonds
+    ? {
+        ...crate,
+        contents: crate.contents.filter(
+          (item) => !!item.warbondCode && allowedWarbonds.has(item.warbondCode),
+        ),
+      }
+    : crate;
+  const tierOdds = getSupplyCrateTierOdds(eligibleCrate);
   const tierRoll = boundedRandom(random);
   let cumulativeProbability = 0;
   let selectedTier = tierOdds[tierOdds.length - 1];

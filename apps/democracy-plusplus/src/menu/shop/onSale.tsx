@@ -52,19 +52,15 @@ export default function OnSale() {
               isAffordable={isAffordable && !item.purchased}
             />
           );
-          if (!item.purchased) {
-            return (
-              <Badge
-                key={item.displayName}
-                badgeContent={item.cost}
-                color={isAffordable ? "success" : "error"}
-              >
-                {inner}
-              </Badge>
-            );
-          } else {
-            return <span key={item.displayName}>{inner}</span>;
-          }
+          return (
+            <Badge
+              key={item.displayName}
+              badgeContent={`${item.cost}¢`}
+              color={isAffordable && !item.purchased ? "success" : "error"}
+            >
+              {inner}
+            </Badge>
+          );
         })}
       </Grid>
     </>

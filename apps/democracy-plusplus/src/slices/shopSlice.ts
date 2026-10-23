@@ -152,7 +152,7 @@ const shopSlice = createSlice({
         stockedItem.stock = Math.max(0, (stockedItem.stock ?? 0) - 1);
       }
       state.cart.push(cartEntry);
-      // Mark onSale / supply crates as purchased
+      // Mark one-off sale items as purchased.
       const onSaleItem = state.onSale.find(
         (item) =>
           item.displayName === value.displayName && item.cost === value.cost,
@@ -178,7 +178,7 @@ const shopSlice = createSlice({
         );
         returnSupplyCrateToStock(state.supplyCrates, value.displayName);
       }
-      // Mark onSale / supply crates as not purchased
+      // Restore one-off sale availability.
       const onSaleItem = state.onSale.find(
         (item) =>
           item.cost === value.cost && item.displayName === value.displayName,
@@ -191,7 +191,7 @@ const shopSlice = createSlice({
       state.cart = [];
     },
     clearCart: (state) => {
-      // Mark onSale / supply crates as not purchased
+      // Restore stock and one-off sale availability.
       state.cart.forEach((value) => {
         incrementInventoryStock(
           state.inventory,

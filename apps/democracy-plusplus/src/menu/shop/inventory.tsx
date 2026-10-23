@@ -197,19 +197,15 @@ function ShopTier({
               isAffordable={isAffordable && inStock}
             />
           );
-          if (inStock) {
-            return (
-              <Badge
-                key={item.displayName}
-                badgeContent={`${item.cost}¢`}
-                color={inStock && isAffordable ? "info" : "error"}
-              >
-                {itemDisplay}
-              </Badge>
-            );
-          } else {
-            return itemDisplay;
-          }
+          return (
+            <Badge
+              key={item.displayName}
+              badgeContent={`${item.cost}¢`}
+              color={inStock && isAffordable ? "info" : "error"}
+            >
+              {itemDisplay}
+            </Badge>
+          );
         })}
       </Grid>
     </>
