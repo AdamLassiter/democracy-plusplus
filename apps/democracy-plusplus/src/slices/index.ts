@@ -85,7 +85,20 @@ export type RootState = ReturnType<typeof appReducer>;
 
 function rootReducer(state: RootState | undefined, action: UnknownAction) {
   if (action.type === "RESET_APP") {
-    state = undefined;
+    const initialState = appReducer(undefined, action);
+    return {
+      ...initialState,
+      shop: {
+        ...initialState.shop,
+        warbonds: state?.shop.warbonds ?? initialState.shop.warbonds,
+      },
+      challenges: {
+        ...initialState.challenges,
+        ownedWarbondCodes:
+          state?.challenges.ownedWarbondCodes ??
+          initialState.challenges.ownedWarbondCodes,
+      },
+    };
   }
   return appReducer(state, action);
 }
